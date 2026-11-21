@@ -785,8 +785,14 @@ async function boot() {
   refreshQuestions().then((ok) => {
     if (ok && newAnswers() && (location.hash || '#/') === '#/' && !document.body.classList.contains('in-session')) home();
   });
+  const loadedAt = Date.now();
   document.addEventListener('visibilitychange', () => {
     if (document.visibilityState !== 'visible') return;
+    // A tab left open for hours reloads on return, so it picks up new issues and site updates.
+    if (Date.now() - loadedAt > 6 * 3600000 && !document.body.classList.contains('in-session') && !testMode) {
+      location.reload();
+      return;
+    }
     const last = Date.parse(store.settings().syncedAt || 0) || 0;
     if (Date.now() - last > 2 * 60000) syncAndRefresh();
     if ((store.settings().questions || []).some((q) => !q.answer)) {
