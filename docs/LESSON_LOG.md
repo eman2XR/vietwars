@@ -2,6 +2,12 @@
 
 Why each lesson was planned the way it was, newest first. Written by the `/next-lesson` skill.
 
+## 2026-11-21: Ask the editors, inked pictures, cleaner updates
+
+- Ask: the learner wanted to ask quick questions. The Mac's on-device model was tested and answered Vietnamese wrongly, so questions are posted as GitHub issues (the ? button in an issue, or Ask on the home page) and the lesson loop answers each one as a comment with phrases to play (`scripts/questions.py`, checked by a second agent first). Questions and answers go into `learner/questions.json` and the summary, so later issues can teach what was asked.
+- Pictures: at the learner's request every picture was redrawn in a hand-drawn editorial style (a colour field per subject, a paper cut-out, dip-pen ink with a slight tremor), using the site's own colours so all six styles and dark mode still work. The first covers looked crude at full size on the Mac; they were refined with finer lines, layered depth, hatching and woodblock-style waves. Issue 3's feedback also asked for more illustrations and said the did-you-know pop-ups were mostly skipped: plan issue 4 with pictures for more of its moments and fewer pop-ups.
+- Updates: a Mac showed black pictures because Safari mixed a cached old file with a new stylesheet. The Pages build now stamps the service worker with the commit, the worker always revalidates app files, open pages reload once onto a new version, a page left open for six hours reloads on return, and a lesson file that fails to load is retried.
+
 ## 2026-11-21: Issue 3, One to ten, properly ("The bride price of nines")
 
 - Data: issue 2 finished on the iPhone in the old battle version: 64% first try, 30 minutes, "Too hard", fun "OK"; lost the battle, knocked out six times. Listening was strong (meaning 100% for most words, rush hour 11 of 11); typing 13% (letters without marks: tien, dong, dat; and wrong words: tram for nghìn, hon for nữa); tone-spelling picks (trăm to trắm, lăm to lắm, mươi to mười). Meaning mix-ups among similar words: trăm, nghìn and triệu; nữa and rưỡi; đắt and cheap. The warm-up missed ba, bốn, tám and chín.

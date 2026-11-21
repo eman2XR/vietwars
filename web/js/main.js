@@ -443,7 +443,7 @@ function home() {
         store.settings().seen !== APP_VERSION
           ? `<section class="news">
           <div class="label">New: ask the editors</div>
-          <p>Wondering how to say something, or what a word really means? Tap ? in any issue, or Ask on this page. The answer comes back here, usually within a quarter of an hour, with the Vietnamese ready to play.</p>
+          <p>Wondering how to say something, or what a word really means? Tap ? in any issue, or Ask on this page. The answer comes back here within a few hours, with the Vietnamese ready to play.</p>
           <div class="row"><a class="btn small" href="#/ask">Ask a question</a><button class="btn ghost small" data-act="seen">Got it</button></div>
         </section>`
           : ''
@@ -528,7 +528,7 @@ function questionHTML(q) {
     ${
       a
         ? `<div class="answer">${renderAnswer(a.text || '')}${(a.phrases || []).length ? `<div class="phrases">${a.phrases.map((p) => `<div class="pair"><span class="vi pair-vi">${colorize(p.vi)}</span><span class="pair-en">${esc(p.en || '')}</span><button type="button" class="say mini" data-say="${esc(p.vi)}" aria-label="Play">Play</button></div>`).join('')}</div>` : ''}</div>`
-        : '<p class="hint">Waiting for an answer. The editors check about every 15 minutes while the lesson loop is running.</p>'
+        : '<p class="hint">Waiting for an answer. The editors check a few times a day.</p>'
     }
   </article>`;
 }

@@ -1,5 +1,8 @@
 Things the learner said in conversation, newest first. Add to this file whenever the learner gives feedback outside the app.
 
+- 2026-11-21: Wants the lesson loop to run only a few times a day (it had been every 15 minutes so questions were answered quickly). Answers to Ask questions can take a few hours.
+- 2026-11-21: Asked for better illustrations using a hand-drawn editorial illustration skill (github.com/AbdoKnbGit/Anthropic-Hand-Drawn-Illustrations-SKILL: a colour field, a paper cut-out and dip-pen ink). All pictures were redrawn that way, in the site's own colours. Seeing the first covers on the Mac: "why does this look so bad" (lines too thick, shapes too simple at full width). Chose to refine the drawings rather than use real art (that needs upload.wikimedia.org and commons.wikimedia.org allowed in the Claude Code dashboard) or go back to the old ones. Look at new art large (`scripts/picture_sheet.py --covers`) before publishing it.
+- 2026-11-21: Asked for a way to ask a quick question ("how do I say something, or a clarification") and whether the Mac's on-device Apple model could answer. It was tested and gave wrong Vietnamese (it said nữa and nửa both mean half), and Safari cannot reach it, so questions go to the agents through Ask instead.
 - 2026-11-21: After issue 2 (on the iPhone, 30 minutes, 64%, "Too hard"): "I need more and better hints, more and better memory hooks. I need to also learn 1-10 properly. Too much focus on the tones. Need more real life use of these words as well. Ie waiter says a price and i have to translate."
 - 2026-11-21: Could not finish issue 2 at first ("I keep needing hints and my percent score keeps going down"): wants to save progress without finishing. Issues can now be closed and resumed.
 - 2026-11-21: Does not like quizzes about the article. Wants the article as a short intro with the rest sprinkled through the lesson, integrated.
@@ -9,6 +12,6 @@ Things the learner said in conversation, newest first. Add to this file whenever
 - 2026-11-21: "I know phở, trà and cơm very well, not sure why those got marked." They were marked weak only because of spelling questions and typing without tone marks. Treat meaning and spelling separately.
 - 2026-11-21: "I don't have a Vietnamese keyboard on my Mac." The app now has on-screen tone and vowel keys on every typing question.
 - 2026-11-21: Already knows all the lesson 1 words; sometimes forgets gà, cá and bò. Do not show the others again (they are in web/lessons/known.json).
-- 2026-11-21: "Add some more images/visuals." Every word now has a picture; keep adding pictures and new villain art.
-- 2026-11-21: Lesson 1 felt too easy and only OK for fun: "make it more fun and unexpected (hint: the website name is Viet Wars)." Lessons are now battles with villains, ambushes, power-ups and a boss round.
+- 2026-11-21: "Add some more images/visuals." Every word now has a picture; keep adding pictures. (The villains went in the redesign below.)
+- 2026-11-21: Lesson 1 felt too easy and only OK for fun: "make it more fun and unexpected (hint: the website name is Viet Wars)." Lessons became battles with villains for a few hours, then the culture magazine (see the entry above).
 - 2026-11-20: Wants Northern (Hà Nội) Vietnamese; upper beginner (knows some words and the tones); goal is a large vocabulary first, then sentences and conversation.

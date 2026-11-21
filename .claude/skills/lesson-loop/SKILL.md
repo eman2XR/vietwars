@@ -1,6 +1,6 @@
 ---
 name: lesson-loop
-description: One round of the Học tiếng Việt learning loop - answer the learner's questions, collect new results, review progress when due, and build the next lesson when the learner has played the newest one. Use when the user asks to check for results or keep the lessons coming, and as the prompt of a recurring /loop or scheduled job (for example "/loop 15m /lesson-loop").
+description: One round of the Học tiếng Việt learning loop - answer the learner's questions, collect new results, review progress when due, and build the next lesson when the learner has played the newest one. Use when the user asks to check for results or keep the lessons coming, and as the prompt of a recurring /loop or scheduled job (for example a job scheduled a few times a day).
 ---
 
 # Lesson loop
@@ -41,10 +41,6 @@ The learner is waiting, often in the middle of an issue, so answer each question
 
 In a Claude Code session in this folder:
 
-```
-/loop 15m /lesson-loop
-```
+ask for one round a few times a day; the owner chose this cadence on 2026-11-21. Claude schedules it with CronCreate as `13 8,12,17,21 * * *` (8:13, 12:13, 17:13 and 21:13 local time) and the prompt "Run one round of the Học tiếng Việt lesson loop in this folder: read and follow .claude/skills/lesson-loop/SKILL.md exactly." `/loop 4h /lesson-loop` is a simpler alternative. A round with nothing to do costs one `status.py` call. Questions from Ask wait until the next round, so answers take a few hours.
 
-Every 15 minutes keeps answers to questions quick; a round with nothing to do costs one `status.py` call.
-
-A session loop only runs while that session is open. For a loop that survives restarts, start it again in a new session.
+A scheduled round only runs while that session is open and idle, and the schedule expires after seven days. Start it again in each new session (check first with CronList that one is not already running).
