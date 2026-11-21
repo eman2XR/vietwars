@@ -3,4 +3,5 @@ __pycache__/
 *.pyc
 .venv/
 .checks/
-.claude/
+.claude/*
+!.claude/skills/

@@ -1,0 +1,195 @@
+{
+  "id": "lesson-01",
+  "number": 1,
+  "title": "Phở and friends",
+  "vi": "Ăn uống",
+  "theme": "food and drink",
+  "intro": "Eleven things to eat and drink in Hà Nội, and the word to praise them. Each syllable is coloured by its tone, so you see the tone as well as hear it.",
+  "words": [
+    {
+      "vi": "phở",
+      "en": "pho (noodle soup)",
+      "hook": "Picture a friend tasting phở for the first time and saying a doubtful \"fuh?\", voice dipping, then finishing the whole bowl.",
+      "tip": "ph sounds like f. The hỏi tone dips low, like a doubtful question.",
+      "contrast": [
+        {
+          "vi": "phố",
+          "en": "street"
+        },
+        {
+          "vi": "phờ",
+          "en": "haggard, exhausted (as in mệt phờ)"
+        }
+      ]
+    },
+    {
+      "vi": "cơm",
+      "en": "cooked rice; a meal",
+      "hook": "Grandma calls \"Come!\" because the rice is ready.",
+      "tip": "ơ is like the vowel in British \"fur\", with no r. Keep the tone level.",
+      "contrast": [
+        {
+          "vi": "cốm",
+          "en": "green rice flakes (a Hà Nội treat)"
+        }
+      ]
+    },
+    {
+      "vi": "bún",
+      "en": "rice vermicelli noodles",
+      "hook": "A bundle of thin white noodles drops from the sky like a boon, and you shout \"boon!\" with your voice rising.",
+      "tip": "u is the \"oo\" in \"moon\". The sắc tone rises.",
+      "contrast": [
+        {
+          "vi": "bùn",
+          "en": "mud"
+        }
+      ]
+    },
+    {
+      "vi": "bánh mì",
+      "en": "bread; a baguette sandwich",
+      "hook": "The crust is so crunchy it goes \"bang!\", and everyone at the table shouts \"me!\".",
+      "tip": "In Hà Nội, anh sounds close to \"ain\" with a soft ng at the end. mì is \"mee\", falling low."
+    },
+    {
+      "vi": "gà",
+      "en": "chicken",
+      "hook": "A hen settles onto her nest with a long, low \"gaaa\", her voice sinking like the huyền tone.",
+      "tip": "g is soft: the back of your tongue nearly touches where English k is made, but air keeps flowing, like the g in Spanish \"lago\". The huyền tone starts a little below your normal pitch and falls gently, slightly breathy.",
+      "contrast": [
+        {
+          "vi": "ga",
+          "en": "train station"
+        }
+      ]
+    },
+    {
+      "vi": "bò",
+      "en": "beef; cow",
+      "hook": "A cow gives a long, low \"bòòò\" that slides down at the end.",
+      "tip": "o is open, like the \"aw\" in British \"saw\". The huyền tone falls gently.",
+      "contrast": [
+        {
+          "vi": "bó",
+          "en": "bundle"
+        },
+        {
+          "vi": "bỏ",
+          "en": "to leave, give up, discard"
+        }
+      ]
+    },
+    {
+      "vi": "cá",
+      "en": "fish",
+      "hook": "A seagull spots a fish and cries \"ca!\", its voice shooting up like the sắc tone.",
+      "tip": "c is a k with no puff of air.",
+      "contrast": [
+        {
+          "vi": "cà",
+          "en": "aubergine (as in cà tím)"
+        },
+        {
+          "vi": "cả",
+          "en": "all, whole"
+        }
+      ]
+    },
+    {
+      "vi": "rau",
+      "en": "vegetables, greens",
+      "hook": "A mountain of fresh herbs so big you say \"zow!\".",
+      "tip": "In Hà Nội, r sounds like z, so rau sounds like \"zow\" (rhymes with \"cow\"), with a short, quick a.",
+      "contrast": [
+        {
+          "vi": "râu",
+          "en": "beard, moustache"
+        }
+      ]
+    },
+    {
+      "vi": "nước",
+      "en": "water (also: drink, liquid, country)",
+      "hook": "You jump into a cool lake on a hot day and come up with one quick, rising gasp: \"noo-uhk!\"",
+      "tip": "ươ glides from ư (say \"oo\" with your lips spread) to ơ. The final c is cut short, not released."
+    },
+    {
+      "vi": "trà",
+      "en": "tea",
+      "hook": "Tea is \"chai\" in many languages. After the first sip you sigh \"chà\", your voice falling.",
+      "tip": "In Hà Nội, tr sounds like the ch in \"chip\", but with no puff of air.",
+      "contrast": [
+        {
+          "vi": "trả",
+          "en": "to pay"
+        }
+      ],
+      "note": "Hà Nội also says chè for tea (nước chè, chè xanh)."
+    },
+    {
+      "vi": "cà phê",
+      "en": "coffee",
+      "hook": "It is the French word café, said the Vietnamese way.",
+      "tip": "ê is like the \"ay\" in \"say\", without the glide at the end."
+    },
+    {
+      "vi": "ngon",
+      "en": "delicious",
+      "hook": "The food is so good you start singing: \"sing-ngon... ngon!\".",
+      "tip": "ng is the sound at the end of \"sing\". Start the word with it.",
+      "contrast": [
+        {
+          "vi": "ngón",
+          "en": "finger, toe (as in ngón tay)"
+        },
+        {
+          "vi": "ngọn",
+          "en": "tip, top (of a tree or flame)"
+        }
+      ]
+    }
+  ],
+  "grammar": {
+    "title": "The main word comes first",
+    "text": "In Vietnamese the thing comes first and the word that describes it follows. phở bò is pho + beef: beef pho. Describing words follow the same rule: cá ngon is tasty fish. Said on its own, Cá ngon! also means \"The fish is tasty!\", because Vietnamese needs no word for \"is\" before a describing word.",
+    "examples": [
+      {
+        "vi": "phở bò",
+        "en": "beef pho"
+      },
+      {
+        "vi": "cá ngon",
+        "en": "tasty fish"
+      }
+    ]
+  },
+  "combos": [
+    {
+      "vi": "phở bò",
+      "en": "beef pho"
+    },
+    {
+      "vi": "phở gà",
+      "en": "chicken pho"
+    },
+    {
+      "vi": "cơm gà",
+      "en": "chicken rice"
+    },
+    {
+      "vi": "bún cá",
+      "en": "fish noodle soup"
+    },
+    {
+      "vi": "cá ngon",
+      "en": "tasty fish"
+    },
+    {
+      "vi": "Ngon quá!",
+      "en": "So tasty!",
+      "note": "quá after a word means \"so\" or \"really\": ngon quá! Before a word it usually means \"too\": quá cay, too spicy. Hà Nội people also say Ngon thế!"
+    }
+  ],
+  "review": []
+}
