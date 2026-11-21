@@ -1,0 +1,1293 @@
+{
+ "schema": 3,
+ "resultId": "2fa497cd-5b86-4973-94a8-5b4d2974c794",
+ "kind": "lesson",
+ "lessonId": "lesson-03",
+ "lessonTitle": "One to ten, properly",
+ "appVersion": "4",
+ "style": "paper",
+ "device": "Mac",
+ "startedAt": "2026-11-21T19:25:46.121Z",
+ "finishedAt": "2026-11-21T19:43:21.851Z",
+ "durationSec": 1056,
+ "summary": {
+  "firstTryAccuracy": 0.81,
+  "exercises": 52,
+  "bestStreak": 19,
+  "grade": "merit",
+  "speedScore": 350,
+  "speedAnswered": 9,
+  "speedCorrect": 9,
+  "bestCombo": 9
+ },
+ "article": {
+  "readSec": 14,
+  "factsShown": 11
+ },
+ "quiz": null,
+ "situations": {
+  "correct": 5,
+  "total": 8
+ },
+ "timing": {
+  "words": 30,
+  "drills": 345,
+  "reallife": 301,
+  "rush": 44,
+  "article": 14,
+  "pauses": 2,
+  "longestPauseSec": 84
+ },
+ "toneMarks": "relaxed",
+ "words": [
+  {
+   "vi": "một",
+   "en": "one",
+   "failures": 1,
+   "timeSec": 19,
+   "replays": 1,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 10,
+   "share": 0.75,
+   "meaning": 0.5,
+   "form": 1,
+   "stars": 2,
+   "firstTry": {
+    "listen": false,
+    "spell": true,
+    "type": "marks"
+   },
+   "attempts": 5,
+   "msMedian": 2831,
+   "known": false
+  },
+  {
+   "vi": "hai",
+   "en": "two",
+   "failures": 2,
+   "timeSec": 20,
+   "replays": 1,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 3,
+   "share": 0.67,
+   "meaning": 0.5,
+   "form": 1,
+   "stars": 1,
+   "firstTry": {
+    "listen": false,
+    "reverse": true,
+    "type": "perfect"
+   },
+   "attempts": 4,
+   "msMedian": 4142,
+   "known": false
+  },
+  {
+   "vi": "ba",
+   "en": "three",
+   "failures": 1,
+   "timeSec": 18,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 1,
+   "share": 0.67,
+   "meaning": 1,
+   "form": 0.5,
+   "stars": 1,
+   "firstTry": {
+    "listen": true,
+    "spell": false,
+    "type": "tone"
+   },
+   "attempts": 4,
+   "msMedian": 4192,
+   "known": false
+  },
+  {
+   "vi": "bốn",
+   "en": "four",
+   "failures": 2,
+   "timeSec": 31,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 2,
+   "share": 0.75,
+   "meaning": 1,
+   "form": 0,
+   "stars": 2,
+   "firstTry": {
+    "listen": true,
+    "reverse": true,
+    "type": "wrong"
+   },
+   "attempts": 5,
+   "msMedian": 4193,
+   "known": false
+  },
+  {
+   "vi": "năm",
+   "en": "five (also: year)",
+   "failures": 1,
+   "timeSec": 14,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 2,
+   "share": 0.75,
+   "meaning": 1,
+   "form": 0.5,
+   "stars": 2,
+   "firstTry": {
+    "listen": true,
+    "spell": false,
+    "type": "marks"
+   },
+   "attempts": 5,
+   "msMedian": 2764,
+   "known": false
+  },
+  {
+   "vi": "sáu",
+   "en": "six",
+   "failures": 0,
+   "timeSec": 6,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 2,
+   "share": 1,
+   "meaning": 1,
+   "form": 1,
+   "stars": 3,
+   "firstTry": {
+    "listen": true,
+    "spell": true,
+    "type": "tone"
+   },
+   "attempts": 3,
+   "msMedian": 1508,
+   "known": false
+  },
+  {
+   "vi": "bảy",
+   "en": "seven",
+   "failures": 0,
+   "timeSec": 16,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 2,
+   "share": 1,
+   "meaning": 1,
+   "form": 1,
+   "stars": 3,
+   "firstTry": {
+    "listen": true,
+    "spell": true,
+    "type": "tone"
+   },
+   "attempts": 4,
+   "msMedian": 4273,
+   "known": false
+  },
+  {
+   "vi": "tám",
+   "en": "eight",
+   "failures": 2,
+   "timeSec": 33,
+   "replays": 2,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 2,
+   "share": 0.75,
+   "meaning": 1,
+   "form": 0,
+   "stars": 2,
+   "firstTry": {
+    "listen": true,
+    "reverse": true,
+    "type": "wrong"
+   },
+   "attempts": 5,
+   "msMedian": 4852,
+   "known": false
+  },
+  {
+   "vi": "chín",
+   "en": "nine (also: ripe, cooked)",
+   "failures": 0,
+   "timeSec": 24,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 1,
+   "share": 1,
+   "meaning": 1,
+   "form": 1,
+   "stars": 3,
+   "firstTry": {
+    "listen": true,
+    "reverse": true,
+    "type": "tone"
+   },
+   "attempts": 3,
+   "msMedian": 5347,
+   "known": false
+  },
+  {
+   "vi": "mười",
+   "en": "ten",
+   "failures": 0,
+   "timeSec": 22,
+   "replays": 1,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 4,
+   "share": 1,
+   "meaning": 1,
+   "form": 1,
+   "stars": 3,
+   "firstTry": {
+    "listen": true,
+    "spell": true,
+    "type": "marks"
+   },
+   "attempts": 4,
+   "msMedian": 5596,
+   "known": false
+  },
+  {
+   "vi": "trăm",
+   "en": "hundred",
+   "failures": 1,
+   "timeSec": 16,
+   "replays": 1,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 0.5,
+   "meaning": 1,
+   "form": 0,
+   "stars": 1,
+   "firstTry": {
+    "listen": true,
+    "type": "wrong"
+   },
+   "attempts": 3,
+   "msMedian": 4778,
+   "known": false
+  },
+  {
+   "vi": "nghìn",
+   "en": "thousand",
+   "failures": 2,
+   "timeSec": 20,
+   "replays": 2,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 0.5,
+   "meaning": 1,
+   "form": 0,
+   "stars": 1,
+   "firstTry": {
+    "listen": true,
+    "type": "wrong"
+   },
+   "attempts": 3,
+   "msMedian": 7237,
+   "known": false
+  },
+  {
+   "vi": "đắt",
+   "en": "expensive",
+   "failures": 0,
+   "timeSec": 6,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 1,
+   "meaning": 1,
+   "form": 1,
+   "stars": 3,
+   "firstTry": {
+    "listen": true,
+    "type": "marks"
+   },
+   "attempts": 2,
+   "msMedian": 3538,
+   "known": false
+  },
+  {
+   "vi": "nữa",
+   "en": "more, another",
+   "failures": 1,
+   "timeSec": 12,
+   "replays": 1,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 0.5,
+   "meaning": 1,
+   "form": 0,
+   "stars": 1,
+   "firstTry": {
+    "listen": true,
+    "type": "wrong"
+   },
+   "attempts": 3,
+   "msMedian": 3760,
+   "known": false
+  },
+  {
+   "vi": "gà",
+   "en": "chicken",
+   "failures": 0,
+   "timeSec": 10,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 1,
+   "meaning": 1,
+   "form": 1,
+   "stars": 3,
+   "firstTry": {
+    "listen": true,
+    "type": "perfect"
+   },
+   "attempts": 2,
+   "msMedian": 8221,
+   "known": false
+  }
+ ],
+ "warmup": [],
+ "toneConfusions": [
+  {
+   "target": "ba",
+   "chose": "bà"
+  },
+  {
+   "target": "năm",
+   "chose": "nằm"
+  }
+ ],
+ "meaningConfusions": [
+  {
+   "target": "hai",
+   "chose": "five (also: year)",
+   "t": "listen"
+  },
+  {
+   "target": "hai",
+   "chose": "five (also: year)",
+   "t": "listen"
+  },
+  {
+   "target": "một",
+   "chose": "four",
+   "t": "listen"
+  },
+  {
+   "target": "thứ bảy",
+   "chose": "One more iced tea, please.",
+   "t": "listen"
+  }
+ ],
+ "typed": [
+  {
+   "target": "ba",
+   "answer": "bà",
+   "grade": "tone",
+   "accepted": true,
+   "hints": 0,
+   "keys": 1,
+   "firstKeyMs": 4498
+  },
+  {
+   "target": "một",
+   "answer": "mot",
+   "grade": "marks",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 2581
+  },
+  {
+   "target": "năm",
+   "answer": "nam",
+   "grade": "marks",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 1507
+  },
+  {
+   "target": "hai",
+   "answer": "hai",
+   "grade": "perfect",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 2633
+  },
+  {
+   "target": "bốn",
+   "answer": "bơ",
+   "grade": "wrong",
+   "accepted": false,
+   "hints": 0,
+   "keys": 1,
+   "firstKeyMs": 2231
+  },
+  {
+   "target": "bốn",
+   "answer": "bộn",
+   "grade": "tone",
+   "tiles": true,
+   "retry": true
+  },
+  {
+   "target": "đắt",
+   "answer": "dat",
+   "grade": "marks",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 1979
+  },
+  {
+   "target": "nghìn",
+   "answer": "trien",
+   "grade": "wrong",
+   "accepted": false,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 1643,
+   "deletes": 1
+  },
+  {
+   "target": "trăm",
+   "answer": "trien",
+   "grade": "wrong",
+   "accepted": false,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 1606
+  },
+  {
+   "target": "chín",
+   "answer": "chin",
+   "grade": "tone",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 1812
+  },
+  {
+   "target": "tám",
+   "answer": "tram",
+   "grade": "wrong",
+   "accepted": false,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 1981,
+   "deletes": 1
+  },
+  {
+   "target": "nghìn",
+   "answer": "nghín",
+   "grade": "tone",
+   "tiles": true,
+   "retry": true
+  },
+  {
+   "target": "trăm",
+   "answer": "trăm",
+   "grade": "perfect",
+   "tiles": true,
+   "retry": true
+  },
+  {
+   "target": "bảy",
+   "answer": "bay",
+   "grade": "tone",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 6504
+  },
+  {
+   "target": "tám",
+   "answer": "tam",
+   "grade": "tone",
+   "tiles": true,
+   "retry": true
+  },
+  {
+   "target": "sáu",
+   "answer": "sau",
+   "grade": "tone",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 2275
+  },
+  {
+   "target": "gà",
+   "answer": "gà",
+   "grade": "perfect",
+   "accepted": true,
+   "hints": 0,
+   "keys": 1,
+   "firstKeyMs": 1442
+  },
+  {
+   "target": "nữa",
+   "answer": "nhua",
+   "grade": "wrong",
+   "accepted": false,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 2070
+  },
+  {
+   "target": "mười",
+   "answer": "muoi",
+   "grade": "marks",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 1992,
+   "deletes": 2
+  },
+  {
+   "target": "nữa",
+   "answer": "nữa",
+   "grade": "perfect",
+   "tiles": true,
+   "retry": true
+  }
+ ],
+ "feedback": {
+  "difficulty": "Just right",
+  "fun": "Good",
+  "article": "Skipped it",
+  "hardest": [
+   "hai",
+   "ba",
+   "trăm",
+   "nghìn",
+   "nữa"
+  ],
+  "wantNext": "surprise me",
+  "note": "the did you know popups I mostly skipped. need more illustrations"
+ },
+ "events": [
+  {
+   "t": "meet",
+   "w": "một",
+   "ms": 10311,
+   "plays": 1
+  },
+  {
+   "t": "meet",
+   "w": "hai",
+   "ms": 3193
+  },
+  {
+   "t": "meet",
+   "w": "ba",
+   "ms": 992
+  },
+  {
+   "t": "meet",
+   "w": "bốn",
+   "ms": 2075
+  },
+  {
+   "t": "listen",
+   "w": "một",
+   "ok": true,
+   "a": "one",
+   "ms": 2732
+  },
+  {
+   "t": "listen",
+   "w": "bốn",
+   "ok": true,
+   "a": "four",
+   "ms": 5002
+  },
+  {
+   "t": "story",
+   "w": "hai",
+   "ms": 7692
+  },
+  {
+   "t": "meet",
+   "w": "năm",
+   "ms": 1878
+  },
+  {
+   "t": "listen",
+   "w": "năm",
+   "ok": true,
+   "a": "five (also: year)",
+   "ms": 1658
+  },
+  {
+   "t": "listen",
+   "w": "hai",
+   "ok": false,
+   "a": "five (also: year)",
+   "ms": 2486
+  },
+  {
+   "t": "listen",
+   "w": "năm",
+   "ok": true,
+   "a": "five (also: year)",
+   "ms": 2764
+  },
+  {
+   "t": "listen",
+   "w": "ba",
+   "ok": true,
+   "a": "three",
+   "ms": 3709
+  },
+  {
+   "t": "listen",
+   "w": "bốn",
+   "ok": true,
+   "a": "four",
+   "ms": 2533
+  },
+  {
+   "t": "listen",
+   "w": "hai",
+   "ok": false,
+   "a": "five (also: year)",
+   "ms": 10701,
+   "retry": true,
+   "plays": 1
+  },
+  {
+   "t": "listen",
+   "w": "một",
+   "ok": false,
+   "a": "four",
+   "ms": 5072,
+   "plays": 1
+  },
+  {
+   "t": "reverse",
+   "w": "hai",
+   "ok": true,
+   "a": "hai",
+   "ms": 2692
+  },
+  {
+   "t": "spell",
+   "w": "ba",
+   "ok": false,
+   "a": "bà",
+   "ms": 4192
+  },
+  {
+   "t": "spell",
+   "w": "một",
+   "ok": true,
+   "a": "một",
+   "ms": 2228
+  },
+  {
+   "t": "listen",
+   "w": "một",
+   "ok": true,
+   "a": "one",
+   "ms": 2831,
+   "retry": true
+  },
+  {
+   "t": "reverse",
+   "w": "bốn",
+   "ok": true,
+   "a": "bốn",
+   "ms": 4193
+  },
+  {
+   "t": "spell",
+   "w": "ba",
+   "ok": true,
+   "a": "ba",
+   "ms": 1934,
+   "retry": true
+  },
+  {
+   "t": "spell",
+   "w": "năm",
+   "ok": false,
+   "a": "nằm",
+   "ms": 3970
+  },
+  {
+   "t": "type",
+   "w": "ba",
+   "ok": true,
+   "g": "tone",
+   "a": "bà",
+   "ms": 8391,
+   "hints": 0,
+   "firstKeyMs": 4498
+  },
+  {
+   "t": "type",
+   "w": "một",
+   "ok": true,
+   "g": "marks",
+   "a": "mot",
+   "ms": 5708,
+   "hints": 0,
+   "firstKeyMs": 2581
+  },
+  {
+   "t": "type",
+   "w": "năm",
+   "ok": true,
+   "g": "marks",
+   "a": "nam",
+   "ms": 3429,
+   "hints": 0,
+   "firstKeyMs": 1507
+  },
+  {
+   "t": "spell",
+   "w": "năm",
+   "ok": true,
+   "a": "năm",
+   "ms": 1912,
+   "retry": true
+  },
+  {
+   "t": "type",
+   "w": "hai",
+   "ok": true,
+   "g": "perfect",
+   "a": "hai",
+   "ms": 4142,
+   "hints": 0,
+   "firstKeyMs": 2633
+  },
+  {
+   "t": "type",
+   "w": "bốn",
+   "ok": false,
+   "g": "wrong",
+   "a": "bơ",
+   "ms": 15330,
+   "hints": 0,
+   "firstKeyMs": 2231
+  },
+  {
+   "t": "type",
+   "w": "bốn",
+   "g": "tone",
+   "a": "bộn",
+   "ms": 3800,
+   "retry": true,
+   "tiles": true
+  },
+  {
+   "t": "meet",
+   "w": "sáu",
+   "ms": 1897
+  },
+  {
+   "t": "meet",
+   "w": "bảy",
+   "ms": 1895
+  },
+  {
+   "t": "meet",
+   "w": "tám",
+   "ms": 1858
+  },
+  {
+   "t": "meet",
+   "w": "chín",
+   "ms": 1377
+  },
+  {
+   "t": "listen",
+   "w": "bảy",
+   "ok": true,
+   "a": "seven",
+   "ms": 4273
+  },
+  {
+   "t": "listen",
+   "w": "tám",
+   "ok": true,
+   "a": "eight",
+   "ms": 3096
+  },
+  {
+   "t": "story",
+   "w": "chín",
+   "ms": 1395
+  },
+  {
+   "t": "meet",
+   "w": "mười",
+   "ms": 4292
+  },
+  {
+   "t": "listen",
+   "w": "mười",
+   "ok": true,
+   "a": "ten",
+   "ms": 1319
+  },
+  {
+   "t": "listen",
+   "w": "chín",
+   "ok": true,
+   "a": "nine (also: ripe, cooked)",
+   "ms": 5347
+  },
+  {
+   "t": "listen",
+   "w": "đắt",
+   "ok": true,
+   "a": "expensive",
+   "ms": 2281
+  },
+  {
+   "t": "listen",
+   "w": "nữa",
+   "ok": true,
+   "a": "more, another",
+   "ms": 4758,
+   "plays": 1
+  },
+  {
+   "t": "listen",
+   "w": "trăm",
+   "ok": true,
+   "a": "hundred",
+   "ms": 8245,
+   "plays": 1
+  },
+  {
+   "t": "listen",
+   "w": "mười",
+   "ok": true,
+   "a": "ten",
+   "ms": 12063,
+   "plays": 1
+  },
+  {
+   "t": "listen",
+   "w": "sáu",
+   "ok": true,
+   "a": "six",
+   "ms": 1508
+  },
+  {
+   "t": "listen",
+   "w": "tám",
+   "ok": true,
+   "a": "eight",
+   "ms": 13581,
+   "plays": 2
+  },
+  {
+   "t": "listen",
+   "w": "gà",
+   "ok": true,
+   "a": "chicken",
+   "ms": 1766
+  },
+  {
+   "t": "listen",
+   "w": "bảy",
+   "ok": true,
+   "a": "seven",
+   "ms": 1775
+  },
+  {
+   "t": "listen",
+   "w": "nghìn",
+   "ok": true,
+   "a": "thousand",
+   "ms": 7237,
+   "plays": 2
+  },
+  {
+   "t": "spell",
+   "w": "mười",
+   "ok": true,
+   "a": "mười",
+   "ms": 2874
+  },
+  {
+   "t": "reverse",
+   "w": "tám",
+   "ok": true,
+   "a": "tám",
+   "ms": 7246
+  },
+  {
+   "t": "reverse",
+   "w": "chín",
+   "ok": true,
+   "a": "chín",
+   "ms": 14066
+  },
+  {
+   "t": "spell",
+   "w": "sáu",
+   "ok": true,
+   "a": "sáu",
+   "ms": 1315
+  },
+  {
+   "t": "spell",
+   "w": "bảy",
+   "ok": true,
+   "a": "bảy",
+   "ms": 1553
+  },
+  {
+   "t": "type",
+   "w": "đắt",
+   "ok": true,
+   "g": "marks",
+   "a": "dat",
+   "ms": 3538,
+   "hints": 0,
+   "firstKeyMs": 1979
+  },
+  {
+   "t": "type",
+   "w": "nghìn",
+   "ok": false,
+   "g": "wrong",
+   "a": "trien",
+   "ms": 4699,
+   "hints": 0,
+   "firstKeyMs": 1643,
+   "deletes": 1
+  },
+  {
+   "t": "type",
+   "w": "trăm",
+   "ok": false,
+   "g": "wrong",
+   "a": "trien",
+   "ms": 3007,
+   "hints": 0,
+   "firstKeyMs": 1606
+  },
+  {
+   "t": "type",
+   "w": "chín",
+   "ok": true,
+   "g": "tone",
+   "a": "chin",
+   "ms": 5042,
+   "hints": 0,
+   "firstKeyMs": 1812
+  },
+  {
+   "t": "type",
+   "w": "tám",
+   "ok": false,
+   "g": "wrong",
+   "a": "tram",
+   "ms": 4852,
+   "hints": 0,
+   "firstKeyMs": 1981,
+   "deletes": 1
+  },
+  {
+   "t": "type",
+   "w": "nghìn",
+   "g": "tone",
+   "a": "nghín",
+   "ms": 7592,
+   "retry": true,
+   "tiles": true
+  },
+  {
+   "t": "type",
+   "w": "trăm",
+   "g": "perfect",
+   "a": "trăm",
+   "ms": 4778,
+   "retry": true,
+   "tiles": true
+  },
+  {
+   "t": "type",
+   "w": "bảy",
+   "ok": true,
+   "g": "tone",
+   "a": "bay",
+   "ms": 8123,
+   "hints": 0,
+   "firstKeyMs": 6504
+  },
+  {
+   "t": "type",
+   "w": "tám",
+   "g": "tone",
+   "a": "tam",
+   "ms": 4390,
+   "retry": true,
+   "tiles": true
+  },
+  {
+   "t": "type",
+   "w": "sáu",
+   "ok": true,
+   "g": "tone",
+   "a": "sau",
+   "ms": 3346,
+   "hints": 0,
+   "firstKeyMs": 2275
+  },
+  {
+   "t": "type",
+   "w": "gà",
+   "ok": true,
+   "g": "perfect",
+   "a": "gà",
+   "ms": 8221,
+   "hints": 0,
+   "firstKeyMs": 1442
+  },
+  {
+   "t": "type",
+   "w": "nữa",
+   "ok": false,
+   "g": "wrong",
+   "a": "nhua",
+   "ms": 3760,
+   "hints": 0,
+   "firstKeyMs": 2070
+  },
+  {
+   "t": "type",
+   "w": "mười",
+   "ok": true,
+   "g": "marks",
+   "a": "muoi",
+   "ms": 5596,
+   "hints": 0,
+   "firstKeyMs": 1992,
+   "deletes": 2
+  },
+  {
+   "t": "type",
+   "w": "nữa",
+   "g": "perfect",
+   "a": "nữa",
+   "ms": 3663,
+   "retry": true,
+   "tiles": true
+  },
+  {
+   "t": "listen",
+   "w": "hai bát phở",
+   "ok": true,
+   "a": "two bowls of phở",
+   "ms": 2746
+  },
+  {
+   "t": "listen",
+   "w": "Cho mình một cốc trà đá nữa.",
+   "ok": true,
+   "a": "One more iced tea, please.",
+   "ms": 14542,
+   "plays": 1
+  },
+  {
+   "t": "listen",
+   "w": "hai mươi mốt",
+   "ok": true,
+   "a": "21",
+   "ms": 8884
+  },
+  {
+   "t": "listen",
+   "w": "thứ bảy",
+   "ok": false,
+   "a": "One more iced tea, please.",
+   "ms": 12396,
+   "plays": 4
+  },
+  {
+   "t": "listen",
+   "w": "ba cốc trà",
+   "ok": true,
+   "a": "three glasses of tea",
+   "ms": 9141,
+   "plays": 1
+  },
+  {
+   "t": "listen",
+   "w": "chín mươi chín",
+   "ok": true,
+   "a": "99",
+   "ms": 6684
+  },
+  {
+   "t": "listen",
+   "w": "thứ bảy",
+   "ok": true,
+   "a": "Saturday",
+   "ms": 15283,
+   "retry": true,
+   "plays": 2
+  },
+  {
+   "t": "situation",
+   "w": "Phở gà năm mươi nghìn.",
+   "ok": true,
+   "a": "50.000₫",
+   "ms": 8722,
+   "plays": 1
+  },
+  {
+   "t": "situation",
+   "w": "Hết sáu mươi nghìn.",
+   "ok": false,
+   "a": "231000",
+   "ms": 40371,
+   "plays": 4,
+   "hints": 1
+  },
+  {
+   "t": "situation",
+   "w": "Bánh mì hai mươi lăm nghìn.",
+   "ok": true,
+   "a": "25000",
+   "ms": 46917,
+   "plays": 2
+  },
+  {
+   "t": "situation",
+   "w": "Hai phở gà, một trà đá, hết một trăm linh năm nghìn ạ.",
+   "ok": false,
+   "a": "10000",
+   "ms": 81624,
+   "plays": 5,
+   "hints": 1
+  },
+  {
+   "t": "situation",
+   "w": "Của anh hết chín mươi lăm nghìn ạ.",
+   "ok": true,
+   "a": "95.000₫",
+   "ms": 36545,
+   "plays": 5
+  },
+  {
+   "t": "situation",
+   "w": "Hai bát, tám mươi nghìn ạ.",
+   "ok": true,
+   "a": "80000",
+   "ms": 50727,
+   "plays": 3,
+   "hints": 1
+  },
+  {
+   "t": "situation",
+   "w": "Cam ba trăm nghìn một cân.",
+   "ok": false,
+   "a": "Ngon quá!",
+   "ms": 20682,
+   "plays": 3
+  },
+  {
+   "t": "situation",
+   "w": "Hai cà phê, bốn mươi nghìn ạ.",
+   "ok": true,
+   "a": "40.000₫",
+   "ms": 15054,
+   "plays": 2
+  },
+  {
+   "t": "speed",
+   "w": "trăm",
+   "ok": true,
+   "a": "hundred",
+   "ms": 17336
+  },
+  {
+   "t": "speed",
+   "w": "ba cốc trà",
+   "ok": true,
+   "a": "three glasses of tea",
+   "ms": 6248
+  },
+  {
+   "t": "speed",
+   "w": "đắt",
+   "ok": true,
+   "a": "expensive",
+   "ms": 2536
+  },
+  {
+   "t": "speed",
+   "w": "đắt",
+   "ok": true,
+   "a": "expensive",
+   "ms": 1821
+  },
+  {
+   "t": "speed",
+   "w": "ba cốc trà",
+   "ok": true,
+   "a": "three glasses of tea",
+   "ms": 2157
+  },
+  {
+   "t": "speed",
+   "w": "sáu",
+   "ok": true,
+   "a": "six",
+   "ms": 2557
+  },
+  {
+   "t": "speed",
+   "w": "chín",
+   "ok": true,
+   "a": "nine (also: ripe, cooked)",
+   "ms": 2881
+  },
+  {
+   "t": "speed",
+   "w": "ba",
+   "ok": true,
+   "a": "three",
+   "ms": 5050
+  },
+  {
+   "t": "speed",
+   "w": "thứ bảy",
+   "ok": true,
+   "a": "Saturday",
+   "ms": 3830
+  }
+ ],
+ "issue": 3
+}
