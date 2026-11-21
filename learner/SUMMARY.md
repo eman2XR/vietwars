@@ -8,7 +8,7 @@ Built by `scripts/ingest.py` from `learner/results/`. Do not edit by hand.
 - Weak in spelling or tone (under 0.6): bao nhiêu, nghìn, rưỡi, trăm, lăm, mươi, đồng, linh, nữa, rẻ, triệu
 - Typing, first tries: 6 perfect, 4 wrong or missing tone, 9 missing vowel marks, 0 spelled as it sounds in Hà Nội, 10 wrong (of 29)
 - Answers typed with the on-screen tone keys: 4/17
-- Warm-up words missed: bốn (1), tám (1), ba (1), chín (1)
+- Warm-up words missed: ba (1), bốn (1), chín (1), tám (1)
 
 ## Sessions
 

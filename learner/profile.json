@@ -696,10 +696,10 @@
   "hơn"
  ],
  "warmupMissed": {
-  "bốn": 1,
-  "tám": 1,
   "ba": 1,
-  "chín": 1
+  "bốn": 1,
+  "chín": 1,
+  "tám": 1
  },
  "toneConfusions": {
   "phở -> phờ": 2,

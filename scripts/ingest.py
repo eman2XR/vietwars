@@ -211,7 +211,7 @@ def build_profile(results):
         "weakMeaning": [vi for vi, w in by_meaning if w["meaning"] is not None and w["meaning"] < 0.7][:15],
         "weakSpelling": [vi for vi, w in by_form if w["form"] is not None and w["form"] < 0.6][:15],
         "strongest": [vi for vi, w in sorted(live.items(), key=lambda kv: -kv[1]["strength"]) if w["strength"] >= 0.9][:15],
-        "warmupMissed": dict(warmup_missed.most_common()),
+        "warmupMissed": dict(sorted(warmup_missed.items(), key=lambda kv: (-kv[1], kv[0]))),
         "toneConfusions": dict(tone_conf.most_common()),
         "meaningConfusions": dict(meaning_conf.most_common(20)),
         "typing": dict(typed_grades),
