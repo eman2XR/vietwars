@@ -367,7 +367,7 @@ function home() {
             <div class="label">${states[nextIdx] === 'played' ? 'Rematch' : 'Next battle'}: lesson ${esc(nextLesson.number)}</div>
             <h2>${esc(nextLesson.title)}</h2>
             ${nextLesson.foe ? `<div class="hero-foe"><span class="vi">${colorize(nextLesson.foe.name)}</span>, ${esc(nextLesson.foe.en)}</div>` : ''}
-            <p>${nextLesson.words.length} new words${nextLesson.warmup?.length ? `, a ${nextLesson.warmup.length}-word warm-up` : ''}</p>
+            <p>${nextLesson.words.length} new words${nextLesson.warmup?.length ? `, ${/^(8|11|18)/.test(String(nextLesson.warmup.length)) ? 'an' : 'a'} ${nextLesson.warmup.length}-word warm-up` : ''}</p>
             <span class="btn primary">Fight</span>
           </div>
         </a>`
