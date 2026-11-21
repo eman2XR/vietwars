@@ -8,6 +8,7 @@ Existing clips are kept; clips no lesson uses any more are deleted. Use --force 
 import argparse
 import hashlib
 import json
+import re
 import subprocess
 import sys
 import unicodedata
@@ -30,6 +31,8 @@ def lesson_texts(lesson):
         texts.extend(c["vi"] for c in w.get("contrast", []))
     texts.extend(w["vi"] for w in lesson.get("warmup", []))
     texts.extend(c["vi"] for c in lesson.get("combos", []))
+    texts.extend(x["vi"] for x in lesson.get("situations", []))
+    texts.extend(x["answer"] for x in lesson.get("situations", []) if re.search(r"[^\W\d_]", x.get("answer", "")))
     texts.extend(x["vi"] for x in (lesson.get("grammar") or {}).get("examples", []))
     return texts
 

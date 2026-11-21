@@ -3,7 +3,8 @@
 
 Serves web/ through request routing (no server), fakes the GitHub API, plays a whole issue
 (article, quiz, warm-up, "I know it", tone keys, rush hour), checks what was saved and sent, runs a
-review, then opens the site as a second device and checks that progress syncs. Fails on page
+review, asks the editors a question (in an issue and on the Ask page) and reads a faked answer,
+then opens the site as a second device and checks that progress syncs. Fails on page
 errors, horizontal overflow, or missing results.
 Needs the Framework Python with Playwright:
   /Library/Frameworks/Python.framework/Versions/3.13/bin/python3 scripts/check_site.py
@@ -31,6 +32,9 @@ DEVICES = [
     ("Desktop Safari", "light", True),
 ]
 MARKER = re.compile(r"<!-- vietwars-result -->\n```json\n(.*)\n```", re.S)
+QUESTION = "<!-- vietwars-question -->"
+ANSWER = 'Say **Cho tôi xin hóa đơn**.\n\n<!-- vietwars-answer {"phrases": [{"vi": "Cho tôi xin hóa đơn.", "en": "The bill, please."}]} -->'
+
 STATE_JS = """() => {
   const h = JSON.parse(localStorage.getItem('vw-history') || '[]');
   const d = JSON.parse(localStorage.getItem('vw-deck') || '{}');
@@ -65,6 +69,7 @@ class Run:
         self.shot_steps = set()
         self.n = 0
         self.seen_types = set()
+        self.asked = False
 
     def shot(self, page, label):
         if not self.shots:
@@ -95,8 +100,13 @@ class Run:
             self.posts.append(json.loads(req.post_data or "{}"))
             route.fulfill(status=201, content_type="application/json", body=json.dumps({"number": len(self.posts)}))
         elif req.method == "GET" and path.endswith("/issues"):
-            issues = [{"number": i + 1, "title": p["title"], "body": p["body"], "state": "open"} for i, p in enumerate(self.posts)]
+            issues = [{"number": i + 1, "title": p["title"], "body": p["body"], "state": "open", "comments": int(QUESTION in p["body"])} for i, p in enumerate(self.posts)]
             route.fulfill(status=200, content_type="application/json", body=json.dumps(list(reversed(issues))))
+        elif req.method == "GET" and path.endswith("/comments"):
+            n = int(path.split("/")[-2])
+            post = self.posts[n - 1] if 0 < n <= len(self.posts) else {}
+            comments = [{"body": ANSWER, "created_at": "2026-11-21T12:00:00Z"}] if QUESTION in post.get("body", "") else []
+            route.fulfill(status=200, content_type="application/json", body=json.dumps(comments))
         else:
             route.fulfill(status=200, content_type="application/json", body="{}")
 
@@ -164,13 +174,26 @@ class Run:
             kind = "warmup" if "is-warmup" in classes else step
             self.seen_types.add(kind)
             self.first(page, f"{label}-{kind}")
-            if step in ("feature", "reviewIntro", "stage", "grammar", "speedIntro", "results"):
+            if step in ("feature", "reviewIntro", "stage", "story", "grammar", "speedIntro", "results"):
                 page.click("[data-act=next]")
+            elif step == "situation":
+                if page.locator(".digits-input").count():
+                    page.fill(".digits-input", "50000")
+                    page.click("[data-act=check]")
+                    self.first(page, f"{label}-situation-answered")
+                    page.click("[data-act=check]")
+                else:
+                    page.locator(".opt").first.click()
+                    self.first(page, f"{label}-situation-answered")
+                    page.click("[data-act=next]")
             elif step == "quiz":
                 page.locator(".opt").nth(typed % 2).click()
                 typed += 1
                 self.first(page, f"{label}-quiz-answered")
                 page.click("[data-act=next]")
+            elif step == "meet" and label == "lesson" and not self.asked:
+                self.asked = True
+                self.ask_in_session(page)
             elif step == "meet":
                 meets += 1
                 page.click("[data-act=known]" if meets == 2 else "[data-act=next]")
@@ -225,6 +248,45 @@ class Run:
         self.errors.append(f"{label}: did not finish within 600 actions")
         return False
 
+    def ask_in_session(self, page):
+        if not page.locator(".ask-btn").count():
+            self.errors.append("an issue has no ? button for questions")
+            return
+        page.click(".ask-btn")
+        page.wait_for_selector(".ask-sheet:not([hidden])")
+        page.fill(".ask-sheet textarea", "How do I ask for the bill?")
+        self.first(page, "lesson-ask-sheet")
+        before = len(self.posts)
+        page.click(".ask-sheet [type=submit]")
+        page.wait_for_selector(".ask-sheet[hidden]", state="attached")
+        page.locator(".fact-card.show", has_text="Question sent").wait_for()
+        for _ in range(20):
+            if len(self.posts) > before:
+                break
+            page.wait_for_timeout(100)
+        q = [x for x in self.posts[before:] if QUESTION in x["body"]]
+        if not q:
+            self.errors.append("a question asked in an issue was not posted")
+        elif "word:" not in q[0]["body"] or "question" not in (q[0].get("labels") or []):
+            self.errors.append("a posted question has no word context or no question label")
+
+    def check_ask_page(self, page):
+        page.evaluate("location.hash = '#/ask'")
+        page.wait_for_selector(".ask-page")
+        try:
+            page.wait_for_selector(".question.answered .phrases [data-say]", timeout=8000)
+        except Exception:
+            self.errors.append("the Ask page did not show the answer and its phrases")
+        self.first(page, "ask")
+        before = len([x for x in self.posts if QUESTION in x["body"]])
+        page.fill(".page-ask textarea", "What is the difference between nữa and nửa?")
+        page.click(".page-ask [type=submit]")
+        page.locator(".page-ask .form-status", has_text="Sent").wait_for()
+        if len([x for x in self.posts if QUESTION in x["body"]]) != before + 1:
+            self.errors.append("a question from the Ask page was not posted")
+        if page.locator(".question").count() != before + 1:
+            self.errors.append("the Ask page does not list every question")
+
     def run(self, p):
         browser = p.webkit.launch()
         ctx = browser.new_context(**p.devices[self.name], service_workers="block", color_scheme=self.scheme)
@@ -254,7 +316,7 @@ class Run:
             state = page.get_attribute(".send-status", "data-state")
             if state != "sent":
                 self.errors.append(f"results were not sent (state {state})")
-        expect = ["feature", "meet", "listen", "type", "speed", "results"] + (["warmup"] if self.lesson.get("warmup") else []) + (["quiz"] if self.lesson.get("quiz") else [])
+        expect = ["feature", "meet", "listen", "type", "speed", "results"] + (["warmup"] if self.lesson.get("warmup") else []) + (["story"] if any(b.get("word") for b in (self.lesson.get("feature") or {}).get("beats", [])) else []) + (["situation"] if self.lesson.get("situations") else [])
         for kind in expect:
             if kind not in self.seen_types:
                 self.errors.append(f"lesson never showed a {kind} step")
@@ -274,13 +336,15 @@ class Run:
             expected |= {m["vi"] for m in r.get("warmup", []) if not m["ok"]}
             if set(data["d"]) != expected:
                 self.errors.append(f"review deck has {sorted(data['d'])}, expected {sorted(expected)}")
-            if self.lesson.get("quiz") and not (r.get("quiz") or {}).get("total"):
-                self.errors.append("result has no quiz score")
+            if self.lesson.get("situations") and not (r.get("situations") or {}).get("total"):
+                self.errors.append("result has no real-life score")
+            if not r.get("timing"):
+                self.errors.append("result has no timing")
             if "readSec" not in (r.get("article") or {}):
                 self.errors.append("result has no article reading time")
         if data["o"]:
             self.errors.append(f"{len(data['o'])} results left unsent")
-        finished_posts = [x for x in self.posts if '"partial": true' not in x["body"]]
+        finished_posts = [x for x in self.posts if MARKER.search(x["body"]) and '"partial": true' not in x["body"]]
         if len(finished_posts) != 1:
             self.errors.append(f"expected 1 finished result posted, found {len(finished_posts)}")
         else:
@@ -290,7 +354,7 @@ class Run:
                 self.errors.append("posted issue has no result block")
             else:
                 r = json.loads(m.group(1))
-                for key in ("resultId", "lessonId", "words", "events", "typed", "toneConfusions", "feedback", "summary", "article", "quiz", "warmup"):
+                for key in ("resultId", "lessonId", "words", "events", "typed", "toneConfusions", "feedback", "summary", "article", "timing", "warmup"):
                     if key not in r:
                         self.errors.append(f"posted result is missing {key}")
                 if (r.get("feedback") or {}).get("wantNext") != "numbers and prices at the market":
@@ -310,7 +374,7 @@ class Run:
         page.click(".review-card .btn")
         if self.play_session(page, "review"):
             page.wait_for_selector(".send-status:not([data-state=sending])")
-        if len([x for x in self.posts if '"partial": true' not in x["body"]]) != 2:
+        if len([x for x in self.posts if MARKER.search(x["body"]) and '"partial": true' not in x["body"]]) != 2:
             self.errors.append(f"expected 2 finished results after the review, found {len(self.posts)} posts")
 
         posted = [json.loads(m.group(1)) for m in (MARKER.search(x["body"]) for x in self.posts) if m]
@@ -320,9 +384,12 @@ class Run:
         page.click("[data-act=home]")
         page.wait_for_selector(".home")
         self.first(page, "home-after")
+        if not page.locator(".ask-link").count():
+            self.errors.append("the home page has no link to Ask")
         page.evaluate("location.hash = '#/words'")
         page.wait_for_selector(".word-list")
         self.first(page, "words")
+        self.check_ask_page(page)
         expected = page.evaluate(STATE_JS)
         self.second_device(p, browser, expected)
         browser.close()

@@ -13,7 +13,6 @@ test('every lesson builds a full battle', () => {
     const steps = lessonSteps(lesson, { review, warmup: lesson.warmup || [] });
     const types = steps.map((s) => s.type);
     assert.equal(types[0], 'feature');
-    assert.equal(types.filter((t) => t === 'quiz').length, (lesson.quiz || []).length);
     assert.deepEqual(types.slice(-4), ['speedIntro', 'speed', 'results', 'feedback']);
     for (const w of lesson.words) {
       for (const t of ['meet', 'listen', 'type']) {
@@ -41,9 +40,22 @@ test('every lesson picture, cover and stamp draws', () => {
   }
 });
 
-test('quiz answers point at a real option', () => {
+test('story beats follow the words they are about', () => {
   for (const lesson of lessons) {
-    for (const q of lesson.quiz || []) assert.ok(q.answer >= 0 && q.answer < q.options.length, `${lesson.id}: ${q.q}`);
+    const steps = lessonSteps(lesson, { warmup: lesson.warmup || [] });
+    for (const b of lesson.feature?.beats || []) {
+      const at = steps.findIndex((s) => s.type === 'story' && s.beat === b);
+      if (b.word) {
+        assert.ok(at > 0, `${lesson.id}: beat for ${b.word} was not placed`);
+        const met = steps.findIndex((s) => s.type === 'meet' && s.word.vi === b.word);
+        assert.ok(met >= 0 && met < at, `${lesson.id}: beat for ${b.word} comes before the word`);
+      } else {
+        assert.ok(steps.some((s) => s.beat === b || (s.beats || []).includes(b)), `${lesson.id}: a story beat was dropped`);
+      }
+    }
+    const shown = steps.flatMap((s) => (s.beat ? [s.beat] : s.beats || []));
+    assert.deepEqual(shown, lesson.feature?.beats || [], `${lesson.id}: the story must play in file order, each beat once`);
+    assert.ok(!steps.some((s) => s.type === 'quiz'), `${lesson.id}: quizzes are retired`);
   }
 });
 
@@ -77,4 +89,24 @@ test('warm-up and retry answers are not counted as first tries', () => {
   assert.equal(s.perWord[0].meaning, 1);
   assert.equal(s.perWord[0].form, 0.25);
   assert.equal(s.perWord[0].share, 0.5);
+});
+
+import { maskWord } from '../web/js/lesson.js';
+
+test('hints never show the answer', () => {
+  assert.equal(maskWord('Ten cows say mười and sigh: Mười!', 'mười'), 'Ten cows say ____ and sigh: ____!');
+  assert.equal(maskWord('You ask bao nhiêu, keeping it flat.', 'bao nhiêu'), 'You ask ___ _____, keeping it flat.');
+  assert.equal(maskWord('No answer here.', 'phở'), 'No answer here.');
+});
+
+import { digitsOf } from '../web/js/lesson.js';
+
+test('typed prices accept separators and k shorthand', () => {
+  assert.equal(digitsOf('25000'), '25000');
+  assert.equal(digitsOf('25.000'), '25000');
+  assert.equal(digitsOf('25,000 '), '25000');
+  assert.equal(digitsOf('25k'), '25000');
+  assert.equal(digitsOf('105K'), '105000');
+  assert.equal(digitsOf('1.5k'), '1500');
+  assert.equal(digitsOf(''), '');
 });

@@ -3,7 +3,8 @@
 
 Results arrive as GitHub issues (posted by the site) or as a JSON file (the site's "Copy all my data").
 Each result is saved once to learner/results/; learner/profile.json and learner/SUMMARY.md are then
-rebuilt from every saved result.
+rebuilt from every saved result. The learner's questions and their answers (scripts/questions.py) are
+saved to learner/questions.json and listed in the summary.
 
   python3 scripts/ingest.py                 pull open result issues and rebuild the profile
   python3 scripts/ingest.py --file data.json   import results from a file instead
@@ -220,6 +221,54 @@ def build_profile(results):
     }
 
 
+SCORED_TYPES = ("listen", "spell", "reverse", "type", "situation", "speed")
+
+
+def struggle(results):
+    """Per-word and per-exercise difficulty from every answer in finished sessions."""
+    words = defaultdict(lambda: {"attempts": 0, "fails": 0, "ms": [], "plays": 0, "hints": 0, "revealed": 0, "studyMs": 0, "deletes": 0})
+    kinds = defaultdict(lambda: {"n": 0, "ok": 0, "ms": []})
+    phases = defaultdict(int)
+    for r in results:
+        if r.get("partial"):
+            continue
+        for k, v in (r.get("timing") or {}).items():
+            if isinstance(v, (int, float)):
+                phases[k] += v
+        for e in r.get("events", []):
+            t = e.get("t")
+            if t == "meet":
+                words[e["w"]]["studyMs"] += e.get("ms") or 0
+                continue
+            if t not in SCORED_TYPES or e.get("warmup"):
+                continue
+            ok = e.get("ok") is True or (t == "type" and e.get("ok") is None and e.get("g") == "perfect")
+            k = kinds["type (tiles)" if e.get("tiles") else ("type (from hearing)" if e.get("dictation") else t)]
+            k["n"] += 1
+            k["ok"] += 1 if ok else 0
+            if e.get("ms"):
+                k["ms"].append(e["ms"])
+            if t in ("speed", "situation"):
+                continue
+            w = words[e["w"]]
+            w["attempts"] += 1
+            w["fails"] += 0 if ok else 1
+            if e.get("ms"):
+                w["ms"].append(e["ms"])
+            w["plays"] += e.get("plays") or 0
+            w["hints"] += e.get("hints") or 0
+            w["revealed"] += 1 if e.get("revealed") else 0
+            w["deletes"] += e.get("deletes") or 0
+    out = {}
+    for vi, w in words.items():
+        n = max(1, w["attempts"])
+        med = statistics.median(w["ms"]) / 1000 if w["ms"] else 0
+        score = round(60 * w["fails"] / n + 1.5 * min(med, 20) + 15 * w["hints"] / n + 4 * w["plays"] / n + 20 * w["revealed"] / n)
+        out[vi] = {"attempts": w["attempts"], "fails": w["fails"], "medianSec": round(med, 1), "replays": w["plays"], "hints": w["hints"], "revealed": w["revealed"], "deletes": w["deletes"], "studySec": round(w["studyMs"] / 1000), "struggle": score}
+    kind_out = {k: {"answers": v["n"], "accuracy": round(v["ok"] / v["n"], 2) if v["n"] else None, "medianSec": round(statistics.median(v["ms"]) / 1000, 1) if v["ms"] else None} for k, v in kinds.items()}
+    return {"words": dict(sorted(out.items(), key=lambda kv: -kv[1]["struggle"])), "exercises": kind_out, "phaseSeconds": dict(phases)}
+
+
 def summary_md(p):
     lines = ["# Learner summary", "", "Built by `scripts/ingest.py` from `learner/results/`. Do not edit by hand.", ""]
     s = p["sessions"]
@@ -251,6 +300,18 @@ def summary_md(p):
         errs = ", ".join(f"{k} {v}" for k, v in w["typedErrors"].items())
         notes = ", ".join(x for x in ("known list" if w["knownList"] else "", "tapped I know it" if w["tappedKnowIt"] else "") if x)
         lines.append(f"| {vi} | {w['en']} | {num(w['meaning'])} | {num(w['form'])} | {cell('listen')} | {cell('spell')} | {cell('reverse')} | {cell('type')} | {cell('dictation')} | {errs} | {notes} |")
+    st = p.get("struggle") or {}
+    if st.get("words"):
+        lines += ["", "## Where the learner struggles", "", "Struggle score combines failed first tries, slow answers, hints, replays and revealed answers (higher is harder). From finished sessions only.", "", "| Word | Struggle | Attempts | Failed | Median answer (s) | Replays | Hints | Revealed | Studied card (s) |", "|---|---|---|---|---|---|---|---|---|"]
+        for vi, w in list(st["words"].items())[:15]:
+            lines.append(f"| {vi} | {w['struggle']} | {w['attempts']} | {w['fails']} | {w['medianSec']} | {w['replays']} | {w['hints']} | {w['revealed']} | {w['studySec']} |")
+    if st.get("exercises"):
+        lines += ["", "## Exercise types", "", "| Exercise | Answers | Accuracy | Median answer (s) |", "|---|---|---|---|"]
+        for k, v in sorted(st["exercises"].items(), key=lambda kv: (kv[1]["accuracy"] if kv[1]["accuracy"] is not None else 1)):
+            lines.append(f"| {k} | {v['answers']} | {'' if v['accuracy'] is None else f'{round(v[chr(97)+chr(99)+chr(99)+chr(117)+chr(114)+chr(97)+chr(99)+chr(121)] * 100)}%'} | {v['medianSec'] if v['medianSec'] is not None else ''} |")
+    if st.get("phaseSeconds"):
+        ph = st["phaseSeconds"]
+        lines += ["", "Time spent (all finished sessions): " + ", ".join(f"{k} {round(v / 60, 1)} min" for k, v in ph.items() if k not in ("pauses", "longestPauseSec")) + (f"; long pauses (over a minute): {ph.get('pauses', 0)}" if 'pauses' in ph else "")]
     if p["toneConfusions"]:
         lines += ["", "## Tone and spelling confusions (heard -> picked)", ""]
         lines += [f"- {k}: {v}" for k, v in p["toneConfusions"].items()]
@@ -268,6 +329,18 @@ def summary_md(p):
             if f.get("note"):
                 parts.append(f"note \"{f['note']}\"")
             lines.append("- " + "; ".join(parts))
+    qpath = LEARNER / "questions.json"
+    qs = json.loads(qpath.read_text(encoding="utf-8")) if qpath.exists() else []
+    if qs:
+        lines += ["", "## Questions the learner asked, newest first", "",
+                  "What they wanted to know or say. Teach these in coming issues where they fit.", ""]
+        for q in reversed(qs[-12:]):
+            a = q.get("answer") or {}
+            first = " ".join((a.get("text") or "").split())[:160]
+            said = ", ".join(f"{x['vi']} ({x['en']})" for x in a.get("phrases", []))
+            line = f"- {str(q.get('askedAt', ''))[:10]}" + (f" ({q['context']})" if q.get("context") else "") + f": \"{q.get('text', '')}\""
+            line += f" Answered: {first}" + (f" Phrases: {said}." if said else "") if a else " Not answered yet."
+            lines.append(line)
     notes = ROOT / "learner" / "NOTES.md"
     if notes.exists():
         lines += ["", "## Notes from the learner outside the app", "", notes.read_text(encoding="utf-8").strip()]
@@ -277,6 +350,7 @@ def summary_md(p):
 def rebuild():
     results = [json.loads(p.read_text(encoding="utf-8")) for p in sorted(RESULTS.glob("*.json"))]
     profile = build_profile(results)
+    profile["struggle"] = struggle(results)
     LEARNER.mkdir(exist_ok=True)
     (LEARNER / "profile.json").write_text(json.dumps(profile, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     (LEARNER / "SUMMARY.md").write_text(summary_md(profile), encoding="utf-8")
@@ -308,6 +382,11 @@ def main():
     elif not args.offline:
         for number, r in open_issues():
             new += save(r, issue=number)
+        try:
+            from questions import sync as sync_questions
+            sync_questions()
+        except Exception as e:
+            print(f"questions not updated: {str(e).splitlines()[0] if str(e) else e}")
     total = rebuild()
     print(f"{new} new result{'s' if new != 1 else ''}, {total} in total; wrote learner/profile.json and learner/SUMMARY.md")
     if args.close and not args.offline:

@@ -36,9 +36,16 @@
     {
       "id": "numbers-prices",
       "title": "Big numbers and prices",
-      "status": "active",
+      "status": "done",
       "lesson": "lesson-02",
-      "notes": "Numbers 0 to 10 are a warm-up only. Brings in the nặng and ngã tones (triệu, chục, nữa, rưỡi) that lesson 1 lacked, and the hỏi and ngã contrast (nửa and nữa, rẻ and rẽ). Issue story: \"Copper, paper, plastic\" (the đồng, coins abandoned in 2011, polymer notes, Đồng Xuân market, Thăng Long 1010)."
+      "notes": "Numbers 0 to 10 are a warm-up only. Brings in the nặng and ngã tones (triệu, chục, nữa, rưỡi) that lesson 1 lacked, and the hỏi and ngã contrast (nửa and nữa, rẻ and rẽ). Issue story: \"Copper, paper, plastic\" (the đồng, coins abandoned in 2011, polymer notes, Đồng Xuân market, Thăng Long 1010). Played on 2026-11-21 (iPhone, old battle version): 64% first try, 30 minutes, Too hard; listening strong, typing weak; numbers 1 to 10 not secure."
+    },
+    {
+      "id": "numbers-basics",
+      "title": "One to ten, properly",
+      "status": "active",
+      "lesson": "lesson-03",
+      "notes": "The learner asked to learn 1 to 10 properly and for real-life use. Story: Sơn Tinh and Thủy Tinh, the bride price of nines. Real-life price listening. Review of the most confused issue 2 words."
     },
     {
       "id": "people",

@@ -61,6 +61,35 @@ function pic(w, size = '') {
   return p ? `<div class="pic-wrap ${size}">${p}</div>` : '';
 }
 
+// Blanks out the answer (with or without its marks) wherever a hint text contains it.
+// Reads a typed price: digits with any separators, or shorthand such as 25k for 25,000.
+export function digitsOf(text) {
+  const t = String(text).trim().toLowerCase().replace(/\s+/g, '');
+  const k = t.match(/^(\d+(?:[.,]\d+)?)k$/);
+  if (k) return String(Math.round(parseFloat(k[1].replace(',', '.')) * 1000));
+  return t.replace(/[^0-9]/g, '');
+}
+
+function maskWord(text, vi) {
+  const target = stripMarks(nfc(vi).toLowerCase());
+  const words = nfc(text).split(/(\s+)/);
+  const n = target.split(' ').length;
+  const out = [];
+  for (let i = 0; i < words.length; i++) {
+    const span = words.slice(i, i + n * 2 - 1).join('');
+    const bare = stripMarks(span.toLowerCase().replace(/[^\p{L}\s]/gu, ''));
+    if (bare === target) {
+      out.push(span.replace(/\p{L}+/gu, (m) => '_'.repeat([...m].length)));
+      i += n * 2 - 2;
+    } else out.push(words[i]);
+  }
+  return out.join('');
+}
+
+function stripMarks(s) {
+  return s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/đ/g, 'd').normalize('NFC');
+}
+
 // Syllable tiles for a scaffolded retry: the word's syllables plus two tone variants as distractors.
 function tilesFor(vi) {
   const syl = tokens(vi);
@@ -76,6 +105,8 @@ function tilesFor(vi) {
   return shuffle([...syl, ...extra]);
 }
 
+export { maskWord };
+
 export function stampHTML(lesson, grade = '', date = '') {
   const art = lesson?.stamp?.picture ? picture(lesson.stamp.picture) : '';
   return `<div class="stamp ${grade ? `grade-${grade}` : 'empty'}">
@@ -88,13 +119,34 @@ export function stampHTML(lesson, grade = '', date = '') {
   </div>`;
 }
 
+// The story: a short intro, then beats placed through the lesson. Older lessons with only body paragraphs are split the same way.
+export function storyParts(lesson) {
+  const f = lesson?.feature || {};
+  const intro = f.intro || (f.body || [])[0] || '';
+  const beats = f.beats ? [...f.beats] : (f.body || []).slice(1).map((text) => ({ text }));
+  return { intro, beats };
+}
+
 const PART_SIZE = 8;
+const MAX_SPELL = 3;
 
 // Builds an issue. More than eight new words are split into two parts, each met and practised on its own, before the shared finale.
 export function lessonSteps(lesson, { review = [], warmup = [] } = {}) {
   const words = lesson.words;
   const steps = [{ type: 'feature' }];
-  (lesson.quiz || []).forEach((q, i) => steps.push({ type: 'quiz', q, n: i + 1, of: lesson.quiz.length }));
+  // Beats play in file order. A beat tied to a new word waits until that word has been met; an untied beat waits for the next part, practise or real-life screen.
+  const queue = [...storyParts(lesson).beats];
+  const met = new Set();
+  const wordFor = (b) => (b.word ? words.find((w) => nfc(w.vi) === nfc(b.word)) : undefined);
+  const looseBeat = () => (queue.length && !wordFor(queue[0]) ? queue.shift() : undefined);
+  const storySteps = () => {
+    const out = [];
+    while (queue.length && wordFor(queue[0]) && met.has(nfc(queue[0].word))) {
+      const b = queue.shift();
+      out.push({ type: 'story', beat: b, word: wordFor(b) });
+    }
+    return out;
+  };
   if (warmup.length) {
     steps.push({ type: 'stage', title: 'Warm-up', text: `${warmup.length} words you probably know. Tap the meaning; any you miss go into your reviews.` });
     shuffle(warmup).forEach((w) => steps.push({ type: 'listen', word: w, pool: warmup, warmup: true }));
@@ -109,28 +161,39 @@ export function lessonSteps(lesson, { review = [], warmup = [] } = {}) {
     if (parts.length > 1) {
       steps.push({
         type: 'stage',
+        beat: pi > 0 ? looseBeat() : undefined,
         title: `Part ${pi + 1} of ${parts.length}`,
         text: pi === 0 ? `${part.length} new words first, then ${words.length - part.length} more. You can stop at any point: close the issue and your place is kept.` : `${part.length} more words. Your place is kept whenever you stop.`,
       });
+      steps.push(...storySteps());
     }
     chunk(part, 4).forEach((group, gi) => {
       group.forEach((w, wi) => steps.push({ type: 'meet', word: w, n: offset + gi * 4 + wi + 1, of: words.length }));
       shuffle(group)
         .slice(0, Math.min(2, group.length))
         .forEach((w) => steps.push({ type: 'listen', word: w, pool: group.length >= 3 ? group : pool }));
+      group.forEach((w) => met.add(nfc(w.vi)));
+      steps.push(...storySteps());
     });
     offset += part.length;
-    steps.push({ type: 'stage', title: parts.length > 1 ? `Practise part ${pi + 1}` : 'Practise', text: 'Listen and pick the meaning, pick the spelling you hear, then type from memory with the tone keys. Three right in a row brings up a fact.' });
+    steps.push({ type: 'stage', beat: looseBeat(), title: parts.length > 1 ? `Practise part ${pi + 1}` : 'Practise', text: 'Listen and pick the meaning, pick the spelling you hear, then type from memory. Three right in a row brings up a fact.' });
+    steps.push(...storySteps());
     shuffle(practise).forEach((w) => steps.push({ type: 'listen', word: w, pool }));
-    shuffle(part).forEach((w) => steps.push(w.contrast?.length ? { type: 'spell', word: w } : { type: 'reverse', word: w, pool: part.length >= 4 ? part : pool }));
+    const spellers = new Set(shuffle(part.filter((w) => w.contrast?.length)).slice(0, MAX_SPELL).map((w) => w.vi));
+    shuffle(part).forEach((w) => steps.push(spellers.has(w.vi) ? { type: 'spell', word: w } : { type: 'reverse', word: w, pool: part.length >= 4 ? part : pool }));
     shuffle(practise).forEach((w) => steps.push({ type: 'type', word: w }));
   });
   if (lesson.grammar) steps.push({ type: 'grammar', grammar: lesson.grammar });
   if (lesson.combos?.length) {
     shuffle(lesson.combos).forEach((c) => steps.push({ type: 'listen', word: c, pool: lesson.combos, combo: true }));
   }
+  if (lesson.situations?.length) {
+    steps.push({ type: 'stage', beat: looseBeat(), title: 'Real life', text: 'A waiter, a seller or a driver says something. Listen, then answer. Replay as often as you like.' });
+    steps.push(...storySteps());
+    shuffle(lesson.situations).forEach((sit) => steps.push({ type: 'situation', word: sit, sit: true }));
+  }
   steps.push({ type: 'speedIntro' }, { type: 'speed', pool: [...words, ...review, ...(lesson.combos || []), ...warmup] });
-  steps.push({ type: 'results' }, { type: 'feedback' });
+  steps.push({ type: 'results', beats: queue.splice(0) }, { type: 'feedback' });
   return steps;
 }
 
@@ -144,7 +207,8 @@ export function reviewSteps(words, pool) {
 }
 
 function credit(e) {
-  return e.t === 'type' ? TYPE_CREDIT[e.g] || 0 : e.ok ? 1 : 0;
+  if (e.t === 'type') return e.ok === true ? 1 : TYPE_CREDIT[e.g] || 0;
+  return e.ok ? 1 : 0;
 }
 
 function mean(xs) {
@@ -160,9 +224,16 @@ export function summarise(events, words) {
     const firstTry = {};
     for (const e of mine) firstTry[e.t] = e.t === 'type' ? e.g : e.ok;
     const times = events.filter((e) => e.w === w.vi && e.ms && SCORED.has(e.t)).map((e) => e.ms).sort((a, b) => a - b);
+    const all = events.filter((e) => e.w === w.vi && SCORED.has(e.t));
     return {
       vi: w.vi,
       en: w.en,
+      failures: all.filter((e) => credit(e) < 1).length,
+      timeSec: Math.round(all.reduce((t, e) => t + (e.ms || 0), 0) / 1000),
+      replays: all.reduce((t, e) => t + (e.plays || 0), 0),
+      hints: all.reduce((t, e) => t + (e.hints || 0), 0),
+      revealed: all.some((e) => e.revealed),
+      studySec: Math.round(events.filter((e) => e.w === w.vi && e.t === 'meet').reduce((t, e) => t + (e.ms || 0), 0) / 1000),
       share: Math.round(share * 100) / 100,
       meaning: mean(mine.filter((e) => e.t === 'listen' || e.t === 'reverse').map(credit)),
       form: mean(mine.filter((e) => e.t === 'spell' || e.t === 'type').map(credit)),
@@ -193,6 +264,8 @@ export function runSession(root, session, onDone, onQuit) {
     facts: shuffle(session.facts || []),
     factsShown: [],
     met: new Set(),
+    plays: 0,
+    situations: { correct: 0, total: 0 },
     speed: { answered: 0, correct: 0, score: 0, combo: 0, bestCombo: 0 },
     quiz: { correct: 0, total: 0 },
     readMs: 0,
@@ -223,6 +296,7 @@ export function runSession(root, session, onDone, onQuit) {
       quiz: S.quiz,
       readMs: S.readMs,
       factsShown: S.factsShown,
+      situations: S.situations,
     };
     try {
       localStorage.setItem(saveKey, JSON.stringify(data));
@@ -266,6 +340,7 @@ export function runSession(root, session, onDone, onQuit) {
     S.quiz = data.quiz || { correct: 0, total: 0 };
     S.readMs = data.readMs || 0;
     S.factsShown = data.factsShown || [];
+    S.situations = data.situations || { correct: 0, total: 0 };
     S.facts = S.facts.filter((f) => !S.factsShown.includes(f.vi || f.text.slice(0, 40)));
   }
 
@@ -284,6 +359,9 @@ export function runSession(root, session, onDone, onQuit) {
       article: lesson ? { readSec: Math.round(S.readMs / 1000), factsShown: S.factsShown.length } : null,
       grade: gradeFor(sum.firstTryAccuracy),
       progress: { step: S.i, steps: S.steps.length },
+      situations: S.situations,
+      timing: timing(),
+      relaxed: Boolean(session.relaxed),
       feedback,
     };
   }
@@ -294,11 +372,43 @@ export function runSession(root, session, onDone, onQuit) {
         <button class="icon-btn" data-act="quit" aria-label="Close">&times;</button>
         <div class="progress" role="progressbar" aria-label="Progress"><div class="fill"></div></div>
         <div class="streak-pill" aria-live="polite"></div>
+        ${session.ask ? '<button class="icon-btn ask-btn" data-act="ask" aria-label="Ask a question"><span>?</span></button>' : ''}
       </header>
       <main class="stage" aria-live="polite"></main>
       <div class="fact-card" role="status"></div>
+      <div class="ask-sheet" hidden>
+        <form class="ask-form">
+          <div class="label">Ask the editors</div>
+          <textarea name="q" rows="3" placeholder="How do I say...? What is the difference between...?" aria-label="Your question"></textarea>
+          <p class="hint ask-context"></p>
+          <div class="row"><button type="button" class="btn ghost small" data-act="ask-cancel">Cancel</button><button type="submit" class="btn primary small">Send</button></div>
+        </form>
+      </div>
     </div>`;
   const sessionEl = root.querySelector('.session');
+  const askSheet = root.querySelector('.ask-sheet');
+  function askContext() {
+    const w = S.steps[S.i]?.word;
+    const parts = [lesson ? `issue ${lesson.number}, ${lesson.title}` : 'review'];
+    if (w && !w.sit) parts.push(`word: ${w.vi} (${w.en})`);
+    if (w && w.sit) parts.push(`line: ${w.vi}`);
+    return parts.join('; ');
+  }
+  askSheet?.addEventListener('keydown', (ev) => {
+    if (ev.key === 'Escape') askSheet.hidden = true;
+  });
+  askSheet?.querySelector('.ask-form').addEventListener('submit', (ev) => {
+    ev.preventDefault();
+    const text = ev.target.q.value.trim();
+    if (!text) return;
+    session.ask(text, askContext());
+    ev.target.q.value = '';
+    askSheet.hidden = true;
+    factEl.innerHTML = '<div class="label">Question sent</div>The answer will appear under Ask on the home screen.<button type="button" class="fact-close" aria-label="Close">&times;</button>';
+    factEl.classList.add('show');
+    clearTimeout(factTimer);
+    factTimer = setTimeout(() => factEl.classList.remove('show'), 5000);
+  });
   const stage = root.querySelector('.stage');
   const fill = root.querySelector('.fill');
   const streakEl = root.querySelector('.streak-pill');
@@ -335,8 +445,25 @@ export function runSession(root, session, onDone, onQuit) {
   }
 
   function record(e) {
-    S.events.push({ ...e, ms: Date.now() - S.stepStart, at: Date.now() - S.started });
+    S.events.push({ ...e, ms: Date.now() - S.stepStart, at: Date.now() - S.started, plays: S.plays || undefined });
     snapshot();
+  }
+
+  // Time spent per phase and long pauses, from the recorded events.
+  function timing() {
+    const by = {};
+    for (const e of S.events) {
+      const phase = e.t === 'meet' || e.t === 'known' ? 'words' : e.warmup ? 'warmup' : e.t === 'speed' ? 'rush' : e.t === 'quiz' ? 'quiz' : e.t === 'situation' ? 'reallife' : 'drills';
+      by[phase] = (by[phase] || 0) + (e.ms || 0);
+    }
+    const gaps = [];
+    for (let i = 1; i < S.events.length; i++) gaps.push((S.events[i].at || 0) - (S.events[i - 1].at || 0));
+    const out = {};
+    for (const [k, v] of Object.entries(by)) out[k] = Math.round(v / 1000);
+    out.article = Math.round(S.readMs / 1000);
+    out.pauses = gaps.filter((g) => g > 60000).length;
+    out.longestPauseSec = gaps.length ? Math.round(Math.max(...gaps) / 1000) : 0;
+    return out;
   }
 
   function insertRetry(step) {
@@ -349,7 +476,10 @@ export function runSession(root, session, onDone, onQuit) {
 
   function next() {
     clearInterval(S.timer);
-    if (S.steps[S.i]?.type === 'feature') S.readMs = Date.now() - S.stepStart;
+    const cur = S.steps[S.i];
+    if (cur?.type === 'feature') S.readMs = Date.now() - S.stepStart;
+    if (cur?.type === 'story') S.events.push({ t: 'story', w: cur.word?.vi, ms: Date.now() - S.stepStart, at: Date.now() - S.started });
+    if (cur?.type === 'meet') S.events.push({ t: 'meet', w: cur.word.vi, ms: Date.now() - S.stepStart, at: Date.now() - S.started, plays: S.plays || undefined });
     S.i += 1;
     render();
   }
@@ -370,6 +500,7 @@ export function runSession(root, session, onDone, onQuit) {
   function render() {
     const step = S.steps[S.i];
     S.answered = false;
+    S.plays = 0;
     S.stepStart = Date.now();
     clearInterval(S.timer);
     const total = S.steps.filter((s) => s.type !== 'results' && s.type !== 'feedback').length;
@@ -462,19 +593,33 @@ export function runSession(root, session, onDone, onQuit) {
   const RENDER = {
     feature() {
       const f = lesson.feature || {};
-      const body = (f.body || []).map((p, i) => `<p${i === 0 ? ' class="first"' : ''}>${esc(p)}</p>${i === 1 && f.pull ? `<blockquote class="pull">${esc(f.pull)}</blockquote>` : ''}`).join('');
-      const meta = [`${lesson.words.length} new words`, lesson.warmup?.length ? `a warm-up of ${lesson.warmup.length}` : '', lesson.quiz?.length ? `a ${lesson.quiz.length}-question quiz` : '', 'Rush hour'].filter(Boolean).join(' · ');
+      const { intro, beats } = storyParts(lesson);
+      const meta = [`${lesson.words.length} new words`, lesson.warmup?.length ? `a warm-up of ${lesson.warmup.length}` : '', lesson.situations?.length ? `${lesson.situations.length} real-life moments` : '', 'Rush hour'].filter(Boolean).join(' · ');
       stage.innerHTML = `
         <article class="feature">
           ${lesson.cover?.picture ? `<figure class="cover-art">${picture(lesson.cover.picture)}</figure>` : ''}
           <div class="kicker">Issue ${esc(lesson.number)} · ${esc(f.kicker || lesson.theme || '')}</div>
           <h1 class="feature-title">${esc(f.title || lesson.title)}</h1>
           ${f.dek ? `<p class="dek">${esc(f.dek)}</p>` : ''}
-          <div class="feature-body">${body}</div>
-          ${f.sources?.length ? `<details class="sources"><summary>Sources</summary><ul>${f.sources.map((s) => `<li><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)}</a></li>`).join('')}</ul></details>` : ''}
+          <div class="feature-body"><p class="first">${esc(intro)}</p></div>
+          ${beats.length ? `<p class="hint">The story continues as you learn the words.</p>` : ''}
           <div class="issue-meta"><div class="label">In this issue</div><p><b>${esc(lesson.title)}</b> <span class="vi">${colorize(lesson.vi)}</span><br>${esc(meta)}</p></div>
         </article>
-        ${footer(`<button class="btn primary" data-act="next">${lesson.quiz?.length ? 'Take the quiz' : 'Start'}</button>`)}`;
+        ${footer('<button class="btn primary" data-act="next">Begin</button>')}`;
+    },
+
+    story(step) {
+      const b = step.beat;
+      const w = step.word;
+      stage.innerHTML = `
+        <article class="story">
+          <div class="kicker">${esc(lesson?.feature?.kicker || 'The story')} · continued</div>
+          ${w ? `<div class="story-word"><span class="vi">${colorize(w.vi)}</span> <span class="story-gloss">${esc(w.en)}</span></div>` : ''}
+          ${b.picture ? pic(b, 'medium') : ''}
+          ${b.title ? `<h2 class="story-title">${esc(b.title)}</h2>` : ''}
+          <p class="story-text">${esc(b.text)}</p>
+        </article>
+        ${footer('<button class="btn primary" data-act="next">Continue</button>')}`;
     },
 
     quiz(step) {
@@ -620,17 +765,31 @@ export function runSession(root, session, onDone, onQuit) {
           keys += 1;
         });
       });
-      stage.querySelector('[data-act=hint]').addEventListener('click', () => {
+      let firstKey = null;
+      let deletes = 0;
+      let revealed = false;
+      input.addEventListener('input', (ev) => {
+        if (firstKey === null) firstKey = Date.now() - S.stepStart;
+        if (ev.inputType && ev.inputType.startsWith('delete')) deletes += 1;
+      });
+      const hintBtn = stage.querySelector('[data-act=hint]');
+      hintBtn.addEventListener('click', () => {
         hints += 1;
-        const shape = nfc(w.vi)
+        const skeleton = nfc(w.vi)
           .split(' ')
-          .map((s) => s[0] + '·'.repeat(Math.max(0, [...s].length - 1)))
-          .join(' ');
-        const n = tonesOf(w.vi).length;
+          .map((syl) => [...syl.normalize('NFD').replace(/[\u0300-\u036f]/g, '').normalize('NFC')].map((c) => (/[aeiouy]/i.test(c) ? '_' : c)).join(''))
+          .join('  ');
         let text;
-        if (hints === 1) text = dict ? `It means: ${esc(w.en)}` : `${n} syllable${n > 1 ? 's' : ''}, starts with <b class="vi">${esc(nfc(w.vi)[0])}</b>`;
-        else text = `Starts like <b class="vi">${esc(shape)}</b>; tones: ${tonesOf(w.vi).map((t) => TONES[t].name).join(', ')}`;
+        if (hints === 1) text = dict ? `It means: <b>${esc(w.en)}</b>` : w.hook ? `<span class="label">Memory hook</span>${esc(maskWord(w.hook, w.vi))}` : `It starts with <b class="vi">${esc(nfc(w.vi)[0])}</b>`;
+        else if (hints === 2) text = `<span class="label">Consonants</span><b class="vi skeleton">${esc(skeleton)}</b>`;
+        else {
+          revealed = true;
+          text = `<span class="label">The answer</span><b class="vi big-hint">${colorize(w.vi)}</b> Type it in to continue.`;
+          play(w.vi);
+        }
         stage.querySelector('.hint-slot').innerHTML = `<div class="hint">${text}</div>`;
+        hintBtn.textContent = hints === 1 ? 'Another hint' : hints === 2 ? 'Show me' : 'Shown';
+        if (hints >= 3) hintBtn.disabled = true;
         input.focus({ preventScroll: true });
       });
       stage.querySelector('[data-act=hear]')?.addEventListener('click', () => {
@@ -652,28 +811,110 @@ export function runSession(root, session, onDone, onQuit) {
         }
         S.answered = true;
         input.disabled = true;
-        record({ t: 'type', w: w.vi, g, a: nfc(answer).trim().slice(0, 60), hints, keys, dictation: dict || undefined, retry: Boolean(step.retry) || undefined });
-        const ok = g === 'perfect';
+        const close = g === 'tone' || g === 'marks' || g === 'sound';
+        const ok = !revealed && (g === 'perfect' || (session.relaxed && close));
+        record({
+          t: 'type',
+          w: w.vi,
+          g,
+          ok,
+          a: nfc(answer).trim().slice(0, 60),
+          hints,
+          keys,
+          firstKeyMs: firstKey ?? undefined,
+          deletes: deletes || undefined,
+          revealed: revealed || undefined,
+          dictation: dict || undefined,
+          retry: Boolean(step.retry) || undefined,
+        });
         flash(ok);
         if (ok) right();
         else {
           wrong();
-          if (g === 'wrong') insertRetry({ ...step, tiles: true });
+          if (g === 'wrong' || revealed) insertRetry({ ...step, tiles: true });
         }
-        const msg = {
+        const relaxedMsg = { tone: 'Right. Mind the tone mark:', marks: 'Right. With the marks it is written:', sound: 'Right, that is how it sounds in Hà Nội. It is spelled:' };
+        const msg = revealed ? 'Typed from the answer. It will come back later.' : ok && close ? relaxedMsg[g] : {
           perfect: hints ? 'Correct, with a hint.' : 'Perfect.',
           tone: 'Right letters, wrong or missing tone. Look at the mark:',
           marks: 'Right letters. With the marks it is written:',
           sound: 'That sounds right in Hà Nội, but it is spelled:',
           wrong: 'Not quite. It is:',
         }[g];
-        stage.classList.add('answered', `graded-${g}`);
+        stage.classList.add('answered', `graded-${ok ? 'perfect' : g}`);
         stage.querySelector('.feedback-slot').innerHTML = `<div class="verdict">${esc(msg)}</div>${answerBox(w)}`;
         play(w.vi);
         const btn = stage.querySelector('[data-act=check]');
         btn.textContent = 'Continue';
         btn.focus({ preventScroll: true });
       });
+    },
+
+    situation(step) {
+      const sit = step.word;
+      const digits = !sit.options && sit.digits;
+      stage.innerHTML = `
+        <div class="kicker">Real life${sit.who ? ` · ${esc(sit.who)}` : ''}</div>
+        ${pic(sit, 'medium')}
+        ${listenTop(sit.vi)}
+        <h2 class="quiz-q">${esc(sit.ask)}</h2>
+        ${
+          digits
+            ? `<form class="digits-form" autocomplete="off" novalidate><input class="type-input digits-input" type="text" inputmode="numeric" placeholder="Type the number" aria-label="Your answer"><div class="row center helper-row"><button type="button" class="btn ghost small sit-hint">Hint</button></div><div class="hint-slot"></div><div class="feedback-slot"></div>${footer('<button type="submit" class="btn primary" data-act="check">Check</button>')}</form>`
+            : `<div class="options">${sit.options.map((o, i) => `<button type="button" class="opt" data-i="${i}" data-key="${esc(o)}"><span class="opt-n">${i + 1}</span><span class="opt-label">${esc(o)}</span></button>`).join('')}</div><div class="feedback-slot"></div>${footer('')}`
+        }`;
+      play(sit.vi);
+      const price = sit.answer || `${String(sit.digits).replace(/[^0-9]/g, '').replace(/\B(?=(\d{3})+(?!\d))/g, '.')}₫`;
+      const spoken = /\p{L}/u.test(price);
+      let hints = 0;
+      const reveal = (ok, chosen) => {
+        S.situations.total += 1;
+        if (ok) S.situations.correct += 1;
+        record({ t: 'situation', w: sit.vi, ok, a: chosen, ...(hints ? { hints } : {}) });
+        flash(ok);
+        if (ok) right();
+        else wrong();
+        const shown = spoken ? `<span class="vi">${colorize(price)}</span> ${sayButton(price, 'Hear it')}` : `${esc(price)}.`;
+        stage.querySelector('.feedback-slot').innerHTML = `<div class="verdict ${ok ? 'ok' : 'no'}">${ok ? `Right: ${shown}` : `${spoken ? 'Better' : 'It was'}: ${shown}`}</div>
+          <div class="answer-box transcript"><div class="label">What was said</div><div class="vi transcript-vi">${colorize(sit.vi)}</div><div class="transcript-en">${esc(sit.en)}</div><div class="row">${sayButton(sit.vi, 'Hear it again')} ${sayButton(sit.vi, 'Slow', 'slow')}</div>${sit.note ? `<p class="note">${esc(sit.note)}</p>` : ''}</div>`;
+      };
+      if (digits) {
+        const form = stage.querySelector('.digits-form');
+        const input = form.querySelector('input');
+        input.focus({ preventScroll: true });
+        form.querySelector('.sit-hint').addEventListener('click', (ev) => {
+          hints += 1;
+          ev.currentTarget.disabled = true;
+          const split = nfc(sit.vi).replace(/\s+(nghìn|triệu)/gu, ' · $1');
+          form.querySelector('.hint-slot').innerHTML = `<div class="answer-box transcript hint-box"><div class="vi transcript-vi">${colorize(split)}</div><p class="note">Split it at nghìn (thousand): the words before it count the thousands. Mười · nghìn is 10 × 1.000 = 10.000.</p></div>`;
+          input.focus({ preventScroll: true });
+        });
+        form.addEventListener('submit', (ev) => {
+          ev.preventDefault();
+          if (S.answered) {
+            next();
+            return;
+          }
+          const got = digitsOf(input.value);
+          if (!got) return;
+          S.answered = true;
+          input.disabled = true;
+          reveal(got === String(sit.digits).replace(/[^0-9]/g, ''), input.value.trim());
+          stage.querySelector('[data-act=check]').textContent = 'Continue';
+        });
+      } else {
+        stage.querySelectorAll('.opt').forEach((b) =>
+          b.addEventListener('click', () => {
+            if (S.answered) return;
+            S.answered = true;
+            const chosen = sit.options[Number(b.dataset.i)];
+            markOptions(chosen, sit.answer);
+            reveal(chosen === sit.answer, chosen);
+            if (spoken) play(price);
+            showNext();
+          }),
+        );
+      }
     },
 
     tiles(step) {
@@ -729,6 +970,7 @@ export function runSession(root, session, onDone, onQuit) {
 
     stage(step) {
       stage.innerHTML = `
+        ${step.beat ? `<article class="story inline"><div class="kicker">${esc(lesson?.feature?.kicker || 'The story')} · continued</div>${step.beat.title ? `<h2 class="story-title">${esc(step.beat.title)}</h2>` : ''}<p class="story-text">${esc(step.beat.text)}</p></article>` : ''}
         <div class="kicker">${lesson ? `Issue ${esc(lesson.number)}` : 'Review'}</div>
         <h2 class="title">${esc(step.title)}</h2>
         <p class="lead">${esc(step.text)}</p>
@@ -806,7 +1048,7 @@ export function runSession(root, session, onDone, onQuit) {
       }, 100);
     },
 
-    results() {
+    results(step) {
       const sum = summarise(S.events, scoredWords);
       const pct = Math.round(sum.firstTryAccuracy * 100);
       const g = gradeFor(sum.firstTryAccuracy);
@@ -827,13 +1069,16 @@ export function runSession(root, session, onDone, onQuit) {
           <div><b>${pct}%</b><span>first try</span></div>
           <div><b>${S.bestStreak}</b><span>best streak</span></div>
           ${S.quiz.total ? `<div><b>${S.quiz.correct}/${S.quiz.total}</b><span>quiz</span></div>` : ''}
+          ${S.situations.total ? `<div><b>${S.situations.correct}/${S.situations.total}</b><span>real life</span></div>` : ''}
           ${S.speed.answered ? `<div><b>${S.speed.score}</b><span>rush hour</span></div>` : ''}
         </div>
         ${missedWarmup.length ? `<div class="note">Added to your reviews from the warm-up: <span class="vi">${missedWarmup.map((v) => colorize(v)).join(', ')}</span></div>` : ''}
         <div class="word-results">${sum.perWord
           .map((w) => `<button type="button" class="word-row" data-say="${esc(w.vi)}"><span class="vi">${colorize(w.vi)}</span><span class="en">${esc(w.en)}${S.known.has(w.vi) ? ' <span class="tag">known</span>' : ''}</span>${dots(w.stars)}</button>`)
           .join('')}</div>
+        ${(step.beats || []).map((b) => `<article class="story inline"><div class="kicker">${esc(lesson?.feature?.kicker || 'The story')} · to finish</div>${b.title ? `<h2 class="story-title">${esc(b.title)}</h2>` : ''}<p class="story-text">${esc(b.text)}</p></article>`).join('')}
         ${lesson?.challenge ? `<aside class="challenge"><div class="label">${esc(lesson.challenge.title || 'Challenge')}</div>${esc(lesson.challenge.text)}</aside>` : ''}
+        ${lesson?.feature?.sources?.length ? `<details class="sources"><summary>Sources for this issue</summary><ul>${lesson.feature.sources.map((x) => `<li><a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.title)}</a></li>`).join('')}</ul></details>` : ''}
         ${footer('<button class="btn primary" data-act="next">Continue</button>')}`;
     },
 
@@ -887,7 +1132,7 @@ export function runSession(root, session, onDone, onQuit) {
   };
 
   function onKey(ev) {
-    if (ev.target.matches('input, textarea')) return;
+    if (ev.target.matches('input, textarea') || (askSheet && !askSheet.hidden)) return;
     const k = ev.key.toLowerCase();
     const n = Number(k) || (k.length === 1 && k >= 'a' && k <= 'd' && stage.dataset.step === 'quiz' ? k.charCodeAt(0) - 96 : 0);
     if (n >= 1 && n <= 6) {
@@ -909,10 +1154,21 @@ export function runSession(root, session, onDone, onQuit) {
     }
     const say = ev.target.closest('[data-say]');
     if (say) {
+      if (!S.answered) S.plays += 1;
       play(say.dataset.say, { slow: say.classList.contains('slow') });
       return;
     }
     const act = ev.target.closest('[data-act]')?.dataset.act;
+    if (act === 'ask') {
+      askSheet.hidden = false;
+      askSheet.querySelector('.ask-context').textContent = `About: ${askContext()}`;
+      askSheet.querySelector('textarea').focus();
+      return;
+    }
+    if (act === 'ask-cancel') {
+      askSheet.hidden = true;
+      return;
+    }
     if (act === 'next') next();
     else if (act === 'quit') {
       if (saveKey) {

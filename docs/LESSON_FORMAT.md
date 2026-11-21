@@ -13,16 +13,24 @@ All Vietnamese text must be NFC-normalised (the checker catches mistakes).
   "theme": "people and family",
   "intro": "...",                 // up to 300 characters, a one-line summary
   "cover": { "picture": { "kind": "scene", "name": "phoStall" } },   // a scene in web/js/pictures.js
-  "feature": {                    // the issue's article
-    "kicker": "Family and manners",
-    "title": "Who are you calling older brother?",
+  "feature": {                    // the issue's story, told in parts through the lesson
+    "kicker": "Legends and numbers",
+    "title": "The bride price of nines",
     "dek": "...",                 // the standfirst, one or two sentences
-    "body": ["...", "...", "..."],// 2 to 5 paragraphs, 150 to 350 words in all, each under 800 characters
-    "pull": "...",                // the pull quote: the most surprising sentence
-    "sources": [{ "title": "Vietnamese pronouns", "url": "https://en.wikipedia.org/wiki/Vietnamese_pronouns" }]
+    "intro": "...",               // two or three sentences on the opening screen, under 420 characters
+    "beats": [                    // 3 to 6 short parts, each under 600 characters
+      { "word": "chín", "text": "..." },   // shown right after the group that teaches chín
+      { "text": "..." }                    // untied: shown on a part, real-life or results screen
+    ],
+    "pull": "...",                // the most surprising line; it can turn up as a fact card
+    "sources": [{ "title": "Sơn Tinh – Thủy Tinh", "url": "https://en.wikipedia.org/wiki/..." }]
   },
-  "quiz": [                       // 2 to 6 trivia questions on the article
-    { "q": "...", "options": ["...", "...", "..."], "answer": 1, "explain": "..." }
+  "situations": [                 // 5 to 8 real-life lines; about a third replies or orders, not prices
+    { "who": "Phở seller", "picture": { "kind": "icon", "name": "bowl" }, "vi": "Phở bò năm mươi nghìn.", "en": "Beef phở is 50,000.",
+      "ask": "How much is the beef phở?", "options": ["50.000₫", "15.000₫", "5.000₫", "500.000₫"], "answer": "50.000₫" },
+    { "who": "Taxi driver", "vi": "Hết tám mươi nghìn.", "en": "That's 80,000 altogether.", "note": "...", "ask": "Type the fare in digits.", "digits": "80000" },
+    { "who": "Fruit seller", "vi": "Cam ba trăm nghìn một cân.", "en": "Oranges, 300,000 a kilo.", "ask": "What do you say?",
+      "options": ["Đắt quá!", "Rẻ quá!", "Ngon quá!"], "answer": "Đắt quá!" }   // a reply in words is played after the answer
   ],
   "challenge": { "title": "Street challenge", "text": "..." },        // one real thing to try
   "stamp": { "label": "Gia đình", "picture": { "kind": "icon", "name": "tea" } },
@@ -60,11 +68,15 @@ After each session the site saves a result and posts it as a GitHub issue (marke
 
 - `resultId`, `kind` (`lesson` or `review`), `lessonId`, `startedAt`, `finishedAt`, `durationSec`, `device`, `style`
 - `summary`: `firstTryAccuracy` (0 to 1, typing partly counted), `exercises`, `bestStreak`, `grade` (complete, merit or distinction), `speedScore`, `speedAnswered`, `speedCorrect`, `bestCombo` (rush hour)
-- `article`: `readSec` (time on the article), `factsShown`; `quiz`: `correct`, `total`
-- `words[]`: `vi`, `en`, `share` (first-try credit), `meaning` (listen and reverse), `form` (spelling and typing), `stars`, `firstTry` per exercise, `attempts`, `msMedian`, `known` (tapped "I know it")
+- `article`: `readSec` (time on the opening), `factsShown`; `situations`: `correct`, `total`; `timing`: seconds per phase (article, warmup, words, drills, reallife, rush), `pauses` (gaps over a minute), `longestPauseSec`; `toneMarks` (relaxed or strict); `partial` and `progress` for an issue closed midway
+- `words[]`: `vi`, `en`, `share` (first-try credit), `meaning` (listen and reverse), `form` (spelling and typing), `stars`, `firstTry` per exercise, `attempts`, `failures`, `timeSec`, `replays`, `hints`, `revealed`, `studySec` (time on the word card), `msMedian`, `known` (tapped "I know it")
 - `warmup[]`: `vi`, `ok`, `ms`
 - `toneConfusions[]`, `meaningConfusions[]`, `typed[]` (target, answer, grade: perfect, tone, marks, sound or wrong; hints; keys pressed; dictation)
-- `feedback`: `difficulty`, `fun`, `article` (Skipped it, OK, Interesting, Loved it), `hardest[]`, `wantNext`, `note` (or null if skipped)
-- `events[]`: every answer in order (`t` type including `quiz`, `w` word, `ok` or `g`, `a` answer, `ms`, and flags `retry`, `warmup`, `dictation`)
+- `feedback`: `difficulty`, `fun`, `article` (the story: Skipped it, OK, Interesting, Loved it), `hardest[]`, `wantNext`, `note` (or null if skipped)
+- `events[]`: every answer in order (`t`: listen, spell, reverse, type, situation, speed, meet (time on a word card), story (time on a beat), known; `w` word, `ok` or `g`, `a` answer, `ms` time to answer, `plays` audio replays, `hints`, `firstKeyMs`, `deletes`, `revealed`, `tiles`, and flags `retry`, `warmup`, `dictation`)
 
 Schema 1 (lesson 1) and schema 2 (the short-lived battle version, with a `battle` object) are still read by `ingest.py` and by the site's sync.
+
+## Questions and answers
+
+A question from Ask is an issue labelled `question` with the text, an optional `Context:` line, and the marker `<!-- vietwars-question -->` followed by a JSON block: `questionId`, `askedAt`, `text`, `context` (for example "issue 3, One to ten, properly; word: một (one)", or null). An answer is a comment on that issue: Markdown for the learner, then `<!-- vietwars-answer {"phrases": [{"vi": "...", "en": "..."}]} -->`, which the site turns into play buttons. `scripts/questions.py answer N FILE` writes it; the site shows the newest comment with an answer block, or else the newest comment. `learner/questions.json` keeps every question with its answer.

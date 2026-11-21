@@ -1,0 +1,1562 @@
+{
+ "schema": 2,
+ "resultId": "e7580a92-920d-44d6-ab3a-31490f280b23",
+ "kind": "lesson",
+ "lessonId": "lesson-02",
+ "lessonTitle": "Big numbers and prices",
+ "appVersion": "2",
+ "style": "lacquer",
+ "device": "iPhone",
+ "startedAt": "2026-11-21T17:33:18.280Z",
+ "finishedAt": "2026-11-21T18:02:56.658Z",
+ "durationSec": 1778,
+ "summary": {
+  "firstTryAccuracy": 0.64,
+  "exercises": 67,
+  "xp": 657,
+  "speedScore": 450,
+  "speedAnswered": 11,
+  "speedCorrect": 11,
+  "bestCombo": 11
+ },
+ "battle": {
+  "foe": "Vua Muỗi",
+  "won": false,
+  "foeHpLeft": 19,
+  "heartsLost": 35,
+  "knockouts": 6,
+  "crits": 12,
+  "ambushWon": 0,
+  "ambushLost": 0,
+  "powerups": 1,
+  "rank": "C"
+ },
+ "words": [
+  {
+   "vi": "trăm",
+   "en": "hundred",
+   "share": 0.25,
+   "meaning": 0.5,
+   "form": 0,
+   "stars": 0,
+   "firstTry": {
+    "listen": true,
+    "spell": false,
+    "type": "wrong"
+   },
+   "attempts": 7,
+   "msMedian": 11569,
+   "known": false
+  },
+  {
+   "vi": "nghìn",
+   "en": "thousand",
+   "share": 0.67,
+   "meaning": 1,
+   "form": 0,
+   "stars": 1,
+   "firstTry": {
+    "listen": true,
+    "reverse": true,
+    "type": "wrong"
+   },
+   "attempts": 4,
+   "msMedian": 8721,
+   "known": false
+  },
+  {
+   "vi": "triệu",
+   "en": "million",
+   "share": 0.5,
+   "meaning": 0.5,
+   "form": 0.5,
+   "stars": 1,
+   "firstTry": {
+    "listen": true,
+    "spell": true,
+    "type": "wrong"
+   },
+   "attempts": 6,
+   "msMedian": 8879,
+   "known": false
+  },
+  {
+   "vi": "mươi",
+   "en": "-ty, the tens (hai mươi = 20)",
+   "share": 0.5,
+   "meaning": 1,
+   "form": 0.25,
+   "stars": 1,
+   "firstTry": {
+    "listen": true,
+    "spell": false,
+    "type": "marks"
+   },
+   "attempts": 5,
+   "msMedian": 5825,
+   "known": false
+  },
+  {
+   "vi": "lăm",
+   "en": "five, after mười or mươi (mười lăm = 15)",
+   "share": 0.5,
+   "meaning": 1,
+   "form": 0.25,
+   "stars": 1,
+   "firstTry": {
+    "listen": true,
+    "spell": false,
+    "type": "marks"
+   },
+   "attempts": 5,
+   "msMedian": 7918,
+   "known": false
+  },
+  {
+   "vi": "linh",
+   "en": "zero (for an empty tens place, as in 105)",
+   "share": 0.67,
+   "meaning": 1,
+   "form": 0.5,
+   "stars": 1,
+   "firstTry": {
+    "listen": true,
+    "spell": false,
+    "type": "perfect"
+   },
+   "attempts": 4,
+   "msMedian": 4714,
+   "known": false
+  },
+  {
+   "vi": "rưỡi",
+   "en": "and a half (after a unit)",
+   "share": 0.5,
+   "meaning": 0.67,
+   "form": 0,
+   "stars": 1,
+   "firstTry": {
+    "listen": false,
+    "reverse": true,
+    "type": "wrong"
+   },
+   "attempts": 6,
+   "msMedian": 18507,
+   "known": false
+  },
+  {
+   "vi": "tiền",
+   "en": "money",
+   "share": 0.88,
+   "meaning": 1,
+   "form": 0.75,
+   "stars": 2,
+   "firstTry": {
+    "listen": true,
+    "spell": true,
+    "type": "marks"
+   },
+   "attempts": 5,
+   "msMedian": 6267,
+   "known": false
+  },
+  {
+   "vi": "đồng",
+   "en": "đồng (the currency)",
+   "share": 0.63,
+   "meaning": 1,
+   "form": 0.25,
+   "stars": 1,
+   "firstTry": {
+    "listen": true,
+    "spell": false,
+    "type": "marks"
+   },
+   "attempts": 6,
+   "msMedian": 4876,
+   "known": false
+  },
+  {
+   "vi": "bao nhiêu",
+   "en": "how much, how many",
+   "share": 0.67,
+   "meaning": 1,
+   "form": 0,
+   "stars": 1,
+   "firstTry": {
+    "listen": true,
+    "reverse": true,
+    "type": "wrong"
+   },
+   "attempts": 4,
+   "msMedian": 7018,
+   "known": false
+  },
+  {
+   "vi": "đắt",
+   "en": "expensive",
+   "share": 0.38,
+   "meaning": 0,
+   "form": 0.75,
+   "stars": 1,
+   "firstTry": {
+    "listen": false,
+    "spell": true,
+    "type": "marks"
+   },
+   "attempts": 7,
+   "msMedian": 5692,
+   "known": false
+  },
+  {
+   "vi": "rẻ",
+   "en": "cheap",
+   "share": 0.67,
+   "meaning": 1,
+   "form": 0.5,
+   "stars": 1,
+   "firstTry": {
+    "listen": true,
+    "spell": true,
+    "type": "wrong"
+   },
+   "attempts": 4,
+   "msMedian": 12418,
+   "known": false
+  },
+  {
+   "vi": "hơn",
+   "en": "more than; -er (rẻ hơn = cheaper)",
+   "share": 1,
+   "meaning": 1,
+   "form": 1,
+   "stars": 3,
+   "firstTry": {
+    "listen": true,
+    "spell": true,
+    "type": "perfect"
+   },
+   "attempts": 4,
+   "msMedian": 8344,
+   "known": false
+  },
+  {
+   "vi": "nữa",
+   "en": "more, another",
+   "share": 0.25,
+   "meaning": 0,
+   "form": 0.5,
+   "stars": 0,
+   "firstTry": {
+    "listen": false,
+    "spell": true,
+    "type": "wrong"
+   },
+   "attempts": 7,
+   "msMedian": 7667,
+   "known": false
+  },
+  {
+   "vi": "gà",
+   "en": "chicken",
+   "share": 0.5,
+   "meaning": 0,
+   "form": 1,
+   "stars": 1,
+   "firstTry": {
+    "listen": false,
+    "type": "perfect"
+   },
+   "attempts": 3,
+   "msMedian": 10654,
+   "known": false
+  },
+  {
+   "vi": "cá",
+   "en": "fish",
+   "share": 0.75,
+   "meaning": 1,
+   "form": 0.5,
+   "stars": 2,
+   "firstTry": {
+    "listen": true,
+    "type": "tone"
+   },
+   "attempts": 3,
+   "msMedian": 3805,
+   "known": false
+  },
+  {
+   "vi": "bò",
+   "en": "beef; cow",
+   "share": 1,
+   "meaning": 1,
+   "form": 1,
+   "stars": 3,
+   "firstTry": {
+    "listen": true,
+    "type": "perfect"
+   },
+   "attempts": 2,
+   "msMedian": 13997,
+   "known": false
+  }
+ ],
+ "warmup": [
+  {
+   "vi": "không",
+   "ok": true,
+   "ms": 9060
+  },
+  {
+   "vi": "bốn",
+   "ok": false,
+   "ms": 7155
+  },
+  {
+   "vi": "hai",
+   "ok": true,
+   "ms": 1571
+  },
+  {
+   "vi": "tám",
+   "ok": false,
+   "ms": 7184
+  },
+  {
+   "vi": "mười",
+   "ok": true,
+   "ms": 2619
+  },
+  {
+   "vi": "năm",
+   "ok": true,
+   "ms": 3467
+  },
+  {
+   "vi": "một",
+   "ok": true,
+   "ms": 2616
+  },
+  {
+   "vi": "chín",
+   "ok": false,
+   "ms": 2534
+  },
+  {
+   "vi": "sáu",
+   "ok": true,
+   "ms": 2572
+  },
+  {
+   "vi": "bảy",
+   "ok": true,
+   "ms": 15561
+  },
+  {
+   "vi": "ba",
+   "ok": false,
+   "ms": 3017
+  }
+ ],
+ "toneConfusions": [
+  {
+   "target": "đồng",
+   "chose": "đông"
+  },
+  {
+   "target": "lăm",
+   "chose": "lắm"
+  },
+  {
+   "target": "mươi",
+   "chose": "mười"
+  },
+  {
+   "target": "trăm",
+   "chose": "trắm"
+  },
+  {
+   "target": "lăm",
+   "chose": "lắm"
+  },
+  {
+   "target": "trăm",
+   "chose": "trắm"
+  },
+  {
+   "target": "linh",
+   "chose": "lính"
+  }
+ ],
+ "meaningConfusions": [
+  {
+   "target": "trăm",
+   "chose": "thousand",
+   "t": "listen"
+  },
+  {
+   "target": "triệu",
+   "chose": "thousand",
+   "t": "listen"
+  },
+  {
+   "target": "trăm",
+   "chose": "million",
+   "t": "listen"
+  },
+  {
+   "target": "triệu",
+   "chose": "thousand",
+   "t": "listen"
+  },
+  {
+   "target": "đắt",
+   "chose": "how much, how many",
+   "t": "listen"
+  },
+  {
+   "target": "nữa",
+   "chose": "five, after mười or mươi (mười lăm = 15)",
+   "t": "listen"
+  },
+  {
+   "target": "đắt",
+   "chose": "cheap",
+   "t": "listen"
+  },
+  {
+   "target": "rưỡi",
+   "chose": "more, another",
+   "t": "listen"
+  },
+  {
+   "target": "rưỡi",
+   "chose": "million",
+   "t": "listen"
+  },
+  {
+   "target": "nữa",
+   "chose": "more than; -er (rẻ hơn = cheaper)",
+   "t": "listen"
+  },
+  {
+   "target": "gà",
+   "chose": "and a half (after a unit)",
+   "t": "listen"
+  },
+  {
+   "target": "một trăm linh năm",
+   "chose": "2.500.000",
+   "t": "listen"
+  },
+  {
+   "target": "một trăm linh năm",
+   "chose": "2.500.000",
+   "t": "listen"
+  }
+ ],
+ "typed": [
+  {
+   "target": "nữa",
+   "answer": "hon",
+   "grade": "wrong",
+   "hints": 0,
+   "keys": 0
+  },
+  {
+   "target": "rưỡi",
+   "answer": "rau",
+   "grade": "wrong",
+   "hints": 0,
+   "keys": 0
+  },
+  {
+   "target": "gà",
+   "answer": "gà",
+   "grade": "perfect",
+   "hints": 0,
+   "keys": 1
+  },
+  {
+   "target": "bao nhiêu",
+   "answer": "bao nhiu",
+   "grade": "wrong",
+   "hints": 0,
+   "keys": 0
+  },
+  {
+   "target": "nữa",
+   "answer": "bao nhiu",
+   "grade": "wrong",
+   "hints": 0,
+   "keys": 0,
+   "retry": true
+  },
+  {
+   "target": "rưỡi",
+   "answer": "ruoi",
+   "grade": "marks",
+   "hints": 0,
+   "keys": 0,
+   "retry": true
+  },
+  {
+   "target": "đồng",
+   "answer": "dong",
+   "grade": "marks",
+   "hints": 0,
+   "keys": 0
+  },
+  {
+   "target": "bao nhiêu",
+   "answer": "bap nhiu",
+   "grade": "wrong",
+   "hints": 0,
+   "keys": 0,
+   "retry": true
+  },
+  {
+   "target": "triệu",
+   "answer": "trin",
+   "grade": "wrong",
+   "hints": 1,
+   "keys": 0
+  },
+  {
+   "target": "lăm",
+   "answer": "làm",
+   "grade": "marks",
+   "hints": 0,
+   "keys": 1
+  },
+  {
+   "target": "đồng",
+   "answer": "dong",
+   "grade": "marks",
+   "hints": 0,
+   "keys": 0,
+   "retry": true
+  },
+  {
+   "target": "linh",
+   "answer": "linh",
+   "grade": "perfect",
+   "hints": 0,
+   "keys": 0
+  },
+  {
+   "target": "triệu",
+   "answer": "triu",
+   "grade": "wrong",
+   "hints": 0,
+   "keys": 0,
+   "retry": true
+  },
+  {
+   "target": "lăm",
+   "answer": "lám",
+   "grade": "marks",
+   "hints": 0,
+   "keys": 1,
+   "retry": true
+  },
+  {
+   "target": "đắt",
+   "answer": "dat",
+   "grade": "marks",
+   "hints": 0,
+   "keys": 0
+  },
+  {
+   "target": "tiền",
+   "answer": "tien",
+   "grade": "marks",
+   "hints": 0,
+   "keys": 0
+  },
+  {
+   "target": "bò",
+   "answer": "bò",
+   "grade": "perfect",
+   "hints": 0,
+   "keys": 1
+  },
+  {
+   "target": "trăm",
+   "answer": "trnh",
+   "grade": "wrong",
+   "hints": 2,
+   "keys": 0
+  },
+  {
+   "target": "đắt",
+   "answer": "dat",
+   "grade": "marks",
+   "hints": 0,
+   "keys": 0,
+   "retry": true
+  },
+  {
+   "target": "tiền",
+   "answer": "tien",
+   "grade": "marks",
+   "hints": 0,
+   "keys": 0,
+   "retry": true
+  },
+  {
+   "target": "cá",
+   "answer": "ca",
+   "grade": "tone",
+   "hints": 0,
+   "keys": 0
+  },
+  {
+   "target": "trăm",
+   "answer": "tram",
+   "grade": "marks",
+   "hints": 1,
+   "keys": 0,
+   "retry": true
+  },
+  {
+   "target": "mươi",
+   "answer": "muoi",
+   "grade": "marks",
+   "hints": 2,
+   "keys": 0
+  },
+  {
+   "target": "hơn",
+   "answer": "hơn",
+   "grade": "perfect",
+   "hints": 2,
+   "keys": 1
+  },
+  {
+   "target": "cá",
+   "answer": "cã",
+   "grade": "tone",
+   "hints": 1,
+   "keys": 6,
+   "retry": true
+  },
+  {
+   "target": "nghìn",
+   "answer": "tram",
+   "grade": "wrong",
+   "hints": 0,
+   "keys": 0
+  },
+  {
+   "target": "mươi",
+   "answer": "mươi",
+   "grade": "perfect",
+   "hints": 1,
+   "keys": 2,
+   "retry": true
+  },
+  {
+   "target": "rẻ",
+   "answer": "rze",
+   "grade": "wrong",
+   "hints": 5,
+   "keys": 0
+  },
+  {
+   "target": "nghìn",
+   "answer": "tram",
+   "grade": "wrong",
+   "hints": 0,
+   "keys": 0,
+   "retry": true
+  },
+  {
+   "target": "rẻ",
+   "answer": "rè",
+   "grade": "tone",
+   "hints": 0,
+   "keys": 1,
+   "retry": true
+  }
+ ],
+ "feedback": {
+  "difficulty": "Too hard",
+  "fun": "OK",
+  "hardest": [
+   "trăm",
+   "nghìn",
+   "triệu",
+   "mươi",
+   "lăm",
+   "linh",
+   "rưỡi",
+   "đồng",
+   "bao nhiêu",
+   "đắt",
+   "rẻ",
+   "nữa",
+   "gà"
+  ],
+  "wantNext": null,
+  "note": "I need more and better hints, more and better memory hooks. I need to also learn 1-10 properly. Too much focus on the tones. Need more real life use of these words as well. Ie waiter says a price and i have to translate"
+ },
+ "events": [
+  {
+   "t": "listen",
+   "w": "không",
+   "ok": true,
+   "a": "zero (also: no, not)",
+   "ms": 9060,
+   "warmup": true
+  },
+  {
+   "t": "listen",
+   "w": "bốn",
+   "ok": false,
+   "a": "six",
+   "ms": 7155,
+   "warmup": true
+  },
+  {
+   "t": "listen",
+   "w": "hai",
+   "ok": true,
+   "a": "two",
+   "ms": 1571,
+   "warmup": true
+  },
+  {
+   "t": "listen",
+   "w": "tám",
+   "ok": false,
+   "a": "seven",
+   "ms": 7184,
+   "warmup": true
+  },
+  {
+   "t": "listen",
+   "w": "mười",
+   "ok": true,
+   "a": "ten",
+   "ms": 2619,
+   "warmup": true
+  },
+  {
+   "t": "listen",
+   "w": "năm",
+   "ok": true,
+   "a": "five (also: year)",
+   "ms": 3467,
+   "warmup": true
+  },
+  {
+   "t": "listen",
+   "w": "một",
+   "ok": true,
+   "a": "one",
+   "ms": 2616,
+   "warmup": true
+  },
+  {
+   "t": "listen",
+   "w": "chín",
+   "ok": false,
+   "a": "eight",
+   "ms": 2534,
+   "warmup": true
+  },
+  {
+   "t": "listen",
+   "w": "sáu",
+   "ok": true,
+   "a": "six",
+   "ms": 2572,
+   "warmup": true
+  },
+  {
+   "t": "listen",
+   "w": "bảy",
+   "ok": true,
+   "a": "seven",
+   "ms": 15561,
+   "warmup": true
+  },
+  {
+   "t": "listen",
+   "w": "ba",
+   "ok": false,
+   "a": "two",
+   "ms": 3017,
+   "warmup": true
+  },
+  {
+   "t": "listen",
+   "w": "trăm",
+   "ok": false,
+   "a": "thousand",
+   "ms": 11755
+  },
+  {
+   "t": "listen",
+   "w": "triệu",
+   "ok": false,
+   "a": "thousand",
+   "ms": 4238
+  },
+  {
+   "t": "listen",
+   "w": "trăm",
+   "ok": false,
+   "a": "million",
+   "ms": 11569,
+   "retry": true
+  },
+  {
+   "t": "listen",
+   "w": "triệu",
+   "ok": false,
+   "a": "thousand",
+   "ms": 3617,
+   "retry": true
+  },
+  {
+   "t": "listen",
+   "w": "tiền",
+   "ok": true,
+   "a": "money",
+   "ms": 1567
+  },
+  {
+   "t": "listen",
+   "w": "rưỡi",
+   "ok": true,
+   "a": "and a half (after a unit)",
+   "ms": 18491
+  },
+  {
+   "t": "listen",
+   "w": "đắt",
+   "ok": false,
+   "a": "how much, how many",
+   "ms": 3422
+  },
+  {
+   "t": "listen",
+   "w": "đồng",
+   "ok": true,
+   "a": "đồng (the currency)",
+   "ms": 2121
+  },
+  {
+   "t": "listen",
+   "w": "đắt",
+   "ok": true,
+   "a": "expensive",
+   "ms": 7062,
+   "retry": true
+  },
+  {
+   "t": "listen",
+   "w": "hơn",
+   "ok": true,
+   "a": "more than; -er (rẻ hơn = cheaper)",
+   "ms": 7549
+  },
+  {
+   "t": "listen",
+   "w": "nữa",
+   "ok": false,
+   "a": "five, after mười or mươi (mười lăm = 15)",
+   "ms": 13367
+  },
+  {
+   "t": "listen",
+   "w": "nữa",
+   "ok": true,
+   "a": "more, another",
+   "ms": 7667,
+   "retry": true
+  },
+  {
+   "t": "listen",
+   "w": "rẻ",
+   "ok": true,
+   "a": "cheap",
+   "ms": 7219
+  },
+  {
+   "t": "listen",
+   "w": "hơn",
+   "ok": true,
+   "a": "more than; -er (rẻ hơn = cheaper)",
+   "ms": 8344
+  },
+  {
+   "t": "listen",
+   "w": "triệu",
+   "ok": true,
+   "a": "million",
+   "ms": 56375
+  },
+  {
+   "t": "listen",
+   "w": "lăm",
+   "ok": true,
+   "a": "five, after mười or mươi (mười lăm = 15)",
+   "ms": 5364
+  },
+  {
+   "t": "listen",
+   "w": "trăm",
+   "ok": true,
+   "a": "hundred",
+   "ms": 2766
+  },
+  {
+   "t": "listen",
+   "w": "bao nhiêu",
+   "ok": true,
+   "a": "how much, how many",
+   "ms": 2331
+  },
+  {
+   "t": "listen",
+   "w": "đắt",
+   "ok": false,
+   "a": "cheap",
+   "ms": 5654
+  },
+  {
+   "t": "listen",
+   "w": "nghìn",
+   "ok": true,
+   "a": "thousand",
+   "ms": 7706
+  },
+  {
+   "t": "listen",
+   "w": "mươi",
+   "ok": true,
+   "a": "-ty, the tens (hai mươi = 20)",
+   "ms": 5825
+  },
+  {
+   "t": "listen",
+   "w": "tiền",
+   "ok": true,
+   "a": "money",
+   "ms": 10617
+  },
+  {
+   "t": "listen",
+   "w": "đắt",
+   "ok": true,
+   "a": "expensive",
+   "ms": 10443,
+   "retry": true
+  },
+  {
+   "t": "listen",
+   "w": "rưỡi",
+   "ok": false,
+   "a": "more, another",
+   "ms": 4912
+  },
+  {
+   "t": "listen",
+   "w": "bò",
+   "ok": true,
+   "a": "beef; cow",
+   "ms": 3514
+  },
+  {
+   "t": "listen",
+   "w": "đồng",
+   "ok": true,
+   "a": "đồng (the currency)",
+   "ms": 4876
+  },
+  {
+   "t": "listen",
+   "w": "linh",
+   "ok": true,
+   "a": "zero (for an empty tens place, as in 105)",
+   "ms": 4871
+  },
+  {
+   "t": "listen",
+   "w": "rưỡi",
+   "ok": false,
+   "a": "million",
+   "ms": 57128,
+   "retry": true
+  },
+  {
+   "t": "listen",
+   "w": "nữa",
+   "ok": false,
+   "a": "more than; -er (rẻ hơn = cheaper)",
+   "ms": 6471
+  },
+  {
+   "t": "listen",
+   "w": "gà",
+   "ok": false,
+   "a": "and a half (after a unit)",
+   "ms": 10835
+  },
+  {
+   "t": "listen",
+   "w": "cá",
+   "ok": true,
+   "a": "fish",
+   "ms": 2067
+  },
+  {
+   "t": "listen",
+   "w": "nữa",
+   "ok": true,
+   "a": "more, another",
+   "ms": 5787,
+   "retry": true
+  },
+  {
+   "t": "listen",
+   "w": "gà",
+   "ok": true,
+   "a": "chicken",
+   "ms": 3595,
+   "retry": true
+  },
+  {
+   "t": "spell",
+   "w": "đồng",
+   "ok": false,
+   "a": "đông",
+   "ms": 3880
+  },
+  {
+   "t": "spell",
+   "w": "rẻ",
+   "ok": true,
+   "a": "rẻ",
+   "ms": 4876
+  },
+  {
+   "t": "spell",
+   "w": "tiền",
+   "ok": true,
+   "a": "tiền",
+   "ms": 3097
+  },
+  {
+   "t": "reverse",
+   "w": "bao nhiêu",
+   "ok": true,
+   "a": "bao nhiêu",
+   "ms": 7294
+  },
+  {
+   "t": "spell",
+   "w": "đồng",
+   "ok": true,
+   "a": "đồng",
+   "ms": 3665,
+   "retry": true
+  },
+  {
+   "t": "reverse",
+   "w": "rưỡi",
+   "ok": true,
+   "a": "rưỡi",
+   "ms": 4777
+  },
+  {
+   "t": "spell",
+   "w": "lăm",
+   "ok": false,
+   "a": "lắm",
+   "ms": 2747
+  },
+  {
+   "t": "spell",
+   "w": "triệu",
+   "ok": true,
+   "a": "triệu",
+   "ms": 8879
+  },
+  {
+   "t": "spell",
+   "w": "mươi",
+   "ok": false,
+   "a": "mười",
+   "ms": 1537
+  },
+  {
+   "t": "spell",
+   "w": "trăm",
+   "ok": false,
+   "a": "trắm",
+   "ms": 6275
+  },
+  {
+   "t": "spell",
+   "w": "lăm",
+   "ok": false,
+   "a": "lắm",
+   "ms": 7918,
+   "retry": true
+  },
+  {
+   "t": "spell",
+   "w": "nữa",
+   "ok": true,
+   "a": "nữa",
+   "ms": 6768
+  },
+  {
+   "t": "spell",
+   "w": "mươi",
+   "ok": true,
+   "a": "mươi",
+   "ms": 5609,
+   "retry": true
+  },
+  {
+   "t": "spell",
+   "w": "trăm",
+   "ok": false,
+   "a": "trắm",
+   "ms": 8273,
+   "retry": true
+  },
+  {
+   "t": "spell",
+   "w": "đắt",
+   "ok": true,
+   "a": "đắt",
+   "ms": 5692
+  },
+  {
+   "t": "powerup",
+   "w": "phở"
+  },
+  {
+   "t": "spell",
+   "w": "hơn",
+   "ok": true,
+   "a": "hơn",
+   "ms": 2747
+  },
+  {
+   "t": "reverse",
+   "w": "nghìn",
+   "ok": true,
+   "a": "nghìn",
+   "ms": 8721
+  },
+  {
+   "t": "spell",
+   "w": "linh",
+   "ok": false,
+   "a": "lính",
+   "ms": 2243
+  },
+  {
+   "t": "spell",
+   "w": "linh",
+   "ok": true,
+   "a": "linh",
+   "ms": 3573,
+   "retry": true
+  },
+  {
+   "t": "type",
+   "w": "nữa",
+   "g": "wrong",
+   "a": "hon",
+   "ms": 27763
+  },
+  {
+   "t": "type",
+   "w": "rưỡi",
+   "g": "wrong",
+   "a": "rau",
+   "ms": 18507
+  },
+  {
+   "t": "type",
+   "w": "gà",
+   "g": "perfect",
+   "a": "gà",
+   "ms": 10654
+  },
+  {
+   "t": "type",
+   "w": "bao nhiêu",
+   "g": "wrong",
+   "a": "bao nhiu",
+   "ms": 7018
+  },
+  {
+   "t": "type",
+   "w": "nữa",
+   "g": "wrong",
+   "a": "bao nhiu",
+   "ms": 8214,
+   "retry": true
+  },
+  {
+   "t": "type",
+   "w": "rưỡi",
+   "g": "marks",
+   "a": "ruoi",
+   "ms": 38913,
+   "retry": true
+  },
+  {
+   "t": "type",
+   "w": "đồng",
+   "g": "marks",
+   "a": "dong",
+   "ms": 10079
+  },
+  {
+   "t": "type",
+   "w": "bao nhiêu",
+   "g": "wrong",
+   "a": "bap nhiu",
+   "ms": 4750,
+   "retry": true
+  },
+  {
+   "t": "type",
+   "w": "triệu",
+   "g": "wrong",
+   "a": "trin",
+   "ms": 12546
+  },
+  {
+   "t": "type",
+   "w": "lăm",
+   "g": "marks",
+   "a": "làm",
+   "ms": 15695
+  },
+  {
+   "t": "type",
+   "w": "đồng",
+   "g": "marks",
+   "a": "dong",
+   "ms": 5757,
+   "retry": true
+  },
+  {
+   "t": "type",
+   "w": "linh",
+   "g": "perfect",
+   "a": "linh",
+   "ms": 4714
+  },
+  {
+   "t": "type",
+   "w": "triệu",
+   "g": "wrong",
+   "a": "triu",
+   "ms": 4557,
+   "retry": true
+  },
+  {
+   "t": "type",
+   "w": "lăm",
+   "g": "marks",
+   "a": "lám",
+   "ms": 8232,
+   "retry": true
+  },
+  {
+   "t": "type",
+   "w": "đắt",
+   "g": "marks",
+   "a": "dat",
+   "ms": 3849
+  },
+  {
+   "t": "type",
+   "w": "tiền",
+   "g": "marks",
+   "a": "tien",
+   "ms": 6754
+  },
+  {
+   "t": "type",
+   "w": "bò",
+   "g": "perfect",
+   "a": "bò",
+   "ms": 13997
+  },
+  {
+   "t": "type",
+   "w": "trăm",
+   "g": "wrong",
+   "a": "trnh",
+   "ms": 18818
+  },
+  {
+   "t": "type",
+   "w": "đắt",
+   "g": "marks",
+   "a": "dat",
+   "ms": 6383,
+   "retry": true
+  },
+  {
+   "t": "type",
+   "w": "tiền",
+   "g": "marks",
+   "a": "tien",
+   "ms": 6267,
+   "retry": true
+  },
+  {
+   "t": "type",
+   "w": "cá",
+   "g": "tone",
+   "a": "ca",
+   "ms": 3805
+  },
+  {
+   "t": "type",
+   "w": "trăm",
+   "g": "marks",
+   "a": "tram",
+   "ms": 27964,
+   "retry": true
+  },
+  {
+   "t": "type",
+   "w": "mươi",
+   "g": "marks",
+   "a": "muoi",
+   "ms": 15229
+  },
+  {
+   "t": "type",
+   "w": "hơn",
+   "g": "perfect",
+   "a": "hơn",
+   "ms": 17677
+  },
+  {
+   "t": "type",
+   "w": "cá",
+   "g": "tone",
+   "a": "cã",
+   "ms": 105083,
+   "retry": true
+  },
+  {
+   "t": "type",
+   "w": "nghìn",
+   "g": "wrong",
+   "a": "tram",
+   "ms": 7645
+  },
+  {
+   "t": "type",
+   "w": "mươi",
+   "g": "perfect",
+   "a": "mươi",
+   "ms": 38076,
+   "retry": true
+  },
+  {
+   "t": "type",
+   "w": "rẻ",
+   "g": "wrong",
+   "a": "rze",
+   "ms": 39842
+  },
+  {
+   "t": "type",
+   "w": "nghìn",
+   "g": "wrong",
+   "a": "tram",
+   "ms": 39967,
+   "retry": true
+  },
+  {
+   "t": "type",
+   "w": "rẻ",
+   "g": "tone",
+   "a": "rè",
+   "ms": 12418,
+   "retry": true
+  },
+  {
+   "t": "listen",
+   "w": "Phở bò năm mươi nghìn",
+   "ok": true,
+   "a": "Beef phở: 50.000₫",
+   "ms": 11395
+  },
+  {
+   "t": "listen",
+   "w": "một trăm linh năm",
+   "ok": false,
+   "a": "2.500.000",
+   "ms": 13252
+  },
+  {
+   "t": "listen",
+   "w": "Bún cá ba mươi lăm nghìn",
+   "ok": true,
+   "a": "Fish noodle soup: 35.000₫",
+   "ms": 7440
+  },
+  {
+   "t": "listen",
+   "w": "rẻ hơn",
+   "ok": true,
+   "a": "cheaper",
+   "ms": 14215
+  },
+  {
+   "t": "listen",
+   "w": "hai mươi năm",
+   "ok": true,
+   "a": "twenty years",
+   "ms": 7000
+  },
+  {
+   "t": "listen",
+   "w": "một trăm linh năm",
+   "ok": false,
+   "a": "2.500.000",
+   "ms": 11072,
+   "retry": true
+  },
+  {
+   "t": "listen",
+   "w": "Bao nhiêu tiền?",
+   "ok": true,
+   "a": "How much is it?",
+   "ms": 2371
+  },
+  {
+   "t": "listen",
+   "w": "Đắt quá!",
+   "ok": true,
+   "a": "So expensive!",
+   "ms": 10520
+  },
+  {
+   "t": "listen",
+   "w": "mười lăm",
+   "ok": true,
+   "a": "15",
+   "ms": 3714
+  },
+  {
+   "t": "listen",
+   "w": "năm mươi",
+   "ok": true,
+   "a": "50",
+   "ms": 5747
+  },
+  {
+   "t": "listen",
+   "w": "hai triệu rưỡi",
+   "ok": true,
+   "a": "2.500.000",
+   "ms": 7034
+  },
+  {
+   "t": "listen",
+   "w": "Phở gà bốn mươi lăm nghìn",
+   "ok": true,
+   "a": "Chicken phở: 45.000₫",
+   "ms": 3497
+  },
+  {
+   "t": "speed",
+   "w": "rẻ",
+   "ok": true,
+   "a": "cheap",
+   "ms": 7573
+  },
+  {
+   "t": "speed",
+   "w": "tiền",
+   "ok": true,
+   "a": "money",
+   "ms": 2117
+  },
+  {
+   "t": "speed",
+   "w": "hai",
+   "ok": true,
+   "a": "two",
+   "ms": 1999
+  },
+  {
+   "t": "speed",
+   "w": "hai triệu rưỡi",
+   "ok": true,
+   "a": "2.500.000",
+   "ms": 5872
+  },
+  {
+   "t": "speed",
+   "w": "hai",
+   "ok": true,
+   "a": "two",
+   "ms": 3776
+  },
+  {
+   "t": "speed",
+   "w": "Bao nhiêu tiền?",
+   "ok": true,
+   "a": "How much is it?",
+   "ms": 1949
+  },
+  {
+   "t": "speed",
+   "w": "nữa",
+   "ok": true,
+   "a": "more, another",
+   "ms": 7064
+  },
+  {
+   "t": "speed",
+   "w": "năm",
+   "ok": true,
+   "a": "five (also: year)",
+   "ms": 3227
+  },
+  {
+   "t": "speed",
+   "w": "một trăm linh năm",
+   "ok": true,
+   "a": "105",
+   "ms": 6706
+  },
+  {
+   "t": "speed",
+   "w": "hơn",
+   "ok": true,
+   "a": "more than; -er (rẻ hơn = cheaper)",
+   "ms": 2609
+  },
+  {
+   "t": "speed",
+   "w": "đắt",
+   "ok": true,
+   "a": "expensive",
+   "ms": 2085
+  }
+ ],
+ "issue": 2
+}

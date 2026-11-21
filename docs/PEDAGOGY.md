@@ -6,41 +6,48 @@ Every lesson is planned from data: `learner/SUMMARY.md` (built from the results 
 
 ## What the learner told us so far
 
-- Lessons must be **fun and unexpected**, but **grown-up**: cartoon villains looked like something made for a child, so the site became a small culture magazine. Cartoons and illustrations are welcome **only in context** (a phở stall for a food issue, Đồng Xuân market for money), never random animals or mascots.
-- They want **interesting things about Vietnamese history and culture** in every lesson, with images.
-- Do not show words they already know. The known list is never taught, reviewed or drilled again.
-- Spelling slips are not the same as not knowing a word. Judge **meaning** and **spelling** separately.
+- **Fun but grown-up**: a small culture magazine, not a children's game. Cartoons and illustrations only **in context** (a phở stall, a market, the legend being told), never random animals or mascots.
+- **History and culture in every issue**, told as a **short intro and then story beats through the lesson**, so it feels integrated. **No quizzes about the article.**
+- **More and better hints and memory hooks.** **Less focus on tones.** **More real-life use**: a waiter says a price and the learner understands it.
+- They needed the basics (1 to 10) taught properly: do not assume basics are known just because they are common; test them in a warm-up and teach them if missed.
+- Never show words on the known list. Judge **meaning** and **spelling** separately.
+- Sessions must be finishable: under 20 to 25 minutes, and they can stop and resume.
 
 ## How an issue plays (the engine does this; a lesson file only supplies content)
 
-1. **The article** (`feature`): a cover illustration, a kicker, a headline, a standfirst (`dek`), two to five short paragraphs with a drop cap, one pull quote and its sources. The reading time is recorded.
-2. **The quiz** (`quiz`): two to six trivia questions on the article, each with a one-line explanation after the answer. Not scored as vocabulary.
-3. **Warm-up** (optional `warmup`): a quick listening check of words the learner probably knows; only misses go into the review deck.
-4. **Meet the words in groups of four**: picture, word in tone colours, tone contour, gloss, memory hook, Hà Nội pronunciation tip, a **did-you-know** `fact`, audio. "I know it" skips a word's drills after one typed check.
-5. Drills: listen and pick the meaning; pick the spelling heard among `contrast` words, or the Vietnamese for a picture; type from memory with the on-screen tone and vowel keys. Missed items come back three or four steps later. **Every three right answers in a row, a fact card appears** (facts about words already met, and the pull quote).
-6. **Grammar note**, then **in context** (combos), then **Giờ cao điểm** (rush hour): 45 seconds of listening, streaks score up to five times.
-7. Results: first-try accuracy, best streak, quiz and rush hour scores, a **stamp** for the passport (graded complete, merit or distinction), and the **challenge**: one real thing to try in Hà Nội. Then feedback, including a rating of the article.
-8. Afterwards each word enters a **Leitner spaced-repetition deck** (0, 1, 3, 7, 14, 30, 60, 120 days), reviewed from the home screen.
+1. **The opening**: cover illustration, kicker, headline, standfirst (`dek`) and a two- or three-sentence `intro`. Reading time is recorded.
+2. **Warm-up** (optional `warmup`): a quick listening check of words the learner probably knows; misses go into the review deck.
+3. **Parts**: more than 8 new words are split into two parts. In each part: meet the words in groups of four (picture, word in tone colours, tone line, gloss, memory hook, Hà Nội tip, did-you-know `fact`, audio, "I know it"), a quick check after each group, then practice: listen and pick the meaning, at most three "which spelling did you hear" questions (others are picture questions), and typing from memory.
+4. **Story beats** (`feature.beats`) always play in file order. A beat tied to a word waits until the group with that word has been met; an untied beat waits for the next part, practise or real-life screen; whatever is left goes on the results page. `node scripts/plan.mjs` shows where each beat lands.
+5. **Typing** is lenient by default: right letters count as right and the marks are shown (Settings can make it strict). Hints come in three levels: the memory hook, the consonants, then the answer. A wrong typed word comes back once as syllable tiles.
+6. **Grammar note**, then **in context** (combos), then **Real life** (`situations`: a seller, waiter or driver says a line; the learner picks the price, types it in digits (a hint splits the line at nghìn; 25k counts as 25000), or picks what to say back, which is then played), then **Giờ cao điểm** (rush hour, 45 seconds).
+7. **Results**: first-try accuracy, best streak, real-life and rush hour scores, a **stamp** (complete, merit, distinction), the last story beat, the **challenge** and the sources. Then feedback, including a rating of the story.
+8. Every three right answers in a row, a fact card appears. The learner can close the issue at any point and resume it later. Words then enter the spaced-repetition deck (0, 1, 3, 7, 14, 30, 60, 120 days).
+
+## Using the data
+
+`learner/SUMMARY.md` has a **Where the learner struggles** table (struggle score from failed first tries, slow answers, hints, replays and revealed answers), accuracy and speed by **exercise type**, time per phase, long pauses, unfinished attempts, tone and meaning confusions, and every feedback note. Plan from it: review the highest-struggle words, give them new hooks or pictures, and lean on the exercise types that work (listening and real life) when another type is failing.
 
 ## Writing an issue
 
-**The article**
-- One true, specific, surprising story tied to the theme and the words: history, food, language, customs, places in Hà Nội. Prefer stories with a hook ("younger than the Eiffel Tower", "a currency named after a metal nobody carries").
-- 150 to 350 words in two to five paragraphs, plain and lively English, Vietnamese words in their proper spelling. One pull quote: the most surprising sentence.
-- Every claim must come from a reliable source listed in `feature.sources` (English or Vietnamese Wikipedia is fine; both are reachable from this sandbox with curl). Say "is said to", "is thought to" or "possibly" when the source does; never present a legend as fact. Check for recent changes (for example the 2025 merger of provinces).
-- Respectful and adult. Mainstream history (the Hùng kings and legends, Hai Bà Trưng, Ngô Quyền, the Lý capital at Thăng Long, Trần Hưng Đạo, Lê Lợi and Hoàn Kiếm Lake, Quang Trung, the alphabet) and everyday culture are good ground. Avoid present-day politics, avoid glib lines about hardship, and do not treat the 20th-century wars lightly.
-- **Did-you-know facts** on most words: one or two sentences, true, specific, and preferably tied to Hà Nội or the Northern dialect (for example tiền mừng tuổi in the North against lì xì in the South).
-- **Quiz**: answerable from the article, with one clearly right option and plausible, clearly wrong distractors; each with an `explain` line that adds something.
+**The story**
+- One true, specific, surprising story tied to the theme: history, legend, food, language, customs, places in Hà Nội. A two- or three-sentence `intro` that sets it up, then three to six `beats` of one to three sentences each. Tie at least two beats to words (`"word": "chín"`) so each appears right after that word is taught. Plan the beats in the order the engine plays them, spread through the whole issue: run `node scripts/plan.mjs lesson-NN` and move or untie a beat that lands next to another (the checker warns when two play back to back). A beat tied to a word late in the lesson holds back every beat after it.
+- Every claim comes from a reliable source listed in `feature.sources` (English or Vietnamese Wikipedia, reachable from this sandbox with curl). Say "is said to", "is thought to" or "legend says" when the source does. Check for recent changes (for example the 2025 merger of provinces).
+- Respectful and adult. Avoid present-day politics, glib lines about hardship, and treating the 20th-century wars lightly.
+- **Did-you-know facts** on most words: one or two sentences, true, specific, preferably about Hà Nội or the Northern dialect, and not repeating a beat.
+- **Real life**: five to eight `situations` with everyday Hà Nội lines a learner will actually hear, using this issue's and earlier words. Mix picking from options and typing digits, and make about a third reactions or orders, not prices (a tourist price: Đắt quá!). Distractors should sound like the answer (19 against 90, 30 against 300, 15 against 50) or repeat the learner's own mix-ups from the warm-up and confusion lists. Never put the answer in `placeholder`.
+- **Every new and review word** appears at least once in a situation, a combo or a beat, so it is heard in use, not only drilled.
 - **Challenge**: one concrete, polite thing to do or say, with the Vietnamese spelled out and glossed.
-- **Cover and stamp**: an illustration in context, from `web/js/pictures.js` (scenes for covers, icons and diagrams for stamps). A new theme usually deserves a new scene: draw it there as original SVG in the same flat style (style colour classes, 400 by 250, readable at 112 px wide, checked in the dark styles too).
+- **Cover and stamp**: an illustration of the story or the theme, from `web/js/pictures.js`. A new story usually deserves a new scene: original SVG in the same flat style (400 by 250, readable at 112 px wide, checked in the dark styles).
 - **Photos**: Wikimedia Commons is blocked from this sandbox at the moment. If it becomes reachable, use only freely licensed images, resize them with `sips -Z 1200`, store them in `web/images/` and record title, author, licence and source URL in `web/images/credits.json`, shown as a caption.
-- Every issue gets three reviews before it ships: Vietnamese accuracy, learning design, and a history and culture fact-check against the sources.
+- Every issue gets three reviews before it ships: Vietnamese accuracy, learning design, and a history and culture fact-check.
 
 ## Rules for a new lesson
 
 **Size and difficulty**
-- 12 to 14 new words by default. Judge difficulty on **meaning** (listen and reverse), not on spelling: if meaning accuracy was above 85% and the learner said "Too easy", go up to 16 and make the combos harder. Below 60% or "Too hard": 8 to 10 new words and more review.
-- Put 3 to 8 earlier words in `review`, chosen by **meaning weakness** first (`weakMeaning`), then words the learner marked hardest, then meaning confusions. Drill **spelling weakness** (`weakSpelling`) through the new words' contrasts instead of re-teaching.
+- 8 to 10 new words by default (issues over 8 are split into two parts automatically). Judge difficulty on **meaning** (listen and reverse) and on the struggle data, not on spelling. Above 85% meaning accuracy and "Too easy": up to 14. "Too hard", an unfinished issue, or a session over 25 minutes: fewer new words and fewer review words (3 to 5).
+- **Limit an issue by answers, not words**: about 55 first-try answers before rush hour. `node scripts/plan.mjs` counts them; the checker warns above 60. Review words all land in the last part (each adds a listening and a typing question there), so many review words make that part long.
+- Put 3 to 8 earlier words in `review`, chosen by the **struggle score** and **meaning weakness** first, then words the learner marked hardest, then meaning confusions. Judge typing on the lenient grades: a `wrong` typed answer (another word came out, such as tram for nghìn) is a recall failure worth reviewing; tone and mark slips are not. Do not drill spelling weakness hard: the learner asked for less focus on tones. Words the review desk already schedules can wait for a better-fitting issue (triệu and rưỡi suit telling the time).
 - Never put a known-list word in `words` or `review` (the checker enforces this). Known words may appear in combos, facts, the article and warm-ups.
 - If the learner is likely to know a basic set already, make it a `warmup` instead of new words.
 
@@ -52,7 +59,8 @@ Every lesson is planned from data: `learner/SUMMARY.md` (built from the results 
 - Glosses: short, the most common Northern meaning first. Two words in a lesson (warm-up and combos included) must not share or nearly share a gloss.
 
 **Memory hooks** (keyword method)
-- One Vietnamese sound-alike plus one concrete, vivid, slightly absurd image. Tie the tone shape in: ngang calm and level; huyền a sigh or settling down; sắc calling out; hỏi a doubtful question; ngã a voice cracking then jumping; nặng a heavy thud or sudden stop.
+- One real English sound-alike with a single common pronunciation ("bone" for bốn, "numb" for năm), plus one concrete, vivid image that carries the meaning (fingers numb with cold for five). Tie the tone shape in with at most one word: ngang calm and level; huyền a sigh or settling down; sắc calling out; hỏi a sharp drop (not a question rise); ngã a voice cracking then jumping; nặng a heavy thud or sudden stop.
+- No two hooks in an issue share an image category or a pattern (two animals, two birds, two "say X without Y"); the tone cue (calling out for sắc) may repeat. Avoid baby talk, and leave mouth shape to the tip.
 - Never teach a wrong sound: no wrong vowel length, extra syllable, English cluster (tr, gr) or wrong tone direction. Read each hook aloud the way an English speaker would and check what comes out.
 - Keep images distinct within a lesson (lesson 1's seagull for cá and hen for gà were both birds, and the learner mixed them up).
 - Reviews show the `note`, not the hook, so give a weak word a short `note` that anchors the meaning (for example "c as in carp: cá is fish").
@@ -75,7 +83,7 @@ Every lesson is planned from data: `learner/SUMMARY.md` (built from the results 
 - One grammar rule per lesson, tied to the combos, in two or three short sentences.
 
 **Feedback**
-- Low fun: more surprising stories, facts and quiz questions, a theme from `wantNext`, a new cover scene. A low article rating, or a reading time of a few seconds: shorter, punchier articles.
+- Low fun: more surprising stories, facts and real-life moments, a theme from `wantNext`, a new cover scene. A low story rating, or story beats read in a few seconds: shorter, punchier beats.
 - Typing: many "marks" or "tone" grades are a spelling issue, not a meaning issue. "sound" grades (cha for trà) mean the learner hears correctly. Watch the share of answers typed with the tone keys.
 - Repeated tone confusions: choose contrasts that practise that pair (except hỏi against huyền, see above).
 - Record every decision and the data behind it in `docs/LESSON_LOG.md`, and update `learner/curriculum.json` (unit status, notes, reordering).

@@ -1,0 +1,407 @@
+{
+  "id": "lesson-03",
+  "number": 3,
+  "title": "One to ten, properly",
+  "vi": "Đếm từ một đến mười",
+  "theme": "numbers 1 to 10 in real life",
+  "intro": "The numbers one to ten, learned properly this time, and used the way you will hear them: prices at a stall, a bill at a café, a taxi fare.",
+  "cover": {
+    "picture": {
+      "kind": "scene",
+      "name": "legend"
+    }
+  },
+  "feature": {
+    "kicker": "Legends and numbers",
+    "title": "The bride price of nines",
+    "dek": "Every rainy season the Red River swells. An old legend blames a water god who lost a bride, and the wedding gifts that started it all came in nines and hundreds.",
+    "intro": "Long ago, the eighteenth Hùng king had a daughter, Mỵ Nương, whose suitors were not ordinary men. You will hear the rest of the story as you learn the numbers.",
+    "beats": [
+      {
+        "word": "hai",
+        "text": "Two suitors came: Sơn Tinh, god of the mountain, and Thủy Tinh, god of the water. Both were powerful, and the king could not choose between them."
+      },
+      {
+        "word": "chín",
+        "text": "So he set a challenge: whoever came first with the wedding gifts would marry the princess. A hundred trays of sticky rice, a hundred baskets of bánh chưng, and a pair each of voi chín ngà, gà chín cựa, ngựa chín hồng mao: elephants with nine tusks, roosters with nine spurs, horses with nine red manes. All of them gifts of the land, not the sea."
+      },
+      {
+        "text": "Sơn Tinh arrived first, at dawn, with every gift. He married Mỵ Nương and took her home to Tản Viên mountain, today called Ba Vì, on Hà Nội's western edge, about 50 km from the centre."
+      },
+      {
+        "text": "Thủy Tinh came too late. Furious, he raised the rivers against the mountain, and Sơn Tinh raised the mountain higher. An old telling says the floods return every year around tháng bảy and tháng tám, the seventh and eighth lunar months, with the two gods still fighting over her."
+      },
+      {
+        "text": "The Hùng kings are still honoured every spring at the Hùng Temples in Phú Thọ, on mùng mười tháng ba, the tenth day of the third lunar month. A saying goes: \"Dù ai đi ngược về xuôi, nhớ ngày giỗ Tổ mùng mười tháng ba.\" Wherever you travel, remember the ancestors' day on the tenth of the third month."
+      }
+    ],
+    "pull": "Whoever came first with the gifts, among them elephants with nine tusks, roosters with nine spurs and horses with nine red manes, would marry the princess.",
+    "sources": [
+      {
+        "title": "Sơn Tinh – Thủy Tinh",
+        "url": "https://en.wikipedia.org/wiki/S%C6%A1n_Tinh_%E2%80%93_Th%E1%BB%A7y_Tinh"
+      },
+      {
+        "title": "Sơn Tinh – Thủy Tinh (Vietnamese)",
+        "url": "https://vi.wikipedia.org/wiki/S%C6%A1n_Tinh_%E2%80%93_Th%E1%BB%A7y_Tinh"
+      },
+      {
+        "title": "Hùng king",
+        "url": "https://en.wikipedia.org/wiki/H%C3%B9ng_king"
+      },
+      {
+        "title": "Hùng Kings' Festival",
+        "url": "https://en.wikipedia.org/wiki/H%C3%B9ng_Kings%27_Festival"
+      },
+      {
+        "title": "Vietnamese numerals",
+        "url": "https://en.wikipedia.org/wiki/Vietnamese_numerals"
+      }
+    ]
+  },
+  "challenge": {
+    "title": "Café challenge",
+    "text": "Call the staff with \"Em ơi!\", then order with a number: \"Cho mình hai cà phê\" (two coffees for me, please; mình is a friendly I). When the total comes, say it back in Vietnamese before you pay, for example \"bốn mươi nghìn\"."
+  },
+  "stamp": {
+    "label": "Chín",
+    "picture": {
+      "kind": "scene",
+      "name": "legend"
+    }
+  },
+  "words": [
+    {
+      "vi": "một",
+      "en": "one",
+      "picture": {
+        "kind": "dots",
+        "n": 1
+      },
+      "hook": "One knight in armour drops into the moat with one heavy thud: một, like \"moat\" cut short.",
+      "tip": "ô is a tight, rounded o. The final t is cut off, not released, and nặng drops low and stops short.",
+      "note": "After mươi (20 and up) it becomes mốt: hai mươi mốt is 21. After mười it stays một: mười một is 11.",
+      "fact": "Mùng marks days 1 to 10 of a month. Mùng một, the first day of each lunar month, is when many families visit the pagoda or light incense at home.",
+      "contrast": [
+        {
+          "vi": "mốt",
+          "en": "fashion; the one in 21 (hai mươi mốt)"
+        }
+      ]
+    },
+    {
+      "vi": "hai",
+      "en": "two",
+      "picture": {
+        "kind": "dots",
+        "n": 2
+      },
+      "hook": "Identical twins say \"hi\" at exactly the same moment, in the same flat, bored voice.",
+      "tip": "Like English \"hi\", but keep the pitch level.",
+      "fact": "Hai Bà Trưng, the Two Trưng Sisters, led an uprising against Han rule in the year 40 and are honoured all over Hà Nội.",
+      "contrast": [
+        {
+          "vi": "hái",
+          "en": "to pick (fruit, flowers)"
+        }
+      ]
+    },
+    {
+      "vi": "ba",
+      "en": "three",
+      "picture": {
+        "kind": "dots",
+        "n": 3
+      },
+      "hook": "Three strangers walk into a bar. Say \"bar\" without the r, flat: ba.",
+      "tip": "A long, open a, level tone.",
+      "note": "In the North, dad is bố; ba is three.",
+      "fact": "A famous folk verse: \"Một cây làm chẳng nên non, ba cây chụm lại nên hòn núi cao\". One tree alone cannot make a mountain; three trees together make a high one.",
+      "contrast": [
+        {
+          "vi": "bà",
+          "en": "grandmother"
+        }
+      ]
+    },
+    {
+      "vi": "bốn",
+      "en": "four",
+      "picture": {
+        "kind": "dots",
+        "n": 4
+      },
+      "hook": "A table stands on four legs of bone. Knock on a leg and it rings out \"bone!\", rising: bốn.",
+      "tip": "ô is a tight, rounded o: \"bone\" with the lips rounded from the start and no glide at the end. The sắc tone rises.",
+      "note": "After mươi it is often tư: hai mươi tư is 24. Elsewhere it stays bốn: mười bốn is 14, bốn mươi is 40.",
+      "fact": "Sơn Tinh, the mountain god in this issue's story, is one of the Tứ bất tử, the Four Immortals of Vietnamese folk belief. Tứ is the Sino-Vietnamese four.",
+      "contrast": [
+        {
+          "vi": "bồn",
+          "en": "tub, basin"
+        }
+      ]
+    },
+    {
+      "vi": "năm",
+      "en": "five (also: year)",
+      "picture": {
+        "kind": "dots",
+        "n": 5
+      },
+      "hook": "Five fingers, numb with cold: năm, like \"numb\".",
+      "tip": "ă is short, like the u in \"numb\". Keep it level.",
+      "note": "After mười or mươi it becomes lăm: mười lăm is 15, hai mươi lăm 25. Mười năm means ten years.",
+      "fact": "Năm also means year, so \"Chúc mừng năm mới!\" (Happy New Year!) is everywhere at Tết.",
+      "contrast": [
+        {
+          "vi": "nằm",
+          "en": "to lie down"
+        }
+      ]
+    },
+    {
+      "vi": "sáu",
+      "en": "six",
+      "picture": {
+        "kind": "dots",
+        "n": 6
+      },
+      "hook": "A sow (the pig; rhymes with \"cow\") sits on six cactus spines and squeals, her voice shooting up.",
+      "tip": "Rhymes with \"cow\", with a short a. The sắc tone rises.",
+      "fact": "Weekdays are numbered: thứ hai (Monday) to thứ bảy (Saturday); Sunday is chủ nhật. Wednesday is thứ tư, never thứ bốn, and there is no thứ một.",
+      "contrast": [
+        {
+          "vi": "sâu",
+          "en": "deep; caterpillar"
+        }
+      ]
+    },
+    {
+      "vi": "bảy",
+      "en": "seven",
+      "picture": {
+        "kind": "dots",
+        "n": 7
+      },
+      "hook": "Saturday is \"the seventh\" in Vietnamese: you wave the work week \"bye\", your voice dropping low with relief.",
+      "tip": "Like \"bye\" with a short a. The hỏi tone drops low.",
+      "note": "Many Hà Nội speakers say it bẩy (thứ bẩy, bẩy nghìn); it is written bảy.",
+      "fact": "A week has bảy ngày, seven days: một tuần.",
+      "contrast": [
+        {
+          "vi": "bay",
+          "en": "to fly"
+        }
+      ]
+    },
+    {
+      "vi": "tám",
+      "en": "eight",
+      "picture": {
+        "kind": "dots",
+        "n": 8
+      },
+      "hook": "A firework bursts into a giant 8 over Hoàn Kiếm Lake and the crowd shouts \"TAHM!\" (a as in \"father\"), voices rising.",
+      "tip": "A long, open a, as in \"father\". t has no puff of air, like the t in \"stop\"; with a puff it sounds like th. The sắc tone rises.",
+      "fact": "Mùng tám tháng ba, 8 March on the ordinary calendar, is International Women's Day, celebrated with flowers for mothers, wives and colleagues.",
+      "contrast": [
+        {
+          "vi": "tắm",
+          "en": "to bathe, to shower"
+        }
+      ]
+    },
+    {
+      "vi": "chín",
+      "en": "nine (also: ripe, cooked)",
+      "picture": {
+        "kind": "dots",
+        "n": 9
+      },
+      "hook": "Nine bananas ripen at once and you call out, voice rising: \"cheen!\" (ch of \"chip\", ee of \"seen\"). It also means ripe.",
+      "tip": "In Hà Nội ch is like the ch in \"chip\" with no puff of air. i is long, as in \"seen\".",
+      "fact": "Chín also means cooked: in a phở shop you can ask for tái (rare beef) or chín (well-done beef)."
+    },
+    {
+      "vi": "mười",
+      "en": "ten",
+      "picture": {
+        "kind": "dots",
+        "n": 10
+      },
+      "hook": "Ten flights of stairs, no lift: at the top you let out a long sigh: mười.",
+      "tip": "ươ glides from ư (oo with spread lips) to ơ, then i. The huyền tone falls gently.",
+      "note": "From 20 up it changes to level mươi: hai mươi.",
+      "fact": "Vietnamese schools mark out of ten, so \"mười điểm!\" (ten points) means full marks.",
+      "contrast": [
+        {
+          "vi": "mươi",
+          "en": "-ty, the tens (hai mươi)"
+        },
+        {
+          "vi": "mùi",
+          "en": "smell"
+        }
+      ]
+    }
+  ],
+  "grammar": {
+    "title": "Counting things",
+    "text": "The number goes before the thing, often with a word for the container or unit: hai bát phở, two bowls of phở; ba cốc trà, three glasses of tea. For prices, the number and then nghìn: năm mươi nghìn.",
+    "examples": [
+      {
+        "vi": "hai bát phở",
+        "en": "two bowls of phở"
+      },
+      {
+        "vi": "ba cốc trà",
+        "en": "three glasses of tea"
+      }
+    ]
+  },
+  "combos": [
+    {
+      "vi": "hai bát phở",
+      "en": "two bowls of phở",
+      "note": "bát is the Northern word for bowl."
+    },
+    {
+      "vi": "ba cốc trà",
+      "en": "three glasses of tea",
+      "note": "cốc is the Northern word for a glass or cup."
+    },
+    {
+      "vi": "hai mươi mốt",
+      "en": "21",
+      "note": "After mươi, một becomes mốt."
+    },
+    {
+      "vi": "chín mươi chín",
+      "en": "99"
+    },
+    {
+      "vi": "thứ bảy",
+      "en": "Saturday",
+      "note": "thứ plus a number names the day: thứ hai is Monday."
+    },
+    {
+      "vi": "Cho mình một cốc trà đá nữa.",
+      "en": "One more iced tea, please.",
+      "note": "cho mình: for me (mình is a friendly I); cốc: glass; một ... nữa: one more (nữa alone: more, another)."
+    }
+  ],
+  "situations": [
+    {
+      "who": "Phở seller",
+      "picture": {
+        "kind": "icon",
+        "name": "bowl"
+      },
+      "vi": "Phở gà năm mươi nghìn.",
+      "en": "Chicken phở is 50,000.",
+      "ask": "How much is the chicken phở?",
+      "options": [
+        "50.000₫",
+        "15.000₫",
+        "5.000₫",
+        "500.000₫"
+      ],
+      "answer": "50.000₫"
+    },
+    {
+      "who": "Café",
+      "picture": {
+        "kind": "icon",
+        "name": "phin"
+      },
+      "vi": "Hai cà phê, bốn mươi nghìn ạ.",
+      "en": "Two coffees, 40,000.",
+      "ask": "What do the two coffees cost?",
+      "options": [
+        "40.000₫",
+        "14.000₫",
+        "4.000₫",
+        "24.000₫"
+      ],
+      "answer": "40.000₫"
+    },
+    {
+      "who": "Bánh mì stall",
+      "picture": {
+        "kind": "icon",
+        "name": "baguette"
+      },
+      "vi": "Bánh mì hai mươi lăm nghìn.",
+      "en": "Bánh mì is 25,000.",
+      "ask": "Type the price in digits.",
+      "digits": "25000",
+      "note": "Sellers often shorten it: hai lăm or hai nhăm nghìn."
+    },
+    {
+      "who": "Phở seller",
+      "picture": {
+        "kind": "icon",
+        "name": "bowl"
+      },
+      "vi": "Hai bát, tám mươi nghìn ạ.",
+      "en": "Two bowls, 80,000.",
+      "ask": "Type the total in digits.",
+      "digits": "80000"
+    },
+    {
+      "who": "Taxi driver",
+      "vi": "Hết sáu mươi nghìn.",
+      "en": "That's 60,000 altogether.",
+      "note": "hết here means all together, in total.",
+      "ask": "Type the fare in digits.",
+      "digits": "60000"
+    },
+    {
+      "who": "Fruit seller",
+      "vi": "Cam ba trăm nghìn một cân.",
+      "en": "Oranges, 300,000 a kilo.",
+      "note": "Locals pay about 30,000 a kilo.",
+      "ask": "What do you say?",
+      "options": [
+        "Đắt quá!",
+        "Rẻ quá!",
+        "Ngon quá!"
+      ],
+      "answer": "Đắt quá!"
+    },
+    {
+      "who": "Waiter",
+      "vi": "Của anh hết chín mươi lăm nghìn ạ.",
+      "en": "Yours comes to 95,000.",
+      "note": "Của anh is yours, to a man a bit older; ạ makes it polite.",
+      "ask": "What is the bill?",
+      "options": [
+        "95.000₫",
+        "90.000₫",
+        "19.000₫",
+        "59.000₫"
+      ],
+      "answer": "95.000₫"
+    },
+    {
+      "who": "Waiter",
+      "picture": {
+        "kind": "icon",
+        "name": "bowl"
+      },
+      "vi": "Hai phở gà, một trà đá, hết một trăm linh năm nghìn ạ.",
+      "en": "Two chicken phở and an iced tea: 105,000.",
+      "note": "linh joins the hundreds to a single digit: một trăm linh năm is 105.",
+      "ask": "Type the bill in digits.",
+      "digits": "105000"
+    }
+  ],
+  "review": [
+    "trăm",
+    "nghìn",
+    "đắt",
+    "nữa",
+    "gà"
+  ]
+}

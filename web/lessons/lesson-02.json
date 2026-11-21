@@ -77,7 +77,7 @@
       },
       "hook": "Say \"sing in\" and drop the \"si\": \"ngin\". A thousand singers, every voice sinking low.",
       "tip": "ngh is the ng of \"sing\" (written ngh before i, e and ê). The huyền tone falls gently. The South says ngàn.",
-      "fact": "In 2010 Hà Nội celebrated a thousand years, một nghìn năm, since Emperor Lý Thái Tổ made it his capital in 1010."
+      "fact": "Hà Nội says nghìn; the South says ngàn. Both mean a thousand."
     },
     {
       "vi": "triệu",
@@ -94,7 +94,7 @@
           "en": "tide; dynasty"
         }
       ],
-      "fact": "Rent, motorbikes and wages are counted in triệu. One million đồng is roughly the price of a nice dinner for two."
+      "fact": "A millionaire is a triệu phú: triệu, million, plus phú, rich."
     },
     {
       "vi": "mươi",
@@ -201,7 +201,7 @@
           "en": "to move; cave"
         }
       ],
-      "fact": "đồng is the Sino-Vietnamese word for copper. Vietnam stopped issuing coins in 2011; they are still legal, but you will almost never see one."
+      "fact": "đồng still means copper or bronze in everyday words: a bronze drum is a trống đồng, like the famous drums of the ancient Đông Sơn culture."
     },
     {
       "vi": "bao nhiêu",
@@ -363,11 +363,6 @@
     "kicker": "Money and the market",
     "title": "Copper, paper, plastic",
     "dek": "The đồng is named after a metal you will never see in your change. A short history of Vietnamese money, and the market that has sold Hà Nội everything since 1889.",
-    "body": [
-      "Đồng is the Sino-Vietnamese word for copper, the metal of the old coins, and the word lives on in the name of the currency. Coins came back in 2003, but people never took to them, and in 2011 the State Bank stopped issuing them. Between 2003 and 2006 every note from 10,000 đồng up moved to polymer, a plastic that survives the monsoon. The largest, 500,000 đồng, is blue, like the 20,000: count the zeros.",
-      "With so many zeros, Hà Nội shortens prices. A bowl of phở is \"năm mươi\", fifty, with the nghìn (thousand) left unsaid, and menus write 50k. Rent and motorbikes are counted in triệu, millions.",
-      "For the full experience, try Đồng Xuân market in the Old Quarter. The French set it up in 1889, the year the Eiffel Tower opened, and it is still Hà Nội's largest covered market. After a fire gutted it in 1994, it was partly rebuilt in its original style. The city is far older: Emperor Lý Thái Tổ made this place his capital in 1010 and named it Thăng Long, \"ascending dragon\". It has only been called Hà Nội since 1831."
-    ],
     "pull": "Vietnam brought coins back in 2003. By 2011 it had given up.",
     "sources": [
       {
@@ -382,50 +377,30 @@
         "title": "Hanoi",
         "url": "https://en.wikipedia.org/wiki/Hanoi"
       }
+    ],
+    "intro": "The đồng is named after copper, a metal you will almost never find in your change. This issue follows Vietnamese money from coins to plastic, along with the numbers you need to spend it.",
+    "beats": [
+      {
+        "word": "nghìn",
+        "text": "Emperor Lý Thái Tổ made this place his capital in 1010 and named it Thăng Long, \"ascending dragon\". In 2010 the city celebrated a thousand years, một nghìn năm, since that day. It has only been called Hà Nội since 1831."
+      },
+      {
+        "word": "mươi",
+        "text": "With so many zeros, Hà Nội shortens prices. A bowl of phở is \"năm mươi\", fifty, with the nghìn (thousand) left unsaid, and menus write 50k."
+      },
+      {
+        "word": "triệu",
+        "text": "Rent, wages and motorbikes are counted in triệu, millions. The largest note, 500,000 đồng, is blue, like the 20,000: count the zeros before you pay."
+      },
+      {
+        "word": "đồng",
+        "text": "Đồng is the Sino-Vietnamese word for copper, the metal of the old coins. Coins came back in 2003, but people never took to them, and in 2011 the State Bank stopped issuing them. Between 2003 and 2006 every note from 10,000 đồng up moved to polymer, a plastic that survives the monsoon."
+      },
+      {
+        "text": "For the full experience, try Đồng Xuân market in the Old Quarter (a different đồng, not copper). The French set it up in 1889, thirteen years before the nearby Long Biên Bridge, and it is still Hà Nội's largest covered market. After a fire gutted it in 1994, it was partly rebuilt in its original style."
+      }
     ]
   },
-  "quiz": [
-    {
-      "q": "Đồng, the name of the currency, is the Sino-Vietnamese word for which metal?",
-      "options": [
-        "Gold",
-        "Copper",
-        "Silver"
-      ],
-      "answer": 1,
-      "explain": "Copper, the metal of the old coins."
-    },
-    {
-      "q": "How many coins will you get in your change today?",
-      "options": [
-        "None",
-        "Three",
-        "Seven"
-      ],
-      "answer": 0,
-      "explain": "Almost certainly none: coins stopped being issued in 2011."
-    },
-    {
-      "q": "In 1010 the new capital was named Thăng Long. What does it mean?",
-      "options": [
-        "Peaceful river",
-        "Ascending dragon",
-        "Eastern capital"
-      ],
-      "answer": 1,
-      "explain": "Legend says Lý Thái Tổ saw a dragon rise over the Red River. Later the city was Đông Kinh, \"eastern capital\", which gave Europeans the name Tonkin."
-    },
-    {
-      "q": "Which is the largest banknote?",
-      "options": [
-        "100,000 đồng",
-        "200,000 đồng",
-        "500,000 đồng"
-      ],
-      "answer": 2,
-      "explain": "Issued in 2003. It is blue like the 20,000, so check the zeros."
-    }
-  ],
   "challenge": {
     "title": "Market challenge",
     "text": "At a market stall, start with \"Chị ơi!\" (to a woman seller) and ask \"Bao nhiêu tiền?\". Catch the number. If it sounds high, smile and say \"Đắt quá!\", then try \"Rẻ hơn được không?\" or \"Bớt được không?\" (can you knock a bit off?). Notice whether the seller drops the nghìn."

@@ -8,6 +8,8 @@ Use --no-audio to skip the audio checks (for example in CI before clips exist).
 import argparse
 import json
 import re
+import shutil
+import subprocess
 import sys
 import unicodedata
 from pathlib import Path
@@ -109,41 +111,59 @@ def check_line(r, where, line):
     check_text(r, where, line["vi"])
 
 
-def check_feature(r, lid, lesson):
+def check_feature(r, lid, lesson, newest=False):
     f = lesson.get("feature")
     if not f:
         r.error(lid, "missing feature (the issue's article)")
         return
-    for field in ("kicker", "title", "dek", "body", "sources"):
+    for field in ("kicker", "title", "dek", "intro", "beats", "sources"):
         if not f.get(field):
             r.error(f"{lid}.feature", f"missing {field}")
-    body = f.get("body", [])
-    if not 2 <= len(body) <= 6:
-        r.error(f"{lid}.feature", f"has {len(body)} paragraphs; use 2 to 6")
-    for i, para in enumerate(body):
-        check_text(r, f"{lid}.feature.body[{i}]", para, "text")
-        if len(para) > 800:
-            r.error(f"{lid}.feature.body[{i}]", f"is {len(para)} characters (limit 800)")
-    words = sum(len(p.split()) for p in body)
+    check_text(r, f"{lid}.feature.intro", f.get("intro", "x"), "text")
+    if len(f.get("intro", "")) > 420:
+        r.error(f"{lid}.feature.intro", f"is {len(f['intro'])} characters; keep the intro under 420")
+    taught = {nfc(w.get("vi", "")).lower() for w in lesson.get("words", [])}
+    beats = f.get("beats", [])
+    if not 2 <= len(beats) <= 7:
+        r.error(f"{lid}.feature", f"has {len(beats)} story beats; use 2 to 7")
+    for i, b in enumerate(beats):
+        where = f"{lid}.feature.beats[{i}]"
+        check_text(r, where, b.get("text", ""), "text")
+        if len(b.get("text", "")) > 600:
+            r.error(where, f"is {len(b['text'])} characters (limit 600)")
+        if b.get("word") and nfc(b["word"]).lower() not in taught:
+            r.error(where, f"word {b['word']!r} is not one of this issue's new words")
+    if sum(1 for b in beats if b.get("word")) < 2:
+        r.warn(f"{lid}.feature", "tie at least two beats to words, so the story appears right after them")
+    words = len(f.get("intro", "").split()) + sum(len(b.get("text", "").split()) for b in beats)
     if not 120 <= words <= 450:
-        r.warn(f"{lid}.feature", f"article is {words} words; aim for 150 to 350")
+        r.warn(f"{lid}.feature", f"story is {words} words; aim for 150 to 350")
     for i, src in enumerate(f.get("sources", [])):
         if not str(src.get("url", "")).startswith("https://") or not src.get("title"):
             r.error(f"{lid}.feature.sources[{i}]", "needs a title and an https url")
-    quiz = lesson.get("quiz", [])
-    if not 2 <= len(quiz) <= 6:
-        r.error(lid, f"has {len(quiz)} quiz questions; use 2 to 6")
-    for i, q in enumerate(quiz):
-        where = f"{lid}.quiz[{i}]"
-        opts = q.get("options", [])
-        if not q.get("q") or not 2 <= len(opts) <= 4:
-            r.error(where, "needs q and 2 to 4 options")
-        if not isinstance(q.get("answer"), int) or not 0 <= q.get("answer", -1) < len(opts):
-            r.error(where, "answer must be the index of the right option")
-        if len(set(opts)) != len(opts):
-            r.error(where, "options repeat")
-        if not q.get("explain"):
-            r.warn(where, "no explain line")
+    if lesson.get("quiz"):
+        r.warn(lid, "quizzes are retired (the learner did not like them); remove quiz")
+    for i, sit in enumerate(lesson.get("situations", [])):
+        where = f"{lid}.situations[{i}]"
+        check_text(r, where, sit.get("vi", ""))
+        if not sit.get("en") or not sit.get("ask"):
+            r.error(where, "needs en and ask")
+        opts = sit.get("options")
+        if opts:
+            if sit.get("answer") not in opts:
+                r.error(where, "answer must be one of the options")
+            if len(set(opts)) != len(opts) or not 2 <= len(opts) <= 4:
+                r.error(where, "use 2 to 4 different options")
+        elif not str(sit.get("digits", "")).replace(".", "").isdigit():
+            r.error(where, "needs options and an answer, or digits")
+        elif sit.get("placeholder") and re.sub(r"\D", "", str(sit["placeholder"])) == re.sub(r"\D", "", str(sit["digits"])):
+            r.error(where, "the placeholder gives the answer away; remove it")
+        if sit.get("picture"):
+            check_picture(r, where, sit["picture"])
+    if not lesson.get("situations") and newest:
+        r.warn(lid, "no real-life situations")
+    elif newest and not 5 <= len(lesson["situations"]) <= 8:
+        r.warn(lid, f"has {len(lesson['situations'])} real-life situations; use 5 to 8")
     c = lesson.get("challenge")
     if not c or not c.get("text"):
         r.warn(lid, "no challenge (a real thing to try)")
@@ -159,7 +179,7 @@ def check_feature(r, lid, lesson):
         check_picture(r, f"{lid}.cover", cover["picture"])
 
 
-def check_lesson(r, entry, lesson, earlier_words, audio, known_words):
+def check_lesson(r, entry, lesson, earlier_words, audio, known_words, warmed=frozenset()):
     lid = entry["id"]
     if lesson.get("id") != lid:
         r.error(lid, f"id {lesson.get('id')!r} does not match the index entry")
@@ -212,7 +232,9 @@ def check_lesson(r, entry, lesson, earlier_words, audio, known_words):
     if len(set(ens)) != len(ens):
         r.error(lid, "two words share the same English meaning, so choice questions would be ambiguous")
 
-    check_feature(r, lid, lesson)
+    check_feature(r, lid, lesson, newest=bool(known_words))
+    if known_words:
+        check_use(r, lid, lesson)
     warm = set()
     for i, w in enumerate(lesson.get("warmup", [])):
         where = f"{lid}.warmup[{i}] {w.get('vi', '?')}"
@@ -222,7 +244,7 @@ def check_lesson(r, entry, lesson, earlier_words, audio, known_words):
     if len(warm) != len(lesson.get("warmup", [])):
         r.error(lid, "duplicate warm-up words")
 
-    known = set(seen) | set(earlier_words) | warm | set(known_words)
+    known = set(seen) | set(earlier_words) | warm | set(warmed) | set(known_words)
     for i, c in enumerate(lesson.get("combos", [])):
         where = f"{lid}.combos[{i}] {c.get('vi', '?')}"
         check_text(r, where, c.get("vi", ""))
@@ -246,7 +268,7 @@ def check_lesson(r, entry, lesson, earlier_words, audio, known_words):
             check_text(r, f"{lid}.grammar.examples[{i}]", x.get("vi", ""))
 
     for vi in lesson.get("review", []):
-        if nfc(vi).lower() not in earlier_words:
+        if nfc(vi).lower() not in earlier_words and nfc(vi).lower() not in warmed:
             r.error(f"{lid}.review", f"{vi!r} was not taught in an earlier lesson")
         if nfc(vi).lower() in known_words:
             r.error(f"{lid}.review", f"{vi!r} is a known word (web/lessons/known.json); known words are never reviewed")
@@ -257,13 +279,55 @@ def check_lesson(r, entry, lesson, earlier_words, audio, known_words):
         texts += [c["vi"] for c in lesson.get("combos", [])]
         texts += [x["vi"] for x in (g or {}).get("examples", [])]
         texts += [w["vi"] for w in lesson.get("warmup", [])]
+        texts += [x["vi"] for x in lesson.get("situations", [])]
+        texts += [x["answer"] for x in lesson.get("situations", []) if re.search(r"[^\W\d_]", x.get("answer", ""))]
         for t in texts:
             cid = audio.get(nfc(t).strip())
             if not cid:
                 r.error(lid, f"no audio clip for {t!r}; run scripts/make_audio.py")
             elif not (WEB / "audio" / f"{cid}.m4a").exists():
                 r.error(lid, f"audio file for {t!r} is missing")
-    return seen | warm
+    return seen, warm
+
+
+MAX_ANSWERS = 60
+
+
+def check_use(r, lid, lesson):
+    """Warns about new or review words that are only drilled, never heard in a situation, combo or story beat."""
+    lines = [t for x in lesson.get("situations", []) for t in [x.get("vi", ""), x.get("answer", "")] + list(x.get("options", []))]
+    lines += [c.get("vi", "") for c in lesson.get("combos", [])]
+    lines += [b.get("text", "") for b in (lesson.get("feature") or {}).get("beats", [])]
+    seqs = [re.findall(r"[^\W\d_]+", nfc(t).lower()) for t in lines]
+    def used(word):
+        target = re.findall(r"[^\W\d_]+", nfc(word).lower())
+        n = len(target)
+        return n and any(seq[i:i + n] == target for seq in seqs for i in range(len(seq) - n + 1))
+    for w in [x.get("vi", "") for x in lesson.get("words", [])] + list(lesson.get("review", [])):
+        if not used(w):
+            r.warn(lid, f"{w} is never used in a situation, combo or story beat")
+
+
+def check_plan(r, lid):
+    """Plays the newest issue through the site's own engine (scripts/plan.mjs) to check its length and story placement."""
+    node = shutil.which("node")
+    if not node:
+        r.warn(lid, "node not found, so story order and length were not checked")
+        return
+    try:
+        out = subprocess.run([node, str(ROOT / "scripts" / "plan.mjs"), "--json", lid], check=True, capture_output=True, text=True, timeout=60).stdout
+        plan = json.loads(out)[0]
+    except Exception as e:
+        r.error(lid, f"scripts/plan.mjs failed: {str(e).splitlines()[0] if str(e) else e}")
+        return
+    if not plan["inOrder"]:
+        r.error(lid, "the story plays out of order")
+    if plan["answers"] > MAX_ANSWERS:
+        r.warn(lid, f"{plan['answers']} answers before rush hour; keep an issue near 55 (fewer new or review words, or fewer situations)")
+    beats = plan["beats"]
+    for a, b in zip(beats, beats[1:]):
+        if a["answersBefore"] == b["answersBefore"] and a["where"] != "on the results page":
+            r.warn(lid, f"story beats {a['beat'] + 1} and {b['beat'] + 1} play back to back; tie one to a later word or untie it (node scripts/plan.mjs {lid})")
 
 
 def load_known(r):
@@ -288,6 +352,7 @@ def main():
         path = WEB / "audio" / "index.json"
         audio = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
     earlier = {}
+    warmed = set()
     numbers = []
     known_words = load_known(r)
     for entry in index["lessons"]:
@@ -297,8 +362,12 @@ def main():
             continue
         lesson = json.loads(path.read_text(encoding="utf-8"))
         numbers.append(lesson.get("number"))
-        for w in check_lesson(r, entry, lesson, earlier, audio, known_words if entry is index["lessons"][-1] else set()):
+        taught, warm = check_lesson(r, entry, lesson, earlier, audio, known_words if entry is index["lessons"][-1] else set(), frozenset(warmed))
+        for w in taught:
             earlier[w] = entry["id"]
+        warmed |= warm
+    if index["lessons"]:
+        check_plan(r, index["lessons"][-1]["id"])
     if numbers != list(range(1, len(numbers) + 1)):
         r.error("index", f"lesson numbers should run 1, 2, 3... in order; found {numbers}")
 

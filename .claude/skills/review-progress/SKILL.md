@@ -23,7 +23,7 @@ Answer each question with numbers from the data:
 - **Vocabulary size**: words met, on the known list, and holding up in reviews (meaning strength 0.8 or more). How far along the current phase target is the learner?
 - **Retention**: are words coming back from spaced reviews correctly? Which words keep failing after two or more reviews (leeches)? A leech needs a new hook, a new picture or a note; propose them.
 - **Meaning versus spelling**: is spelling lagging behind meaning? Is the learner using the tone keys? Which tone pairs and vowel marks fail?
-- **Difficulty and fun**: trend of difficulty, fun and article ratings, reading time on articles, quiz scores, grades, rush hour scores, session length. Too easy, too hard, or right? Are the stories landing?
+- **Difficulty and fun**: trend of difficulty, fun and article ratings, reading time on stories, real-life scores, grades, rush hour scores, session length. Too easy, too hard, or right? Are the stories landing?
 - **Engagement**: how often the learner plays, reviews skipped or overdue, sessions abandoned.
 - **Feedback**: every `wantNext` and `note` since the last review, and whether the lessons answered them.
 

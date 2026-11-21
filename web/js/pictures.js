@@ -99,7 +99,7 @@ const ICONS = {
 };
 
 function dots(n) {
-  const cols = n <= 10 ? 5 : 10;
+  const cols = n <= 5 ? n : n <= 10 ? 5 : 10;
   const rows = Math.ceil(n / cols);
   const gap = n <= 10 ? 16 : n <= 30 ? 10.5 : 7.4;
   const r = n <= 10 ? 6 : n <= 30 ? 4.2 : 2.8;
@@ -265,6 +265,17 @@ const SCENES = {
     <path class="f-water" d="M190 206 h20 l6 32 h-32 z"/>
     <path class="f-paper" d="M178 194 L200 168 L222 194 Z"/>
     <path class="s-ink fine" d="M186 190 L200 172 M214 190 L200 172" fill="none"/>`,
+  legend: `
+    <rect class="f-soft ns" x="0" y="0" width="400" height="250"/>
+    <g class="f-paper"><ellipse cx="300" cy="44" rx="58" ry="18"/><ellipse cx="260" cy="52" rx="40" ry="14"/><ellipse cx="342" cy="56" rx="38" ry="13"/></g>
+    <g class="s-water">${[250, 272, 294, 316, 338, 360].map((x) => `<path d="M${x} 72 l-8 22"/>`).join('')}</g>
+    <path class="f-leaf" d="M-10 250 L70 96 L118 160 L158 70 L236 250 Z"/>
+    <path class="f-brown ns" d="M158 70 L176 108 L162 102 L150 116 L140 104 Z" opacity="0.45"/>
+    <path class="f-brown ns" d="M70 96 L86 128 L74 122 L64 134 L56 124 Z" opacity="0.45"/>
+    <path class="f-gold" d="M150 70 h16 l-8 -14 z"/>
+    <path class="f-water" d="M196 250 C210 214 236 214 250 200 C262 188 252 172 266 166 C282 160 292 176 306 170 C322 162 316 146 334 142 C352 140 360 160 376 156 C392 152 398 140 410 138 V250 Z"/>
+    <g class="s-paper"><path d="M262 172 q8 -10 16 -2"/><path d="M330 146 q8 -10 16 -2"/><path d="M226 212 q8 -10 16 -2"/><path d="M300 200 q10 -12 20 -2"/><path d="M350 186 q10 -12 20 -2"/></g>
+    <path class="f-water ns" d="M196 250 C236 236 300 240 410 228 V250 Z" opacity="0.6"/>`,
 };
 
 function scene(name) {

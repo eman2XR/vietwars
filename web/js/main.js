@@ -5,10 +5,10 @@ import { loadAudio, play, preload } from './audio.js';
 import { store, localDay, streak } from './store.js';
 import { schedule, outcomeFor, dueWords, nextDue, INTERVAL_DAYS } from './srs.js';
 import { lessonSteps, reviewSteps, runSession, stampHTML } from './lesson.js';
-import { queue, flush, testToken, pullResults, REPO } from './sync.js';
+import { queue, flush, testToken, pullResults, pullQuestions, queueQuestion, REPO } from './sync.js';
 import { picture } from './pictures.js';
 
-const APP_VERSION = '3';
+const APP_VERSION = '4';
 const REVIEW_LIMIT = 20;
 const VERIFIED = new Set(['perfect', 'tone', 'marks', 'sound']);
 const app = document.getElementById('app');
@@ -145,13 +145,16 @@ function buildResult(kind, lesson, out, partial = false) {
     },
     article: out.article,
     quiz: out.quiz.total ? out.quiz : null,
+    situations: out.situations?.total ? out.situations : null,
+    timing: out.timing,
+    toneMarks: out.relaxed ? 'relaxed' : 'strict',
     words: out.summary.perWord.map((w) => ({ ...w, known: out.known.includes(w.vi) })),
     warmup: ev.filter((e) => e.warmup).map((e) => ({ vi: e.w, ok: e.ok, ms: e.ms })),
     toneConfusions: ev.filter((e) => e.t === 'spell' && !e.ok).map((e) => ({ target: e.w, chose: e.a })),
     meaningConfusions: ev.filter((e) => (e.t === 'listen' || e.t === 'speed') && !e.ok && !e.warmup).map((e) => ({ target: e.w, chose: e.a, t: e.t })),
-    typed: ev.filter((e) => e.t === 'type').map((e) => ({ target: e.w, answer: e.a, grade: e.g, hints: e.hints, keys: e.keys, dictation: e.dictation, retry: e.retry })),
+    typed: ev.filter((e) => e.t === 'type').map((e) => ({ target: e.w, answer: e.a, grade: e.g, accepted: e.ok, hints: e.hints, keys: e.keys, firstKeyMs: e.firstKeyMs, deletes: e.deletes, revealed: e.revealed, tiles: e.tiles, dictation: e.dictation, retry: e.retry })),
     feedback: out.feedback,
-    events: ev.map(({ t, w, ok, g, a, ms, retry, warmup, dictation }) => ({ t, w, ok, g, a, ms, retry, warmup, dictation })),
+    events: ev.map(({ t, w, ok, g, a, ms, retry, warmup, dictation, plays, hints, firstKeyMs, deletes, revealed, tiles }) => ({ t, w, ok, g, a, ms, retry, warmup, dictation, plays, hints, firstKeyMs, deletes, revealed, tiles })),
   };
 }
 
@@ -288,7 +291,7 @@ function resumeChoice(lesson, place) {
 }
 
 function startSession(kind, lesson, opts = {}) {
-  if (kind === 'lesson' && !opts.resume && !opts.fresh) {
+  if (kind === 'lesson' && !opts.resume && !opts.fresh && !(testMode && params.get('jump'))) {
     const place = savedPlace(lesson);
     if (place) return resumeChoice(lesson, place);
   }
@@ -314,6 +317,7 @@ function startSession(kind, lesson, opts = {}) {
     words = due;
   }
   preload([
+    ...(lesson?.situations || []).map((x) => x.vi),
     ...words.map((w) => w.vi),
     ...words.flatMap((w) => (w.contrast || []).map((c) => c.vi)),
     ...(lesson?.combos || []).map((c) => c.vi),
@@ -329,6 +333,11 @@ function startSession(kind, lesson, opts = {}) {
       lesson,
       testMode,
       saveKey: kind === 'lesson' ? lesson.id : null,
+      relaxed: !store.settings().strictTones,
+      ask: (text, context) => {
+        queueQuestion(text, context);
+        flush();
+      },
       resume: opts.resume || null,
       facts: factsFor(lesson, kind === 'lesson' ? lesson.words : words),
       jumpTo: testMode ? params.get('jump') : null,
@@ -427,9 +436,9 @@ function home() {
       ${
         store.settings().seen !== APP_VERSION
           ? `<section class="news">
-          <div class="label">New look</div>
-          <p>Every lesson is now an issue of a small magazine: a story from Vietnamese history or culture, a quiz, a fact for every word, and a street challenge to try. Finish an issue to earn its stamp.</p>
-          <div class="row"><a class="btn small" href="#/settings">Choose a style</a><button class="btn ghost small" data-act="seen">Got it</button></div>
+          <div class="label">New: ask the editors</div>
+          <p>Wondering how to say something, or what a word really means? Tap ? in any issue, or Ask on this page. The answer comes back here, usually within a quarter of an hour, with the Vietnamese ready to play.</p>
+          <div class="row"><a class="btn small" href="#/ask">Ask a question</a><button class="btn ghost small" data-act="seen">Got it</button></div>
         </section>`
           : ''
       }
@@ -478,6 +487,7 @@ function home() {
           return st === 'locked' ? `<div class="issue status-locked">${inner}</div>` : `<a class="issue status-${st}" href="#/lesson/${esc(l.id)}">${inner}</a>`;
         }).join('')}
       </div>
+      <a class="ask-link" href="#/ask"><span class="label">Ask the editors</span><span>How do I say...? What is the difference between...?</span>${newAnswers() ? `<b class="badge">${newAnswers()} new answer${newAnswers() === 1 ? '' : 's'}</b>` : ''}</a>
       <div class="row links"><a class="text-link" href="#/words">Your words</a><a class="text-link" href="#/settings">Style and settings</a></div>
     </div>`;
 }
@@ -488,6 +498,101 @@ document.addEventListener('click', (ev) => {
     ev.target.closest('.news')?.remove();
   }
 });
+
+function inlineMd(t) {
+  return esc(t).replace(/\*\*(.+?)\*\*/g, '<b>$1</b>').replace(/(^|[^*])\*(?!\s)(.+?)\*(?!\*)/g, '$1<i>$2</i>');
+}
+
+function renderAnswer(text) {
+  return text
+    .split(/\n\s*\n/)
+    .map((block) => {
+      const lines = block.split('\n').filter((l) => l.trim());
+      if (lines.length && lines.every((l) => /^\s*[-*] /.test(l))) return `<ul>${lines.map((l) => `<li>${inlineMd(l.replace(/^\s*[-*] /, ''))}</li>`).join('')}</ul>`;
+      return `<p>${lines.map(inlineMd).join('<br>')}</p>`;
+    })
+    .join('');
+}
+
+function questionHTML(q) {
+  const a = q.answer;
+  return `<article class="question ${a ? 'answered' : 'waiting'}">
+    <div class="kicker">${esc(new Date(q.askedAt).toLocaleDateString('en-GB', { day: 'numeric', month: 'short' }))}${q.context ? ` · ${esc(q.context)}` : ''}</div>
+    <h3 class="question-text">${esc(q.text)}</h3>
+    ${
+      a
+        ? `<div class="answer">${renderAnswer(a.text || '')}${(a.phrases || []).length ? `<div class="phrases">${a.phrases.map((p) => `<div class="pair"><span class="vi pair-vi">${colorize(p.vi)}</span><span class="pair-en">${esc(p.en || '')}</span><button type="button" class="say mini" data-say="${esc(p.vi)}" aria-label="Play">Play</button></div>`).join('')}</div>` : ''}</div>`
+        : '<p class="hint">Waiting for an answer. The editors check about every 15 minutes while the lesson loop is running.</p>'
+    }
+  </article>`;
+}
+
+function drawQuestions() {
+  const list = app.querySelector('.question-list');
+  if (!list) return;
+  const qs = store.settings().questions || [];
+  list.innerHTML = qs.length ? [...qs].reverse().map(questionHTML).join('') : '<p class="hint">No questions yet.</p>';
+}
+
+async function askPage() {
+  const draw = drawQuestions;
+  app.innerHTML = `
+    <div class="page ask-page">
+      <a class="back" href="#/">Magazine</a>
+      <h1 class="title">Ask the editors</h1>
+      <p class="lead">How do I say something? What is the difference between two words? Why is it like that? Answers come from the same editors who write your issues, with the Vietnamese to hear.</p>
+      <form class="ask-form page-ask">
+        <textarea name="q" rows="3" placeholder="How do I ask for the bill? What is the difference between nữa and nửa?" aria-label="Your question"></textarea>
+        <div class="row"><button type="submit" class="btn primary">Send</button></div>
+        <p class="form-status hint"></p>
+      </form>
+      <h2 class="section-title">Your questions</h2>
+      <div class="question-list"></div>
+    </div>`;
+  draw();
+  markAnswersRead();
+  app.querySelector('.page-ask').addEventListener('submit', async (ev) => {
+    ev.preventDefault();
+    const text = ev.target.q.value.trim();
+    if (!text) return;
+    queueQuestion(text, null);
+    ev.target.q.value = '';
+    draw();
+    const r = await flush();
+    app.querySelector('.form-status').textContent = r.left ? `Saved; it will be sent when ${r.error === 'No GitHub token set' ? 'a token is set in Settings' : 'you are online'}.` : 'Sent.';
+  });
+  await refreshQuestions();
+  if ((location.hash || '').startsWith('#/ask')) {
+    draw();
+    markAnswersRead();
+  }
+}
+
+// Merges answers from GitHub into the questions saved on this device.
+async function refreshQuestions() {
+  const local = store.settings().questions || [];
+  let remote;
+  try {
+    remote = await pullQuestions(new Map(local.filter((q) => q.answer).map((q) => [q.questionId, q.answer])));
+  } catch {
+    return false;
+  }
+  const byId = new Map(local.map((q) => [q.questionId, q]));
+  for (const q of remote) byId.set(q.questionId, { ...(byId.get(q.questionId) || {}), ...q });
+  const merged = [...byId.values()].sort((a, b) => String(a.askedAt).localeCompare(String(b.askedAt)));
+  store.saveSettings({ ...store.settings(), questions: merged });
+  return true;
+}
+
+function newAnswers() {
+  const read = new Set(store.settings().answersRead || []);
+  return (store.settings().questions || []).filter((q) => q.answer && !read.has(q.questionId)).length;
+}
+
+function markAnswersRead() {
+  const ids = (store.settings().questions || []).filter((q) => q.answer).map((q) => q.questionId);
+  store.saveSettings({ ...store.settings(), answersRead: ids });
+}
 
 function wordsPage() {
   const deck = store.deck();
@@ -539,6 +644,14 @@ function settingsPage() {
         <div class="style-grid">${STYLES.map(stylePreview).join('')}</div>
       </section>
       <section class="panel">
+        <h2>Tone marks when typing</h2>
+        <p>Relaxed counts a typed word as right when the letters are right, and shows you the marks. Strict also wants every tone and vowel mark.</p>
+        <div class="seg" data-name="tones">
+          <button type="button" class="seg-btn ${s.strictTones ? '' : 'on'}" data-tones="relaxed">Relaxed</button>
+          <button type="button" class="seg-btn ${s.strictTones ? 'on' : ''}" data-tones="strict">Strict</button>
+        </div>
+      </section>
+      <section class="panel">
         <h2>Sync between devices</h2>
         <p>Your progress comes from the results every device has sent to GitHub, so your iPhone, iPad and Mac show the same issues, stamps and reviews. It syncs when the app opens and when you come back to it. Each device needs the token below to send its own results.</p>
         <p class="sync-status hint">${s.syncedAt ? `Last synced ${esc(new Date(s.syncedAt).toLocaleString())}.` : 'Not synced yet.'} ${store.history().length} session${store.history().length === 1 ? '' : 's'} on this device.</p>
@@ -584,6 +697,12 @@ function settingsPage() {
     }
   });
   app.querySelector('.settings').addEventListener('click', async (ev) => {
+    const tones = ev.target.closest('[data-tones]');
+    if (tones) {
+      store.saveSettings({ ...store.settings(), strictTones: tones.dataset.tones === 'strict' });
+      app.querySelectorAll('[data-tones]').forEach((b) => b.classList.toggle('on', b === tones));
+      return;
+    }
     const card = ev.target.closest('[data-pick]');
     if (card) {
       store.saveSettings({ ...store.settings(), style: card.dataset.pick });
@@ -646,6 +765,7 @@ function render() {
   }
   if (route === 'review') return startSession('review');
   if (route === 'words') return wordsPage();
+  if (route === 'ask') return askPage();
   if (route === 'settings') return settingsPage();
   return home();
 }
@@ -662,9 +782,23 @@ async function boot() {
   render();
   if (store.outbox().length) flush().then(() => syncAndRefresh());
   else syncAndRefresh();
+  refreshQuestions().then((ok) => {
+    if (ok && newAnswers() && (location.hash || '#/') === '#/' && !document.body.classList.contains('in-session')) home();
+  });
   document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState !== 'visible') return;
     const last = Date.parse(store.settings().syncedAt || 0) || 0;
-    if (document.visibilityState === 'visible' && Date.now() - last > 2 * 60000) syncAndRefresh();
+    if (Date.now() - last > 2 * 60000) syncAndRefresh();
+    if ((store.settings().questions || []).some((q) => !q.answer)) {
+      refreshQuestions().then((ok) => {
+        if (!ok || document.body.classList.contains('in-session')) return;
+        const hash = location.hash || '#/';
+        if (hash.startsWith('#/ask')) {
+          drawQuestions();
+          markAnswersRead();
+        } else if (hash === '#/' && newAnswers()) home();
+      });
+    }
   });
   if ('serviceWorker' in navigator && location.protocol === 'https:' && !testMode) {
     navigator.serviceWorker.register('sw.js').catch(() => {});
