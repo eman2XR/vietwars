@@ -77,17 +77,34 @@ def first_try_credit(event):
     return 1.0 if event.get("ok") else 0.0
 
 
+def known_words():
+    path = ROOT / "web" / "lessons" / "known.json"
+    if not path.exists():
+        return []
+    return json.loads(path.read_text(encoding="utf-8")).get("words", [])
+
+
+def avg(xs):
+    return round(statistics.mean(xs), 2) if xs else None
+
+
 def build_profile(results):
     results = sorted(results, key=lambda r: r["finishedAt"])
+    known = set(known_words())
     words = {}
     tone_conf = Counter()
     meaning_conf = Counter()
     typed_grades = Counter()
-    lessons = defaultdict(lambda: {"attempts": 0, "accuracies": [], "last": None})
+    keys_used = [0, 0]
+    warmup_missed = Counter()
+    lessons = defaultdict(lambda: {"attempts": 0, "accuracies": [], "last": None, "won": False, "ranks": []})
     sessions = []
     feedback = []
     for r in results:
         acc = r["summary"]["firstTryAccuracy"]
+        b = r.get("battle") or {}
+        missed = [m["vi"] for m in r.get("warmup", []) if not m.get("ok")]
+        warmup_missed.update(set(missed))
         sessions.append({
             "finishedAt": r["finishedAt"],
             "kind": r["kind"],
@@ -95,13 +112,19 @@ def build_profile(results):
             "accuracy": acc,
             "minutes": round(r["durationSec"] / 60, 1),
             "device": r.get("device"),
+            "style": r.get("style"),
             "speed": f"{r['summary'].get('speedCorrect', 0)}/{r['summary'].get('speedAnswered', 0)}",
+            "battle": {k: b.get(k) for k in ("won", "rank", "foeHpLeft", "heartsLost", "knockouts", "crits", "ambushWon", "ambushLost")} if b else None,
+            "warmupMissed": missed,
         })
         if r["kind"] == "lesson":
             l = lessons[r["lessonId"]]
             l["attempts"] += 1
             l["accuracies"].append(acc)
             l["last"] = r["finishedAt"]
+            l["won"] = l["won"] or bool(b.get("won"))
+            if b.get("rank"):
+                l["ranks"].append(b["rank"])
         if r.get("feedback"):
             feedback.append({"finishedAt": r["finishedAt"], "lesson": r["lessonId"], "kind": r["kind"], **r["feedback"]})
         for c in r.get("toneConfusions", []):
@@ -111,14 +134,17 @@ def build_profile(results):
         for t in r.get("typed", []):
             if not t.get("retry"):
                 typed_grades[t["grade"]] += 1
+                if "keys" in t:
+                    keys_used[1] += 1
+                    keys_used[0] += 1 if t.get("keys") else 0
         firsts = defaultdict(list)
         for e in r.get("events", []):
-            if e["t"] in ("listen", "spell", "reverse", "type") and not e.get("retry"):
+            if e["t"] in ("listen", "spell", "reverse", "type") and not (e.get("retry") or e.get("warmup") or e.get("ambush")):
                 firsts[e["w"]].append(e)
         for w in r.get("words", []):
             entry = words.setdefault(w["vi"], {
                 "en": w["en"], "firstLesson": r["lessonId"], "sessions": 0, "shares": [],
-                "byExercise": defaultdict(list), "typedErrors": Counter(), "known": False, "msMedian": None,
+                "byExercise": defaultdict(list), "meaning": [], "form": [], "typedErrors": Counter(), "known": False, "msMedian": None,
             })
             entry["sessions"] += 1
             entry["shares"].append(w["share"])
@@ -127,7 +153,10 @@ def build_profile(results):
             if w.get("msMedian"):
                 entry["msMedian"] = w["msMedian"]
             for e in firsts.get(w["vi"], []):
-                entry["byExercise"][e["t"]].append(first_try_credit(e))
+                c = first_try_credit(e)
+                kind = "dictation" if e["t"] == "type" and e.get("dictation") else e["t"]
+                entry["byExercise"][kind].append(c)
+                (entry["meaning"] if e["t"] in ("listen", "reverse") else entry["form"]).append(c)
                 if e["t"] == "type" and e.get("g") != "perfect":
                     entry["typedErrors"][e.get("g")] += 1
 
@@ -139,26 +168,35 @@ def build_profile(results):
             "firstLesson": e["firstLesson"],
             "sessions": e["sessions"],
             "strength": round(statistics.mean(recent), 2),
+            "meaning": avg(e["meaning"][-6:]),
+            "form": avg(e["form"][-6:]),
             "history": e["shares"],
             "byExercise": {k: round(statistics.mean(v), 2) for k, v in e["byExercise"].items()},
             "typedErrors": dict(e["typedErrors"]),
-            "knewIt": e["known"],
+            "tappedKnowIt": e["known"],
+            "knownList": vi in known,
             "msMedian": e["msMedian"],
             "lastSeen": e["lastSeen"],
         }
-    ranked = sorted(word_out.items(), key=lambda kv: (kv[1]["strength"], kv[0]))
+    live = {vi: w for vi, w in word_out.items() if not w["knownList"]}
+    by_meaning = sorted(live.items(), key=lambda kv: (kv[1]["meaning"] if kv[1]["meaning"] is not None else 1, kv[0]))
+    by_form = sorted(live.items(), key=lambda kv: (kv[1]["form"] if kv[1]["form"] is not None else 1, kv[0]))
     return {
         "sessions": sessions,
         "lessons": {
-            k: {"attempts": v["attempts"], "best": max(v["accuracies"]), "latest": v["accuracies"][-1], "last": v["last"]}
+            k: {"attempts": v["attempts"], "best": max(v["accuracies"]), "latest": v["accuracies"][-1], "last": v["last"], "won": v["won"], "ranks": v["ranks"]}
             for k, v in lessons.items()
         },
         "words": word_out,
-        "weakest": [vi for vi, w in ranked if w["strength"] < 0.7][:15],
-        "strongest": [vi for vi, w in reversed(ranked) if w["strength"] >= 0.9][:15],
+        "known": sorted(known),
+        "weakMeaning": [vi for vi, w in by_meaning if w["meaning"] is not None and w["meaning"] < 0.7][:15],
+        "weakSpelling": [vi for vi, w in by_form if w["form"] is not None and w["form"] < 0.6][:15],
+        "strongest": [vi for vi, w in sorted(live.items(), key=lambda kv: -kv[1]["strength"]) if w["strength"] >= 0.9][:15],
+        "warmupMissed": dict(warmup_missed.most_common()),
         "toneConfusions": dict(tone_conf.most_common()),
         "meaningConfusions": dict(meaning_conf.most_common(20)),
         "typing": dict(typed_grades),
+        "toneKeysUsed": f"{keys_used[0]}/{keys_used[1]}" if keys_used[1] else None,
         "feedback": feedback,
     }
 
@@ -168,21 +206,32 @@ def summary_md(p):
     s = p["sessions"]
     if not s:
         return "\n".join(lines + ["No results yet."]) + "\n"
-    lines.append(f"- Sessions: {len(s)} ({sum(1 for x in s if x['kind'] == 'lesson')} lessons, {sum(1 for x in s if x['kind'] == 'review')} reviews), last {s[-1]['finishedAt'][:16]} on {s[-1]['device']}")
-    lines.append(f"- Words met: {len(p['words'])}; strong (0.9 or more): {len(p['strongest'])}; weak (under 0.7): {len(p['weakest'])}")
+    lines.append(f"- Sessions: {len(s)} ({sum(1 for x in s if x['kind'] == 'lesson')} lessons, {sum(1 for x in s if x['kind'] == 'review')} reviews), last {s[-1]['finishedAt'][:16]} UTC on {s[-1]['device']}")
+    lines.append(f"- Words met: {len(p['words'])}; on the known list (never taught or reviewed again): {len(p['known'])}")
+    lines.append(f"- Weak in meaning (under 0.7): {', '.join(p['weakMeaning']) or 'none'}")
+    lines.append(f"- Weak in spelling or tone (under 0.6): {', '.join(p['weakSpelling']) or 'none'}")
     t = p["typing"]
     total = sum(t.values())
     if total:
-        lines.append(f"- Typing, first tries: {t.get('perfect', 0)} perfect, {t.get('tone', 0)} wrong or missing tone, {t.get('marks', 0)} missing vowel marks, {t.get('wrong', 0)} wrong (of {total})")
-    lines += ["", "## Sessions", "", "| When (UTC) | Kind | Lesson | First try | Minutes | Speed |", "|---|---|---|---|---|---|"]
+        lines.append(f"- Typing, first tries: {t.get('perfect', 0)} perfect, {t.get('tone', 0)} wrong or missing tone, {t.get('marks', 0)} missing vowel marks, {t.get('sound', 0)} spelled as it sounds in Hà Nội, {t.get('wrong', 0)} wrong (of {total})")
+    if p.get("toneKeysUsed"):
+        lines.append(f"- Answers typed with the on-screen tone keys: {p['toneKeysUsed']}")
+    if p["warmupMissed"]:
+        lines.append(f"- Warm-up words missed: {', '.join(f'{k} ({v})' for k, v in p['warmupMissed'].items())}")
+    lines += ["", "## Sessions", "", "| When (UTC) | Kind | Lesson | First try | Minutes | Speed | Battle |", "|---|---|---|---|---|---|---|"]
     for x in s[-12:]:
-        lines.append(f"| {x['finishedAt'][:16]} | {x['kind']} | {x['lesson']} | {round(x['accuracy'] * 100)}% | {x['minutes']} | {x['speed']} |")
-    lines += ["", "## Words, weakest first", "", "| Word | Meaning | Strength | Listen | Spell | Reverse | Type | Typing errors | Knew it |", "|---|---|---|---|---|---|---|---|---|"]
-    for vi, w in sorted(p["words"].items(), key=lambda kv: kv[1]["strength"]):
+        b = x.get("battle")
+        bt = f"{'won' if b.get('won') else 'lost'}, rank {b.get('rank')}, {b.get('heartsLost')} hearts lost, {b.get('crits')} crits" if b else ""
+        lines.append(f"| {x['finishedAt'][:16]} | {x['kind']} | {x['lesson']} | {round(x['accuracy'] * 100)}% | {x['minutes']} | {x['speed']} | {bt} |")
+    lines += ["", "## Words, weakest meaning first (known-list words last)", "", "| Word | Gloss | Meaning | Spelling | Listen | Spell | Reverse | Type | Hear+type | Typing errors | Notes |", "|---|---|---|---|---|---|---|---|---|---|---|"]
+    order = sorted(p["words"].items(), key=lambda kv: (kv[1]["knownList"], kv[1]["meaning"] if kv[1]["meaning"] is not None else 1))
+    for vi, w in order:
         b = w["byExercise"]
         cell = lambda k: f"{b[k]:.2f}" if k in b else ""
+        num = lambda v: f"{v:.2f}" if v is not None else ""
         errs = ", ".join(f"{k} {v}" for k, v in w["typedErrors"].items())
-        lines.append(f"| {vi} | {w['en']} | {w['strength']:.2f} | {cell('listen')} | {cell('spell')} | {cell('reverse')} | {cell('type')} | {errs} | {'yes' if w['knewIt'] else ''} |")
+        notes = ", ".join(x for x in ("known list" if w["knownList"] else "", "tapped I know it" if w["tappedKnowIt"] else "") if x)
+        lines.append(f"| {vi} | {w['en']} | {num(w['meaning'])} | {num(w['form'])} | {cell('listen')} | {cell('spell')} | {cell('reverse')} | {cell('type')} | {cell('dictation')} | {errs} | {notes} |")
     if p["toneConfusions"]:
         lines += ["", "## Tone and spelling confusions (heard -> picked)", ""]
         lines += [f"- {k}: {v}" for k, v in p["toneConfusions"].items()]
@@ -200,6 +249,9 @@ def summary_md(p):
             if f.get("note"):
                 parts.append(f"note \"{f['note']}\"")
             lines.append("- " + "; ".join(parts))
+    notes = ROOT / "learner" / "NOTES.md"
+    if notes.exists():
+        lines += ["", "## Notes from the learner outside the app", "", notes.read_text(encoding="utf-8").strip()]
     return "\n".join(lines) + "\n"
 
 

@@ -14,7 +14,7 @@ export const TONES = {
   ngang: { name: 'ngang', mark: 'no mark', feel: 'level', sample: 'a', contour: [[0, 3.3], [1, 3.3]] },
   huyen: { name: 'huyền', mark: 'grave', feel: 'low falling', sample: 'à', contour: [[0, 2.4], [1, 1.4]] },
   sac: { name: 'sắc', mark: 'acute', feel: 'rising', sample: 'á', contour: [[0, 3.2], [0.35, 3.3], [1, 4.9]] },
-  hoi: { name: 'hỏi', mark: 'hook', feel: 'dipping', sample: 'ả', contour: [[0, 2.8], [0.55, 1.3], [0.85, 1.4], [1, 2.1]] },
+  hoi: { name: 'hỏi', mark: 'hook', feel: 'sharp drop', sample: 'ả', contour: [[0, 3.1], [0.6, 1.2], [0.85, 1.15], [1, 1.6]] },
   nga: { name: 'ngã', mark: 'tilde', feel: 'broken rising', sample: 'ã', contour: [[0, 3], [0.42, 3.3], null, [0.58, 3.6], [1, 5]] },
   nang: { name: 'nặng', mark: 'dot below', feel: 'heavy drop', sample: 'ạ', contour: [[0, 2.3], [0.55, 1.2]], stop: true },
 };
@@ -80,7 +80,17 @@ function readings(tok) {
   return [direct];
 }
 
-const RANK = { perfect: 3, tone: 2, marks: 1, wrong: 0 };
+const RANK = { perfect: 4, tone: 3, marks: 2, sound: 1, wrong: 0 };
+
+// Hà Nội pronounces tr and ch, r, d and gi, and s and x the same, so spellings that differ only there sound right.
+function hanoiSound(s) {
+  return stripAll(s)
+    .toLowerCase()
+    .replace(/^tr/, 'ch')
+    .replace(/^gi/, 'd')
+    .replace(/^r/, 'd')
+    .replace(/^x/, 's');
+}
 
 function gradeSyllable(answerTok, targetTok) {
   const target = { base: stripTone(targetTok), tone: syllableTone(targetTok) };
@@ -90,12 +100,14 @@ function gradeSyllable(answerTok, targetTok) {
     if (r.base === target.base && r.tone === target.tone) g = 'perfect';
     else if (r.base === target.base) g = 'tone';
     else if (stripAll(r.base) === stripAll(target.base)) g = 'marks';
+    else if (hanoiSound(r.base) === hanoiSound(target.base)) g = 'sound';
     if (RANK[g] > RANK[best]) best = g;
   }
   return best;
 }
 
-// Grades a typed answer: perfect, tone (right letters and vowels, wrong tone), marks (right letters, missing or wrong marks), wrong or empty.
+// Grades a typed answer: perfect, tone (right letters and vowels, wrong tone), marks (right letters, missing or wrong marks),
+// sound (spelled the way it sounds in Hà Nội, such as cha for trà), wrong or empty.
 export function grade(answer, target) {
   const a = tokens(answer);
   const t = tokens(target);
@@ -156,4 +168,82 @@ export function contourSVG(tone, { width = 44, height = 26 } = {}) {
   }
   const guide = `<line class="guide" x1="${pad}" y1="${y(3)}" x2="${width - pad}" y2="${y(3)}" stroke-width="1" stroke-dasharray="2 3"/>`;
   return `<svg class="contour t-${tone}" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" aria-hidden="true">${guide}${paths}${stop}</svg>`;
+}
+
+const VOWELS = 'aăâeêioôơuưy';
+const MODIFIED = 'ăâêôơ';
+
+function placeTone(base) {
+  const chars = [...base];
+  const lower = chars.map((c) => c.toLowerCase());
+  let start = 0;
+  if (lower[0] === 'q' && lower[1] === 'u') start = 2;
+  else if (lower[0] === 'g' && lower[1] === 'i' && lower.length > 2 && VOWELS.includes(lower[2])) start = 2;
+  const idx = [];
+  for (let i = start; i < lower.length; i++) if (VOWELS.includes(lower[i])) idx.push(i);
+  if (!idx.length) {
+    for (let i = 0; i < lower.length; i++) if (VOWELS.includes(lower[i])) idx.push(i);
+  }
+  if (!idx.length) return -1;
+  const mod = idx.filter((i) => MODIFIED.includes(lower[i]));
+  if (mod.length) return mod[mod.length - 1];
+  const horn = idx.filter((i) => lower[i] === 'ư');
+  if (horn.length) return horn[0];
+  if (idx.length === 1) return idx[0];
+  const endsInConsonant = idx[idx.length - 1] < lower.length - 1;
+  if (endsInConsonant) return idx[idx.length - 1];
+  if (idx.length === 3) return idx[1];
+  const pair = lower[idx[0]] + lower[idx[1]];
+  if (pair === 'oa' || pair === 'oe' || pair === 'uy') return idx[1];
+  return idx[0];
+}
+
+// Puts a tone on one syllable, replacing any tone it already has.
+export function withTone(syllable, tone) {
+  const base = stripTone(syllable);
+  if (tone === 'ngang') return base;
+  const mark = Object.keys(TONE_MARKS).find((k) => TONE_MARKS[k] === tone);
+  const chars = [...base.normalize('NFC')];
+  const at = placeTone(chars.join(''));
+  if (at < 0) return base;
+  chars[at] = (chars[at].normalize('NFD') + mark).normalize('NFC');
+  return chars.join('').normalize('NFC');
+}
+
+const MODIFY = { 'ă': 'a', 'â': 'a', 'ê': 'e', 'ô': 'o', 'ơ': 'o', 'ư': 'u', 'đ': 'd' };
+
+// Applies an on-screen key to the syllable that ends at the cursor: a tone, or a vowel mark that changes the nearest matching letter.
+export function applyKey(text, cursor, key) {
+  const before = text.slice(0, cursor);
+  const after = text.slice(cursor);
+  const m = before.match(/(\p{L}+)$/u);
+  if (!m) {
+    if (TONES[key]) return { text, cursor };
+    return { text: before + key + after, cursor: cursor + key.length };
+  }
+  const syl = m[1];
+  const head = before.slice(0, before.length - syl.length);
+  let out;
+  if (TONES[key]) {
+    out = withTone(syl, key);
+  } else {
+    const tone = syllableTone(syl);
+    const base = [...stripTone(syl)];
+    const plain = MODIFY[key];
+    let i = -1;
+    for (let j = base.length - 1; j >= 0; j--) {
+      if (stripAll(base[j]).toLowerCase() === plain) {
+        i = j;
+        break;
+      }
+    }
+    if (i < 0) out = withTone(base.join('') + key, tone);
+    else {
+      const upper = base[i] !== base[i].toLowerCase();
+      base[i] = base[i].toLowerCase() === key ? plain : upper ? key.toUpperCase() : key;
+      out = withTone(base.join(''), tone);
+    }
+  }
+  const newBefore = head + out;
+  return { text: newBefore + after, cursor: newBefore.length };
 }

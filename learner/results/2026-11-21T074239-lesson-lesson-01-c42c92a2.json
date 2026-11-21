@@ -1,0 +1,961 @@
+{
+ "schema": 1,
+ "resultId": "c42c92a2-fc85-445e-9c7e-424fc050aba4",
+ "kind": "lesson",
+ "lessonId": "lesson-01",
+ "lessonTitle": "Phở and friends",
+ "appVersion": "1",
+ "device": "Mac",
+ "startedAt": "2026-11-21T07:32:56.270Z",
+ "finishedAt": "2026-11-21T07:42:39.510Z",
+ "durationSec": 583,
+ "summary": {
+  "firstTryAccuracy": 0.76,
+  "exercises": 48,
+  "xp": 499,
+  "speedScore": 530,
+  "speedAnswered": 15,
+  "speedCorrect": 14,
+  "bestCombo": 12
+ },
+ "words": [
+  {
+   "vi": "phở",
+   "en": "pho (noodle soup)",
+   "share": 0.63,
+   "stars": 1,
+   "firstTry": {
+    "listen": true,
+    "spell": false,
+    "type": "marks"
+   },
+   "attempts": 6,
+   "msMedian": 2588,
+   "known": false
+  },
+  {
+   "vi": "cơm",
+   "en": "cooked rice; a meal",
+   "share": 0.17,
+   "stars": 0,
+   "firstTry": {
+    "listen": false,
+    "spell": false,
+    "type": "marks"
+   },
+   "attempts": 6,
+   "msMedian": 2188,
+   "known": false
+  },
+  {
+   "vi": "bún",
+   "en": "rice vermicelli noodles",
+   "share": 0.88,
+   "stars": 2,
+   "firstTry": {
+    "listen": true,
+    "spell": true,
+    "type": "tone"
+   },
+   "attempts": 5,
+   "msMedian": 2883,
+   "known": false
+  },
+  {
+   "vi": "bánh mì",
+   "en": "bread; a baguette sandwich",
+   "share": 0.83,
+   "stars": 2,
+   "firstTry": {
+    "listen": true,
+    "reverse": true,
+    "type": "tone"
+   },
+   "attempts": 4,
+   "msMedian": 3333,
+   "known": false
+  },
+  {
+   "vi": "gà",
+   "en": "chicken",
+   "share": 0.33,
+   "stars": 0,
+   "firstTry": {
+    "listen": false,
+    "spell": true,
+    "type": "wrong"
+   },
+   "attempts": 5,
+   "msMedian": 3083,
+   "known": false
+  },
+  {
+   "vi": "bò",
+   "en": "beef; cow",
+   "share": 0.75,
+   "stars": 2,
+   "firstTry": {
+    "listen": true,
+    "spell": true,
+    "type": "wrong"
+   },
+   "attempts": 5,
+   "msMedian": 4893,
+   "known": false
+  },
+  {
+   "vi": "cá",
+   "en": "fish",
+   "share": 0.83,
+   "stars": 2,
+   "firstTry": {
+    "listen": true,
+    "spell": true,
+    "type": "tone"
+   },
+   "attempts": 4,
+   "msMedian": 3476,
+   "known": false
+  },
+  {
+   "vi": "rau",
+   "en": "vegetables, greens",
+   "share": 1,
+   "stars": 3,
+   "firstTry": {
+    "listen": true,
+    "spell": true,
+    "type": "perfect"
+   },
+   "attempts": 4,
+   "msMedian": 2592,
+   "known": false
+  },
+  {
+   "vi": "nước",
+   "en": "water (also: drink, liquid, country)",
+   "share": 0.83,
+   "stars": 2,
+   "firstTry": {
+    "listen": true,
+    "reverse": true,
+    "type": "marks"
+   },
+   "attempts": 4,
+   "msMedian": 3234,
+   "known": false
+  },
+  {
+   "vi": "trà",
+   "en": "tea",
+   "share": 0.67,
+   "stars": 1,
+   "firstTry": {
+    "listen": true,
+    "spell": true,
+    "type": "wrong"
+   },
+   "attempts": 4,
+   "msMedian": 3851,
+   "known": false
+  },
+  {
+   "vi": "cà phê",
+   "en": "coffee",
+   "share": 0.88,
+   "stars": 2,
+   "firstTry": {
+    "listen": true,
+    "reverse": true,
+    "type": "marks"
+   },
+   "attempts": 5,
+   "msMedian": 2459,
+   "known": false
+  },
+  {
+   "vi": "ngon",
+   "en": "delicious",
+   "share": 0.75,
+   "stars": 2,
+   "firstTry": {
+    "listen": true,
+    "spell": false,
+    "type": "perfect"
+   },
+   "attempts": 5,
+   "msMedian": 2041,
+   "known": false
+  }
+ ],
+ "toneConfusions": [
+  {
+   "target": "ngon",
+   "chose": "ngọn"
+  },
+  {
+   "target": "phở",
+   "chose": "phờ"
+  },
+  {
+   "target": "cơm",
+   "chose": "cốm"
+  },
+  {
+   "target": "phở",
+   "chose": "phờ"
+  },
+  {
+   "target": "cơm",
+   "chose": "cốm"
+  }
+ ],
+ "meaningConfusions": [
+  {
+   "target": "gà",
+   "chose": "fish",
+   "t": "listen"
+  },
+  {
+   "target": "cơm",
+   "chose": "rice vermicelli noodles",
+   "t": "listen"
+  },
+  {
+   "target": "cơm gà",
+   "chose": "beef pho",
+   "t": "speed"
+  }
+ ],
+ "typed": [
+  {
+   "target": "trà",
+   "answer": "cha",
+   "grade": "wrong",
+   "hints": 0,
+   "retry": false
+  },
+  {
+   "target": "cá",
+   "answer": "ca",
+   "grade": "tone",
+   "hints": 0,
+   "retry": false
+  },
+  {
+   "target": "gà",
+   "answer": "ca",
+   "grade": "wrong",
+   "hints": 0,
+   "retry": false
+  },
+  {
+   "target": "bánh mì",
+   "answer": "banh mi",
+   "grade": "tone",
+   "hints": 0,
+   "retry": false
+  },
+  {
+   "target": "trà",
+   "answer": "tra",
+   "grade": "tone",
+   "hints": 0,
+   "retry": true
+  },
+  {
+   "target": "cá",
+   "answer": "ca",
+   "grade": "tone",
+   "hints": 0,
+   "retry": true
+  },
+  {
+   "target": "gà",
+   "answer": "ga",
+   "grade": "tone",
+   "hints": 0,
+   "retry": true
+  },
+  {
+   "target": "bánh mì",
+   "answer": "banh mi",
+   "grade": "tone",
+   "hints": 0,
+   "retry": true
+  },
+  {
+   "target": "phở",
+   "answer": "pho",
+   "grade": "marks",
+   "hints": 0,
+   "retry": false
+  },
+  {
+   "target": "cà phê",
+   "answer": "ca phe",
+   "grade": "marks",
+   "hints": 0,
+   "retry": false
+  },
+  {
+   "target": "rau",
+   "answer": "rau",
+   "grade": "perfect",
+   "hints": 0,
+   "retry": false
+  },
+  {
+   "target": "ngon",
+   "answer": "ngon",
+   "grade": "perfect",
+   "hints": 0,
+   "retry": false
+  },
+  {
+   "target": "phở",
+   "answer": "pho",
+   "grade": "marks",
+   "hints": 0,
+   "retry": true
+  },
+  {
+   "target": "cà phê",
+   "answer": "ca phe",
+   "grade": "marks",
+   "hints": 0,
+   "retry": true
+  },
+  {
+   "target": "nước",
+   "answer": "nuoc",
+   "grade": "marks",
+   "hints": 0,
+   "retry": false
+  },
+  {
+   "target": "cơm",
+   "answer": "com",
+   "grade": "marks",
+   "hints": 0,
+   "retry": false
+  },
+  {
+   "target": "bò",
+   "answer": "co",
+   "grade": "wrong",
+   "hints": 0,
+   "retry": false
+  },
+  {
+   "target": "bún",
+   "answer": "bun",
+   "grade": "tone",
+   "hints": 0,
+   "retry": false
+  },
+  {
+   "target": "nước",
+   "answer": "nuoc",
+   "grade": "marks",
+   "hints": 0,
+   "retry": true
+  },
+  {
+   "target": "cơm",
+   "answer": "com",
+   "grade": "marks",
+   "hints": 0,
+   "retry": true
+  },
+  {
+   "target": "bò",
+   "answer": "co",
+   "grade": "wrong",
+   "hints": 0,
+   "retry": true
+  },
+  {
+   "target": "bún",
+   "answer": "bun",
+   "grade": "tone",
+   "hints": 0,
+   "retry": true
+  }
+ ],
+ "feedback": {
+  "difficulty": "Too easy",
+  "fun": "OK",
+  "hardest": [
+   "gà",
+   "bò",
+   "cá"
+  ],
+  "wantNext": null,
+  "note": "make it more fun an unexpected. (hint - the website name is Viet wars)"
+ },
+ "events": [
+  {
+   "t": "listen",
+   "w": "phở",
+   "ok": true,
+   "a": "pho (noodle soup)",
+   "ms": 4423
+  },
+  {
+   "t": "listen",
+   "w": "bún",
+   "ok": true,
+   "a": "rice vermicelli noodles",
+   "ms": 2883
+  },
+  {
+   "t": "listen",
+   "w": "rau",
+   "ok": true,
+   "a": "vegetables, greens",
+   "ms": 2883
+  },
+  {
+   "t": "listen",
+   "w": "bò",
+   "ok": true,
+   "a": "beef; cow",
+   "ms": 8103
+  },
+  {
+   "t": "listen",
+   "w": "cà phê",
+   "ok": true,
+   "a": "coffee",
+   "ms": 4012
+  },
+  {
+   "t": "listen",
+   "w": "ngon",
+   "ok": true,
+   "a": "delicious",
+   "ms": 2041
+  },
+  {
+   "t": "listen",
+   "w": "bún",
+   "ok": true,
+   "a": "rice vermicelli noodles",
+   "ms": 2156
+  },
+  {
+   "t": "listen",
+   "w": "gà",
+   "ok": false,
+   "a": "fish",
+   "ms": 6688
+  },
+  {
+   "t": "listen",
+   "w": "bò",
+   "ok": true,
+   "a": "beef; cow",
+   "ms": 4893
+  },
+  {
+   "t": "listen",
+   "w": "cá",
+   "ok": true,
+   "a": "fish",
+   "ms": 3526
+  },
+  {
+   "t": "listen",
+   "w": "nước",
+   "ok": true,
+   "a": "water (also: drink, liquid, country)",
+   "ms": 2491
+  },
+  {
+   "t": "listen",
+   "w": "gà",
+   "ok": true,
+   "a": "chicken",
+   "ms": 8691,
+   "retry": true
+  },
+  {
+   "t": "listen",
+   "w": "bánh mì",
+   "ok": true,
+   "a": "bread; a baguette sandwich",
+   "ms": 1805
+  },
+  {
+   "t": "listen",
+   "w": "rau",
+   "ok": true,
+   "a": "vegetables, greens",
+   "ms": 2592
+  },
+  {
+   "t": "listen",
+   "w": "ngon",
+   "ok": true,
+   "a": "delicious",
+   "ms": 1834
+  },
+  {
+   "t": "listen",
+   "w": "cà phê",
+   "ok": true,
+   "a": "coffee",
+   "ms": 1437
+  },
+  {
+   "t": "listen",
+   "w": "phở",
+   "ok": true,
+   "a": "pho (noodle soup)",
+   "ms": 1440
+  },
+  {
+   "t": "listen",
+   "w": "trà",
+   "ok": true,
+   "a": "tea",
+   "ms": 5163
+  },
+  {
+   "t": "listen",
+   "w": "cơm",
+   "ok": false,
+   "a": "rice vermicelli noodles",
+   "ms": 3791
+  },
+  {
+   "t": "listen",
+   "w": "cơm",
+   "ok": true,
+   "a": "cooked rice; a meal",
+   "ms": 1771,
+   "retry": true
+  },
+  {
+   "t": "spell",
+   "w": "gà",
+   "ok": true,
+   "a": "gà",
+   "ms": 3083
+  },
+  {
+   "t": "spell",
+   "w": "ngon",
+   "ok": false,
+   "a": "ngọn",
+   "ms": 1622
+  },
+  {
+   "t": "reverse",
+   "w": "cà phê",
+   "ok": true,
+   "a": "cà phê",
+   "ms": 2305
+  },
+  {
+   "t": "reverse",
+   "w": "bánh mì",
+   "ok": true,
+   "a": "bánh mì",
+   "ms": 3333
+  },
+  {
+   "t": "spell",
+   "w": "bò",
+   "ok": true,
+   "a": "bò",
+   "ms": 6689
+  },
+  {
+   "t": "spell",
+   "w": "ngon",
+   "ok": true,
+   "a": "ngon",
+   "ms": 2778,
+   "retry": true
+  },
+  {
+   "t": "spell",
+   "w": "trà",
+   "ok": true,
+   "a": "trà",
+   "ms": 3851
+  },
+  {
+   "t": "spell",
+   "w": "rau",
+   "ok": true,
+   "a": "rau",
+   "ms": 1655
+  },
+  {
+   "t": "reverse",
+   "w": "nước",
+   "ok": true,
+   "a": "nước",
+   "ms": 3234
+  },
+  {
+   "t": "spell",
+   "w": "phở",
+   "ok": false,
+   "a": "phờ",
+   "ms": 1750
+  },
+  {
+   "t": "spell",
+   "w": "cá",
+   "ok": true,
+   "a": "cá",
+   "ms": 4082
+  },
+  {
+   "t": "spell",
+   "w": "bún",
+   "ok": true,
+   "a": "bún",
+   "ms": 3421
+  },
+  {
+   "t": "spell",
+   "w": "cơm",
+   "ok": false,
+   "a": "cốm",
+   "ms": 1765
+  },
+  {
+   "t": "spell",
+   "w": "phở",
+   "ok": false,
+   "a": "phờ",
+   "ms": 5025,
+   "retry": true
+  },
+  {
+   "t": "spell",
+   "w": "cơm",
+   "ok": false,
+   "a": "cốm",
+   "ms": 3068,
+   "retry": true
+  },
+  {
+   "t": "type",
+   "w": "trà",
+   "g": "wrong",
+   "a": "cha",
+   "ms": 2644
+  },
+  {
+   "t": "type",
+   "w": "cá",
+   "g": "tone",
+   "a": "ca",
+   "ms": 2964
+  },
+  {
+   "t": "type",
+   "w": "gà",
+   "g": "wrong",
+   "a": "ca",
+   "ms": 1739
+  },
+  {
+   "t": "type",
+   "w": "bánh mì",
+   "g": "tone",
+   "a": "banh mi",
+   "ms": 3167
+  },
+  {
+   "t": "type",
+   "w": "trà",
+   "g": "tone",
+   "a": "tra",
+   "ms": 2249,
+   "retry": true
+  },
+  {
+   "t": "type",
+   "w": "cá",
+   "g": "tone",
+   "a": "ca",
+   "ms": 3476,
+   "retry": true
+  },
+  {
+   "t": "type",
+   "w": "gà",
+   "g": "tone",
+   "a": "ga",
+   "ms": 1799,
+   "retry": true
+  },
+  {
+   "t": "type",
+   "w": "bánh mì",
+   "g": "tone",
+   "a": "banh mi",
+   "ms": 5605,
+   "retry": true
+  },
+  {
+   "t": "type",
+   "w": "phở",
+   "g": "marks",
+   "a": "pho",
+   "ms": 5062
+  },
+  {
+   "t": "type",
+   "w": "cà phê",
+   "g": "marks",
+   "a": "ca phe",
+   "ms": 3776
+  },
+  {
+   "t": "type",
+   "w": "rau",
+   "g": "perfect",
+   "a": "rau",
+   "ms": 3348
+  },
+  {
+   "t": "type",
+   "w": "ngon",
+   "g": "perfect",
+   "a": "ngon",
+   "ms": 3006
+  },
+  {
+   "t": "type",
+   "w": "phở",
+   "g": "marks",
+   "a": "pho",
+   "ms": 2588,
+   "retry": true
+  },
+  {
+   "t": "type",
+   "w": "cà phê",
+   "g": "marks",
+   "a": "ca phe",
+   "ms": 2459,
+   "retry": true
+  },
+  {
+   "t": "type",
+   "w": "nước",
+   "g": "marks",
+   "a": "nuoc",
+   "ms": 5959
+  },
+  {
+   "t": "type",
+   "w": "cơm",
+   "g": "marks",
+   "a": "com",
+   "ms": 2188
+  },
+  {
+   "t": "type",
+   "w": "bò",
+   "g": "wrong",
+   "a": "co",
+   "ms": 2117
+  },
+  {
+   "t": "type",
+   "w": "bún",
+   "g": "tone",
+   "a": "bun",
+   "ms": 5083
+  },
+  {
+   "t": "type",
+   "w": "nước",
+   "g": "marks",
+   "a": "nuoc",
+   "ms": 5362,
+   "retry": true
+  },
+  {
+   "t": "type",
+   "w": "cơm",
+   "g": "marks",
+   "a": "com",
+   "ms": 1762,
+   "retry": true
+  },
+  {
+   "t": "type",
+   "w": "bò",
+   "g": "wrong",
+   "a": "co",
+   "ms": 1778,
+   "retry": true
+  },
+  {
+   "t": "type",
+   "w": "bún",
+   "g": "tone",
+   "a": "bun",
+   "ms": 1774,
+   "retry": true
+  },
+  {
+   "t": "listen",
+   "w": "bún cá",
+   "ok": true,
+   "a": "fish noodle soup",
+   "ms": 11124
+  },
+  {
+   "t": "listen",
+   "w": "Ngon quá!",
+   "ok": true,
+   "a": "So tasty!",
+   "ms": 6216
+  },
+  {
+   "t": "listen",
+   "w": "phở bò",
+   "ok": true,
+   "a": "beef pho",
+   "ms": 8453
+  },
+  {
+   "t": "listen",
+   "w": "cá ngon",
+   "ok": true,
+   "a": "tasty fish",
+   "ms": 3845
+  },
+  {
+   "t": "listen",
+   "w": "phở gà",
+   "ok": true,
+   "a": "chicken pho",
+   "ms": 2758
+  },
+  {
+   "t": "listen",
+   "w": "cơm gà",
+   "ok": true,
+   "a": "chicken rice",
+   "ms": 4538
+  },
+  {
+   "t": "speed",
+   "w": "cơm gà",
+   "ok": true,
+   "a": "chicken rice",
+   "ms": 6449
+  },
+  {
+   "t": "speed",
+   "w": "phở gà",
+   "ok": true,
+   "a": "chicken pho",
+   "ms": 2857
+  },
+  {
+   "t": "speed",
+   "w": "cơm",
+   "ok": true,
+   "a": "cooked rice; a meal",
+   "ms": 4730
+  },
+  {
+   "t": "speed",
+   "w": "ngon",
+   "ok": true,
+   "a": "delicious",
+   "ms": 1625
+  },
+  {
+   "t": "speed",
+   "w": "bún",
+   "ok": true,
+   "a": "rice vermicelli noodles",
+   "ms": 3552
+  },
+  {
+   "t": "speed",
+   "w": "gà",
+   "ok": true,
+   "a": "chicken",
+   "ms": 2948
+  },
+  {
+   "t": "speed",
+   "w": "nước",
+   "ok": true,
+   "a": "water (also: drink, liquid, country)",
+   "ms": 1982
+  },
+  {
+   "t": "speed",
+   "w": "phở",
+   "ok": true,
+   "a": "pho (noodle soup)",
+   "ms": 1837
+  },
+  {
+   "t": "speed",
+   "w": "bún",
+   "ok": true,
+   "a": "rice vermicelli noodles",
+   "ms": 1941
+  },
+  {
+   "t": "speed",
+   "w": "phở",
+   "ok": true,
+   "a": "pho (noodle soup)",
+   "ms": 1568
+  },
+  {
+   "t": "speed",
+   "w": "phở gà",
+   "ok": true,
+   "a": "chicken pho",
+   "ms": 2062
+  },
+  {
+   "t": "speed",
+   "w": "bò",
+   "ok": true,
+   "a": "beef; cow",
+   "ms": 2030
+  },
+  {
+   "t": "speed",
+   "w": "cơm gà",
+   "ok": false,
+   "a": "beef pho",
+   "ms": 5212
+  },
+  {
+   "t": "speed",
+   "w": "cá",
+   "ok": true,
+   "a": "fish",
+   "ms": 2628
+  },
+  {
+   "t": "speed",
+   "w": "rau",
+   "ok": true,
+   "a": "vegetables, greens",
+   "ms": 1664
+  }
+ ],
+ "issue": 1
+}

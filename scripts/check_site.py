@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-"""Plays through the site in WebKit as an iPhone and an iPad and saves screenshots to .checks/.
+"""Plays through the site in WebKit on several Apple devices and saves screenshots to .checks/.
 
-Serves web/ through request routing (no server), fakes the GitHub API, completes a whole lesson,
-checks what was saved and sent, then runs a review session. Fails on page errors, horizontal
-overflow, or missing results. Needs the Framework Python with Playwright:
+Serves web/ through request routing (no server), fakes the GitHub API, plays a whole lesson as
+a battle (warm-up, "I know it", ambushes, tone keys, the boss round), checks what was saved and
+sent, then runs a review. Fails on page errors, horizontal overflow, or missing results.
+Needs the Framework Python with Playwright:
   /Library/Frameworks/Python.framework/Versions/3.13/bin/python3 scripts/check_site.py
 """
 
@@ -21,7 +22,14 @@ ROOT = Path(__file__).resolve().parent.parent
 WEB = ROOT / "web"
 OUT = ROOT / ".checks"
 BASE = "https://vietwars.test/"
-DEVICES = [("iPhone 15", "light"), ("iPad Pro 11", "dark")]
+DEVICES = [
+    ("iPhone 15", "light", True),
+    ("iPhone SE (3rd gen)", "light", False),
+    ("iPad Pro 11", "dark", True),
+    ("iPad Pro 11 landscape", "light", False),
+    ("Desktop Safari", "light", True),
+]
+MARKER = re.compile(r"<!-- vietwars-result -->\n```json\n(.*)\n```", re.S)
 mimetypes.add_type("audio/mp4", ".m4a")
 mimetypes.add_type("application/manifest+json", ".webmanifest")
 mimetypes.add_type("text/javascript", ".js")
@@ -47,6 +55,7 @@ class Run:
         self.posts = []
         self.shot_steps = set()
         self.n = 0
+        self.seen_types = set()
 
     def shot(self, page, label):
         if not self.shots:
@@ -77,37 +86,52 @@ class Run:
         else:
             route.fulfill(status=200, content_type="application/json", body="{}")
 
+    def first(self, page, label):
+        if label not in self.shot_steps:
+            self.shot_steps.add(label)
+            self.overflow(page, label)
+            self.shot(page, label)
+
     def play_session(self, page, label):
-        seen_meet = 0
+        meets = 0
         typed = 0
-        for _ in range(400):
+        for _ in range(600):
             if page.locator(".done-page").count():
                 return True
             step = page.get_attribute(".stage", "data-step")
-            if step and step not in self.shot_steps:
-                self.shot_steps.add(step)
-                self.overflow(page, f"{label} {step}")
-                self.shot(page, f"{label}-{step}")
+            classes = page.get_attribute(".stage", "class") or ""
+            kind = step
+            if "is-ambush" in classes:
+                kind = "ambush"
+            elif "is-warmup" in classes:
+                kind = "warmup"
+            self.seen_types.add(kind)
+            self.first(page, f"{label}-{kind}")
             if step in ("intro", "stage", "grammar", "speedIntro", "results"):
                 page.click("[data-act=next]")
             elif step == "meet":
-                seen_meet += 1
-                page.click("[data-act=known]" if seen_meet == 2 else "[data-act=next]")
+                meets += 1
+                page.click("[data-act=known]" if meets == 2 else "[data-act=next]")
             elif step in ("listen", "spell", "reverse"):
                 opts = page.locator(".opt")
                 opts.nth(typed % opts.count()).click()
                 typed += 1
-                if step + "-answered" not in self.shot_steps:
-                    self.shot_steps.add(step + "-answered")
-                    self.shot(page, f"{label}-{step}-answered")
+                self.first(page, f"{label}-{kind}-answered")
                 page.click("[data-act=next]")
             elif step == "type":
-                page.fill(".type-input", ["phowr", "pho", "xyz", "nuwowcs"][typed % 4])
+                if typed % 3 == 0:
+                    page.fill(".type-input", "pho")
+                    page.click(".vkey[data-key='ơ']")
+                    page.click(".vkey[data-key='hoi']")
+                    value = page.input_value(".type-input")
+                    if value != "phở":
+                        self.errors.append(f"tone keys produced {value!r} instead of 'phở'")
+                    self.first(page, f"{label}-type-keys")
+                else:
+                    page.fill(".type-input", ["cha", "xyz", "nuwowcs"][typed % 3])
                 typed += 1
                 page.click("[data-act=check]")
-                if "type-answered" not in self.shot_steps:
-                    self.shot_steps.add("type-answered")
-                    self.shot(page, f"{label}-type-answered")
+                self.first(page, f"{label}-type-answered")
                 page.click("[data-act=check]")
             elif step == "speed":
                 opt = page.locator(".opt").first
@@ -116,19 +140,19 @@ class Run:
                         opt.click(timeout=500)
                     except Exception:
                         pass
-                page.wait_for_timeout(150)
+                page.wait_for_timeout(120)
             elif step == "feedback":
                 page.click("[data-name=difficulty] .seg-btn >> nth=1")
                 page.click("[data-name=fun] .seg-btn >> nth=3")
                 page.fill("#want-next", "numbers and prices at the market")
                 page.fill("#note", "check run")
-                self.shot(page, f"{label}-feedback-filled")
+                self.first(page, f"{label}-feedback-filled")
                 page.click("[data-act=save]")
                 page.wait_for_selector(".done-page")
             else:
                 self.errors.append(f"{label}: unknown step {step!r}")
                 return False
-        self.errors.append(f"{label}: did not finish within 400 actions")
+        self.errors.append(f"{label}: did not finish within 600 actions")
         return False
 
     def run(self, p):
@@ -142,47 +166,56 @@ class Run:
 
         page.goto(f"{BASE}?test=1#/")
         page.wait_for_selector(".home")
-        self.overflow(page, "home")
-        self.shot(page, "home-new")
+        self.first(page, "home-new")
 
         page.evaluate("location.hash = '#/settings'")
         page.wait_for_selector(".settings")
         page.fill(".token-form input", "test-token")
         page.click(".token-form button[type=submit]")
         page.locator(".form-status", has_text="works").wait_for()
-        self.shot(page, "settings")
+        self.first(page, "settings")
 
         page.evaluate("location.hash = '#/'")
         page.wait_for_selector(".home")
-        page.click(f".lesson-card[href='#/lesson/{self.lesson['id']}']")
+        page.evaluate(f"location.hash = '#/lesson/{self.lesson['id']}'")
         if self.play_session(page, "lesson"):
             page.wait_for_selector(".send-status:not([data-state=sending])")
-            self.shot(page, "lesson-done")
+            self.first(page, "lesson-done")
             state = page.get_attribute(".send-status", "data-state")
             if state != "sent":
                 self.errors.append(f"results were not sent (state {state})")
+        expect = ("warmup", "meet", "listen", "type", "speed", "results") if self.lesson.get("warmup") else ("meet", "listen", "type", "speed", "results")
+        for kind in expect:
+            if kind not in self.seen_types:
+                self.errors.append(f"lesson never showed a {kind} step")
 
         data = page.evaluate("({h: JSON.parse(localStorage.getItem('vw-history') || '[]'), d: JSON.parse(localStorage.getItem('vw-deck') || '{}'), o: JSON.parse(localStorage.getItem('vw-outbox') || '[]')})")
         if len(data["h"]) != 1:
             self.errors.append(f"expected 1 saved result, found {len(data['h'])}")
-        expected = len(self.lesson["words"]) + len(self.lesson.get("review", []))
-        if len(data["d"]) != expected:
-            self.errors.append(f"expected {expected} words in the review deck, found {len(data['d'])}")
+        else:
+            r = data["h"][0]
+            verified = {w["vi"] for w in r["words"] if w.get("known") and (w.get("firstTry") or {}).get("type") in ("perfect", "tone", "marks", "sound")}
+            expected = {w["vi"] for w in r["words"]} - verified
+            expected |= {m["vi"] for m in r.get("warmup", []) if not m["ok"]}
+            if set(data["d"]) != expected:
+                self.errors.append(f"review deck has {sorted(data['d'])}, expected {sorted(expected)}")
+            if "rank" not in (r.get("battle") or {}):
+                self.errors.append("result has no battle summary")
         if data["o"]:
             self.errors.append(f"{len(data['o'])} results left unsent")
         if len(self.posts) != 1:
             self.errors.append(f"expected 1 issue posted, found {len(self.posts)}")
         else:
             body = self.posts[0]["body"]
-            m = re.search(r"<!-- vietwars-result -->\n```json\n(.*)\n```", body, re.S)
+            m = MARKER.search(body)
             if not m:
                 self.errors.append("posted issue has no result block")
             else:
                 r = json.loads(m.group(1))
-                for key in ("resultId", "lessonId", "words", "events", "typed", "toneConfusions", "feedback", "summary"):
+                for key in ("resultId", "lessonId", "words", "events", "typed", "toneConfusions", "feedback", "summary", "battle", "warmup"):
                     if key not in r:
                         self.errors.append(f"posted result is missing {key}")
-                if r.get("feedback", {}).get("wantNext") != "numbers and prices at the market":
+                if (r.get("feedback") or {}).get("wantNext") != "numbers and prices at the market":
                     self.errors.append("feedback was not included in the posted result")
                 if len(body) > 60000:
                     self.errors.append(f"issue body is {len(body)} characters, close to GitHub's limit")
@@ -195,29 +228,23 @@ class Run:
             location.hash = '#/';
         }""")
         page.wait_for_selector(".review-card.is-due")
-        self.shot(page, "home-due")
+        self.first(page, "home-due")
         page.click(".review-card .btn")
-        self.shot_steps = set()
         if self.play_session(page, "review"):
             page.wait_for_selector(".send-status:not([data-state=sending])")
         if len(self.posts) != 2:
             self.errors.append(f"expected 2 issues after the review, found {len(self.posts)}")
 
-        posted = []
-        for item in self.posts:
-            m = re.search(r"<!-- vietwars-result -->\n```json\n(.*)\n```", item["body"], re.S)
-            if m:
-                posted.append(json.loads(m.group(1)))
+        posted = [json.loads(m.group(1)) for m in (MARKER.search(x["body"]) for x in self.posts) if m]
         OUT.mkdir(exist_ok=True)
         (OUT / f"{self.slug}-posted.json").write_text(json.dumps(posted, ensure_ascii=False, indent=1), encoding="utf-8")
 
         page.click("[data-act=home]")
         page.wait_for_selector(".home")
-        self.shot(page, "home-after")
+        self.first(page, "home-after")
         page.evaluate("location.hash = '#/words'")
         page.wait_for_selector(".word-list")
-        self.overflow(page, "words")
-        self.shot(page, "words")
+        self.first(page, "words")
         browser.close()
 
 
@@ -225,6 +252,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--no-shots", action="store_true", help="skip screenshots")
     parser.add_argument("--lesson", help="lesson id to play (default: the newest)")
+    parser.add_argument("--device", action="append", help="only these devices (repeatable)")
     args = parser.parse_args()
     index = json.loads((WEB / "lessons" / "index.json").read_text(encoding="utf-8"))["lessons"]
     entry = next((e for e in index if e["id"] == args.lesson), None) if args.lesson else index[-1]
@@ -235,8 +263,10 @@ def main():
     print(f"playing {lesson['id']}: {lesson['title']}")
     failed = False
     with sync_playwright() as p:
-        for name, scheme in DEVICES:
-            run = Run(name, scheme, not args.no_shots, lesson)
+        for name, scheme, shots in DEVICES:
+            if args.device and name not in args.device:
+                continue
+            run = Run(name, scheme, shots and not args.no_shots, lesson)
             run.run(p)
             status = "ok" if not run.errors else "FAILED"
             print(f"{name} ({scheme}): {status}, {len(run.posts)} issues posted")

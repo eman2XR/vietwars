@@ -27,6 +27,10 @@ test('grades typed answers', () => {
   assert.equal(grade('banhmi', 'bánh mì'), 'marks');
   assert.equal(grade('Ngon quá!', 'Ngon quá!'), 'perfect');
   assert.equal(grade('ngon qua', 'Ngon quá!'), 'tone');
+  assert.equal(grade('cha', 'trà'), 'sound');
+  assert.equal(grade('zau', 'rau'), 'wrong');
+  assert.equal(grade('dau', 'rau'), 'sound');
+  assert.equal(grade('xáu', 'sáu'), 'sound');
 });
 
 test('accepts Telex typing', () => {
@@ -65,4 +69,34 @@ test('spaced repetition moves words along the intervals', () => {
   assert.equal(outcomeFor(0.75), 'good');
   assert.equal(outcomeFor(0.4), 'again');
   assert.deepEqual(dueWords({ a: { due: now - 1 }, b: { due: now + day }, c: { due: now - 5 } }, now), ['c', 'a']);
+});
+
+import { withTone, applyKey } from '../web/js/vi.js';
+
+test('places tone marks on the right vowel', () => {
+  const cases = [
+    ['pho', 'hoi', 'phỏ'], ['phơ', 'hoi', 'phở'], ['nươc', 'sac', 'nước'], ['hai', 'hoi', 'hải'],
+    ['mua', 'sac', 'múa'], ['qua', 'sac', 'quá'], ['gia', 'huyen', 'già'], ['toan', 'sac', 'toán'],
+    ['nưa', 'nga', 'nữa'], ['nưa', 'hoi', 'nửa'], ['mot', 'nang', 'mọt'], ['môt', 'nang', 'một'],
+    ['khuyên', 'sac', 'khuyến'], ['ngoai', 'huyen', 'ngoài'], ['bay', 'hoi', 'bảy'], ['phở', 'ngang', 'phơ'],
+    ['muôi', 'nga', 'muỗi'], ['nhiêu', 'ngang', 'nhiêu'], ['hoa', 'huyen', 'hoà'],
+  ];
+  for (const [base, tone, want] of cases) assert.equal(withTone(base, tone), want, `${base} + ${tone}`);
+});
+
+test('on-screen keys change the syllable before the cursor', () => {
+  let s = applyKey('pho', 3, 'ơ');
+  assert.deepEqual(s, { text: 'phơ', cursor: 3 });
+  s = applyKey(s.text, s.cursor, 'hoi');
+  assert.equal(s.text, 'phở');
+  s = applyKey(s.text, s.cursor, 'ơ');
+  assert.equal(s.text, 'phỏ');
+  assert.equal(applyKey('ca phe', 6, 'ê').text, 'ca phê');
+  assert.equal(applyKey('ca phê', 2, 'huyen').text, 'cà phê');
+  assert.equal(applyKey('nuoc', 4, 'ư').text, 'nưoc');
+  assert.equal(applyKey('nưoc', 4, 'ơ').text, 'nươc');
+  assert.equal(applyKey('nươc', 4, 'sac').text, 'nước');
+  assert.equal(applyKey('dong', 4, 'đ').text, 'đong');
+  assert.equal(applyKey('', 0, 'ư').text, 'ư');
+  assert.equal(applyKey('', 0, 'sac').text, '');
 });

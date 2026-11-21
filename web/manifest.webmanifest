@@ -1,7 +1,7 @@
 {
-  "name": "Học tiếng Việt",
-  "short_name": "Tiếng Việt",
-  "description": "Learn Northern Vietnamese, one lesson at a time.",
+  "name": "Viet Wars",
+  "short_name": "Viet Wars",
+  "description": "Learn Northern Vietnamese by battling villains, one lesson at a time.",
   "lang": "vi",
   "start_url": "./",
   "scope": "./",

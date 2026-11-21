@@ -1,7 +1,7 @@
 // Offline support: app files are fetched fresh when online and served from cache when offline; audio clips are cached on first use.
 
-const SHELL = 'vw-shell-v1';
-const AUDIO = 'vw-audio-v1';
+const SHELL = 'vw-shell-v2';
+const AUDIO = 'vw-audio-v2';
 const SHELL_FILES = [
   './',
   'index.html',
@@ -14,7 +14,11 @@ const SHELL_FILES = [
   'js/store.js',
   'js/srs.js',
   'js/sync.js',
+  'js/sprites.js',
+  'js/pictures.js',
   'lessons/index.json',
+  'lessons/game.json',
+  'lessons/known.json',
   'audio/index.json',
   'icons/apple-touch-icon.png',
   'icons/icon-192.png',

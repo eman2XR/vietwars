@@ -1,0 +1,353 @@
+{
+ "sessions": [
+  {
+   "finishedAt": "2026-11-21T07:42:39.510Z",
+   "kind": "lesson",
+   "lesson": "lesson-01",
+   "accuracy": 0.76,
+   "minutes": 9.7,
+   "device": "Mac",
+   "style": null,
+   "speed": "14/15",
+   "battle": null,
+   "warmupMissed": []
+  }
+ ],
+ "lessons": {
+  "lesson-01": {
+   "attempts": 1,
+   "best": 0.76,
+   "latest": 0.76,
+   "last": "2026-11-21T07:42:39.510Z",
+   "won": false,
+   "ranks": []
+  }
+ },
+ "words": {
+  "phở": {
+   "en": "pho (noodle soup)",
+   "firstLesson": "lesson-01",
+   "sessions": 1,
+   "strength": 0.63,
+   "meaning": 1.0,
+   "form": 0.25,
+   "history": [
+    0.63
+   ],
+   "byExercise": {
+    "listen": 1.0,
+    "spell": 0.0,
+    "type": 0.5
+   },
+   "typedErrors": {
+    "marks": 1
+   },
+   "tappedKnowIt": false,
+   "knownList": true,
+   "msMedian": 2588,
+   "lastSeen": "2026-11-21T07:42:39.510Z"
+  },
+  "cơm": {
+   "en": "cooked rice; a meal",
+   "firstLesson": "lesson-01",
+   "sessions": 1,
+   "strength": 0.17,
+   "meaning": 0.0,
+   "form": 0.25,
+   "history": [
+    0.17
+   ],
+   "byExercise": {
+    "listen": 0.0,
+    "spell": 0.0,
+    "type": 0.5
+   },
+   "typedErrors": {
+    "marks": 1
+   },
+   "tappedKnowIt": false,
+   "knownList": true,
+   "msMedian": 2188,
+   "lastSeen": "2026-11-21T07:42:39.510Z"
+  },
+  "bún": {
+   "en": "rice vermicelli noodles",
+   "firstLesson": "lesson-01",
+   "sessions": 1,
+   "strength": 0.88,
+   "meaning": 1.0,
+   "form": 0.75,
+   "history": [
+    0.88
+   ],
+   "byExercise": {
+    "listen": 1.0,
+    "spell": 1.0,
+    "type": 0.5
+   },
+   "typedErrors": {
+    "tone": 1
+   },
+   "tappedKnowIt": false,
+   "knownList": true,
+   "msMedian": 2883,
+   "lastSeen": "2026-11-21T07:42:39.510Z"
+  },
+  "bánh mì": {
+   "en": "bread; a baguette sandwich",
+   "firstLesson": "lesson-01",
+   "sessions": 1,
+   "strength": 0.83,
+   "meaning": 1.0,
+   "form": 0.5,
+   "history": [
+    0.83
+   ],
+   "byExercise": {
+    "listen": 1.0,
+    "reverse": 1.0,
+    "type": 0.5
+   },
+   "typedErrors": {
+    "tone": 1
+   },
+   "tappedKnowIt": false,
+   "knownList": true,
+   "msMedian": 3333,
+   "lastSeen": "2026-11-21T07:42:39.510Z"
+  },
+  "gà": {
+   "en": "chicken",
+   "firstLesson": "lesson-01",
+   "sessions": 1,
+   "strength": 0.33,
+   "meaning": 0.0,
+   "form": 0.5,
+   "history": [
+    0.33
+   ],
+   "byExercise": {
+    "listen": 0.0,
+    "spell": 1.0,
+    "type": 0.0
+   },
+   "typedErrors": {
+    "wrong": 1
+   },
+   "tappedKnowIt": false,
+   "knownList": false,
+   "msMedian": 3083,
+   "lastSeen": "2026-11-21T07:42:39.510Z"
+  },
+  "bò": {
+   "en": "beef; cow",
+   "firstLesson": "lesson-01",
+   "sessions": 1,
+   "strength": 0.75,
+   "meaning": 1.0,
+   "form": 0.5,
+   "history": [
+    0.75
+   ],
+   "byExercise": {
+    "listen": 1.0,
+    "spell": 1.0,
+    "type": 0.0
+   },
+   "typedErrors": {
+    "wrong": 1
+   },
+   "tappedKnowIt": false,
+   "knownList": false,
+   "msMedian": 4893,
+   "lastSeen": "2026-11-21T07:42:39.510Z"
+  },
+  "cá": {
+   "en": "fish",
+   "firstLesson": "lesson-01",
+   "sessions": 1,
+   "strength": 0.83,
+   "meaning": 1.0,
+   "form": 0.75,
+   "history": [
+    0.83
+   ],
+   "byExercise": {
+    "listen": 1.0,
+    "spell": 1.0,
+    "type": 0.5
+   },
+   "typedErrors": {
+    "tone": 1
+   },
+   "tappedKnowIt": false,
+   "knownList": false,
+   "msMedian": 3476,
+   "lastSeen": "2026-11-21T07:42:39.510Z"
+  },
+  "rau": {
+   "en": "vegetables, greens",
+   "firstLesson": "lesson-01",
+   "sessions": 1,
+   "strength": 1,
+   "meaning": 1.0,
+   "form": 1.0,
+   "history": [
+    1
+   ],
+   "byExercise": {
+    "listen": 1.0,
+    "spell": 1.0,
+    "type": 1.0
+   },
+   "typedErrors": {},
+   "tappedKnowIt": false,
+   "knownList": true,
+   "msMedian": 2592,
+   "lastSeen": "2026-11-21T07:42:39.510Z"
+  },
+  "nước": {
+   "en": "water (also: drink, liquid, country)",
+   "firstLesson": "lesson-01",
+   "sessions": 1,
+   "strength": 0.83,
+   "meaning": 1.0,
+   "form": 0.5,
+   "history": [
+    0.83
+   ],
+   "byExercise": {
+    "listen": 1.0,
+    "reverse": 1.0,
+    "type": 0.5
+   },
+   "typedErrors": {
+    "marks": 1
+   },
+   "tappedKnowIt": false,
+   "knownList": true,
+   "msMedian": 3234,
+   "lastSeen": "2026-11-21T07:42:39.510Z"
+  },
+  "trà": {
+   "en": "tea",
+   "firstLesson": "lesson-01",
+   "sessions": 1,
+   "strength": 0.67,
+   "meaning": 1.0,
+   "form": 0.5,
+   "history": [
+    0.67
+   ],
+   "byExercise": {
+    "listen": 1.0,
+    "spell": 1.0,
+    "type": 0.0
+   },
+   "typedErrors": {
+    "wrong": 1
+   },
+   "tappedKnowIt": false,
+   "knownList": true,
+   "msMedian": 3851,
+   "lastSeen": "2026-11-21T07:42:39.510Z"
+  },
+  "cà phê": {
+   "en": "coffee",
+   "firstLesson": "lesson-01",
+   "sessions": 1,
+   "strength": 0.88,
+   "meaning": 1.0,
+   "form": 0.5,
+   "history": [
+    0.88
+   ],
+   "byExercise": {
+    "listen": 1.0,
+    "reverse": 1.0,
+    "type": 0.5
+   },
+   "typedErrors": {
+    "marks": 1
+   },
+   "tappedKnowIt": false,
+   "knownList": true,
+   "msMedian": 2459,
+   "lastSeen": "2026-11-21T07:42:39.510Z"
+  },
+  "ngon": {
+   "en": "delicious",
+   "firstLesson": "lesson-01",
+   "sessions": 1,
+   "strength": 0.75,
+   "meaning": 1.0,
+   "form": 0.5,
+   "history": [
+    0.75
+   ],
+   "byExercise": {
+    "listen": 1.0,
+    "spell": 0.0,
+    "type": 1.0
+   },
+   "typedErrors": {},
+   "tappedKnowIt": false,
+   "knownList": true,
+   "msMedian": 2041,
+   "lastSeen": "2026-11-21T07:42:39.510Z"
+  }
+ },
+ "known": [
+  "bánh mì",
+  "bún",
+  "cà phê",
+  "cơm",
+  "ngon",
+  "nước",
+  "phở",
+  "rau",
+  "trà"
+ ],
+ "weakMeaning": [
+  "gà"
+ ],
+ "weakSpelling": [
+  "bò",
+  "gà"
+ ],
+ "strongest": [],
+ "warmupMissed": {},
+ "toneConfusions": {
+  "phở -> phờ": 2,
+  "cơm -> cốm": 2,
+  "ngon -> ngọn": 1
+ },
+ "meaningConfusions": {
+  "gà -> fish": 1,
+  "cơm -> rice vermicelli noodles": 1,
+  "cơm gà -> beef pho": 1
+ },
+ "typing": {
+  "wrong": 3,
+  "tone": 3,
+  "marks": 4,
+  "perfect": 2
+ },
+ "toneKeysUsed": null,
+ "feedback": [
+  {
+   "finishedAt": "2026-11-21T07:42:39.510Z",
+   "lesson": "lesson-01",
+   "kind": "lesson",
+   "difficulty": "Too easy",
+   "fun": "OK",
+   "hardest": [
+    "gà",
+    "bò",
+    "cá"
+   ],
+   "wantNext": null,
+   "note": "make it more fun an unexpected. (hint - the website name is Viet wars)"
+  }
+ ]
+}

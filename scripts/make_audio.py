@@ -23,13 +23,22 @@ def nfc(s):
     return unicodedata.normalize("NFC", s).strip()
 
 
+def foe_texts(foe):
+    if not foe:
+        return []
+    lines = list(foe.get("taunts", [])) + [foe.get("win"), foe.get("lose")]
+    return [l["vi"] for l in lines if l]
+
+
 def lesson_texts(lesson):
     texts = []
     for w in lesson.get("words", []):
         texts.append(w["vi"])
         texts.extend(c["vi"] for c in w.get("contrast", []))
+    texts.extend(w["vi"] for w in lesson.get("warmup", []))
     texts.extend(c["vi"] for c in lesson.get("combos", []))
     texts.extend(x["vi"] for x in (lesson.get("grammar") or {}).get("examples", []))
+    texts.extend(foe_texts(lesson.get("foe")))
     return texts
 
 
@@ -39,6 +48,9 @@ def all_texts():
     for entry in index["lessons"]:
         lesson = json.loads((WEB / "lessons" / entry["file"]).read_text(encoding="utf-8"))
         texts.extend(lesson_texts(lesson))
+    game = WEB / "lessons" / "game.json"
+    if game.exists():
+        texts.extend(foe_texts(json.loads(game.read_text(encoding="utf-8")).get("reviewFoe")))
     return sorted({nfc(t) for t in texts})
 
 

@@ -5,12 +5,36 @@
   "vi": "Ăn uống",
   "theme": "food and drink",
   "intro": "Eleven things to eat and drink in Hà Nội, and the word to praise them. Each syllable is coloured by its tone, so you see the tone as well as hear it.",
+  "foe": {
+    "name": "Mèo Béo",
+    "en": "the Fat Cat",
+    "art": "cat",
+    "intro": "He has stolen your phở and he will not give it back.",
+    "taunts": [
+      {
+        "vi": "Meo meo! Phở này là của tôi!",
+        "en": "Meow! This phở is mine!"
+      },
+      {
+        "vi": "Bạn đói à?",
+        "en": "Hungry, are you?"
+      }
+    ],
+    "win": {
+      "vi": "Thôi, trả phở cho bạn đây!",
+      "en": "Fine, here is your phở back!"
+    },
+    "lose": {
+      "vi": "Cảm ơn nhé, ngon lắm!",
+      "en": "Thanks, that was delicious!"
+    }
+  },
   "words": [
     {
       "vi": "phở",
       "en": "pho (noodle soup)",
-      "hook": "Picture a friend tasting phở for the first time and saying a doubtful \"fuh?\", voice dipping, then finishing the whole bowl.",
-      "tip": "ph sounds like f. The hỏi tone dips low, like a doubtful question.",
+      "hook": "Picture a friend tasting phở for the first time with a doubtful \"fuh...\", voice dropping, then finishing the whole bowl.",
+      "tip": "ph sounds like f. The hỏi tone starts at your normal pitch and drops further and faster than huyền.",
       "contrast": [
         {
           "vi": "phố",
@@ -20,7 +44,11 @@
           "vi": "phờ",
           "en": "haggard, exhausted (as in mệt phờ)"
         }
-      ]
+      ],
+      "picture": {
+        "kind": "icon",
+        "name": "bowl"
+      }
     },
     {
       "vi": "cơm",
@@ -32,7 +60,11 @@
           "vi": "cốm",
           "en": "green rice flakes (a Hà Nội treat)"
         }
-      ]
+      ],
+      "picture": {
+        "kind": "icon",
+        "name": "ricebowl"
+      }
     },
     {
       "vi": "bún",
@@ -44,13 +76,21 @@
           "vi": "bùn",
           "en": "mud"
         }
-      ]
+      ],
+      "picture": {
+        "kind": "icon",
+        "name": "noodles"
+      }
     },
     {
       "vi": "bánh mì",
       "en": "bread; a baguette sandwich",
       "hook": "The crust is so crunchy it goes \"bang!\", and everyone at the table shouts \"me!\".",
-      "tip": "In Hà Nội, anh sounds close to \"ain\" with a soft ng at the end. mì is \"mee\", falling low."
+      "tip": "In Hà Nội, anh sounds close to \"ain\" with a soft ng at the end. mì is \"mee\", falling low.",
+      "picture": {
+        "kind": "icon",
+        "name": "baguette"
+      }
     },
     {
       "vi": "gà",
@@ -62,12 +102,17 @@
           "vi": "ga",
           "en": "train station"
         }
-      ]
+      ],
+      "picture": {
+        "kind": "icon",
+        "name": "chicken"
+      },
+      "note": "g for game bird: gà is chicken. Do not mix it up with cá (fish)."
     },
     {
       "vi": "bò",
       "en": "beef; cow",
-      "hook": "A cow gives a long, low \"bòòò\" that slides down at the end.",
+      "hook": "A beefy bull gives a long, low \"baw\", the aw of British \"saw\", sinking gently like the huyền tone.",
       "tip": "o is open, like the \"aw\" in British \"saw\". The huyền tone falls gently.",
       "contrast": [
         {
@@ -78,12 +123,17 @@
           "vi": "bỏ",
           "en": "to leave, give up, discard"
         }
-      ]
+      ],
+      "picture": {
+        "kind": "icon",
+        "name": "cow"
+      },
+      "note": "b for beef: bò is beef, and the cow it comes from."
     },
     {
       "vi": "cá",
       "en": "fish",
-      "hook": "A seagull spots a fish and cries \"ca!\", its voice shooting up like the sắc tone.",
+      "hook": "A fish leaps out of the river and you shout \"ca!\", your voice shooting up as you try to catch it.",
       "tip": "c is a k with no puff of air.",
       "contrast": [
         {
@@ -94,7 +144,12 @@
           "vi": "cả",
           "en": "all, whole"
         }
-      ]
+      ],
+      "picture": {
+        "kind": "icon",
+        "name": "fish"
+      },
+      "note": "c for carp: cá is fish."
     },
     {
       "vi": "rau",
@@ -106,13 +161,21 @@
           "vi": "râu",
           "en": "beard, moustache"
         }
-      ]
+      ],
+      "picture": {
+        "kind": "icon",
+        "name": "greens"
+      }
     },
     {
       "vi": "nước",
       "en": "water (also: drink, liquid, country)",
       "hook": "You jump into a cool lake on a hot day and come up with one quick, rising gasp: \"noo-uhk!\"",
-      "tip": "ươ glides from ư (say \"oo\" with your lips spread) to ơ. The final c is cut short, not released."
+      "tip": "ươ glides from ư (say \"oo\" with your lips spread) to ơ. The final c is cut short, not released.",
+      "picture": {
+        "kind": "icon",
+        "name": "water"
+      }
     },
     {
       "vi": "trà",
@@ -125,13 +188,21 @@
           "en": "to pay"
         }
       ],
-      "note": "Hà Nội also says chè for tea (nước chè, chè xanh)."
+      "note": "Hà Nội also says chè for tea (nước chè, chè xanh).",
+      "picture": {
+        "kind": "icon",
+        "name": "tea"
+      }
     },
     {
       "vi": "cà phê",
       "en": "coffee",
       "hook": "It is the French word café, said the Vietnamese way.",
-      "tip": "ê is like the \"ay\" in \"say\", without the glide at the end."
+      "tip": "ê is like the \"ay\" in \"say\", without the glide at the end.",
+      "picture": {
+        "kind": "icon",
+        "name": "phin"
+      }
     },
     {
       "vi": "ngon",
@@ -147,7 +218,11 @@
           "vi": "ngọn",
           "en": "tip, top (of a tree or flame)"
         }
-      ]
+      ],
+      "picture": {
+        "kind": "icon",
+        "name": "yum"
+      }
     }
   ],
   "grammar": {

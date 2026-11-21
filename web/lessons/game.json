@@ -1,0 +1,25 @@
+{
+  "callouts": {
+    "hit": { "vi": "Trúng!", "en": "Hit!" },
+    "crit": { "vi": "Chí mạng!", "en": "Critical hit!" },
+    "ouch": { "vi": "Ối!", "en": "Ouch!" },
+    "knockout": { "vi": "Bị hạ gục!", "en": "Knocked out! The foe heals a little." },
+    "ambush": { "vi": "Phục kích!", "en": "Ambush! Answer before time runs out." },
+    "found": { "vi": "Tìm thấy", "en": "Found" },
+    "victory": { "vi": "Chiến thắng!", "en": "Victory!" },
+    "escaped": { "vi": "Nó trốn thoát rồi!", "en": "It got away!" },
+    "boss": { "vi": "Trận cuối!", "en": "Final battle!" }
+  },
+  "reviewFoe": {
+    "name": "Ma Quên",
+    "en": "the Ghost of Forgetting",
+    "art": "shadow",
+    "intro": "It feeds on the words you have not used for a while. Remember them and it fades.",
+    "taunts": [
+      { "vi": "Hù!", "en": "Boo!" },
+      { "vi": "Bạn quên rồi à?", "en": "Forgotten already?" }
+    ],
+    "win": { "vi": "Không! Bạn nhớ hết rồi!", "en": "No! You remembered them all!" },
+    "lose": { "vi": "Hẹn gặp lại!", "en": "See you again!" }
+  }
+}

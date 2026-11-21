@@ -1,10 +1,12 @@
-# Học tiếng Việt
+# Viet Wars
 
-A personal site for learning Northern (Hà Nội) Vietnamese, built for iPhone, iPad and Mac. Add it to the Home Screen from Safari (Share, Add to Home Screen) to use it like an app; it works offline once opened.
+A personal site for learning Northern (Hà Nội) Vietnamese, built for iPhone, iPad and Mac. Open it in Safari and choose Share, Add to Home Screen to use it like an app; it works offline once opened.
 
 Site: https://eman2xr.github.io/vietwars/
 
-Each lesson teaches about a dozen words with audio, colour-coded tones, memory hooks and Hà Nội pronunciation tips, then drills them: listening, tone spelling, typing from memory, combining words, and a speed round. Learned words return in spaced reviews. After each session the results and your feedback are posted to this repository as an issue, and the next lesson is planned from them (`/next-lesson` in Claude Code).
+Every lesson is a battle against an original cartoon villain. You meet about a dozen words with pictures, audio, colour-coded tones, memory hooks and Hà Nội pronunciation tips, then fight with them: listening, picking the spelling you heard, typing from memory with on-screen tone keys, combining words into real phrases, and a 45-second boss round. Ambushes and power-ups turn up at random. Learned words come back in spaced reviews against the Ghost of Forgetting. Eight visual styles are in Settings ([see them all](docs/STYLES.md)).
+
+After each session your results and feedback are posted to this repository as an issue. Claude Code agents read them and plan the next lesson, adapting the curriculum to what you know, what you miss and what you ask for (`/lesson-loop`, `/next-lesson`, `/review-progress`).
 
 To send results from a device, create a fine-grained GitHub token for this repository with Issues read and write, and paste it into the site's Settings.
 

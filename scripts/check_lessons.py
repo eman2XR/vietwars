@@ -38,6 +38,11 @@ SOUTHERN = {
 }
 
 LIMITS = {"en": 80, "hook": 260, "tip": 260, "note": 200, "intro": 300, "title": 60}
+PICTURE_KINDS = set(re.findall(r"case '([a-z]+)':", (WEB / "js" / "pictures.js").read_text(encoding="utf-8")))
+
+
+ICON_NAMES = set(re.findall(r"^  ([a-z]+): `", (WEB / "js" / "pictures.js").read_text(encoding="utf-8"), re.M))
+SPRITES = set(re.findall(r"([a-z]+): [A-Z]+", (WEB / "js" / "sprites.js").read_text(encoding="utf-8").split("export const SPRITES = {")[1].split("}")[0]))
 
 
 def nfc(s):
@@ -86,7 +91,40 @@ def check_limit(r, where, obj, field):
         r.error(where, f"{field} is {len(v)} characters (limit {LIMITS[field]})")
 
 
-def check_lesson(r, entry, lesson, earlier_words, audio):
+def check_picture(r, where, spec):
+    if spec is None:
+        return
+    if not isinstance(spec, dict) or spec.get("kind") not in PICTURE_KINDS:
+        r.error(where, f"picture kind must be one of {sorted(PICTURE_KINDS)}")
+    elif spec["kind"] == "icon" and spec.get("name") not in ICON_NAMES:
+        r.error(where, f"icon name must be one of {sorted(ICON_NAMES)} (or add a drawing to web/js/pictures.js)")
+
+
+def check_line(r, where, line):
+    if not isinstance(line, dict) or not line.get("vi") or not line.get("en"):
+        r.error(where, "needs vi and en")
+        return
+    check_text(r, where, line["vi"])
+
+
+def check_foe(r, where, foe):
+    for field in ("name", "en", "art", "intro", "win", "lose"):
+        if not foe.get(field):
+            r.error(where, f"foe is missing {field}")
+    if foe.get("art") and foe["art"] not in SPRITES:
+        r.error(where, f"foe art must be one of {sorted(SPRITES)} (or add a drawing to web/js/sprites.js)")
+    check_text(r, f"{where}.name", foe.get("name", ""))
+    taunts = foe.get("taunts", [])
+    if len(taunts) < 2:
+        r.warn(where, "give the foe at least two taunts")
+    for i, t in enumerate(taunts):
+        check_line(r, f"{where}.taunts[{i}]", t)
+    for k in ("win", "lose"):
+        if foe.get(k):
+            check_line(r, f"{where}.{k}", foe[k])
+
+
+def check_lesson(r, entry, lesson, earlier_words, audio, known_words):
     lid = entry["id"]
     if lesson.get("id") != lid:
         r.error(lid, f"id {lesson.get('id')!r} does not match the index entry")
@@ -109,6 +147,12 @@ def check_lesson(r, entry, lesson, earlier_words, audio):
             check_limit(r, where, w, field)
         if not w.get("hook"):
             r.warn(where, "no memory hook")
+        if "picture" in w:
+            check_picture(r, where, w["picture"])
+        else:
+            r.warn(where, "no picture")
+        if nfc(w.get("vi", "")).lower() in known_words:
+            r.error(where, "the learner already knows this word (web/lessons/known.json)")
         key = nfc(w.get("vi", "")).lower()
         if key in seen:
             r.error(where, "duplicate word in this lesson")
@@ -129,7 +173,20 @@ def check_lesson(r, entry, lesson, earlier_words, audio):
     if len(set(ens)) != len(ens):
         r.error(lid, "two words share the same English meaning, so choice questions would be ambiguous")
 
-    known = set(seen) | set(earlier_words)
+    if lesson.get("foe"):
+        check_foe(r, f"{lid}.foe", lesson["foe"])
+    else:
+        r.warn(lid, "no foe; every lesson should be a battle")
+    warm = set()
+    for i, w in enumerate(lesson.get("warmup", [])):
+        where = f"{lid}.warmup[{i}] {w.get('vi', '?')}"
+        check_text(r, where, w.get("vi", ""))
+        check_text(r, where, w.get("en", ""), "en")
+        warm.add(nfc(w.get("vi", "")).lower())
+    if len(warm) != len(lesson.get("warmup", [])):
+        r.error(lid, "duplicate warm-up words")
+
+    known = set(seen) | set(earlier_words) | warm | set(known_words)
     for i, c in enumerate(lesson.get("combos", [])):
         where = f"{lid}.combos[{i}] {c.get('vi', '?')}"
         check_text(r, where, c.get("vi", ""))
@@ -155,19 +212,57 @@ def check_lesson(r, entry, lesson, earlier_words, audio):
     for vi in lesson.get("review", []):
         if nfc(vi).lower() not in earlier_words:
             r.error(f"{lid}.review", f"{vi!r} was not taught in an earlier lesson")
+        if nfc(vi).lower() in known_words:
+            r.error(f"{lid}.review", f"{vi!r} is a known word (web/lessons/known.json); known words are never reviewed")
 
     if audio is not None:
         texts = [w["vi"] for w in words if "vi" in w]
         texts += [c["vi"] for w in words for c in w.get("contrast", [])]
         texts += [c["vi"] for c in lesson.get("combos", [])]
         texts += [x["vi"] for x in (g or {}).get("examples", [])]
+        texts += [w["vi"] for w in lesson.get("warmup", [])]
+        foe = lesson.get("foe") or {}
+        texts += [l["vi"] for l in [*foe.get("taunts", []), foe.get("win"), foe.get("lose")] if l]
         for t in texts:
             cid = audio.get(nfc(t).strip())
             if not cid:
                 r.error(lid, f"no audio clip for {t!r}; run scripts/make_audio.py")
             elif not (WEB / "audio" / f"{cid}.m4a").exists():
                 r.error(lid, f"audio file for {t!r} is missing")
-    return seen
+    return seen | warm
+
+
+def check_game(r, audio):
+    path = WEB / "lessons" / "game.json"
+    if not path.exists():
+        r.error("game.json", "missing")
+        return
+    game = json.loads(path.read_text(encoding="utf-8"))
+    for key in ("hit", "crit", "ouch", "knockout", "ambush", "found", "victory", "escaped", "boss"):
+        c = game.get("callouts", {}).get(key)
+        if not c:
+            r.error("game.json", f"missing callout {key}")
+        else:
+            check_line(r, f"game.callouts.{key}", c)
+    foe = game.get("reviewFoe")
+    if not foe:
+        r.error("game.json", "missing reviewFoe")
+        return
+    check_foe(r, "game.reviewFoe", foe)
+    if audio is not None:
+        for l in [*foe.get("taunts", []), foe.get("win"), foe.get("lose")]:
+            if l and not audio.get(nfc(l["vi"]).strip()):
+                r.error("game.reviewFoe", f"no audio clip for {l['vi']!r}; run scripts/make_audio.py")
+
+
+def load_known(r):
+    path = WEB / "lessons" / "known.json"
+    if not path.exists():
+        return set()
+    words = json.loads(path.read_text(encoding="utf-8")).get("words", [])
+    for w in words:
+        check_text(r, "known.json", w)
+    return {nfc(w).lower() for w in words}
 
 
 def main():
@@ -183,6 +278,8 @@ def main():
         audio = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
     earlier = {}
     numbers = []
+    known_words = load_known(r)
+    check_game(r, audio)
     for entry in index["lessons"]:
         path = WEB / "lessons" / entry["file"]
         if not path.exists():
@@ -190,7 +287,7 @@ def main():
             continue
         lesson = json.loads(path.read_text(encoding="utf-8"))
         numbers.append(lesson.get("number"))
-        for w in check_lesson(r, entry, lesson, earlier, audio):
+        for w in check_lesson(r, entry, lesson, earlier, audio, known_words if entry is index["lessons"][-1] else set()):
             earlier[w] = entry["id"]
     if numbers != list(range(1, len(numbers) + 1)):
         r.error("index", f"lesson numbers should run 1, 2, 3... in order; found {numbers}")

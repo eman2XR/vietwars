@@ -3,8 +3,8 @@
 import { nfc } from './vi.js';
 
 let clips = {};
-const player = new Audio();
-player.preload = 'auto';
+const player = typeof Audio === 'undefined' ? null : new Audio();
+if (player) player.preload = 'auto';
 
 export async function loadAudio() {
   try {
@@ -48,6 +48,7 @@ function speak(text, slow) {
 }
 
 export function play(text, { slow = false } = {}) {
+  if (!player) return;
   const id = clips[nfc(text).trim()];
   if (!id) {
     speak(text, slow);
@@ -63,6 +64,7 @@ export function play(text, { slow = false } = {}) {
 }
 
 export function stop() {
+  if (!player) return;
   player.pause();
   if ('speechSynthesis' in window) speechSynthesis.cancel();
 }
