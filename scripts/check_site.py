@@ -127,10 +127,36 @@ class Run:
             self.overflow(page, label)
             self.shot(page, label)
 
+    def leave_and_resume(self, page, label):
+        step = page.get_attribute(".stage", "data-step")
+        page.click("[data-act=quit]")
+        page.wait_for_selector(".home")
+        if not page.locator(".notice").count():
+            self.errors.append("leaving an issue midway showed no saved-place notice")
+        self.first(page, f"{label}-saved-notice")
+        page.evaluate(f"location.hash = '#/lesson/{self.lesson['id']}'")
+        try:
+            page.wait_for_selector(".resume-page [data-act=resume]", timeout=5000)
+        except Exception:
+            self.errors.append("reopening the issue did not offer to continue")
+            return
+        self.first(page, f"{label}-resume")
+        page.click(".resume-page [data-act=resume]")
+        page.wait_for_selector(".stage")
+        now = page.get_attribute(".stage", "data-step")
+        if now != step:
+            self.errors.append(f"resumed at a {now} step instead of the {step} step where it stopped")
+
     def play_session(self, page, label):
         meets = 0
         typed = 0
+        actions = 0
+        resumed = label != "lesson"
         for _ in range(600):
+            actions += 1
+            if not resumed and actions == 30 and page.get_attribute(".stage", "data-step") in ("listen", "meet", "type", "spell", "reverse"):
+                resumed = True
+                self.leave_and_resume(page, label)
             if page.locator(".done-page").count():
                 return True
             step = page.get_attribute(".stage", "data-step")
@@ -154,6 +180,12 @@ class Run:
                 typed += 1
                 self.first(page, f"{label}-{kind}-answered")
                 page.click("[data-act=next]")
+            elif step == "type" and page.locator(".tiles").count():
+                page.locator(".tile").first.click()
+                page.locator(".tile").nth(1).click()
+                self.first(page, f"{label}-tiles")
+                page.click("[data-act=check]")
+                page.click("[data-act=check]")
             elif step == "type":
                 if typed % 3 == 0:
                     page.fill(".type-input", "pho")
@@ -227,11 +259,16 @@ class Run:
             if kind not in self.seen_types:
                 self.errors.append(f"lesson never showed a {kind} step")
 
-        data = page.evaluate("({h: JSON.parse(localStorage.getItem('vw-history') || '[]'), d: JSON.parse(localStorage.getItem('vw-deck') || '{}'), o: JSON.parse(localStorage.getItem('vw-outbox') || '[]')})")
-        if len(data["h"]) != 1:
-            self.errors.append(f"expected 1 saved result, found {len(data['h'])}")
+        data = page.evaluate("({h: JSON.parse(localStorage.getItem('vw-history') || '[]'), d: JSON.parse(localStorage.getItem('vw-deck') || '{}'), o: JSON.parse(localStorage.getItem('vw-outbox') || '[]'), saved: localStorage.getItem('vw-resume-' + '%s')})" % self.lesson["id"])
+        full = [x for x in data["h"] if not x.get("partial")]
+        if not any(x.get("partial") for x in data["h"]):
+            self.errors.append("leaving midway saved no unfinished result")
+        if data["saved"]:
+            self.errors.append("the saved place was not cleared after finishing")
+        if len(full) != 1:
+            self.errors.append(f"expected 1 finished result, found {len(full)}")
         else:
-            r = data["h"][0]
+            r = full[0]
             verified = {w["vi"] for w in r["words"] if w.get("known") and (w.get("firstTry") or {}).get("type") in ("perfect", "tone", "marks", "sound")}
             expected = {w["vi"] for w in r["words"]} - verified
             expected |= {m["vi"] for m in r.get("warmup", []) if not m["ok"]}
@@ -243,10 +280,11 @@ class Run:
                 self.errors.append("result has no article reading time")
         if data["o"]:
             self.errors.append(f"{len(data['o'])} results left unsent")
-        if len(self.posts) != 1:
-            self.errors.append(f"expected 1 issue posted, found {len(self.posts)}")
+        finished_posts = [x for x in self.posts if '"partial": true' not in x["body"]]
+        if len(finished_posts) != 1:
+            self.errors.append(f"expected 1 finished result posted, found {len(finished_posts)}")
         else:
-            body = self.posts[0]["body"]
+            body = finished_posts[0]["body"]
             m = MARKER.search(body)
             if not m:
                 self.errors.append("posted issue has no result block")
@@ -272,8 +310,8 @@ class Run:
         page.click(".review-card .btn")
         if self.play_session(page, "review"):
             page.wait_for_selector(".send-status:not([data-state=sending])")
-        if len(self.posts) != 2:
-            self.errors.append(f"expected 2 issues after the review, found {len(self.posts)}")
+        if len([x for x in self.posts if '"partial": true' not in x["body"]]) != 2:
+            self.errors.append(f"expected 2 finished results after the review, found {len(self.posts)} posts")
 
         posted = [json.loads(m.group(1)) for m in (MARKER.search(x["body"]) for x in self.posts) if m]
         OUT.mkdir(exist_ok=True)

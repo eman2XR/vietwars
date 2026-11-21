@@ -13,6 +13,7 @@ One round, cheap when there is nothing to do. Read `CLAUDE.md` once per session.
 2. Act on the answer, then decide again, until it says `wait` (at most three actions per round):
    - `ingest`: run `python3 scripts/ingest.py`, then decide again.
    - `review-progress`: follow the `review-progress` skill, then decide again.
+   - `adjust-lesson`: the learner closed the newest issue midway at least twice. Follow the "Adjusting an issue" section of the `next-lesson` skill: make the current issue easier or shorter instead of adding a new one.
    - `next-lesson`: follow the `next-lesson` skill. One lesson per round at most.
    - `wait`: nothing to do. Reply with one line, such as "No new results; issue 3 is waiting to be read." Do not repeat the status in detail.
 3. If a step fails (no network, `gh` not signed in, a check that keeps failing after two fixes), stop, say what failed in one or two lines, and leave the working tree clean or committed. Never force-push, never delete results or history to get past a limit.

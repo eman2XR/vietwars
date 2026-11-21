@@ -100,7 +100,18 @@ def build_profile(results):
     lessons = defaultdict(lambda: {"attempts": 0, "accuracies": [], "last": None, "won": False, "ranks": []})
     sessions = []
     feedback = []
+    unfinished = Counter()
     for r in results:
+        if r.get("partial"):
+            unfinished[r["lessonId"]] += 1
+            prog = r.get("progress") or {}
+            sessions.append({
+                "finishedAt": r["finishedAt"], "kind": "unfinished", "lesson": r["lessonId"],
+                "accuracy": r["summary"]["firstTryAccuracy"], "minutes": round(r["durationSec"] / 60, 1),
+                "device": r.get("device"), "style": r.get("style"), "speed": f"stopped at step {prog.get('step', 0) + 1} of {prog.get('steps', '?')}",
+                "battle": None, "grade": None, "bestStreak": None, "quiz": None, "articleSec": None, "articleRating": None, "warmupMissed": [],
+            })
+            continue
         acc = r["summary"]["firstTryAccuracy"]
         b = r.get("battle") or {}
         q = r.get("quiz") or {}
@@ -203,6 +214,7 @@ def build_profile(results):
         "toneConfusions": dict(tone_conf.most_common()),
         "meaningConfusions": dict(meaning_conf.most_common(20)),
         "typing": dict(typed_grades),
+        "unfinished": dict(unfinished),
         "toneKeysUsed": f"{keys_used[0]}/{keys_used[1]}" if keys_used[1] else None,
         "feedback": feedback,
     }
@@ -213,7 +225,7 @@ def summary_md(p):
     s = p["sessions"]
     if not s:
         return "\n".join(lines + ["No results yet."]) + "\n"
-    lines.append(f"- Sessions: {len(s)} ({sum(1 for x in s if x['kind'] == 'lesson')} lessons, {sum(1 for x in s if x['kind'] == 'review')} reviews), last {s[-1]['finishedAt'][:16]} UTC on {s[-1]['device']}")
+    lines.append(f"- Sessions: {len(s)} ({sum(1 for x in s if x['kind'] == 'lesson')} lessons, {sum(1 for x in s if x['kind'] == 'review')} reviews, {sum(1 for x in s if x['kind'] == 'unfinished')} unfinished), last {s[-1]['finishedAt'][:16]} UTC on {s[-1]['device']}")
     lines.append(f"- Words met: {len(p['words'])}; on the known list (never taught or reviewed again): {len(p['known'])}")
     lines.append(f"- Weak in meaning (under 0.7): {', '.join(p['weakMeaning']) or 'none'}")
     lines.append(f"- Weak in spelling or tone (under 0.6): {', '.join(p['weakSpelling']) or 'none'}")
@@ -221,6 +233,8 @@ def summary_md(p):
     total = sum(t.values())
     if total:
         lines.append(f"- Typing, first tries: {t.get('perfect', 0)} perfect, {t.get('tone', 0)} wrong or missing tone, {t.get('marks', 0)} missing vowel marks, {t.get('sound', 0)} spelled as it sounds in Hà Nội, {t.get('wrong', 0)} wrong (of {total})")
+    if p.get("unfinished"):
+        lines.append(f"- Unfinished attempts (closed midway): {', '.join(f'{k} ({v})' for k, v in p['unfinished'].items())}. Repeated unfinished attempts mean the issue is too long or too hard.")
     if p.get("toneKeysUsed"):
         lines.append(f"- Answers typed with the on-screen tone keys: {p['toneKeysUsed']}")
     if p["warmupMissed"]:

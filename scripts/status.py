@@ -3,11 +3,12 @@
 
   python3 scripts/status.py            human-readable summary
   python3 scripts/status.py --json     the same as JSON
-  python3 scripts/status.py --decide   prints one action: ingest, next-lesson, review-progress or wait
+  python3 scripts/status.py --decide   prints one action: ingest, review-progress, adjust-lesson, next-lesson or wait
 
 Rules: results waiting on GitHub are ingested first. A new lesson is built only when the newest
 lesson has been played (so one unplayed lesson is always ready, never a pile of them), and at most
 two lessons are added per day. A progress review is due after five sessions or seven days since the last one.
+If the learner has closed the newest lesson midway twice without finishing it, the lesson needs adjusting.
 """
 
 import argparse
@@ -52,12 +53,13 @@ def state():
     index = load("web/lessons/index.json", {"lessons": []})["lessons"]
     newest = index[-1] if index else None
     results = [json.loads(p.read_text(encoding="utf-8")) for p in sorted((ROOT / "learner" / "results").glob("*.json"))]
-    played = {r["lessonId"] for r in results if r["kind"] == "lesson"}
+    played = {r["lessonId"] for r in results if r["kind"] == "lesson" and not r.get("partial")}
+    unfinished = sum(1 for r in results if r.get("partial") and newest and r["lessonId"] == newest["id"])
     today = dt.date.today().isoformat()
     added_today = sum(1 for l in index if l.get("added") == today)
     cur = load("learner/curriculum.json", {})
     reviewed = cur.get("reviewedAt")
-    since = [r for r in results if not reviewed or r["finishedAt"][:10] > reviewed]
+    since = [r for r in results if not r.get("partial") and (not reviewed or r["finishedAt"][:10] > reviewed)]
     days = (dt.date.today() - dt.date.fromisoformat(reviewed)).days if reviewed else None
     nxt = next((u for u in cur.get("units", []) if u.get("status") == "planned"), None)
     waiting, gh_error = open_result_issues()
@@ -67,6 +69,7 @@ def state():
         "lessons": len(index),
         "newestLesson": newest["id"] if newest else None,
         "newestPlayed": bool(newest and newest["id"] in played),
+        "newestUnfinished": unfinished,
         "lessonsAddedToday": added_today,
         "results": len(results),
         "resultsWaitingOnGitHub": waiting,
@@ -84,6 +87,8 @@ def decide(s):
         return "ingest"
     if s["results"] and (s["sessionsSinceReview"] >= REVIEW_EVERY_SESSIONS or (s["daysSinceReview"] or 0) >= REVIEW_EVERY_DAYS):
         return "review-progress"
+    if not s["newestPlayed"] and s["newestUnfinished"] >= 2:
+        return "adjust-lesson"
     if s["newestPlayed"] and s["lessonsAddedToday"] < MAX_LESSONS_PER_DAY:
         return "next-lesson"
     return "wait"

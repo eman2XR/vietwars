@@ -104,10 +104,25 @@ function shortDate(iso) {
   return new Date(iso).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
 }
 
-function buildResult(kind, lesson, out) {
+const RESUME_DAYS = 21;
+
+function savedPlace(lesson) {
+  if (!lesson) return null;
+  try {
+    const d = JSON.parse(localStorage.getItem(`vw-resume-${lesson.id}`) || 'null');
+    if (!d || Date.now() - d.savedAt > RESUME_DAYS * 86400000) return null;
+    return d;
+  } catch {
+    return null;
+  }
+}
+
+function buildResult(kind, lesson, out, partial = false) {
   const ev = out.events;
   return {
     schema: 3,
+    partial: partial || undefined,
+    progress: partial ? out.progress : undefined,
     resultId: uuid(),
     kind,
     lessonId: lesson ? lesson.id : 'review',
@@ -154,6 +169,7 @@ function gradeOf(result) {
 
 // Applies one finished session to progress and the review deck, as of the time it finished. Replaying every result in order rebuilds the same state on any device.
 function applyResult(p, deck, result) {
+  if (result.partial) return;
   const now = Date.parse(result.finishedAt) || Date.now();
   p.known = p.known || [];
   const known = new Set([...SITE_KNOWN, ...p.known.map(nfc)]);
@@ -254,7 +270,28 @@ function factsFor(lesson, words) {
   return facts;
 }
 
-function startSession(kind, lesson) {
+function resumeChoice(lesson, place) {
+  document.body.classList.remove('in-session');
+  app.innerHTML = `
+    <div class="page resume-page">
+      <a class="back" href="#/">Magazine</a>
+      <div class="kicker">Issue ${esc(lesson.number)} · ${esc(lesson.feature?.kicker || lesson.theme || '')}</div>
+      <h1 class="title">${esc(lesson.feature?.title || lesson.title)}</h1>
+      <p class="lead">You stopped at step ${place.i + 1} of ${place.total} on ${esc(new Date(place.savedAt).toLocaleDateString('en-GB', { day: 'numeric', month: 'long' }))}. Pick up where you left off, or start the issue again.</p>
+      <div class="actions"><button class="btn ghost" data-act="restart">Start over</button><button class="btn primary" data-act="resume">Continue</button></div>
+    </div>`;
+  app.querySelector('[data-act=resume]').addEventListener('click', () => startSession('lesson', lesson, { resume: place }));
+  app.querySelector('[data-act=restart]').addEventListener('click', () => {
+    localStorage.removeItem(`vw-resume-${lesson.id}`);
+    startSession('lesson', lesson, { fresh: true });
+  });
+}
+
+function startSession(kind, lesson, opts = {}) {
+  if (kind === 'lesson' && !opts.resume && !opts.fresh) {
+    const place = savedPlace(lesson);
+    if (place) return resumeChoice(lesson, place);
+  }
   let steps;
   let words;
   let warmup = [];
@@ -286,14 +323,30 @@ function startSession(kind, lesson) {
   document.body.classList.add('in-session');
   endSession = runSession(
     app,
-    { steps, words, lesson, testMode, facts: factsFor(lesson, kind === 'lesson' ? lesson.words : words), jumpTo: testMode ? params.get('jump') : null },
+    {
+      steps,
+      words,
+      lesson,
+      testMode,
+      saveKey: kind === 'lesson' ? lesson.id : null,
+      resume: opts.resume || null,
+      facts: factsFor(lesson, kind === 'lesson' ? lesson.words : words),
+      jumpTo: testMode ? params.get('jump') : null,
+    },
     (out) => {
       const result = buildResult(kind, lesson, out);
       saveResult(result);
       showDone(result);
     },
-    () => {
+    (out) => {
       endSession = null;
+      if (out && kind === 'lesson' && out.events.some((e) => e.t !== 'known')) {
+        const partial = buildResult(kind, lesson, out, true);
+        store.addHistory(partial);
+        queue(partial);
+        flush();
+        store.saveSettings({ ...store.settings(), notice: `Saved. You were on step ${out.progress.step + 1} of ${out.progress.steps}; continue any time.` });
+      }
       location.hash = '#/';
     },
   );
@@ -352,6 +405,9 @@ function home() {
   const done = states.filter((s) => s === 'done').length;
   const f = current?.feature || {};
   const meta = current ? [`${current.words.length} new words`, current.quiz?.length ? `${current.quiz.length}-question quiz` : '', 'Rush hour'].filter(Boolean).join(' · ') : '';
+  const place = savedPlace(current);
+  const notice = store.settings().notice;
+  if (notice) store.saveSettings({ ...store.settings(), notice: null });
 
   let reviewHTML;
   if (due.length) reviewHTML = `<div class="review-text"><div class="label">Review desk</div><p><b>${due.length} word${due.length === 1 ? '' : 's'}</b> due today, before they fade.</p></div><a class="btn primary small" href="#/review">Review</a>`;
@@ -367,6 +423,7 @@ function home() {
         </div>
         <a class="icon-btn" href="#/settings" aria-label="Settings">${GEAR}</a>
       </header>
+      ${notice ? `<div class="notice">${esc(notice)}</div>` : ''}
       ${
         store.settings().seen !== APP_VERSION
           ? `<section class="news">
@@ -385,7 +442,7 @@ function home() {
             <h2 class="cover-title">${esc(f.title || current.title)}</h2>
             ${f.dek ? `<p class="dek">${esc(f.dek)}</p>` : ''}
             <p class="cover-meta"><span class="vi">${colorize(current.vi)}</span> · ${esc(current.title)} · ${esc(meta)}</p>
-            <span class="btn primary">${states[currentIdx] === 'done' ? 'Read again' : 'Read and practise'}</span>
+            <span class="btn primary">${place ? `Continue · step ${place.i + 1} of ${place.total}` : states[currentIdx] === 'done' ? 'Read again' : 'Read and practise'}</span>
           </div>
         </a>`
           : ''

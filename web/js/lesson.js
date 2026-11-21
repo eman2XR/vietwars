@@ -1,6 +1,6 @@
 // Runs a lesson (an issue of the magazine) or a review: builds the sequence, renders each step and records every answer.
 
-import { colorize, contourSVG, tonesOf, TONES, grade, escapeHTML as esc, nfc, applyKey } from './vi.js';
+import { colorize, contourSVG, tonesOf, TONES, grade, escapeHTML as esc, nfc, applyKey, withTone, tokens } from './vi.js';
 import { play, stop } from './audio.js';
 import { picture } from './pictures.js';
 
@@ -61,6 +61,21 @@ function pic(w, size = '') {
   return p ? `<div class="pic-wrap ${size}">${p}</div>` : '';
 }
 
+// Syllable tiles for a scaffolded retry: the word's syllables plus two tone variants as distractors.
+function tilesFor(vi) {
+  const syl = tokens(vi);
+  const tones = ['ngang', 'huyen', 'sac', 'hoi', 'nga', 'nang'];
+  const extra = new Set();
+  for (const s of shuffle(syl)) {
+    for (const t of shuffle(tones)) {
+      const v = withTone(s, t);
+      if (!syl.includes(v) && extra.size < 2) extra.add(v);
+    }
+    if (extra.size >= 2) break;
+  }
+  return shuffle([...syl, ...extra]);
+}
+
 export function stampHTML(lesson, grade = '', date = '') {
   const art = lesson?.stamp?.picture ? picture(lesson.stamp.picture) : '';
   return `<div class="stamp ${grade ? `grade-${grade}` : 'empty'}">
@@ -73,32 +88,48 @@ export function stampHTML(lesson, grade = '', date = '') {
   </div>`;
 }
 
+const PART_SIZE = 8;
+
+// Builds an issue. More than eight new words are split into two parts, each met and practised on its own, before the shared finale.
 export function lessonSteps(lesson, { review = [], warmup = [] } = {}) {
   const words = lesson.words;
-  const all = [...words, ...review];
   const steps = [{ type: 'feature' }];
   (lesson.quiz || []).forEach((q, i) => steps.push({ type: 'quiz', q, n: i + 1, of: lesson.quiz.length }));
   if (warmup.length) {
     steps.push({ type: 'stage', title: 'Warm-up', text: `${warmup.length} words you probably know. Tap the meaning; any you miss go into your reviews.` });
     shuffle(warmup).forEach((w) => steps.push({ type: 'listen', word: w, pool: warmup, warmup: true }));
   }
-  chunk(words, 4).forEach((group, gi) => {
-    group.forEach((w, wi) => steps.push({ type: 'meet', word: w, n: gi * 4 + wi + 1, of: words.length }));
-    shuffle(group)
-      .slice(0, Math.min(2, group.length))
-      .forEach((w) => steps.push({ type: 'listen', word: w, pool: group.length >= 3 ? group : words }));
+  const half = Math.ceil(words.length / 2);
+  const parts = words.length > PART_SIZE ? [words.slice(0, half), words.slice(half)] : [words];
+  let offset = 0;
+  parts.forEach((part, pi) => {
+    const last = pi === parts.length - 1;
+    const practise = [...part, ...(last ? review : [])];
+    const pool = parts.length > 1 ? [...part, ...(last ? review : []), ...(pi > 0 ? parts[0] : [])] : [...words, ...review];
+    if (parts.length > 1) {
+      steps.push({
+        type: 'stage',
+        title: `Part ${pi + 1} of ${parts.length}`,
+        text: pi === 0 ? `${part.length} new words first, then ${words.length - part.length} more. You can stop at any point: close the issue and your place is kept.` : `${part.length} more words. Your place is kept whenever you stop.`,
+      });
+    }
+    chunk(part, 4).forEach((group, gi) => {
+      group.forEach((w, wi) => steps.push({ type: 'meet', word: w, n: offset + gi * 4 + wi + 1, of: words.length }));
+      shuffle(group)
+        .slice(0, Math.min(2, group.length))
+        .forEach((w) => steps.push({ type: 'listen', word: w, pool: group.length >= 3 ? group : pool }));
+    });
+    offset += part.length;
+    steps.push({ type: 'stage', title: parts.length > 1 ? `Practise part ${pi + 1}` : 'Practise', text: 'Listen and pick the meaning, pick the spelling you hear, then type from memory with the tone keys. Three right in a row brings up a fact.' });
+    shuffle(practise).forEach((w) => steps.push({ type: 'listen', word: w, pool }));
+    shuffle(part).forEach((w) => steps.push(w.contrast?.length ? { type: 'spell', word: w } : { type: 'reverse', word: w, pool: part.length >= 4 ? part : pool }));
+    shuffle(practise).forEach((w) => steps.push({ type: 'type', word: w }));
   });
-  steps.push({ type: 'stage', title: 'Listen', text: 'Hear each word and pick what it means. Get three in a row and a fact from the issue turns up.' });
-  shuffle(all).forEach((w) => steps.push({ type: 'listen', word: w, pool: all }));
-  steps.push({ type: 'stage', title: 'Tones and spelling', text: 'Pick the spelling you hear, or the Vietnamese for a picture. Watch the tone marks.' });
-  shuffle(words).forEach((w) => steps.push(w.contrast?.length ? { type: 'spell', word: w } : { type: 'reverse', word: w, pool: words }));
-  steps.push({ type: 'stage', title: 'From memory', text: 'Type the Vietnamese. Use the tone and vowel keys under the box for the marks.' });
-  shuffle(all).forEach((w) => steps.push({ type: 'type', word: w }));
   if (lesson.grammar) steps.push({ type: 'grammar', grammar: lesson.grammar });
   if (lesson.combos?.length) {
     shuffle(lesson.combos).forEach((c) => steps.push({ type: 'listen', word: c, pool: lesson.combos, combo: true }));
   }
-  steps.push({ type: 'speedIntro' }, { type: 'speed', pool: [...all, ...(lesson.combos || []), ...warmup] });
+  steps.push({ type: 'speedIntro' }, { type: 'speed', pool: [...words, ...review, ...(lesson.combos || []), ...warmup] });
   steps.push({ type: 'results' }, { type: 'feedback' });
   return steps;
 }
@@ -171,6 +202,91 @@ export function runSession(root, session, onDone, onQuit) {
   };
   const words = session.words;
   const scoredWords = session.scoredWords || words;
+  const saveKey = session.saveKey ? `vw-resume-${session.saveKey}` : null;
+
+  // Saves the session as plain data (words by their spelling), so it can be resumed later on this device.
+  function snapshot() {
+    if (!saveKey) return;
+    const ref = (w) => (w ? w.vi : undefined);
+    const data = {
+      v: 1,
+      savedAt: Date.now(),
+      i: S.i,
+      total: S.steps.length,
+      steps: S.steps.map((st) => ({ ...st, word: ref(st.word), pool: st.pool ? st.pool.map(ref) : undefined, q: st.q ? st.q.q : undefined, grammar: st.grammar ? 1 : undefined })),
+      events: S.events,
+      known: [...S.known],
+      met: [...S.met],
+      started: S.started,
+      streak: S.streak,
+      bestStreak: S.bestStreak,
+      quiz: S.quiz,
+      readMs: S.readMs,
+      factsShown: S.factsShown,
+    };
+    try {
+      localStorage.setItem(saveKey, JSON.stringify(data));
+    } catch {
+      /* Storage full: the session simply cannot be resumed. */
+    }
+  }
+
+  function restore(data) {
+    const lookup = new Map();
+    for (const st of S.steps) {
+      if (st.word) lookup.set(st.word.vi, st.word);
+      for (const w of st.pool || []) lookup.set(w.vi, w);
+    }
+    const quizByText = new Map((lesson?.quiz || []).map((q) => [q.q, q]));
+    const steps = [];
+    for (const st of data.steps || []) {
+      const out = { ...st };
+      if (st.word !== undefined) {
+        out.word = lookup.get(st.word);
+        if (!out.word) continue;
+      }
+      if (st.pool) out.pool = st.pool.map((v) => lookup.get(v)).filter(Boolean);
+      if (st.q !== undefined) {
+        out.q = quizByText.get(st.q);
+        if (!out.q) continue;
+      }
+      if (st.grammar) out.grammar = lesson?.grammar;
+      steps.push(out);
+    }
+    if (!steps.length) return;
+    S.steps = steps;
+    S.i = Math.min(data.i || 0, steps.length - 1);
+    if (S.steps[S.i].type === 'speed') S.i -= 1;
+    S.events = data.events || [];
+    S.known = new Set(data.known || []);
+    S.met = new Set(data.met || []);
+    S.started = data.started || Date.now();
+    S.streak = data.streak || 0;
+    S.bestStreak = data.bestStreak || 0;
+    S.quiz = data.quiz || { correct: 0, total: 0 };
+    S.readMs = data.readMs || 0;
+    S.factsShown = data.factsShown || [];
+    S.facts = S.facts.filter((f) => !S.factsShown.includes(f.vi || f.text.slice(0, 40)));
+  }
+
+  function payload(feedback) {
+    const sum = summarise(S.events, scoredWords);
+    return {
+      events: S.events,
+      startedAt: new Date(S.started).toISOString(),
+      finishedAt: new Date().toISOString(),
+      durationSec: Math.round((Date.now() - S.started) / 1000),
+      known: [...S.known],
+      speed: S.speed,
+      summary: sum,
+      bestStreak: S.bestStreak,
+      quiz: S.quiz,
+      article: lesson ? { readSec: Math.round(S.readMs / 1000), factsShown: S.factsShown.length } : null,
+      grade: gradeFor(sum.firstTryAccuracy),
+      progress: { step: S.i, steps: S.steps.length },
+      feedback,
+    };
+  }
 
   root.innerHTML = `
     <div class="session">
@@ -220,6 +336,7 @@ export function runSession(root, session, onDone, onQuit) {
 
   function record(e) {
     S.events.push({ ...e, ms: Date.now() - S.stepStart, at: Date.now() - S.started });
+    snapshot();
   }
 
   function insertRetry(step) {
@@ -246,21 +363,8 @@ export function runSession(root, session, onDone, onQuit) {
 
   function finish(feedback) {
     cleanup();
-    const sum = summarise(S.events, scoredWords);
-    onDone({
-      events: S.events,
-      startedAt: new Date(S.started).toISOString(),
-      finishedAt: new Date().toISOString(),
-      durationSec: Math.round((Date.now() - S.started) / 1000),
-      known: [...S.known],
-      speed: S.speed,
-      summary: sum,
-      bestStreak: S.bestStreak,
-      quiz: S.quiz,
-      article: lesson ? { readSec: Math.round(S.readMs / 1000), factsShown: S.factsShown.length } : null,
-      grade: gradeFor(sum.firstTryAccuracy),
-      feedback,
-    });
+    if (saveKey) localStorage.removeItem(saveKey);
+    onDone(payload(feedback));
   }
 
   function render() {
@@ -276,6 +380,7 @@ export function runSession(root, session, onDone, onQuit) {
     if (step.word && step.type !== 'meet' && !step.warmup) S.met.add(nfc(step.word.vi));
     RENDER[step.type](step);
     window.scrollTo(0, 0);
+    snapshot();
   }
 
   function footer(html) {
@@ -476,6 +581,7 @@ export function runSession(root, session, onDone, onQuit) {
     },
 
     type(step) {
+      if (step.tiles) return RENDER.tiles(step);
       const w = step.word;
       const dict = Boolean(step.dictation);
       let hints = 0;
@@ -552,7 +658,7 @@ export function runSession(root, session, onDone, onQuit) {
         if (ok) right();
         else {
           wrong();
-          insertRetry(step);
+          if (g === 'wrong') insertRetry({ ...step, tiles: true });
         }
         const msg = {
           perfect: hints ? 'Correct, with a hint.' : 'Perfect.',
@@ -567,6 +673,57 @@ export function runSession(root, session, onDone, onQuit) {
         const btn = stage.querySelector('[data-act=check]');
         btn.textContent = 'Continue';
         btn.focus({ preventScroll: true });
+      });
+    },
+
+    tiles(step) {
+      const w = step.word;
+      const pieces = tilesFor(w.vi);
+      const built = [];
+      stage.innerHTML = `
+        <div class="kicker">Build it from the pieces <span class="tag">again</span></div>
+        ${pic(w, 'medium')}<div class="prompt-en">${esc(w.en)}</div>
+        <div class="built vi" aria-live="polite">&nbsp;</div>
+        <div class="tiles">${pieces.map((p, i) => `<button type="button" class="tile vi" data-i="${i}">${colorize(p)}</button>`).join('')}</div>
+        <div class="row center helper-row"><button type="button" class="btn ghost small" data-act="undo">Undo</button><button type="button" class="btn ghost small" data-act="hear">Hear it</button></div>
+        <div class="feedback-slot"></div>
+        ${footer('<button type="button" class="btn primary" data-act="check">Check</button>')}`;
+      const out = stage.querySelector('.built');
+      const show = () => {
+        out.innerHTML = built.length ? `<span>${colorize(built.map((i) => pieces[i]).join(' '))}</span>` : '&nbsp;';
+        stage.querySelectorAll('.tile').forEach((t) => (t.disabled = built.includes(Number(t.dataset.i))));
+      };
+      stage.querySelectorAll('.tile').forEach((t) =>
+        t.addEventListener('click', () => {
+          if (S.answered) return;
+          built.push(Number(t.dataset.i));
+          play(pieces[Number(t.dataset.i)]);
+          show();
+        }),
+      );
+      stage.querySelector('[data-act=undo]').addEventListener('click', () => {
+        built.pop();
+        show();
+      });
+      stage.querySelector('[data-act=hear]').addEventListener('click', () => play(w.vi));
+      stage.querySelector('[data-act=check]').addEventListener('click', () => {
+        if (S.answered) {
+          next();
+          return;
+        }
+        if (!built.length) return;
+        S.answered = true;
+        const answer = built.map((i) => pieces[i]).join(' ');
+        const g = grade(answer, w.vi);
+        record({ t: 'type', w: w.vi, g, a: answer, tiles: true, retry: true });
+        const ok = g === 'perfect';
+        flash(ok);
+        if (ok) right();
+        else wrong();
+        stage.classList.add('answered', `graded-${ok ? 'perfect' : 'wrong'}`);
+        stage.querySelector('.feedback-slot').innerHTML = `<div class="verdict">${ok ? 'Perfect.' : 'Not quite. It is:'}</div>${answerBox(w)}`;
+        play(w.vi);
+        stage.querySelector('[data-act=check]').textContent = 'Continue';
       });
     },
 
@@ -758,13 +915,18 @@ export function runSession(root, session, onDone, onQuit) {
     const act = ev.target.closest('[data-act]')?.dataset.act;
     if (act === 'next') next();
     else if (act === 'quit') {
-      if (confirm('Leave now? Answers from this session will not be saved.')) {
+      if (saveKey) {
+        snapshot();
         cleanup();
-        onQuit();
+        onQuit(payload(null));
+      } else if (confirm('Leave now? Answers from this review will not be saved.')) {
+        cleanup();
+        onQuit(null);
       }
     }
   });
   document.addEventListener('keydown', onKey);
+  if (session.resume) restore(session.resume);
   if (session.jumpTo) {
     const at = S.steps.findIndex((s) => s.type === session.jumpTo);
     if (at > 0) S.i = at;

@@ -77,3 +77,7 @@ python3 scripts/ingest.py --close
 `--close` closes the saved result issues with a comment. Wait for the deploy (`gh run list -R eman2XR/vietwars --limit 1`) and confirm it succeeded.
 
 4. Tell the user in a few lines: the issue is live, its story, the words it covers, and why (the data behind the choices).
+
+## Adjusting an issue the learner could not finish
+
+When `scripts/status.py --decide` says `adjust-lesson`, the learner has closed the newest issue midway at least twice. Read the unfinished results in `learner/results/` (marked `partial`, with `progress.step` and the answers so far) to see where they stopped and what they missed. Then make the issue easier rather than adding a new one: move the hardest or least useful words to a later unit in `learner/curriculum.json`, shorten the combos, simplify hooks that did not work, or move likely-known words to the warm-up. Keep the article. Run the same checks and the Vietnamese accuracy review, log the change in `docs/LESSON_LOG.md` with the data, and publish. The learner's saved place still works: steps for words that no longer exist are skipped.
