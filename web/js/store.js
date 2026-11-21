@@ -7,7 +7,7 @@ const KEYS = {
   outbox: 'vw-outbox',
   settings: 'vw-settings',
 };
-const HISTORY_LIMIT = 200;
+const HISTORY_LIMIT = 2000;
 
 function load(key, fallback) {
   try {
@@ -42,6 +42,9 @@ export const store = {
   },
   history() {
     return load(KEYS.history, []);
+  },
+  saveHistory(results) {
+    save(KEYS.history, results.slice(-HISTORY_LIMIT));
   },
   addHistory(result) {
     const h = load(KEYS.history, []);

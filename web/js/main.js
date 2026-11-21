@@ -5,7 +5,7 @@ import { loadAudio, play, preload } from './audio.js';
 import { store, localDay, streak } from './store.js';
 import { schedule, outcomeFor, dueWords, nextDue, INTERVAL_DAYS } from './srs.js';
 import { lessonSteps, reviewSteps, runSession } from './lesson.js';
-import { queue, flush, testToken, REPO } from './sync.js';
+import { queue, flush, testToken, pullResults, REPO } from './sync.js';
 import { sprite } from './sprites.js';
 import { picture } from './pictures.js';
 
@@ -143,19 +143,24 @@ function buildResult(kind, lesson, out) {
   };
 }
 
-function saveResult(result) {
-  const now = Date.now();
-  const p = store.progress();
+function freshProgress() {
+  return { xp: 0, days: [], lessons: {}, words: {}, speedBest: 0, known: [] };
+}
+
+// Applies one finished session to progress and the review deck, as of the time it finished. Replaying every result in order rebuilds the same state on any device.
+function applyResult(p, deck, result) {
+  const now = Date.parse(result.finishedAt) || Date.now();
   p.known = p.known || [];
-  p.xp += result.summary.xp;
-  const today = localDay(now);
-  if (!p.days.includes(today)) p.days.push(today);
-  p.days = p.days.slice(-400);
-  p.speedBest = Math.max(p.speedBest || 0, result.summary.speedScore || 0);
+  const known = new Set([...SITE_KNOWN, ...p.known.map(nfc)]);
+  p.xp += result.summary?.xp || 0;
+  const day = localDay(now);
+  if (!p.days.includes(day)) p.days.push(day);
+  p.days = p.days.sort().slice(-400);
+  p.speedBest = Math.max(p.speedBest || 0, result.summary?.speedScore || 0);
   if (result.kind === 'lesson') {
     const l = p.lessons[result.lessonId] || { attempts: 0, best: 0 };
     l.attempts += 1;
-    l.best = Math.max(l.best, result.summary.firstTryAccuracy);
+    l.best = Math.max(l.best, result.summary?.firstTryAccuracy || 0);
     l.last = result.finishedAt;
     if (result.battle?.won) l.won = true;
     const order = ['C', 'B', 'A', 'S'];
@@ -163,31 +168,80 @@ function saveResult(result) {
     if (r && (!l.rank || order.indexOf(r) > order.indexOf(l.rank))) l.rank = r;
     p.lessons[result.lessonId] = l;
   }
-  const deck = store.deck();
-  for (const w of result.words) {
+  for (const w of result.words || []) {
     const s = p.words[w.vi] || { seen: 0, credit: 0 };
     s.seen += 1;
-    s.credit = Math.round((s.credit + w.share) * 100) / 100;
+    s.credit = Math.round((s.credit + (w.share || 0)) * 100) / 100;
     s.last = result.finishedAt;
     p.words[w.vi] = s;
     const verified = w.known && VERIFIED.has(w.firstTry?.type);
     if (verified && !p.known.includes(w.vi)) p.known.push(w.vi);
-    if (KNOWN.has(w.vi) || verified) {
+    if (known.has(nfc(w.vi)) || verified) {
       delete deck[w.vi];
       continue;
     }
-    const card = deck[w.vi] || { lesson: WORDS.get(w.vi)?.lessonId };
-    const outcome = result.kind === 'review' ? (w.share >= 1 ? 'good' : 'again') : outcomeFor(w.share);
+    const card = deck[w.vi] || { lesson: WORDS.get(nfc(w.vi))?.lessonId };
+    const outcome = result.kind === 'review' ? (w.share >= 1 ? 'good' : 'again') : outcomeFor(w.share || 0);
     deck[w.vi] = schedule(card, outcome, now);
   }
   for (const m of result.warmup || []) {
-    if (!m.ok && !KNOWN.has(m.vi) && !deck[m.vi]) deck[m.vi] = schedule({ lesson: result.lessonId }, 'again', now);
+    if (!m.ok && !known.has(nfc(m.vi)) && !deck[m.vi]) deck[m.vi] = schedule({ lesson: result.lessonId }, 'again', now);
   }
+}
+
+function saveResult(result) {
+  const p = store.progress();
+  const deck = store.deck();
+  applyResult(p, deck, result);
   store.saveProgress(p);
   store.saveDeck(deck);
   store.addHistory(result);
   refreshKnown();
   queue(result);
+}
+
+function rebuild(results) {
+  const p = freshProgress();
+  const deck = {};
+  for (const r of results) applyResult(p, deck, r);
+  store.saveProgress(p);
+  store.saveDeck(deck);
+  store.saveHistory(results);
+  refreshKnown();
+}
+
+let syncing = null;
+
+// Merges the results every device has posted to GitHub with this device's own, and rebuilds progress if anything new arrived.
+function syncNow() {
+  if (syncing) return syncing;
+  syncing = (async () => {
+    let remote;
+    try {
+      remote = await pullResults();
+    } catch (e) {
+      return { error: e.message || 'No connection' };
+    }
+    const local = store.history();
+    const byId = new Map();
+    for (const r of [...local, ...remote]) if (r?.resultId && !byId.has(r.resultId)) byId.set(r.resultId, r);
+    const merged = [...byId.values()].sort((a, b) => String(a.finishedAt).localeCompare(String(b.finishedAt)));
+    const mine = new Set(local.map((r) => r.resultId));
+    const added = merged.filter((r) => !mine.has(r.resultId)).length;
+    if (added) rebuild(merged);
+    store.saveSettings({ ...store.settings(), syncedAt: new Date().toISOString() });
+    return { added, total: merged.length };
+  })().finally(() => {
+    syncing = null;
+  });
+  return syncing;
+}
+
+async function syncAndRefresh() {
+  const r = await syncNow();
+  const route = (location.hash || '#/').split('/')[1] || '';
+  if (r.added && !document.body.classList.contains('in-session') && ['', 'words'].includes(route)) render();
+  return r;
 }
 
 function startSession(kind, lesson) {
@@ -425,6 +479,12 @@ function settingsPage() {
         <div class="style-grid">${STYLES.map(stylePreview).join('')}</div>
       </section>
       <section class="panel">
+        <h2>Sync between devices</h2>
+        <p>Your progress comes from the results every device has sent to GitHub, so your iPhone, iPad and Mac show the same lessons, wins and reviews. It syncs when the app opens and when you come back to it. Each device needs the token below to send its own results.</p>
+        <p class="sync-status hint">${s.syncedAt ? `Last synced ${esc(new Date(s.syncedAt).toLocaleString())}.` : 'Not synced yet.'} ${store.history().length} session${store.history().length === 1 ? '' : 's'} on this device.</p>
+        <button class="btn small" data-act="sync">Sync now</button>
+      </section>
+      <section class="panel">
         <h2>Send results to the lesson planner</h2>
         <p>After each session your results are sent to <b>${esc(REPO)}</b> as a GitHub issue. The planning agents read them to write your next lesson. This needs a GitHub token on each device, because the Home Screen app keeps its own storage.</p>
         <ol class="steps">
@@ -477,6 +537,15 @@ function settingsPage() {
     }
     const act = ev.target.closest('[data-act]')?.dataset.act;
     if (!act) return;
+    if (act === 'sync') {
+      const el = app.querySelector('.sync-status');
+      el.textContent = 'Syncing...';
+      const r = await syncNow();
+      el.textContent = r.error
+        ? `Could not sync: ${r.error}.`
+        : `Synced. ${r.total} session${r.total === 1 ? '' : 's'} in total${r.added ? `, ${r.added} new from other devices` : ''}.`;
+      return;
+    }
     if (act === 'forget') {
       const { token, ...rest } = store.settings();
       store.saveSettings(rest);
@@ -531,7 +600,12 @@ async function boot() {
   await Promise.all([loadLessons(), loadAudio()]);
   window.addEventListener('hashchange', render);
   render();
-  if (store.outbox().length) flush();
+  if (store.outbox().length) flush().then(() => syncAndRefresh());
+  else syncAndRefresh();
+  document.addEventListener('visibilitychange', () => {
+    const last = Date.parse(store.settings().syncedAt || 0) || 0;
+    if (document.visibilityState === 'visible' && Date.now() - last > 2 * 60000) syncAndRefresh();
+  });
   if ('serviceWorker' in navigator && location.protocol === 'https:' && !testMode) {
     navigator.serviceWorker.register('sw.js').catch(() => {});
   }

@@ -30,6 +30,14 @@ DEVICES = [
     ("Desktop Safari", "light", True),
 ]
 MARKER = re.compile(r"<!-- vietwars-result -->\n```json\n(.*)\n```", re.S)
+STATE_JS = """() => {
+  const h = JSON.parse(localStorage.getItem('vw-history') || '[]');
+  const d = JSON.parse(localStorage.getItem('vw-deck') || '{}');
+  const p = JSON.parse(localStorage.getItem('vw-progress') || '{}');
+  const boxes = {};
+  for (const k of Object.keys(d).sort()) boxes[k] = d[k].box;
+  return { ids: h.map((r) => r.resultId).sort(), boxes, xp: p.xp || 0 };
+}"""
 mimetypes.add_type("audio/mp4", ".m4a")
 mimetypes.add_type("application/manifest+json", ".webmanifest")
 mimetypes.add_type("text/javascript", ".js")
@@ -80,11 +88,36 @@ class Run:
 
     def github(self, route):
         req = route.request
-        if req.method == "POST" and req.url.endswith("/issues"):
+        path = urlparse(req.url).path
+        if req.method == "POST" and path.endswith("/issues"):
             self.posts.append(json.loads(req.post_data or "{}"))
             route.fulfill(status=201, content_type="application/json", body=json.dumps({"number": len(self.posts)}))
+        elif req.method == "GET" and path.endswith("/issues"):
+            issues = [{"number": i + 1, "title": p["title"], "body": p["body"], "state": "open"} for i, p in enumerate(self.posts)]
+            route.fulfill(status=200, content_type="application/json", body=json.dumps(list(reversed(issues))))
         else:
             route.fulfill(status=200, content_type="application/json", body="{}")
+
+    def second_device(self, p, browser, expected):
+        ctx = browser.new_context(**p.devices[self.name], service_workers="block", color_scheme=self.scheme)
+        ctx.route(f"{BASE}**", serve)
+        ctx.route("https://api.github.com/**", self.github)
+        page = ctx.new_page()
+        page.on("pageerror", lambda e: self.errors.append(f"second device page error: {e}"))
+        page.goto(f"{BASE}?test=1#/")
+        try:
+            page.wait_for_selector(f".node.status-played[href='#/lesson/{self.lesson['id']}'], .node.status-won[href='#/lesson/{self.lesson['id']}']", timeout=8000)
+        except Exception:
+            self.errors.append("a second device did not pick up the played lesson from GitHub")
+        self.first(page, "second-device-home")
+        got = page.evaluate(STATE_JS)
+        if got["ids"] != expected["ids"]:
+            self.errors.append(f"second device has sessions {got['ids']}, expected {expected['ids']}")
+        if got["boxes"] != expected["boxes"]:
+            self.errors.append(f"second device review deck {got['boxes']} differs from the first device's {expected['boxes']}")
+        if got["xp"] != expected["xp"]:
+            self.errors.append(f"second device has {got['xp']} XP, the first device {expected['xp']}")
+        ctx.close()
 
     def first(self, page, label):
         if label not in self.shot_steps:
@@ -245,6 +278,8 @@ class Run:
         page.evaluate("location.hash = '#/words'")
         page.wait_for_selector(".word-list")
         self.first(page, "words")
+        expected = page.evaluate(STATE_JS)
+        self.second_device(p, browser, expected)
         browser.close()
 
 
