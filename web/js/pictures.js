@@ -92,8 +92,8 @@ const ICONS = {
 function dots(n) {
   const cols = n <= 10 ? 5 : 10;
   const rows = Math.ceil(n / cols);
-  const gap = n <= 10 ? 16 : 7.4;
-  const r = n <= 10 ? 6 : 2.8;
+  const gap = n <= 10 ? 16 : n <= 30 ? 10.5 : 7.4;
+  const r = n <= 10 ? 6 : n <= 30 ? 4.2 : 2.8;
   const w = (cols - 1) * gap;
   const h = (rows - 1) * gap;
   const x0 = 60 - w / 2;
@@ -123,8 +123,12 @@ function blocks() {
   return svg(out);
 }
 
+function fit(label, width, max) {
+  return Math.min(max, width / (Math.max(1, [...label].length) * 0.62)).toFixed(1);
+}
+
 function big(label) {
-  return svg(`<rect class="f-soft" x="6" y="22" width="108" height="46" rx="10"/><text class="t-pic big-text" x="60" y="54" text-anchor="middle">${esc(label)}</text>`);
+  return svg(`<rect class="f-soft" x="6" y="22" width="108" height="46" rx="10"/><text class="t-pic big-text" x="60" y="${52 + fit(label, 96, 26) / 4}" font-size="${fit(label, 96, 26)}" text-anchor="middle">${esc(label)}</text>`);
 }
 
 function notes() {
@@ -141,11 +145,12 @@ function tag(label, mood) {
   const cls = mood === 'high' ? 'f-bad' : mood === 'low' ? 'f-good' : 'f-gold';
   const arrow =
     mood === 'high'
-      ? '<path class="s-bad thick" d="M100 70 V30 M90 40 l10 -10 l10 10" fill="none"/>'
+      ? '<path class="s-bad thick" d="M108 70 V28 M99 37 l9 -9 l9 9" fill="none"/>'
       : mood === 'low'
-        ? '<path class="s-good thick" d="M100 30 V70 M90 60 l10 10 l10 -10" fill="none"/>'
+        ? '<path class="s-good thick" d="M108 28 V70 M99 61 l9 9 l9 -9" fill="none"/>'
         : '';
-  return svg(`<path class="${cls}" d="M8 45 L28 22 H84 V68 H28 Z"/><circle class="f-paper" cx="26" cy="45" r="5"/><text class="t-tag" x="58" y="53" text-anchor="middle">${esc(label)}</text>${arrow}`);
+  const fs = fit(label, 56, 22);
+  return svg(`<path class="${cls}" d="M4 45 L24 22 H96 V68 H24 Z"/><circle class="f-paper" cx="20" cy="45" r="4.5"/><text class="t-tag" x="62" y="${45 + fs / 3}" font-size="${fs}" text-anchor="middle">${esc(label)}</text>${arrow}`);
 }
 
 function question(n) {

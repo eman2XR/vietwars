@@ -414,13 +414,12 @@ a { color: var(--link, var(--accent)); }
 .pic .fine { stroke-width: 1.4; }
 .pic .hair { stroke-width: 0.5; }
 .pic text { font-family: var(--font-display); font-weight: 800; fill: var(--pic-ink); }
-.pic .big-text { font-size: 22px; }
 .pic .coin-text { font-size: 34px; fill: var(--pic-brown); }
 .pic .q-text { font-size: 48px; fill: var(--pic-accent); }
 .pic .digit-text { font-size: 26px; }
 .pic .digit-text.on { fill: var(--pic-paper); }
 .pic .t-note { font-size: 9px; fill: var(--pic-ink); }
-.pic .t-tag { font-size: 14px; fill: #ffffff; }
+.pic .t-tag { fill: #ffffff; }
 
 .pic-wrap { margin: 0 auto; }
 .pic-wrap.large { width: 168px; height: 126px; margin-bottom: 4px; }
