@@ -40,6 +40,6 @@ python3 scripts/check_lessons.py
 - All art is original and in context: drawings belong to the word or the story (a phở stall, a market), never random animals or mascots. No characters, names, art or lines from existing films, games or books.
 - The site must work in Safari on iPhone, iPad and Mac and as a Home Screen app: tap targets of at least 44 px, safe-area padding, inputs of 16 px or more, audio started from a tap, no hover-only controls. The Content-Security-Policy in `web/index.html` allows only the site itself, `blob:` audio and `api.github.com`; no inline scripts or styles (set styles from JavaScript through `element.style`).
 - Keep result formats readable by `ingest.py`; bump `schema` when a field changes meaning.
-- Bump the cache names in `web/sw.js` when the list of app files changes.
+- Keep `SHELL_FILES` in `web/sw.js` current when app files are added or removed. The Pages build stamps `web/sw.js` with the commit, so every deploy installs a new offline cache and an open page reloads once onto the new version; the worker always revalidates app files, so a page never mixes two versions.
 - Result issues are public (the repository is public). They hold only lesson data and feedback.
 - Commit with the repository's local git identity; signing is off for this repository only. Never force-push.

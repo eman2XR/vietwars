@@ -807,6 +807,14 @@ async function boot() {
     }
   });
   if ('serviceWorker' in navigator && location.protocol === 'https:' && !testMode) {
+    // When a new version of the site takes over an open page, reload once so every file comes from that version.
+    const hadWorker = Boolean(navigator.serviceWorker.controller);
+    let reloaded = false;
+    navigator.serviceWorker.addEventListener('controllerchange', () => {
+      if (!hadWorker || reloaded || document.body.classList.contains('in-session')) return;
+      reloaded = true;
+      location.reload();
+    });
     navigator.serviceWorker.register('sw.js').catch(() => {});
   }
 }

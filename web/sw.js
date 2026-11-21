@@ -1,6 +1,8 @@
 // Offline support: app files are fetched fresh when online and served from cache when offline; audio clips are cached on first use.
+// The Pages build replaces __BUILD__ with the commit, so each deploy installs a new worker with its own cache of app files.
 
-const SHELL = 'vw-shell-v3';
+const BUILD = '__BUILD__';
+const SHELL = `vw-shell-${BUILD}`;
 const AUDIO = 'vw-audio-v3';
 const SHELL_FILES = [
   './',
@@ -23,7 +25,12 @@ const SHELL_FILES = [
 ];
 
 self.addEventListener('install', (event) => {
-  event.waitUntil(caches.open(SHELL).then((c) => c.addAll(SHELL_FILES)).then(() => self.skipWaiting()));
+  event.waitUntil(
+    caches
+      .open(SHELL)
+      .then((c) => c.addAll(SHELL_FILES.map((url) => new Request(url, { cache: 'reload' }))))
+      .then(() => self.skipWaiting()),
+  );
 });
 
 self.addEventListener('activate', (event) => {
@@ -51,8 +58,9 @@ self.addEventListener('fetch', (event) => {
     );
     return;
   }
+  // Always revalidate with the server, so a page never mixes files from two versions of the site.
   event.respondWith(
-    fetch(event.request)
+    fetch(new Request(event.request.url, { cache: 'no-cache', credentials: 'same-origin' }))
       .then((res) => {
         if (res.ok) {
           const copy = res.clone();

@@ -28,6 +28,8 @@ jobs:
         run: python3 scripts/check_lessons.py
       - name: Check scripts parse
         run: for f in web/js/*.js web/sw.js; do node --check "$f"; done
+      - name: Stamp the offline cache with this commit
+        run: sed -i "s/__BUILD__/${GITHUB_SHA::7}/" web/sw.js && grep -q "${GITHUB_SHA::7}" web/sw.js
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
