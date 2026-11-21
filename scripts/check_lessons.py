@@ -54,7 +54,9 @@ def picture_names():
     src = (WEB / "js" / "pictures.js").read_text(encoding="utf-8")
     block = lambda name: src.split(f"const {name} = {{")[1].split("\n};")[0]
     keys = lambda text: set(re.findall(r"^  ([a-zA-Z]+): [`{]", text, re.M))
-    return set(re.findall(r"case '([a-z]+)':", src)), keys(block("ICONS")), keys(block("SCENES"))
+    scenes = re.search(r"const SCENES = \{([^}]*)\}", src)
+    scene_keys = set(re.findall(r"(\w+)\s*:", scenes.group(1))) if scenes else set()
+    return set(re.findall(r"case '([a-z]+)':", src)), keys(block("ICONS")), scene_keys
 
 
 PICTURE_KINDS, ICON_NAMES, SCENE_NAMES = picture_names()

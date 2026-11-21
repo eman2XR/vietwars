@@ -52,7 +52,7 @@ function tremor(id, w, h, freq, scale) {
 function card(ink, { tone = 'warm', paper, seed = 1, crisp = '' } = {}) {
   const id = `vw-ink-${++uid}`;
   const cut = paper === false ? '' : `<path class="k-carrier" d="${paper || blob(60, 46, 44, 33, seed)}"/>`;
-  return `<svg class="pic ink-pic k-${tone}" viewBox="0 0 ${W} ${H}" aria-hidden="true"><defs>${tremor(id, W, H, 0.09, 1.7)}</defs><rect class="k-field" x="0.5" y="0.5" width="119" height="89" rx="8"/>${cut}<g class="k-ink" stroke-width="2.5" filter="url(#${id})">${ink}</g>${crisp}</svg>`;
+  return `<svg class="pic ink-pic k-${tone}" viewBox="0 0 ${W} ${H}" aria-hidden="true"><defs>${tremor(id, W, H, 0.1, 1.25)}</defs><rect class="k-field" x="0.5" y="0.5" width="119" height="89" rx="8"/>${cut}<g class="k-ink" stroke-width="2.1" filter="url(#${id})">${ink}</g>${crisp}</svg>`;
 }
 
 const steam = (xs, y, w = 1.8) => `<g stroke-width="${w}">${xs.map((x) => `<path d="M${x} ${y} c-4 -5 3 -8 0 -13 c-3 -5 3 -8 1 -12"/>`).join('')}</g>`;
@@ -320,59 +320,169 @@ function halfCircle() {
   return card('<circle class="k-paper" cx="60" cy="45" r="30"/><path class="k-tint" d="M60 15 A30 30 0 0 0 60 75 Z"/><path stroke-width="1.8" stroke-dasharray="4 5" d="M60 8 V82"/>', { tone: 'warm', seed: 131 });
 }
 
-// Covers, 400 by 250: one subject each, on a paper cut-out over a full-bleed field.
-const SCENES = {
-  phoStall: {
+// Covers, 400 by 250, one subject each. A scene has up to five layers: back (flat shapes on the field), paper (the
+// cut-outs), under (flat shading on the paper), ink (lines, with the pen tremor) and crisp (text and dots).
+
+const P = (pts) => pts.map(([x, y], i) => `${i ? 'L' : 'M'}${n1(x)} ${n1(y)}`).join(' ');
+
+const curve = ([a, b, c, d]) => `M${a.join(' ')} C${b.join(' ')} ${c.join(' ')} ${d.join(' ')}`;
+
+function cubicAt(p0, p1, p2, p3, t) {
+  const u = 1 - t;
+  return [0, 1].map((k) => u * u * u * p0[k] + 3 * u * u * t * p1[k] + 3 * u * t * t * p2[k] + t * t * t * p3[k]);
+}
+
+// A chopstick or a pole: a long narrow shape, wider at the far end.
+function stick(x1, y1, x2, y2, w1, w2) {
+  const len = Math.hypot(x2 - x1, y2 - y1) || 1;
+  const nx = -(y2 - y1) / len;
+  const ny = (x2 - x1) / len;
+  return `${P([[x1 + (nx * w1) / 2, y1 + (ny * w1) / 2], [x2 + (nx * w2) / 2, y2 + (ny * w2) / 2], [x2 - (nx * w2) / 2, y2 - (ny * w2) / 2], [x1 - (nx * w1) / 2, y1 - (ny * w1) / 2]])} Z`;
+}
+
+// A small pine: a trunk and three tiers.
+function pine(x, y, s = 1) {
+  const t = (w, a, b) => `M${n1(x - w * s)} ${n1(y - a * s)} L${n1(x)} ${n1(y - b * s)} L${n1(x + w * s)} ${n1(y - a * s)}`;
+  return `<path stroke-width="1.4" d="M${x} ${y} v${n1(-6 * s)} ${t(7, 5, 12)} ${t(6, 10, 17)} ${t(4, 15, 21)}"/>`;
+}
+
+// Short parallel strokes along a line, for shading.
+function hatch(x1, y1, x2, y2, n, dx, dy, w = 1.2) {
+  let d = '';
+  for (let i = 0; i < n; i++) {
+    const t = n === 1 ? 0 : i / (n - 1);
+    d += `M${n1(x1 + (x2 - x1) * t)} ${n1(y1 + (y2 - y1) * t)} l${dx} ${dy} `;
+  }
+  return `<path stroke-width="${w}" d="${d.trim()}"/>`;
+}
+
+// Rows of nested arcs: the wave pattern of Vietnamese woodblock prints.
+function scales(x0, y0, x1, y1, r) {
+  let d = '';
+  let row = 0;
+  for (let y = y0; y <= y1; y += r * 0.95, row++) {
+    for (let x = x0 + (row % 2 ? r : 0); x <= x1 + r; x += r * 2) {
+      for (const k of [1, 0.62, 0.28]) d += `M${n1(x - r * k)} ${n1(y)} A${n1(r * k)} ${n1(r * k)} 0 0 1 ${n1(x + r * k)} ${n1(y)} `;
+    }
+  }
+  return d.trim();
+}
+
+function phoScene() {
+  const band = (o) => [[99 + o, 147 + o * 3], [130, 161 + o * 3], [262, 161 + o * 3], [293 - o, 147 + o * 3]];
+  const mid = band(2);
+  let curls = '';
+  for (let i = 0; i < 13; i++) {
+    const [x, y] = cubicAt(...mid, 0.06 + (i * 0.88) / 12);
+    curls += `M${n1(x - 4)} ${n1(y + 3)} c0 -5 7 -6 8 -1 c0 3 -4 3 -4 1 `;
+  }
+  const petals = [[150, 191], [165, 195], [180, 197], [196, 198], [212, 197], [227, 195], [242, 191]].map(([x, y]) => `M${x - 6} ${y} q6 -13 12 0`).join(' ');
+  const steam = [[136, 116, 80], [160, 113, 92], [184, 116, 70]].map(([x, y, h]) => `M${x} ${y} c-10 ${n1(-h * 0.18)} 8 ${n1(-h * 0.32)} 0 ${n1(-h * 0.5)} c-8 ${n1(-h * 0.18)} 9 ${n1(-h * 0.32)} 2 ${n1(-h * 0.5)}`).join(' ');
+  const noodles = [
+    'M219 92 C214 102 222 109 217 118 C214 124 216 129 214 133',
+    'M223 93 C219 103 229 110 224 120 C221 126 224 130 222 134',
+    'M227 95 C224 105 234 112 229 122 C226 128 230 131 228 135',
+    'M231 96 C229 106 239 113 234 123 C232 128 235 131 234 135',
+    'M235 97 C235 107 244 114 239 124 C237 129 240 132 239 135',
+  ].join(' ');
+  const rings = [[176, 127], [190, 135], [264, 131], [142, 125], [230, 138], [256, 124], [118, 136]].map(([x, y]) => `<circle class="k-paper" stroke-width="1.2" cx="${x}" cy="${y}" r="2.6"/>`).join('');
+  const leaf = (x, y, a = 0) => `<g transform="rotate(${a} ${x} ${y})"><path class="k-paper" stroke-width="1.2" d="M${x} ${y} q5 -7 11 -3 q-5 6 -11 3 Z M${x} ${y} q-6 -6 -10 -1 q6 4 10 1 Z"/><path stroke-width="0.9" d="M${x} ${y} l9 -3 M${x} ${y} l-8 -2"/></g>`;
+  return {
     tone: 'warm',
-    paper: blob(205, 132, 160, 100, 11, 11, 0.07),
-    ink: `<g stroke-width="3">${[128, 162, 196].map((x, i) => `<path d="M${x} ${110 - i * 3} c-9 -12 6 -20 0 -32 c-6 -12 7 -20 2 -30"/>`).join('')}</g>
-      <path d="M236 92 L352 14"/><path d="M248 98 L362 26"/>
-      <g stroke-width="3"><path d="M238 94 C230 108 246 116 236 130 C232 136 236 140 234 146"/><path d="M244 97 C238 111 254 119 244 133 C240 139 244 143 242 149"/><path d="M250 99 C246 113 262 121 252 135 C248 141 252 145 250 151"/></g>
-      <path class="k-tint" d="M88 140 C130 122 270 122 312 140 C270 158 130 158 88 140 Z"/>
-      <path class="k-shade" stroke-width="3" d="M262 139 C270 131 290 131 296 139 C288 145 270 146 262 139 Z"/>
-      <path class="k-shade" stroke-width="3" d="M112 140 C120 133 138 132 146 139 C138 145 120 146 112 140 Z"/>
-      <g stroke-width="3"><path d="M160 136 q8 -7 17 -2"/><path d="M188 143 q8 -6 16 -1"/><path d="M212 132 q7 -6 15 -1"/></g>
-      <path class="k-paper" d="M86 141 C90 186 140 214 200 214 C260 214 310 186 314 141 C270 160 130 160 86 141 Z"/>
-      <path stroke-width="3" d="M106 168 C150 182 250 182 294 168"/>
-      <path stroke-width="2.6" d="M134 190 q7 7 14 0 q7 -7 14 0 q7 7 14 0 q7 -7 14 0 q7 7 14 0 q7 -7 14 0 q7 7 14 0 q7 -7 14 0 q7 7 14 0"/>
-      <path class="k-paper" d="M168 213 L162 230 H238 L232 213"/>`,
-  },
-  market: {
+    paper: blob(200, 126, 166, 104, 11, 11, 0.06),
+    under: '<ellipse class="k-mid" cx="198" cy="219" rx="92" ry="6.5"/>',
+    ink: `<path class="k-paper" d="M166 204 L161 217 C177 220 215 220 231 217 L226 204"/>
+      <path class="k-paper" d="M90 133 C94 180 140 205 196 205 C252 205 298 180 302 133 Z"/>
+      <path stroke-width="1.5" d="${curve(band(0))}"/>
+      <path stroke-width="1.5" d="${curve(band(4))}"/>
+      <path stroke-width="1.3" d="${curls.trim()}"/>
+      <path stroke-width="1.3" d="${petals}"/>
+      <ellipse class="k-paper" cx="196" cy="132" rx="106" ry="16"/>
+      <ellipse class="k-tint" stroke-width="1.5" cx="196" cy="132" rx="99" ry="12.5"/>
+      <path class="k-mid" stroke-width="1.4" d="M120 131 C126 124 150 122 160 128 C152 135 130 137 120 131 Z M206 126 C214 119 238 119 246 125 C238 131 216 133 206 126 Z M150 138 C158 133 178 133 186 138 C178 143 158 143 150 138 Z"/>
+      <path stroke-width="1.1" d="M127 130 q10 -4 23 -2 M213 125 q10 -4 23 -2 M157 138 q9 -3 21 -1"/>
+      ${rings}${leaf(198, 128, -8)}${leaf(276, 133, 10)}${leaf(140, 135, 4)}
+      <path stroke-width="1.3" d="M166 137 c10 -4 20 2 30 -2 M200 141 c8 -3 16 1 24 -1"/>
+      <path class="k-pale" stroke-width="1.6" d="M290 131 C294 117 311 113 320 123 C310 125 298 128 290 131 Z"/>
+      <path stroke-width="1.1" d="M295 128 L306 118 M301 127 L313 119"/>
+      <path class="k-paper" stroke-width="1.6" d="${stick(126, 127, 92, 98, 5, 8)}"/>
+      <path class="k-paper" stroke-width="1.6" d="${stick(222, 91, 322, 14, 2.4, 5.2)}"/>
+      <path class="k-paper" stroke-width="1.6" d="${stick(233, 95, 334, 22, 2.4, 5.2)}"/>
+      <path stroke-width="1.4" d="${noodles}"/>
+      <path stroke-width="1.4" d="${steam}"/>`,
+  };
+}
+
+function marketScene() {
+  const bays = [[70, 44], [130, 44], [200, 58], [270, 44], [330, 44]];
+  const arch = ([cx, w], grow = 0) => {
+    const r = w / 2 + grow;
+    const spring = (w > 50 ? 146 : 156) - grow * 0.2;
+    return `M${n1(cx - r)} 214 V${n1(spring)} A${n1(r)} ${n1(r)} 0 0 1 ${n1(cx + r)} ${n1(spring)} V214`;
+  };
+  const keystones = bays.map(([cx, w]) => { const top = (w > 50 ? 146 : 156) - w / 2 - 6; return `M${cx - 4} ${top} h8 l-1.5 9 h-5 Z`; }).join(' ');
+  const pilasters = [100, 160, 240, 300].map((x) => `M${x - 3} 101 V214 M${x + 3} 101 V214`).join(' ');
+  const windows = [70, 130, 270, 330].map((cx) => `M${cx - 9} 128 V114 A9 9 0 0 1 ${cx + 9} 114 V128 Z M${cx} 105 V128`).join(' ');
+  let dentils = '';
+  for (let x = 36; x <= 362; x += 8) dentils += `M${x} 95 v4 `;
+  let tiles = '';
+  for (let x = 18; x <= 390; x += 22) tiles += `M${x} 222 l-6 22 `;
+  const basket = (cx) => `<path class="k-pale" stroke-width="1.6" d="M${cx - 15} 196 H${cx + 15} L${cx + 11} 212 H${cx - 11} Z"/><path stroke-width="1" d="M${cx - 13} 201 H${cx + 13} M${cx - 12} 206 H${cx + 12} M${cx - 5} 196 L${cx - 4} 212 M${cx + 5} 196 L${cx + 4} 212"/>`;
+  return {
     tone: 'earth',
-    paper: 'M34 98 L366 96 L368 216 L32 218 Z M124 98 L126 62 L200 36 L276 62 L276 98 Z',
-    ink: `<path d="M32 218 L34 98 L366 96 L368 216"/><path d="M124 98 L126 62 L200 36 L276 62 L276 98"/><path d="M26 98 H374"/>
-      <path class="k-tint" stroke-width="3" d="M130 62 H270 V88 H130 Z"/>
-      ${[[52, 44], [110, 44], [168, 64], [246, 44], [304, 44]].map(([x, w]) => `<path class="k-shade" d="M${x} 217 V${w > 50 ? 150 : 160} C${x} ${w > 50 ? 116 : 134} ${x + w} ${w > 50 ? 116 : 134} ${x + w} ${w > 50 ? 150 : 160} V217"/>`).join('')}
-      <g stroke-width="2.6">${[56, 114, 250, 308].map((x) => `<path d="M${x + 6} 108 h24 v14 h-24 Z"/>`).join('')}</g>
-      <path d="M6 219 H394"/>
-      <path d="M140 176 Q200 166 260 176"/>
-      <path stroke-width="2.6" d="M150 175 L143 196 M150 175 L158 196 M250 175 L243 196 M250 175 L258 196"/>
-      <path class="k-paper" d="M136 196 H165 L160 212 H141 Z"/><path class="k-paper" d="M236 196 H265 L260 212 H241 Z"/>
-      <path class="k-paper" d="M190 170 L210 170 L214 208 L186 208 Z"/><path d="M194 208 V218 M206 208 V218"/>
-      <path class="k-tint" d="M180 170 L200 148 L220 170 Z"/>`,
-    crisp: `<text class="k-text k-sign" x="200" y="79" text-anchor="middle">CHỢ ĐỒNG XUÂN</text>${[[143, 193], [151, 191], [158, 193], [243, 193], [251, 191], [258, 193]].map(([x, y]) => `<circle class="k-dot" cx="${x}" cy="${y}" r="3.6"/>`).join('')}`,
-  },
-  legend: {
+    paper: 'M30 92 L370 91 L371 215 L29 216 Z M136 92 L136 58 L200 32 L264 58 L264 92 Z',
+    ink: `<path d="M29 216 L30 92 L370 91 L371 215"/><path d="M24 92 H376 M28 101 H372"/>
+      <path stroke-width="1.1" d="${dentils.trim()}"/>
+      <path d="M136 92 L136 58 L200 32 L264 58 L264 92"/><path stroke-width="1.5" d="M142 60 L200 38 L258 60"/>
+      <path class="k-tint" stroke-width="1.6" d="M141 62 H259 V86 H141 Z"/>
+      <path stroke-width="1.5" d="${pilasters}"/>
+      ${bays.map((b) => `<path class="k-shade" stroke-width="1.8" d="${arch(b)}"/><path stroke-width="1.3" d="${arch(b, 5)}"/>`).join('')}
+      <path class="k-paper" stroke-width="1.3" d="${keystones}"/>
+      <path class="k-pale" stroke-width="1.4" d="${windows}"/>
+      <path d="M6 216 H394"/><path stroke-width="1.1" d="${tiles.trim()}"/>
+      <path class="k-paper" stroke-width="1.6" d="${stick(52, 176, 176, 174, 3, 3)}"/>
+      <path stroke-width="1.2" d="M62 176 L50 196 M62 176 L74 196 M166 175 L154 196 M166 175 L178 196"/>
+      ${basket(62)}${basket(166)}
+      <path class="k-paper" stroke-width="1.6" d="M104 172 C102 182 100 196 98 208 H122 C120 196 118 182 116 172 Z"/>
+      <path stroke-width="1.6" d="M104 208 L102 217 M116 208 L118 217"/>
+      <path class="k-paper" stroke-width="1.6" d="M104 174 C98 180 94 176 92 175 M116 174 C124 178 130 176 134 175"/>
+      <path class="k-tint" stroke-width="1.6" d="M92 168 L110 146 L128 168 C116 171 104 171 92 168 Z"/>
+      <path stroke-width="1" d="M110 146 L100 168 M110 146 L106 169 M110 146 L114 169 M110 146 L120 168"/>`,
+    crisp: `<text class="k-text k-sign" x="200" y="78" text-anchor="middle">CHỢ ĐỒNG XUÂN</text><text class="k-text k-year" x="200" y="55" text-anchor="middle">1889</text>${[[55, 193], [62, 191], [69, 193], [159, 193], [166, 191], [173, 193]].map(([x, y]) => `<circle class="k-dot" cx="${x}" cy="${y}" r="3.2"/>`).join('')}`,
+  };
+}
+
+function legendScene(id) {
+  const water = 'M196 252 C206 224 228 214 244 206 C258 198 256 182 270 176 C284 170 296 182 308 178 C322 172 318 158 334 152 C350 146 360 162 374 160 C388 158 394 146 404 144 L406 252 Z';
+  const cloud = 'M262 56 C252 56 248 44 256 39 C258 30 270 27 276 33 C281 24 296 23 301 32 C310 28 322 34 320 43 C330 45 330 57 320 58 Z';
+  const mountain = 'M-8 252 L-8 236 C22 204 54 158 84 124 L104 140 C124 108 144 80 164 54 C184 86 204 120 224 150 L240 140 C258 170 276 204 300 252 Z';
+  const curl = ([x, y], s = 1) => `M${x} ${y} c${n1(6 * s)} ${n1(-10 * s)} ${n1(20 * s)} ${n1(-10 * s)} ${n1(22 * s)} ${n1(-1 * s)} c${n1(1 * s)} ${n1(6 * s)} ${n1(-7 * s)} ${n1(8 * s)} ${n1(-9 * s)} ${n1(3 * s)} c${n1(-1 * s)} ${n1(-3 * s)} ${n1(3 * s)} ${n1(-4 * s)} ${n1(4 * s)} ${n1(-1 * s)}`;
+  return {
     tone: 'cool',
-    paper: `M-6 236 L72 108 L104 146 L156 52 L236 178 L262 236 Z ${blob(316, 46, 58, 20, 5, 8, 0.12)}`,
-    ink: `<path d="M-6 236 L72 108 L104 146 L156 52 L236 178"/>
-      <g stroke-width="3"><path d="M156 52 L144 96 L152 104 L140 140"/><path d="M72 108 L66 146 L74 156"/><path d="M156 52 L172 92"/></g>
-      <g stroke-width="2.6"><path d="M110 196 l7 -14 l7 14 M128 206 l7 -14 l7 14 M92 212 l7 -14 l7 14 M150 214 l7 -14 l7 14"/></g>
-      <path d="${blob(316, 46, 58, 20, 5, 8, 0.12)}"/>
-      <g stroke-width="3">${[282, 302, 322, 342].map((x) => `<path d="M${x} 76 l-10 26"/>`).join('')}</g>
-      <g stroke-width="2.4"><path d="M170 76 L182 70 M178 96 L192 88 M186 116 L200 108 M196 136 L210 128 M206 156 L220 148"/></g>
-      <path class="k-paper" d="M206 252 C216 222 246 214 262 204 C276 194 270 176 286 170 C302 164 312 180 326 174 C342 166 336 150 354 146 C372 142 380 162 398 158 L406 252 Z"/>
-      <g stroke-width="3.2">${[[262, 204], [326, 174], [354, 146]].map(([x, y]) => `<path d="M${x} ${y} c10 -14 26 -6 20 6 c-4 6 -12 4 -10 -2"/>`).join('')}</g>
-      <g stroke-width="2.6">${[[236, 234], [290, 216], [346, 196], [318, 238], [372, 222]].map(([x, y]) => `<path d="M${x} ${y} c8 -10 20 -4 16 4"/>`).join('')}</g>
-      <path stroke-width="2.4" d="M226 246 C250 240 270 248 296 243 M300 232 C322 226 340 234 362 229"/>`,
-  },
-};
+    back: '<path class="k-pale" d="M0 176 L34 150 L62 160 L100 128 L132 146 L170 124 L210 150 L252 134 L290 148 L330 130 L370 148 L400 136 V250 H0 Z"/>',
+    paper: `${mountain} ${cloud}`,
+    defs: `<clipPath id="${id}-sea"><path d="${water}"/></clipPath>`,
+    ink: `<path d="${mountain.replace('M-8 252 L-8 236', 'M-8 236').replace(' Z', '')}"/>
+      <path stroke-width="1.5" d="M164 54 L156 84 L162 92 L150 124 M84 124 L80 150 L88 162 M164 54 L176 84"/>
+      ${hatch(170, 66, 214, 132, 12, 7, -3)}${hatch(232, 152, 276, 214, 9, 7, -3)}${hatch(90, 132, 98, 150, 3, 6, -3)}
+      ${pine(118, 196, 1)}${pine(134, 206, 0.9)}${pine(102, 210, 0.85)}${pine(150, 214, 0.8)}${pine(60, 214, 0.9)}
+      <path class="k-tint" stroke-width="1.4" d="M154 56 C160 52 168 52 174 56 L172 59 H156 Z"/><path stroke-width="1.3" d="M158 59 V66 M170 59 V66 M154 66 H174"/>
+      <path d="${cloud}"/><path stroke-width="1.3" d="M276 33 c-6 6 -2 14 6 12 M301 32 c-4 8 2 14 9 11"/>
+      ${hatch(266, 66, 318, 66, 9, -7, 22, 1.2)}
+      <path class="k-pale" d="${water}"/>
+      <path stroke-width="1.1" clip-path="url(#${id}-sea)" d="${scales(200, 176, 404, 252, 11)}"/>
+      <path stroke-width="1.8" d="${[[244, 206], [270, 176], [308, 178], [334, 152], [374, 160]].map((p, i) => curl(p, i % 2 ? 0.9 : 1.1)).join(' ')}"/>`,
+  };
+}
+
+const SCENES = { phoStall: phoScene, market: marketScene, legend: legendScene };
 
 function scene(name) {
-  const s = SCENES[name];
-  if (!s) return '';
+  const make = SCENES[name];
+  if (!make) return '';
   const id = `vw-ink-${++uid}`;
-  return `<svg class="pic scene ink-pic k-${s.tone}" viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs>${tremor(id, 400, 250, 0.028, 3.4)}</defs><rect class="k-field" x="0" y="0" width="400" height="250"/><path class="k-carrier" d="${s.paper}"/><g class="k-ink" stroke-width="4.2" filter="url(#${id})">${s.ink}</g>${s.crisp || ''}</svg>`;
+  const s = make(id);
+  return `<svg class="pic scene ink-pic k-${s.tone}" viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs>${tremor(id, 400, 250, 0.035, 1.6)}${s.defs || ''}</defs><rect class="k-field" x="0" y="0" width="400" height="250"/>${s.back || ''}<path class="k-carrier" d="${s.paper}"/>${s.under || ''}<g class="k-ink" stroke-width="2.2" filter="url(#${id})">${s.ink}</g>${s.crisp || ''}</svg>`;
 }
 
 // Returns an SVG string for a lesson picture spec such as { "kind": "icon", "name": "bowl" } or { "kind": "dots", "n": 100 }.

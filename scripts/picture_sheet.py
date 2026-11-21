@@ -3,6 +3,7 @@
 
   /Library/Frameworks/Python.framework/Versions/3.13/bin/python3 scripts/picture_sheet.py
   ... scripts/picture_sheet.py --style paper --style lacquer --out .checks/pictures
+  ... scripts/picture_sheet.py --covers      only the covers, at 800 by 500 (how a Mac shows an issue's opening)
 
 Writes <out>-<style>.png (default .checks/pictures-<style>.png). Pictures are shown at the sizes the
 site uses: covers at 400 by 250, word pictures at the word-card size and as tiny list thumbnails.
@@ -27,6 +28,8 @@ PAGE = """<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet
   .grid { display: flex; flex-wrap: wrap; gap: 14px; }
   .cell { background: var(--card); border: 1px solid var(--rule); border-radius: 6px; padding: 10px; text-align: center; font-family: var(--sans); font-size: 11px; color: var(--muted); }
   .scene-cell .pic-box { width: 400px; height: 250px; }
+  body.covers .scene-cell .pic-box { width: 800px; height: 500px; }
+  body.covers .only-covers-hide { display: none; }
   .icon-cell .pic-box { width: 160px; height: 120px; }
   .tiny-row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
   .tiny-row .pic-box { width: 40px; height: 30px; }
@@ -47,10 +50,10 @@ PAGE = """<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet
   const scenes = SCENE_NAMES.map((name) => ({ kind: 'scene', name }));
   document.getElementById('out').innerHTML = `
     <h2>Covers</h2><div class="grid">${scenes.map((s) => cell(s, 'scene-cell')).join('')}</div>
-    <h2>Word pictures</h2><div class="grid">${icons.map((s) => cell(s, 'icon-cell')).join('')}</div>
+    <div class="only-covers-hide"><h2>Word pictures</h2><div class="grid">${icons.map((s) => cell(s, 'icon-cell')).join('')}</div>
     <h2>Diagrams</h2><div class="grid">${diagrams.map((s) => cell(s, 'icon-cell')).join('')}</div>
     <h2>Stamps and thumbnails</h2><div class="tiny-row stamp-row">${scenes.map((s) => `<div class="pic-box stamp-art">${picture(s)}</div>`).join('')}</div>
-    <div class="tiny-row" style="margin-top:10px">${[...icons, ...diagrams].map((s) => `<div class="pic-box">${picture(s)}</div>`).join('')}</div>`;
+    <div class="tiny-row" style="margin-top:10px">${[...icons, ...diagrams].map((s) => `<div class="pic-box">${picture(s)}</div>`).join('')}</div></div>`;
   document.body.dataset.ready = '1';
 </script></body></html>"""
 
@@ -59,6 +62,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--style", action="append", choices=STYLES, help="styles to draw (default: all)")
     parser.add_argument("--out", default=str(ROOT / ".checks" / "pictures"), help="output path prefix")
+    parser.add_argument("--covers", action="store_true", help="only the covers, drawn large")
     args = parser.parse_args()
     out = Path(args.out)
     out.parent.mkdir(parents=True, exist_ok=True)
@@ -66,7 +70,7 @@ def main():
         browser = p.webkit.launch()
         for style in args.style or STYLES:
             dark = style == "paper-dark"
-            ctx = browser.new_context(viewport={"width": 1400, "height": 900}, device_scale_factor=1, color_scheme="dark" if dark else "light")
+            ctx = browser.new_context(viewport={"width": 1400 if not args.covers else 900, "height": 900}, device_scale_factor=1 if not args.covers else 2, color_scheme="dark" if dark else "light")
             ctx.route(f"{BASE}**", lambda route: route.fulfill(status=200, content_type="text/html", body=PAGE) if route.request.url.endswith("/_sheet.html") else serve(route))
             page = ctx.new_page()
             errors = []
@@ -75,6 +79,8 @@ def main():
             if style not in ("paper-dark",):
                 page.evaluate(f"document.documentElement.dataset.style = '{style}'")
             page.wait_for_selector("body[data-ready='1']")
+            if args.covers:
+                page.evaluate("document.body.classList.add('covers')")
             page.wait_for_timeout(300)
             path = f"{out}-{style}.png"
             page.screenshot(path=path, full_page=True)

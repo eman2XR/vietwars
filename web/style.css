@@ -545,17 +545,24 @@ textarea { width: 100%; padding: 12px; border-radius: var(--radius); border: 1px
 .pic.k-cool { --pic-tint: var(--pic-field-cool); }
 .pic.k-earth { --pic-tint: var(--pic-field-earth); }
 .pic.k-leaf { --pic-tint: var(--pic-field-leaf); }
-.pic { --pic-shade: color-mix(in srgb, var(--pic-tint, var(--pic-field-earth)) 58%, var(--pic-line)); }
+.pic {
+  --pic-shade: color-mix(in srgb, var(--pic-tint, var(--pic-field-earth)) 58%, var(--pic-line));
+  --pic-mid: color-mix(in srgb, var(--pic-tint, var(--pic-field-earth)) 80%, var(--pic-line));
+  --pic-pale: color-mix(in srgb, var(--pic-tint, var(--pic-field-earth)) 45%, var(--pic-carrier));
+}
 .pic .k-field { fill: var(--pic-tint); }
 .pic .k-carrier { fill: var(--pic-carrier); }
 .pic .k-ink { fill: none; stroke: var(--pic-line); stroke-linecap: round; stroke-linejoin: round; }
 .pic .k-ink .k-paper { fill: var(--pic-carrier); }
 .pic .k-ink .k-tint { fill: var(--pic-tint); }
 .pic .k-ink .k-shade { fill: var(--pic-shade); }
+.pic .k-mid, .pic .k-ink .k-mid { fill: var(--pic-mid); }
+.pic .k-pale, .pic .k-ink .k-pale { fill: var(--pic-pale); }
 .pic .k-dot, .pic .k-ink .k-dot { fill: var(--pic-line); stroke: none; }
 .pic .k-text { fill: var(--pic-line); font-family: var(--serif); font-weight: 700; }
 .pic .k-sign { font-family: var(--sans); font-size: 10.5px; letter-spacing: 1px; }
 .pic .k-note { font-size: 9.5px; }
+.pic .k-year { font-family: var(--sans); font-size: 8px; letter-spacing: 1px; font-weight: 600; }
 .pic-wrap.tiny .pic .k-ink, .stamp-art .pic .k-ink { filter: none; }
 
 .pic-wrap { margin: 0 auto; }
