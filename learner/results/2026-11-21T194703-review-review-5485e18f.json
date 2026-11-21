@@ -1,0 +1,292 @@
+{
+ "schema": 3,
+ "resultId": "5485e18f-cb5b-496a-bb2e-1b87ef070b1f",
+ "kind": "review",
+ "lessonId": "review",
+ "lessonTitle": "Review",
+ "appVersion": "4",
+ "style": "paper",
+ "device": "Mac",
+ "startedAt": "2026-11-21T19:44:32.759Z",
+ "finishedAt": "2026-11-21T19:47:03.225Z",
+ "durationSec": 150,
+ "summary": {
+  "firstTryAccuracy": 0.63,
+  "exercises": 8,
+  "bestStreak": 4,
+  "grade": "complete",
+  "speedScore": 0,
+  "speedAnswered": 0,
+  "speedCorrect": 0,
+  "bestCombo": 0
+ },
+ "article": null,
+ "quiz": null,
+ "situations": null,
+ "timing": {
+  "drills": 114,
+  "article": 0,
+  "pauses": 0,
+  "longestPauseSec": 36
+ },
+ "toneMarks": "relaxed",
+ "words": [
+  {
+   "vi": "triệu",
+   "en": "million",
+   "failures": 0,
+   "timeSec": 45,
+   "replays": 11,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 1,
+   "meaning": 1,
+   "form": 1,
+   "stars": 3,
+   "firstTry": {
+    "listen": true,
+    "type": "marks"
+   },
+   "attempts": 2,
+   "msMedian": 33298,
+   "known": false
+  },
+  {
+   "vi": "mươi",
+   "en": "-ty, the tens (hai mươi = 20)",
+   "failures": 2,
+   "timeSec": 21,
+   "replays": 4,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 0.5,
+   "meaning": 1,
+   "form": 0,
+   "stars": 1,
+   "firstTry": {
+    "listen": true,
+    "type": "wrong"
+   },
+   "attempts": 3,
+   "msMedian": 7037,
+   "known": false
+  },
+  {
+   "vi": "lăm",
+   "en": "five, after mười or mươi (mười lăm = 15)",
+   "failures": 1,
+   "timeSec": 18,
+   "replays": 2,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 0.5,
+   "meaning": 0,
+   "form": 1,
+   "stars": 1,
+   "firstTry": {
+    "listen": false,
+    "type": "marks"
+   },
+   "attempts": 3,
+   "msMedian": 4078,
+   "known": false
+  },
+  {
+   "vi": "rưỡi",
+   "en": "and a half (after a unit)",
+   "failures": 2,
+   "timeSec": 30,
+   "replays": 4,
+   "hints": 1,
+   "revealed": false,
+   "studySec": 0,
+   "share": 0.5,
+   "meaning": 1,
+   "form": 0,
+   "stars": 1,
+   "firstTry": {
+    "listen": true,
+    "type": "wrong"
+   },
+   "attempts": 3,
+   "msMedian": 7900,
+   "known": false
+  }
+ ],
+ "warmup": [],
+ "toneConfusions": [],
+ "meaningConfusions": [
+  {
+   "target": "lăm",
+   "chose": "-ty, the tens (hai mươi = 20)",
+   "t": "listen"
+  }
+ ],
+ "typed": [
+  {
+   "target": "lăm",
+   "answer": "lam",
+   "grade": "marks",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 2857
+  },
+  {
+   "target": "rưỡi",
+   "answer": "driou",
+   "grade": "wrong",
+   "accepted": false,
+   "hints": 1,
+   "keys": 0,
+   "firstKeyMs": 12540,
+   "dictation": true
+  },
+  {
+   "target": "mươi",
+   "answer": "làm",
+   "grade": "wrong",
+   "accepted": false,
+   "hints": 0,
+   "keys": 2,
+   "firstKeyMs": 2191,
+   "deletes": 1
+  },
+  {
+   "target": "triệu",
+   "answer": "trieu",
+   "grade": "marks",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 27860,
+   "deletes": 3,
+   "dictation": true
+  },
+  {
+   "target": "rưỡi",
+   "answer": "rưởi",
+   "grade": "tone",
+   "tiles": true,
+   "retry": true
+  },
+  {
+   "target": "mươi",
+   "answer": "mưởi mượi mươi",
+   "grade": "wrong",
+   "tiles": true,
+   "retry": true
+  }
+ ],
+ "feedback": null,
+ "events": [
+  {
+   "t": "listen",
+   "w": "rưỡi",
+   "ok": true,
+   "a": "and a half (after a unit)",
+   "ms": 5613,
+   "plays": 1
+  },
+  {
+   "t": "listen",
+   "w": "lăm",
+   "ok": false,
+   "a": "-ty, the tens (hai mươi = 20)",
+   "ms": 10313,
+   "plays": 2
+  },
+  {
+   "t": "listen",
+   "w": "triệu",
+   "ok": true,
+   "a": "million",
+   "ms": 11522,
+   "plays": 5
+  },
+  {
+   "t": "listen",
+   "w": "mươi",
+   "ok": true,
+   "a": "-ty, the tens (hai mươi = 20)",
+   "ms": 5900,
+   "plays": 4
+  },
+  {
+   "t": "listen",
+   "w": "lăm",
+   "ok": true,
+   "a": "five, after mười or mươi (mười lăm = 15)",
+   "ms": 3538,
+   "retry": true
+  },
+  {
+   "t": "type",
+   "w": "lăm",
+   "ok": true,
+   "g": "marks",
+   "a": "lam",
+   "ms": 4078,
+   "hints": 0,
+   "firstKeyMs": 2857
+  },
+  {
+   "t": "type",
+   "w": "rưỡi",
+   "ok": false,
+   "g": "wrong",
+   "a": "driou",
+   "ms": 16944,
+   "dictation": true,
+   "plays": 3,
+   "hints": 1,
+   "firstKeyMs": 12540
+  },
+  {
+   "t": "type",
+   "w": "mươi",
+   "ok": false,
+   "g": "wrong",
+   "a": "làm",
+   "ms": 7906,
+   "hints": 0,
+   "firstKeyMs": 2191,
+   "deletes": 1
+  },
+  {
+   "t": "type",
+   "w": "triệu",
+   "ok": true,
+   "g": "marks",
+   "a": "trieu",
+   "ms": 33298,
+   "dictation": true,
+   "plays": 6,
+   "hints": 0,
+   "firstKeyMs": 27860,
+   "deletes": 3
+  },
+  {
+   "t": "type",
+   "w": "rưỡi",
+   "g": "tone",
+   "a": "rưởi",
+   "ms": 7900,
+   "retry": true,
+   "tiles": true
+  },
+  {
+   "t": "type",
+   "w": "mươi",
+   "g": "wrong",
+   "a": "mưởi mượi mươi",
+   "ms": 7037,
+   "retry": true,
+   "tiles": true
+  }
+ ],
+ "issue": 4
+}

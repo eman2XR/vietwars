@@ -2,12 +2,12 @@
 
 Built by `scripts/ingest.py` from `learner/results/`. Do not edit by hand.
 
-- Sessions: 3 (3 lessons, 0 reviews, 0 unfinished), last 2026-11-21T19:43 UTC on Mac
+- Sessions: 4 (3 lessons, 1 reviews, 0 unfinished), last 2026-11-21T19:47 UTC on Mac
 - Words met: 36; on the known list (never taught or reviewed again): 9
-- Weak in meaning (under 0.7): gà, nữa, đắt, hai, một, triệu, rưỡi, trăm
-- Weak in spelling or tone (under 0.6): bao nhiêu, bốn, nghìn, rưỡi, trăm, tám, ba, lăm, mươi, năm, đồng, nữa, chín, linh, rẻ
-- Typing, first tries: 8 perfect, 8 wrong or missing tone, 13 missing vowel marks, 0 spelled as it sounds in Hà Nội, 15 wrong (of 44)
-- Answers typed with the on-screen tone keys: 7/32
+- Weak in meaning (under 0.7): gà, nữa, đắt, hai, lăm, một, triệu, trăm
+- Weak in spelling or tone (under 0.6): bao nhiêu, bốn, nghìn, rưỡi, trăm, tám, mươi, ba, năm, đồng, lăm, nữa, chín, linh, rẻ
+- Typing, first tries: 8 perfect, 8 wrong or missing tone, 15 missing vowel marks, 0 spelled as it sounds in Hà Nội, 17 wrong (of 48)
+- Answers typed with the on-screen tone keys: 8/36
 - Warm-up words missed: ba (1), bốn (1), chín (1), tám (1)
 
 ## Sessions
@@ -17,6 +17,7 @@ Built by `scripts/ingest.py` from `learner/results/`. Do not edit by hand.
 | 2026-11-21T07:42 | lesson | lesson-01 | 76% |  | 9.7 | 14/15 |  |  |  |
 | 2026-11-21T18:02 | lesson | lesson-02 | 64% |  | 29.6 | 11/11 |  |  |  |
 | 2026-11-21T19:43 | lesson | lesson-03 | 81% | merit | 17.6 | 9/9 |  | 14 | Skipped it |
+| 2026-11-21T19:47 | review | review | 63% | complete | 2.5 | 0/0 |  |  |  |
 
 ## Words, weakest meaning first (known-list words last)
 
@@ -25,16 +26,16 @@ Built by `scripts/ingest.py` from `learner/results/`. Do not edit by hand.
 | gà | chicken | 0.33 | 0.75 | 0.33 | 1.00 |  | 0.67 |  | wrong 1 |  |
 | đắt | expensive | 0.33 | 0.67 | 0.33 | 1.00 |  | 0.50 |  | marks 2 |  |
 | nữa | more, another | 0.33 | 0.33 | 0.33 | 1.00 |  | 0.00 |  | wrong 2 |  |
-| triệu | million | 0.50 | 0.50 | 0.50 | 1.00 |  | 0.00 |  | wrong 1 |  |
+| lăm | five, after mười or mươi (mười lăm = 15) | 0.50 | 0.33 | 0.50 | 0.00 |  | 0.50 |  | marks 2 |  |
 | một | one | 0.50 | 0.75 | 0.50 | 1.00 |  | 0.50 |  | marks 1 |  |
 | hai | two | 0.50 | 1.00 | 0.00 |  | 1.00 | 1.00 |  |  |  |
 | trăm | hundred | 0.67 | 0.00 | 0.67 | 0.00 |  | 0.00 |  | wrong 2 |  |
-| rưỡi | and a half (after a unit) | 0.67 | 0.00 | 0.50 |  | 1.00 | 0.00 |  | wrong 1 |  |
+| triệu | million | 0.67 | 0.50 | 0.67 | 1.00 |  | 0.00 | 0.50 | wrong 1, marks 1 |  |
+| rưỡi | and a half (after a unit) | 0.75 | 0.00 | 0.67 |  | 1.00 | 0.00 | 0.00 | wrong 2 |  |
 | bò | beef; cow | 1.00 | 0.67 | 1.00 | 1.00 |  | 0.50 |  | wrong 1 |  |
 | cá | fish | 1.00 | 0.67 | 1.00 | 1.00 |  | 0.50 |  | tone 2 |  |
 | nghìn | thousand | 1.00 | 0.00 | 1.00 |  | 1.00 | 0.00 |  | wrong 2 |  |
-| mươi | -ty, the tens (hai mươi = 20) | 1.00 | 0.25 | 1.00 | 0.00 |  | 0.50 |  | marks 1 |  |
-| lăm | five, after mười or mươi (mười lăm = 15) | 1.00 | 0.25 | 1.00 | 0.00 |  | 0.50 |  | marks 1 |  |
+| mươi | -ty, the tens (hai mươi = 20) | 1.00 | 0.17 | 1.00 | 0.00 |  | 0.25 |  | marks 1, wrong 1 |  |
 | linh | zero (for an empty tens place, as in 105) | 1.00 | 0.50 | 1.00 | 0.00 |  | 1.00 |  |  |  |
 | tiền | money | 1.00 | 0.75 | 1.00 | 1.00 |  | 0.50 |  | marks 1 |  |
 | đồng | đồng (the currency) | 1.00 | 0.25 | 1.00 | 0.00 |  | 0.50 |  | marks 1 |  |
@@ -66,34 +67,35 @@ Struggle score combines failed first tries, slow answers, hints, replays and rev
 | Word | Struggle | Attempts | Failed | Median answer (s) | Replays | Hints | Revealed | Studied card (s) |
 |---|---|---|---|---|---|---|---|---|
 | một trăm linh năm | 78 | 2 | 2 | 12.2 | 0 | 0 | 0 | 0 |
-| rưỡi | 68 | 6 | 4 | 18.5 | 0 | 0 | 0 | 0 |
+| rưỡi | 69 | 9 | 6 | 16.9 | 4 | 1 | 0 | 0 |
 | thứ bảy | 63 | 2 | 1 | 13.8 | 6 | 0 | 0 | 0 |
-| lăm | 60 | 5 | 4 | 7.9 | 0 | 0 | 0 | 0 |
 | trăm | 55 | 10 | 7 | 8.3 | 1 | 0 | 0 | 0 |
 | cơm | 53 | 6 | 5 | 2.0 | 0 | 0 | 0 | 0 |
-| triệu | 50 | 6 | 4 | 6.7 | 0 | 0 | 0 | 0 |
+| triệu | 51 | 8 | 4 | 10.2 | 11 | 0 | 0 | 0 |
+| lăm | 48 | 8 | 5 | 6.6 | 2 | 0 | 0 | 0 |
 | nghìn | 47 | 7 | 4 | 7.6 | 2 | 0 | 0 | 0 |
 | phở | 45 | 6 | 4 | 3.5 | 0 | 0 | 0 | 0 |
 | rẻ | 45 | 4 | 2 | 9.8 | 0 | 0 | 0 | 0 |
+| mươi | 42 | 8 | 4 | 6.5 | 4 | 0 | 0 | 0 |
 | cá | 40 | 7 | 4 | 3.5 | 0 | 0 | 0 | 0 |
 | nữa | 40 | 10 | 5 | 6.6 | 1 | 0 | 0 | 0 |
 | bao nhiêu | 39 | 4 | 2 | 5.9 | 0 | 0 | 0 | 0 |
 | đồng | 37 | 6 | 3 | 4.4 | 0 | 0 | 0 | 0 |
-| nước | 36 | 4 | 2 | 4.3 | 0 | 0 | 0 | 0 |
 
 ## Exercise types
 
 | Exercise | Answers | Accuracy | Median answer (s) |
 |---|---|---|---|
-| type | 67 | 25% | 5.4 |
-| type (tiles) | 5 | 40% | 4.4 |
+| type | 69 | 26% | 5.4 |
+| type (tiles) | 7 | 29% | 4.8 |
+| type (from hearing) | 2 | 50% | 25.1 |
 | spell | 36 | 61% | 3.3 |
 | situation | 8 | 62% | 38.5 |
-| listen | 101 | 81% | 4.9 |
+| listen | 106 | 81% | 5.0 |
 | speed | 35 | 97% | 2.6 |
 | reverse | 10 | 100% | 4.5 |
 
-Time spent (all finished sessions): words 0.5 min, drills 5.8 min, reallife 5.0 min, rush 0.7 min, article 0.2 min; long pauses (over a minute): 2
+Time spent (all finished sessions): words 0.5 min, drills 7.7 min, reallife 5.0 min, rush 0.7 min, article 0.2 min; long pauses (over a minute): 2
 
 ## Tone and spelling confusions (heard -> picked)
 
@@ -127,6 +129,7 @@ Time spent (all finished sessions): words 0.5 min, drills 5.8 min, reallife 5.0 
 - gà -> and a half (after a unit): 1
 - một -> four: 1
 - thứ bảy -> One more iced tea, please.: 1
+- lăm -> -ty, the tens (hai mươi = 20): 1
 
 ## Feedback, newest first
 
