@@ -40,11 +40,24 @@ SOUTHERN = {
 }
 
 LIMITS = {"en": 80, "hook": 260, "tip": 260, "note": 200, "intro": 300, "title": 60}
-PICTURE_KINDS = set(re.findall(r"case '([a-z]+)':", (WEB / "js" / "pictures.js").read_text(encoding="utf-8")))
+def picture_names():
+    """Kinds, icon names and scene names from web/js/pictures.js: asked of node when it is installed, else read from the source."""
+    node = shutil.which("node")
+    if node:
+        try:
+            out = subprocess.run([node, "--input-type=module", "-e", "const m = await import(process.argv[1]); console.log(JSON.stringify([m.PICTURE_KINDS, m.ICON_NAMES, m.SCENE_NAMES]))", (WEB / "js" / "pictures.js").as_uri()],
+                                 check=True, capture_output=True, text=True, timeout=30).stdout
+            kinds, icons, scenes = json.loads(out)
+            return set(kinds), set(icons), set(scenes)
+        except Exception:
+            pass
+    src = (WEB / "js" / "pictures.js").read_text(encoding="utf-8")
+    block = lambda name: src.split(f"const {name} = {{")[1].split("\n};")[0]
+    keys = lambda text: set(re.findall(r"^  ([a-zA-Z]+): [`{]", text, re.M))
+    return set(re.findall(r"case '([a-z]+)':", src)), keys(block("ICONS")), keys(block("SCENES"))
 
 
-ICON_NAMES = set(re.findall(r"^  ([a-z]+): `", (WEB / "js" / "pictures.js").read_text(encoding="utf-8"), re.M))
-SCENE_NAMES = set(re.findall(r"^  ([a-zA-Z]+): `", (WEB / "js" / "pictures.js").read_text(encoding="utf-8").split("const SCENES = {")[1].split("};")[0], re.M))
+PICTURE_KINDS, ICON_NAMES, SCENE_NAMES = picture_names()
 
 
 def nfc(s):
