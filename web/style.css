@@ -21,20 +21,12 @@
   --t-hoi: #7b4a90;
   --t-nga: #a36d12;
   --t-nang: #2a6e66;
-  --pic-ink: #3a322a;
-  --pic-paper: #fffdf8;
-  --pic-soft: #e8dfcf;
-  --pic-accent: #b5523f;
-  --pic-good: #5c8a6a;
-  --pic-bad: #b5523f;
-  --pic-gold: #dcaa5c;
-  --pic-water: #6f97b5;
-  --pic-leaf: #6f9466;
-  --pic-brown: #8a5a35;
-  --pic-pink: #d9a3a0;
-  --pic-orange: #d98a52;
-  --pic-steel: #b9bcbf;
-  --pic-shadow: #4a3f36;
+  --pic-field-warm: #e09c78;
+  --pic-field-cool: #9fbacd;
+  --pic-field-earth: #e3c895;
+  --pic-field-leaf: #a9bf8e;
+  --pic-carrier: #fdf9f1;
+  --pic-line: #201b16;
   --serif: ui-serif, "New York", "Iowan Old Style", Georgia, serif;
   --sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
   --display: var(--serif);
@@ -64,9 +56,12 @@
     --t-hoi: #c9a2e0;
     --t-nga: #e9bf63;
     --t-nang: #6fd0c0;
-    --pic-ink: #ede6da;
-    --pic-paper: #f3ece1;
-    --pic-soft: #3a342d;
+    --pic-field-warm: #bf7151;
+    --pic-field-cool: #6d8fa9;
+    --pic-field-earth: #b39866;
+    --pic-field-leaf: #7f9567;
+    --pic-carrier: #f3ebde;
+    --pic-line: #1c1814;
   }
 }
 
@@ -90,9 +85,12 @@
   --t-hoi: #c9a2e0;
   --t-nga: #e9bf63;
   --t-nang: #6fd0c0;
-  --pic-ink: #ece5d9;
-  --pic-paper: #f2ebdf;
-  --pic-soft: #38332d;
+  --pic-field-warm: #c38b50;
+  --pic-field-cool: #7c909e;
+  --pic-field-earth: #a99674;
+  --pic-field-leaf: #8a9a72;
+  --pic-carrier: #efe7d8;
+  --pic-line: #1a1714;
 }
 
 [data-style="lacquer"] {
@@ -115,11 +113,12 @@
   --t-hoi: #d7a9f5;
   --t-nga: #f2c661;
   --t-nang: #77dcc2;
-  --pic-ink: #f3e6d1;
-  --pic-paper: #f6e9d1;
-  --pic-soft: #4a3423;
-  --pic-accent: #c8321e;
-  --pic-gold: #d9a441;
+  --pic-field-warm: #b93a20;
+  --pic-field-cool: #c99c42;
+  --pic-field-earth: #8e5d31;
+  --pic-field-leaf: #6f7a40;
+  --pic-carrier: #f4e5c9;
+  --pic-line: #150e0b;
 }
 
 [data-style="indigo"] {
@@ -138,9 +137,12 @@
   --t-hoi: #6f4a9a;
   --t-nga: #9a6a16;
   --t-nang: #226b67;
-  --pic-ink: #18203a;
-  --pic-accent: #26386b;
-  --pic-soft: #dcdbd3;
+  --pic-field-warm: #d49c79;
+  --pic-field-cool: #7286bb;
+  --pic-field-earth: #cdc1a1;
+  --pic-field-leaf: #9fb18d;
+  --pic-carrier: #fbf8f1;
+  --pic-line: #141a2e;
 }
 
 [data-style="celadon"] {
@@ -159,9 +161,12 @@
   --t-hoi: #774b91;
   --t-nga: #98680f;
   --t-nang: #22706a;
-  --pic-ink: #1c2a25;
-  --pic-accent: #3f6f5c;
-  --pic-soft: #d6e2da;
+  --pic-field-warm: #d7a385;
+  --pic-field-cool: #a3bfc8;
+  --pic-field-earth: #cfd0a9;
+  --pic-field-leaf: #8fb595;
+  --pic-carrier: #fcfdf9;
+  --pic-line: #16211c;
 }
 
 [data-style="silk"] {
@@ -175,8 +180,12 @@
   --accent-ink: #ffffff;
   --display: var(--sans);
   --body-text: var(--sans);
-  --pic-accent: #8a1c2b;
-  --pic-soft: #ecece8;
+  --pic-field-warm: #c86b7e;
+  --pic-field-cool: #a9b8c6;
+  --pic-field-earth: #e1d3b9;
+  --pic-field-leaf: #a8ba95;
+  --pic-carrier: #fffdf9;
+  --pic-line: #1c1c1c;
 }
 
 * { box-sizing: border-box; }
@@ -529,50 +538,25 @@ textarea { width: 100%; padding: 12px; border-radius: var(--radius); border: 1px
 .send-status[data-state="sent"] { color: var(--ok); font-weight: 600; }
 .send-status[data-state="queued"] { color: var(--muted); }
 
-/* Pictures */
+/* Pictures: a colour field, a paper cut-out and ink (web/js/pictures.js). */
 .pic { display: block; width: 100%; height: 100%; overflow: visible; }
-.pic .f-paper, .pic .f-soft, .pic .f-accent, .pic .f-good, .pic .f-bad, .pic .f-gold, .pic .f-water, .pic .f-leaf,
-.pic .f-brown, .pic .f-pink, .pic .f-orange, .pic .f-ink, .pic .f-steel { stroke: var(--pic-ink); stroke-width: 1.6; stroke-linejoin: round; }
-.pic .f-paper { fill: var(--pic-paper); }
-.pic .f-soft { fill: var(--pic-soft); }
-.pic .f-accent { fill: var(--pic-accent); }
-.pic .f-good { fill: var(--pic-good); }
-.pic .f-bad { fill: var(--pic-bad); }
-.pic .f-gold { fill: var(--pic-gold); }
-.pic .f-water { fill: var(--pic-water); }
-.pic .f-leaf { fill: var(--pic-leaf); }
-.pic .f-brown { fill: var(--pic-brown); }
-.pic .f-pink { fill: var(--pic-pink); }
-.pic .f-orange { fill: var(--pic-orange); }
-.pic .f-ink { fill: var(--pic-ink); }
-.pic .f-steel { fill: var(--pic-steel); }
-.pic .f-shadow { fill: var(--pic-shadow); stroke: none; }
-.pic .s-shadow { stroke: var(--pic-shadow); }
-.pic .ns { stroke: none; }
-.pic [class^="s-"], .pic [class*=" s-"] { fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-.pic .s-ink { stroke: var(--pic-ink); }
-.pic .s-soft { stroke: var(--pic-soft); }
-.pic .s-accent { stroke: var(--pic-accent); }
-.pic .s-good { stroke: var(--pic-good); }
-.pic .s-bad { stroke: var(--pic-bad); }
-.pic .s-water { stroke: var(--pic-water); }
-.pic .s-leaf { stroke: var(--pic-leaf); }
-.pic .s-brown { stroke: var(--pic-brown); }
-.pic .s-paper { stroke: var(--pic-paper); }
-.pic .s-noodle { stroke: var(--pic-paper); stroke-width: 3; }
-.pic .thick { stroke-width: 3.2; }
-.pic .fine { stroke-width: 1.2; }
-.pic .hair { stroke-width: 0.5; }
-.pic text { font-family: var(--serif); font-weight: 700; fill: var(--pic-ink); }
-.pic .coin-text { font-size: 34px; fill: var(--pic-brown); }
-.pic .q-text { font-size: 48px; fill: var(--pic-accent); }
-.pic .digit-text { font-size: 26px; }
-.pic .digit-text.on { fill: var(--pic-paper); }
-.pic .t-note { font-size: 9px; }
-.pic .t-tag { fill: #ffffff; }
-.pic .t-sign { font-size: 26px; letter-spacing: 3px; fill: var(--pic-accent); }
-.pic .t-market { font-family: var(--sans); font-size: 11px; letter-spacing: 1px; fill: var(--pic-shadow); }
-.scene .f-soft { stroke: none; }
+.pic.scene { overflow: hidden; }
+.pic.k-warm { --pic-tint: var(--pic-field-warm); }
+.pic.k-cool { --pic-tint: var(--pic-field-cool); }
+.pic.k-earth { --pic-tint: var(--pic-field-earth); }
+.pic.k-leaf { --pic-tint: var(--pic-field-leaf); }
+.pic { --pic-shade: color-mix(in srgb, var(--pic-tint, var(--pic-field-earth)) 58%, var(--pic-line)); }
+.pic .k-field { fill: var(--pic-tint); }
+.pic .k-carrier { fill: var(--pic-carrier); }
+.pic .k-ink { fill: none; stroke: var(--pic-line); stroke-linecap: round; stroke-linejoin: round; }
+.pic .k-ink .k-paper { fill: var(--pic-carrier); }
+.pic .k-ink .k-tint { fill: var(--pic-tint); }
+.pic .k-ink .k-shade { fill: var(--pic-shade); }
+.pic .k-dot, .pic .k-ink .k-dot { fill: var(--pic-line); stroke: none; }
+.pic .k-text { fill: var(--pic-line); font-family: var(--serif); font-weight: 700; }
+.pic .k-sign { font-family: var(--sans); font-size: 10.5px; letter-spacing: 1px; }
+.pic .k-note { font-size: 9.5px; }
+.pic-wrap.tiny .pic .k-ink, .stamp-art .pic .k-ink { filter: none; }
 
 .pic-wrap { margin: 0 auto; }
 .pic-wrap.large { width: 160px; height: 120px; margin-bottom: 6px; }

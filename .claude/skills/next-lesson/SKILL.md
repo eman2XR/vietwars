@@ -34,7 +34,7 @@ Write a short plan before any content and show it in your final message:
 
 ## 3. Write the lesson
 
-Write `web/lessons/lesson-NN.json` (next number) and add it to `web/lessons/index.json` with today's date. Follow every rule in `docs/PEDAGOGY.md`. Research the article first: fetch the sources from Wikipedia with curl (`https://en.wikipedia.org/w/api.php?action=query&prop=extracts&explaintext=1&redirects=1&format=json&titles=...`, and vi.wikipedia.org) and write only what they support. If the theme needs a new cover scene or a word needs a picture no kind fits, add an original SVG drawing to `web/js/pictures.js`. Then:
+Write `web/lessons/lesson-NN.json` (next number) and add it to `web/lessons/index.json` with today's date. Follow every rule in `docs/PEDAGOGY.md`. Research the article first: fetch the sources from Wikipedia with curl (`https://en.wikipedia.org/w/api.php?action=query&prop=extracts&explaintext=1&redirects=1&format=json&titles=...`, and vi.wikipedia.org) and write only what they support. If the theme needs a new cover scene or a word needs a picture no kind fits, add an original drawing to `web/js/pictures.js` in its inked style (the Cover and stamp rule in `docs/PEDAGOGY.md`), and look at it in every style with `scripts/picture_sheet.py`. Then:
 
 ```sh
 python3 scripts/make_audio.py
