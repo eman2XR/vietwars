@@ -43,4 +43,18 @@ In a Claude Code session in this folder:
 
 ask for one round a few times a day; the owner chose this cadence on 2026-11-21. Claude schedules it with CronCreate as `13 8,12,17,21 * * *` (8:13, 12:13, 17:13 and 21:13 local time) and the prompt "Run one round of the Học tiếng Việt lesson loop in this folder: read and follow .claude/skills/lesson-loop/SKILL.md exactly." `/loop 4h /lesson-loop` is a simpler alternative. A round with nothing to do costs one `status.py` call. Questions from Ask wait until the next round, so answers take a few hours.
 
-A scheduled round only runs while that session is open and idle, and the schedule expires after seven days. Start it again in each new session (check first with CronList that one is not already running).
+A scheduled round only runs while a Claude Code session is open and idle in this folder. The job is durable (saved in `.claude/scheduled_tasks.json`, not committed), so it comes back when Claude Code is started here again; check with CronList before creating another.
+
+## Keeping the schedule alive
+
+Scheduled jobs expire after seven days, so the job renews itself. Its prompt says the date it was created and the date to renew it (six days later). When a round runs on or after the renewal date, do this first (load CronCreate, CronList and CronDelete with ToolSearch if they are not available):
+
+1. CronCreate: cron `13 8,12,17,21 * * *`, recurring, durable, with the same prompt but today's date as the created date and today plus six days as the renewal date.
+2. CronList, then CronDelete every other lesson-loop job (its prompt starts with "Run one round of the Học tiếng Việt lesson loop").
+3. Carry on with the round, and mention the renewal in the reply.
+
+The prompt, with the two dates filled in:
+
+```
+Run one round of the Học tiếng Việt lesson loop in /Users/emanuelapple/Desktop/vietwars: read and follow .claude/skills/lesson-loop/SKILL.md exactly (it starts with python3 scripts/status.py --decide). This schedule was created on YYYY-MM-DD; on or after YYYY-MM-DD (six days later), first renew it as the skill's "Keeping the schedule alive" section says. If the decision is answer-questions, answer every open question as that skill describes. If it is next-lesson or review-progress, follow .claude/skills/next-lesson/SKILL.md or .claude/skills/review-progress/SKILL.md. If the decision is wait, reply with one line only.
+```

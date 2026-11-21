@@ -9,7 +9,7 @@ A personal site for learning **Northern (Hà Nội) Vietnamese**, for one learne
 3. `python3 scripts/status.py --decide` says what to do: `answer-questions`, `ingest`, `review-progress`, `adjust-lesson`, `next-lesson` or `wait`. It keeps exactly one unplayed lesson waiting, at most two new lessons a day, and a progress review every five sessions or seven days.
 4. Skills in `.claude/skills/`: `next-lesson` (plan, research, write, review with three subagents, test, publish), `review-progress` (trends, curriculum and rule changes, `learner/REVIEW.md`), `lesson-loop` (one round of the above, answering the learner's questions first; scheduled a few times a day, see the skill's "Starting a loop").
 
-Picking up the work in a new session: run `python3 scripts/status.py`, read `learner/SUMMARY.md`, `learner/NOTES.md` (what the owner said in conversation, newest first) and the top of `docs/LESSON_LOG.md`, then start the loop as the `lesson-loop` skill describes. Everything else lives in this repository; nothing is kept only on this Mac except the scheduled loop itself.
+Picking up the work in a new session: run `python3 scripts/status.py`, read `learner/SUMMARY.md`, `learner/NOTES.md` (what the owner said in conversation, newest first) and the top of `docs/LESSON_LOG.md`, then check the loop with CronList: it is a durable scheduled job (in `.claude/scheduled_tasks.json`, not committed) that comes back whenever Claude Code starts in this folder and renews itself every six days, as the `lesson-loop` skill describes; if it is missing, create it as the skill says. Everything else lives in this repository.
 
 Agents may publish lessons on their own (the owner asked for this on 2026-11-21), but only issues that pass every check and all three reviews.
 
