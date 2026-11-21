@@ -19,9 +19,9 @@
     },
     {
       "id": "conversation",
-      "title": "Conversation battles",
+      "title": "Conversation",
       "status": "planned",
-      "target": "The foe speaks lines of a short dialogue and the learner picks or types replies: ordering food, a taxi, the market, meeting people.",
+      "target": "Short dialogues set in the places of earlier stories: ordering at a phở stall, the market, a taxi, meeting people.",
       "exit": "Open-ended."
     }
   ],
@@ -31,112 +31,296 @@
       "title": "Food and drink",
       "status": "done",
       "lesson": "lesson-01",
-      "notes": "The learner already knew almost all of it; only gà, cá and bò needed practice. The other nine are on the known list."
+      "notes": "The learner already knew almost all of it; only gà, cá and bò needed practice. The other nine are on the known list. Issue story: \"Younger than the Eiffel Tower\" (phở, bánh mì, coffee, egg coffee)."
     },
     {
       "id": "numbers-prices",
       "title": "Big numbers and prices",
       "status": "active",
       "lesson": "lesson-02",
-      "notes": "Numbers 0 to 10 are a warm-up only. Brings in the nặng and ngã tones (triệu, chục, nữa, rưỡi) that lesson 1 lacked, and the hỏi and ngã contrast (nửa and nữa, rẻ and rẽ)."
+      "notes": "Numbers 0 to 10 are a warm-up only. Brings in the nặng and ngã tones (triệu, chục, nữa, rưỡi) that lesson 1 lacked, and the hỏi and ngã contrast (nửa and nữa, rẻ and rẽ). Issue story: \"Copper, paper, plastic\" (the đồng, coins abandoned in 2011, polymer notes, Đồng Xuân market, Thăng Long 1010)."
     },
     {
       "id": "people",
       "title": "People and family",
       "status": "planned",
-      "warmupIdeas": ["bố", "mẹ", "anh", "chị", "em", "bạn"],
-      "candidates": ["ông", "bà", "cô", "chú", "bác", "con", "cháu", "vợ", "chồng", "gia đình", "người", "trẻ con", "bạn bè"],
-      "foeIdea": "Cô Hàng Xóm, the nosy neighbour who asks about everyone in your family.",
-      "notes": "Explain that family words double as I and you. Hà Nội says bố and mẹ (the South says ba and má)."
+      "warmupIdeas": [
+        "bố",
+        "mẹ",
+        "anh",
+        "chị",
+        "em",
+        "bạn"
+      ],
+      "candidates": [
+        "ông",
+        "bà",
+        "cô",
+        "chú",
+        "bác",
+        "con",
+        "cháu",
+        "vợ",
+        "chồng",
+        "gia đình",
+        "người",
+        "trẻ con",
+        "bạn bè"
+      ],
+      "notes": "Explain that family words double as I and you. Hà Nội says bố and mẹ (the South says ba and má).",
+      "storyIdea": "Who you call anh, chị or em: how the family system of address works, and the family altar in Hà Nội homes."
     },
     {
       "id": "politeness",
       "title": "Greetings and politeness",
       "status": "planned",
-      "warmupIdeas": ["xin chào", "cảm ơn", "xin lỗi", "tạm biệt"],
-      "candidates": ["vâng", "dạ", "ạ", "không sao", "mời", "chúc ngủ ngon", "hẹn gặp lại", "rất vui", "chúc mừng", "làm ơn"],
-      "foeIdea": "Ông Khó Tính, the grumpy old man who only softens when you are polite.",
-      "notes": "ạ at the end of a sentence to older people; vâng is the typical Northern polite yes."
+      "warmupIdeas": [
+        "xin chào",
+        "cảm ơn",
+        "xin lỗi",
+        "tạm biệt"
+      ],
+      "candidates": [
+        "vâng",
+        "dạ",
+        "ạ",
+        "không sao",
+        "mời",
+        "chúc ngủ ngon",
+        "hẹn gặp lại",
+        "rất vui",
+        "chúc mừng",
+        "làm ơn"
+      ],
+      "notes": "ạ at the end of a sentence to older people; vâng is the typical Northern polite yes.",
+      "storyIdea": "Hà Nội manners: vâng and ạ, greeting elders first, and the Temple of Literature (Văn Miếu, 1070), the first university."
     },
     {
       "id": "verbs",
       "title": "Everyday verbs",
       "status": "planned",
-      "candidates": ["ăn", "uống", "đi", "đến", "về", "ngủ", "làm", "học", "nói", "nghe", "xem", "mua", "bán", "thích", "muốn", "biết", "có", "là"],
-      "foeIdea": "Thần Lười, the spirit of laziness who wants you to stay on the sofa.",
-      "notes": "Likely partly known: use a warm-up for ăn, uống, đi, có, là. Verbs unlock the patterns phase."
+      "candidates": [
+        "ăn",
+        "uống",
+        "đi",
+        "đến",
+        "về",
+        "ngủ",
+        "làm",
+        "học",
+        "nói",
+        "nghe",
+        "xem",
+        "mua",
+        "bán",
+        "thích",
+        "muốn",
+        "biết",
+        "có",
+        "là"
+      ],
+      "notes": "Likely partly known: use a warm-up for ăn, uống, đi, có, là. Verbs unlock the patterns phase.",
+      "storyIdea": "A day in Hà Nội: morning exercise around Hoàn Kiếm Lake at dawn, and the legend of the returned sword."
     },
     {
       "id": "describing",
       "title": "Describing words",
       "status": "planned",
-      "candidates": ["to", "nhỏ", "nóng", "lạnh", "đẹp", "xấu", "mới", "cũ", "nhanh", "chậm", "vui", "buồn", "mệt", "đói", "khát", "rét"],
-      "foeIdea": "Gương Thần, a vain magic mirror that describes everything wrongly.",
-      "notes": "rét is the Northern word for cold weather (lạnh also works). Describing words follow the noun."
+      "candidates": [
+        "to",
+        "nhỏ",
+        "nóng",
+        "lạnh",
+        "đẹp",
+        "xấu",
+        "mới",
+        "cũ",
+        "nhanh",
+        "chậm",
+        "vui",
+        "buồn",
+        "mệt",
+        "đói",
+        "khát",
+        "rét"
+      ],
+      "notes": "rét is the Northern word for cold weather (lạnh also works). Describing words follow the noun.",
+      "storyIdea": "Hà Nội through the seasons: hoa sữa in autumn, West Lake, and why Northerners say rét."
     },
     {
       "id": "city",
       "title": "Places in the city",
       "status": "planned",
-      "candidates": ["nhà", "phố", "chợ", "quán", "trường", "bệnh viện", "ga", "sân bay", "khách sạn", "hồ", "công viên", "siêu thị", "ngân hàng", "nhà vệ sinh"],
-      "foeIdea": "Xe Máy Điên, the runaway scooter that weaves through the Old Quarter.",
-      "notes": "phố and ga were contrast words in lesson 1; reuse that memory."
+      "candidates": [
+        "nhà",
+        "phố",
+        "chợ",
+        "quán",
+        "trường",
+        "bệnh viện",
+        "ga",
+        "sân bay",
+        "khách sạn",
+        "hồ",
+        "công viên",
+        "siêu thị",
+        "ngân hàng",
+        "nhà vệ sinh"
+      ],
+      "notes": "phố and ga were contrast words in lesson 1; reuse that memory.",
+      "storyIdea": "The 36 streets of the Old Quarter, each once named for its trade: Hàng Bạc (silver), Hàng Đồng (copper), Hàng Mã (paper offerings)."
     },
     {
       "id": "time",
       "title": "Time and days",
       "status": "planned",
-      "candidates": ["hôm nay", "ngày mai", "hôm qua", "giờ", "phút", "sáng", "trưa", "chiều", "tối", "đêm", "tuần", "tháng", "bây giờ", "sớm", "muộn"],
-      "foeIdea": "Đồng Hồ Ngủ Gật, the dozing clock that makes you late.",
-      "notes": "muộn is Northern for late (the South says trễ). năm (year) was a warm-up gloss in lesson 2."
+      "candidates": [
+        "hôm nay",
+        "ngày mai",
+        "hôm qua",
+        "giờ",
+        "phút",
+        "sáng",
+        "trưa",
+        "chiều",
+        "tối",
+        "đêm",
+        "tuần",
+        "tháng",
+        "bây giờ",
+        "sớm",
+        "muộn"
+      ],
+      "notes": "muộn is Northern for late (the South says trễ). năm (year) was a warm-up gloss in lesson 2.",
+      "storyIdea": "The lunar calendar and Tết, the twelve zodiac animals (a cat instead of the rabbit), and Quang Trung's surprise Tết victory at Đống Đa in 1789."
     },
     {
       "id": "questions",
       "title": "Question words",
       "status": "planned",
-      "candidates": ["gì", "ai", "đâu", "nào", "bao giờ", "tại sao", "thế nào", "mấy giờ", "có không"],
-      "foeIdea": "Con Vẹt Hỏi, the parrot that only ever asks questions.",
-      "notes": "thế nào is Northern (the South prefers sao or như thế nào). Bridges into the patterns phase."
+      "candidates": [
+        "gì",
+        "ai",
+        "đâu",
+        "nào",
+        "bao giờ",
+        "tại sao",
+        "thế nào",
+        "mấy giờ",
+        "có không"
+      ],
+      "notes": "thế nào is Northern (the South prefers sao or như thế nào). Bridges into the patterns phase.",
+      "storyIdea": "Water puppetry, múa rối nước, and its narrator Chú Tễu."
     },
     {
       "id": "transport",
       "title": "Getting around",
       "status": "planned",
-      "candidates": ["xe máy", "ô tô", "xe buýt", "tắc xi", "xe đạp", "đường", "ngã tư", "rẽ trái", "rẽ phải", "đi thẳng", "gần", "xa", "dừng lại", "tắc đường"],
-      "foeIdea": "Ông Tắc Đường, Mr Traffic Jam. Note that Hà Nội says tắc đường; the South says kẹt xe.",
-      "notes": "rẽ was a contrast word in lesson 2 (rẻ against rẽ)."
+      "candidates": [
+        "xe máy",
+        "ô tô",
+        "xe buýt",
+        "tắc xi",
+        "xe đạp",
+        "đường",
+        "ngã tư",
+        "rẽ trái",
+        "rẽ phải",
+        "đi thẳng",
+        "gần",
+        "xa",
+        "dừng lại",
+        "tắc đường"
+      ],
+      "notes": "rẽ was a contrast word in lesson 2 (rẻ against rẽ).",
+      "storyIdea": "Millions of motorbikes, the Long Biên bridge, and how to cross a Hà Nội street."
     },
     {
       "id": "market",
       "title": "At the market",
       "status": "planned",
-      "candidates": ["quả", "táo", "cam", "chuối", "xoài", "dưa hấu", "thịt", "thịt lợn", "trứng", "mua", "bán", "mặc cả", "cân", "túi"],
-      "foeIdea": "Chuột Chợ, the market rat that steals from every stall.",
-      "notes": "quả and thịt lợn are Northern (the South says trái and thịt heo). Builds on lesson 2 prices."
+      "candidates": [
+        "quả",
+        "táo",
+        "cam",
+        "chuối",
+        "xoài",
+        "dưa hấu",
+        "thịt",
+        "thịt lợn",
+        "trứng",
+        "mua",
+        "bán",
+        "mặc cả",
+        "cân",
+        "túi"
+      ],
+      "notes": "quả and thịt lợn are Northern (the South says trái and thịt heo). Builds on lesson 2 prices.",
+      "storyIdea": "Fruit of the North through the seasons, and street vendors with their shoulder poles (quang gánh)."
     },
     {
       "id": "colours-clothes",
       "title": "Colours and clothes",
       "status": "planned",
-      "candidates": ["màu", "đỏ", "xanh", "vàng", "trắng", "đen", "áo", "quần", "giày", "mũ", "áo dài", "áo mưa"],
-      "foeIdea": "a chameleon that keeps changing colour.",
-      "notes": "xanh covers blue and green; mũ is Northern for hat (the South says nón)."
+      "candidates": [
+        "màu",
+        "đỏ",
+        "xanh",
+        "vàng",
+        "trắng",
+        "đen",
+        "áo",
+        "quần",
+        "giày",
+        "mũ",
+        "áo dài",
+        "áo mưa"
+      ],
+      "notes": "xanh covers blue and green; mũ is Northern for hat (the South says nón).",
+      "storyIdea": "The áo dài and the conical hat (nón lá), and the silk village of Vạn Phúc."
     },
     {
       "id": "body-health",
       "title": "The body and feeling unwell",
       "status": "planned",
-      "candidates": ["đầu", "mắt", "mũi", "miệng", "tay", "chân", "bụng", "răng", "đau", "ốm", "thuốc", "bác sĩ", "hiệu thuốc"],
-      "foeIdea": "a flu virus.",
-      "notes": "ốm is Northern for ill (the South says bệnh)."
+      "candidates": [
+        "đầu",
+        "mắt",
+        "mũi",
+        "miệng",
+        "tay",
+        "chân",
+        "bụng",
+        "răng",
+        "đau",
+        "ốm",
+        "thuốc",
+        "bác sĩ",
+        "hiệu thuốc"
+      ],
+      "notes": "ốm is Northern for ill (the South says bệnh).",
+      "storyIdea": "Lãn Ông, Hà Nội's traditional medicine street, named after an 18th-century physician."
     },
     {
       "id": "weather",
       "title": "Weather and seasons in Hà Nội",
       "status": "planned",
-      "candidates": ["trời", "mưa", "nắng", "gió", "mây", "mưa phùn", "nồm", "bão", "mùa xuân", "mùa hè", "mùa thu", "mùa đông"],
-      "foeIdea": "Bà Mưa Phùn, Lady Drizzle, who brings Hà Nội's damp spring.",
-      "notes": "mây was a contrast word in lesson 2. nồm is the damp, sticky Hà Nội spring weather."
+      "candidates": [
+        "trời",
+        "mưa",
+        "nắng",
+        "gió",
+        "mây",
+        "mưa phùn",
+        "nồm",
+        "bão",
+        "mùa xuân",
+        "mùa hè",
+        "mùa thu",
+        "mùa đông"
+      ],
+      "notes": "mây was a contrast word in lesson 2. nồm is the damp, sticky Hà Nội spring weather.",
+      "storyIdea": "Nồm, mưa phùn and the Northern winter; Sơn Tinh and Thủy Tinh, the legend of the mountain god and the water god behind the floods."
     }
   ]
 }

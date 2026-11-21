@@ -1,13 +1,13 @@
 {
-  "name": "Viet Wars",
-  "short_name": "Viet Wars",
-  "description": "Learn Northern Vietnamese by battling villains, one lesson at a time.",
+  "name": "Học tiếng Việt",
+  "short_name": "Tiếng Việt",
+  "description": "A small magazine for learning Northern Vietnamese: history, culture and the words to go with them.",
   "lang": "vi",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#fbf7f0",
-  "theme_color": "#fbf7f0",
+  "background_color": "#f6f1e7",
+  "theme_color": "#f6f1e7",
   "icons": [
     { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
     { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" }

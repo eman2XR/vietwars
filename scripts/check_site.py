@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """Plays through the site in WebKit on several Apple devices and saves screenshots to .checks/.
 
-Serves web/ through request routing (no server), fakes the GitHub API, plays a whole lesson as
-a battle (warm-up, "I know it", ambushes, tone keys, the boss round), checks what was saved and
-sent, then runs a review. Fails on page errors, horizontal overflow, or missing results.
+Serves web/ through request routing (no server), fakes the GitHub API, plays a whole issue
+(article, quiz, warm-up, "I know it", tone keys, rush hour), checks what was saved and sent, runs a
+review, then opens the site as a second device and checks that progress syncs. Fails on page
+errors, horizontal overflow, or missing results.
 Needs the Framework Python with Playwright:
   /Library/Frameworks/Python.framework/Versions/3.13/bin/python3 scripts/check_site.py
 """
@@ -69,6 +70,7 @@ class Run:
         if not self.shots:
             return
         self.n += 1
+        page.wait_for_timeout(300)
         folder = OUT / self.slug
         folder.mkdir(parents=True, exist_ok=True)
         page.screenshot(path=str(folder / f"{self.n:02d}-{label}.png"), full_page=True)
@@ -106,7 +108,7 @@ class Run:
         page.on("pageerror", lambda e: self.errors.append(f"second device page error: {e}"))
         page.goto(f"{BASE}?test=1#/")
         try:
-            page.wait_for_selector(f".node.status-played[href='#/lesson/{self.lesson['id']}'], .node.status-won[href='#/lesson/{self.lesson['id']}']", timeout=8000)
+            page.wait_for_selector(f".issue.status-done[href='#/lesson/{self.lesson['id']}']", timeout=8000)
         except Exception:
             self.errors.append("a second device did not pick up the played lesson from GitHub")
         self.first(page, "second-device-home")
@@ -133,14 +135,15 @@ class Run:
                 return True
             step = page.get_attribute(".stage", "data-step")
             classes = page.get_attribute(".stage", "class") or ""
-            kind = step
-            if "is-ambush" in classes:
-                kind = "ambush"
-            elif "is-warmup" in classes:
-                kind = "warmup"
+            kind = "warmup" if "is-warmup" in classes else step
             self.seen_types.add(kind)
             self.first(page, f"{label}-{kind}")
-            if step in ("intro", "stage", "grammar", "speedIntro", "results"):
+            if step in ("feature", "reviewIntro", "stage", "grammar", "speedIntro", "results"):
+                page.click("[data-act=next]")
+            elif step == "quiz":
+                page.locator(".opt").nth(typed % 2).click()
+                typed += 1
+                self.first(page, f"{label}-quiz-answered")
                 page.click("[data-act=next]")
             elif step == "meet":
                 meets += 1
@@ -177,6 +180,8 @@ class Run:
             elif step == "feedback":
                 page.click("[data-name=difficulty] .seg-btn >> nth=1")
                 page.click("[data-name=fun] .seg-btn >> nth=3")
+                if page.locator("[data-name=article]").count():
+                    page.click("[data-name=article] .seg-btn >> nth=2")
                 page.fill("#want-next", "numbers and prices at the market")
                 page.fill("#note", "check run")
                 self.first(page, f"{label}-feedback-filled")
@@ -217,7 +222,7 @@ class Run:
             state = page.get_attribute(".send-status", "data-state")
             if state != "sent":
                 self.errors.append(f"results were not sent (state {state})")
-        expect = ("warmup", "meet", "listen", "type", "speed", "results") if self.lesson.get("warmup") else ("meet", "listen", "type", "speed", "results")
+        expect = ["feature", "meet", "listen", "type", "speed", "results"] + (["warmup"] if self.lesson.get("warmup") else []) + (["quiz"] if self.lesson.get("quiz") else [])
         for kind in expect:
             if kind not in self.seen_types:
                 self.errors.append(f"lesson never showed a {kind} step")
@@ -232,8 +237,10 @@ class Run:
             expected |= {m["vi"] for m in r.get("warmup", []) if not m["ok"]}
             if set(data["d"]) != expected:
                 self.errors.append(f"review deck has {sorted(data['d'])}, expected {sorted(expected)}")
-            if "rank" not in (r.get("battle") or {}):
-                self.errors.append("result has no battle summary")
+            if self.lesson.get("quiz") and not (r.get("quiz") or {}).get("total"):
+                self.errors.append("result has no quiz score")
+            if "readSec" not in (r.get("article") or {}):
+                self.errors.append("result has no article reading time")
         if data["o"]:
             self.errors.append(f"{len(data['o'])} results left unsent")
         if len(self.posts) != 1:
@@ -245,7 +252,7 @@ class Run:
                 self.errors.append("posted issue has no result block")
             else:
                 r = json.loads(m.group(1))
-                for key in ("resultId", "lessonId", "words", "events", "typed", "toneConfusions", "feedback", "summary", "battle", "warmup"):
+                for key in ("resultId", "lessonId", "words", "events", "typed", "toneConfusions", "feedback", "summary", "article", "quiz", "warmup"):
                     if key not in r:
                         self.errors.append(f"posted result is missing {key}")
                 if (r.get("feedback") or {}).get("wantNext") != "numbers and prices at the market":

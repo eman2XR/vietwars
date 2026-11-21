@@ -1,6 +1,6 @@
 ---
 name: lesson-loop
-description: One round of the Viet Wars learning loop - collect new results, review progress when due, and build the next lesson when the learner has played the newest one. Use when the user asks to check for results or keep the lessons coming, and as the prompt of a recurring /loop or scheduled job (for example "/loop 1h /lesson-loop").
+description: One round of the Học tiếng Việt learning loop - collect new results, review progress when due, and build the next lesson when the learner has played the newest one. Use when the user asks to check for results or keep the lessons coming, and as the prompt of a recurring /loop or scheduled job (for example "/loop 1h /lesson-loop").
 ---
 
 # Lesson loop
@@ -14,7 +14,7 @@ One round, cheap when there is nothing to do. Read `CLAUDE.md` once per session.
    - `ingest`: run `python3 scripts/ingest.py`, then decide again.
    - `review-progress`: follow the `review-progress` skill, then decide again.
    - `next-lesson`: follow the `next-lesson` skill. One lesson per round at most.
-   - `wait`: nothing to do. Reply with one line, such as "No new results; lesson 3 is waiting to be played." Do not repeat the status in detail.
+   - `wait`: nothing to do. Reply with one line, such as "No new results; issue 3 is waiting to be read." Do not repeat the status in detail.
 3. If a step fails (no network, `gh` not signed in, a check that keeps failing after two fixes), stop, say what failed in one or two lines, and leave the working tree clean or committed. Never force-push, never delete results or history to get past a limit.
 
 ## Limits

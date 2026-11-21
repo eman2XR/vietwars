@@ -1,19 +1,17 @@
-// Runs a lesson or review session as a battle: builds the exercise sequence, renders each step and records every answer.
+// Runs a lesson (an issue of the magazine) or a review: builds the sequence, renders each step and records every answer.
 
 import { colorize, contourSVG, tonesOf, TONES, grade, escapeHTML as esc, nfc, applyKey } from './vi.js';
 import { play, stop } from './audio.js';
-import { sprite, HEART } from './sprites.js';
 import { picture } from './pictures.js';
 
 const SPEAKER =
-  '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M4 9v6h4l5 4V5L8 9H4zm12.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4zm-2.5-8.8v2.1a7 7 0 0 1 0 13.4v2.1a9 9 0 0 0 0-17.6z"/></svg>';
+  '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M4 9v6h4l5 4V5L8 9H4zm12.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4zm-2.5-8.8v2.1a7 7 0 0 1 0 13.4v2.1a9 9 0 0 0 0-17.6z"/></svg>';
 const BOUNDARIES = new Set(['stage', 'grammar', 'speedIntro', 'results', 'feedback']);
 const SCORED = new Set(['listen', 'spell', 'reverse', 'type']);
 const DRILLS = new Set(['listen', 'spell', 'reverse']);
 const TYPE_CREDIT = { perfect: 1, tone: 0.5, marks: 0.5, sound: 0.5 };
 const SPEED_SECONDS = 45;
-const AMBUSH_SECONDS = 7;
-const MAX_HEARTS = 5;
+const FACT_EVERY = 3;
 const TONE_KEYS = ['ngang', 'huyen', 'sac', 'hoi', 'nga', 'nang'];
 const VOWEL_KEYS = ['ă', 'â', 'ê', 'ô', 'ơ', 'ư', 'đ'];
 
@@ -63,15 +61,23 @@ function pic(w, size = '') {
   return p ? `<div class="pic-wrap ${size}">${p}</div>` : '';
 }
 
-function line(l) {
-  if (!l) return '';
-  return `<div class="foe-line"><span class="vi">${colorize(l.vi)}</span>${sayButton(l.vi, 'Play', 'mini')}<small>${esc(l.en)}</small></div>`;
+export function stampHTML(lesson, grade = '', date = '') {
+  const art = lesson?.stamp?.picture ? picture(lesson.stamp.picture) : '';
+  return `<div class="stamp ${grade ? `grade-${grade}` : 'empty'}">
+    <div class="stamp-inner">
+      <div class="stamp-art">${art}</div>
+      <div class="stamp-label vi">${colorize(lesson?.stamp?.label || lesson?.vi || '')}</div>
+      <div class="stamp-num">No. ${esc(lesson?.number ?? '')}</div>
+    </div>
+    ${date ? `<div class="postmark"><span>HÀ NỘI</span><span>${esc(date)}</span></div>` : ''}
+  </div>`;
 }
 
 export function lessonSteps(lesson, { review = [], warmup = [] } = {}) {
   const words = lesson.words;
   const all = [...words, ...review];
-  const steps = [{ type: 'intro' }];
+  const steps = [{ type: 'feature' }];
+  (lesson.quiz || []).forEach((q, i) => steps.push({ type: 'quiz', q, n: i + 1, of: lesson.quiz.length }));
   if (warmup.length) {
     steps.push({ type: 'stage', title: 'Warm-up', text: `${warmup.length} words you probably know. Tap the meaning; any you miss go into your reviews.` });
     shuffle(warmup).forEach((w) => steps.push({ type: 'listen', word: w, pool: warmup, warmup: true }));
@@ -82,7 +88,7 @@ export function lessonSteps(lesson, { review = [], warmup = [] } = {}) {
       .slice(0, Math.min(2, group.length))
       .forEach((w) => steps.push({ type: 'listen', word: w, pool: group.length >= 3 ? group : words }));
   });
-  steps.push({ type: 'stage', title: 'Listen', text: 'Hear each word and tap what it means. Words you miss come back a little later.' });
+  steps.push({ type: 'stage', title: 'Listen', text: 'Hear each word and pick what it means. Get three in a row and a fact from the issue turns up.' });
   shuffle(all).forEach((w) => steps.push({ type: 'listen', word: w, pool: all }));
   steps.push({ type: 'stage', title: 'Tones and spelling', text: 'Pick the spelling you hear, or the Vietnamese for a picture. Watch the tone marks.' });
   shuffle(words).forEach((w) => steps.push(w.contrast?.length ? { type: 'spell', word: w } : { type: 'reverse', word: w, pool: words }));
@@ -98,7 +104,7 @@ export function lessonSteps(lesson, { review = [], warmup = [] } = {}) {
 }
 
 export function reviewSteps(words, pool) {
-  const steps = [{ type: 'intro' }];
+  const steps = [{ type: 'reviewIntro' }];
   shuffle(words).forEach((w) => steps.push({ type: 'listen', word: w, pool }));
   steps.push({ type: 'stage', title: 'From memory', text: 'Type each word: from its meaning, or from hearing it.' });
   shuffle(words).forEach((w, i) => steps.push({ type: 'type', word: w, dictation: i % 2 === 1 }));
@@ -114,7 +120,7 @@ function mean(xs) {
   return xs.length ? Math.round((xs.reduce((a, b) => a + b, 0) / xs.length) * 100) / 100 : null;
 }
 
-// Summarises the recorded events into per-word results and totals. Warm-up, ambush and retry answers are not first tries.
+// Summarises the recorded events into per-word results and totals. Warm-up and retry answers are not first tries.
 export function summarise(events, words) {
   const firsts = events.filter((e) => SCORED.has(e.t) && !e.retry && !e.ambush && !e.warmup);
   const perWord = words.map((w) => {
@@ -139,137 +145,77 @@ export function summarise(events, words) {
   return { perWord, firstTryAccuracy: firsts.length ? Math.round((total / firsts.length) * 100) / 100 : 0, exercises: firsts.length };
 }
 
+export function gradeFor(accuracy) {
+  return accuracy >= 0.9 ? 'distinction' : accuracy >= 0.7 ? 'merit' : 'complete';
+}
+
 export function runSession(root, session, onDone, onQuit) {
-  const game = session.game || { callouts: {} };
-  const foe = session.foe || game.reviewFoe || { name: 'Bóng', en: 'the Shadow', art: 'shadow', taunts: [] };
+  const lesson = session.lesson;
   const S = {
     steps: session.steps,
     i: 0,
     events: [],
     started: Date.now(),
     known: new Set(),
-    xp: 0,
+    streak: 0,
+    bestStreak: 0,
+    facts: shuffle(session.facts || []),
+    factsShown: [],
+    met: new Set(),
     speed: { answered: 0, correct: 0, score: 0, combo: 0, bestCombo: 0 },
+    quiz: { correct: 0, total: 0 },
+    readMs: 0,
     stepStart: Date.now(),
     answered: false,
     timer: null,
-    lastEvent: -10,
-    seen: {},
   };
-  const B = { hearts: MAX_HEARTS, hp: 100, streak: 0, crits: 0, heartsLost: 0, knockouts: 0, ambushWon: 0, ambushLost: 0, powerups: 0, won: null };
   const words = session.words;
   const scoredWords = session.scoredWords || words;
-  const boss = session.boss !== false;
-  const scoredCount = Math.max(8, S.steps.filter((s) => SCORED.has(s.type)).length);
-  const HIT = (boss ? 72 : 100) / scoredCount;
-  const hearts = Array.from({ length: MAX_HEARTS }, () => `<span class="heart on">${HEART}</span>`).join('');
 
   root.innerHTML = `
     <div class="session">
       <header class="session-bar">
-        <button class="icon-btn" data-act="quit" aria-label="Leave">&times;</button>
+        <button class="icon-btn" data-act="quit" aria-label="Close">&times;</button>
         <div class="progress" role="progressbar" aria-label="Progress"><div class="fill"></div></div>
-        <div class="xp-pill"><span class="xp-num">0</span> XP</div>
+        <div class="streak-pill" aria-live="polite"></div>
       </header>
-      <div class="battle-bar">
-        <div class="foe-mini">${sprite(foe.art)}</div>
-        <div class="foe-meter">
-          <div class="foe-name"><span class="vi">${colorize(foe.name)}</span><span class="foe-hp-num">100%</span></div>
-          <div class="hp"><div class="hp-fill"></div></div>
-        </div>
-        <div class="hearts" aria-label="Hearts">${hearts}</div>
-      </div>
       <main class="stage" aria-live="polite"></main>
-      <div class="callout" aria-hidden="true"></div>
-      <div class="toast" role="status"></div>
+      <div class="fact-card" role="status"></div>
     </div>`;
   const sessionEl = root.querySelector('.session');
   const stage = root.querySelector('.stage');
   const fill = root.querySelector('.fill');
-  const xpNum = root.querySelector('.xp-num');
-  const hpFill = root.querySelector('.hp-fill');
-  const hpNum = root.querySelector('.foe-hp-num');
-  const foeMini = root.querySelector('.foe-mini');
-  const heartEls = [...root.querySelectorAll('.heart')];
-  const calloutEl = root.querySelector('.callout');
-  const toastEl = root.querySelector('.toast');
-  let calloutTimer;
-  let toastTimer;
+  const streakEl = root.querySelector('.streak-pill');
+  const factEl = root.querySelector('.fact-card');
+  let factTimer;
 
-  function updateBattle() {
-    hpFill.style.width = `${Math.max(0, B.hp)}%`;
-    hpFill.classList.toggle('low', B.hp < 30);
-    hpNum.textContent = `${Math.max(0, Math.round(B.hp))}%`;
-    heartEls.forEach((h, i) => h.classList.toggle('on', i < B.hearts));
+  function showStreak() {
+    streakEl.textContent = S.streak >= 2 ? `${S.streak} in a row` : '';
+    streakEl.classList.toggle('hot', S.streak >= FACT_EVERY);
   }
 
-  function callout(key, extra = '') {
-    const c = game.callouts?.[key];
-    if (!c) return;
-    S.seen[key] = (S.seen[key] || 0) + 1;
-    calloutEl.innerHTML = `<b class="vi">${colorize(c.vi)}</b>${extra ? `<span class="dmg">${esc(extra)}</span>` : ''}${S.seen[key] <= 2 ? `<small>${esc(c.en)}</small>` : ''}`;
-    calloutEl.className = `callout show c-${key}`;
-    clearTimeout(calloutTimer);
-    calloutTimer = setTimeout(() => (calloutEl.className = 'callout'), 1100);
+  // Shows a fact about a word already met, or a general one from the issue, so nothing is spoiled before it is taught.
+  function showFact() {
+    const at = S.facts.findIndex((f) => !f.vi || S.met.has(nfc(f.vi)));
+    if (at < 0) return;
+    const [f] = S.facts.splice(at, 1);
+    S.factsShown.push(f.vi || f.text.slice(0, 40));
+    factEl.innerHTML = `<div class="label">Did you know</div>${f.vi ? `<b class="vi">${colorize(f.vi)}</b> ` : ''}${esc(f.text)}<button type="button" class="fact-close" aria-label="Close">&times;</button>`;
+    factEl.classList.add('show');
+    clearTimeout(factTimer);
+    factTimer = setTimeout(() => factEl.classList.remove('show'), 9000);
   }
 
-  function toast(html) {
-    toastEl.innerHTML = html;
-    toastEl.classList.add('show');
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => toastEl.classList.remove('show'), 3200);
+  function right() {
+    S.streak += 1;
+    S.bestStreak = Math.max(S.bestStreak, S.streak);
+    if (S.streak % FACT_EVERY === 0) showFact();
+    showStreak();
   }
 
-  function shakeFoe() {
-    foeMini.classList.remove('hit');
-    void foeMini.offsetWidth;
-    foeMini.classList.add('hit');
-  }
-
-  function damage(kind) {
-    const mult = { hit: 1, crit: 1.8, half: 0.5, ambush: 2.5 }[kind] || 1;
-    const d = HIT * mult;
-    B.hp = Math.max(0, B.hp - d);
-    if (kind === 'crit') B.crits += 1;
-    shakeFoe();
-    updateBattle();
-    return Math.max(1, Math.round(d));
-  }
-
-  function strike(step) {
-    B.streak += 1;
-    const kind = step.ambush ? 'ambush' : B.streak % 3 === 0 ? 'crit' : 'hit';
-    const d = damage(kind);
-    callout(kind === 'crit' ? 'crit' : 'hit', `-${d}`);
-  }
-
-  function hurt() {
-    B.streak = 0;
-    B.hearts -= 1;
-    B.heartsLost += 1;
-    sessionEl.classList.remove('hurt');
-    void sessionEl.offsetWidth;
-    sessionEl.classList.add('hurt');
-    if (B.hearts <= 0) {
-      B.knockouts += 1;
-      B.hearts = MAX_HEARTS;
-      B.hp = Math.min(100, B.hp + 12);
-      callout('knockout');
-    } else callout('ouch');
-    updateBattle();
-  }
-
-  function addXP(n) {
-    S.xp += n;
-    xpNum.textContent = S.xp;
-    if (n > 0) {
-      root.querySelectorAll('.xp-pop').forEach((el) => el.remove());
-      const pop = document.createElement('div');
-      pop.className = 'xp-pop';
-      pop.textContent = `+${n}`;
-      root.querySelector('.session-bar').appendChild(pop);
-      setTimeout(() => pop.remove(), 900);
-    }
+  function wrong() {
+    S.streak = 0;
+    showStreak();
   }
 
   function record(e) {
@@ -277,55 +223,25 @@ export function runSession(root, session, onDone, onQuit) {
   }
 
   function insertRetry(step) {
-    if (step.retry || step.warmup || step.ambush) return;
+    if (step.retry || step.warmup) return;
     let end = S.i + 1;
     while (end < S.steps.length && !BOUNDARIES.has(S.steps[end].type)) end++;
     const at = Math.min(S.i + 4, end);
     S.steps.splice(at, 0, { ...step, retry: true });
   }
 
-  // After a correct answer, sometimes a surprise: a power-up that restores a heart, or an ambush question.
-  function maybeEvent(step) {
-    if (step.warmup || step.retry || step.ambush || step.combo) return;
-    if (S.i - S.lastEvent < 5 || S.steps.length - S.i < 8) return;
-    if (Math.random() >= (session.testMode ? 0.4 : 0.12)) return;
-    S.lastEvent = S.i;
-    const foods = session.powerups || [];
-    if (foods.length && Math.random() < 0.5) {
-      const f = pick(foods);
-      B.powerups += 1;
-      B.hearts = Math.min(MAX_HEARTS, B.hearts + 1);
-      updateBattle();
-      const c = game.callouts?.found || { vi: 'Tìm thấy', en: 'Found' };
-      toast(`${pic(f, 'tiny')}<div><b class="vi">${colorize(c.vi)} ${colorize(f.vi)}!</b><small>${esc(c.en)}: ${esc(f.en)}. +1 heart</small></div>${sayButton(f.vi, 'Play', 'mini')}`);
-      S.events.push({ t: 'powerup', w: f.vi, at: Date.now() - S.started });
-    } else {
-      const pool = words.filter((w) => !S.known.has(w.vi));
-      if (!pool.length) return;
-      S.steps.splice(S.i + 1, 0, { type: 'listen', word: pick(pool), pool: words, ambush: true });
-    }
-  }
-
   function next() {
     clearInterval(S.timer);
+    if (S.steps[S.i]?.type === 'feature') S.readMs = Date.now() - S.stepStart;
     S.i += 1;
     render();
   }
 
   function cleanup() {
     clearInterval(S.timer);
-    clearTimeout(calloutTimer);
-    clearTimeout(toastTimer);
+    clearTimeout(factTimer);
     document.removeEventListener('keydown', onKey);
     stop();
-  }
-
-  function rank(sum) {
-    const acc = sum.firstTryAccuracy;
-    if (B.won && acc >= 0.9 && B.knockouts === 0) return 'S';
-    if (B.won) return 'A';
-    if (acc >= 0.7) return 'B';
-    return 'C';
   }
 
   function finish(feedback) {
@@ -336,22 +252,13 @@ export function runSession(root, session, onDone, onQuit) {
       startedAt: new Date(S.started).toISOString(),
       finishedAt: new Date().toISOString(),
       durationSec: Math.round((Date.now() - S.started) / 1000),
-      xp: S.xp,
       known: [...S.known],
       speed: S.speed,
       summary: sum,
-      battle: {
-        foe: foe.name,
-        won: Boolean(B.won),
-        foeHpLeft: Math.round(B.hp),
-        heartsLost: B.heartsLost,
-        knockouts: B.knockouts,
-        crits: B.crits,
-        ambushWon: B.ambushWon,
-        ambushLost: B.ambushLost,
-        powerups: B.powerups,
-        rank: rank(sum),
-      },
+      bestStreak: S.bestStreak,
+      quiz: S.quiz,
+      article: lesson ? { readSec: Math.round(S.readMs / 1000), factsShown: S.factsShown.length } : null,
+      grade: gradeFor(sum.firstTryAccuracy),
       feedback,
     });
   }
@@ -364,8 +271,9 @@ export function runSession(root, session, onDone, onQuit) {
     const total = S.steps.filter((s) => s.type !== 'results' && s.type !== 'feedback').length;
     fill.style.width = `${Math.min(100, (S.i / total) * 100)}%`;
     stage.dataset.step = step.type;
-    stage.className = `stage step-${step.type}${step.ambush ? ' is-ambush' : ''}${step.warmup ? ' is-warmup' : ''}`;
-    sessionEl.classList.toggle('battle-hidden', step.type === 'results' || step.type === 'feedback');
+    stage.className = `stage step-${step.type}${step.warmup ? ' is-warmup' : ''}`;
+    if (!SCORED.has(step.type) && step.type !== 'speed') factEl.classList.remove('show');
+    if (step.word && step.type !== 'meet' && !step.warmup) S.met.add(nfc(step.word.vi));
     RENDER[step.type](step);
     window.scrollTo(0, 0);
   }
@@ -418,95 +326,91 @@ export function runSession(root, session, onDone, onQuit) {
   }
 
   function choiceExercise(step, { prompt, top, opts, key, label, after, autoplay }) {
-    const ambush = game.callouts?.ambush || { vi: 'Phục kích!', en: 'Ambush!' };
     stage.innerHTML = `
-      ${step.ambush ? `<div class="ambush-banner"><b class="vi">${colorize(ambush.vi)}</b><small>${esc(ambush.en)}</small><div class="timer ambush-timer"><div class="timer-fill"></div></div></div>` : ''}
-      <div class="kicker">${esc(prompt)}${step.retry ? ' <span class="again">again</span>' : ''}${step.warmup ? ' <span class="again">warm-up</span>' : ''}</div>
+      <div class="kicker">${esc(prompt)}${step.retry ? ' <span class="tag">again</span>' : ''}${step.warmup ? ' <span class="tag">warm-up</span>' : ''}</div>
       ${top}
       ${optionButtons(opts, label, key)}
       <div class="feedback-slot"></div>
       ${footer('')}`;
     if (autoplay) play(step.word.vi);
-    const answer = (chosen) => {
-      if (S.answered) return;
-      S.answered = true;
-      clearInterval(S.timer);
-      const ok = Boolean(chosen) && chosen[key] === step.word[key];
-      record({
-        t: step.type,
-        w: step.word.vi,
-        ok,
-        a: chosen ? chosen[key] : null,
-        retry: Boolean(step.retry) || undefined,
-        combo: step.combo || undefined,
-        warmup: step.warmup || undefined,
-        ambush: step.ambush || undefined,
-        timeout: chosen ? undefined : true,
-      });
-      markOptions(chosen ? chosen[key] : null, step.word[key]);
-      flash(ok);
-      if (ok) {
-        strike(step);
-        if (step.ambush) B.ambushWon += 1;
-        addXP(step.retry ? 5 : step.ambush ? 20 : 10);
-        maybeEvent(step);
-      } else {
-        if (step.ambush) B.ambushLost += 1;
-        hurt();
-        insertRetry(step);
-      }
-      stage.querySelector('.feedback-slot').innerHTML = after(ok, chosen);
-      if (!autoplay || !ok) play(step.word.vi);
-      showNext();
-    };
-    stage.querySelectorAll('.opt').forEach((b) => b.addEventListener('click', () => answer(opts[Number(b.dataset.i)])));
-    if (step.ambush) {
-      const end = Date.now() + AMBUSH_SECONDS * 1000;
-      const bar = stage.querySelector('.ambush-timer .timer-fill');
-      S.timer = setInterval(() => {
-        const left = Math.max(0, end - Date.now());
-        bar.style.width = `${(left / (AMBUSH_SECONDS * 1000)) * 100}%`;
-        if (left <= 0) answer(null);
-      }, 100);
-    }
+    stage.querySelectorAll('.opt').forEach((b) =>
+      b.addEventListener('click', () => {
+        if (S.answered) return;
+        S.answered = true;
+        const chosen = opts[Number(b.dataset.i)];
+        const ok = chosen[key] === step.word[key];
+        record({ t: step.type, w: step.word.vi, ok, a: chosen[key], retry: Boolean(step.retry) || undefined, combo: step.combo || undefined, warmup: step.warmup || undefined });
+        markOptions(chosen[key], step.word[key]);
+        flash(ok);
+        if (ok) right();
+        else {
+          wrong();
+          insertRetry(step);
+        }
+        stage.querySelector('.feedback-slot').innerHTML = after(ok, chosen);
+        if (!autoplay || !ok) play(step.word.vi);
+        showNext();
+      }),
+    );
   }
 
   const RENDER = {
-    intro() {
-      const l = session.lesson;
-      const taunt = foe.taunts?.length ? pick(foe.taunts) : null;
+    feature() {
+      const f = lesson.feature || {};
+      const body = (f.body || []).map((p, i) => `<p${i === 0 ? ' class="first"' : ''}>${esc(p)}</p>${i === 1 && f.pull ? `<blockquote class="pull">${esc(f.pull)}</blockquote>` : ''}`).join('');
+      const meta = [`${lesson.words.length} new words`, lesson.warmup?.length ? `a warm-up of ${lesson.warmup.length}` : '', lesson.quiz?.length ? `a ${lesson.quiz.length}-question quiz` : '', 'Rush hour'].filter(Boolean).join(' · ');
       stage.innerHTML = `
-        <div class="kicker">${l ? `Lesson ${esc(l.number)}` : 'Review'}</div>
-        <h1 class="title">${esc(l ? l.title : 'Bring them back')}</h1>
-        ${l ? `<div class="subtitle vi">${colorize(l.vi)}</div>` : ''}
-        <div class="foe-card">
-          <div class="foe-big">${sprite(foe.art)}</div>
-          <div class="foe-info">
-            <div class="label">Your opponent</div>
-            <div class="foe-title vi">${colorize(foe.name)}</div>
-            <div class="foe-en">${esc(foe.en)}</div>
-            ${foe.intro ? `<p>${esc(foe.intro)}</p>` : ''}
-            ${line(taunt)}
-          </div>
-        </div>
-        ${l ? `<p class="lead">${esc(l.intro)}</p>` : ''}
-        <div class="rules">
-          <div><b>Right answers</b> hit ${esc(foe.en)}. Three in a row land a critical hit.</div>
-          <div><b>Wrong answers</b> cost a heart. Lose all five and it heals a little.</div>
-          ${boss ? '<div><b>The final round</b> is a 45-second boss fight. Win it to defeat the foe.</div>' : '<div><b>Remember them all</b> to beat it.</div>'}
-        </div>
-        <div class="legend compact">
-          ${Object.entries(TONES)
-            .map(([id, t]) => `<div class="legend-item t-${id}">${contourSVG(id, { width: 34, height: 22 })}<b>${esc(t.name)}</b></div>`)
-            .join('')}
-        </div>
-        ${footer('<button class="btn primary" data-act="next">Fight</button>')}`;
+        <article class="feature">
+          ${lesson.cover?.picture ? `<figure class="cover-art">${picture(lesson.cover.picture)}</figure>` : ''}
+          <div class="kicker">Issue ${esc(lesson.number)} · ${esc(f.kicker || lesson.theme || '')}</div>
+          <h1 class="feature-title">${esc(f.title || lesson.title)}</h1>
+          ${f.dek ? `<p class="dek">${esc(f.dek)}</p>` : ''}
+          <div class="feature-body">${body}</div>
+          ${f.sources?.length ? `<details class="sources"><summary>Sources</summary><ul>${f.sources.map((s) => `<li><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)}</a></li>`).join('')}</ul></details>` : ''}
+          <div class="issue-meta"><div class="label">In this issue</div><p><b>${esc(lesson.title)}</b> <span class="vi">${colorize(lesson.vi)}</span><br>${esc(meta)}</p></div>
+        </article>
+        ${footer(`<button class="btn primary" data-act="next">${lesson.quiz?.length ? 'Take the quiz' : 'Start'}</button>`)}`;
+    },
+
+    quiz(step) {
+      const q = step.q;
+      const opts = q.options.map((text, i) => ({ text, i }));
+      stage.innerHTML = `
+        <div class="kicker">Quiz · ${step.n} of ${step.of}</div>
+        <h2 class="quiz-q">${esc(q.q)}</h2>
+        <div class="options quiz-options">${opts.map((o) => `<button type="button" class="opt" data-i="${o.i}" data-key="${o.i}"><span class="opt-n">${String.fromCharCode(65 + o.i)}</span><span class="opt-label">${esc(o.text)}</span></button>`).join('')}</div>
+        <div class="feedback-slot"></div>
+        ${footer('')}`;
+      stage.querySelectorAll('.opt').forEach((b) =>
+        b.addEventListener('click', () => {
+          if (S.answered) return;
+          S.answered = true;
+          const i = Number(b.dataset.i);
+          const ok = i === q.answer;
+          S.quiz.total += 1;
+          if (ok) S.quiz.correct += 1;
+          record({ t: 'quiz', w: `quiz-${step.n}`, ok, a: q.options[i] });
+          markOptions(String(i), String(q.answer));
+          flash(ok);
+          stage.querySelector('.feedback-slot').innerHTML = `<div class="verdict ${ok ? 'ok' : 'no'}">${ok ? 'Right.' : `It is ${esc(q.options[q.answer])}.`}</div><p class="explain">${esc(q.explain || '')}</p>`;
+          showNext(step.n === step.of ? 'On to the words' : 'Next question');
+        }),
+      );
+    },
+
+    reviewIntro() {
+      stage.innerHTML = `
+        <div class="kicker">Review</div>
+        <h1 class="feature-title">Bring them back</h1>
+        <p class="dek">${words.length} word${words.length === 1 ? '' : 's'} due today. Each one you remember waits a little longer before it comes back: one day, three, a week, a month.</p>
+        ${footer('<button class="btn primary" data-act="next">Start</button>')}`;
     },
 
     meet(step) {
       const w = step.word;
+      S.met.add(nfc(w.vi));
       stage.innerHTML = `
-        <div class="kicker">New word ${step.n} of ${step.of}</div>
+        <div class="kicker">New word · ${step.n} of ${step.of}</div>
         <div class="card meet-card">
           ${pic(w, 'large')}
           <div class="big vi">${colorize(w.vi)}</div>
@@ -514,9 +418,11 @@ export function runSession(root, session, onDone, onQuit) {
           <div class="meaning">${esc(w.en)}</div>
           ${w.note ? `<div class="note">${esc(w.note)}</div>` : ''}
           <div class="row center">${sayButton(w.vi, 'Play')} ${sayButton(w.vi, 'Slow', 'slow')}</div>
-          ${w.hook ? `<div class="hook"><div class="label">Memory hook</div>${esc(w.hook)}</div>` : ''}
-          ${w.tip ? `<div class="tip"><div class="label">Say it</div>${esc(w.tip)}</div>` : ''}
-          <p class="hint">Say it out loud twice, then play it again and compare.</p>
+          <div class="meet-notes">
+            ${w.hook ? `<div class="hook"><div class="label">Memory hook</div>${esc(w.hook)}</div>` : ''}
+            ${w.tip ? `<div class="tip"><div class="label">Say it</div>${esc(w.tip)}</div>` : ''}
+          </div>
+          ${w.fact ? `<aside class="did-you-know"><div class="label">Did you know</div>${esc(w.fact)}</aside>` : ''}
         </div>
         ${footer('<button class="btn ghost" data-act="known">I know it</button><button class="btn primary" data-act="next">Next</button>')}`;
       play(w.vi);
@@ -531,7 +437,7 @@ export function runSession(root, session, onDone, onQuit) {
     listen(step) {
       const opts = choices(step.word, step.pool, 'en');
       choiceExercise(step, {
-        prompt: step.combo ? 'Put together: what does this mean?' : step.ambush ? 'Quick: what does this mean?' : 'What does this mean?',
+        prompt: step.combo ? 'In context: what does this mean?' : 'What does this mean?',
         top: listenTop(step.word.vi),
         opts,
         key: 'en',
@@ -575,7 +481,7 @@ export function runSession(root, session, onDone, onQuit) {
       let hints = 0;
       let keys = 0;
       stage.innerHTML = `
-        <div class="kicker">${dict ? 'Type what you hear' : 'Type it in Vietnamese'}${step.retry ? ' <span class="again">again</span>' : ''}</div>
+        <div class="kicker">${dict ? 'Type what you hear' : 'Type it in Vietnamese'}${step.retry ? ' <span class="tag">again</span>' : ''}</div>
         ${dict ? listenTop(w.vi) : `${pic(w, 'medium')}<div class="prompt-en">${esc(w.en)}</div>`}
         <form class="type-form" autocomplete="off">
           <input class="type-input vi" type="text" lang="vi" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="done" aria-label="Your answer">
@@ -643,17 +549,9 @@ export function runSession(root, session, onDone, onQuit) {
         record({ t: 'type', w: w.vi, g, a: nfc(answer).trim().slice(0, 60), hints, keys, dictation: dict || undefined, retry: Boolean(step.retry) || undefined });
         const ok = g === 'perfect';
         flash(ok);
-        if (ok) {
-          strike(step);
-          addXP(step.retry || hints ? 5 : 15);
-          maybeEvent(step);
-        } else if (g === 'wrong') {
-          hurt();
-          insertRetry(step);
-        } else {
-          B.streak = 0;
-          callout('hit', `-${damage('half')}`);
-          addXP(3);
+        if (ok) right();
+        else {
+          wrong();
           insertRetry(step);
         }
         const msg = {
@@ -673,18 +571,17 @@ export function runSession(root, session, onDone, onQuit) {
     },
 
     stage(step) {
-      const taunt = foe.taunts?.length && Math.random() < 0.7 ? pick(foe.taunts) : null;
       stage.innerHTML = `
+        <div class="kicker">${lesson ? `Issue ${esc(lesson.number)}` : 'Review'}</div>
         <h2 class="title">${esc(step.title)}</h2>
         <p class="lead">${esc(step.text)}</p>
-        ${taunt ? `<div class="taunt"><div class="foe-mini-inline">${sprite(foe.art)}</div><div class="bubble">${line(taunt)}</div></div>` : ''}
-        ${footer('<button class="btn primary" data-act="next">Let\'s go</button>')}`;
+        ${footer('<button class="btn primary" data-act="next">Continue</button>')}`;
     },
 
     grammar(step) {
       const g = step.grammar;
       stage.innerHTML = `
-        <div class="kicker">One small rule</div>
+        <div class="kicker">Grammar note</div>
         <h2 class="title">${esc(g.title)}</h2>
         <p class="lead">${esc(g.text)}</p>
         <div class="examples answer-box pairs">${(g.examples || [])
@@ -694,16 +591,11 @@ export function runSession(root, session, onDone, onQuit) {
     },
 
     speedIntro() {
-      const c = game.callouts?.boss || { vi: 'Trận cuối!', en: 'Final battle!' };
-      const taunt = foe.taunts?.length ? pick(foe.taunts) : null;
       stage.innerHTML = `
-        <div class="boss-intro">
-          <div class="foe-big angry">${sprite(foe.art)}</div>
-          <h2 class="title vi">${colorize(c.vi)}</h2>
-          <p class="lead">${esc(c.en)} ${session.testMode ? 4 : SPEED_SECONDS} seconds to finish ${esc(foe.en)}, who has ${Math.round(B.hp)}% left. Hear it, tap the meaning. Answers in a row hit harder.</p>
-          ${line(taunt)}
-        </div>
-        ${footer('<button class="btn primary" data-act="next">Fight</button>')}`;
+        <div class="kicker">Last round</div>
+        <h2 class="title vi">${colorize('Giờ cao điểm')}</h2>
+        <p class="dek">Rush hour. ${session.testMode ? 4 : SPEED_SECONDS} seconds, everything from this issue, as fast as Hà Nội traffic. Answers in a row score double, triple, up to five times.</p>
+        ${footer('<button class="btn primary" data-act="next">Go</button>')}`;
     },
 
     speed(step) {
@@ -720,9 +612,7 @@ export function runSession(root, session, onDone, onQuit) {
         over = true;
         clearInterval(S.timer);
         stop();
-        B.won = B.hp <= 0;
-        if (B.won) callout('victory');
-        setTimeout(next, B.won ? 900 : 0);
+        next();
       };
       const ask = () => {
         const target = pick(step.pool);
@@ -742,23 +632,12 @@ export function runSession(root, session, onDone, onQuit) {
               sp.correct += 1;
               sp.combo += 1;
               sp.bestCombo = Math.max(sp.bestCombo, sp.combo);
-              const pts = 10 * Math.min(sp.combo, 5);
-              sp.score += pts;
-              addXP(Math.round(pts / 5));
-              const d = 3.5 * (1 + 0.25 * (Math.min(sp.combo, 5) - 1));
-              B.hp = Math.max(0, B.hp - d);
-              shakeFoe();
-              updateBattle();
-              callout(sp.combo >= 3 ? 'crit' : 'hit', `-${Math.round(d)}`);
-            } else {
-              sp.combo = 0;
-              hurt();
-            }
+              sp.score += 10 * Math.min(sp.combo, 5);
+            } else sp.combo = 0;
             stage.querySelector('.score').textContent = sp.score;
-            stage.querySelector('.combo').textContent = sp.combo > 1 ? `x${Math.min(sp.combo, 5)}` : '';
+            stage.querySelector('.combo').textContent = sp.combo > 1 ? `×${Math.min(sp.combo, 5)}` : '';
             flash(ok);
-            if (B.hp <= 0) done();
-            else if (Date.now() < end) ask();
+            if (Date.now() < end) ask();
           }),
         );
       };
@@ -771,36 +650,34 @@ export function runSession(root, session, onDone, onQuit) {
     },
 
     results() {
-      if (B.won === null) B.won = B.hp <= 0;
       const sum = summarise(S.events, scoredWords);
       const pct = Math.round(sum.firstTryAccuracy * 100);
-      const r = rank(sum);
-      const stars = (n) => `<span class="stars" aria-label="${n} of 3">${'<i class="on"></i>'.repeat(n)}${'<i></i>'.repeat(3 - n)}</span>`;
-      const c = B.won ? game.callouts?.victory : game.callouts?.escaped;
+      const g = gradeFor(sum.firstTryAccuracy);
+      const label = { distinction: 'With distinction', merit: 'With merit', complete: 'Complete' }[g];
+      const dots = (n) => `<span class="mastery" aria-label="${n} of 3">${'<i class="on"></i>'.repeat(n)}${'<i></i>'.repeat(3 - n)}</span>`;
       const missedWarmup = [...new Set(S.events.filter((e) => e.warmup && !e.ok).map((e) => e.w))];
+      const today = new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
       stage.innerHTML = `
-        <div class="battle-result ${B.won ? 'win' : 'lose'}">
-          <div class="foe-big ${B.won ? 'defeated' : ''}">${sprite(foe.art)}</div>
-          <div class="battle-text">
-            <div class="rank-badge rank-${r}">${r}</div>
-            <h2 class="title vi">${colorize(c?.vi || (B.won ? 'Victory!' : 'It got away!'))}</h2>
-            <small>${esc(c?.en || '')}</small>
-            ${line(B.won ? foe.win : foe.lose)}
+        <div class="results-head">
+          ${lesson ? stampHTML(lesson, g, today) : ''}
+          <div>
+            <div class="kicker">${lesson ? `Issue ${esc(lesson.number)} complete` : 'Review complete'}</div>
+            <h2 class="title">${esc(label)}</h2>
+            <p class="lead">${lesson ? 'A new stamp for your passport.' : 'Each word you remembered now waits longer before it comes back.'}</p>
           </div>
         </div>
         <div class="stats">
           <div><b>${pct}%</b><span>first try</span></div>
-          <div><b>${S.xp}</b><span>XP</span></div>
-          <div><b>${B.crits}</b><span>critical hits</span></div>
-          <div><b>${B.heartsLost}</b><span>hearts lost</span></div>
+          <div><b>${S.bestStreak}</b><span>best streak</span></div>
+          ${S.quiz.total ? `<div><b>${S.quiz.correct}/${S.quiz.total}</b><span>quiz</span></div>` : ''}
+          ${S.speed.answered ? `<div><b>${S.speed.score}</b><span>rush hour</span></div>` : ''}
         </div>
         ${missedWarmup.length ? `<div class="note">Added to your reviews from the warm-up: <span class="vi">${missedWarmup.map((v) => colorize(v)).join(', ')}</span></div>` : ''}
         <div class="word-results">${sum.perWord
-          .map((w) => `<button type="button" class="word-row" data-say="${esc(w.vi)}"><span class="vi">${colorize(w.vi)}</span><span class="en">${esc(w.en)}${S.known.has(w.vi) ? ' <span class="again">known</span>' : ''}</span>${stars(w.stars)}</button>`)
+          .map((w) => `<button type="button" class="word-row" data-say="${esc(w.vi)}"><span class="vi">${colorize(w.vi)}</span><span class="en">${esc(w.en)}${S.known.has(w.vi) ? ' <span class="tag">known</span>' : ''}</span>${dots(w.stars)}</button>`)
           .join('')}</div>
+        ${lesson?.challenge ? `<aside class="challenge"><div class="label">${esc(lesson.challenge.title || 'Challenge')}</div>${esc(lesson.challenge.text)}</aside>` : ''}
         ${footer('<button class="btn primary" data-act="next">Continue</button>')}`;
-      const l = B.won ? foe.win : foe.lose;
-      if (l?.vi) play(l.vi);
     },
 
     feedback() {
@@ -809,19 +686,20 @@ export function runSession(root, session, onDone, onQuit) {
       const seg = (name, values) =>
         `<div class="seg" data-name="${name}">${values.map((v) => `<button type="button" class="seg-btn" data-v="${esc(v)}">${esc(v)}</button>`).join('')}</div>`;
       stage.innerHTML = `
-        <h2 class="title">How was it?</h2>
-        <p class="lead">This shapes your next lesson.</p>
+        <h2 class="title">How was this issue?</h2>
+        <p class="lead">Your answers shape the next one.</p>
         <form class="feedback-form">
           <label class="field-label">Difficulty</label>
           ${seg('difficulty', ['Too easy', 'Just right', 'Too hard'])}
           <label class="field-label">Fun</label>
           ${seg('fun', ['Boring', 'OK', 'Good', 'Fun', 'Loved it'])}
+          ${lesson ? `<label class="field-label">The article</label>${seg('article', ['Skipped it', 'OK', 'Interesting', 'Loved it'])}` : ''}
           <label class="field-label">Hardest words</label>
           <div class="chips">${scoredWords
             .map((w) => `<button type="button" class="chip ${hard.has(w.vi) ? 'on' : ''}" data-vi="${esc(w.vi)}"><span class="vi">${colorize(w.vi)}</span></button>`)
             .join('')}</div>
-          <label class="field-label" for="want-next">What would you like to learn next?</label>
-          <textarea id="want-next" name="wantNext" rows="2" placeholder="For example: family words, things at the market, slang"></textarea>
+          <label class="field-label" for="want-next">What would you like next: words, history, culture?</label>
+          <textarea id="want-next" name="wantNext" rows="2" placeholder="For example: family words, Tết, the Old Quarter, slang"></textarea>
           <label class="field-label" for="note">Anything else?</label>
           <textarea id="note" name="note" rows="2" placeholder="What worked, what didn't"></textarea>
           ${footer('<button type="button" class="btn ghost" data-act="skip">Skip</button><button type="submit" class="btn primary" data-act="save">Save</button>')}
@@ -838,6 +716,7 @@ export function runSession(root, session, onDone, onQuit) {
       const collect = () => ({
         difficulty: form.querySelector('[data-name=difficulty] .on')?.dataset.v || null,
         fun: form.querySelector('[data-name=fun] .on')?.dataset.v || null,
+        article: form.querySelector('[data-name=article] .on')?.dataset.v || null,
         hardest: [...form.querySelectorAll('.chip.on')].map((c) => c.dataset.vi),
         wantNext: form.wantNext.value.trim().slice(0, 500) || null,
         note: form.note.value.trim().slice(0, 1000) || null,
@@ -852,7 +731,8 @@ export function runSession(root, session, onDone, onQuit) {
 
   function onKey(ev) {
     if (ev.target.matches('input, textarea')) return;
-    const n = Number(ev.key);
+    const k = ev.key.toLowerCase();
+    const n = Number(k) || (k.length === 1 && k >= 'a' && k <= 'd' && stage.dataset.step === 'quiz' ? k.charCodeAt(0) - 96 : 0);
     if (n >= 1 && n <= 6) {
       const opt = stage.querySelectorAll('.opt:not([disabled])')[n - 1];
       if (opt) opt.click();
@@ -866,6 +746,10 @@ export function runSession(root, session, onDone, onQuit) {
   }
 
   sessionEl.addEventListener('click', (ev) => {
+    if (ev.target.closest('.fact-close')) {
+      factEl.classList.remove('show');
+      return;
+    }
     const say = ev.target.closest('[data-say]');
     if (say) {
       play(say.dataset.say, { slow: say.classList.contains('slow') });
@@ -885,7 +769,7 @@ export function runSession(root, session, onDone, onQuit) {
     const at = S.steps.findIndex((s) => s.type === session.jumpTo);
     if (at > 0) S.i = at;
   }
-  updateBattle();
+  showStreak();
   render();
   return cleanup;
 }

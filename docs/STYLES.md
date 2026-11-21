@@ -2,50 +2,38 @@
 
 Every style, rendered on an iPhone 15 screen by `scripts/style_shots.py`. Pick one in the app under Settings, Look; or preview one by adding `?style=<id>` to the address.
 
-## Paper (Giấy)
+## Paper (Giấy dó)
 
-`?style=paper`. Warm paper; follows light and dark mode.
+`?style=paper`. The mulberry-bark paper of Đông Hồ woodblock prints. Follows light and dark mode..
 
 ![Paper](styles/paper.jpg)
 
-## Neon night (Đêm)
+## Ink (Mực)
 
-`?style=night`. Dark arcade glow.
+`?style=ink`. Dark, for reading at night..
 
-![Neon night](styles/night.jpg)
+![Ink](styles/ink.jpg)
 
 ## Lacquer (Sơn mài)
 
-`?style=lacquer`. Black, vermilion and gold.
+`?style=lacquer`. Black, vermilion and gold, after Hà Nội lacquer painting..
 
 ![Lacquer](styles/lacquer.jpg)
 
-## Street poster (Phố)
+## Indigo (Chàm)
 
-`?style=street`. Bold yellow and black.
+`?style=indigo`. The indigo cloth dyed in the northern mountains..
 
-![Street poster](styles/street.jpg)
+![Indigo](styles/indigo.jpg)
 
-## Comic (Truyện tranh)
+## Celadon (Men ngọc)
 
-`?style=comic`. Ink outlines and halftone dots.
+`?style=celadon`. The jade-green glaze of Lý and Trần dynasty ceramics..
 
-![Comic](styles/comic.jpg)
-
-## Jade (Ngọc)
-
-`?style=jade`. Calm greens, soft and round.
-
-![Jade](styles/jade.jpg)
-
-## Pixel arcade (Trò chơi)
-
-`?style=arcade`. Chunky 8-bit panels.
-
-![Pixel arcade](styles/arcade.jpg)
+![Celadon](styles/celadon.jpg)
 
 ## Silk (Lụa)
 
-`?style=silk`. Quiet, airy and serif.
+`?style=silk`. Quiet, white and airy..
 
 ![Silk](styles/silk.jpg)

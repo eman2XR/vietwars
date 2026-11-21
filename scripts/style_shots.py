@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Renders every visual style on an iPhone-sized screen and saves one contact sheet per style.
 
-Output: docs/styles/<style>.jpg (home, foe intro, word card, spelling answer, tone keys, results)
+Output: docs/styles/<style>.jpg (home, article, quiz, word card, tone keys, results)
 and docs/STYLES.md, which shows them all. Needs the Framework Python with Playwright:
   /Library/Frameworks/Python.framework/Versions/3.13/bin/python3 scripts/style_shots.py
 """
@@ -38,17 +38,17 @@ def shoot(page, style, lesson_id):
     base = f"{BASE}?test=1&style={style}"
     page.goto(f"{base}#/")
     page.wait_for_selector(".home")
-    page.evaluate("localStorage.setItem('vw-progress', JSON.stringify({xp: 420, days: [], lessons: {'lesson-01': {attempts: 1, best: 0.76, won: true, rank: 'A'}}, words: {}, known: []}))")
+    page.evaluate("localStorage.setItem('vw-progress', JSON.stringify({days: [], lessons: {'lesson-01': {attempts: 1, best: 0.76, grade: 'merit', first: '2026-11-21T07:42:39Z'}}, words: {}, known: []})); localStorage.setItem('vw-settings', JSON.stringify({seen: '3'}))")
     page.goto(f"{base}#/")
     page.wait_for_selector(".home")
     grab("Home")
     page.goto(f"{base}#/lesson/{lesson_id}")
-    page.wait_for_selector(".step-intro")
-    grab("Foe intro")
-    for jump, label in (("meet", "Word card"), ("spell", "Spelling"), ("type", "Tone keys"), ("results", "Results")):
+    page.wait_for_selector(".step-feature")
+    grab("Article")
+    for jump, label in (("quiz", "Quiz"), ("meet", "Word card"), ("type", "Tone keys"), ("results", "Results")):
         page.goto(f"{base}&jump={jump}#/lesson/{lesson_id}")
         page.wait_for_selector(f".step-{jump}")
-        if jump == "spell":
+        if jump == "quiz":
             page.locator(".opt").first.click()
         if jump == "type":
             page.fill(".type-input", "nu")

@@ -103,6 +103,8 @@ def build_profile(results):
     for r in results:
         acc = r["summary"]["firstTryAccuracy"]
         b = r.get("battle") or {}
+        q = r.get("quiz") or {}
+        art = r.get("article") or {}
         missed = [m["vi"] for m in r.get("warmup", []) if not m.get("ok")]
         warmup_missed.update(set(missed))
         sessions.append({
@@ -114,7 +116,12 @@ def build_profile(results):
             "device": r.get("device"),
             "style": r.get("style"),
             "speed": f"{r['summary'].get('speedCorrect', 0)}/{r['summary'].get('speedAnswered', 0)}",
-            "battle": {k: b.get(k) for k in ("won", "rank", "foeHpLeft", "heartsLost", "knockouts", "crits", "ambushWon", "ambushLost")} if b else None,
+            "battle": {k: b.get(k) for k in ("won", "rank", "heartsLost", "crits")} if b else None,
+            "grade": (r.get("summary") or {}).get("grade"),
+            "bestStreak": (r.get("summary") or {}).get("bestStreak"),
+            "quiz": f"{q.get('correct', 0)}/{q.get('total', 0)}" if q else None,
+            "articleSec": art.get("readSec"),
+            "articleRating": (r.get("feedback") or {}).get("article"),
             "warmupMissed": missed,
         })
         if r["kind"] == "lesson":
@@ -218,11 +225,9 @@ def summary_md(p):
         lines.append(f"- Answers typed with the on-screen tone keys: {p['toneKeysUsed']}")
     if p["warmupMissed"]:
         lines.append(f"- Warm-up words missed: {', '.join(f'{k} ({v})' for k, v in p['warmupMissed'].items())}")
-    lines += ["", "## Sessions", "", "| When (UTC) | Kind | Lesson | First try | Minutes | Speed | Battle |", "|---|---|---|---|---|---|---|"]
+    lines += ["", "## Sessions", "", "| When (UTC) | Kind | Lesson | First try | Grade | Minutes | Rush hour | Quiz | Article read (s) | Article rating |", "|---|---|---|---|---|---|---|---|---|---|"]
     for x in s[-12:]:
-        b = x.get("battle")
-        bt = f"{'won' if b.get('won') else 'lost'}, rank {b.get('rank')}, {b.get('heartsLost')} hearts lost, {b.get('crits')} crits" if b else ""
-        lines.append(f"| {x['finishedAt'][:16]} | {x['kind']} | {x['lesson']} | {round(x['accuracy'] * 100)}% | {x['minutes']} | {x['speed']} | {bt} |")
+        lines.append(f"| {x['finishedAt'][:16]} | {x['kind']} | {x['lesson']} | {round(x['accuracy'] * 100)}% | {x.get('grade') or ''} | {x['minutes']} | {x['speed']} | {x.get('quiz') or ''} | {x.get('articleSec') if x.get('articleSec') is not None else ''} | {x.get('articleRating') or ''} |")
     lines += ["", "## Words, weakest meaning first (known-list words last)", "", "| Word | Gloss | Meaning | Spelling | Listen | Spell | Reverse | Type | Hear+type | Typing errors | Notes |", "|---|---|---|---|---|---|---|---|---|---|---|"]
     order = sorted(p["words"].items(), key=lambda kv: (kv[1]["knownList"], kv[1]["meaning"] if kv[1]["meaning"] is not None else 1))
     for vi, w in order:
@@ -241,7 +246,7 @@ def summary_md(p):
     if p["feedback"]:
         lines += ["", "## Feedback, newest first", ""]
         for f in reversed(p["feedback"][-10:]):
-            parts = [f"{f['finishedAt'][:10]} {f['kind']} {f['lesson']}: difficulty {f.get('difficulty') or 'n/a'}, fun {f.get('fun') or 'n/a'}"]
+            parts = [f"{f['finishedAt'][:10]} {f['kind']} {f['lesson']}: difficulty {f.get('difficulty') or 'n/a'}, fun {f.get('fun') or 'n/a'}" + (f", article {f['article']}" if f.get('article') else "")]
             if f.get("hardest"):
                 parts.append(f"hardest {', '.join(f['hardest'])}")
             if f.get("wantNext"):

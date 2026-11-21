@@ -4,35 +4,7 @@
   "title": "Big numbers and prices",
   "vi": "Tiền và số",
   "theme": "numbers and money",
-  "intro": "The Mosquito King has moved into your Hà Nội flat and set up a stall, and every price he quotes is a rip-off. Beat him with the numbers you need for real prices, and the words for cheap, expensive and more.",
-  "foe": {
-    "name": "Vua Muỗi",
-    "en": "the Mosquito King",
-    "art": "mosquito",
-    "intro": "Every price he quotes is chặt chém, Vietnamese for a rip-off: literally \"chop and slash\".",
-    "taunts": [
-      {
-        "vi": "Vo ve! Một, hai, ba... đốt!",
-        "en": "Bzz! One, two, three... bite!"
-      },
-      {
-        "vi": "Phở bò? Năm trăm nghìn!",
-        "en": "Beef phở? Five hundred thousand!"
-      },
-      {
-        "vi": "Một triệu? Rẻ quá!",
-        "en": "A million? So cheap!"
-      }
-    ],
-    "win": {
-      "vi": "Ối! Thôi, trả lại tiền cho bạn đây!",
-      "en": "Ouch! Fine, here is your money back!"
-    },
-    "lose": {
-      "vi": "Vo ve! Mai tôi lại đến!",
-      "en": "Bzz! I'll be back tomorrow!"
-    }
-  },
+  "intro": "The numbers you need for real prices, and the words for cheap, expensive and more. Plus: why you will almost never see a Vietnamese coin.",
   "warmup": [
     {
       "vi": "không",
@@ -94,7 +66,8 @@
           "vi": "trắm",
           "en": "grass carp (cá trắm)"
         }
-      ]
+      ],
+      "fact": "Trăm năm, a hundred years, means a lifetime. The great poem Truyện Kiều opens with it: \"Trăm năm trong cõi người ta\"."
     },
     {
       "vi": "nghìn",
@@ -103,7 +76,8 @@
         "kind": "blocks"
       },
       "hook": "Say \"sing in\" and drop the \"si\": \"ngin\". A thousand singers, every voice sinking low.",
-      "tip": "ngh is the ng of \"sing\" (written ngh before i, e and ê). The huyền tone falls gently. The South says ngàn."
+      "tip": "ngh is the ng of \"sing\" (written ngh before i, e and ê). The huyền tone falls gently. The South says ngàn.",
+      "fact": "In 2010 Hà Nội celebrated a thousand years, một nghìn năm, since Emperor Lý Thái Tổ made it his capital in 1010."
     },
     {
       "vi": "triệu",
@@ -119,7 +93,8 @@
           "vi": "triều",
           "en": "tide; dynasty"
         }
-      ]
+      ],
+      "fact": "Rent, motorbikes and wages are counted in triệu. One million đồng is roughly the price of a nice dinner for two."
     },
     {
       "vi": "mươi",
@@ -136,7 +111,8 @@
           "vi": "mười",
           "en": "ten"
         }
-      ]
+      ],
+      "fact": "In quick Hà Nội speech mươi often disappears: hai mốt for 21, ba lăm for 35."
     },
     {
       "vi": "lăm",
@@ -153,7 +129,8 @@
           "vi": "lắm",
           "en": "very (đắt lắm, very expensive)"
         }
-      ]
+      ],
+      "fact": "Many Hà Nội speakers say nhăm instead of lăm after the tens: hai mươi nhăm, 25."
     },
     {
       "vi": "linh",
@@ -170,7 +147,8 @@
           "vi": "lính",
           "en": "soldier"
         }
-      ]
+      ],
+      "fact": "Years are read as whole numbers, not in pairs: 2005 is hai nghìn không trăm linh năm, casually hai nghìn linh năm."
     },
     {
       "vi": "rưỡi",
@@ -181,7 +159,8 @@
       },
       "note": "It follows the unit: hai nghìn rưỡi is 2,500; một tiếng rưỡi is an hour and a half.",
       "hook": "Your voice cracks halfway through the word, just as the number breaks into a half.",
-      "tip": "In Hà Nội, r sounds like z. ươi glides from ư to ơ to i. The ngã tone breaks in the middle, then jumps up."
+      "tip": "In Hà Nội, r sounds like z. ươi glides from ư to ơ to i. The ngã tone breaks in the middle, then jumps up.",
+      "fact": "Time works the same way: hai giờ rưỡi is half past two."
     },
     {
       "vi": "tiền",
@@ -200,7 +179,8 @@
           "vi": "tiện",
           "en": "convenient"
         }
-      ]
+      ],
+      "fact": "At Tết, children and grandparents get tiền mừng tuổi: crisp new notes in red envelopes, for luck. The South says lì xì, from Cantonese."
     },
     {
       "vi": "đồng",
@@ -220,7 +200,8 @@
           "vi": "động",
           "en": "to move; cave"
         }
-      ]
+      ],
+      "fact": "đồng is the Sino-Vietnamese word for copper. Vietnam stopped issuing coins in 2011; they are still legal, but you will almost never see one."
     },
     {
       "vi": "bao nhiêu",
@@ -231,7 +212,8 @@
         "mood": "ask"
       },
       "hook": "\"Bow, new.\" You bow to the seller and, keeping your voice flat, ask how much the new thing costs.",
-      "tip": "nh is like the ny in \"canyon\". Both syllables stay level."
+      "tip": "nh is like the ny in \"canyon\". Both syllables stay level.",
+      "fact": "At markets many prices are not written down. \"Bao nhiêu tiền?\" opens a friendly negotiation."
     },
     {
       "vi": "đắt",
@@ -252,7 +234,8 @@
           "vi": "đặt",
           "en": "to put; to book"
         }
-      ]
+      ],
+      "fact": "\"Đắt quá!\" with a smile is the classic opening move when haggling."
     },
     {
       "vi": "rẻ",
@@ -269,7 +252,8 @@
           "vi": "rẽ",
           "en": "to turn (left or right)"
         }
-      ]
+      ],
+      "fact": "Two market proverbs: \"Của rẻ là của ôi\" (cheap goods are stale goods) and \"Tiền nào của nấy\" (you get what you pay for)."
     },
     {
       "vi": "hơn",
@@ -285,7 +269,8 @@
           "vi": "hôn",
           "en": "to kiss"
         }
-      ]
+      ],
+      "fact": "hơn also works for people: cao hơn is taller, đẹp hơn is more beautiful."
     },
     {
       "vi": "nữa",
@@ -301,7 +286,8 @@
           "vi": "nửa",
           "en": "half"
         }
-      ]
+      ],
+      "fact": "\"Một bát nữa!\" (one more bowl!) is a fine thing to say at a phở stall; bát is the Northern word for bowl."
     }
   ],
   "grammar": {
@@ -372,5 +358,88 @@
     "gà",
     "cá",
     "bò"
-  ]
+  ],
+  "feature": {
+    "kicker": "Money and the market",
+    "title": "Copper, paper, plastic",
+    "dek": "The đồng is named after a metal you will never see in your change. A short history of Vietnamese money, and the market that has sold Hà Nội everything since 1889.",
+    "body": [
+      "Đồng is the Sino-Vietnamese word for copper, the metal of the old coins, and the word lives on in the name of the currency. Coins came back in 2003, but people never took to them, and in 2011 the State Bank stopped issuing them. Between 2003 and 2006 every note from 10,000 đồng up moved to polymer, a plastic that survives the monsoon. The largest, 500,000 đồng, is blue, like the 20,000: count the zeros.",
+      "With so many zeros, Hà Nội shortens prices. A bowl of phở is \"năm mươi\", fifty, with the nghìn (thousand) left unsaid, and menus write 50k. Rent and motorbikes are counted in triệu, millions.",
+      "For the full experience, try Đồng Xuân market in the Old Quarter. The French set it up in 1889, the year the Eiffel Tower opened, and it is still Hà Nội's largest covered market. After a fire gutted it in 1994, it was partly rebuilt in its original style. The city is far older: Emperor Lý Thái Tổ made this place his capital in 1010 and named it Thăng Long, \"ascending dragon\". It has only been called Hà Nội since 1831."
+    ],
+    "pull": "Vietnam brought coins back in 2003. By 2011 it had given up.",
+    "sources": [
+      {
+        "title": "Vietnamese đồng",
+        "url": "https://en.wikipedia.org/wiki/Vietnamese_%C4%91%E1%BB%93ng"
+      },
+      {
+        "title": "Đồng Xuân Market",
+        "url": "https://en.wikipedia.org/wiki/%C4%90%E1%BB%93ng_Xu%C3%A2n_Market"
+      },
+      {
+        "title": "Hanoi",
+        "url": "https://en.wikipedia.org/wiki/Hanoi"
+      }
+    ]
+  },
+  "quiz": [
+    {
+      "q": "Đồng, the name of the currency, is the Sino-Vietnamese word for which metal?",
+      "options": [
+        "Gold",
+        "Copper",
+        "Silver"
+      ],
+      "answer": 1,
+      "explain": "Copper, the metal of the old coins."
+    },
+    {
+      "q": "How many coins will you get in your change today?",
+      "options": [
+        "None",
+        "Three",
+        "Seven"
+      ],
+      "answer": 0,
+      "explain": "Almost certainly none: coins stopped being issued in 2011."
+    },
+    {
+      "q": "In 1010 the new capital was named Thăng Long. What does it mean?",
+      "options": [
+        "Peaceful river",
+        "Ascending dragon",
+        "Eastern capital"
+      ],
+      "answer": 1,
+      "explain": "Legend says Lý Thái Tổ saw a dragon rise over the Red River. Later the city was Đông Kinh, \"eastern capital\", which gave Europeans the name Tonkin."
+    },
+    {
+      "q": "Which is the largest banknote?",
+      "options": [
+        "100,000 đồng",
+        "200,000 đồng",
+        "500,000 đồng"
+      ],
+      "answer": 2,
+      "explain": "Issued in 2003. It is blue like the 20,000, so check the zeros."
+    }
+  ],
+  "challenge": {
+    "title": "Market challenge",
+    "text": "At a market stall, start with \"Chị ơi!\" (to a woman seller) and ask \"Bao nhiêu tiền?\". Catch the number. If it sounds high, smile and say \"Đắt quá!\", then try \"Rẻ hơn được không?\" or \"Bớt được không?\" (can you knock a bit off?). Notice whether the seller drops the nghìn."
+  },
+  "stamp": {
+    "label": "Đồng",
+    "picture": {
+      "kind": "notes"
+    }
+  },
+  "cover": {
+    "picture": {
+      "kind": "scene",
+      "name": "market"
+    }
+  }
 }

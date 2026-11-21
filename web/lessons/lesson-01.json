@@ -4,31 +4,7 @@
   "title": "Phở and friends",
   "vi": "Ăn uống",
   "theme": "food and drink",
-  "intro": "Eleven things to eat and drink in Hà Nội, and the word to praise them. Each syllable is coloured by its tone, so you see the tone as well as hear it.",
-  "foe": {
-    "name": "Mèo Béo",
-    "en": "the Fat Cat",
-    "art": "cat",
-    "intro": "He has stolen your phở and he will not give it back.",
-    "taunts": [
-      {
-        "vi": "Meo meo! Phở này là của tôi!",
-        "en": "Meow! This phở is mine!"
-      },
-      {
-        "vi": "Bạn đói à?",
-        "en": "Hungry, are you?"
-      }
-    ],
-    "win": {
-      "vi": "Thôi, trả phở cho bạn đây!",
-      "en": "Fine, here is your phở back!"
-    },
-    "lose": {
-      "vi": "Cảm ơn nhé, ngon lắm!",
-      "en": "Thanks, that was delicious!"
-    }
-  },
+  "intro": "Eleven things to eat and drink in Hà Nội, and the word to praise them. Most of these dishes are younger than you would think.",
   "words": [
     {
       "vi": "phở",
@@ -48,7 +24,8 @@
       "picture": {
         "kind": "icon",
         "name": "bowl"
-      }
+      },
+      "fact": "Nam Định, southeast of Hà Nội (now part of Ninh Bình province), is often named as the birthplace of phở. Its modern form probably took shape between 1900 and 1907."
     },
     {
       "vi": "cơm",
@@ -64,7 +41,8 @@
       "picture": {
         "kind": "icon",
         "name": "ricebowl"
-      }
+      },
+      "fact": "\"Ăn cơm chưa?\" (have you eaten yet?) is what family and neighbours ask each other around mealtimes. Rice stands for the whole meal."
     },
     {
       "vi": "bún",
@@ -80,7 +58,8 @@
       "picture": {
         "kind": "icon",
         "name": "noodles"
-      }
+      },
+      "fact": "Bún chả, grilled pork with bún, is a Hà Nội dish. In 2016 Barack Obama ate it there with Anthony Bourdain."
     },
     {
       "vi": "bánh mì",
@@ -90,7 +69,8 @@
       "picture": {
         "kind": "icon",
         "name": "baguette"
-      }
+      },
+      "fact": "On its own, bánh mì just means bread. The French brought the baguette in the 1860s; the famous filled sandwich took shape in Saigon in the 1950s."
     },
     {
       "vi": "gà",
@@ -107,7 +87,8 @@
         "kind": "icon",
         "name": "chicken"
       },
-      "note": "g for game bird: gà is chicken. Do not mix it up with cá (fish)."
+      "note": "g for game bird: gà is chicken. Do not mix it up with cá (fish).",
+      "fact": "Gà Đông Tảo, the \"dragon chicken\" from a village near Hà Nội, has feet so huge that hens break their own eggs, so the eggs go into incubators."
     },
     {
       "vi": "bò",
@@ -128,7 +109,8 @@
         "kind": "icon",
         "name": "cow"
       },
-      "note": "b for beef: bò is beef, and the cow it comes from."
+      "note": "b for beef: bò is beef, and the cow it comes from.",
+      "fact": "Hà Nội phở is traditionally phở bò, in a clear beef broth with spring onion, coriander, pickled garlic and quẩy (fried dough). Bean sprouts and basil are a Southern habit."
     },
     {
       "vi": "cá",
@@ -149,7 +131,8 @@
         "kind": "icon",
         "name": "fish"
       },
-      "note": "c for carp: cá is fish."
+      "note": "c for carp: cá is fish.",
+      "fact": "Chả cá, turmeric fish fried at the table with dill, was so popular that Hàng Sơn Street in Hà Nội was renamed Phố Chả Cá, Grilled Fish Street."
     },
     {
       "vi": "rau",
@@ -165,7 +148,8 @@
       "picture": {
         "kind": "icon",
         "name": "greens"
-      }
+      },
+      "fact": "Rau sống, raw greens and herbs, comes with bún chả and nem, but not with Hà Nội phở. At a Northern family meal the classic green is rau muống luộc, boiled water spinach."
     },
     {
       "vi": "nước",
@@ -175,7 +159,8 @@
       "picture": {
         "kind": "icon",
         "name": "water"
-      }
+      },
+      "fact": "nước means both water and country. Đất nước, literally \"land and water\", is the word for homeland."
     },
     {
       "vi": "trà",
@@ -192,7 +177,8 @@
       "picture": {
         "kind": "icon",
         "name": "tea"
-      }
+      },
+      "fact": "On Hà Nội pavements, trà đá (iced tea) on tiny plastic stools is where people meet, chat and watch the traffic."
     },
     {
       "vi": "cà phê",
@@ -202,7 +188,8 @@
       "picture": {
         "kind": "icon",
         "name": "phin"
-      }
+      },
+      "fact": "Coffee is thought to have arrived with French missionaries in 1857. Vietnam is now the world's second-largest coffee producer, after Brazil, and almost all of it is robusta."
     },
     {
       "vi": "ngon",
@@ -221,8 +208,9 @@
       ],
       "picture": {
         "kind": "icon",
-        "name": "yum"
-      }
+        "name": "noodlelift"
+      },
+      "fact": "\"Ngon quá!\" said to the cook is the best compliment at any street stall."
     }
   ],
   "grammar": {
@@ -266,5 +254,104 @@
       "note": "quá after a word means \"so\" or \"really\": ngon quá! Before a word it usually means \"too\": quá cay, too spicy. Hà Nội people also say Ngon thế!"
     }
   ],
-  "review": []
+  "review": [],
+  "feature": {
+    "kicker": "Food and history",
+    "title": "Younger than the Eiffel Tower",
+    "dek": "Hà Nội's most famous dishes feel ancient. Most of them are not, and nearly every one has a story.",
+    "body": [
+      "Phở first appears in written records in the early twentieth century, in northern Vietnam. Its modern form probably took shape between 1900 and 1907 in Nam Định, southeast of Hà Nội, which makes it younger than the Eiffel Tower (1889). Its roots are still argued over: French demand for beef, Chinese beef-noodle sellers, or xáo trâu, a buffalo noodle soup sold in Hà Nội at the time.",
+      "The baguette arrived with the French in the 1860s, and bánh mì simply means bread. The stuffed sandwich the world knows took shape later, in Saigon in the 1950s. Coffee is thought to have come even earlier, in 1857, with French missionaries. Today Vietnam is the world's second-largest coffee producer after Brazil, and almost all of it is robusta.",
+      "Hard times shaped the menu too. Chicken phở appeared in 1939, possibly because beef was not sold at the markets on Mondays and Fridays. In the late 1940s, when fresh milk was scarce, Nguyễn Văn Giảng is said to have whipped egg yolk into coffee in its place: cà phê trứng, egg coffee, still served at his family's café. And in the rationing years, state shops sold phở không người lái, \"pilotless phở\", with no meat at all, named after American drones."
+    ],
+    "pull": "Chicken phở appeared in 1939, possibly because beef was not sold on Mondays and Fridays.",
+    "sources": [
+      {
+        "title": "Pho",
+        "url": "https://en.wikipedia.org/wiki/Pho"
+      },
+      {
+        "title": "Bánh mì",
+        "url": "https://en.wikipedia.org/wiki/B%C3%A1nh_m%C3%AC"
+      },
+      {
+        "title": "Coffee production in Vietnam",
+        "url": "https://en.wikipedia.org/wiki/Coffee_production_in_Vietnam"
+      },
+      {
+        "title": "Egg coffee",
+        "url": "https://en.wikipedia.org/wiki/Egg_coffee"
+      },
+      {
+        "title": "Bún chả",
+        "url": "https://en.wikipedia.org/wiki/B%C3%BAn_ch%E1%BA%A3"
+      },
+      {
+        "title": "Chả cá Lã Vọng",
+        "url": "https://en.wikipedia.org/wiki/Ch%E1%BA%A3_c%C3%A1_L%C3%A3_V%E1%BB%8Dng"
+      },
+      {
+        "title": "Dong Tao chicken",
+        "url": "https://en.wikipedia.org/wiki/Dong_Tao_chicken"
+      }
+    ]
+  },
+  "quiz": [
+    {
+      "q": "Which is older: phở or the Eiffel Tower?",
+      "options": [
+        "Phở",
+        "The Eiffel Tower"
+      ],
+      "answer": 1,
+      "explain": "The Eiffel Tower opened in 1889. Phở took its modern form between 1900 and 1907."
+    },
+    {
+      "q": "Why might chicken phở have appeared in 1939?",
+      "options": [
+        "A chef in Huế invented it",
+        "Beef was not sold on some days",
+        "Chicken was cheaper than rice"
+      ],
+      "answer": 1,
+      "explain": "Beef was possibly not sold at the markets on Mondays and Fridays."
+    },
+    {
+      "q": "Fresh milk was scarce in Hà Nội in the late 1940s. What went into coffee instead?",
+      "options": [
+        "Coconut milk",
+        "Egg yolk",
+        "Yoghurt"
+      ],
+      "answer": 1,
+      "explain": "That is cà phê trứng, egg coffee, still served at Café Giảng."
+    },
+    {
+      "q": "Who ate bún chả in Hà Nội with Anthony Bourdain in 2016?",
+      "options": [
+        "Barack Obama",
+        "Lionel Messi",
+        "Taylor Swift"
+      ],
+      "answer": 0,
+      "explain": "The restaurant now serves a \"combo Obama\"."
+    }
+  ],
+  "challenge": {
+    "title": "Street challenge",
+    "text": "Order phở the Hà Nội way: \"Cho tôi một bát phở bò\" (a bowl of beef phở, please). Don't wait for a herb plate (Hà Nội phở has none); add a little pickled garlic, and when you finish tell the cook \"Ngon quá!\"."
+  },
+  "stamp": {
+    "label": "Phở",
+    "picture": {
+      "kind": "icon",
+      "name": "bowl"
+    }
+  },
+  "cover": {
+    "picture": {
+      "kind": "scene",
+      "name": "phoStall"
+    }
+  }
 }

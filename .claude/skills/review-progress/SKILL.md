@@ -1,6 +1,6 @@
 ---
 name: review-progress
-description: Review the Viet Wars learner's progress across all sessions, adapt the curriculum, the known list and the planning rules, and report. Use when the user asks how they are doing, asks to adapt or re-plan the curriculum, or when scripts/status.py --decide says review-progress (every five sessions or seven days).
+description: Review the Học tiếng Việt learner's progress across all sessions, adapt the curriculum, the known list and the planning rules, and report. Use when the user asks how they are doing, asks to adapt or re-plan the curriculum, or when scripts/status.py --decide says review-progress (every five sessions or seven days).
 ---
 
 # Review progress
@@ -23,7 +23,7 @@ Answer each question with numbers from the data:
 - **Vocabulary size**: words met, on the known list, and holding up in reviews (meaning strength 0.8 or more). How far along the current phase target is the learner?
 - **Retention**: are words coming back from spaced reviews correctly? Which words keep failing after two or more reviews (leeches)? A leech needs a new hook, a new picture or a note; propose them.
 - **Meaning versus spelling**: is spelling lagging behind meaning? Is the learner using the tone keys? Which tone pairs and vowel marks fail?
-- **Difficulty and fun**: trend of difficulty and fun ratings, battle results (wins, ranks, hearts lost, knockouts), session length. Too easy, too hard, or right?
+- **Difficulty and fun**: trend of difficulty, fun and article ratings, reading time on articles, quiz scores, grades, rush hour scores, session length. Too easy, too hard, or right? Are the stories landing?
 - **Engagement**: how often the learner plays, reviews skipped or overdue, sessions abandoned.
 - **Feedback**: every `wantNext` and `note` since the last review, and whether the lessons answered them.
 
@@ -33,7 +33,7 @@ Make the changes the analysis supports, and only those:
 
 - `learner/curriculum.json`: reorder units, add units the learner asked for, insert a remedial or consolidation lesson for leeches, split or merge units, adjust the pace, move to the next phase when its exit condition is met. Set `reviewedAt` and `updated` to today.
 - `web/lessons/known.json`: add words only when the learner says they know them, or when a word was confirmed with "I know it" and never failed since. Never remove a word the learner put there without asking.
-- `docs/PEDAGOGY.md`: change a rule when the data shows it does not work for this learner (for example lesson size, warm-up use, hook style, battle difficulty). Keep it short; record why in `learner/REVIEW.md`.
+- `docs/PEDAGOGY.md`: change a rule when the data shows it does not work for this learner (for example lesson size, warm-up use, hook style, article length or topics). Keep it short; record why in `learner/REVIEW.md`.
 - Leech fixes: improve the hook, note or picture of a failing word in its lesson file, then run `scripts/make_audio.py` and `scripts/check_lessons.py`.
 - Engine or design problems (an exercise type that does not teach, a confusing screen): fix them if they are small and run `scripts/check_site.py`; otherwise list them in the review for the user.
 
@@ -45,7 +45,7 @@ Write `learner/REVIEW.md` (replace it; earlier reviews live in git history):
 # Progress review, YYYY-MM-DD
 
 ## Where things stand
-(vocabulary size, phase progress, retention, battles, in a few lines with numbers)
+(vocabulary size, phase progress, retention, engagement with the stories, in a few lines with numbers)
 
 ## What is working / what is not
 ## Changes made

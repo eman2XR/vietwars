@@ -1,9 +1,8 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { lessonSteps, reviewSteps, summarise } from '../web/js/lesson.js';
+import { lessonSteps, reviewSteps, summarise, gradeFor, stampHTML } from '../web/js/lesson.js';
 import { picture, PICTURE_KINDS } from '../web/js/pictures.js';
-import { SPRITES } from '../web/js/sprites.js';
 
 const index = JSON.parse(readFileSync(new URL('../web/lessons/index.json', import.meta.url)));
 const lessons = index.lessons.map((l) => JSON.parse(readFileSync(new URL(`../web/lessons/${l.file}`, import.meta.url))));
@@ -13,7 +12,8 @@ test('every lesson builds a full battle', () => {
     const review = [{ vi: 'xx', en: 'review word' }];
     const steps = lessonSteps(lesson, { review, warmup: lesson.warmup || [] });
     const types = steps.map((s) => s.type);
-    assert.equal(types[0], 'intro');
+    assert.equal(types[0], 'feature');
+    assert.equal(types.filter((t) => t === 'quiz').length, (lesson.quiz || []).length);
     assert.deepEqual(types.slice(-4), ['speedIntro', 'speed', 'results', 'feedback']);
     for (const w of lesson.words) {
       for (const t of ['meet', 'listen', 'type']) {
@@ -29,32 +29,45 @@ test('every lesson builds a full battle', () => {
   }
 });
 
-test('every lesson picture and foe drawing exists', () => {
+test('every lesson picture, cover and stamp draws', () => {
   for (const lesson of lessons) {
-    for (const w of lesson.words) {
-      if (w.picture) {
-        assert.ok(PICTURE_KINDS.includes(w.picture.kind), `${w.vi}: unknown picture kind ${w.picture.kind}`);
-        assert.ok(picture(w.picture).startsWith('<svg'), `${w.vi}: picture did not draw`);
-      }
+    const specs = [...lesson.words.map((w) => [w.vi, w.picture]), ['cover', lesson.cover?.picture], ['stamp', lesson.stamp?.picture]];
+    for (const [name, spec] of specs) {
+      if (!spec) continue;
+      assert.ok(PICTURE_KINDS.includes(spec.kind), `${lesson.id} ${name}: unknown picture kind ${spec.kind}`);
+      assert.ok(picture(spec).startsWith('<svg'), `${lesson.id} ${name}: picture did not draw`);
     }
-    if (lesson.foe) assert.ok(SPRITES[lesson.foe.art], `${lesson.id}: no drawing called ${lesson.foe.art}`);
+    assert.ok(stampHTML(lesson, 'merit', '21 Nov 2026').includes('postmark'));
   }
+});
+
+test('quiz answers point at a real option', () => {
+  for (const lesson of lessons) {
+    for (const q of lesson.quiz || []) assert.ok(q.answer >= 0 && q.answer < q.options.length, `${lesson.id}: ${q.q}`);
+  }
+});
+
+test('grades follow first-try accuracy', () => {
+  assert.equal(gradeFor(0.95), 'distinction');
+  assert.equal(gradeFor(0.75), 'merit');
+  assert.equal(gradeFor(0.4), 'complete');
 });
 
 test('reviews alternate typing from meaning and from hearing', () => {
   const words = [{ vi: 'a', en: 'A' }, { vi: 'b', en: 'B' }, { vi: 'c', en: 'C' }];
   const steps = reviewSteps(words, words);
+  assert.equal(steps[0].type, 'reviewIntro');
   const typed = steps.filter((s) => s.type === 'type');
   assert.equal(typed.length, 3);
   assert.ok(typed.some((s) => s.dictation) && typed.some((s) => !s.dictation));
 });
 
-test('warm-up, ambush and retry answers are not counted as first tries', () => {
+test('warm-up and retry answers are not counted as first tries', () => {
   const words = [{ vi: 'trăm', en: 'hundred' }];
   const events = [
     { t: 'listen', w: 'trăm', ok: true },
     { t: 'listen', w: 'trăm', ok: false, retry: true },
-    { t: 'listen', w: 'trăm', ok: false, ambush: true },
+    { t: 'quiz', w: 'quiz-1', ok: false },
     { t: 'listen', w: 'một', ok: false, warmup: true },
     { t: 'type', w: 'trăm', g: 'tone' },
     { t: 'spell', w: 'trăm', ok: false },

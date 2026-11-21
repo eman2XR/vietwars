@@ -42,7 +42,7 @@ PICTURE_KINDS = set(re.findall(r"case '([a-z]+)':", (WEB / "js" / "pictures.js")
 
 
 ICON_NAMES = set(re.findall(r"^  ([a-z]+): `", (WEB / "js" / "pictures.js").read_text(encoding="utf-8"), re.M))
-SPRITES = set(re.findall(r"([a-z]+): [A-Z]+", (WEB / "js" / "sprites.js").read_text(encoding="utf-8").split("export const SPRITES = {")[1].split("}")[0]))
+SCENE_NAMES = set(re.findall(r"^  ([a-zA-Z]+): `", (WEB / "js" / "pictures.js").read_text(encoding="utf-8").split("const SCENES = {")[1].split("};")[0], re.M))
 
 
 def nfc(s):
@@ -98,6 +98,8 @@ def check_picture(r, where, spec):
         r.error(where, f"picture kind must be one of {sorted(PICTURE_KINDS)}")
     elif spec["kind"] == "icon" and spec.get("name") not in ICON_NAMES:
         r.error(where, f"icon name must be one of {sorted(ICON_NAMES)} (or add a drawing to web/js/pictures.js)")
+    elif spec["kind"] == "scene" and spec.get("name") not in SCENE_NAMES:
+        r.error(where, f"scene name must be one of {sorted(SCENE_NAMES)} (or add a scene to web/js/pictures.js)")
 
 
 def check_line(r, where, line):
@@ -107,21 +109,54 @@ def check_line(r, where, line):
     check_text(r, where, line["vi"])
 
 
-def check_foe(r, where, foe):
-    for field in ("name", "en", "art", "intro", "win", "lose"):
-        if not foe.get(field):
-            r.error(where, f"foe is missing {field}")
-    if foe.get("art") and foe["art"] not in SPRITES:
-        r.error(where, f"foe art must be one of {sorted(SPRITES)} (or add a drawing to web/js/sprites.js)")
-    check_text(r, f"{where}.name", foe.get("name", ""))
-    taunts = foe.get("taunts", [])
-    if len(taunts) < 2:
-        r.warn(where, "give the foe at least two taunts")
-    for i, t in enumerate(taunts):
-        check_line(r, f"{where}.taunts[{i}]", t)
-    for k in ("win", "lose"):
-        if foe.get(k):
-            check_line(r, f"{where}.{k}", foe[k])
+def check_feature(r, lid, lesson):
+    f = lesson.get("feature")
+    if not f:
+        r.error(lid, "missing feature (the issue's article)")
+        return
+    for field in ("kicker", "title", "dek", "body", "sources"):
+        if not f.get(field):
+            r.error(f"{lid}.feature", f"missing {field}")
+    body = f.get("body", [])
+    if not 2 <= len(body) <= 6:
+        r.error(f"{lid}.feature", f"has {len(body)} paragraphs; use 2 to 6")
+    for i, para in enumerate(body):
+        check_text(r, f"{lid}.feature.body[{i}]", para, "text")
+        if len(para) > 800:
+            r.error(f"{lid}.feature.body[{i}]", f"is {len(para)} characters (limit 800)")
+    words = sum(len(p.split()) for p in body)
+    if not 120 <= words <= 450:
+        r.warn(f"{lid}.feature", f"article is {words} words; aim for 150 to 350")
+    for i, src in enumerate(f.get("sources", [])):
+        if not str(src.get("url", "")).startswith("https://") or not src.get("title"):
+            r.error(f"{lid}.feature.sources[{i}]", "needs a title and an https url")
+    quiz = lesson.get("quiz", [])
+    if not 2 <= len(quiz) <= 6:
+        r.error(lid, f"has {len(quiz)} quiz questions; use 2 to 6")
+    for i, q in enumerate(quiz):
+        where = f"{lid}.quiz[{i}]"
+        opts = q.get("options", [])
+        if not q.get("q") or not 2 <= len(opts) <= 4:
+            r.error(where, "needs q and 2 to 4 options")
+        if not isinstance(q.get("answer"), int) or not 0 <= q.get("answer", -1) < len(opts):
+            r.error(where, "answer must be the index of the right option")
+        if len(set(opts)) != len(opts):
+            r.error(where, "options repeat")
+        if not q.get("explain"):
+            r.warn(where, "no explain line")
+    c = lesson.get("challenge")
+    if not c or not c.get("text"):
+        r.warn(lid, "no challenge (a real thing to try)")
+    st = lesson.get("stamp")
+    if not st or not st.get("label"):
+        r.error(lid, "missing stamp label")
+    else:
+        check_picture(r, f"{lid}.stamp", st.get("picture"))
+    cover = lesson.get("cover")
+    if not cover or not cover.get("picture"):
+        r.warn(lid, "no cover picture")
+    else:
+        check_picture(r, f"{lid}.cover", cover["picture"])
 
 
 def check_lesson(r, entry, lesson, earlier_words, audio, known_words):
@@ -151,6 +186,10 @@ def check_lesson(r, entry, lesson, earlier_words, audio, known_words):
             check_picture(r, where, w["picture"])
         else:
             r.warn(where, "no picture")
+        if w.get("fact") and len(w["fact"]) > 260:
+            r.error(where, f"fact is {len(w['fact'])} characters (limit 260)")
+        if not w.get("fact"):
+            r.warn(where, "no did-you-know fact")
         if nfc(w.get("vi", "")).lower() in known_words:
             r.error(where, "the learner already knows this word (web/lessons/known.json)")
         key = nfc(w.get("vi", "")).lower()
@@ -173,10 +212,7 @@ def check_lesson(r, entry, lesson, earlier_words, audio, known_words):
     if len(set(ens)) != len(ens):
         r.error(lid, "two words share the same English meaning, so choice questions would be ambiguous")
 
-    if lesson.get("foe"):
-        check_foe(r, f"{lid}.foe", lesson["foe"])
-    else:
-        r.warn(lid, "no foe; every lesson should be a battle")
+    check_feature(r, lid, lesson)
     warm = set()
     for i, w in enumerate(lesson.get("warmup", [])):
         where = f"{lid}.warmup[{i}] {w.get('vi', '?')}"
@@ -221,8 +257,6 @@ def check_lesson(r, entry, lesson, earlier_words, audio, known_words):
         texts += [c["vi"] for c in lesson.get("combos", [])]
         texts += [x["vi"] for x in (g or {}).get("examples", [])]
         texts += [w["vi"] for w in lesson.get("warmup", [])]
-        foe = lesson.get("foe") or {}
-        texts += [l["vi"] for l in [*foe.get("taunts", []), foe.get("win"), foe.get("lose")] if l]
         for t in texts:
             cid = audio.get(nfc(t).strip())
             if not cid:
@@ -230,29 +264,6 @@ def check_lesson(r, entry, lesson, earlier_words, audio, known_words):
             elif not (WEB / "audio" / f"{cid}.m4a").exists():
                 r.error(lid, f"audio file for {t!r} is missing")
     return seen | warm
-
-
-def check_game(r, audio):
-    path = WEB / "lessons" / "game.json"
-    if not path.exists():
-        r.error("game.json", "missing")
-        return
-    game = json.loads(path.read_text(encoding="utf-8"))
-    for key in ("hit", "crit", "ouch", "knockout", "ambush", "found", "victory", "escaped", "boss"):
-        c = game.get("callouts", {}).get(key)
-        if not c:
-            r.error("game.json", f"missing callout {key}")
-        else:
-            check_line(r, f"game.callouts.{key}", c)
-    foe = game.get("reviewFoe")
-    if not foe:
-        r.error("game.json", "missing reviewFoe")
-        return
-    check_foe(r, "game.reviewFoe", foe)
-    if audio is not None:
-        for l in [*foe.get("taunts", []), foe.get("win"), foe.get("lose")]:
-            if l and not audio.get(nfc(l["vi"]).strip()):
-                r.error("game.reviewFoe", f"no audio clip for {l['vi']!r}; run scripts/make_audio.py")
 
 
 def load_known(r):
@@ -279,7 +290,6 @@ def main():
     earlier = {}
     numbers = []
     known_words = load_known(r)
-    check_game(r, audio)
     for entry in index["lessons"]:
         path = WEB / "lessons" / entry["file"]
         if not path.exists():

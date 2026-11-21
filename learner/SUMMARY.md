@@ -10,9 +10,9 @@ Built by `scripts/ingest.py` from `learner/results/`. Do not edit by hand.
 
 ## Sessions
 
-| When (UTC) | Kind | Lesson | First try | Minutes | Speed | Battle |
-|---|---|---|---|---|---|---|
-| 2026-11-21T07:42 | lesson | lesson-01 | 76% | 9.7 | 14/15 |  |
+| When (UTC) | Kind | Lesson | First try | Grade | Minutes | Rush hour | Quiz | Article read (s) | Article rating |
+|---|---|---|---|---|---|---|---|---|---|
+| 2026-11-21T07:42 | lesson | lesson-01 | 76% |  | 9.7 | 14/15 |  |  |  |
 
 ## Words, weakest meaning first (known-list words last)
 

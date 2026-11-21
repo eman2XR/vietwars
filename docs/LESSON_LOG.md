@@ -2,6 +2,14 @@
 
 Why each lesson was planned the way it was, newest first. Written by the `/next-lesson` skill.
 
+## 2026-11-21: Redesign as a culture magazine (issues 1 and 2 rewritten)
+
+- What the learner said: the battles with cartoon villains "looked like something made for a child"; they want "interesting things about Vietnamese history and culture" with images, it "should still be fun", and "cartoons are fine, just in context, not random bugs or cat". They chose the "culture magazine, no battles" direction.
+- Changes: every lesson is now an issue with a sourced feature article, a trivia quiz, a did-you-know fact on each word, fact cards on three-in-a-row streaks, a rush hour round (Giờ cao điểm) in place of the boss fight, a stamp for a passport, and a street challenge. Villains, hearts, XP and ranks are gone. Covers are original scenes in context (a phở stall; Đồng Xuân market with a street vendor). Six styles named after Vietnamese materials replace the eight game styles.
+- Issue 1, "Younger than the Eiffel Tower": phở (1900 to 1907, Nam Định), bánh mì, coffee (thought to be 1857), egg coffee, chicken phở (1939), pilotless phở in the rationing years. Issue 2, "Copper, paper, plastic": đồng as copper, coins reintroduced in 2003 and dropped in 2011, polymer notes, Đồng Xuân market (1889, the year of the Eiffel Tower), Thăng Long (1010) and the name Hà Nội (1831).
+- Fact-check review (against English and Vietnamese Wikipedia): corrected the coin history (coins exist but have not been issued since 2011), the polymer rollout (2003 to 2006), the 500,000 note's colour, the market's rebuilding (partly, after the 1994 fire), egg coffee (fresh milk was scarce), the 2025 province merger (Nam Định is now part of Ninh Bình), rau sống (not served with Hà Nội phở), "Ăn cơm chưa?" (a mealtime greeting among family and neighbours), and the lesson 1 intro count. Added tiền mừng tuổi against the Southern lì xì, two market proverbs, and Đông Kinh as the source of "Tonkin".
+- Images: Wikimedia Commons is blocked from the sandbox; the owner was asked to allow upload.wikimedia.org and commons.wikimedia.org. Until then, illustrations are original SVG.
+
 ## 2026-11-21: Lesson 2, Big numbers and prices (Vua Muỗi, the Mosquito King)
 
 - Data: one session (lesson 1 on a Mac, 76% first try, 9.7 minutes, speed round 14/15). Feedback: "Too easy", fun "OK", hardest gà, bò, cá; note "make it more fun and unexpected (hint: the website name is Viet Wars)". In conversation: knows all lesson 1 words except sometimes gà, cá and bò; knows phở, trà and cơm well; no Vietnamese keyboard on the Mac; wants more pictures.

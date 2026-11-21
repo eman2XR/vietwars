@@ -82,6 +82,15 @@ const ICONS = {
     <path class="f-steel" d="M40 12 h40 l-4 22 h-32 z"/>
     <rect class="f-steel" x="38" y="6" width="44" height="8" rx="3"/>
     <circle class="f-steel" cx="60" cy="4" r="3"/>`,
+  noodlelift: `${FOOT}
+    <path class="f-paper" d="M16 50 C18 72 38 84 60 84 C82 84 102 72 104 50"/>
+    <ellipse class="f-gold" cx="60" cy="50" rx="44" ry="8"/>
+    <ellipse class="s-ink" cx="60" cy="50" rx="44" ry="8"/>
+    <g class="s-noodle"><path d="M66 36 q-4 8 -1 16"/><path d="M70 36 q2 9 -2 16"/><path d="M73 35 q5 9 1 17"/></g>
+    <g class="s-ink fine"><path d="M66 36 q-4 8 -1 16"/><path d="M70 36 q2 9 -2 16"/><path d="M73 35 q5 9 1 17"/></g>
+    <line class="s-brown thick" x1="48" y1="4" x2="70" y2="38"/>
+    <line class="s-brown thick" x1="60" y1="2" x2="74" y2="37"/>
+    <path class="s-soft" d="M30 30 q-4 -6 0 -12 M90 32 q-4 -6 0 -12" fill="none"/>`,
   yum: `<circle class="f-gold" cx="60" cy="46" r="34"/>
     <g class="s-ink thick"><path d="M40 38 q6 -7 12 0"/><path d="M68 38 q6 -7 12 0"/></g>
     <path class="f-ink" d="M42 52 q18 22 36 0 z"/>
@@ -203,6 +212,65 @@ function halfCircle() {
   return svg(`<circle class="f-soft" cx="60" cy="45" r="32"/><path class="f-accent" d="M60 13 A32 32 0 0 0 60 77 Z"/><path class="s-ink" d="M60 8 V82" stroke-dasharray="4 4" fill="none"/>`);
 }
 
+const SCENES = {
+  phoStall: `
+    <rect class="f-gold ns" x="0" y="0" width="400" height="178"/>
+    <g class="s-brown fine" opacity="0.35"><path d="M0 40 H400 M0 96 H400 M0 150 H400"/></g>
+    <rect class="f-paper" x="246" y="24" width="104" height="112" rx="2"/>
+    <rect class="f-leaf" x="252" y="30" width="44" height="100"/>
+    <rect class="f-leaf" x="300" y="30" width="44" height="100"/>
+    <g class="s-ink fine">${Array.from({ length: 9 }, (_, i) => `<path d="M256 ${40 + i * 10} H292 M304 ${40 + i * 10} H340"/>`).join('')}</g>
+    <rect class="f-paper" x="34" y="30" width="138" height="50" rx="3"/>
+    <text class="t-sign" x="103" y="65" text-anchor="middle">PHỞ BÒ</text>
+    <rect class="f-soft ns" x="0" y="178" width="400" height="72"/>
+    <path class="s-ink fine" d="M0 178 H400" fill="none"/>
+    <g class="s-soft">
+      <path d="M68 98 q-6 -9 0 -18 q6 -9 0 -18"/><path d="M88 94 q-6 -9 0 -18 q6 -9 0 -18"/><path d="M108 98 q-6 -9 0 -18 q6 -9 0 -18"/>
+    </g>
+    <rect class="f-steel" x="44" y="112" width="90" height="74" rx="6"/>
+    <ellipse class="f-steel" cx="89" cy="112" rx="47" ry="9"/>
+    <path class="s-ink fine" d="M44 132 H134 M44 166 H134" fill="none"/>
+    <rect class="f-ink" x="74" y="186" width="30" height="10" rx="2"/>
+    <rect class="f-brown" x="170" y="168" width="140" height="10" rx="2"/>
+    <path class="s-brown thick" d="M184 178 V214 M296 178 V214" fill="none"/>
+    <path class="f-paper" d="M212 152 C213 164 222 168 232 168 C242 168 251 164 252 152"/>
+    <ellipse class="f-gold" cx="232" cy="152" rx="20" ry="4"/>
+    <ellipse class="s-ink fine" cx="232" cy="152" rx="20" ry="4"/>
+    <path class="s-brown" d="M240 138 L262 160 M246 136 L266 158" fill="none"/>
+    <path class="f-paper" d="M270 156 C271 164 276 168 283 168 C290 168 295 164 296 156"/>
+    <ellipse class="f-water" cx="283" cy="156" rx="13" ry="3"/>
+    <g class="f-bad">
+      <path d="M140 196 h40 l-5 40 h-30 z"/><ellipse cx="160" cy="196" rx="20" ry="5"/>
+      <path d="M322 196 h40 l-5 40 h-30 z"/><ellipse cx="342" cy="196" rx="20" ry="5"/>
+    </g>`,
+  market: `
+    <rect class="f-soft ns" x="0" y="0" width="400" height="250"/>
+    <g opacity="0.9">
+      <g transform="rotate(-14 70 40)"><rect class="f-water" x="44" y="28" width="52" height="26" rx="3"/></g>
+      <g transform="rotate(10 330 34)"><rect class="f-pink" x="304" y="22" width="52" height="26" rx="3"/></g>
+      <g transform="rotate(-6 210 22)"><rect class="f-leaf" x="186" y="10" width="48" height="24" rx="3"/></g>
+    </g>
+    <path class="f-paper" d="M24 100 H376 V214 H24 Z"/>
+    <path class="f-paper" d="M118 100 V64 L200 40 L282 64 V100 Z"/>
+    <rect class="f-gold" x="126" y="70" width="148" height="22" rx="2"/>
+    <text class="t-market" x="200" y="86" text-anchor="middle">CHỢ ĐỒNG XUÂN</text>
+    <g class="f-shadow">${[44, 104, 164, 236, 296].map((x) => `<path d="M${x} 214 V156 a30 30 0 0 1 60 0 V214 Z"/>`).join('')}</g>
+    <g class="s-shadow fine">${[56, 116, 176, 248, 308].map((x) => `<rect x="${x}" y="114" width="36" height="18" fill="none"/>`).join('')}</g>
+    <path class="s-ink" d="M24 100 H376" fill="none"/>
+    <rect class="f-brown ns" x="0" y="214" width="400" height="36" opacity="0.35"/>
+    <path class="s-brown thick" d="M150 206 Q200 194 250 206" fill="none"/>
+    <path class="s-ink fine" d="M158 205 V220 M242 205 V220" fill="none"/>
+    <path class="f-gold" d="M144 220 h28 l-4 18 h-20 z"/><path class="f-gold" d="M228 220 h28 l-4 18 h-20 z"/>
+    <g class="f-orange ns"><circle cx="152" cy="219" r="4"/><circle cx="160" cy="217" r="4"/><circle cx="166" cy="220" r="4"/><circle cx="236" cy="219" r="4"/><circle cx="244" cy="217" r="4"/><circle cx="250" cy="220" r="4"/></g>
+    <path class="f-water" d="M190 206 h20 l6 32 h-32 z"/>
+    <path class="f-paper" d="M178 194 L200 168 L222 194 Z"/>
+    <path class="s-ink fine" d="M186 190 L200 172 M214 190 L200 172" fill="none"/>`,
+};
+
+function scene(name) {
+  return SCENES[name] ? `<svg class="pic scene" viewBox="0 0 400 250" aria-hidden="true">${SCENES[name]}</svg>` : '';
+}
+
 // Returns an SVG string for a lesson picture spec such as { "kind": "icon", "name": "bowl" } or { "kind": "dots", "n": 100 }.
 export function picture(spec) {
   if (!spec || typeof spec !== 'object') return '';
@@ -233,10 +301,13 @@ export function picture(spec) {
       return halfCircle();
     case 'compare':
       return compare();
+    case 'scene':
+      return scene(spec.name);
     default:
       return '';
   }
 }
 
-export const PICTURE_KINDS = ['icon', 'dots', 'blocks', 'big', 'notes', 'coin', 'tag', 'question', 'digits', 'halves', 'plus', 'half', 'compare'];
+export const PICTURE_KINDS = ['icon', 'dots', 'blocks', 'big', 'notes', 'coin', 'tag', 'question', 'digits', 'halves', 'plus', 'half', 'compare', 'scene'];
+export const SCENE_NAMES = Object.keys(SCENES);
 export const ICON_NAMES = Object.keys(ICONS);
