@@ -48,13 +48,19 @@ function applyStyle(id = currentStyle()) {
   });
 }
 
-async function getJSON(path, fallback) {
-  try {
-    const res = await fetch(path);
-    return res.ok ? await res.json() : fallback;
-  } catch {
-    return fallback;
+// Fetches a JSON file, trying again twice if a request fails (for example while a new version of the site takes over).
+async function getJSON(path, fallback, tries = 3) {
+  for (let i = 0; i < tries; i++) {
+    try {
+      const res = await fetch(path);
+      if (res.ok) return await res.json();
+      if (res.status === 404) return fallback;
+    } catch {
+      /* Tried again below. */
+    }
+    if (i < tries - 1) await new Promise((done) => setTimeout(done, 400 * (i + 1)));
   }
+  return fallback;
 }
 
 async function loadLessons() {
