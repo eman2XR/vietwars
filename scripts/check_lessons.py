@@ -303,7 +303,7 @@ def check_lesson(r, entry, lesson, earlier_words, audio, known_words, warmed=fro
     return seen, warm
 
 
-MAX_ANSWERS = 60
+MAX_ANSWERS = 50
 
 
 def check_use(r, lid, lesson):
@@ -336,7 +336,7 @@ def check_plan(r, lid):
     if not plan["inOrder"]:
         r.error(lid, "the story plays out of order")
     if plan["answers"] > MAX_ANSWERS:
-        r.warn(lid, f"{plan['answers']} answers before rush hour; keep an issue near 55 (fewer new or review words, or fewer situations)")
+        r.warn(lid, f"{plan['answers']} answers before rush hour; keep an issue near 45 (fewer new or review words, or fewer situations)")
     beats = plan["beats"]
     for a, b in zip(beats, beats[1:]):
         if a["answersBefore"] == b["answersBefore"] and a["where"] != "on the results page":

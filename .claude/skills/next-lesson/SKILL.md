@@ -42,7 +42,7 @@ python3 scripts/check_lessons.py
 node scripts/plan.mjs lesson-NN
 ```
 
-Fix every error. Judge every warning: fix it, or note in the log why it stays. `plan.mjs` prints the number of answers (aim for about 55) and where each story beat lands; move or untie beats until they are spread through the whole issue.
+Fix every error. Judge every warning: fix it, or note in the log why it stays. `plan.mjs` prints the number of answers (aim for about 45) and where each story beat lands; move or untie beats until they are spread through the whole issue.
 
 ## 4. Review
 
