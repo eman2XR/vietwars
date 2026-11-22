@@ -1,6 +1,6 @@
 {
   "updated": "2026-11-22",
-  "reviewedAt": null,
+  "reviewedAt": "2026-11-22",
   "goal": "A large working vocabulary in Northern (Hà Nội) Vietnamese first, then short sentence patterns, then conversation.",
   "phases": [
     {
@@ -50,7 +50,7 @@
     {
       "id": "people",
       "title": "People and family",
-      "status": "active",
+      "status": "done",
       "warmupIdeas": [
         "bố",
         "mẹ",
@@ -79,6 +79,29 @@
       "lesson": "lesson-04"
     },
     {
+      "id": "market",
+      "title": "At the market: prices as sellers say them",
+      "status": "planned",
+      "candidates": [
+        "quả",
+        "táo",
+        "cam",
+        "chuối",
+        "xoài",
+        "dưa hấu",
+        "thịt",
+        "thịt lợn",
+        "trứng",
+        "mua",
+        "bán",
+        "mặc cả",
+        "cân",
+        "túi"
+      ],
+      "notes": "Next, at the learner's request after issue 4: \"someone telling me a price and me understanding what it is\", noting that sellers usually drop nghìn (\"mười\" for 10,000) and shorten hundreds. Teach the spoken forms Hà Nội sellers really use (dropped nghìn, hai lăm for 25, trăm rưỡi for 150 and similar), each one confirmed by the Vietnamese reviewer before it is taught, alongside the market words. Consolidates the weakest words: trăm, nghìn, mươi, lăm, rưỡi, triệu. Real-life prices are the weakest skill (60% right, about 27 seconds an answer). quả and thịt lợn are Northern (the South says trái and thịt heo). Keep it to about 45 answers.",
+      "storyIdea": "Fruit of the North through the seasons, and street vendors with their shoulder poles (quang gánh)."
+    },
+    {
       "id": "politeness",
       "title": "Greetings and politeness",
       "status": "planned",
@@ -104,29 +127,6 @@
       ],
       "notes": "ạ at the end of a sentence to older people; vâng is the typical Northern polite yes. After issue 4: add cháu and con, what you call yourself to cô, chú, ông and bà (Cháu chào bà ạ).",
       "storyIdea": "Hà Nội manners: vâng and ạ, greeting elders first, and the Temple of Literature (Văn Miếu, 1070), the first university."
-    },
-    {
-      "id": "market",
-      "title": "At the market",
-      "status": "planned",
-      "candidates": [
-        "quả",
-        "táo",
-        "cam",
-        "chuối",
-        "xoài",
-        "dưa hấu",
-        "thịt",
-        "thịt lợn",
-        "trứng",
-        "mua",
-        "bán",
-        "mặc cả",
-        "cân",
-        "túi"
-      ],
-      "notes": "quả and thịt lợn are Northern (the South says trái and thịt heo). Builds on lesson 2 prices. Moved up after issue 4: the learner still misses prices by ear (a fare of 60,000, a bill of 105,000, a tourist price); per-kilo prices and bargaining practise exactly that.",
-      "storyIdea": "Fruit of the North through the seasons, and street vendors with their shoulder poles (quang gánh)."
     },
     {
       "id": "verbs",

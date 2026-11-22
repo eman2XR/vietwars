@@ -2,6 +2,10 @@
 
 Why each lesson was planned the way it was, newest first. Written by the `/next-lesson` skill.
 
+## 2026-11-22: Progress review
+
+- See `learner/REVIEW.md`: prices by ear are the weakest skill, so the market unit comes next as prices the way sellers say them; issues aim at about 45 answers; review words are no longer typed inside issues.
+
 ## 2026-11-22: Issue 4, People and family ("A country of Nguyễns")
 
 - Data: issue 3 on the Mac: 81% first try, merit, 17.6 minutes, "Just right", fun "Good", story "Skipped it" (14 seconds on the opening; the two word beats read for 8 and 1 seconds). Hardest: hai, ba, trăm, nghìn, nữa. Wants next: "surprise me". Note: "the did you know popups I mostly skipped. need more illustrations". Real life 5 of 8, and 5 of the 17.6 minutes: a fare of sáu mươi nghìn typed 231000 (4 plays and a hint), the bill of 105,000 typed 10000 (5 plays and a hint), the tourist price for oranges answered Ngon quá!. Typing on lenient grades: wrong words for nghìn and trăm (both typed trien), tám (tram), bốn (bơ) and nữa (nhua). Listening: hai heard as five twice. The short review afterwards: mươi typed làm, lăm heard as the tens, rưỡi typed driou, triệu right.

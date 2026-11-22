@@ -96,7 +96,8 @@
           "en": "tide; dynasty"
         }
       ],
-      "fact": "A millionaire is a triệu phú: triệu, million, plus phú, rich."
+      "fact": "A millionaire is a triệu phú: triệu, million, plus phú, rich.",
+      "note": "triệu is a million: một triệu is 1.000.000₫, and the biggest note is 500.000₫. Not trăm (100) or nghìn (1.000)."
     },
     {
       "vi": "mươi",
@@ -132,7 +133,8 @@
           "en": "very (đắt lắm, very expensive)"
         }
       ],
-      "fact": "Many Hà Nội speakers say nhăm instead of lăm after the tens: hai mươi nhăm, 25."
+      "fact": "Many Hà Nội speakers say nhăm instead of lăm after the tens: hai mươi nhăm, 25.",
+      "note": "lăm takes the place of năm after mười or mươi: mười lăm is 15, hai mươi lăm 25. Sellers often shorten it: hai lăm."
     },
     {
       "vi": "linh",

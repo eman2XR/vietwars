@@ -7,7 +7,7 @@ import { picture, PICTURE_KINDS } from '../web/js/pictures.js';
 const index = JSON.parse(readFileSync(new URL('../web/lessons/index.json', import.meta.url)));
 const lessons = index.lessons.map((l) => JSON.parse(readFileSync(new URL(`../web/lessons/${l.file}`, import.meta.url))));
 
-test('every lesson builds a full battle', () => {
+test('every lesson builds a full issue', () => {
   for (const lesson of lessons) {
     const review = [{ vi: 'xx', en: 'review word' }];
     const steps = lessonSteps(lesson, { review, warmup: lesson.warmup || [] });
@@ -20,7 +20,8 @@ test('every lesson builds a full battle', () => {
       }
     }
     assert.ok(!steps.some((s) => s.type === 'meet' && s.word.vi === 'xx'), 'review words are not introduced again');
-    assert.ok(steps.some((s) => s.type === 'type' && s.word.vi === 'xx'), 'review words are typed');
+    assert.ok(steps.some((s) => s.type === 'listen' && s.word.vi === 'xx'), 'review words are heard');
+    assert.ok(!steps.some((s) => s.type === 'type' && s.word.vi === 'xx'), 'review words are typed in the spaced reviews, not in issues');
     assert.equal(steps.filter((s) => s.warmup).length, (lesson.warmup || []).length);
     for (const s of steps.filter((x) => x.type === 'listen' || x.type === 'reverse')) {
       assert.ok(s.pool.some((p) => p.vi === s.word.vi), 'the answer is in its own option pool');

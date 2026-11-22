@@ -182,7 +182,8 @@ export function lessonSteps(lesson, { review = [], warmup = [] } = {}) {
     shuffle(practise).forEach((w) => steps.push({ type: 'listen', word: w, pool }));
     const spellers = new Set(shuffle(part.filter((w) => w.contrast?.length)).slice(0, MAX_SPELL).map((w) => w.vi));
     shuffle(part).forEach((w) => steps.push(spellers.has(w.vi) ? { type: 'spell', word: w } : { type: 'reverse', word: w, pool: part.length >= 4 ? part : pool }));
-    shuffle(practise).forEach((w) => steps.push({ type: 'type', word: w }));
+    // Review words are only heard here; typing them from memory belongs to the spaced reviews.
+    shuffle(part).forEach((w) => steps.push({ type: 'type', word: w }));
   });
   if (lesson.grammar) steps.push({ type: 'grammar', grammar: lesson.grammar });
   if (lesson.combos?.length) {
