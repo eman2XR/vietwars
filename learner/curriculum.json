@@ -81,7 +81,7 @@
     {
       "id": "market",
       "title": "At the market: prices as sellers say them",
-      "status": "planned",
+      "status": "active",
       "candidates": [
         "quả",
         "táo",
@@ -98,8 +98,9 @@
         "cân",
         "túi"
       ],
-      "notes": "Next, at the learner's request after issue 4: \"someone telling me a price and me understanding what it is\", noting that sellers usually drop nghìn (\"mười\" for 10,000) and shorten hundreds. Teach the spoken forms Hà Nội sellers really use (dropped nghìn, hai lăm for 25, trăm rưỡi for 150 and similar), each one confirmed by the Vietnamese reviewer before it is taught, alongside the market words. Consolidates the weakest words: trăm, nghìn, mươi, lăm, rưỡi, triệu. Real-life prices are the weakest skill (60% right, about 27 seconds an answer). quả and thịt lợn are Northern (the South says trái and thịt heo). Keep it to about 45 answers.",
-      "storyIdea": "Fruit of the North through the seasons, and street vendors with their shoulder poles (quang gánh)."
+      "notes": "Next, at the learner's request after issue 4: \"someone telling me a price and me understanding what it is\", noting that sellers usually drop nghìn (\"mười\" for 10,000) and shorten hundreds. Teach the spoken forms Hà Nội sellers really use (dropped nghìn, hai lăm for 25, trăm rưỡi for 150 and similar), each one confirmed by the Vietnamese reviewer before it is taught, alongside the market words. Consolidates the weakest words: trăm, nghìn, mươi, lăm, rưỡi, triệu. Real-life prices are the weakest skill (60% right, about 27 seconds an answer). quả and thịt lợn are Northern (the South says trái and thịt heo). Keep it to about 45 answers. Issue 5 (2026-11-22): mua, quả, cam, chuối, cân, thịt, bớt, hết; review trăm, rưỡi, lăm, đắt. Spoken price forms taught: nghìn dropped (ba mươi = 30.000₫), mươi dropped before a last digit (hai lăm, ba lăm, bốn lăm), trăm plus a digit for tens (trăm hai = 120.000₫, trăm tám = 180.000₫), trăm rưỡi and hai trăm rưỡi; all awaiting the Vietnamese reviewer. Story: the Tết fruit tray (bananas in the North, puns in the South), vải thiều and cụ Cơm, shoulder-pole sellers, cốm. Left for later: chục for tens (hai chục = 20.000₫, a near-synonym of mươi), lạng (100 g), triệu hai and triệu rưỡi, xoài, dưa hấu, trứng, túi, chợ, bán.",
+      "storyIdea": "Fruit of the North through the seasons, and street vendors with their shoulder poles (quang gánh).",
+      "lesson": "lesson-05"
     },
     {
       "id": "politeness",

@@ -121,6 +121,46 @@ function family(kind) {
   };
 }
 
+// Issue 5 (the market). Spokes from a centre: citrus segments, dial ticks, leaf veins.
+function spokes(cx, cy, r0, r1, n, rot = 0, skip = []) {
+  let d = '';
+  for (let i = 0; i < n; i++) {
+    if (skip.includes(i)) continue;
+    const a = rot + (i / n) * Math.PI * 2;
+    d += `M${n1(cx + Math.cos(a) * r0)} ${n1(cy + Math.sin(a) * r0)} L${n1(cx + Math.cos(a) * r1)} ${n1(cy + Math.sin(a) * r1)} `;
+  }
+  return d.trim();
+}
+
+// One banana finger growing from its crown at (x, y): a crescent that dips and curls up to a dark tip, turned by deg,
+// sized by s and mirrored when flip is set. Coordinates are computed, not transformed, so line widths stay even.
+function banana(x, y, deg, s = 1, { flip = false, cls = 'k-tint', ridge = 1.1 } = {}) {
+  const a = (deg * Math.PI) / 180;
+  const p = ([u, v]) => {
+    const dx = (u * Math.cos(a) - v * Math.sin(a)) * s;
+    const dy = (u * Math.sin(a) + v * Math.cos(a)) * s;
+    return `${n1(flip ? x - dx : x + dx)} ${n1(y + dy)}`;
+  };
+  const [tx, ty] = p([74.6, 2]).split(' ');
+  return `<path class="${cls}" d="M${p([0, 4])} C${p([4, 44])} ${p([56, 50])} ${p([75, 5])} L${p([74, -1])} C${p([58, 28])} ${p([20, 30])} ${p([2, -4])} Z"/>
+    <path stroke-width="${ridge}" d="M${p([4, 1.6])} C${p([11, 37])} ${p([55, 41])} ${p([72.6, 3.4])}"/><circle class="k-dot" cx="${tx}" cy="${ty}" r="${n1(2.3 * Math.max(1, s * 0.75))}"/>`;
+}
+
+// A straight bar, wider at the far end (a pen, a stalk). Like stick() below, but safe to use while ICONS is being built.
+function bar(x1, y1, x2, y2, w1, w2) {
+  const len = Math.hypot(x2 - x1, y2 - y1) || 1;
+  const nx = -(y2 - y1) / len;
+  const ny = (x2 - x1) / len;
+  const pt = (x, y, w, k) => `${n1(x + (k * nx * w) / 2)} ${n1(y + (k * ny * w) / 2)}`;
+  return `M${pt(x1, y1, w1, 1)} L${pt(x2, y2, w2, 1)} L${pt(x2, y2, w2, -1)} L${pt(x1, y1, w1, -1)} Z`;
+}
+
+// A lychee: a round fruit covered in small raised scales.
+function lychee(cx, cy, r) {
+  const marks = [[-0.5, -0.45], [0.1, -0.6], [0.55, -0.25], [-0.6, 0.15], [0, -0.05], [0.5, 0.35], [-0.2, 0.55], [-0.15, -0.3], [0.25, 0.15]];
+  return `<circle class="k-tint" cx="${cx}" cy="${cy}" r="${r}"/><path stroke-width="1" d="${marks.map(([u, v]) => `M${n1(cx + u * r - 1.6)} ${n1(cy + v * r + 0.6)} q1.6 -2.2 3.2 0`).join(' ')}"/>`;
+}
+
 const ICONS = {
   bowl: {
     tone: 'warm',
@@ -364,6 +404,131 @@ const ICONS = {
       <circle class="k-tint" stroke-width="1.5" cx="60" cy="50" r="7"/><path stroke-width="1.1" d="M54 50 h12 M60 44 c-3 4 -3 8 0 12 c3 -4 3 -8 0 -12"/>
       <path class="k-shade" stroke-width="1.4" d="M51 64 H69 V72 H51 Z"/>
       <path stroke-width="1.6" d="M28 80 v3 M92 80 v3"/>`,
+  },
+  // Issue 5, the market. mua: a banknote goes one way, a bag of oranges comes back.
+  buy: {
+    tone: 'earth',
+    seed: 171,
+    ink: `<path stroke-width="1.8" d="M30 25 C42 13 66 11 80 21 M80 21 l-1.5 -7.5 M80 21 l-7.6 1.2"/>
+      <path stroke-width="1.8" d="M88 74 C76 85 52 86 38 77 M38 77 l1.6 7.4 M38 77 l7.6 -1.4"/>
+      <g transform="rotate(-9 31 49)"><path class="k-tint" d="M11 37 h40 v24 h-40 Z"/><path stroke-width="1.2" d="M15 41 h32 v16 h-32 Z"/><circle stroke-width="1.4" cx="23" cy="49" r="4.6"/><path stroke-width="1.2" d="M33 46 h9 M33 50 h11 M33 54 h7"/></g>
+      ${[[78, 39], [88, 36], [97, 40], [84, 30]].map(([x, y]) => `<circle class="k-tint" stroke-width="1.6" cx="${x}" cy="${y}" r="6"/>`).join('')}
+      <path stroke-width="1.6" d="M74 44 C70 34 73 27 77 27 M102 44 C106 34 103 27 99 27"/>
+      <path class="k-paper" d="M70 43 C76 41 100 41 106 43 L109 77 C100 81 76 81 67 77 Z"/>
+      <path stroke-width="1.2" d="M76 50 C78 60 77 68 75 74 M99 50 C97 60 98 68 100 74"/>`,
+  },
+  // quả: a fruiting branch; one fruit hangs on, one has just dropped.
+  fruit: {
+    tone: 'leaf',
+    seed: 173,
+    ink: `<path d="M6 18 C28 10 58 15 88 11 C96 10 103 12 110 9"/>
+      <path class="k-pale" stroke-width="1.6" d="M60 14 C66 3 80 1 88 4 C82 12 70 16 60 14 Z M30 14 C25 4 13 3 7 7 C13 14 22 17 30 14 Z"/>
+      <path stroke-width="1.1" d="M62 13 C70 9 78 6 86 4.6 M28 13.6 C22 10 15 8 9 7"/>
+      <path stroke-width="1.6" d="M42 15 C43 20 43 24 42 28 M78 12 C79 15 79 18 78 20"/>
+      <circle class="k-tint" cx="42" cy="40" r="12.5"/><path class="k-paper" stroke-width="1.3" d="M36 31 q4 -3 7 0 q-4 2 -7 0 Z"/>
+      <path stroke-width="1.5" d="M71 34 v5 M78 31 v7 M85 34 v5"/>
+      <circle class="k-tint" cx="78" cy="58" r="12.5"/><path stroke-width="1.6" d="M78 45.5 c0 -2.4 1 -4 2.4 -5"/>
+      <path stroke-width="1.4" d="M64 80 h28"/>`,
+  },
+  // cam: a whole orange with its leaf, and a half showing the segments.
+  orange: {
+    tone: 'warm',
+    seed: 175,
+    ink: `<circle class="k-tint" cx="46" cy="49" r="25"/>
+      <path stroke-width="1.8" d="M46 24.5 C45.4 21 46 18 47.6 15.4"/>
+      <path class="k-paper" stroke-width="1.6" d="M47.6 17 C52 9.4 63.6 7.4 71 11 C65 18 55 21 47.6 17 Z"/><path stroke-width="1.1" d="M50 16.2 C56 13.6 62 12 68.6 11.4"/>
+      <circle class="k-paper" cx="85" cy="63" r="17"/>
+      <circle class="k-pale" stroke-width="1.4" cx="85" cy="63" r="13"/>
+      <path stroke-width="1.2" d="${spokes(85, 63, 2.6, 12.4, 8, 0.2)}"/>`,
+    crisp: `${[[36, 40], [44, 35], [53, 37], [33, 50], [42, 45], [50, 44], [58, 43], [38, 58], [47, 55], [55, 52], [44, 65], [30, 43], [60, 51]].map(([x, y]) => `<circle class="k-dot" cx="${x}" cy="${y}" r="0.75"/>`).join('')}<circle class="k-dot" cx="85" cy="63" r="1.4"/>`,
+  },
+  // chuối: a hand of bananas fanning from its crown.
+  bananas: {
+    tone: 'earth',
+    seed: 177,
+    ink: `<path class="k-shade" stroke-width="1.8" d="${bar(27, 39, 13, 22, 8, 6.5)}"/>
+      ${[-26, -12, 2, 16].map((d) => banana(25, 37, d, 0.96)).join('')}
+      <path class="k-shade" stroke-width="1.6" d="M18 33 C22 30 28 31 31 35 C30 41 24 44 19 41 C16 39 16 35 18 33 Z"/>`,
+  },
+  // cân: a market dial scale with fruit in its pan.
+  scale: {
+    tone: 'earth',
+    seed: 179,
+    ink: `<path stroke-width="1.8" d="M60 39 V29"/>
+      <path class="k-paper" d="M30 29 C40 24 80 24 90 29 C80 34 40 34 30 29 Z"/>
+      <circle class="k-pale" stroke-width="1.7" cx="51" cy="21" r="7.6"/><circle class="k-pale" stroke-width="1.7" cx="67" cy="20" r="8.4"/><circle class="k-pale" stroke-width="1.7" cx="58.6" cy="14" r="6.6"/>
+      <path class="k-tint" d="M34 45 C34 41 37 39 41 39 H79 C83 39 86 41 86 45 V78 C86 81 84 83 81 83 H39 C36 83 34 81 34 78 Z"/>
+      <path stroke-width="1.8" d="M40 83 v3 M80 83 v3"/>
+      <circle class="k-paper" cx="60" cy="61" r="17"/>
+      <path stroke-width="1.1" d="${spokes(60, 61, 12.8, 15.6, 12, -Math.PI / 2, [5, 6, 7])}"/>
+      <path stroke-width="1.9" d="M60 61 L70.6 50.4"/>`,
+    crisp: `<circle class="k-dot" cx="60" cy="61" r="2.2"/>${textAt('kg', 60, 70.4, 6.4)}`,
+  },
+  // thịt: a joint of meat on the bone, a rim of fat along its top, shaded by hatching.
+  meat: {
+    tone: 'warm',
+    seed: 181,
+    ink: `<path class="k-paper" stroke-width="1.8" d="${bar(70, 40, 98, 18, 7.4, 6.6)}"/>
+      <circle class="k-paper" stroke-width="1.8" cx="101.4" cy="20.6" r="4.8"/><circle class="k-paper" stroke-width="1.8" cx="96.6" cy="14.6" r="4.8"/>
+      <path class="k-tint" d="M77 33 C65 28 50 29 40 33 C26 38 16 50 19 62 C22 74 37 81 52 76 C65 72 73 60 79 46 C81 40 81 36 77 33 Z"/>
+      <path class="k-paper" stroke-width="1.6" d="M77 33 C65 28 50 29 40 33 C30 37 23 44 20.6 52 C28 45.6 38 41 50 39.4 C61 38 71 38.6 79.4 41 C80.4 37.6 79.6 34.6 77 33 Z"/>
+      ${hatch(34, 74, 66, 64, 7, 4.2, -5.4, 1.2)}${hatch(70, 58, 76, 48, 3, 3.6, -4.6, 1.2)}`,
+  },
+  // bớt: a price tag knocked down from 50k to 45k.
+  discount: {
+    tone: 'earth',
+    paper: false,
+    ink: `<path d="M24 46 C16 40 12 30 16 18"/>
+      <path class="k-paper" d="M10 46 L28 21 H100 V71 H28 Z"/><circle stroke-width="1.8" cx="23" cy="46" r="3.6"/>
+      <path stroke-width="2.6" d="M92 29 V50 M86.5 44.5 l5.5 5.5 l5.5 -5.5"/>`,
+    crisp: `${textAt('80k', 57, 33, 12)}<path class="k-ink" stroke-width="2.2" d="M43 34.6 L71 31.4"/>${textAt('70k', 58, 56, 21)}`,
+  },
+  // hết: a handwritten bill with its total underlined.
+  bill: {
+    tone: 'earth',
+    seed: 183,
+    ink: `<path class="k-paper" d="M36 8 H84 V80 l-4 4 l-4 -4 l-4 4 l-4 -4 l-4 4 l-4 -4 l-4 4 l-4 -4 l-4 4 l-4 -4 l-4 4 l-4 -4 Z"/>
+      <path stroke-width="1.3" d="M42 18 h20 M70 18 h8 M42 27 h16 M70 27 h8 M42 36 h22 M70 36 h8 M42 45 h14 M70 45 h8"/>
+      <path stroke-width="1.6" d="M42 54 H78 M42 57.5 H78"/>
+      <path class="k-tint" stroke-width="1.6" d="${bar(106, 20, 91, 66, 5, 5)}"/><path class="k-dot" d="M88.8 64.6 L89.4 71.8 L93.6 66.2 Z"/>`,
+    crisp: textAt('150k', 60, 68, 14),
+  },
+  // Story: lychees, the vải thiều of summer.
+  lychee: {
+    tone: 'warm',
+    seed: 185,
+    ink: `<path d="M58 4 C58 14 56 22 52 30 M57 16 C64 22 70 26 76 30 M55 22 C50 26 44 30 38 34"/>
+      <path class="k-pale" stroke-width="1.6" d="M58 9 C66 3 82 3 92 8 C84 14 68 14 58 9 Z M57 12 C48 6 34 7 26 13 C36 18 48 17 57 12 Z"/>
+      <path stroke-width="1" d="M61 9 C70 7.4 80 7 89 8 M54 12.4 C46 11 37 11.6 29 13"/>
+      ${lychee(38, 45, 11)}${lychee(56, 42, 11.5)}${lychee(78, 43, 11)}${lychee(47, 63, 11.5)}
+      <path class="k-tint" stroke-width="1.6" d="M66 70 C64 62 70 56 77 57 C74 62 72 67 72 72 Z"/>
+      <path class="k-paper" d="M74 70 C74 61 80 56 86 56 C93 56 97 62 96 69 C95 76 89 80 84 80 C78 80 74 76 74 70 Z"/>
+      <path class="k-pale" stroke-width="1.2" d="M82.6 66 C82.6 62.8 84.2 61 86 61 C87.8 61 89 63 89 66 C89 69 87.4 71 85.6 71 C84 71 82.6 69 82.6 66 Z"/>`,
+  },
+  // Story: a street seller with a shoulder pole (đòn gánh), a basket of fruit at each end.
+  pole: {
+    tone: 'warm',
+    seed: 187,
+    ink: `<path class="k-pale" stroke-width="1.6" d="M9 31 Q60 23 111 31 L111 34 Q60 26 9 34 Z"/>
+      <path stroke-width="1.3" d="M14 32.4 L7 58 M14 32.4 L14 58 M14 32.4 L21 58 M106 32.4 L99 58 M106 32.4 L106 58 M106 32.4 L113 58"/>
+      ${[[9, 55], [14.6, 53], [19.6, 55.4], [101, 55], [106.6, 53], [111.4, 55.4]].map(([x, y]) => `<circle class="k-tint" stroke-width="1.5" cx="${x}" cy="${y}" r="4"/>`).join('')}
+      <path class="k-pale" stroke-width="1.7" d="M4 58 H24 L21 76 H7 Z M96 58 H116 L113 76 H99 Z"/>
+      <path stroke-width="1" d="M5 64 H23 M6 70 H22 M10 58 L10.6 76 M17.6 58 L17 76 M97 64 H115 M98 70 H114 M102 58 L102.6 76 M109.6 58 L109 76"/>
+      <path d="M56 57 L54 80 M64 57 L67 80"/><path stroke-width="1.8" d="M50 81 h5 M66 81 h6"/>
+      <path class="k-paper" d="M52 25 C55 23.4 65 23.4 68 25 L71 58 C64 60 56 60 49 58 Z"/>
+      <path stroke-width="1.6" d="M67 30 C72 33 75 32 78 29 M53 30 C50 38 49 44 50 49"/>
+      <path class="k-tint" d="M43 23 L60 6 L77 23 C70 25.6 50 25.6 43 23 Z"/>
+      <path stroke-width="1" d="M60 6 L52 24 M60 6 L60 25 M60 6 L68 24"/>`,
+  },
+  // Story: cốm, young green rice, heaped on a lotus leaf and tied with green straw.
+  comLeaf: {
+    tone: 'leaf',
+    seed: 189,
+    ink: `<path class="k-tint" d="M60 14 C82 13 100 26 101 45 C102 64 84 78 60 78 C36 78 18 65 19 46 C20 27 38 15 60 14 Z"/>
+      <path stroke-width="1.1" d="${spokes(60, 46, 6, 31, 14, 0.1)}"/>
+      <path class="k-pale" stroke-width="1.8" d="M36 54 C38 38 48 30 60 30 C72 30 82 38 84 54 C76 59 44 59 36 54 Z"/>
+      <path stroke-width="0.9" d="M46 41 q2 -1.4 4 0 M56 36 q2 -1.4 4 0 M66 40 q2 -1.4 4 0 M42 49 q2 -1.4 4 0 M52 46 q2 -1.4 4 0 M62 47 q2 -1.4 4 0 M72 48 q2 -1.4 4 0 M58 53 q2 -1.4 4 0 M48 53 q2 -1.4 4 0 M70 54 q2 -1.4 4 0"/>
+      <path class="k-mid" stroke-width="1.5" d="M60 78 C61 82 63 85 66 87"/>`,
   },
 };
 
@@ -688,7 +853,76 @@ function genealogyScene() {
   };
 }
 
-const SCENES = { phoStall: phoScene, market: marketScene, legend: legendScene, genealogy: genealogyScene };
+// Issue 5: a Northern Tết fruit tray (mâm ngũ quả) on a raised dish. A hand of bananas curves up round a pomelo, with
+// oranges, persimmons, kumquats and chillies in front and a sprig of peach blossom, the North's Tết flower, above.
+function fruitTrayScene() {
+  const fingers = [-36, -54, -72];
+  const right = fingers.map((d, i) => banana(207, 162 - i * 3, d, 1.42 - i * 0.04, { ridge: 1.4 })).join('');
+  const left = fingers.map((d, i) => banana(193, 162 - i * 3, d, 1.42 - i * 0.04, { flip: true, ridge: 1.4 })).join('');
+  const P0 = [200, 120];
+  const R = 45;
+  let shade = '';
+  for (let a = 8; a <= 104; a += 8) {
+    const t = (a * Math.PI) / 180;
+    const x = P0[0] + Math.cos(t) * (R - 7);
+    const y = P0[1] + Math.sin(t) * (R - 7);
+    shade += `M${n1(x)} ${n1(y)} l4.6 -4.6 `;
+  }
+  const citrus = (x, y, r) => `<circle class="k-tint" stroke-width="1.8" cx="${x}" cy="${y}" r="${r}"/><path stroke-width="1.4" d="M${x - 1} ${n1(y - r)} c0 -2.6 1.4 -4 3 -4.6"/>`;
+  const persimmon = (x, y) => `<ellipse class="k-mid" stroke-width="1.8" cx="${x}" cy="${y}" rx="15" ry="12.5"/>
+      <path class="k-shade" stroke-width="1.3" d="M${x} ${y - 12} c-6 -1 -10 1 -12 4 c4 2 8 1 12 -2 c4 3 8 4 12 2 c-2 -3 -6 -5 -12 -4 Z M${x} ${y - 12} c-2 -3 -1 -6 1 -8 c2 2 2 5 -1 8 Z"/>`;
+  const blossom = (x, y, r = 5) => `<g stroke-width="1.1">${[0, 1, 2, 3, 4].map((k) => {
+    const t = -Math.PI / 2 + (k * 2 * Math.PI) / 5 + 0.3;
+    const ux = Math.cos(t);
+    const uy = Math.sin(t);
+    const tip = [x + ux * r * 1.55, y + uy * r * 1.55];
+    const side = (k2) => [x + ux * r * 0.9 - uy * r * 0.62 * k2, y + uy * r * 0.9 + ux * r * 0.62 * k2];
+    const [a1, a2] = side(1);
+    const [b1, b2] = side(-1);
+    return `<path class="k-paper" d="M${n1(x + ux * 1.2)} ${n1(y + uy * 1.2)} C${n1(a1)} ${n1(a2)} ${n1(tip[0] - uy * r * 0.5)} ${n1(tip[1] + ux * r * 0.5)} ${n1(tip[0])} ${n1(tip[1])} C${n1(tip[0] + uy * r * 0.5)} ${n1(tip[1] - ux * r * 0.5)} ${n1(b1)} ${n1(b2)} ${n1(x + ux * 1.2)} ${n1(y + uy * 1.2)} Z"/>`;
+  }).join('')}</g>`;
+  const flowers = [[48, 21], [80, 43], [23, 19], [97, 63], [36, 49], [63, 33]];
+  const buds = [[57, 13], [90, 37], [12, 26], [106, 58]];
+  let petals = '';
+  for (let x = 124; x <= 276; x += 12) {
+    const y = 187.5 - 7.5 * ((x - 200) / 88) ** 2;
+    petals += `M${x - 5} ${n1(y - 2)} c1 5.4 9 5.4 10 0 `;
+  }
+  const dimples = [[183, 92], [196, 86], [212, 90], [176, 104], [190, 100], [205, 98], [221, 103], [170, 118], [184, 114], [199, 111], [214, 115], [228, 118], [178, 130], [193, 126], [208, 128], [222, 132], [186, 142], [201, 140], [214, 146], [194, 154]];
+  const pits = [[148, 158], [155, 165], [146, 168], [252, 158], [245, 165], [254, 168], [174, 168], [228, 168]];
+  return {
+    tone: 'warm',
+    back: '<path class="k-pale" d="M0 214 C120 211 280 211 400 214 V250 H0 Z"/>',
+    paper: blob(200, 132, 122, 100, 33, 11, 0.06),
+    under: '<ellipse class="k-mid" cx="200" cy="225" rx="74" ry="4.6"/>',
+    ink: `<path d="M-6 34 C20 39 40 46 62 58 C72 63 84 66 98 64"/>
+      <path stroke-width="1.6" d="M31 43 C35 33 41 26 49 21 M62 58 C66 50 72 46 80 43 M13 37 C14 30 18 24 23 19 M45 50 C42 44 40 36 42 30 M84 65 C90 66 96 64 99 62"/>
+      ${flowers.map(([x, y]) => blossom(x, y)).join('')}
+      ${buds.map(([x, y]) => `<ellipse class="k-tint" stroke-width="1.1" cx="${x}" cy="${y}" rx="3" ry="2.2"/>`).join('')}
+      <ellipse class="k-paper" stroke-width="1.8" cx="200" cy="170" rx="92" ry="12"/>
+      ${right}${left}
+      <circle class="k-pale" cx="${P0[0]}" cy="${P0[1]}" r="${R}"/>
+      <path stroke-width="1.2" d="${shade.trim()}"/>
+      <path stroke-width="1.8" d="M200 75.4 C199.4 70.6 200.4 66.4 202.6 63"/>
+      <path class="k-paper" stroke-width="1.6" d="M201.6 66 C194 55 181 52 172 56 C179 65 192 69 201.6 66 Z M203.4 66 C210 56 222 52 231 55 C225 64 213 69 203.4 66 Z"/>
+      <path stroke-width="1.1" d="M199 64.8 C191 60 183 57.6 175 57 M205.6 64.6 C213 59.6 221 57 228.6 56.2"/>
+      ${persimmon(126, 167)}${persimmon(274, 167)}
+      ${citrus(152, 162, 15)}${citrus(248, 162, 15)}${citrus(176, 170, 12)}${citrus(224, 170, 12)}
+      ${[[193, 172], [203, 171], [198, 164], [208, 165]].map(([x, y]) => `<circle class="k-tint" stroke-width="1.5" cx="${x}" cy="${y}" r="5.4"/>`).join('')}
+      <path class="k-paper" stroke-width="1.3" d="M211 162 C216 157 224 157 228 160 C223 164 216 165 211 162 Z M189 162 C184 157 176 157 172 160 C177 164 184 165 189 162 Z"/>
+      <path stroke-width="1" d="M212.6 161.6 C217 160 222 159.6 226 160 M187.4 161.6 C183 160 178 159.6 174 160"/>
+      <path class="k-paper" d="M108 170 C108 177 150 182 200 182 C250 182 292 177 292 170 L290 173 C284 189 246 199 200 199 C154 199 116 189 110 173 Z"/>
+      <path stroke-width="1.2" d="${petals.trim()}"/>
+      ${hatch(258, 186, 282, 176, 6, -3.4, 5.4, 1.1)}
+      <path class="k-paper" d="M187 198 C190 203 190 207 186 212 H214 C210 207 210 203 213 198 Z"/>
+      <path class="k-tint" stroke-width="1.5" d="M188.4 203 H211.6 V207 H188.4 Z"/>
+      <path class="k-tint" d="M168 224 C175 216 183 213 186 212 H214 C217 213 225 216 232 224 C220 227.4 180 227.4 168 224 Z"/>
+      ${hatch(218, 216, 228, 222, 4, -2.6, 3.4, 1.1)}`,
+    crisp: `${dimples.map(([x, y]) => `<circle class="k-dot" cx="${x}" cy="${y}" r="0.95"/>`).join('')}${pits.map(([x, y]) => `<circle class="k-dot" cx="${x}" cy="${y}" r="0.8"/>`).join('')}${flowers.map(([x, y]) => `<circle class="k-dot" cx="${x}" cy="${y}" r="1.5"/>`).join('')}`,
+  };
+}
+
+const SCENES = { phoStall: phoScene, market: marketScene, legend: legendScene, genealogy: genealogyScene, fruitTray: fruitTrayScene };
 
 function scene(name) {
   const make = SCENES[name];

@@ -148,8 +148,9 @@ def check_feature(r, lid, lesson, newest=False):
             r.error(where, f"is {len(b['text'])} characters (limit 600)")
         if b.get("word") and nfc(b["word"]).lower() not in taught:
             r.error(where, f"word {b['word']!r} is not one of this issue's new words")
-    if sum(1 for b in beats if b.get("word")) < 2:
-        r.warn(f"{lid}.feature", "tie at least two beats to words, so the story appears right after them")
+    need = 2 if len(lesson.get("words", [])) > 8 else 1
+    if sum(1 for b in beats if b.get("word")) < need:
+        r.warn(f"{lid}.feature", f"tie at least {need} beat{'s' if need > 1 else ''} to words, so the story appears right after them (one part has room for one)")
     words = len(f.get("intro", "").split()) + sum(len(b.get("text", "").split()) for b in beats)
     if not 120 <= words <= 450:
         r.warn(f"{lid}.feature", f"story is {words} words; aim for 150 to 350")
@@ -221,6 +222,10 @@ def check_lesson(r, entry, lesson, earlier_words, audio, known_words, warmed=fro
             check_picture(r, where, w["picture"])
         else:
             r.warn(where, "no picture")
+        gloss_words = re.findall(r"[^\W\d_]+", nfc(w.get("en", "")).lower())
+        own = re.findall(r"[^\W\d_]+", nfc(w.get("vi", "")).lower())
+        if own and any(gloss_words[i:i + len(own)] == own for i in range(len(gloss_words) - len(own) + 1)):
+            r.error(where, "the gloss contains the word itself, and typing prompts show the gloss; move the example to the note")
         if w.get("fact") and len(w["fact"]) > 260:
             r.error(where, f"fact is {len(w['fact'])} characters (limit 260)")
         if nfc(w.get("vi", "")).lower() in known_words:

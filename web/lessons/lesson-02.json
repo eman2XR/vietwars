@@ -101,7 +101,7 @@
     },
     {
       "vi": "mươi",
-      "en": "-ty, the tens (hai mươi = 20)",
+      "en": "-ty, the tens (as in 20)",
       "picture": {
         "kind": "dots",
         "n": 20
@@ -119,7 +119,7 @@
     },
     {
       "vi": "lăm",
-      "en": "five, after mười or mươi (mười lăm = 15)",
+      "en": "five, after the tens (as in 15 and 25)",
       "picture": {
         "kind": "digits",
         "label": "25",
@@ -188,7 +188,7 @@
     },
     {
       "vi": "đồng",
-      "en": "đồng (the currency)",
+      "en": "Vietnam's currency (₫)",
       "picture": {
         "kind": "big",
         "label": "₫"
@@ -261,7 +261,7 @@
     },
     {
       "vi": "hơn",
-      "en": "more than; -er (rẻ hơn = cheaper)",
+      "en": "more than; -er (as in cheaper)",
       "picture": {
         "kind": "compare"
       },

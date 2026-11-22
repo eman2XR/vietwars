@@ -888,8 +888,13 @@ export function runSession(root, session, onDone, onQuit) {
         form.querySelector('.sit-hint').addEventListener('click', (ev) => {
           hints += 1;
           ev.currentTarget.disabled = true;
-          const split = nfc(sit.vi).replace(/\s+(nghìn|triệu)/gu, ' · $1');
-          form.querySelector('.hint-slot').innerHTML = `<div class="answer-box transcript hint-box"><div class="vi transcript-vi">${colorize(split)}</div><p class="note">Split it at nghìn (thousand): the words before it count the thousands. Mười · nghìn is 10 × 1.000 = 10.000.</p></div>`;
+          const said = nfc(sit.vi);
+          const thousands = /\s(nghìn|triệu)/u.test(said);
+          const split = thousands ? said.replace(/\s+(nghìn|triệu)/gu, ' · $1') : said;
+          const how = thousands
+            ? 'Split it at nghìn (thousand): the words before it count the thousands. Mười · nghìn is 10 × 1.000 = 10.000.'
+            : 'No nghìn? Sellers usually leave it out, and the number still counts thousands: mười means 10.000. They often drop mươi too: hai lăm is 25.000. After trăm, one more number counts tens (trăm hai is 120.000), and rưỡi adds half of the unit before it.';
+          form.querySelector('.hint-slot').innerHTML = `<div class="answer-box transcript hint-box"><div class="vi transcript-vi">${colorize(split)}</div><p class="note">${how}</p></div>`;
           input.focus({ preventScroll: true });
         });
         form.addEventListener('submit', (ev) => {
@@ -902,7 +907,11 @@ export function runSession(root, session, onDone, onQuit) {
           if (!got) return;
           S.answered = true;
           input.disabled = true;
-          reveal(got === String(sit.digits).replace(/[^0-9]/g, ''), input.value.trim());
+          const want = String(sit.digits).replace(/[^0-9]/g, '');
+          // Typing the price the way sellers say it (150 for 150.000) shows it was understood, so it counts.
+          const short = want.endsWith('000') && `${got}000` === want;
+          reveal(got === want || short, input.value.trim());
+          if (short) stage.querySelector('.feedback-slot .verdict').insertAdjacentHTML('beforeend', ' <span class="short-note">You left out the thousands, just as sellers do.</span>');
           stage.querySelector('[data-act=check]').textContent = 'Continue';
         });
       } else {

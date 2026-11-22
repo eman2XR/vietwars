@@ -1,0 +1,416 @@
+{
+  "id": "lesson-05",
+  "number": 5,
+  "title": "At the market",
+  "vi": "Đi chợ",
+  "theme": "the market: buying fruit and meat, and prices the way Hà Nội sellers say them",
+  "intro": "Buying at a Hà Nội market: mua, quả, cam, chuối, cân, thịt, bớt and hết. Then prices the way sellers say them: no nghìn, ba lăm for 35.000₫, trăm hai for 120.000₫, trăm rưỡi for 150.000₫, and a first go at bargaining.",
+  "cover": {
+    "picture": {
+      "kind": "scene",
+      "name": "fruitTray"
+    }
+  },
+  "feature": {
+    "kicker": "Markets and seasons",
+    "title": "Bananas in the North, puns in the South",
+    "dek": "At Tết the North builds its fruit tray on a hand of bananas, and the South builds its tray on wordplay. A year of Northern fruit, and the sellers who carry it into town.",
+    "intro": "At Tết, families in the North set a tray of five fruits on the ancestor altar. It is usually built on a hand of green bananas that curves up to hug a pomelo, a sign of looking after one another. In the South, bananas usually stay off: chuối sounds like chúi nhủi, falling flat on your face.",
+    "beats": [
+      {
+        "word": "chuối",
+        "picture": {
+          "kind": "icon",
+          "name": "fruit"
+        },
+        "text": "The Southern tray is a pun you can eat: mãng cầu, sung, dừa, đu đủ, xoài (soursop, figs, coconut, papaya, mango) sound like cầu sung vừa đủ xài in Southern speech, pray to be well off, with just enough to spend. Oranges usually stay off too: cam sounds like cam chịu, to grin and bear it."
+      },
+      {
+        "picture": {
+          "kind": "icon",
+          "name": "lychee"
+        },
+        "text": "Summer brings vải thiều, a small-seeded lychee. Around 1900, the story goes, a Hải Phòng dock porter planted seeds that traders from Thiều Châu in China threw away. One tree survived, and his village honours it as the ancestor tree. It put rice on their tables, so he is remembered as cụ Cơm: cơm is cooked rice."
+      },
+      {
+        "picture": {
+          "kind": "icon",
+          "name": "pole"
+        },
+        "text": "A 2006 count found about 5,600 produce sellers in Hà Nội, nine in ten from nearby villages, mostly women; in 2008 the city restricted street selling on 62 streets. The classic shop is a bamboo pole, the đòn gánh: a basket at each end for fruit, a scale, a stool and bags. On one shoulder, it swings round to slip through a crowd."
+      },
+      {
+        "picture": {
+          "kind": "icon",
+          "name": "comLeaf"
+        },
+        "text": "Autumn brings cốm, young sticky rice roasted and pounded into flakes. Hà Nội's cốm sellers traditionally carry two baskets on a pole, a bundle of green-dyed straw ties on top, and wrap each portion in a lotus leaf tied with a green strand."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Mâm ngũ quả (Vietnamese)",
+        "url": "https://vi.wikipedia.org/wiki/M%C3%A2m_ng%C5%A9_qu%E1%BA%A3"
+      },
+      {
+        "title": "Tết",
+        "url": "https://en.wikipedia.org/wiki/T%E1%BA%BFt"
+      },
+      {
+        "title": "Vải thiều (Vietnamese)",
+        "url": "https://vi.wikipedia.org/wiki/V%E1%BA%A3i_thi%E1%BB%81u"
+      },
+      {
+        "title": "Hanoi",
+        "url": "https://en.wikipedia.org/wiki/Hanoi"
+      },
+      {
+        "title": "Carrying pole",
+        "url": "https://en.wikipedia.org/wiki/Carrying_pole"
+      },
+      {
+        "title": "Cốm (Vietnamese)",
+        "url": "https://vi.wikipedia.org/wiki/C%E1%BB%91m"
+      }
+    ]
+  },
+  "situations": [
+    {
+      "who": "Fruit seller",
+      "picture": {
+        "kind": "icon",
+        "name": "orange"
+      },
+      "vi": "Cam ba lăm một cân.",
+      "en": "Oranges, 35,000 a kilo.",
+      "note": "ba lăm is ba mươi lăm nghìn with mươi and nghìn left out; many Hà Nội sellers say ba nhăm. A sign would say 35k. một cân: a kilo.",
+      "ask": "How much is a kilo of oranges?",
+      "options": [
+        "35.000₫",
+        "30.000₫",
+        "53.000₫",
+        "350.000₫"
+      ],
+      "answer": "35.000₫"
+    },
+    {
+      "who": "Banana seller",
+      "picture": {
+        "kind": "icon",
+        "name": "bananas"
+      },
+      "vi": "Chuối hai mươi một nải.",
+      "en": "Bananas, 20,000 a hand.",
+      "note": "No nghìn: hai mươi is 20.000₫; many sellers say hai chục, two tens. một nải is one hand of bananas. 21 would be hai mươi mốt, or hai mốt.",
+      "ask": "How much is a hand of bananas?",
+      "options": [
+        "20.000₫",
+        "21.000₫",
+        "12.000₫",
+        "200.000₫"
+      ],
+      "answer": "20.000₫"
+    },
+    {
+      "who": "Butcher",
+      "picture": {
+        "kind": "icon",
+        "name": "meat"
+      },
+      "vi": "Thịt lợn trăm hai một cân.",
+      "en": "Pork, 120,000 a kilo.",
+      "note": "trăm hai is một trăm hai mươi nghìn: after trăm, a lone digit counts tens. 102 would be một trăm linh hai. lợn: pig (the South says heo).",
+      "ask": "How much is a kilo of pork?",
+      "options": [
+        "120.000₫",
+        "200.000₫",
+        "102.000₫",
+        "12.000₫"
+      ],
+      "answer": "120.000₫"
+    },
+    {
+      "who": "Fruit seller",
+      "picture": {
+        "kind": "icon",
+        "name": "buy"
+      },
+      "vi": "Của anh hết trăm rưỡi.",
+      "en": "Yours comes to 150,000.",
+      "note": "trăm rưỡi, a hundred and a half: 150.000₫. hết: in total.",
+      "ask": "Type the full amount in digits.",
+      "digits": "150000"
+    },
+    {
+      "who": "Pomelo seller",
+      "picture": {
+        "kind": "tag",
+        "label": "50.000₫",
+        "mood": "low"
+      },
+      "vi": "Thôi, bốn lăm nhé.",
+      "en": "All right, 45,000 then.",
+      "note": "thôi: all right then, giving in. nhé: a soft \"OK?\" at the end, very Northern. bốn lăm is bốn mươi lăm nghìn.",
+      "ask": "You asked her to take a little off a 50.000₫ pomelo. Type her new price, the full amount, in digits.",
+      "digits": "45000"
+    },
+    {
+      "who": "Butcher",
+      "picture": {
+        "kind": "icon",
+        "name": "cow"
+      },
+      "vi": "Thịt bò hai trăm rưỡi một cân.",
+      "en": "Beef, 250,000 a kilo.",
+      "note": "hai trăm rưỡi, two hundred and a half: 250.000₫. Not hai triệu rưỡi, 2.500.000₫.",
+      "ask": "How much is a kilo of beef?",
+      "options": [
+        "250.000₫",
+        "150.000₫",
+        "205.000₫",
+        "2.500.000₫"
+      ],
+      "answer": "250.000₫"
+    },
+    {
+      "who": "Young fruit seller",
+      "picture": {
+        "kind": "icon",
+        "name": "pole"
+      },
+      "vi": "Anh mua gì ạ?",
+      "en": "What would you like?",
+      "note": "mua: to buy. gì: what. ạ makes it polite, from someone younger, so you are anh and she is em.",
+      "ask": "You want a kilo of oranges. What do you say?",
+      "options": [
+        "Cho anh một cân cam.",
+        "Cho anh một quả cam.",
+        "Cho anh mười cân cam."
+      ],
+      "answer": "Cho anh một cân cam."
+    },
+    {
+      "who": "Pomelo seller",
+      "picture": {
+        "kind": "tag",
+        "label": "50.000₫",
+        "mood": "high"
+      },
+      "vi": "Bưởi năm mươi nghìn một quả.",
+      "en": "Pomelos, 50,000 each.",
+      "note": "bưởi: pomelo. Here nghìn is said in full. A smile and bớt đi (take some off) is how bargaining starts.",
+      "ask": "Locals pay about 40.000₫. Ask her to come down a little.",
+      "options": [
+        "Đắt quá, bớt đi chị!",
+        "Rẻ quá, cho em hai quả!",
+        "Ngon quá chị ơi!"
+      ],
+      "answer": "Đắt quá, bớt đi chị!"
+    }
+  ],
+  "challenge": {
+    "title": "Market challenge",
+    "text": "At a fruit stall, point and ask: \"Chị ơi, bao nhiêu một cân?\" (how much a kilo?). Listen for the short form: ba lăm or ba nhăm is 35.000₫. Then, with a smile, try \"Bớt đi chị!\" (take a bit off) with a woman a bit older than you, or \"Bớt đi em!\" with someone younger. Only bargain if you mean to buy: many sellers believe the day's first sale (mở hàng) sets their luck."
+  },
+  "stamp": {
+    "label": "Mâm ngũ quả",
+    "picture": {
+      "kind": "scene",
+      "name": "fruitTray"
+    }
+  },
+  "words": [
+    {
+      "vi": "mua",
+      "en": "to buy",
+      "picture": {
+        "kind": "icon",
+        "name": "buy"
+      },
+      "hook": "Torn between two silk scarves at Đồng Xuân market, you hum \"mmm... ooh-uh\" and buy both. That \"moo-uh\", in one level beat, is mua: to buy.",
+      "tip": "ua glides from \"oo\" to a soft \"uh\" in one beat. Level tone, with no rise at the end.",
+      "note": "mua is to buy, bán to sell. Anh mua gì? What would you like? (a seller to a man)",
+      "contrast": [
+        {
+          "vi": "mưa",
+          "en": "rain; to rain"
+        },
+        {
+          "vi": "múa",
+          "en": "to dance"
+        }
+      ]
+    },
+    {
+      "vi": "quả",
+      "en": "fruit; also the counting word for fruit",
+      "picture": {
+        "kind": "icon",
+        "name": "fruit"
+      },
+      "hook": "A ripe fruit drops from the branch and lands with a \"kwah\" (a as in \"father\"), your voice dropping fast with it: quả.",
+      "tip": "In Hà Nội qu is kw, with no puff of air on the k. A long, open a. Hỏi starts at normal pitch and drops sharply.",
+      "note": "Northern; the South says trái. Count fruit with it: hai quả cam, two oranges. Eggs too: một quả trứng.",
+      "fact": "Hà Nội calls fruit in general hoa quả, literally flowers and fruit; the South says trái cây.",
+      "contrast": [
+        {
+          "vi": "quá",
+          "en": "too, very (ngon quá!)"
+        }
+      ]
+    },
+    {
+      "vi": "cam",
+      "en": "orange (the fruit)",
+      "picture": {
+        "kind": "icon",
+        "name": "orange"
+      },
+      "hook": "On a Northern Tết altar, a pyramid of oranges sits perfectly calm. Say \"calm\", level and unhurried: cam.",
+      "tip": "c has no puff of air, so it can sound close to \"gahm\". A long, open a, as in \"father\". Level tone.",
+      "note": "Cam bao nhiêu một cân? How much are oranges a kilo? Màu cam is the colour orange.",
+      "contrast": [
+        {
+          "vi": "cảm",
+          "en": "to feel (as in cảm ơn, thank you)"
+        }
+      ]
+    },
+    {
+      "vi": "chuối",
+      "en": "banana",
+      "picture": {
+        "kind": "icon",
+        "name": "bananas"
+      },
+      "hook": "Slip on a banana skin and yelp \"chwoy!\" (choy as in bok choy, with a quick oo after the ch), voice shooting up: chuối.",
+      "tip": "ch has no puff of air. uôi glides oo, oh, ee in one beat, close to \"chwoy\". Sắc rises.",
+      "note": "Một nải chuối: a hand of bananas, the base of the Northern Tết fruit tray.",
+      "contrast": [
+        {
+          "vi": "chuỗi",
+          "en": "a string, a chain (chuỗi hạt, a string of beads)"
+        }
+      ]
+    },
+    {
+      "vi": "cân",
+      "en": "a kilo; also: scale, to weigh",
+      "picture": {
+        "kind": "icon",
+        "name": "scale"
+      },
+      "hook": "A cunning shopper watches the scale's needle settle before paying. Cunning starts with it: \"cun\", short and level: cân, a kilo.",
+      "tip": "â is short, like the u in \"cut\". c has no puff of air. Level tone.",
+      "note": "Market prices are per cân: ba lăm một cân is 35.000₫ a kilo. The South says ký.",
+      "fact": "In the North 100 grams is một lạng: a butcher will happily sell you hai lạng thịt, 200 g of meat.",
+      "contrast": [
+        {
+          "vi": "cần",
+          "en": "to need"
+        }
+      ]
+    },
+    {
+      "vi": "thịt",
+      "en": "meat",
+      "picture": {
+        "kind": "icon",
+        "name": "meat"
+      },
+      "hook": "Sink your teeth into grilled meat: \"teeth\", but stopped dead on a t, low and heavy: thịt.",
+      "tip": "th is the t of \"top\", with a puff of air (plain t has none). Short i, and the final t is cut off. Nặng drops low and stops.",
+      "note": "thịt lợn is pork (the South says heo), thịt bò beef, thịt gà chicken."
+    },
+    {
+      "vi": "bớt",
+      "en": "to take some off (a price); to reduce",
+      "picture": {
+        "kind": "icon",
+        "name": "discount"
+      },
+      "hook": "At a London barber's you call out, \"Bert, just a little off!\" (no r, the London way), voice rising: bớt, take a little off.",
+      "tip": "ơ is long, like the vowel of British \"Bert\" or \"fur\", with no r. The final t is cut off, not released. Sắc rises.",
+      "note": "Bớt đi chị! Take a bit off! (to a woman a bit older). Say it with a smile: bargaining is a game.",
+      "contrast": [
+        {
+          "vi": "bột",
+          "en": "flour, powder"
+        }
+      ]
+    },
+    {
+      "vi": "hết",
+      "en": "in total (of a bill); also: used up, sold out",
+      "picture": {
+        "kind": "icon",
+        "name": "bill"
+      },
+      "hook": "The waiter tots up the bill and you mutter a clipped \"hate\", voice rising: hết, in total.",
+      "tip": "ê is close to the a in \"hate\", without sliding into y. The final t is cut off, not released. Sắc rises.",
+      "note": "Hết trăm rưỡi: 150.000₫ in total. Hết rồi: sold out, all gone.",
+      "contrast": [
+        {
+          "vi": "hét",
+          "en": "to shout, to scream"
+        }
+      ]
+    }
+  ],
+  "grammar": {
+    "title": "Prices the way sellers say them",
+    "text": "Sellers drop nghìn, and drop mươi before a last digit: ba mươi is 30.000₫, ba lăm 35.000₫. A hundred is just trăm, and a digit after it counts tens: trăm hai is 120.000₫, but hai trăm is 200.000₫. After trăm, one is mốt and four often tư: trăm mốt is 110.000₫. Rưỡi adds half of the unit before it: trăm rưỡi is 150.000₫, hai trăm rưỡi 250.000₫.",
+    "examples": [
+      {
+        "vi": "ba lăm",
+        "en": "35.000₫ (ba mươi lăm nghìn)"
+      },
+      {
+        "vi": "trăm hai",
+        "en": "120.000₫ (một trăm hai mươi nghìn)"
+      }
+    ]
+  },
+  "combos": [
+    {
+      "vi": "Cam bao nhiêu một cân?",
+      "en": "How much are oranges a kilo?"
+    },
+    {
+      "vi": "hai lăm",
+      "en": "25.000₫",
+      "note": "hai mươi lăm nghìn, as a seller says it: no nghìn, and no mươi before the last digit."
+    },
+    {
+      "vi": "trăm tám",
+      "en": "180.000₫",
+      "note": "một trăm tám mươi nghìn: after trăm, a lone digit counts tens. 108 would be một trăm linh tám."
+    },
+    {
+      "vi": "trăm rưỡi",
+      "en": "150.000₫",
+      "note": "A hundred and a half: một trăm năm mươi nghìn."
+    },
+    {
+      "vi": "Đắt quá, bớt đi chị!",
+      "en": "That's too much, come down a bit! (to a woman a bit older)",
+      "note": "bớt đi: take some off, go on. Smile when you say it."
+    },
+    {
+      "vi": "hai mươi",
+      "en": "20.000₫",
+      "note": "No nghìn. Against hai lăm (25.000₫): mươi is the tens, lăm the five."
+    },
+    {
+      "vi": "hai trăm",
+      "en": "200.000₫",
+      "note": "Order matters: hai trăm is 200.000₫, trăm hai is 120.000₫."
+    }
+  ],
+  "review": [
+    "trăm",
+    "rưỡi",
+    "lăm",
+    "đắt"
+  ]
+}
