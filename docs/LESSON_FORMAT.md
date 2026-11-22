@@ -19,7 +19,7 @@ All Vietnamese text must be NFC-normalised (the checker catches mistakes).
     "dek": "...",                 // the standfirst, one or two sentences
     "intro": "...",               // two or three sentences on the opening screen, under 420 characters
     "beats": [                    // 3 to 6 short parts, each under 600 characters
-      { "word": "chín", "text": "..." },   // shown right after the group that teaches chín
+      { "word": "chín", "text": "...", "picture": { "kind": "icon", "name": "..." } },   // shown right after the group that teaches chín; picture optional
       { "text": "..." }                    // untied: shown on a part, real-life or results screen
     ],
     "pull": "...",                // the most surprising line; it can turn up as a fact card

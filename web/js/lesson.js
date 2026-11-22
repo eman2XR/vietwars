@@ -11,7 +11,8 @@ const SCORED = new Set(['listen', 'spell', 'reverse', 'type']);
 const DRILLS = new Set(['listen', 'spell', 'reverse']);
 const TYPE_CREDIT = { perfect: 1, tone: 0.5, marks: 0.5, sound: 0.5 };
 const SPEED_SECONDS = 45;
-const FACT_EVERY = 3;
+const FACT_EVERY = 5;
+const MAX_FACTS = 4;
 const TONE_KEYS = ['ngang', 'huyen', 'sac', 'hoi', 'nga', 'nang'];
 const VOWEL_KEYS = ['ă', 'â', 'ê', 'ô', 'ơ', 'ư', 'đ'];
 
@@ -422,6 +423,7 @@ export function runSession(root, session, onDone, onQuit) {
 
   // Shows a fact about a word already met, or a general one from the issue, so nothing is spoiled before it is taught.
   function showFact() {
+    if (S.factsShown.length >= MAX_FACTS) return;
     const at = S.facts.findIndex((f) => !f.vi || S.met.has(nfc(f.vi)));
     if (at < 0) return;
     const [f] = S.facts.splice(at, 1);
@@ -970,7 +972,7 @@ export function runSession(root, session, onDone, onQuit) {
 
     stage(step) {
       stage.innerHTML = `
-        ${step.beat ? `<article class="story inline"><div class="kicker">${esc(lesson?.feature?.kicker || 'The story')} · continued</div>${step.beat.title ? `<h2 class="story-title">${esc(step.beat.title)}</h2>` : ''}<p class="story-text">${esc(step.beat.text)}</p></article>` : ''}
+        ${step.beat ? `<article class="story inline"><div class="kicker">${esc(lesson?.feature?.kicker || 'The story')} · continued</div>${step.beat.picture ? pic(step.beat, 'medium') : ''}${step.beat.title ? `<h2 class="story-title">${esc(step.beat.title)}</h2>` : ''}<p class="story-text">${esc(step.beat.text)}</p></article>` : ''}
         <div class="kicker">${lesson ? `Issue ${esc(lesson.number)}` : 'Review'}</div>
         <h2 class="title">${esc(step.title)}</h2>
         <p class="lead">${esc(step.text)}</p>
@@ -1076,7 +1078,7 @@ export function runSession(root, session, onDone, onQuit) {
         <div class="word-results">${sum.perWord
           .map((w) => `<button type="button" class="word-row" data-say="${esc(w.vi)}"><span class="vi">${colorize(w.vi)}</span><span class="en">${esc(w.en)}${S.known.has(w.vi) ? ' <span class="tag">known</span>' : ''}</span>${dots(w.stars)}</button>`)
           .join('')}</div>
-        ${(step.beats || []).map((b) => `<article class="story inline"><div class="kicker">${esc(lesson?.feature?.kicker || 'The story')} · to finish</div>${b.title ? `<h2 class="story-title">${esc(b.title)}</h2>` : ''}<p class="story-text">${esc(b.text)}</p></article>`).join('')}
+        ${(step.beats || []).map((b) => `<article class="story inline"><div class="kicker">${esc(lesson?.feature?.kicker || 'The story')} · to finish</div>${b.picture ? pic(b, 'medium') : ''}${b.title ? `<h2 class="story-title">${esc(b.title)}</h2>` : ''}<p class="story-text">${esc(b.text)}</p></article>`).join('')}
         ${lesson?.challenge ? `<aside class="challenge"><div class="label">${esc(lesson.challenge.title || 'Challenge')}</div>${esc(lesson.challenge.text)}</aside>` : ''}
         ${lesson?.feature?.sources?.length ? `<details class="sources"><summary>Sources for this issue</summary><ul>${lesson.feature.sources.map((x) => `<li><a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.title)}</a></li>`).join('')}</ul></details>` : ''}
         ${footer('<button class="btn primary" data-act="next">Continue</button>')}`;
