@@ -1,0 +1,1009 @@
+{
+ "schema": 3,
+ "resultId": "c6332b22-8ce7-4ffb-b814-1db692d2766c",
+ "kind": "lesson",
+ "lessonId": "lesson-05",
+ "lessonTitle": "At the market",
+ "appVersion": "4",
+ "style": "paper",
+ "device": "Mac",
+ "startedAt": "2026-11-22T22:14:13.180Z",
+ "finishedAt": "2026-11-22T22:27:31.958Z",
+ "durationSec": 799,
+ "summary": {
+  "firstTryAccuracy": 0.87,
+  "exercises": 39,
+  "bestStreak": 9,
+  "grade": "merit",
+  "speedScore": 850,
+  "speedAnswered": 19,
+  "speedCorrect": 19,
+  "bestCombo": 19
+ },
+ "article": {
+  "readSec": 22,
+  "factsShown": 2
+ },
+ "quiz": null,
+ "situations": {
+  "correct": 4,
+  "total": 8
+ },
+ "timing": {
+  "words": 53,
+  "drills": 255,
+  "reallife": 155,
+  "rush": 44,
+  "article": 22,
+  "pauses": 0,
+  "longestPauseSec": 56
+ },
+ "toneMarks": "relaxed",
+ "words": [
+  {
+   "vi": "mua",
+   "en": "to buy",
+   "failures": 0,
+   "timeSec": 19,
+   "replays": 1,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 5,
+   "share": 1,
+   "meaning": 1,
+   "form": 1,
+   "stars": 3,
+   "firstTry": {
+    "listen": true,
+    "reverse": true,
+    "type": "perfect"
+   },
+   "attempts": 3,
+   "msMedian": 5944,
+   "known": false
+  },
+  {
+   "vi": "quả",
+   "en": "fruit; also the counting word for fruit",
+   "failures": 1,
+   "timeSec": 35,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 9,
+   "share": 0.67,
+   "meaning": 1,
+   "form": 0,
+   "stars": 1,
+   "firstTry": {
+    "listen": true,
+    "reverse": true,
+    "type": "wrong"
+   },
+   "attempts": 4,
+   "msMedian": 11671,
+   "known": false
+  },
+  {
+   "vi": "cam",
+   "en": "orange (the fruit)",
+   "failures": 1,
+   "timeSec": 19,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 3,
+   "share": 0.75,
+   "meaning": 0.67,
+   "form": 1,
+   "stars": 2,
+   "firstTry": {
+    "listen": true,
+    "reverse": true,
+    "type": "perfect"
+   },
+   "attempts": 5,
+   "msMedian": 2502,
+   "known": false
+  },
+  {
+   "vi": "chuối",
+   "en": "banana",
+   "failures": 0,
+   "timeSec": 11,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 3,
+   "share": 1,
+   "meaning": 1,
+   "form": 1,
+   "stars": 3,
+   "firstTry": {
+    "listen": true,
+    "spell": true,
+    "type": "marks"
+   },
+   "attempts": 4,
+   "msMedian": 3354,
+   "known": false
+  },
+  {
+   "vi": "cân",
+   "en": "a kilo; also: scale, to weigh",
+   "failures": 0,
+   "timeSec": 14,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 13,
+   "share": 1,
+   "meaning": 1,
+   "form": 1,
+   "stars": 3,
+   "firstTry": {
+    "listen": true,
+    "reverse": true,
+    "type": "marks"
+   },
+   "attempts": 3,
+   "msMedian": 4417,
+   "known": false
+  },
+  {
+   "vi": "thịt",
+   "en": "meat",
+   "failures": 0,
+   "timeSec": 12,
+   "replays": 2,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 3,
+   "share": 1,
+   "meaning": 1,
+   "form": 1,
+   "stars": 3,
+   "firstTry": {
+    "listen": true,
+    "reverse": true,
+    "type": "tone"
+   },
+   "attempts": 4,
+   "msMedian": 3382,
+   "known": false
+  },
+  {
+   "vi": "bớt",
+   "en": "to take some off (a price); to reduce",
+   "failures": 2,
+   "timeSec": 23,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 7,
+   "share": 0.5,
+   "meaning": 0.5,
+   "form": 0.5,
+   "stars": 1,
+   "firstTry": {
+    "listen": false,
+    "spell": true,
+    "type": "wrong"
+   },
+   "attempts": 6,
+   "msMedian": 3798,
+   "known": false
+  },
+  {
+   "vi": "hết",
+   "en": "in total (of a bill); also: used up, sold out",
+   "failures": 1,
+   "timeSec": 19,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 11,
+   "share": 0.67,
+   "meaning": 1,
+   "form": 0.5,
+   "stars": 1,
+   "firstTry": {
+    "listen": true,
+    "spell": false,
+    "type": "marks"
+   },
+   "attempts": 4,
+   "msMedian": 2826,
+   "known": false
+  },
+  {
+   "vi": "trăm",
+   "en": "hundred",
+   "failures": 0,
+   "timeSec": 2,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 1,
+   "meaning": 1,
+   "form": null,
+   "stars": 3,
+   "firstTry": {
+    "listen": true
+   },
+   "attempts": 1,
+   "msMedian": 1849,
+   "known": false
+  },
+  {
+   "vi": "rưỡi",
+   "en": "and a half (after a unit)",
+   "failures": 0,
+   "timeSec": 5,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 1,
+   "meaning": 1,
+   "form": null,
+   "stars": 3,
+   "firstTry": {
+    "listen": true
+   },
+   "attempts": 1,
+   "msMedian": 5326,
+   "known": false
+  },
+  {
+   "vi": "lăm",
+   "en": "five, after the tens (as in 15 and 25)",
+   "failures": 0,
+   "timeSec": 42,
+   "replays": 1,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 1,
+   "meaning": 1,
+   "form": null,
+   "stars": 3,
+   "firstTry": {
+    "listen": true
+   },
+   "attempts": 1,
+   "msMedian": 42253,
+   "known": false
+  },
+  {
+   "vi": "đắt",
+   "en": "expensive",
+   "failures": 0,
+   "timeSec": 2,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 1,
+   "meaning": 1,
+   "form": null,
+   "stars": 3,
+   "firstTry": {
+    "listen": true
+   },
+   "attempts": 1,
+   "msMedian": 2003,
+   "known": false
+  }
+ ],
+ "warmup": [],
+ "toneConfusions": [
+  {
+   "target": "hết",
+   "chose": "hét"
+  }
+ ],
+ "meaningConfusions": [
+  {
+   "target": "cam",
+   "chose": "fruit; also the counting word for fruit",
+   "t": "listen"
+  },
+  {
+   "target": "bớt",
+   "chose": "a kilo; also: scale, to weigh",
+   "t": "listen"
+  }
+ ],
+ "typed": [
+  {
+   "target": "hết",
+   "answer": "het",
+   "grade": "marks",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 9538
+  },
+  {
+   "target": "bớt",
+   "answer": "dat",
+   "grade": "wrong",
+   "accepted": false,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 2350
+  },
+  {
+   "target": "cam",
+   "answer": "cam",
+   "grade": "perfect",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 1140
+  },
+  {
+   "target": "cân",
+   "answer": "can",
+   "grade": "marks",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 2910
+  },
+  {
+   "target": "chuối",
+   "answer": "chuoi",
+   "grade": "marks",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 1718
+  },
+  {
+   "target": "bớt",
+   "answer": "bớt",
+   "grade": "perfect",
+   "tiles": true,
+   "retry": true
+  },
+  {
+   "target": "thịt",
+   "answer": "thit",
+   "grade": "tone",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 2002
+  },
+  {
+   "target": "quả",
+   "answer": "cam",
+   "grade": "wrong",
+   "accepted": false,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 14141
+  },
+  {
+   "target": "mua",
+   "answer": "mua",
+   "grade": "perfect",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 4627
+  },
+  {
+   "target": "quả",
+   "answer": "quả",
+   "grade": "perfect",
+   "tiles": true,
+   "retry": true
+  }
+ ],
+ "feedback": {
+  "difficulty": "Just right",
+  "fun": "Good",
+  "article": "OK",
+  "hardest": [
+   "quả",
+   "bớt",
+   "hết"
+  ],
+  "wantNext": null,
+  "note": null
+ },
+ "events": [
+  {
+   "t": "meet",
+   "w": "mua",
+   "ms": 4895,
+   "plays": 1
+  },
+  {
+   "t": "meet",
+   "w": "quả",
+   "ms": 8851
+  },
+  {
+   "t": "meet",
+   "w": "cam",
+   "ms": 2734
+  },
+  {
+   "t": "meet",
+   "w": "chuối",
+   "ms": 3024
+  },
+  {
+   "t": "listen",
+   "w": "chuối",
+   "ok": true,
+   "a": "banana",
+   "ms": 1683
+  },
+  {
+   "t": "listen",
+   "w": "cam",
+   "ok": false,
+   "a": "fruit; also the counting word for fruit",
+   "ms": 4242
+  },
+  {
+   "t": "story",
+   "w": "chuối",
+   "ms": 11988
+  },
+  {
+   "t": "meet",
+   "w": "cân",
+   "ms": 12717
+  },
+  {
+   "t": "meet",
+   "w": "thịt",
+   "ms": 3054
+  },
+  {
+   "t": "listen",
+   "w": "cam",
+   "ok": true,
+   "a": "orange (the fruit)",
+   "ms": 2502,
+   "retry": true
+  },
+  {
+   "t": "meet",
+   "w": "bớt",
+   "ms": 7326
+  },
+  {
+   "t": "meet",
+   "w": "hết",
+   "ms": 10711
+  },
+  {
+   "t": "listen",
+   "w": "thịt",
+   "ok": true,
+   "a": "meat",
+   "ms": 3784,
+   "plays": 2
+  },
+  {
+   "t": "listen",
+   "w": "bớt",
+   "ok": true,
+   "a": "to take some off (a price); to reduce",
+   "ms": 3368
+  },
+  {
+   "t": "listen",
+   "w": "thịt",
+   "ok": true,
+   "a": "meat",
+   "ms": 2437
+  },
+  {
+   "t": "listen",
+   "w": "đắt",
+   "ok": true,
+   "a": "expensive",
+   "ms": 2003
+  },
+  {
+   "t": "listen",
+   "w": "quả",
+   "ok": true,
+   "a": "fruit; also the counting word for fruit",
+   "ms": 3834
+  },
+  {
+   "t": "listen",
+   "w": "chuối",
+   "ok": true,
+   "a": "banana",
+   "ms": 2222
+  },
+  {
+   "t": "listen",
+   "w": "cam",
+   "ok": true,
+   "a": "orange (the fruit)",
+   "ms": 1364
+  },
+  {
+   "t": "listen",
+   "w": "bớt",
+   "ok": false,
+   "a": "a kilo; also: scale, to weigh",
+   "ms": 3341
+  },
+  {
+   "t": "listen",
+   "w": "rưỡi",
+   "ok": true,
+   "a": "and a half (after a unit)",
+   "ms": 5326
+  },
+  {
+   "t": "listen",
+   "w": "cân",
+   "ok": true,
+   "a": "a kilo; also: scale, to weigh",
+   "ms": 5870
+  },
+  {
+   "t": "listen",
+   "w": "hết",
+   "ok": true,
+   "a": "in total (of a bill); also: used up, sold out",
+   "ms": 2826
+  },
+  {
+   "t": "listen",
+   "w": "bớt",
+   "ok": true,
+   "a": "to take some off (a price); to reduce",
+   "ms": 4493,
+   "retry": true
+  },
+  {
+   "t": "listen",
+   "w": "trăm",
+   "ok": true,
+   "a": "hundred",
+   "ms": 1849
+  },
+  {
+   "t": "listen",
+   "w": "lăm",
+   "ok": true,
+   "a": "five, after the tens (as in 15 and 25)",
+   "ms": 42253,
+   "plays": 1
+  },
+  {
+   "t": "listen",
+   "w": "mua",
+   "ok": true,
+   "a": "to buy",
+   "ms": 9119,
+   "plays": 1
+  },
+  {
+   "t": "spell",
+   "w": "hết",
+   "ok": false,
+   "a": "hét",
+   "ms": 2399
+  },
+  {
+   "t": "reverse",
+   "w": "cân",
+   "ok": true,
+   "a": "cân",
+   "ms": 3438
+  },
+  {
+   "t": "spell",
+   "w": "chuối",
+   "ok": true,
+   "a": "chuối",
+   "ms": 3354
+  },
+  {
+   "t": "reverse",
+   "w": "thịt",
+   "ok": true,
+   "a": "thịt",
+   "ms": 1985
+  },
+  {
+   "t": "spell",
+   "w": "hết",
+   "ok": true,
+   "a": "hết",
+   "ms": 2269,
+   "retry": true
+  },
+  {
+   "t": "reverse",
+   "w": "quả",
+   "ok": true,
+   "a": "quả",
+   "ms": 3766
+  },
+  {
+   "t": "reverse",
+   "w": "mua",
+   "ok": true,
+   "a": "mua",
+   "ms": 3988
+  },
+  {
+   "t": "spell",
+   "w": "bớt",
+   "ok": true,
+   "a": "bớt",
+   "ms": 2579
+  },
+  {
+   "t": "reverse",
+   "w": "cam",
+   "ok": true,
+   "a": "cam",
+   "ms": 8903
+  },
+  {
+   "t": "type",
+   "w": "hết",
+   "ok": true,
+   "g": "marks",
+   "a": "het",
+   "ms": 11936,
+   "hints": 0,
+   "firstKeyMs": 9538
+  },
+  {
+   "t": "type",
+   "w": "bớt",
+   "ok": false,
+   "g": "wrong",
+   "a": "dat",
+   "ms": 3798,
+   "hints": 0,
+   "firstKeyMs": 2350
+  },
+  {
+   "t": "type",
+   "w": "cam",
+   "ok": true,
+   "g": "perfect",
+   "a": "cam",
+   "ms": 2192,
+   "hints": 0,
+   "firstKeyMs": 1140
+  },
+  {
+   "t": "type",
+   "w": "cân",
+   "ok": true,
+   "g": "marks",
+   "a": "can",
+   "ms": 4417,
+   "hints": 0,
+   "firstKeyMs": 2910
+  },
+  {
+   "t": "type",
+   "w": "chuối",
+   "ok": true,
+   "g": "marks",
+   "a": "chuoi",
+   "ms": 3961,
+   "hints": 0,
+   "firstKeyMs": 1718
+  },
+  {
+   "t": "type",
+   "w": "bớt",
+   "g": "perfect",
+   "a": "bớt",
+   "ms": 5375,
+   "retry": true,
+   "tiles": true
+  },
+  {
+   "t": "type",
+   "w": "thịt",
+   "ok": true,
+   "g": "tone",
+   "a": "thit",
+   "ms": 3382,
+   "hints": 0,
+   "firstKeyMs": 2002
+  },
+  {
+   "t": "type",
+   "w": "quả",
+   "ok": false,
+   "g": "wrong",
+   "a": "cam",
+   "ms": 15859,
+   "hints": 0,
+   "firstKeyMs": 14141
+  },
+  {
+   "t": "type",
+   "w": "mua",
+   "ok": true,
+   "g": "perfect",
+   "a": "mua",
+   "ms": 5944,
+   "hints": 0,
+   "firstKeyMs": 4627
+  },
+  {
+   "t": "type",
+   "w": "quả",
+   "g": "perfect",
+   "a": "quả",
+   "ms": 11671,
+   "retry": true,
+   "tiles": true
+  },
+  {
+   "t": "listen",
+   "w": "hai lăm",
+   "ok": true,
+   "a": "25.000₫",
+   "ms": 2328
+  },
+  {
+   "t": "listen",
+   "w": "hai mươi",
+   "ok": true,
+   "a": "20.000₫",
+   "ms": 3962
+  },
+  {
+   "t": "listen",
+   "w": "hai trăm",
+   "ok": true,
+   "a": "200.000₫",
+   "ms": 3170
+  },
+  {
+   "t": "listen",
+   "w": "trăm tám",
+   "ok": true,
+   "a": "180.000₫",
+   "ms": 9630,
+   "plays": 1
+  },
+  {
+   "t": "listen",
+   "w": "Đắt quá, bớt đi chị!",
+   "ok": true,
+   "a": "That's too much, come down a bit! (to a woman a bit older)",
+   "ms": 6575,
+   "plays": 1
+  },
+  {
+   "t": "listen",
+   "w": "trăm rưỡi",
+   "ok": true,
+   "a": "150.000₫",
+   "ms": 7367,
+   "plays": 1
+  },
+  {
+   "t": "listen",
+   "w": "Cam bao nhiêu một cân?",
+   "ok": true,
+   "a": "How much are oranges a kilo?",
+   "ms": 6315
+  },
+  {
+   "t": "situation",
+   "w": "Anh mua gì ạ?",
+   "ok": false,
+   "a": "Cho anh mười cân cam.",
+   "ms": 20955,
+   "plays": 2
+  },
+  {
+   "t": "situation",
+   "w": "Cam ba lăm một cân.",
+   "ok": false,
+   "a": "53.000₫",
+   "ms": 29850,
+   "plays": 4
+  },
+  {
+   "t": "situation",
+   "w": "Thịt lợn trăm hai một cân.",
+   "ok": false,
+   "a": "102.000₫",
+   "ms": 15816,
+   "plays": 2
+  },
+  {
+   "t": "situation",
+   "w": "Của anh hết trăm rưỡi.",
+   "ok": true,
+   "a": "150",
+   "ms": 12770,
+   "plays": 1
+  },
+  {
+   "t": "situation",
+   "w": "Bưởi năm mươi nghìn một quả.",
+   "ok": true,
+   "a": "Đắt quá, bớt đi chị!",
+   "ms": 9558
+  },
+  {
+   "t": "situation",
+   "w": "Chuối hai mươi một nải.",
+   "ok": false,
+   "a": "21.000₫",
+   "ms": 11213,
+   "plays": 1
+  },
+  {
+   "t": "situation",
+   "w": "Thôi, bốn lăm nhé.",
+   "ok": true,
+   "a": "45",
+   "ms": 26759,
+   "plays": 2
+  },
+  {
+   "t": "situation",
+   "w": "Thịt bò hai trăm rưỡi một cân.",
+   "ok": true,
+   "a": "250.000₫",
+   "ms": 28153,
+   "plays": 3
+  },
+  {
+   "t": "speed",
+   "w": "thịt",
+   "ok": true,
+   "a": "meat",
+   "ms": 1314
+  },
+  {
+   "t": "speed",
+   "w": "Đắt quá, bớt đi chị!",
+   "ok": true,
+   "a": "That's too much, come down a bit! (to a woman a bit older)",
+   "ms": 1981
+  },
+  {
+   "t": "speed",
+   "w": "rưỡi",
+   "ok": true,
+   "a": "and a half (after a unit)",
+   "ms": 4066
+  },
+  {
+   "t": "speed",
+   "w": "hai trăm",
+   "ok": true,
+   "a": "200.000₫",
+   "ms": 3459
+  },
+  {
+   "t": "speed",
+   "w": "quả",
+   "ok": true,
+   "a": "fruit; also the counting word for fruit",
+   "ms": 1688
+  },
+  {
+   "t": "speed",
+   "w": "cân",
+   "ok": true,
+   "a": "a kilo; also: scale, to weigh",
+   "ms": 1790
+  },
+  {
+   "t": "speed",
+   "w": "hai lăm",
+   "ok": true,
+   "a": "25.000₫",
+   "ms": 2552
+  },
+  {
+   "t": "speed",
+   "w": "cam",
+   "ok": true,
+   "a": "orange (the fruit)",
+   "ms": 1400
+  },
+  {
+   "t": "speed",
+   "w": "rưỡi",
+   "ok": true,
+   "a": "and a half (after a unit)",
+   "ms": 3336
+  },
+  {
+   "t": "speed",
+   "w": "cân",
+   "ok": true,
+   "a": "a kilo; also: scale, to weigh",
+   "ms": 2186
+  },
+  {
+   "t": "speed",
+   "w": "hai lăm",
+   "ok": true,
+   "a": "25.000₫",
+   "ms": 1599
+  },
+  {
+   "t": "speed",
+   "w": "rưỡi",
+   "ok": true,
+   "a": "and a half (after a unit)",
+   "ms": 4309
+  },
+  {
+   "t": "speed",
+   "w": "rưỡi",
+   "ok": true,
+   "a": "and a half (after a unit)",
+   "ms": 1157
+  },
+  {
+   "t": "speed",
+   "w": "trăm",
+   "ok": true,
+   "a": "hundred",
+   "ms": 2882
+  },
+  {
+   "t": "speed",
+   "w": "hai lăm",
+   "ok": true,
+   "a": "25.000₫",
+   "ms": 1869
+  },
+  {
+   "t": "speed",
+   "w": "cân",
+   "ok": true,
+   "a": "a kilo; also: scale, to weigh",
+   "ms": 1855
+  },
+  {
+   "t": "speed",
+   "w": "đắt",
+   "ok": true,
+   "a": "expensive",
+   "ms": 1580
+  },
+  {
+   "t": "speed",
+   "w": "cam",
+   "ok": true,
+   "a": "orange (the fruit)",
+   "ms": 2157
+  },
+  {
+   "t": "speed",
+   "w": "lăm",
+   "ok": true,
+   "a": "five, after the tens (as in 15 and 25)",
+   "ms": 2900
+  }
+ ],
+ "issue": 8
+}

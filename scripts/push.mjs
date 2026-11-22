@@ -111,7 +111,7 @@ export async function sendOne(sub, message, keys) {
   return res.status;
 }
 
-async function send(message) {
+export async function sendAll(message) {
   const keys = loadKeys();
   const subs = loadSubs();
   if (!subs.length) {
@@ -203,11 +203,11 @@ async function main() {
   if (cmd === 'init') return init();
   if (cmd === 'inbox') return inbox();
   if (cmd === 'status') return console.log(`${loadSubs().length} device(s) subscribed; keys ${existsSync(KEYS) ? 'present' : 'missing'}`);
-  if (cmd === 'welcome') return send(WELCOME);
+  if (cmd === 'welcome') return sendAll(WELCOME);
   if (cmd === 'send') {
     const title = arg('title');
     if (!title) throw new Error('send needs --title');
-    return send({ title, body: arg('body') || '', url: arg('url') || './', tag: arg('tag') || 'vietwars' });
+    return sendAll({ title, body: arg('body') || '', url: arg('url') || './', tag: arg('tag') || 'vietwars' });
   }
   console.log('usage: node scripts/push.mjs init | inbox | send --title T --body B [--url U] [--tag T] | welcome | status');
 }

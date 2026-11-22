@@ -131,3 +131,20 @@ test('a conversation plays after the combos and before real life, with its answe
   assert.ok(steps[at].dialogue.check.options.includes(steps[at].dialogue.check.answer));
   assert.equal(steps[at - 1].type === 'stage' || steps[at - 1].type === 'story', true, 'introduced by the Conversation screen');
 });
+
+import { buildDeck } from '../web/js/deck.js';
+
+test('the review deck replays results in order, the same on every device', () => {
+  const at = '2026-11-22T10:00:00.000Z';
+  const later = '2026-11-23T10:00:00.000Z';
+  const results = [
+    { kind: 'review', finishedAt: later, words: [{ vi: 'trăm', share: 1 }] },
+    { kind: 'lesson', lessonId: 'lesson-02', finishedAt: at, words: [{ vi: 'trăm', share: 1 }, { vi: 'nghìn', share: 0.5 }, { vi: 'phở', share: 0 }], warmup: [{ vi: 'ba', ok: false }] },
+    { kind: 'lesson', lessonId: 'lesson-02', finishedAt: at, partial: true, words: [{ vi: 'mươi', share: 0 }] },
+  ];
+  const deck = buildDeck(results, { siteKnown: ['phở'] });
+  assert.deepEqual(Object.keys(deck).sort(), ['ba', 'nghìn', 'trăm'], 'known and partial words stay out');
+  assert.equal(deck['nghìn'].box, 0, 'a missed word comes back soon');
+  assert.equal(deck['trăm'].box, 3, 'easy in the lesson (box 2), then good in the review a day later (box 3)');
+  assert.equal(deck['ba'].box, 0, 'a missed warm-up word joins the deck');
+});

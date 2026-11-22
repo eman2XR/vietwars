@@ -3,7 +3,8 @@
 import { colorize, escapeHTML as esc, nfc } from './vi.js';
 import { loadAudio, play, preload } from './audio.js';
 import { store, localDay, streak } from './store.js';
-import { schedule, outcomeFor, dueWords, nextDue, INTERVAL_DAYS } from './srs.js';
+import { dueWords, nextDue, INTERVAL_DAYS } from './srs.js';
+import { deckFromResult } from './deck.js';
 import { lessonSteps, reviewSteps, runSession, stampHTML } from './lesson.js';
 import { queue, flush, testToken, pullResults, pullQuestions, queueQuestion, REPO } from './sync.js';
 import { picture } from './pictures.js';
@@ -11,7 +12,6 @@ import { pushSupport, currentSubscription, enablePush, disablePush, loadPushKeys
 
 const APP_VERSION = '4';
 const REVIEW_LIMIT = 20;
-const VERIFIED = new Set(['perfect', 'tone', 'marks', 'sound']);
 const app = document.getElementById('app');
 const params = new URLSearchParams(location.search);
 const testMode = params.has('test');
@@ -183,7 +183,6 @@ function applyResult(p, deck, result) {
   if (result.partial) return;
   const now = Date.parse(result.finishedAt) || Date.now();
   p.known = p.known || [];
-  const known = new Set([...SITE_KNOWN, ...p.known.map(nfc)]);
   const day = localDay(now);
   if (!p.days.includes(day)) p.days.push(day);
   p.days = p.days.sort().slice(-400);
@@ -204,19 +203,8 @@ function applyResult(p, deck, result) {
     s.credit = Math.round((s.credit + (w.share || 0)) * 100) / 100;
     s.last = result.finishedAt;
     p.words[w.vi] = s;
-    const verified = w.known && VERIFIED.has(w.firstTry?.type);
-    if (verified && !p.known.includes(w.vi)) p.known.push(w.vi);
-    if (known.has(nfc(w.vi)) || verified) {
-      delete deck[w.vi];
-      continue;
-    }
-    const card = deck[w.vi] || { lesson: WORDS.get(nfc(w.vi))?.lessonId };
-    const outcome = result.kind === 'review' ? (w.share >= 1 ? 'good' : 'again') : outcomeFor(w.share || 0);
-    deck[w.vi] = schedule(card, outcome, now);
   }
-  for (const m of result.warmup || []) {
-    if (!m.ok && !known.has(nfc(m.vi)) && !deck[m.vi]) deck[m.vi] = schedule({ lesson: result.lessonId }, 'again', now);
-  }
+  deckFromResult(deck, result, { siteKnown: SITE_KNOWN, provenKnown: p.known, lessonOf: (vi) => WORDS.get(nfc(vi))?.lessonId });
 }
 
 function saveResult(result) {
@@ -699,7 +687,7 @@ function settingsPage() {
       </section>
       <section class="panel notify-panel">
         <h2>Notifications</h2>
-        <p>Get a notification on this device when a new issue is ready or one of your questions has an answer.</p>
+        <p>Get a notification on this device when a new issue is ready, when one of your questions has an answer, and once a day when words are due for review.</p>
         <div class="notify-body"><p class="hint">Checking...</p></div>
       </section>
       <section class="panel">
@@ -835,6 +823,10 @@ async function boot() {
     if (ok && newAnswers() && (location.hash || '#/') === '#/' && !document.body.classList.contains('in-session')) home();
   });
   const loadedAt = Date.now();
+  // While the app is on screen, pick up results from other devices every few minutes.
+  setInterval(() => {
+    if (document.visibilityState === 'visible' && !document.body.classList.contains('in-session') && !testMode) syncAndRefresh();
+  }, 5 * 60000);
   document.addEventListener('visibilitychange', () => {
     if (document.visibilityState !== 'visible') return;
     // A tab left open for hours reloads on return, so it picks up new issues and site updates.
@@ -843,7 +835,7 @@ async function boot() {
       return;
     }
     const last = Date.parse(store.settings().syncedAt || 0) || 0;
-    if (Date.now() - last > 2 * 60000) syncAndRefresh();
+    if (Date.now() - last > 30000) syncAndRefresh();
     if ((store.settings().questions || []).some((q) => !q.answer)) {
       refreshQuestions().then((ok) => {
         if (!ok || document.body.classList.contains('in-session')) return;
@@ -868,6 +860,7 @@ async function boot() {
       if (ev.data?.type === 'open' && ev.data.url) {
         const target = new URL(ev.data.url, location.href);
         if (target.hash && target.hash !== location.hash) location.hash = target.hash;
+        syncAndRefresh();
       }
     });
     navigator.serviceWorker.register('sw.js').catch(() => {});

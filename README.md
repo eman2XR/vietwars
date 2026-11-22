@@ -8,7 +8,7 @@ Every lesson is an issue. It opens with a short story from Vietnamese history or
 
 Stuck on something? Ask the editors: "How do I ask for the bill?", "What is the difference between nữa and nửa?". Use the ? button inside an issue or Ask on the home page. Each question is posted to this repository as an issue; the lesson loop answers it within a few hours (it runs a few times a day), and the answer appears under Ask with every phrase ready to play.
 
-Notifications: on iPhone or iPad, add the site to your Home Screen (Safari, Share, Add to Home Screen), open it from there, paste your GitHub token in Settings, and tap Notify me. You then get a notification when a new issue is ready or a question has an answer. On a Mac, Safari can turn them on from Settings directly.
+Notifications: on iPhone or iPad, add the site to your Home Screen (Safari, Share, Add to Home Screen), open it from there, paste your GitHub token in Settings, and tap Notify me. You then get a notification when a new issue is ready, when a question has an answer, and once a day when words are due for review. On a Mac, Safari can turn them on from Settings directly.
 
 After each session your results and feedback are posted to this repository as an issue. Claude Code agents read them and write the next issue, adapting the words, the stories and the curriculum to what you know, what you miss and what you ask for (`/lesson-loop`, `/next-lesson`, `/review-progress`).
 
