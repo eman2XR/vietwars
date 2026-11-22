@@ -12,7 +12,7 @@ One round, cheap when there is nothing to do. Read `CLAUDE.md` once per session.
 1. `python3 scripts/status.py --decide`
 2. Act on the answer, then decide again, until it says `wait` (at most three actions per round):
    - `answer-questions`: the learner asked something under Ask on the site. Answer every open question (see "Answering a question" below), then decide again.
-   - `ingest`: run `python3 scripts/ingest.py`, then decide again.
+   - `ingest`: run `python3 scripts/ingest.py`, then decide again. This also saves devices that asked for notifications and sends each a welcome notification (`scripts/push.mjs inbox`).
    - `review-progress`: follow the `review-progress` skill, then decide again.
    - `adjust-lesson`: the learner closed the newest issue midway at least twice. Follow the "Adjusting an issue" section of the `next-lesson` skill: make the current issue easier or shorter instead of adding a new one.
    - `next-lesson`: follow the `next-lesson` skill. One lesson per round at most.
@@ -29,7 +29,7 @@ The learner is waiting, often in the middle of an issue, so answer each question
    - `phrases`: one to six things to say or hear, each `{"vi": "...", "en": "..."}`, written as a Hà Nội speaker would say them. The site gives each one a play button.
    - Be sure. Check facts about history or culture on Wikipedia (`curl -s "https://en.wikipedia.org/w/index.php?title=TITLE&action=raw"`, or vi.wikipedia.org). If a question has no single right answer, say what people commonly say and why. If you cannot answer it well, say so and suggest where it will come up in a later issue.
 3. Before posting, have one subagent check the Vietnamese (spelling, tone marks, Northern usage, whether a Hà Nội speaker would say it that way). Give it the question and your JSON, not your reasoning; fix what it finds.
-4. `python3 scripts/questions.py answer N FILE --dry-run` to check the comment, then without `--dry-run` to post it. That comments on the issue, closes it and updates `learner/questions.json`.
+4. `python3 scripts/questions.py answer N FILE --dry-run` to check the comment, then without `--dry-run` to post it. That comments on the issue, closes it and updates `learner/questions.json`. Then tell the learner's phone: `node scripts/push.mjs send --title "Your question has an answer" --body "<the question, shortened>" --url "#/ask" --tag answer`.
 5. If a question asks for a topic, a change to the site or more practice of something, add it to `learner/NOTES.md` so the next lesson or review uses it. Commit `learner/` with the next lesson, or on its own if no lesson is due.
 
 ## Limits

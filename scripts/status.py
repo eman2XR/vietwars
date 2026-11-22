@@ -50,6 +50,8 @@ def open_issues():
         if m and m.group(1) not in saved:
             waiting += 1
     questions = sum(1 for i in issues if "<!-- vietwars-question -->" in (i.get("body") or ""))
+    # A device asking for notifications is saved by ingest (scripts/push.mjs inbox), like a result.
+    waiting += sum(1 for i in issues if "<!-- vietwars-push -->" in (i.get("body") or ""))
     return waiting, questions, None
 
 

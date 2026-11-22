@@ -76,7 +76,7 @@ git push
 python3 scripts/ingest.py --close
 ```
 
-`--close` closes the saved result issues with a comment. Wait for the deploy (`gh run list -R eman2XR/vietwars --limit 1`) and confirm it succeeded.
+`--close` closes the saved result issues with a comment. Wait for the deploy (`gh run list -R eman2XR/vietwars --limit 1`) and confirm it succeeded. Then notify the learner's devices: `node scripts/push.mjs send --title "Issue NN is ready" --body "<the issue title>: <a few words of the dek>" --url "#/lesson/lesson-NN" --tag issue`.
 
 4. Tell the user in a few lines: the issue is live, its story, the words it covers, and why (the data behind the choices).
 

@@ -17,6 +17,8 @@ const SHELL_FILES = [
   'js/srs.js',
   'js/sync.js',
   'js/pictures.js',
+  'js/push.js',
+  'push.json',
   'lessons/index.json',
   'lessons/known.json',
   'audio/index.json',
@@ -69,5 +71,39 @@ self.addEventListener('fetch', (event) => {
         return res;
       })
       .catch(() => caches.match(event.request).then((hit) => hit || caches.match('index.html'))),
+  );
+});
+
+// A notification from the editors: a new issue or an answer. Every push shows a notification, as iOS requires.
+self.addEventListener('push', (event) => {
+  let data = {};
+  try {
+    data = event.data ? event.data.json() : {};
+  } catch {
+    data = { body: event.data ? event.data.text() : '' };
+  }
+  event.waitUntil(
+    self.registration.showNotification(data.title || 'Học tiếng Việt', {
+      body: data.body || '',
+      icon: 'icons/icon-192.png',
+      tag: data.tag || 'vietwars',
+      data: { url: data.url || './' },
+    }),
+  );
+});
+
+// Opening a notification brings the app forward at the page it is about.
+self.addEventListener('notificationclick', (event) => {
+  event.notification.close();
+  const url = new URL(event.notification.data?.url || './', self.registration.scope).href;
+  event.waitUntil(
+    self.clients.matchAll({ type: 'window', includeUncontrolled: true }).then((windows) => {
+      const open = windows.find((w) => w.url.startsWith(self.registration.scope));
+      if (open) {
+        open.postMessage({ type: 'open', url });
+        return open.focus();
+      }
+      return self.clients.openWindow(url);
+    }),
   );
 });

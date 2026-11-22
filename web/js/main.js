@@ -7,6 +7,7 @@ import { schedule, outcomeFor, dueWords, nextDue, INTERVAL_DAYS } from './srs.js
 import { lessonSteps, reviewSteps, runSession, stampHTML } from './lesson.js';
 import { queue, flush, testToken, pullResults, pullQuestions, queueQuestion, REPO } from './sync.js';
 import { picture } from './pictures.js';
+import { pushSupport, currentSubscription, enablePush, disablePush, loadPushKeys } from './push.js';
 
 const APP_VERSION = '4';
 const REVIEW_LIMIT = 20;
@@ -636,6 +637,26 @@ function stylePreview(s) {
   </button>`;
 }
 
+async function drawNotify(message = '') {
+  const el = app.querySelector('.notify-body');
+  if (!el) return;
+  const support = pushSupport();
+  if (support === 'homescreen') {
+    el.innerHTML = '<p>On iPhone and iPad, notifications come through the Home Screen app. In Safari, tap Share, then <b>Add to Home Screen</b>. Open <b>Tiếng Việt</b> from your Home Screen and turn notifications on here. The Home Screen app keeps its own settings, so paste your GitHub token there too.</p>';
+    return;
+  }
+  if (support !== 'ok') {
+    el.innerHTML = '<p class="hint">This browser cannot show notifications from the site.</p>';
+    return;
+  }
+  loadPushKeys().catch(() => {});
+  const sub = await currentSubscription().catch(() => null);
+  const denied = Notification.permission === 'denied';
+  el.innerHTML = sub
+    ? `<p>On for this device.</p><div class="row"><button class="btn ghost small" type="button" data-act="notify-off">Turn off</button></div><p class="notify-status hint">${esc(message)}</p>`
+    : `<div class="row"><button class="btn primary small" type="button" data-act="notify-on"${denied ? ' disabled' : ''}>Notify me</button></div><p class="notify-status hint">${esc(message || (denied ? 'Notifications are blocked. Allow them for this site or app in Settings, under Notifications.' : ''))}</p>`;
+}
+
 function settingsPage() {
   const s = store.settings();
   const outbox = store.outbox().length;
@@ -681,6 +702,11 @@ function settingsPage() {
         <div class="row">${outbox ? '<button class="btn small" data-act="send">Send now</button>' : ''}<button class="btn ghost small" data-act="copy">Copy all my data</button></div>
         <p class="copy-status hint"></p>
       </section>
+      <section class="panel notify-panel">
+        <h2>Notifications</h2>
+        <p>Get a notification on this device when a new issue is ready or one of your questions has an answer.</p>
+        <div class="notify-body"><p class="hint">Checking...</p></div>
+      </section>
       <section class="panel">
         <h2>Start over</h2>
         <p>Deletes progress, reviews and saved results on this device. Results already sent stay in GitHub and come back on the next sync.</p>
@@ -688,6 +714,7 @@ function settingsPage() {
       </section>
       <p class="hint">Version ${APP_VERSION}</p>
     </div>`;
+  drawNotify();
   const form = app.querySelector('.token-form');
   const status = app.querySelector('.form-status');
   form.addEventListener('submit', async (ev) => {
@@ -722,6 +749,27 @@ function settingsPage() {
     }
     const act = ev.target.closest('[data-act]')?.dataset.act;
     if (!act) return;
+    if (act === 'notify-on') {
+      const note = app.querySelector('.notify-status');
+      note.textContent = 'Asking...';
+      try {
+        const r = await enablePush(device());
+        if (!r.ok) {
+          note.textContent = r.reason === 'denied' ? 'Notifications are blocked. Allow them for Tiếng Việt in the Settings app, under Notifications.' : 'Not turned on.';
+          return;
+        }
+        const sent = await flush();
+        await drawNotify(sent.left ? (store.settings().token ? 'On. The request will be sent when you are online.' : 'On. Add your GitHub token below so the request can reach the editors.') : 'On. A welcome notification arrives after the editors\' next round, a few times a day.');
+      } catch (err) {
+        note.textContent = `Could not turn on notifications: ${err.message}`;
+      }
+      return;
+    }
+    if (act === 'notify-off') {
+      await disablePush();
+      await drawNotify('Off for this device.');
+      return;
+    }
     if (act === 'sync') {
       const el = app.querySelector('.sync-status');
       el.textContent = 'Syncing...';
@@ -820,6 +868,12 @@ async function boot() {
       if (!hadWorker || reloaded || document.body.classList.contains('in-session')) return;
       reloaded = true;
       location.reload();
+    });
+    navigator.serviceWorker.addEventListener('message', (ev) => {
+      if (ev.data?.type === 'open' && ev.data.url) {
+        const target = new URL(ev.data.url, location.href);
+        if (target.hash && target.hash !== location.hash) location.hash = target.hash;
+      }
     });
     navigator.serviceWorker.register('sw.js').catch(() => {});
   }

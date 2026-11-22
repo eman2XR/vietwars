@@ -302,6 +302,10 @@ class Run:
 
         page.evaluate("location.hash = '#/settings'")
         page.wait_for_selector(".settings")
+        try:
+            page.locator(".notify-body", has_text=re.compile("Notify me|On for this|cannot show|Home Screen")).wait_for(timeout=4000)
+        except Exception:
+            self.errors.append("the notifications section in Settings did not finish loading")
         page.fill(".token-form input", "test-token")
         page.click(".token-form button[type=submit]")
         page.locator(".form-status", has_text="works").wait_for()

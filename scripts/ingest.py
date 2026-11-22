@@ -4,7 +4,8 @@
 Results arrive as GitHub issues (posted by the site) or as a JSON file (the site's "Copy all my data").
 Each result is saved once to learner/results/; learner/profile.json and learner/SUMMARY.md are then
 rebuilt from every saved result. The learner's questions and their answers (scripts/questions.py) are
-saved to learner/questions.json and listed in the summary.
+saved to learner/questions.json and listed in the summary. Devices asking for notifications are saved
+by scripts/push.mjs inbox (on this Mac only, in .push/).
 
   python3 scripts/ingest.py                 pull open result issues and rebuild the profile
   python3 scripts/ingest.py --file data.json   import results from a file instead
@@ -387,6 +388,12 @@ def main():
             sync_questions()
         except Exception as e:
             print(f"questions not updated: {str(e).splitlines()[0] if str(e) else e}")
+        if (ROOT / ".push" / "keys.json").exists():
+            try:
+                out = subprocess.run(["node", str(ROOT / "scripts" / "push.mjs"), "inbox"], check=True, capture_output=True, text=True, timeout=120).stdout
+                print(out.strip().splitlines()[-1] if out.strip() else "no notification requests")
+            except Exception as e:
+                print(f"notification requests not read: {str(e).splitlines()[0] if str(e) else e}")
     total = rebuild()
     print(f"{new} new result{'s' if new != 1 else ''}, {total} in total; wrote learner/profile.json and learner/SUMMARY.md")
     if args.close and not args.offline:
