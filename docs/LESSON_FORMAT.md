@@ -22,7 +22,7 @@ All Vietnamese text must be NFC-normalised (the checker catches mistakes).
       { "word": "chín", "text": "...", "picture": { "kind": "icon", "name": "..." } },   // shown right after the group that teaches chín; picture optional
       { "text": "..." }                    // untied: shown on a part, real-life or results screen
     ],
-    "pull": "...",                // the most surprising line; it can turn up as a fact card
+    "pull": "...",                // optional: the most surprising line (not shown as a pop-up)
     "sources": [{ "title": "Sơn Tinh – Thủy Tinh", "url": "https://en.wikipedia.org/wiki/..." }]
   },
   "situations": [                 // 5 to 8 real-life lines; about a third replies or orders, not prices

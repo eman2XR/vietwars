@@ -273,12 +273,6 @@ async function syncAndRefresh() {
   return r;
 }
 
-function factsFor(lesson, words) {
-  const facts = [];
-  for (const w of words) if (w.fact) facts.push({ vi: w.vi, text: w.fact });
-  if (lesson?.feature?.pull) facts.push({ text: lesson.feature.pull });
-  return facts;
-}
 
 function resumeChoice(lesson, place) {
   document.body.classList.remove('in-session');
@@ -346,7 +340,6 @@ function startSession(kind, lesson, opts = {}) {
         flush();
       },
       resume: opts.resume || null,
-      facts: factsFor(lesson, kind === 'lesson' ? lesson.words : words),
       jumpTo: testMode ? params.get('jump') : null,
     },
     (out) => {

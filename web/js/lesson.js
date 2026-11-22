@@ -11,8 +11,7 @@ const SCORED = new Set(['listen', 'spell', 'reverse', 'type']);
 const DRILLS = new Set(['listen', 'spell', 'reverse']);
 const TYPE_CREDIT = { perfect: 1, tone: 0.5, marks: 0.5, sound: 0.5 };
 const SPEED_SECONDS = 45;
-const FACT_EVERY = 5;
-const MAX_FACTS = 4;
+const HOT_STREAK = 3;
 const TONE_KEYS = ['ngang', 'huyen', 'sac', 'hoi', 'nga', 'nang'];
 const VOWEL_KEYS = ['ă', 'â', 'ê', 'ô', 'ơ', 'ư', 'đ'];
 
@@ -177,7 +176,7 @@ export function lessonSteps(lesson, { review = [], warmup = [] } = {}) {
       steps.push(...storySteps());
     });
     offset += part.length;
-    steps.push({ type: 'stage', beat: looseBeat(), title: parts.length > 1 ? `Practise part ${pi + 1}` : 'Practise', text: 'Listen and pick the meaning, pick the spelling you hear, then type from memory. Three right in a row brings up a fact.' });
+    steps.push({ type: 'stage', beat: looseBeat(), title: parts.length > 1 ? `Practise part ${pi + 1}` : 'Practise', text: 'Listen and pick the meaning, pick the spelling you hear, then type from memory.' });
     steps.push(...storySteps());
     shuffle(practise).forEach((w) => steps.push({ type: 'listen', word: w, pool }));
     const spellers = new Set(shuffle(part.filter((w) => w.contrast?.length)).slice(0, MAX_SPELL).map((w) => w.vi));
@@ -263,7 +262,6 @@ export function runSession(root, session, onDone, onQuit) {
     known: new Set(),
     streak: 0,
     bestStreak: 0,
-    facts: shuffle(session.facts || []),
     factsShown: [],
     met: new Set(),
     plays: 0,
@@ -343,7 +341,6 @@ export function runSession(root, session, onDone, onQuit) {
     S.readMs = data.readMs || 0;
     S.factsShown = data.factsShown || [];
     S.situations = data.situations || { correct: 0, total: 0 };
-    S.facts = S.facts.filter((f) => !S.factsShown.includes(f.vi || f.text.slice(0, 40)));
   }
 
   function payload(feedback) {
@@ -419,26 +416,12 @@ export function runSession(root, session, onDone, onQuit) {
 
   function showStreak() {
     streakEl.textContent = S.streak >= 2 ? `${S.streak} in a row` : '';
-    streakEl.classList.toggle('hot', S.streak >= FACT_EVERY);
-  }
-
-  // Shows a fact about a word already met, or a general one from the issue, so nothing is spoiled before it is taught.
-  function showFact() {
-    if (S.factsShown.length >= MAX_FACTS) return;
-    const at = S.facts.findIndex((f) => !f.vi || S.met.has(nfc(f.vi)));
-    if (at < 0) return;
-    const [f] = S.facts.splice(at, 1);
-    S.factsShown.push(f.vi || f.text.slice(0, 40));
-    factEl.innerHTML = `<div class="label">Did you know</div>${f.vi ? `<b class="vi">${colorize(f.vi)}</b> ` : ''}${esc(f.text)}<button type="button" class="fact-close" aria-label="Close">&times;</button>`;
-    factEl.classList.add('show');
-    clearTimeout(factTimer);
-    factTimer = setTimeout(() => factEl.classList.remove('show'), 9000);
+    streakEl.classList.toggle('hot', S.streak >= HOT_STREAK);
   }
 
   function right() {
     S.streak += 1;
     S.bestStreak = Math.max(S.bestStreak, S.streak);
-    if (S.streak % FACT_EVERY === 0) showFact();
     showStreak();
   }
 

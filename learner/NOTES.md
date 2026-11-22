@@ -1,5 +1,6 @@
 Things the learner said in conversation, newest first. Add to this file whenever the learner gives feedback outside the app.
 
+- 2026-11-22: "don't add the random did you know popups next time, they're annoying (the ones that actually pop up, not the other ones)." The pop-up fact cards during drills are gone from the engine; the did-you-know box on word cards stays.
 - 2026-11-22 (issue 4 feedback, worth planning around): "I think i need to learn numbers more. Especially someone telling me a price and me understanding what it is. But you should take into account that people in vietnam most of the time don't even mention the thousand, they would just say 10 instead of 10 thousand. Same for hundred - double check how people naturally speak." And: "The lesson is a bit too long, should be shorter." Plan the next issue around prices as Hà Nội sellers really say them (dropped nghìn, shortened hundreds and the like), with every colloquial form checked by the Vietnamese reviewer, and keep it to about 45 answers.
 - 2026-11-22: Turned on notifications on the iPhone Home Screen app; the welcome notification arrived.
 - 2026-11-21: Wants the lesson loop to run only a few times a day (it had been every 15 minutes so questions were answered quickly). Answers to Ask questions can take a few hours.
