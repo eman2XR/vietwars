@@ -32,6 +32,15 @@ All Vietnamese text must be NFC-normalised (the checker catches mistakes).
     { "who": "Fruit seller", "vi": "Cam ba trăm nghìn một cân.", "en": "Oranges, 300,000 a kilo.", "ask": "What do you say?",
       "options": ["Đắt quá!", "Rẻ quá!", "Ngon quá!"], "answer": "Đắt quá!" }   // a reply in words is played after the answer
   ],
+  "dialogues": [                  // one short exchange per issue (from issue 6), after the combos, before real life
+    { "title": "Dinner at Bà's", "setting": "table",            // table or street
+      "picture": { "kind": "icon", "name": "ricebowl" },
+      "lines": [                                              // 2 to 8 lines; almost only known words
+        { "who": "Bà", "vi": "...", "en": "..." },
+        { "who": "Anh", "vi": "...", "en": "...", "you": true }  // the learner's lines are highlighted
+      ],
+      "check": { "ask": "You are full. What do you say?", "options": ["...", "...", "..."], "answer": "...", "note": "optional, shown after answering" } }
+  ],
   "challenge": { "title": "Street challenge", "text": "..." },        // one real thing to try
   "stamp": { "label": "Gia đình", "picture": { "kind": "icon", "name": "tea" } },
   "warmup": [{ "vi": "bố", "en": "dad" }],      // optional quick check of probably-known words
@@ -68,7 +77,7 @@ After each session the site saves a result and posts it as a GitHub issue (marke
 
 - `resultId`, `kind` (`lesson` or `review`), `lessonId`, `startedAt`, `finishedAt`, `durationSec`, `device`, `style`
 - `summary`: `firstTryAccuracy` (0 to 1, typing partly counted), `exercises`, `bestStreak`, `grade` (complete, merit or distinction), `speedScore`, `speedAnswered`, `speedCorrect`, `bestCombo` (rush hour)
-- `article`: `readSec` (time on the opening), `factsShown`; `situations`: `correct`, `total`; `timing`: seconds per phase (article, warmup, words, drills, reallife, rush), `pauses` (gaps over a minute), `longestPauseSec`; `toneMarks` (relaxed or strict); `partial` and `progress` for an issue closed midway
+- `article`: `readSec` (time on the opening), `factsShown` (always 0 since the pop-ups went); `situations` and `dialogues`: `correct`, `total`; `timing`: seconds per phase (article, warmup, words, drills, reallife, rush), `pauses` (gaps over a minute), `longestPauseSec`; `toneMarks` (relaxed or strict); `partial` and `progress` for an issue closed midway
 - `words[]`: `vi`, `en`, `share` (first-try credit), `meaning` (listen and reverse), `form` (spelling and typing), `stars`, `firstTry` per exercise, `attempts`, `failures`, `timeSec`, `replays`, `hints`, `revealed`, `studySec` (time on the word card), `msMedian`, `known` (tapped "I know it")
 - `warmup[]`: `vi`, `ok`, `ms`
 - `toneConfusions[]`, `meaningConfusions[]`, `typed[]` (target, answer, grade: perfect, tone, marks, sound or wrong; hints; keys pressed; dictation)

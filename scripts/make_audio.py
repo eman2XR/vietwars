@@ -32,6 +32,9 @@ def lesson_texts(lesson):
     texts.extend(w["vi"] for w in lesson.get("warmup", []))
     texts.extend(c["vi"] for c in lesson.get("combos", []))
     texts.extend(x["vi"] for x in lesson.get("situations", []))
+    for d in lesson.get("dialogues", []):
+        texts.extend(line["vi"] for line in d.get("lines", []))
+        texts.append(d.get("check", {}).get("answer", ""))
     texts.extend(x["answer"] for x in lesson.get("situations", []) if re.search(r"[^\W\d_]", x.get("answer", "")))
     texts.extend(x["vi"] for x in (lesson.get("grammar") or {}).get("examples", []))
     return texts

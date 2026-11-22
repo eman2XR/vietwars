@@ -186,6 +186,10 @@ class Run:
                     page.locator(".opt").first.click()
                     self.first(page, f"{label}-situation-answered")
                     page.click("[data-act=next]")
+            elif step == "dialogue":
+                page.locator(".opt").first.click()
+                self.first(page, f"{label}-dialogue-answered")
+                page.click("[data-act=next]")
             elif step == "quiz":
                 page.locator(".opt").nth(typed % 2).click()
                 typed += 1
@@ -320,7 +324,7 @@ class Run:
             state = page.get_attribute(".send-status", "data-state")
             if state != "sent":
                 self.errors.append(f"results were not sent (state {state})")
-        expect = ["feature", "meet", "listen", "type", "speed", "results"] + (["warmup"] if self.lesson.get("warmup") else []) + (["story"] if any(b.get("word") for b in (self.lesson.get("feature") or {}).get("beats", [])) else []) + (["situation"] if self.lesson.get("situations") else [])
+        expect = ["feature", "meet", "listen", "type", "speed", "results"] + (["warmup"] if self.lesson.get("warmup") else []) + (["story"] if any(b.get("word") for b in (self.lesson.get("feature") or {}).get("beats", [])) else []) + (["situation"] if self.lesson.get("situations") else []) + (["dialogue"] if self.lesson.get("dialogues") else [])
         for kind in expect:
             if kind not in self.seen_types:
                 self.errors.append(f"lesson never showed a {kind} step")

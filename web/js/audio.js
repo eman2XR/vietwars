@@ -47,8 +47,12 @@ function speak(text, slow) {
   speechSynthesis.speak(u);
 }
 
+let sequence = 0;
+
 export function play(text, { slow = false } = {}) {
   if (!player) return;
+  sequence += 1;
+  player.onended = null;
   const id = clips[nfc(text).trim()];
   if (!id) {
     speak(text, slow);
@@ -63,8 +67,36 @@ export function play(text, { slow = false } = {}) {
   if (p && p.catch) p.catch(() => {});
 }
 
+// Plays the lines of a conversation one after another, with a short pause between speakers. Any other play stops it.
+export function playAll(texts, gap = 450) {
+  if (!player || !texts.length) return;
+  sequence += 1;
+  const run = sequence;
+  const next = (i) => {
+    if (run !== sequence || i >= texts.length) return;
+    const id = clips[nfc(texts[i]).trim()];
+    if (!id) {
+      speak(texts[i], false);
+      setTimeout(() => next(i + 1), 600 + texts[i].length * 90 + gap);
+      return;
+    }
+    player.pause();
+    player.src = blobs[id] || `audio/${id}.m4a`;
+    player.playbackRate = 1;
+    player.onended = () => {
+      player.onended = null;
+      setTimeout(() => next(i + 1), gap);
+    };
+    const p = player.play();
+    if (p && p.catch) p.catch(() => {});
+  };
+  next(0);
+}
+
 export function stop() {
   if (!player) return;
+  sequence += 1;
+  player.onended = null;
   player.pause();
   if ('speechSynthesis' in window) speechSynthesis.cancel();
 }

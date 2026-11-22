@@ -1,27 +1,27 @@
 {
   "updated": "2026-11-22",
   "reviewedAt": "2026-11-22",
-  "goal": "A large working vocabulary in Northern (Hà Nội) Vietnamese first, then short sentence patterns, then conversation.",
+  "goal": "Basic conversation at a dinner table (a meal with a Hà Nội family or friends) and understanding basic street talk (sellers, waiters, drivers, neighbours) in Northern Vietnamese. Vocabulary keeps growing, and from issue 6 every issue also teaches one sentence frame and one short dialogue built from known words, alternating between the table and the street (the learner set this goal on 2026-11-22; see docs/PEDAGOGY.md, Conversation).",
   "phases": [
     {
       "id": "vocabulary",
-      "title": "Core vocabulary",
+      "title": "Core vocabulary, with talk woven in",
       "status": "active",
-      "target": "About 300 words the learner can recognise by ear and recall by meaning (meaning strength 0.8 or more).",
+      "target": "About 300 words recognised by ear and recalled by meaning (meaning strength 0.8 or more), with a frame and a dialogue in every issue from issue 6.",
       "exit": "Move on when about 250 words are in the review deck or on the known list and recent meaning strength averages 0.8 or more."
     },
     {
       "id": "patterns",
-      "title": "Short sentence patterns",
-      "status": "planned",
-      "target": "Twenty high-value patterns built from known words: Tôi muốn ..., ... ở đâu?, Cái này bao nhiêu tiền?, Có ... không?, Tôi là ..., Tôi không ..., ... được không?",
+      "title": "Sentence frames (woven into every issue)",
+      "status": "active",
+      "target": "Twenty high-value frames for the table and the street, one per issue, each coming back on an expanding schedule: Mời ... ăn cơm, ... nữa không?, Tôi muốn ..., ... ở đâu?, Có ... không?, Cho tôi ..., ... bao nhiêu tiền?, ... được không?, Anh/chị là người ...?, Tôi không ...",
       "exit": "The learner builds and understands each pattern with known words at 0.8 or more."
     },
     {
       "id": "conversation",
-      "title": "Conversation",
-      "status": "planned",
-      "target": "Short dialogues set in the places of earlier stories: ordering at a phở stall, the market, a taxi, meeting people.",
+      "title": "Conversation (woven in, then longer)",
+      "status": "active",
+      "target": "Short dialogues in every issue, alternating a meal with a family and the street (market, café, xe ôm, asking the way, neighbours); every five or six issues a longer consolidation dialogue that recombines the recent frames.",
       "exit": "Open-ended."
     }
   ],
@@ -103,8 +103,63 @@
       "lesson": "lesson-05"
     },
     {
+      "id": "table",
+      "title": "At the table: a meal with a Hà Nội family",
+      "status": "planned",
+      "candidates": [
+        "mời",
+        "ăn",
+        "uống",
+        "no",
+        "đói",
+        "thêm",
+        "đũa",
+        "canh",
+        "nước mắm",
+        "chấm",
+        "cảm ơn",
+        "vâng",
+        "ạ",
+        "cháu"
+      ],
+      "frames": [
+        "Mời ... ăn cơm (inviting everyone to start, youngest to oldest)",
+        "... nữa không? / ... thêm nhé? (offering more)",
+        "Cháu no rồi ạ. (I'm full)"
+      ],
+      "dialogueIdeas": [
+        "Bà offers more rice; you are full",
+        "Inviting the elders to start the meal"
+      ],
+      "notes": "The learner's goal is dinner-table conversation. Verify every custom and phrase with the Vietnamese reviewer (Northern usage: vâng for yes; who invites whom). Warm-up for ăn and uống if they are likely known.",
+      "storyIdea": "The Northern family meal: the shared tray (mâm cơm) and the custom of inviting each elder to eat before you start."
+    },
+    {
+      "id": "transport",
+      "title": "Getting around",
+      "status": "planned",
+      "candidates": [
+        "xe máy",
+        "ô tô",
+        "xe buýt",
+        "tắc xi",
+        "xe đạp",
+        "đường",
+        "ngã tư",
+        "rẽ trái",
+        "rẽ phải",
+        "đi thẳng",
+        "gần",
+        "xa",
+        "dừng lại",
+        "tắc đường"
+      ],
+      "notes": "rẽ was a contrast word in lesson 2 (rẻ against rẽ).",
+      "storyIdea": "Millions of motorbikes, the Long Biên bridge, and how to cross a Hà Nội street."
+    },
+    {
       "id": "politeness",
-      "title": "Greetings and politeness",
+      "title": "Greetings and small talk (street)",
       "status": "planned",
       "warmupIdeas": [
         "xin chào",
@@ -126,7 +181,7 @@
         "cháu",
         "con"
       ],
-      "notes": "ạ at the end of a sentence to older people; vâng is the typical Northern polite yes. After issue 4: add cháu and con, what you call yourself to cô, chú, ông and bà (Cháu chào bà ạ).",
+      "notes": "ạ at the end of a sentence to older people; vâng is the typical Northern polite yes. After issue 4: add cháu and con, what you call yourself to cô, chú, ông and bà (Cháu chào bà ạ). Reshaped for the street half of the goal: greeting neighbours and sellers, where are you from, see you again. Table manners (mời, vâng, ạ) move to the table unit.",
       "storyIdea": "Hà Nội manners: vâng and ạ, greeting elders first, and the Temple of Literature (Văn Miếu, 1070), the first university."
     },
     {
@@ -182,27 +237,22 @@
       "storyIdea": "Hà Nội through the seasons: hoa sữa in autumn, West Lake, and why Northerners say rét."
     },
     {
-      "id": "city",
-      "title": "Places in the city",
+      "id": "questions",
+      "title": "Question words",
       "status": "planned",
       "candidates": [
-        "nhà",
-        "phố",
-        "chợ",
-        "quán",
-        "trường",
-        "bệnh viện",
-        "ga",
-        "sân bay",
-        "khách sạn",
-        "hồ",
-        "công viên",
-        "siêu thị",
-        "ngân hàng",
-        "nhà vệ sinh"
+        "gì",
+        "ai",
+        "đâu",
+        "nào",
+        "bao giờ",
+        "tại sao",
+        "thế nào",
+        "mấy giờ",
+        "có không"
       ],
-      "notes": "phố and ga were contrast words in lesson 1; reuse that memory.",
-      "storyIdea": "The 36 streets of the Old Quarter, each once named for its trade: Hàng Bạc (silver), Hàng Đồng (copper), Hàng Mã (paper offerings)."
+      "notes": "thế nào is Northern (the South prefers sao or như thế nào). Bridges into the patterns phase.",
+      "storyIdea": "Water puppetry, múa rối nước, and its narrator Chú Tễu."
     },
     {
       "id": "time",
@@ -229,45 +279,48 @@
       "storyIdea": "The lunar calendar and Tết, the twelve zodiac animals (a cat instead of the rabbit), and Quang Trung's surprise Tết victory at Đống Đa in 1789."
     },
     {
-      "id": "questions",
-      "title": "Question words",
+      "id": "city",
+      "title": "Places in the city",
       "status": "planned",
       "candidates": [
-        "gì",
-        "ai",
-        "đâu",
-        "nào",
-        "bao giờ",
-        "tại sao",
-        "thế nào",
-        "mấy giờ",
-        "có không"
+        "nhà",
+        "phố",
+        "chợ",
+        "quán",
+        "trường",
+        "bệnh viện",
+        "ga",
+        "sân bay",
+        "khách sạn",
+        "hồ",
+        "công viên",
+        "siêu thị",
+        "ngân hàng",
+        "nhà vệ sinh"
       ],
-      "notes": "thế nào is Northern (the South prefers sao or như thế nào). Bridges into the patterns phase.",
-      "storyIdea": "Water puppetry, múa rối nước, and its narrator Chú Tễu."
+      "notes": "phố and ga were contrast words in lesson 1; reuse that memory.",
+      "storyIdea": "The 36 streets of the Old Quarter, each once named for its trade: Hàng Bạc (silver), Hàng Đồng (copper), Hàng Mã (paper offerings)."
     },
     {
-      "id": "transport",
-      "title": "Getting around",
+      "id": "weather",
+      "title": "Weather and seasons in Hà Nội",
       "status": "planned",
       "candidates": [
-        "xe máy",
-        "ô tô",
-        "xe buýt",
-        "tắc xi",
-        "xe đạp",
-        "đường",
-        "ngã tư",
-        "rẽ trái",
-        "rẽ phải",
-        "đi thẳng",
-        "gần",
-        "xa",
-        "dừng lại",
-        "tắc đường"
+        "trời",
+        "mưa",
+        "nắng",
+        "gió",
+        "mây",
+        "mưa phùn",
+        "nồm",
+        "bão",
+        "mùa xuân",
+        "mùa hè",
+        "mùa thu",
+        "mùa đông"
       ],
-      "notes": "rẽ was a contrast word in lesson 2 (rẻ against rẽ).",
-      "storyIdea": "Millions of motorbikes, the Long Biên bridge, and how to cross a Hà Nội street."
+      "notes": "mây was a contrast word in lesson 2. nồm is the damp, sticky Hà Nội spring weather.",
+      "storyIdea": "Nồm, mưa phùn and the Northern winter; Sơn Tinh and Thủy Tinh, the legend of the mountain god and the water god behind the floods."
     },
     {
       "id": "colours-clothes",
@@ -311,27 +364,6 @@
       ],
       "notes": "ốm is Northern for ill (the South says bệnh).",
       "storyIdea": "Lãn Ông, Hà Nội's traditional medicine street, named after an 18th-century physician."
-    },
-    {
-      "id": "weather",
-      "title": "Weather and seasons in Hà Nội",
-      "status": "planned",
-      "candidates": [
-        "trời",
-        "mưa",
-        "nắng",
-        "gió",
-        "mây",
-        "mưa phùn",
-        "nồm",
-        "bão",
-        "mùa xuân",
-        "mùa hè",
-        "mùa thu",
-        "mùa đông"
-      ],
-      "notes": "mây was a contrast word in lesson 2. nồm is the damp, sticky Hà Nội spring weather.",
-      "storyIdea": "Nồm, mưa phùn and the Northern winter; Sơn Tinh and Thủy Tinh, the legend of the mountain god and the water god behind the floods."
     }
   ]
 }

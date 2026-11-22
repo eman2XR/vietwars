@@ -153,6 +153,7 @@ function buildResult(kind, lesson, out, partial = false) {
     article: out.article,
     quiz: out.quiz.total ? out.quiz : null,
     situations: out.situations?.total ? out.situations : null,
+    dialogues: out.dialogues?.total ? out.dialogues : null,
     timing: out.timing,
     toneMarks: out.relaxed ? 'relaxed' : 'strict',
     words: out.summary.perWord.map((w) => ({ ...w, known: out.known.includes(w.vi) })),
@@ -319,6 +320,7 @@ function startSession(kind, lesson, opts = {}) {
   }
   preload([
     ...(lesson?.situations || []).map((x) => x.vi),
+    ...(lesson?.dialogues || []).flatMap((d) => [...d.lines.map((l) => l.vi), d.check.answer]),
     ...words.map((w) => w.vi),
     ...words.flatMap((w) => (w.contrast || []).map((c) => c.vi)),
     ...(lesson?.combos || []).map((c) => c.vi),

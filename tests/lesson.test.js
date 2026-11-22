@@ -111,3 +111,23 @@ test('typed prices accept separators and k shorthand', () => {
   assert.equal(digitsOf('1.5k'), '1500');
   assert.equal(digitsOf(''), '');
 });
+
+test('a conversation plays after the combos and before real life, with its answer among the options', () => {
+  const base = lessons[lessons.length - 1];
+  const dialogue = {
+    title: 'Dinner',
+    setting: 'table',
+    lines: [{ who: 'Bà', vi: 'Ăn đi cháu!', en: 'Eat up!' }, { who: 'Anh', vi: 'Vâng ạ.', en: 'Yes.', you: true }],
+    check: { ask: 'You are full.', options: ['Cháu no rồi ạ.', 'Cháu đói.'], answer: 'Cháu no rồi ạ.' },
+  };
+  const lesson = { ...base, dialogues: [dialogue] };
+  const steps = lessonSteps(lesson, { warmup: lesson.warmup || [] });
+  const at = steps.findIndex((s) => s.type === 'dialogue');
+  assert.ok(at > 0, 'the dialogue is placed');
+  const lastCombo = steps.map((s) => s.combo).lastIndexOf(true);
+  const firstSituation = steps.findIndex((s) => s.type === 'situation');
+  assert.ok(lastCombo < at, 'after the combos');
+  if (firstSituation >= 0) assert.ok(at < firstSituation, 'before real life');
+  assert.ok(steps[at].dialogue.check.options.includes(steps[at].dialogue.check.answer));
+  assert.equal(steps[at - 1].type === 'stage' || steps[at - 1].type === 'story', true, 'introduced by the Conversation screen');
+});

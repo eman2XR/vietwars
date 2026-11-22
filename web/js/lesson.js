@@ -1,7 +1,7 @@
 // Runs a lesson (an issue of the magazine) or a review: builds the sequence, renders each step and records every answer.
 
 import { colorize, contourSVG, tonesOf, TONES, grade, escapeHTML as esc, nfc, applyKey, withTone, tokens } from './vi.js';
-import { play, stop } from './audio.js';
+import { play, playAll, stop } from './audio.js';
 import { picture } from './pictures.js';
 
 const SPEAKER =
@@ -188,6 +188,11 @@ export function lessonSteps(lesson, { review = [], warmup = [] } = {}) {
   if (lesson.combos?.length) {
     shuffle(lesson.combos).forEach((c) => steps.push({ type: 'listen', word: c, pool: lesson.combos, combo: true }));
   }
+  if (lesson.dialogues?.length) {
+    steps.push({ type: 'stage', beat: looseBeat(), title: 'Conversation', text: 'A short exchange from a Hà Nội table or street. Listen first, say each line after the voice, then pick what you would say.' });
+    steps.push(...storySteps());
+    lesson.dialogues.forEach((d) => steps.push({ type: 'dialogue', dialogue: d, word: { vi: d.lines[0].vi, en: d.title, sit: true } }));
+  }
   if (lesson.situations?.length) {
     steps.push({ type: 'stage', beat: looseBeat(), title: 'Real life', text: 'A waiter, a seller or a driver says something. Listen, then answer. Replay as often as you like.' });
     steps.push(...storySteps());
@@ -266,6 +271,7 @@ export function runSession(root, session, onDone, onQuit) {
     met: new Set(),
     plays: 0,
     situations: { correct: 0, total: 0 },
+    dialogues: { correct: 0, total: 0 },
     speed: { answered: 0, correct: 0, score: 0, combo: 0, bestCombo: 0 },
     quiz: { correct: 0, total: 0 },
     readMs: 0,
@@ -297,6 +303,7 @@ export function runSession(root, session, onDone, onQuit) {
       readMs: S.readMs,
       factsShown: S.factsShown,
       situations: S.situations,
+      dialogues: S.dialogues,
     };
     try {
       localStorage.setItem(saveKey, JSON.stringify(data));
@@ -341,6 +348,7 @@ export function runSession(root, session, onDone, onQuit) {
     S.readMs = data.readMs || 0;
     S.factsShown = data.factsShown || [];
     S.situations = data.situations || { correct: 0, total: 0 };
+    S.dialogues = data.dialogues || { correct: 0, total: 0 };
   }
 
   function payload(feedback) {
@@ -359,6 +367,7 @@ export function runSession(root, session, onDone, onQuit) {
       grade: gradeFor(sum.firstTryAccuracy),
       progress: { step: S.i, steps: S.steps.length },
       situations: S.situations,
+      dialogues: S.dialogues,
       timing: timing(),
       relaxed: Boolean(session.relaxed),
       feedback,
@@ -439,7 +448,7 @@ export function runSession(root, session, onDone, onQuit) {
   function timing() {
     const by = {};
     for (const e of S.events) {
-      const phase = e.t === 'meet' || e.t === 'known' ? 'words' : e.warmup ? 'warmup' : e.t === 'speed' ? 'rush' : e.t === 'quiz' ? 'quiz' : e.t === 'situation' ? 'reallife' : 'drills';
+      const phase = e.t === 'meet' || e.t === 'known' ? 'words' : e.warmup ? 'warmup' : e.t === 'speed' ? 'rush' : e.t === 'quiz' ? 'quiz' : e.t === 'situation' ? 'reallife' : e.t === 'dialogue' ? 'conversation' : 'drills';
       by[phase] = (by[phase] || 0) + (e.ms || 0);
     }
     const gaps = [];
@@ -912,6 +921,52 @@ export function runSession(root, session, onDone, onQuit) {
       }
     },
 
+    dialogue(step) {
+      const d = step.dialogue;
+      const where = d.setting === 'table' ? 'At the table' : d.setting === 'street' ? 'In the street' : '';
+      const options = d.check.options;
+      stage.innerHTML = `
+        <div class="kicker">Conversation${where ? ` · ${where}` : ''}</div>
+        ${pic(d, 'medium')}
+        <h2 class="quiz-q">${esc(d.title)}</h2>
+        <div class="dialogue">${d.lines
+          .map((l) => `<div class="line${l.you ? ' you' : ''}"><span class="who">${esc(l.who)}</span><button type="button" class="say mini line-say" data-say="${esc(l.vi)}" aria-label="Play this line">${SPEAKER}</button><span class="vi line-vi">${colorize(l.vi)}</span><span class="line-en" hidden>${esc(l.en)}</span></div>`)
+          .join('')}</div>
+        <div class="row center helper-row"><button type="button" class="btn ghost small" data-act="play-all">Play all</button><button type="button" class="btn ghost small" data-act="show-en">Show English</button></div>
+        <h3 class="check-q">${esc(d.check.ask)}</h3>
+        <div class="options">${options.map((o, i) => `<button type="button" class="opt" data-i="${i}" data-key="${esc(o)}"><span class="opt-n">${i + 1}</span><span class="opt-label vi">${colorize(o)}</span></button>`).join('')}</div>
+        <div class="feedback-slot"></div>${footer('')}`;
+      const lines = d.lines.map((l) => l.vi);
+      stage.querySelector('[data-act=play-all]').addEventListener('click', () => {
+        S.plays += 1;
+        playAll(lines);
+      });
+      stage.querySelector('[data-act=show-en]').addEventListener('click', (ev) => {
+        stage.querySelectorAll('.line-en').forEach((x) => (x.hidden = false));
+        ev.currentTarget.disabled = true;
+      });
+      playAll(lines);
+      stage.querySelectorAll('.opt').forEach((b) =>
+        b.addEventListener('click', () => {
+          if (S.answered) return;
+          S.answered = true;
+          const chosen = options[Number(b.dataset.i)];
+          const ok = chosen === d.check.answer;
+          markOptions(chosen, d.check.answer);
+          S.dialogues.total += 1;
+          if (ok) S.dialogues.correct += 1;
+          record({ t: 'dialogue', w: d.title, ok, a: chosen });
+          flash(ok);
+          if (ok) right();
+          else wrong();
+          stage.querySelectorAll('.line-en').forEach((x) => (x.hidden = false));
+          stage.querySelector('.feedback-slot').innerHTML = `<div class="verdict ${ok ? 'ok' : 'no'}">${ok ? 'Right: ' : 'Better: '}<span class="vi">${colorize(d.check.answer)}</span> ${sayButton(d.check.answer, 'Hear it')}</div>${d.check.note ? `<p class="note">${esc(d.check.note)}</p>` : ''}`;
+          play(d.check.answer);
+          showNext();
+        }),
+      );
+    },
+
     tiles(step) {
       const w = step.word;
       const pieces = tilesFor(w.vi);
@@ -1065,6 +1120,7 @@ export function runSession(root, session, onDone, onQuit) {
           <div><b>${S.bestStreak}</b><span>best streak</span></div>
           ${S.quiz.total ? `<div><b>${S.quiz.correct}/${S.quiz.total}</b><span>quiz</span></div>` : ''}
           ${S.situations.total ? `<div><b>${S.situations.correct}/${S.situations.total}</b><span>real life</span></div>` : ''}
+          ${S.dialogues.total ? `<div><b>${S.dialogues.correct}/${S.dialogues.total}</b><span>conversation</span></div>` : ''}
           ${S.speed.answered ? `<div><b>${S.speed.score}</b><span>rush hour</span></div>` : ''}
         </div>
         ${missedWarmup.length ? `<div class="note">Added to your reviews from the warm-up: <span class="vi">${missedWarmup.map((v) => colorize(v)).join(', ')}</span></div>` : ''}

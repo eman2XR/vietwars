@@ -31,6 +31,7 @@ Write a short plan before any content and show it in your final message:
 - What the data says to change (tone pairs, spelling, typing with the tone keys, fun and difficulty ratings, the story rating and reading time, real-life scores).
 - The story: its subject and hook (the unit's `storyIdea`, or better), its sources, how the beats spread through the issue, the challenge, and the cover scene (reuse one, or draw a new one in context).
 - Questions the learner asked (the summary's questions section): teach what they wanted to say when it fits the theme.
+- Talk (the learner's goal: dinner-table conversation and street talk): the issue's sentence frame, its dialogue and setting (alternate table and street), and which earlier frames come back on schedule (docs/PEDAGOGY.md, Conversation).
 
 ## 3. Write the lesson
 
@@ -48,7 +49,7 @@ Fix every error. Judge every warning: fix it, or note in the log why it stays. `
 
 Run three reviews as subagents in parallel. Give each the file path and the context, not your opinion of the lesson. Ask for "must fix" and "suggestions" with the field path and an exact replacement, under 700 words.
 
-- **Vietnamese accuracy** (a strict native-level Northern reviewer): spelling and tone marks; glosses as used in the North; nothing Southern-only; Hà Nội pronunciation tips; hooks that would teach a wrong sound, vowel length, syllable count or tone direction; contrast words that are real, common and sound different in Hà Nội; natural combos and grammar; every Vietnamese phrase in the article, facts and challenge.
+- **Vietnamese accuracy** (a strict native-level Northern reviewer): spelling and tone marks; glosses as used in the North; nothing Southern-only; Hà Nội pronunciation tips; hooks that would teach a wrong sound, vowel length, syllable count or tone direction; contrast words that are real, common and sound different in Hà Nội; natural combos and grammar; every Vietnamese phrase in the article, facts and challenge. Ask it to check that the dialogue sounds like real Hà Nội talk at a table or in the street, and that the frame is used the way people really use it.
 - **History and culture fact-check** (give it curl access to Wikipedia): every claim in the story intro and beats, the facts, the real-life lines (realistic prices and customs) and the challenge, against the sources and recent changes; tone and taste for a Vietnamese reader.
 - **Learning design** (give it `learner/SUMMARY.md`, `learner/NOTES.md` and the previous lesson too): does the lesson answer the data and what the learner said; is the load right; are hooks memorable and distinct; are there one-mark pairs, near-synonyms or clashing glosses taught together; is it fun and a little surprising; is the article interesting for an adult and the right length.
 

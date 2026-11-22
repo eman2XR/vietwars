@@ -176,6 +176,27 @@ def check_feature(r, lid, lesson, newest=False):
             r.error(where, "the placeholder gives the answer away; remove it")
         if sit.get("picture"):
             check_picture(r, where, sit["picture"])
+    for i, d in enumerate(lesson.get("dialogues", [])):
+        where = f"{lid}.dialogues[{i}]"
+        if not d.get("title"):
+            r.error(where, "needs a title")
+        if d.get("setting") not in (None, "table", "street"):
+            r.error(where, "setting is table or street")
+        lines = d.get("lines", [])
+        if not 2 <= len(lines) <= 8:
+            r.error(where, f"has {len(lines)} lines; use 2 to 8")
+        for j, line in enumerate(lines):
+            check_text(r, f"{where}.lines[{j}]", line.get("vi", ""))
+            if not line.get("who") or not line.get("en"):
+                r.error(f"{where}.lines[{j}]", "needs who, vi and en")
+        chk = d.get("check") or {}
+        opts = chk.get("options") or []
+        if not chk.get("ask") or chk.get("answer") not in opts or not 2 <= len(set(opts)) == len(opts) <= 4:
+            r.error(where, "check needs ask, 2 to 4 different options and an answer among them")
+        for o in opts:
+            check_text(r, f"{where}.check", o)
+        if d.get("picture"):
+            check_picture(r, where, d["picture"])
     if not lesson.get("situations") and newest:
         r.warn(lid, "no real-life situations")
     elif newest and not 5 <= len(lesson["situations"]) <= 8:
@@ -298,6 +319,8 @@ def check_lesson(r, entry, lesson, earlier_words, audio, known_words, warmed=fro
         texts += [x["vi"] for x in (g or {}).get("examples", [])]
         texts += [w["vi"] for w in lesson.get("warmup", [])]
         texts += [x["vi"] for x in lesson.get("situations", [])]
+        texts += [line["vi"] for d in lesson.get("dialogues", []) for line in d.get("lines", [])]
+        texts += [d["check"]["answer"] for d in lesson.get("dialogues", []) if d.get("check", {}).get("answer")]
         texts += [x["answer"] for x in lesson.get("situations", []) if re.search(r"[^\W\d_]", x.get("answer", ""))]
         for t in texts:
             cid = audio.get(nfc(t).strip())
@@ -315,6 +338,7 @@ def check_use(r, lid, lesson):
     """Warns about new or review words that are only drilled, never heard in a situation, combo or story beat."""
     lines = [t for x in lesson.get("situations", []) for t in [x.get("vi", ""), x.get("answer", "")] + list(x.get("options", []))]
     lines += [c.get("vi", "") for c in lesson.get("combos", [])]
+    lines += [t for d in lesson.get("dialogues", []) for t in [x.get("vi", "") for x in d.get("lines", [])] + list((d.get("check") or {}).get("options", []))]
     lines += [b.get("text", "") for b in (lesson.get("feature") or {}).get("beats", [])]
     seqs = [re.findall(r"[^\W\d_]+", nfc(t).lower()) for t in lines]
     def used(word):

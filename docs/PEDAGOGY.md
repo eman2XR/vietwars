@@ -20,9 +20,22 @@ Every lesson is planned from data: `learner/SUMMARY.md` (built from the results 
 3. **Parts**: more than 8 new words are split into two parts. In each part: meet the words in groups of four (picture, word in tone colours, tone line, gloss, memory hook, Hà Nội tip, did-you-know `fact`, audio, "I know it"), a quick check after each group, then practice: listen and pick the meaning, at most three "which spelling did you hear" questions (others are picture questions), and typing from memory.
 4. **Story beats** (`feature.beats`) always play in file order. A beat tied to a word waits until the group with that word has been met; an untied beat waits for the next part, practise or real-life screen; whatever is left goes on the results page. `node scripts/plan.mjs` shows where each beat lands.
 5. **Typing** is lenient by default: right letters count as right and the marks are shown (Settings can make it strict). Hints come in three levels: the memory hook, the consonants, then the answer. A wrong typed word comes back once as syllable tiles.
-6. **Grammar note**, then **in context** (combos), then **Real life** (`situations`: a seller, waiter or driver says a line; the learner picks the price, types it in digits (a hint splits the line at nghìn; 25k counts as 25000), or picks what to say back, which is then played), then **Giờ cao điểm** (rush hour, 45 seconds).
+6. **Grammar note** (the issue's sentence frame), then **in context** (combos), then **Conversation** (`dialogues`: a short exchange, each line playable, English hidden until asked, ending with what you would say), then **Real life** (`situations`: a seller, waiter or driver says a line; the learner picks the price, types it in digits (a hint splits the line at nghìn; 25k counts as 25000), or picks what to say back, which is then played), then **Giờ cao điểm** (rush hour, 45 seconds).
 7. **Results**: first-try accuracy, best streak, real-life and rush hour scores, a **stamp** (complete, merit, distinction), the last story beat, the **challenge** and the sources. Then feedback, including a rating of the story.
 8. The learner can close the issue at any point and resume it later. Words then enter the spaced-repetition deck (0, 1, 3, 7, 14, 30, 60, 120 days).
+
+## Conversation: the goal
+
+The learner's goal (2026-11-22): basic conversation at a dinner table and understanding basic street talk. Vocabulary keeps growing, but from issue 6 every issue also teaches talk, using methods with good evidence behind them:
+
+- **Chunks first** (the lexical approach): whole phrases taught as units (Cháu no rồi ạ, Bao nhiêu tiền?) before they are taken apart. Most everyday talk is made of ready-made phrases.
+- **Comprehensible input**: dialogues use almost only known words, plus at most two new ones glossed in a note; listening comes first (the English stays hidden until asked or answered).
+- **One sentence frame per issue**, a pattern with a slot (Mời ... ăn cơm, ... nữa không?, Tôi muốn ..., ... ở đâu?, Có ... không?, Cho tôi ...). It is the grammar note, with two examples, and it is used in the issue's dialogue and real-life lines.
+- **One short dialogue per issue** (`dialogues`, 2 to 6 lines, `setting` table or street), alternating issue by issue between a meal with a family or friends (invitations, offering more, food talk, toasts) and the street (market, café, xe ôm and taxi, asking the way, neighbours). It ends with a check: pick what you would say next, so the learner produces a reply, not only recognises one (retrieval practice).
+- **Spaced and interleaved**: a frame comes back in later issues on an expanding schedule (the next issue, about three issues later, about seven issues later), mixed into other dialogues and real-life lines rather than drilled alone, the way the review desk spaces words. Record in the lesson log which frames each issue brings back.
+- **Shadowing**: every line has its own play button, and the Conversation screen asks the learner to say each line after the voice; challenges can ask for it at a real table or stall.
+- **A real task in every challenge**, using the issue's frame.
+- **A consolidation issue every five or six issues** (with the progress review): few new words and a longer dialogue (up to 8 lines) that recombines the recent frames.
 
 ## Using the data
 
