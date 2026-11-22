@@ -4,6 +4,7 @@
 //   node scripts/push.mjs init                       create the keys (.push/keys.json, never committed) and web/push.json
 //   node scripts/push.mjs inbox                      save new subscriptions posted by the app as GitHub issues, and welcome them
 //   node scripts/push.mjs send --title T --body B [--url "#/lesson/lesson-04"] [--tag T]
+//   node scripts/push.mjs welcome                    send the welcome notification again to every device
 //   node scripts/push.mjs status                     how many devices are subscribed
 //
 // A device subscribes from Settings in the app. It posts its subscription as a GitHub issue, sealed with the inbox key
@@ -11,7 +12,7 @@
 // they are lost, run init again, publish the new web/push.json, and turn notifications on again on each device.
 
 import crypto from 'node:crypto';
-import { execFileSync } from 'node:child_process';
+import { execFileSync, spawnSync } from 'node:child_process';
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 
@@ -24,6 +25,7 @@ const REPO = 'eman2XR/vietwars';
 const SITE = 'https://eman2xr.github.io/vietwars/';
 export const PUSH_MARKER = '<!-- vietwars-push -->';
 export const INBOX_INFO = 'vietwars inbox v1';
+const WELCOME = { title: 'Notifications are on', body: 'You will hear from Học tiếng Việt when a new issue is ready or a question has an answer.', url: './', tag: 'welcome' };
 
 export const b64u = (buf) => Buffer.from(buf).toString('base64url');
 export const unb64u = (s) => Buffer.from(String(s), 'base64url');
@@ -153,20 +155,28 @@ async function inbox() {
     const body = issue.body || '';
     if (!body.includes(PUSH_MARKER)) continue;
     const m = body.match(/```json\s*([\s\S]*?)\s*```/);
-    let note = 'Could not read this request.';
+    let note;
+    let entry = null;
     try {
       const req = JSON.parse(m[1]);
       const sub = unseal(req.sealed, keys.inbox);
       if (!sub.endpoint || !sub.keys?.p256dh || !sub.keys?.auth) throw new Error('incomplete subscription');
-      const fresh = !subs.some((s) => s.endpoint === sub.endpoint);
-      const entry = { endpoint: sub.endpoint, keys: sub.keys, device: req.device || null, at: req.at || new Date().toISOString() };
-      if (fresh) subs.push(entry);
+      entry = { endpoint: sub.endpoint, keys: sub.keys, device: req.device || null, at: req.at || new Date().toISOString() };
+      if (!subs.some((s) => s.endpoint === sub.endpoint)) {
+        subs.push(entry);
+        added += 1;
+      }
       saveSubs(subs);
-      const status = await sendOne(entry, { title: 'Notifications are on', body: 'You will hear from Học tiếng Việt when a new issue is ready or a question has an answer.', url: './', tag: 'welcome' }, keys);
-      note = status >= 200 && status < 300 ? 'Saved on the editors\' Mac; a welcome notification was sent.' : `Saved, but the push service answered ${status} to the welcome notification.`;
-      if (fresh) added += 1;
     } catch (err) {
       note = `Could not use this request (${err.message}). Turn notifications off and on again in the app's Settings.`;
+    }
+    if (entry) {
+      try {
+        const status = await sendOne(entry, WELCOME, keys);
+        note = status >= 200 && status < 300 ? 'Saved on the editors\' Mac; a welcome notification was sent.' : `Saved on the editors' Mac, but the push service answered ${status} to the welcome notification.`;
+      } catch (err) {
+        note = `Saved on the editors' Mac. The welcome notification could not be sent yet (${err.cause?.code || err.message}); notifications will start with the next one.`;
+      }
     }
     gh(['issue', 'close', String(issue.number), '-R', REPO, '--comment', note]);
     console.log(`#${issue.number}: ${note}`);
@@ -193,15 +203,21 @@ async function main() {
   if (cmd === 'init') return init();
   if (cmd === 'inbox') return inbox();
   if (cmd === 'status') return console.log(`${loadSubs().length} device(s) subscribed; keys ${existsSync(KEYS) ? 'present' : 'missing'}`);
+  if (cmd === 'welcome') return send(WELCOME);
   if (cmd === 'send') {
     const title = arg('title');
     if (!title) throw new Error('send needs --title');
     return send({ title, body: arg('body') || '', url: arg('url') || './', tag: arg('tag') || 'vietwars' });
   }
-  console.log('usage: node scripts/push.mjs init | inbox | send --title T --body B [--url U] [--tag T] | status');
+  console.log('usage: node scripts/push.mjs init | inbox | send --title T --body B [--url U] [--tag T] | welcome | status');
 }
 
-if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
+const proxied = process.env.HTTPS_PROXY || process.env.https_proxy;
+if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1] && proxied && !process.env.NODE_USE_ENV_PROXY) {
+  // Node's fetch ignores proxy settings unless NODE_USE_ENV_PROXY is set; on a machine that reaches the internet through a proxy, run again with it.
+  const run = spawnSync(process.execPath, process.argv.slice(1), { stdio: 'inherit', env: { ...process.env, NODE_USE_ENV_PROXY: '1' } });
+  process.exit(run.status ?? 1);
+} else if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
   main().catch((err) => {
     console.error(`error: ${err.message}`);
     process.exit(1);

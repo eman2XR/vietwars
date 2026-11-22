@@ -1,0 +1,1255 @@
+{
+ "schema": 3,
+ "resultId": "7f1771e9-41f9-4d47-aecb-266ec1d27a59",
+ "kind": "lesson",
+ "lessonId": "lesson-04",
+ "lessonTitle": "People and family",
+ "appVersion": "4",
+ "style": "lacquer",
+ "device": "iPhone",
+ "startedAt": "2026-11-22T17:26:38.864Z",
+ "finishedAt": "2026-11-22T19:26:49.656Z",
+ "durationSec": 7211,
+ "summary": {
+  "firstTryAccuracy": 0.76,
+  "exercises": 51,
+  "bestStreak": 11,
+  "grade": "merit",
+  "speedScore": 400,
+  "speedAnswered": 10,
+  "speedCorrect": 10,
+  "bestCombo": 10
+ },
+ "article": {
+  "readSec": 40,
+  "factsShown": 4
+ },
+ "quiz": null,
+ "situations": {
+  "correct": 4,
+  "total": 7
+ },
+ "timing": {
+  "words": 119,
+  "drills": 406,
+  "reallife": 147,
+  "rush": 43,
+  "article": 40,
+  "pauses": 1,
+  "longestPauseSec": 6032
+ },
+ "toneMarks": "relaxed",
+ "words": [
+  {
+   "vi": "tên",
+   "en": "name",
+   "failures": 1,
+   "timeSec": 36,
+   "replays": 1,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 18,
+   "share": 0.67,
+   "meaning": 0.5,
+   "form": 1,
+   "stars": 1,
+   "firstTry": {
+    "listen": true,
+    "reverse": false,
+    "type": "perfect"
+   },
+   "attempts": 4,
+   "msMedian": 10831,
+   "known": false
+  },
+  {
+   "vi": "tôi",
+   "en": "I, me (neutral; safe with strangers)",
+   "failures": 1,
+   "timeSec": 23,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 17,
+   "share": 0.75,
+   "meaning": 1,
+   "form": 0.5,
+   "stars": 2,
+   "firstTry": {
+    "listen": true,
+    "spell": false,
+    "type": "perfect"
+   },
+   "attempts": 5,
+   "msMedian": 3685,
+   "known": false
+  },
+  {
+   "vi": "anh",
+   "en": "older brother; you (to a man a bit older)",
+   "failures": 0,
+   "timeSec": 16,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 3,
+   "share": 1,
+   "meaning": 1,
+   "form": 1,
+   "stars": 3,
+   "firstTry": {
+    "listen": true,
+    "spell": true,
+    "type": "perfect"
+   },
+   "attempts": 3,
+   "msMedian": 3018,
+   "known": false
+  },
+  {
+   "vi": "chị",
+   "en": "older sister; you (to a woman a bit older)",
+   "failures": 0,
+   "timeSec": 29,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 4,
+   "share": 1,
+   "meaning": 1,
+   "form": 1,
+   "stars": 3,
+   "firstTry": {
+    "listen": true,
+    "reverse": true,
+    "type": "perfect"
+   },
+   "attempts": 4,
+   "msMedian": 8969,
+   "known": false
+  },
+  {
+   "vi": "em",
+   "en": "younger brother or sister; you (to someone younger)",
+   "failures": 0,
+   "timeSec": 20,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 14,
+   "share": 1,
+   "meaning": 1,
+   "form": 1,
+   "stars": 3,
+   "firstTry": {
+    "listen": true,
+    "spell": true,
+    "type": "perfect"
+   },
+   "attempts": 4,
+   "msMedian": 3916,
+   "known": false
+  },
+  {
+   "vi": "cô",
+   "en": "aunt; you (to a woman a bit younger than your parents)",
+   "failures": 2,
+   "timeSec": 26,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 56,
+   "share": 0.33,
+   "meaning": 1,
+   "form": 0,
+   "stars": 0,
+   "firstTry": {
+    "listen": true,
+    "spell": false,
+    "type": "wrong"
+   },
+   "attempts": 5,
+   "msMedian": 2771,
+   "known": false
+  },
+  {
+   "vi": "chú",
+   "en": "uncle; you (to a man a bit younger than your parents)",
+   "failures": 3,
+   "timeSec": 33,
+   "replays": 2,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 1,
+   "share": 0.25,
+   "meaning": 0.5,
+   "form": 0,
+   "stars": 0,
+   "firstTry": {
+    "listen": true,
+    "spell": false,
+    "type": "wrong"
+   },
+   "attempts": 7,
+   "msMedian": 4100,
+   "known": false
+  },
+  {
+   "vi": "ông",
+   "en": "grandfather; you (to an old man)",
+   "failures": 1,
+   "timeSec": 22,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 2,
+   "share": 0.75,
+   "meaning": 0.67,
+   "form": 1,
+   "stars": 2,
+   "firstTry": {
+    "listen": false,
+    "reverse": true,
+    "type": "marks"
+   },
+   "attempts": 5,
+   "msMedian": 2188,
+   "known": false
+  },
+  {
+   "vi": "bạn",
+   "en": "friend; you (to someone your own age)",
+   "failures": 1,
+   "timeSec": 38,
+   "replays": 2,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 2,
+   "share": 0.67,
+   "meaning": 0,
+   "form": 1,
+   "stars": 1,
+   "firstTry": {
+    "listen": false,
+    "spell": true,
+    "type": "tone"
+   },
+   "attempts": 4,
+   "msMedian": 7122,
+   "known": false
+  },
+  {
+   "vi": "bà",
+   "en": "grandmother; you (to an old woman)",
+   "failures": 0,
+   "timeSec": 13,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 3,
+   "share": 1,
+   "meaning": 1,
+   "form": 1,
+   "stars": 3,
+   "firstTry": {
+    "listen": true,
+    "reverse": true,
+    "type": "perfect"
+   },
+   "attempts": 4,
+   "msMedian": 3917,
+   "known": false
+  },
+  {
+   "vi": "trăm",
+   "en": "hundred",
+   "failures": 1,
+   "timeSec": 20,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 0.5,
+   "meaning": 1,
+   "form": 0,
+   "stars": 1,
+   "firstTry": {
+    "listen": true,
+    "type": "wrong"
+   },
+   "attempts": 3,
+   "msMedian": 4984,
+   "known": false
+  },
+  {
+   "vi": "nghìn",
+   "en": "thousand",
+   "failures": 0,
+   "timeSec": 15,
+   "replays": 1,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 1,
+   "meaning": 1,
+   "form": 1,
+   "stars": 3,
+   "firstTry": {
+    "listen": true,
+    "type": "tone"
+   },
+   "attempts": 2,
+   "msMedian": 7390,
+   "known": false
+  },
+  {
+   "vi": "mươi",
+   "en": "-ty, the tens (hai mươi = 20)",
+   "failures": 1,
+   "timeSec": 19,
+   "replays": 1,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 0.5,
+   "meaning": 1,
+   "form": 0,
+   "stars": 1,
+   "firstTry": {
+    "listen": true,
+    "type": "wrong"
+   },
+   "attempts": 3,
+   "msMedian": 6731,
+   "known": false
+  },
+  {
+   "vi": "nữa",
+   "en": "more, another",
+   "failures": 0,
+   "timeSec": 6,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 1,
+   "meaning": 1,
+   "form": 1,
+   "stars": 3,
+   "firstTry": {
+    "listen": true,
+    "type": "marks"
+   },
+   "attempts": 2,
+   "msMedian": 3744,
+   "known": false
+  }
+ ],
+ "warmup": [],
+ "toneConfusions": [
+  {
+   "target": "tôi",
+   "chose": "tối"
+  },
+  {
+   "target": "chú",
+   "chose": "chủ"
+  },
+  {
+   "target": "cô",
+   "chose": "cố"
+  }
+ ],
+ "meaningConfusions": [
+  {
+   "target": "chú",
+   "chose": "friend; you (to someone your own age)",
+   "t": "listen"
+  },
+  {
+   "target": "bạn",
+   "chose": "thousand",
+   "t": "listen"
+  },
+  {
+   "target": "ông",
+   "chose": "grandmother; you (to an old woman)",
+   "t": "listen"
+  },
+  {
+   "target": "Hết hai trăm nghìn.",
+   "chose": "20.000₫ in total",
+   "t": "listen"
+  }
+ ],
+ "typed": [
+  {
+   "target": "anh",
+   "answer": "anh",
+   "grade": "perfect",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 7846
+  },
+  {
+   "target": "tên",
+   "answer": "tên",
+   "grade": "perfect",
+   "accepted": true,
+   "hints": 0,
+   "keys": 1,
+   "firstKeyMs": 2293
+  },
+  {
+   "target": "tôi",
+   "answer": "tôi",
+   "grade": "perfect",
+   "accepted": true,
+   "hints": 0,
+   "keys": 1,
+   "firstKeyMs": 2443,
+   "deletes": 1
+  },
+  {
+   "target": "chị",
+   "answer": "chị",
+   "grade": "perfect",
+   "accepted": true,
+   "hints": 0,
+   "keys": 1,
+   "firstKeyMs": 3472
+  },
+  {
+   "target": "em",
+   "answer": "em",
+   "grade": "perfect",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 7778
+  },
+  {
+   "target": "trăm",
+   "answer": "trien",
+   "grade": "wrong",
+   "accepted": false,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 2372
+  },
+  {
+   "target": "chú",
+   "answer": "ong",
+   "grade": "wrong",
+   "accepted": false,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 2176
+  },
+  {
+   "target": "bà",
+   "answer": "bà",
+   "grade": "perfect",
+   "accepted": true,
+   "hints": 0,
+   "keys": 1,
+   "firstKeyMs": 1954
+  },
+  {
+   "target": "mươi",
+   "answer": "nghin",
+   "grade": "wrong",
+   "accepted": false,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 374,
+   "deletes": 1
+  },
+  {
+   "target": "trăm",
+   "answer": "trăm",
+   "grade": "perfect",
+   "tiles": true,
+   "retry": true
+  },
+  {
+   "target": "chú",
+   "answer": "chú",
+   "grade": "perfect",
+   "tiles": true,
+   "retry": true
+  },
+  {
+   "target": "bạn",
+   "answer": "ban",
+   "grade": "tone",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 3201
+  },
+  {
+   "target": "mươi",
+   "answer": "mươi",
+   "grade": "perfect",
+   "tiles": true,
+   "retry": true
+  },
+  {
+   "target": "cô",
+   "answer": "ba",
+   "grade": "wrong",
+   "accepted": false,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 10974
+  },
+  {
+   "target": "ông",
+   "answer": "ong",
+   "grade": "marks",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 6410
+  },
+  {
+   "target": "nghìn",
+   "answer": "nghin",
+   "grade": "tone",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 3592
+  },
+  {
+   "target": "nữa",
+   "answer": "nua",
+   "grade": "marks",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 2201
+  },
+  {
+   "target": "cô",
+   "answer": "cô",
+   "grade": "perfect",
+   "tiles": true,
+   "retry": true
+  }
+ ],
+ "feedback": {
+  "difficulty": "Just right",
+  "fun": "Good",
+  "article": "Interesting",
+  "hardest": [
+   "tên",
+   "cô",
+   "chú",
+   "bạn",
+   "trăm",
+   "mươi"
+  ],
+  "wantNext": "I think i need to learn numbers more. Especially someone telling me a price and me understanding what it is. But you should take into account that people in vietnam most of the time don’t even mention the thousand, they would just say 10 instead of 10 thousand. Same for hundred - double check how people naturally speak",
+  "note": "The lesson is a bit too long, should be shorter"
+ },
+ "events": [
+  {
+   "t": "meet",
+   "w": "tên",
+   "ms": 17815,
+   "plays": 1
+  },
+  {
+   "t": "meet",
+   "w": "tôi",
+   "ms": 16553,
+   "plays": 2
+  },
+  {
+   "t": "meet",
+   "w": "anh",
+   "ms": 2656
+  },
+  {
+   "t": "meet",
+   "w": "chị",
+   "ms": 3522
+  },
+  {
+   "t": "listen",
+   "w": "tôi",
+   "ok": true,
+   "a": "I, me (neutral; safe with strangers)",
+   "ms": 3767
+  },
+  {
+   "t": "listen",
+   "w": "chị",
+   "ok": true,
+   "a": "older sister; you (to a woman a bit older)",
+   "ms": 5765
+  },
+  {
+   "t": "story",
+   "w": "tên",
+   "ms": 9120
+  },
+  {
+   "t": "meet",
+   "w": "em",
+   "ms": 14290
+  },
+  {
+   "t": "listen",
+   "w": "em",
+   "ok": true,
+   "a": "younger brother or sister; you (to someone younger)",
+   "ms": 3818
+  },
+  {
+   "t": "listen",
+   "w": "tên",
+   "ok": true,
+   "a": "name",
+   "ms": 6174,
+   "plays": 1
+  },
+  {
+   "t": "listen",
+   "w": "anh",
+   "ok": true,
+   "a": "older brother; you (to a man a bit older)",
+   "ms": 3018
+  },
+  {
+   "t": "listen",
+   "w": "chị",
+   "ok": true,
+   "a": "older sister; you (to a woman a bit older)",
+   "ms": 2222
+  },
+  {
+   "t": "listen",
+   "w": "tôi",
+   "ok": true,
+   "a": "I, me (neutral; safe with strangers)",
+   "ms": 2366
+  },
+  {
+   "t": "listen",
+   "w": "em",
+   "ok": true,
+   "a": "younger brother or sister; you (to someone younger)",
+   "ms": 3916
+  },
+  {
+   "t": "spell",
+   "w": "tôi",
+   "ok": false,
+   "a": "tối",
+   "ms": 3685
+  },
+  {
+   "t": "reverse",
+   "w": "tên",
+   "ok": false,
+   "a": "tôi",
+   "ms": 3701
+  },
+  {
+   "t": "spell",
+   "w": "anh",
+   "ok": true,
+   "a": "anh",
+   "ms": 2566
+  },
+  {
+   "t": "spell",
+   "w": "em",
+   "ok": true,
+   "a": "em",
+   "ms": 1834
+  },
+  {
+   "t": "spell",
+   "w": "tôi",
+   "ok": true,
+   "a": "tôi",
+   "ms": 2350,
+   "retry": true
+  },
+  {
+   "t": "reverse",
+   "w": "tên",
+   "ok": true,
+   "a": "tên",
+   "ms": 15301,
+   "retry": true
+  },
+  {
+   "t": "reverse",
+   "w": "chị",
+   "ok": true,
+   "a": "chị",
+   "ms": 8969
+  },
+  {
+   "t": "type",
+   "w": "anh",
+   "ok": true,
+   "g": "perfect",
+   "a": "anh",
+   "ms": 10336,
+   "hints": 0,
+   "firstKeyMs": 7846
+  },
+  {
+   "t": "type",
+   "w": "tên",
+   "ok": true,
+   "g": "perfect",
+   "a": "tên",
+   "ms": 10831,
+   "hints": 0,
+   "firstKeyMs": 2293
+  },
+  {
+   "t": "type",
+   "w": "tôi",
+   "ok": true,
+   "g": "perfect",
+   "a": "tôi",
+   "ms": 11069,
+   "hints": 0,
+   "firstKeyMs": 2443,
+   "deletes": 1
+  },
+  {
+   "t": "type",
+   "w": "chị",
+   "ok": true,
+   "g": "perfect",
+   "a": "chị",
+   "ms": 12348,
+   "hints": 0,
+   "firstKeyMs": 3472
+  },
+  {
+   "t": "type",
+   "w": "em",
+   "ok": true,
+   "g": "perfect",
+   "a": "em",
+   "ms": 10485,
+   "hints": 0,
+   "firstKeyMs": 7778
+  },
+  {
+   "t": "meet",
+   "w": "cô",
+   "ms": 55965,
+   "plays": 4
+  },
+  {
+   "t": "meet",
+   "w": "chú",
+   "ms": 901
+  },
+  {
+   "t": "meet",
+   "w": "ông",
+   "ms": 2356
+  },
+  {
+   "t": "meet",
+   "w": "bạn",
+   "ms": 2170
+  },
+  {
+   "t": "listen",
+   "w": "ông",
+   "ok": true,
+   "a": "grandfather; you (to an old man)",
+   "ms": 2001
+  },
+  {
+   "t": "listen",
+   "w": "chú",
+   "ok": false,
+   "a": "friend; you (to someone your own age)",
+   "ms": 7022,
+   "plays": 2
+  },
+  {
+   "t": "story",
+   "w": "ông",
+   "ms": 27472
+  },
+  {
+   "t": "meet",
+   "w": "bà",
+   "ms": 2690
+  },
+  {
+   "t": "listen",
+   "w": "bà",
+   "ok": true,
+   "a": "grandmother; you (to an old woman)",
+   "ms": 1801
+  },
+  {
+   "t": "listen",
+   "w": "chú",
+   "ok": true,
+   "a": "uncle; you (to a man a bit younger than your parents)",
+   "ms": 4100,
+   "retry": true
+  },
+  {
+   "t": "listen",
+   "w": "nghìn",
+   "ok": true,
+   "a": "thousand",
+   "ms": 7390,
+   "plays": 1
+  },
+  {
+   "t": "listen",
+   "w": "mươi",
+   "ok": true,
+   "a": "-ty, the tens (hai mươi = 20)",
+   "ms": 5189,
+   "plays": 1
+  },
+  {
+   "t": "listen",
+   "w": "bạn",
+   "ok": false,
+   "a": "thousand",
+   "ms": 21041,
+   "plays": 1
+  },
+  {
+   "t": "listen",
+   "w": "cô",
+   "ok": true,
+   "a": "aunt; you (to a woman a bit younger than your parents)",
+   "ms": 2118
+  },
+  {
+   "t": "listen",
+   "w": "trăm",
+   "ok": true,
+   "a": "hundred",
+   "ms": 4984
+  },
+  {
+   "t": "listen",
+   "w": "ông",
+   "ok": false,
+   "a": "grandmother; you (to an old woman)",
+   "ms": 2016
+  },
+  {
+   "t": "listen",
+   "w": "bạn",
+   "ok": true,
+   "a": "friend; you (to someone your own age)",
+   "ms": 7122,
+   "retry": true,
+   "plays": 1
+  },
+  {
+   "t": "listen",
+   "w": "chú",
+   "ok": true,
+   "a": "uncle; you (to a man a bit younger than your parents)",
+   "ms": 3151
+  },
+  {
+   "t": "listen",
+   "w": "nữa",
+   "ok": true,
+   "a": "more, another",
+   "ms": 2650
+  },
+  {
+   "t": "listen",
+   "w": "ông",
+   "ok": true,
+   "a": "grandfather; you (to an old man)",
+   "ms": 7852,
+   "retry": true
+  },
+  {
+   "t": "listen",
+   "w": "bà",
+   "ok": true,
+   "a": "grandmother; you (to an old woman)",
+   "ms": 2650
+  },
+  {
+   "t": "spell",
+   "w": "chú",
+   "ok": false,
+   "a": "chủ",
+   "ms": 6502
+  },
+  {
+   "t": "spell",
+   "w": "bạn",
+   "ok": true,
+   "a": "bạn",
+   "ms": 5570
+  },
+  {
+   "t": "spell",
+   "w": "cô",
+   "ok": false,
+   "a": "cố",
+   "ms": 2200
+  },
+  {
+   "t": "reverse",
+   "w": "ông",
+   "ok": true,
+   "a": "ông",
+   "ms": 2188
+  },
+  {
+   "t": "spell",
+   "w": "chú",
+   "ok": true,
+   "a": "chú",
+   "ms": 3004,
+   "retry": true
+  },
+  {
+   "t": "reverse",
+   "w": "bà",
+   "ok": true,
+   "a": "bà",
+   "ms": 3917
+  },
+  {
+   "t": "spell",
+   "w": "cô",
+   "ok": true,
+   "a": "cô",
+   "ms": 2771,
+   "retry": true
+  },
+  {
+   "t": "type",
+   "w": "trăm",
+   "ok": false,
+   "g": "wrong",
+   "a": "trien",
+   "ms": 4840,
+   "hints": 0,
+   "firstKeyMs": 2372
+  },
+  {
+   "t": "type",
+   "w": "chú",
+   "ok": false,
+   "g": "wrong",
+   "a": "ong",
+   "ms": 3998,
+   "hints": 0,
+   "firstKeyMs": 2176
+  },
+  {
+   "t": "type",
+   "w": "bà",
+   "ok": true,
+   "g": "perfect",
+   "a": "bà",
+   "ms": 4582,
+   "hints": 0,
+   "firstKeyMs": 1954
+  },
+  {
+   "t": "type",
+   "w": "mươi",
+   "ok": false,
+   "g": "wrong",
+   "a": "nghin",
+   "ms": 6731,
+   "hints": 0,
+   "firstKeyMs": 374,
+   "deletes": 1
+  },
+  {
+   "t": "type",
+   "w": "trăm",
+   "g": "perfect",
+   "a": "trăm",
+   "ms": 9909,
+   "retry": true,
+   "tiles": true
+  },
+  {
+   "t": "type",
+   "w": "chú",
+   "g": "perfect",
+   "a": "chú",
+   "ms": 5134,
+   "retry": true,
+   "tiles": true
+  },
+  {
+   "t": "type",
+   "w": "bạn",
+   "ok": true,
+   "g": "tone",
+   "a": "ban",
+   "ms": 4468,
+   "hints": 0,
+   "firstKeyMs": 3201
+  },
+  {
+   "t": "type",
+   "w": "mươi",
+   "g": "perfect",
+   "a": "mươi",
+   "ms": 6893,
+   "retry": true,
+   "tiles": true
+  },
+  {
+   "t": "type",
+   "w": "cô",
+   "ok": false,
+   "g": "wrong",
+   "a": "ba",
+   "ms": 12456,
+   "hints": 0,
+   "firstKeyMs": 10974
+  },
+  {
+   "t": "type",
+   "w": "ông",
+   "ok": true,
+   "g": "marks",
+   "a": "ong",
+   "ms": 7863,
+   "hints": 0,
+   "firstKeyMs": 6410
+  },
+  {
+   "t": "type",
+   "w": "nghìn",
+   "ok": true,
+   "g": "tone",
+   "a": "nghin",
+   "ms": 7215,
+   "hints": 0,
+   "firstKeyMs": 3592
+  },
+  {
+   "t": "type",
+   "w": "nữa",
+   "ok": true,
+   "g": "marks",
+   "a": "nua",
+   "ms": 3744,
+   "hints": 0,
+   "firstKeyMs": 2201
+  },
+  {
+   "t": "type",
+   "w": "cô",
+   "g": "perfect",
+   "a": "cô",
+   "ms": 6096,
+   "retry": true,
+   "tiles": true
+  },
+  {
+   "t": "listen",
+   "w": "Hết hai trăm nghìn.",
+   "ok": false,
+   "a": "20.000₫ in total",
+   "ms": 17308,
+   "plays": 2
+  },
+  {
+   "t": "listen",
+   "w": "Chị ơi, bao nhiêu tiền?",
+   "ok": true,
+   "a": "Excuse me, how much is it? (to a woman your age or a bit older)",
+   "ms": 3755
+  },
+  {
+   "t": "listen",
+   "w": "Tên tôi là Nam.",
+   "ok": true,
+   "a": "My name is Nam.",
+   "ms": 2805
+  },
+  {
+   "t": "listen",
+   "w": "năm mươi nghìn",
+   "ok": true,
+   "a": "50.000₫",
+   "ms": 5855
+  },
+  {
+   "t": "listen",
+   "w": "Hết hai trăm nghìn.",
+   "ok": true,
+   "a": "200.000₫ in total",
+   "ms": 7920,
+   "retry": true
+  },
+  {
+   "t": "listen",
+   "w": "Hết hai mươi nghìn.",
+   "ok": true,
+   "a": "20.000₫ in total",
+   "ms": 6764
+  },
+  {
+   "t": "listen",
+   "w": "mười lăm nghìn",
+   "ok": true,
+   "a": "15.000₫",
+   "ms": 5497
+  },
+  {
+   "t": "listen",
+   "w": "Em ơi, cho anh một cốc nữa.",
+   "ok": true,
+   "a": "One more glass for me, please.",
+   "ms": 3655
+  },
+  {
+   "t": "situation",
+   "w": "Xe ôm không?",
+   "ok": true,
+   "a": "Chú ơi, bao nhiêu tiền?",
+   "ms": 17743,
+   "plays": 1
+  },
+  {
+   "t": "situation",
+   "w": "Bánh mì nóng đây!",
+   "ok": false,
+   "a": "Em ơi!",
+   "ms": 9120
+  },
+  {
+   "t": "situation",
+   "w": "Ba cà phê, một trăm linh năm nghìn ạ.",
+   "ok": false,
+   "a": "150.000₫",
+   "ms": 26781,
+   "plays": 2
+  },
+  {
+   "t": "situation",
+   "w": "Hết bảy mươi nghìn anh ạ.",
+   "ok": true,
+   "a": "70000",
+   "ms": 37635,
+   "plays": 5
+  },
+  {
+   "t": "situation",
+   "w": "Trà đá năm mươi nghìn một cốc.",
+   "ok": true,
+   "a": "Đắt quá!",
+   "ms": 5912
+  },
+  {
+   "t": "situation",
+   "w": "Của anh hết hai trăm nghìn ạ.",
+   "ok": true,
+   "a": "200000",
+   "ms": 44873,
+   "plays": 5
+  },
+  {
+   "t": "situation",
+   "w": "Bạn tên là gì?",
+   "ok": false,
+   "a": "Bạn tên là gì?",
+   "ms": 4623
+  },
+  {
+   "t": "speed",
+   "w": "Chị ơi, bao nhiêu tiền?",
+   "ok": true,
+   "a": "Excuse me, how much is it? (to a woman your age or a bit older)",
+   "ms": 3310
+  },
+  {
+   "t": "speed",
+   "w": "chị",
+   "ok": true,
+   "a": "older sister; you (to a woman a bit older)",
+   "ms": 2912
+  },
+  {
+   "t": "speed",
+   "w": "nghìn",
+   "ok": true,
+   "a": "thousand",
+   "ms": 3179
+  },
+  {
+   "t": "speed",
+   "w": "năm mươi nghìn",
+   "ok": true,
+   "a": "50.000₫",
+   "ms": 4057
+  },
+  {
+   "t": "speed",
+   "w": "bà",
+   "ok": true,
+   "a": "grandmother; you (to an old woman)",
+   "ms": 1780
+  },
+  {
+   "t": "speed",
+   "w": "bạn",
+   "ok": true,
+   "a": "friend; you (to someone your own age)",
+   "ms": 6821
+  },
+  {
+   "t": "speed",
+   "w": "Em ơi, cho anh một cốc nữa.",
+   "ok": true,
+   "a": "One more glass for me, please.",
+   "ms": 3983
+  },
+  {
+   "t": "speed",
+   "w": "mươi",
+   "ok": true,
+   "a": "-ty, the tens (hai mươi = 20)",
+   "ms": 11046
+  },
+  {
+   "t": "speed",
+   "w": "Em ơi, cho anh một cốc nữa.",
+   "ok": true,
+   "a": "One more glass for me, please.",
+   "ms": 3017
+  },
+  {
+   "t": "speed",
+   "w": "ông",
+   "ok": true,
+   "a": "grandfather; you (to an old man)",
+   "ms": 2464
+  }
+ ],
+ "issue": 6
+}

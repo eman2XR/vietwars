@@ -77,6 +77,40 @@
    "articleSec": null,
    "articleRating": null,
    "warmupMissed": []
+  },
+  {
+   "finishedAt": "2026-11-22T17:33:01.411Z",
+   "kind": "unfinished",
+   "lesson": "lesson-04",
+   "accuracy": 0.89,
+   "minutes": 6.4,
+   "device": "iPhone",
+   "style": "lacquer",
+   "speed": "stopped at step 33 of 83",
+   "battle": null,
+   "grade": null,
+   "bestStreak": null,
+   "quiz": null,
+   "articleSec": null,
+   "articleRating": null,
+   "warmupMissed": []
+  },
+  {
+   "finishedAt": "2026-11-22T19:26:49.656Z",
+   "kind": "lesson",
+   "lesson": "lesson-04",
+   "accuracy": 0.76,
+   "minutes": 120.2,
+   "device": "iPhone",
+   "style": "lacquer",
+   "speed": "10/10",
+   "battle": null,
+   "grade": "merit",
+   "bestStreak": 11,
+   "quiz": null,
+   "articleSec": 40,
+   "articleRating": "Interesting",
+   "warmupMissed": []
   }
  ],
  "lessons": {
@@ -103,6 +137,14 @@
    "best": 0.81,
    "latest": 0.81,
    "last": "2026-11-21T19:43:21.851Z",
+   "won": false,
+   "ranks": []
+  },
+  "lesson-04": {
+   "attempts": 1,
+   "best": 0.76,
+   "latest": 0.76,
+   "last": "2026-11-22T19:26:49.656Z",
    "won": false,
    "ranks": []
   }
@@ -387,50 +429,53 @@
   "trăm": {
    "en": "hundred",
    "firstLesson": "lesson-02",
-   "sessions": 2,
-   "strength": 0.38,
-   "meaning": 0.67,
+   "sessions": 3,
+   "strength": 0.42,
+   "meaning": 0.75,
    "form": 0.0,
    "history": [
     0.25,
+    0.5,
     0.5
    ],
    "byExercise": {
-    "listen": 0.67,
+    "listen": 0.75,
     "spell": 0.0,
     "type": 0.0
    },
    "typedErrors": {
-    "wrong": 2
+    "wrong": 3
    },
    "tappedKnowIt": false,
    "knownList": false,
-   "msMedian": 4778,
-   "lastSeen": "2026-11-21T19:43:21.851Z"
+   "msMedian": 4984,
+   "lastSeen": "2026-11-22T19:26:49.656Z"
   },
   "nghìn": {
    "en": "thousand",
    "firstLesson": "lesson-02",
-   "sessions": 2,
-   "strength": 0.58,
+   "sessions": 3,
+   "strength": 0.72,
    "meaning": 1.0,
-   "form": 0.0,
+   "form": 0.17,
    "history": [
     0.67,
-    0.5
+    0.5,
+    1
    ],
    "byExercise": {
     "listen": 1.0,
     "reverse": 1.0,
-    "type": 0.0
+    "type": 0.17
    },
    "typedErrors": {
-    "wrong": 2
+    "wrong": 2,
+    "tone": 1
    },
    "tappedKnowIt": false,
    "knownList": false,
-   "msMedian": 7237,
-   "lastSeen": "2026-11-21T19:43:21.851Z"
+   "msMedian": 7390,
+   "lastSeen": "2026-11-22T19:26:49.656Z"
   },
   "triệu": {
    "en": "million",
@@ -461,27 +506,28 @@
   "mươi": {
    "en": "-ty, the tens (hai mươi = 20)",
    "firstLesson": "lesson-02",
-   "sessions": 2,
+   "sessions": 3,
    "strength": 0.5,
    "meaning": 1.0,
-   "form": 0.17,
+   "form": 0.12,
    "history": [
+    0.5,
     0.5,
     0.5
    ],
    "byExercise": {
     "listen": 1.0,
     "spell": 0.0,
-    "type": 0.25
+    "type": 0.17
    },
    "typedErrors": {
     "marks": 1,
-    "wrong": 1
+    "wrong": 2
    },
    "tappedKnowIt": false,
    "knownList": false,
-   "msMedian": 7037,
-   "lastSeen": "2026-11-21T19:47:03.225Z"
+   "msMedian": 6731,
+   "lastSeen": "2026-11-22T19:26:49.656Z"
   },
   "lăm": {
    "en": "five, after mười or mươi (mười lăm = 15)",
@@ -693,26 +739,28 @@
   "nữa": {
    "en": "more, another",
    "firstLesson": "lesson-02",
-   "sessions": 2,
-   "strength": 0.38,
-   "meaning": 0.33,
-   "form": 0.33,
+   "sessions": 3,
+   "strength": 0.58,
+   "meaning": 0.5,
+   "form": 0.38,
    "history": [
     0.25,
-    0.5
+    0.5,
+    1
    ],
    "byExercise": {
-    "listen": 0.33,
+    "listen": 0.5,
     "spell": 1.0,
-    "type": 0.0
+    "type": 0.17
    },
    "typedErrors": {
-    "wrong": 2
+    "wrong": 2,
+    "marks": 1
    },
    "tappedKnowIt": false,
    "knownList": false,
-   "msMedian": 3760,
-   "lastSeen": "2026-11-21T19:43:21.851Z"
+   "msMedian": 3744,
+   "lastSeen": "2026-11-22T19:26:49.656Z"
   },
   "một": {
    "en": "one",
@@ -941,6 +989,224 @@
    "knownList": false,
    "msMedian": 5596,
    "lastSeen": "2026-11-21T19:43:21.851Z"
+  },
+  "tên": {
+   "en": "name",
+   "firstLesson": "lesson-04",
+   "sessions": 1,
+   "strength": 0.67,
+   "meaning": 0.5,
+   "form": 1.0,
+   "history": [
+    0.67
+   ],
+   "byExercise": {
+    "listen": 1.0,
+    "reverse": 0.0,
+    "type": 1.0
+   },
+   "typedErrors": {},
+   "tappedKnowIt": false,
+   "knownList": false,
+   "msMedian": 10831,
+   "lastSeen": "2026-11-22T19:26:49.656Z"
+  },
+  "tôi": {
+   "en": "I, me (neutral; safe with strangers)",
+   "firstLesson": "lesson-04",
+   "sessions": 1,
+   "strength": 0.75,
+   "meaning": 1.0,
+   "form": 0.5,
+   "history": [
+    0.75
+   ],
+   "byExercise": {
+    "listen": 1.0,
+    "spell": 0.0,
+    "type": 1.0
+   },
+   "typedErrors": {},
+   "tappedKnowIt": false,
+   "knownList": false,
+   "msMedian": 3685,
+   "lastSeen": "2026-11-22T19:26:49.656Z"
+  },
+  "anh": {
+   "en": "older brother; you (to a man a bit older)",
+   "firstLesson": "lesson-04",
+   "sessions": 1,
+   "strength": 1,
+   "meaning": 1.0,
+   "form": 1.0,
+   "history": [
+    1
+   ],
+   "byExercise": {
+    "listen": 1.0,
+    "spell": 1.0,
+    "type": 1.0
+   },
+   "typedErrors": {},
+   "tappedKnowIt": false,
+   "knownList": false,
+   "msMedian": 3018,
+   "lastSeen": "2026-11-22T19:26:49.656Z"
+  },
+  "chị": {
+   "en": "older sister; you (to a woman a bit older)",
+   "firstLesson": "lesson-04",
+   "sessions": 1,
+   "strength": 1,
+   "meaning": 1.0,
+   "form": 1.0,
+   "history": [
+    1
+   ],
+   "byExercise": {
+    "listen": 1.0,
+    "reverse": 1.0,
+    "type": 1.0
+   },
+   "typedErrors": {},
+   "tappedKnowIt": false,
+   "knownList": false,
+   "msMedian": 8969,
+   "lastSeen": "2026-11-22T19:26:49.656Z"
+  },
+  "em": {
+   "en": "younger brother or sister; you (to someone younger)",
+   "firstLesson": "lesson-04",
+   "sessions": 1,
+   "strength": 1,
+   "meaning": 1.0,
+   "form": 1.0,
+   "history": [
+    1
+   ],
+   "byExercise": {
+    "listen": 1.0,
+    "spell": 1.0,
+    "type": 1.0
+   },
+   "typedErrors": {},
+   "tappedKnowIt": false,
+   "knownList": false,
+   "msMedian": 3916,
+   "lastSeen": "2026-11-22T19:26:49.656Z"
+  },
+  "cô": {
+   "en": "aunt; you (to a woman a bit younger than your parents)",
+   "firstLesson": "lesson-04",
+   "sessions": 1,
+   "strength": 0.33,
+   "meaning": 1.0,
+   "form": 0.0,
+   "history": [
+    0.33
+   ],
+   "byExercise": {
+    "listen": 1.0,
+    "spell": 0.0,
+    "type": 0.0
+   },
+   "typedErrors": {
+    "wrong": 1
+   },
+   "tappedKnowIt": false,
+   "knownList": false,
+   "msMedian": 2771,
+   "lastSeen": "2026-11-22T19:26:49.656Z"
+  },
+  "chú": {
+   "en": "uncle; you (to a man a bit younger than your parents)",
+   "firstLesson": "lesson-04",
+   "sessions": 1,
+   "strength": 0.25,
+   "meaning": 0.5,
+   "form": 0.0,
+   "history": [
+    0.25
+   ],
+   "byExercise": {
+    "listen": 0.5,
+    "spell": 0.0,
+    "type": 0.0
+   },
+   "typedErrors": {
+    "wrong": 1
+   },
+   "tappedKnowIt": false,
+   "knownList": false,
+   "msMedian": 4100,
+   "lastSeen": "2026-11-22T19:26:49.656Z"
+  },
+  "ông": {
+   "en": "grandfather; you (to an old man)",
+   "firstLesson": "lesson-04",
+   "sessions": 1,
+   "strength": 0.75,
+   "meaning": 0.67,
+   "form": 0.5,
+   "history": [
+    0.75
+   ],
+   "byExercise": {
+    "listen": 0.5,
+    "reverse": 1.0,
+    "type": 0.5
+   },
+   "typedErrors": {
+    "marks": 1
+   },
+   "tappedKnowIt": false,
+   "knownList": false,
+   "msMedian": 2188,
+   "lastSeen": "2026-11-22T19:26:49.656Z"
+  },
+  "bạn": {
+   "en": "friend; you (to someone your own age)",
+   "firstLesson": "lesson-04",
+   "sessions": 1,
+   "strength": 0.67,
+   "meaning": 0.0,
+   "form": 0.75,
+   "history": [
+    0.67
+   ],
+   "byExercise": {
+    "listen": 0.0,
+    "spell": 1.0,
+    "type": 0.5
+   },
+   "typedErrors": {
+    "tone": 1
+   },
+   "tappedKnowIt": false,
+   "knownList": false,
+   "msMedian": 7122,
+   "lastSeen": "2026-11-22T19:26:49.656Z"
+  },
+  "bà": {
+   "en": "grandmother; you (to an old woman)",
+   "firstLesson": "lesson-04",
+   "sessions": 1,
+   "strength": 1,
+   "meaning": 1.0,
+   "form": 1.0,
+   "history": [
+    1
+   ],
+   "byExercise": {
+    "listen": 1.0,
+    "reverse": 1.0,
+    "type": 1.0
+   },
+   "typedErrors": {},
+   "tappedKnowIt": false,
+   "knownList": false,
+   "msMedian": 3917,
+   "lastSeen": "2026-11-22T19:26:49.656Z"
   }
  },
  "known": [
@@ -955,38 +1221,45 @@
   "trà"
  ],
  "weakMeaning": [
+  "bạn",
   "gà",
-  "nữa",
   "đắt",
+  "chú",
   "hai",
   "lăm",
   "một",
+  "nữa",
+  "tên",
   "triệu",
-  "trăm"
+  "ông"
  ],
  "weakSpelling": [
   "bao nhiêu",
   "bốn",
-  "nghìn",
+  "chú",
+  "cô",
   "rưỡi",
   "trăm",
   "tám",
   "mươi",
+  "nghìn",
   "ba",
   "năm",
   "đồng",
   "lăm",
   "nữa",
-  "chín",
-  "linh",
-  "rẻ"
+  "chín"
  ],
  "strongest": [
   "hơn",
   "sáu",
   "bảy",
   "chín",
-  "mười"
+  "mười",
+  "anh",
+  "chị",
+  "em",
+  "bà"
  ],
  "warmupMissed": {
   "ba": 1,
@@ -1004,7 +1277,10 @@
   "mươi -> mười": 1,
   "linh -> lính": 1,
   "ba -> bà": 1,
-  "năm -> nằm": 1
+  "năm -> nằm": 1,
+  "tôi -> tối": 1,
+  "chú -> chủ": 1,
+  "cô -> cố": 1
  },
  "meaningConfusions": {
   "triệu -> thousand": 2,
@@ -1024,16 +1300,20 @@
   "gà -> and a half (after a unit)": 1,
   "một -> four": 1,
   "thứ bảy -> One more iced tea, please.": 1,
-  "lăm -> -ty, the tens (hai mươi = 20)": 1
+  "lăm -> -ty, the tens (hai mươi = 20)": 1,
+  "chú -> friend; you (to someone your own age)": 1,
+  "bạn -> thousand": 1
  },
  "typing": {
-  "wrong": 17,
-  "tone": 8,
-  "marks": 15,
-  "perfect": 8
+  "wrong": 21,
+  "tone": 10,
+  "marks": 17,
+  "perfect": 14
  },
- "unfinished": {},
- "toneKeysUsed": "8/36",
+ "unfinished": {
+  "lesson-04": 1
+ },
+ "toneKeysUsed": "12/50",
  "feedback": [
   {
    "finishedAt": "2026-11-21T07:42:39.510Z",
@@ -1089,6 +1369,24 @@
    ],
    "wantNext": "surprise me",
    "note": "the did you know popups I mostly skipped. need more illustrations"
+  },
+  {
+   "finishedAt": "2026-11-22T19:26:49.656Z",
+   "lesson": "lesson-04",
+   "kind": "lesson",
+   "difficulty": "Just right",
+   "fun": "Good",
+   "article": "Interesting",
+   "hardest": [
+    "tên",
+    "cô",
+    "chú",
+    "bạn",
+    "trăm",
+    "mươi"
+   ],
+   "wantNext": "I think i need to learn numbers more. Especially someone telling me a price and me understanding what it is. But you should take into account that people in vietnam most of the time don’t even mention the thousand, they would just say 10 instead of 10 thousand. Same for hundred - double check how people naturally speak",
+   "note": "The lesson is a bit too long, should be shorter"
   }
  ],
  "struggle": {
@@ -1126,22 +1424,22 @@
     "studySec": 0,
     "struggle": 63
    },
-   "trăm": {
-    "attempts": 10,
-    "fails": 7,
-    "medianSec": 8.3,
-    "replays": 1,
-    "hints": 0,
-    "revealed": 0,
-    "deletes": 0,
-    "studySec": 0,
-    "struggle": 55
-   },
    "cơm": {
     "attempts": 6,
     "fails": 5,
     "medianSec": 2.0,
     "replays": 0,
+    "hints": 0,
+    "revealed": 0,
+    "deletes": 0,
+    "studySec": 0,
+    "struggle": 53
+   },
+   "Hết hai trăm nghìn.": {
+    "attempts": 2,
+    "fails": 1,
+    "medianSec": 12.6,
+    "replays": 2,
     "hints": 0,
     "revealed": 0,
     "deletes": 0,
@@ -1159,6 +1457,17 @@
     "studySec": 0,
     "struggle": 51
    },
+   "trăm": {
+    "attempts": 13,
+    "fails": 8,
+    "medianSec": 8.2,
+    "replays": 1,
+    "hints": 0,
+    "revealed": 0,
+    "deletes": 0,
+    "studySec": 0,
+    "struggle": 50
+   },
    "lăm": {
     "attempts": 8,
     "fails": 5,
@@ -1169,17 +1478,6 @@
     "deletes": 0,
     "studySec": 0,
     "struggle": 48
-   },
-   "nghìn": {
-    "attempts": 7,
-    "fails": 4,
-    "medianSec": 7.6,
-    "replays": 2,
-    "hints": 0,
-    "revealed": 0,
-    "deletes": 1,
-    "studySec": 0,
-    "struggle": 47
    },
    "phở": {
     "attempts": 6,
@@ -1203,33 +1501,11 @@
     "studySec": 0,
     "struggle": 45
    },
-   "mươi": {
-    "attempts": 8,
-    "fails": 4,
-    "medianSec": 6.5,
-    "replays": 4,
-    "hints": 0,
-    "revealed": 0,
-    "deletes": 1,
-    "studySec": 0,
-    "struggle": 42
-   },
    "cá": {
     "attempts": 7,
     "fails": 4,
     "medianSec": 3.5,
     "replays": 0,
-    "hints": 0,
-    "revealed": 0,
-    "deletes": 0,
-    "studySec": 0,
-    "struggle": 40
-   },
-   "nữa": {
-    "attempts": 10,
-    "fails": 5,
-    "medianSec": 6.6,
-    "replays": 1,
     "hints": 0,
     "revealed": 0,
     "deletes": 0,
@@ -1244,6 +1520,28 @@
     "hints": 0,
     "revealed": 0,
     "deletes": 0,
+    "studySec": 0,
+    "struggle": 39
+   },
+   "nghìn": {
+    "attempts": 9,
+    "fails": 4,
+    "medianSec": 7.6,
+    "replays": 3,
+    "hints": 0,
+    "revealed": 0,
+    "deletes": 1,
+    "studySec": 0,
+    "struggle": 39
+   },
+   "mươi": {
+    "attempts": 11,
+    "fails": 5,
+    "medianSec": 6.7,
+    "replays": 5,
+    "hints": 0,
+    "revealed": 0,
+    "deletes": 2,
     "studySec": 0,
     "struggle": 39
    },
@@ -1313,6 +1611,17 @@
     "studySec": 0,
     "struggle": 35
    },
+   "nữa": {
+    "attempts": 12,
+    "fails": 5,
+    "medianSec": 6.1,
+    "replays": 1,
+    "hints": 0,
+    "revealed": 0,
+    "deletes": 0,
+    "studySec": 0,
+    "struggle": 35
+   },
    "tiền": {
     "attempts": 5,
     "fails": 2,
@@ -1333,6 +1642,17 @@
     "revealed": 0,
     "deletes": 1,
     "studySec": 2,
+    "struggle": 33
+   },
+   "chú": {
+    "attempts": 7,
+    "fails": 3,
+    "medianSec": 4.1,
+    "replays": 2,
+    "hints": 0,
+    "revealed": 0,
+    "deletes": 0,
+    "studySec": 1,
     "struggle": 33
    },
    "gà": {
@@ -1357,6 +1677,17 @@
     "studySec": 2,
     "struggle": 30
    },
+   "tên": {
+    "attempts": 4,
+    "fails": 1,
+    "medianSec": 8.5,
+    "replays": 1,
+    "hints": 0,
+    "revealed": 0,
+    "deletes": 0,
+    "studySec": 18,
+    "struggle": 29
+   },
    "bún": {
     "attempts": 5,
     "fails": 2,
@@ -1378,6 +1709,28 @@
     "deletes": 0,
     "studySec": 0,
     "struggle": 28
+   },
+   "cô": {
+    "attempts": 5,
+    "fails": 2,
+    "medianSec": 2.8,
+    "replays": 0,
+    "hints": 0,
+    "revealed": 0,
+    "deletes": 0,
+    "studySec": 56,
+    "struggle": 28
+   },
+   "bạn": {
+    "attempts": 4,
+    "fails": 1,
+    "medianSec": 6.3,
+    "replays": 2,
+    "hints": 0,
+    "revealed": 0,
+    "deletes": 0,
+    "studySec": 2,
+    "struggle": 27
    },
    "Cho mình một cốc trà đá nữa.": {
     "attempts": 1,
@@ -1443,6 +1796,17 @@
     "revealed": 0,
     "deletes": 0,
     "studySec": 0,
+    "struggle": 18
+   },
+   "tôi": {
+    "attempts": 5,
+    "fails": 1,
+    "medianSec": 3.7,
+    "replays": 0,
+    "hints": 0,
+    "revealed": 0,
+    "deletes": 1,
+    "studySec": 17,
     "struggle": 18
    },
    "bún cá": {
@@ -1511,6 +1875,17 @@
     "studySec": 0,
     "struggle": 15
    },
+   "ông": {
+    "attempts": 5,
+    "fails": 1,
+    "medianSec": 2.2,
+    "replays": 0,
+    "hints": 0,
+    "revealed": 0,
+    "deletes": 0,
+    "studySec": 2,
+    "struggle": 15
+   },
    "phở bò": {
     "attempts": 1,
     "fails": 0,
@@ -1566,6 +1941,17 @@
     "studySec": 0,
     "struggle": 11
    },
+   "chị": {
+    "attempts": 4,
+    "fails": 0,
+    "medianSec": 7.4,
+    "replays": 0,
+    "hints": 0,
+    "revealed": 0,
+    "deletes": 0,
+    "studySec": 4,
+    "struggle": 11
+   },
    "hai mươi năm": {
     "attempts": 1,
     "fails": 0,
@@ -1581,6 +1967,17 @@
     "attempts": 1,
     "fails": 0,
     "medianSec": 6.7,
+    "replays": 0,
+    "hints": 0,
+    "revealed": 0,
+    "deletes": 0,
+    "studySec": 0,
+    "struggle": 10
+   },
+   "Hết hai mươi nghìn.": {
+    "attempts": 1,
+    "fails": 0,
+    "medianSec": 6.8,
     "replays": 0,
     "hints": 0,
     "revealed": 0,
@@ -1610,6 +2007,17 @@
     "studySec": 0,
     "struggle": 9
    },
+   "năm mươi nghìn": {
+    "attempts": 1,
+    "fails": 0,
+    "medianSec": 5.9,
+    "replays": 0,
+    "hints": 0,
+    "revealed": 0,
+    "deletes": 0,
+    "studySec": 0,
+    "struggle": 9
+   },
    "chín": {
     "attempts": 3,
     "fails": 0,
@@ -1619,6 +2027,17 @@
     "revealed": 0,
     "deletes": 0,
     "studySec": 1,
+    "struggle": 8
+   },
+   "mười lăm nghìn": {
+    "attempts": 1,
+    "fails": 0,
+    "medianSec": 5.5,
+    "replays": 0,
+    "hints": 0,
+    "revealed": 0,
+    "deletes": 0,
+    "studySec": 0,
     "struggle": 8
    },
    "cơm gà": {
@@ -1665,6 +2084,28 @@
     "studySec": 0,
     "struggle": 6
    },
+   "em": {
+    "attempts": 4,
+    "fails": 0,
+    "medianSec": 3.9,
+    "replays": 0,
+    "hints": 0,
+    "revealed": 0,
+    "deletes": 0,
+    "studySec": 14,
+    "struggle": 6
+   },
+   "Chị ơi, bao nhiêu tiền?": {
+    "attempts": 1,
+    "fails": 0,
+    "medianSec": 3.8,
+    "replays": 0,
+    "hints": 0,
+    "revealed": 0,
+    "deletes": 0,
+    "studySec": 0,
+    "struggle": 6
+   },
    "Phở gà bốn mươi lăm nghìn": {
     "attempts": 1,
     "fails": 0,
@@ -1685,6 +2126,39 @@
     "revealed": 0,
     "deletes": 0,
     "studySec": 2,
+    "struggle": 5
+   },
+   "anh": {
+    "attempts": 3,
+    "fails": 0,
+    "medianSec": 3.0,
+    "replays": 0,
+    "hints": 0,
+    "revealed": 0,
+    "deletes": 0,
+    "studySec": 3,
+    "struggle": 5
+   },
+   "bà": {
+    "attempts": 4,
+    "fails": 0,
+    "medianSec": 3.3,
+    "replays": 0,
+    "hints": 0,
+    "revealed": 0,
+    "deletes": 0,
+    "studySec": 3,
+    "struggle": 5
+   },
+   "Em ơi, cho anh một cốc nữa.": {
+    "attempts": 1,
+    "fails": 0,
+    "medianSec": 3.7,
+    "replays": 0,
+    "hints": 0,
+    "revealed": 0,
+    "deletes": 0,
+    "studySec": 0,
     "struggle": 5
    },
    "rau": {
@@ -1731,6 +2205,17 @@
     "studySec": 0,
     "struggle": 4
    },
+   "Tên tôi là Nam.": {
+    "attempts": 1,
+    "fails": 0,
+    "medianSec": 2.8,
+    "replays": 0,
+    "hints": 0,
+    "revealed": 0,
+    "deletes": 0,
+    "studySec": 0,
+    "struggle": 4
+   },
    "sáu": {
     "attempts": 3,
     "fails": 0,
@@ -1745,39 +2230,39 @@
   },
   "exercises": {
    "listen": {
-    "answers": 106,
-    "accuracy": 0.81,
-    "medianSec": 5.0
+    "answers": 137,
+    "accuracy": 0.82,
+    "medianSec": 4.9
    },
    "spell": {
-    "answers": 36,
-    "accuracy": 0.61,
-    "medianSec": 3.3
+    "answers": 45,
+    "accuracy": 0.62,
+    "medianSec": 3.1
    },
    "reverse": {
-    "answers": 10,
-    "accuracy": 1.0,
-    "medianSec": 4.5
+    "answers": 15,
+    "accuracy": 0.93,
+    "medianSec": 4.2
    },
    "type": {
-    "answers": 69,
-    "accuracy": 0.26,
-    "medianSec": 5.4
+    "answers": 83,
+    "accuracy": 0.34,
+    "medianSec": 5.6
    },
    "speed": {
-    "answers": 35,
-    "accuracy": 0.97,
-    "medianSec": 2.6
+    "answers": 45,
+    "accuracy": 0.98,
+    "medianSec": 2.9
    },
    "type (tiles)": {
-    "answers": 7,
-    "accuracy": 0.29,
-    "medianSec": 4.8
+    "answers": 11,
+    "accuracy": 0.55,
+    "medianSec": 6.1
    },
    "situation": {
-    "answers": 8,
-    "accuracy": 0.62,
-    "medianSec": 38.5
+    "answers": 15,
+    "accuracy": 0.6,
+    "medianSec": 26.8
    },
    "type (from hearing)": {
     "answers": 2,
@@ -1786,13 +2271,13 @@
    }
   },
   "phaseSeconds": {
-   "words": 30,
-   "drills": 459,
-   "reallife": 301,
-   "rush": 44,
-   "article": 14,
-   "pauses": 2,
-   "longestPauseSec": 120
+   "words": 149,
+   "drills": 865,
+   "reallife": 448,
+   "rush": 87,
+   "article": 54,
+   "pauses": 3,
+   "longestPauseSec": 6152
   }
  }
 }

@@ -1,0 +1,578 @@
+{
+ "schema": 3,
+ "partial": true,
+ "progress": {
+  "step": 32,
+  "steps": 83
+ },
+ "resultId": "9bf8adec-388f-4477-8b07-ba09b6b7157c",
+ "kind": "lesson",
+ "lessonId": "lesson-04",
+ "lessonTitle": "People and family",
+ "appVersion": "4",
+ "style": "lacquer",
+ "device": "iPhone",
+ "startedAt": "2026-11-22T17:26:38.864Z",
+ "finishedAt": "2026-11-22T17:33:01.411Z",
+ "durationSec": 383,
+ "summary": {
+  "firstTryAccuracy": 0.89,
+  "exercises": 18,
+  "bestStreak": 10,
+  "grade": "merit",
+  "speedScore": 0,
+  "speedAnswered": 0,
+  "speedCorrect": 0,
+  "bestCombo": 0
+ },
+ "article": {
+  "readSec": 40,
+  "factsShown": 3
+ },
+ "quiz": null,
+ "situations": null,
+ "timing": {
+  "words": 112,
+  "drills": 134,
+  "article": 40,
+  "pauses": 0,
+  "longestPauseSec": 59
+ },
+ "toneMarks": "relaxed",
+ "words": [
+  {
+   "vi": "tên",
+   "en": "name",
+   "failures": 1,
+   "timeSec": 36,
+   "replays": 1,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 18,
+   "share": 0.67,
+   "meaning": 0.5,
+   "form": 1,
+   "stars": 1,
+   "firstTry": {
+    "listen": true,
+    "reverse": false,
+    "type": "perfect"
+   },
+   "attempts": 4,
+   "msMedian": 10831,
+   "known": false
+  },
+  {
+   "vi": "tôi",
+   "en": "I, me (neutral; safe with strangers)",
+   "failures": 1,
+   "timeSec": 23,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 17,
+   "share": 0.75,
+   "meaning": 1,
+   "form": 0.5,
+   "stars": 2,
+   "firstTry": {
+    "listen": true,
+    "spell": false,
+    "type": "perfect"
+   },
+   "attempts": 5,
+   "msMedian": 3685,
+   "known": false
+  },
+  {
+   "vi": "anh",
+   "en": "older brother; you (to a man a bit older)",
+   "failures": 0,
+   "timeSec": 16,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 3,
+   "share": 1,
+   "meaning": 1,
+   "form": 1,
+   "stars": 3,
+   "firstTry": {
+    "listen": true,
+    "spell": true,
+    "type": "perfect"
+   },
+   "attempts": 3,
+   "msMedian": 3018,
+   "known": false
+  },
+  {
+   "vi": "chị",
+   "en": "older sister; you (to a woman a bit older)",
+   "failures": 0,
+   "timeSec": 29,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 4,
+   "share": 1,
+   "meaning": 1,
+   "form": 1,
+   "stars": 3,
+   "firstTry": {
+    "listen": true,
+    "reverse": true,
+    "type": "perfect"
+   },
+   "attempts": 4,
+   "msMedian": 8969,
+   "known": false
+  },
+  {
+   "vi": "em",
+   "en": "younger brother or sister; you (to someone younger)",
+   "failures": 0,
+   "timeSec": 20,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 14,
+   "share": 1,
+   "meaning": 1,
+   "form": 1,
+   "stars": 3,
+   "firstTry": {
+    "listen": true,
+    "spell": true,
+    "type": "perfect"
+   },
+   "attempts": 4,
+   "msMedian": 3916,
+   "known": false
+  },
+  {
+   "vi": "cô",
+   "en": "aunt; you (to a woman a bit younger than your parents)",
+   "failures": 0,
+   "timeSec": 0,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 56,
+   "share": 0,
+   "meaning": null,
+   "form": null,
+   "stars": 0,
+   "firstTry": {},
+   "attempts": 0,
+   "msMedian": null,
+   "known": false
+  },
+  {
+   "vi": "chú",
+   "en": "uncle; you (to a man a bit younger than your parents)",
+   "failures": 0,
+   "timeSec": 0,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 1,
+   "share": 0,
+   "meaning": null,
+   "form": null,
+   "stars": 0,
+   "firstTry": {},
+   "attempts": 0,
+   "msMedian": null,
+   "known": false
+  },
+  {
+   "vi": "ông",
+   "en": "grandfather; you (to an old man)",
+   "failures": 0,
+   "timeSec": 0,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 0,
+   "meaning": null,
+   "form": null,
+   "stars": 0,
+   "firstTry": {},
+   "attempts": 0,
+   "msMedian": null,
+   "known": false
+  },
+  {
+   "vi": "bạn",
+   "en": "friend; you (to someone your own age)",
+   "failures": 0,
+   "timeSec": 0,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 0,
+   "meaning": null,
+   "form": null,
+   "stars": 0,
+   "firstTry": {},
+   "attempts": 0,
+   "msMedian": null,
+   "known": false
+  },
+  {
+   "vi": "bà",
+   "en": "grandmother; you (to an old woman)",
+   "failures": 0,
+   "timeSec": 0,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 0,
+   "meaning": null,
+   "form": null,
+   "stars": 0,
+   "firstTry": {},
+   "attempts": 0,
+   "msMedian": null,
+   "known": false
+  },
+  {
+   "vi": "trăm",
+   "en": "hundred",
+   "failures": 0,
+   "timeSec": 0,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 0,
+   "meaning": null,
+   "form": null,
+   "stars": 0,
+   "firstTry": {},
+   "attempts": 0,
+   "msMedian": null,
+   "known": false
+  },
+  {
+   "vi": "nghìn",
+   "en": "thousand",
+   "failures": 0,
+   "timeSec": 0,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 0,
+   "meaning": null,
+   "form": null,
+   "stars": 0,
+   "firstTry": {},
+   "attempts": 0,
+   "msMedian": null,
+   "known": false
+  },
+  {
+   "vi": "mươi",
+   "en": "-ty, the tens (hai mươi = 20)",
+   "failures": 0,
+   "timeSec": 0,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 0,
+   "meaning": null,
+   "form": null,
+   "stars": 0,
+   "firstTry": {},
+   "attempts": 0,
+   "msMedian": null,
+   "known": false
+  },
+  {
+   "vi": "nữa",
+   "en": "more, another",
+   "failures": 0,
+   "timeSec": 0,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 0,
+   "meaning": null,
+   "form": null,
+   "stars": 0,
+   "firstTry": {},
+   "attempts": 0,
+   "msMedian": null,
+   "known": false
+  }
+ ],
+ "warmup": [],
+ "toneConfusions": [
+  {
+   "target": "tôi",
+   "chose": "tối"
+  }
+ ],
+ "meaningConfusions": [],
+ "typed": [
+  {
+   "target": "anh",
+   "answer": "anh",
+   "grade": "perfect",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 7846
+  },
+  {
+   "target": "tên",
+   "answer": "tên",
+   "grade": "perfect",
+   "accepted": true,
+   "hints": 0,
+   "keys": 1,
+   "firstKeyMs": 2293
+  },
+  {
+   "target": "tôi",
+   "answer": "tôi",
+   "grade": "perfect",
+   "accepted": true,
+   "hints": 0,
+   "keys": 1,
+   "firstKeyMs": 2443,
+   "deletes": 1
+  },
+  {
+   "target": "chị",
+   "answer": "chị",
+   "grade": "perfect",
+   "accepted": true,
+   "hints": 0,
+   "keys": 1,
+   "firstKeyMs": 3472
+  },
+  {
+   "target": "em",
+   "answer": "em",
+   "grade": "perfect",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 7778
+  }
+ ],
+ "feedback": null,
+ "events": [
+  {
+   "t": "meet",
+   "w": "tên",
+   "ms": 17815,
+   "plays": 1
+  },
+  {
+   "t": "meet",
+   "w": "tôi",
+   "ms": 16553,
+   "plays": 2
+  },
+  {
+   "t": "meet",
+   "w": "anh",
+   "ms": 2656
+  },
+  {
+   "t": "meet",
+   "w": "chị",
+   "ms": 3522
+  },
+  {
+   "t": "listen",
+   "w": "tôi",
+   "ok": true,
+   "a": "I, me (neutral; safe with strangers)",
+   "ms": 3767
+  },
+  {
+   "t": "listen",
+   "w": "chị",
+   "ok": true,
+   "a": "older sister; you (to a woman a bit older)",
+   "ms": 5765
+  },
+  {
+   "t": "story",
+   "w": "tên",
+   "ms": 9120
+  },
+  {
+   "t": "meet",
+   "w": "em",
+   "ms": 14290
+  },
+  {
+   "t": "listen",
+   "w": "em",
+   "ok": true,
+   "a": "younger brother or sister; you (to someone younger)",
+   "ms": 3818
+  },
+  {
+   "t": "listen",
+   "w": "tên",
+   "ok": true,
+   "a": "name",
+   "ms": 6174,
+   "plays": 1
+  },
+  {
+   "t": "listen",
+   "w": "anh",
+   "ok": true,
+   "a": "older brother; you (to a man a bit older)",
+   "ms": 3018
+  },
+  {
+   "t": "listen",
+   "w": "chị",
+   "ok": true,
+   "a": "older sister; you (to a woman a bit older)",
+   "ms": 2222
+  },
+  {
+   "t": "listen",
+   "w": "tôi",
+   "ok": true,
+   "a": "I, me (neutral; safe with strangers)",
+   "ms": 2366
+  },
+  {
+   "t": "listen",
+   "w": "em",
+   "ok": true,
+   "a": "younger brother or sister; you (to someone younger)",
+   "ms": 3916
+  },
+  {
+   "t": "spell",
+   "w": "tôi",
+   "ok": false,
+   "a": "tối",
+   "ms": 3685
+  },
+  {
+   "t": "reverse",
+   "w": "tên",
+   "ok": false,
+   "a": "tôi",
+   "ms": 3701
+  },
+  {
+   "t": "spell",
+   "w": "anh",
+   "ok": true,
+   "a": "anh",
+   "ms": 2566
+  },
+  {
+   "t": "spell",
+   "w": "em",
+   "ok": true,
+   "a": "em",
+   "ms": 1834
+  },
+  {
+   "t": "spell",
+   "w": "tôi",
+   "ok": true,
+   "a": "tôi",
+   "ms": 2350,
+   "retry": true
+  },
+  {
+   "t": "reverse",
+   "w": "tên",
+   "ok": true,
+   "a": "tên",
+   "ms": 15301,
+   "retry": true
+  },
+  {
+   "t": "reverse",
+   "w": "chị",
+   "ok": true,
+   "a": "chị",
+   "ms": 8969
+  },
+  {
+   "t": "type",
+   "w": "anh",
+   "ok": true,
+   "g": "perfect",
+   "a": "anh",
+   "ms": 10336,
+   "hints": 0,
+   "firstKeyMs": 7846
+  },
+  {
+   "t": "type",
+   "w": "tên",
+   "ok": true,
+   "g": "perfect",
+   "a": "tên",
+   "ms": 10831,
+   "hints": 0,
+   "firstKeyMs": 2293
+  },
+  {
+   "t": "type",
+   "w": "tôi",
+   "ok": true,
+   "g": "perfect",
+   "a": "tôi",
+   "ms": 11069,
+   "hints": 0,
+   "firstKeyMs": 2443,
+   "deletes": 1
+  },
+  {
+   "t": "type",
+   "w": "chị",
+   "ok": true,
+   "g": "perfect",
+   "a": "chị",
+   "ms": 12348,
+   "hints": 0,
+   "firstKeyMs": 3472
+  },
+  {
+   "t": "type",
+   "w": "em",
+   "ok": true,
+   "g": "perfect",
+   "a": "em",
+   "ms": 10485,
+   "hints": 0,
+   "firstKeyMs": 7778
+  },
+  {
+   "t": "meet",
+   "w": "cô",
+   "ms": 55965,
+   "plays": 4
+  },
+  {
+   "t": "meet",
+   "w": "chú",
+   "ms": 901
+  }
+ ],
+ "issue": 5
+}
