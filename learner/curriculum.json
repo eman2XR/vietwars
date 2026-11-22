@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-21",
+  "updated": "2026-11-22",
   "reviewedAt": null,
   "goal": "A large working vocabulary in Northern (Hà Nội) Vietnamese first, then short sentence patterns, then conversation.",
   "phases": [
@@ -43,14 +43,14 @@
     {
       "id": "numbers-basics",
       "title": "One to ten, properly",
-      "status": "active",
+      "status": "done",
       "lesson": "lesson-03",
-      "notes": "The learner asked to learn 1 to 10 properly and for real-life use. Story: Sơn Tinh and Thủy Tinh, the bride price of nines. Real-life price listening. Review of the most confused issue 2 words."
+      "notes": "The learner asked to learn 1 to 10 properly and for real-life use. Story: Sơn Tinh and Thủy Tinh, the bride price of nines. Real-life price listening. Review of the most confused issue 2 words. Played on 2026-11-21 (Mac): 81% first try, merit, 17.6 minutes, Just right, fun Good, story Skipped it. Real life 5 of 8: missed a fare of sáu mươi nghìn (typed 231000), a bill of 105,000 (typed 10000) and a tourist price. Asked for more illustrations; skips the did-you-know pop-ups."
     },
     {
       "id": "people",
       "title": "People and family",
-      "status": "planned",
+      "status": "active",
       "warmupIdeas": [
         "bố",
         "mẹ",
@@ -74,8 +74,9 @@
         "trẻ con",
         "bạn bè"
       ],
-      "notes": "Explain that family words double as I and you. Hà Nội says bố and mẹ (the South says ba and má).",
-      "storyIdea": "Who you call anh, chị or em: how the family system of address works, and the family altar in Hà Nội homes."
+      "notes": "Taught as the words you call people by (there is no all-purpose you): tên, tôi, anh, chị, em, cô, chú, ông, bà, bạn. Hà Nội says bố and mẹ (the South says ba and má). Story: \"A country of Nguyễns\" (31.5% are Nguyễn; called by the given name with a family word; why so many: 1232, 1407, 1592; ông trẻ; the 1841 exile; Nguyen in Iceland). Real life keeps practising prices by ear. Left for later: bác (its gloss overlaps cô and chú), con, cháu, vợ, chồng, gia đình, người, bố, mẹ.",
+      "storyIdea": "Who you call anh, chị or em: how the family system of address works, and the family altar in Hà Nội homes.",
+      "lesson": "lesson-04"
     },
     {
       "id": "politeness",
@@ -97,10 +98,35 @@
         "hẹn gặp lại",
         "rất vui",
         "chúc mừng",
-        "làm ơn"
+        "làm ơn",
+        "cháu",
+        "con"
       ],
-      "notes": "ạ at the end of a sentence to older people; vâng is the typical Northern polite yes.",
+      "notes": "ạ at the end of a sentence to older people; vâng is the typical Northern polite yes. After issue 4: add cháu and con, what you call yourself to cô, chú, ông and bà (Cháu chào bà ạ).",
       "storyIdea": "Hà Nội manners: vâng and ạ, greeting elders first, and the Temple of Literature (Văn Miếu, 1070), the first university."
+    },
+    {
+      "id": "market",
+      "title": "At the market",
+      "status": "planned",
+      "candidates": [
+        "quả",
+        "táo",
+        "cam",
+        "chuối",
+        "xoài",
+        "dưa hấu",
+        "thịt",
+        "thịt lợn",
+        "trứng",
+        "mua",
+        "bán",
+        "mặc cả",
+        "cân",
+        "túi"
+      ],
+      "notes": "quả and thịt lợn are Northern (the South says trái and thịt heo). Builds on lesson 2 prices. Moved up after issue 4: the learner still misses prices by ear (a fare of 60,000, a bill of 105,000, a tourist price); per-kilo prices and bargaining practise exactly that.",
+      "storyIdea": "Fruit of the North through the seasons, and street vendors with their shoulder poles (quang gánh)."
     },
     {
       "id": "verbs",
@@ -241,29 +267,6 @@
       ],
       "notes": "rẽ was a contrast word in lesson 2 (rẻ against rẽ).",
       "storyIdea": "Millions of motorbikes, the Long Biên bridge, and how to cross a Hà Nội street."
-    },
-    {
-      "id": "market",
-      "title": "At the market",
-      "status": "planned",
-      "candidates": [
-        "quả",
-        "táo",
-        "cam",
-        "chuối",
-        "xoài",
-        "dưa hấu",
-        "thịt",
-        "thịt lợn",
-        "trứng",
-        "mua",
-        "bán",
-        "mặc cả",
-        "cân",
-        "túi"
-      ],
-      "notes": "quả and thịt lợn are Northern (the South says trái and thịt heo). Builds on lesson 2 prices.",
-      "storyIdea": "Fruit of the North through the seasons, and street vendors with their shoulder poles (quang gánh)."
     },
     {
       "id": "colours-clothes",

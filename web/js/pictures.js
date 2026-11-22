@@ -57,6 +57,70 @@ function card(ink, { tone = 'warm', paper, seed = 1, crisp = '' } = {}) {
 
 const steam = (xs, y, w = 1.8) => `<g stroke-width="${w}">${xs.map((x) => `<path d="M${x} ${y} c-4 -5 3 -8 0 -13 c-3 -5 3 -8 1 -12"/>`).join('')}</g>`;
 
+// People for the family words. A standing figure: the person a word names is tinted, a plain figure stands for you,
+// and height shows who is older. Returns the drawing and the points where arms join, so each picture adds its own gesture.
+function person(x, base, h, { fill = 'k-paper', hair = 'short', dress = false } = {}) {
+  const r = h * 0.125;
+  const hy = base - h + r;
+  const sy = hy + r + h * 0.035;
+  const ws = h * 0.165;
+  const hip = base - h * 0.4;
+  const legs = (top) => `<path d="M${n1(x - h * 0.06)} ${n1(top)} L${n1(x - h * 0.075)} ${n1(base)} M${n1(x + h * 0.06)} ${n1(top)} L${n1(x + h * 0.075)} ${n1(base)}"/>`;
+  const shoulders = `M${n1(x - ws)} ${n1(sy + r * 0.9)} C${n1(x - ws)} ${n1(sy - r * 0.15)} ${n1(x - ws * 0.6)} ${n1(sy - r * 0.3)} ${n1(x)} ${n1(sy - r * 0.3)} C${n1(x + ws * 0.6)} ${n1(sy - r * 0.3)} ${n1(x + ws)} ${n1(sy - r * 0.15)} ${n1(x + ws)} ${n1(sy + r * 0.9)}`;
+  let body;
+  if (dress) {
+    const hem = base - h * 0.19;
+    body = `${legs(hem - 2)}<path class="${fill}" d="${shoulders} L${n1(x + h * 0.23)} ${n1(hem)} C${n1(x + h * 0.1)} ${n1(hem + 1.6)} ${n1(x - h * 0.1)} ${n1(hem + 1.6)} ${n1(x - h * 0.23)} ${n1(hem)} Z"/>`;
+  } else {
+    body = `${legs(hip - 2)}<path class="${fill}" d="${shoulders} L${n1(x + h * 0.14)} ${n1(hip)} L${n1(x - h * 0.14)} ${n1(hip)} Z"/>`;
+  }
+  const behind = hair === 'long' ? `<path class="k-dot" d="M${n1(x - r * 1.12)} ${n1(hy + r * 1.75)} C${n1(x - r * 1.5)} ${n1(hy - r * 1.25)} ${n1(x + r * 1.5)} ${n1(hy - r * 1.25)} ${n1(x + r * 1.12)} ${n1(hy + r * 1.75)} Z"/>` : '';
+  const cap = `<path class="k-dot" d="M${n1(x - r * 1.02)} ${n1(hy + r * 0.1)} C${n1(x - r * 1.1)} ${n1(hy - r * 1.45)} ${n1(x + r * 1.1)} ${n1(hy - r * 1.45)} ${n1(x + r * 1.02)} ${n1(hy + r * 0.1)} C${n1(x + r * 0.7)} ${n1(hy - r * 0.55)} ${n1(x - r * 0.1)} ${n1(hy - r * 0.75)} ${n1(x - r * 1.02)} ${n1(hy + r * 0.1)} Z"/>`;
+  const top = hair === 'short' || hair === 'long' ? cap : hair === 'tuft' ? `<path stroke-width="1.5" d="M${n1(x - r * 0.3)} ${n1(hy - r)} c0 -3 3 -4 4 -2"/>` : '';
+  const ink = `${behind}${body}<circle class="k-paper" cx="${n1(x)}" cy="${n1(hy)}" r="${n1(r)}"/>${top}`;
+  return { ink, sy, ws, hy, r, hip };
+}
+
+// A head-and-shoulders portrait for the older family words; each adds its own hair, hat and face on top.
+const BUST = {
+  shirt: (cls = 'k-tint') => `<path class="${cls}" d="M20 89 C22 73 34 64 47 62 L73 62 C86 64 98 73 100 89 Z"/>`,
+  head: (cy = 38) => `<path d="M54 ${cy + 12} V62 M66 ${cy + 12} V62"/><circle class="k-paper" cx="60" cy="${cy}" r="14.5"/>`,
+  ears: (cy = 38) => `<path class="k-paper" stroke-width="1.6" d="M45.6 ${cy - 3} c-4 0 -4 7 0 7 M74.4 ${cy - 3} c4 0 4 7 0 7"/>`,
+};
+const eyes = (y, dx = 6) => `<circle class="k-dot" cx="${60 - dx}" cy="${y}" r="1.5"/><circle class="k-dot" cx="${60 + dx}" cy="${y}" r="1.5"/>`;
+
+// Two standing people for anh, chị, em and bạn, joined by a gesture: an arm round the shoulders, a hand held, a hand on the head.
+function family(kind) {
+  const arm = (x1, y1, x2, y2) => `M${n1(x1)} ${n1(y1)} L${n1(x2)} ${n1(y2)}`;
+  if (kind === 'brother' || kind === 'sister') {
+    const b = person(45, 82, 64, kind === 'sister' ? { fill: 'k-tint', hair: 'long', dress: true } : { fill: 'k-tint' });
+    const y = person(79, 82, 45);
+    const reach = kind === 'brother'
+      ? `<path d="M${n1(45 + b.ws)} ${n1(b.sy + 2)} C62 ${n1(b.sy + 6)} 72 ${n1(y.sy - 2)} ${n1(79 + y.ws + 1)} ${n1(y.sy + 1)}"/><path d="${arm(79 + y.ws, y.sy + 2, 79 + y.ws + 3, y.hip + 3)}"/>`
+      : `<path d="M${n1(45 + b.ws)} ${n1(b.sy + 2)} C60 ${n1(b.sy + 12)} 64 ${n1(y.hip - 1)} 68 ${n1(y.hip - 2)}"/><path d="${arm(79 - y.ws, y.sy + 2, 68, y.hip - 2)} ${arm(79 + y.ws, y.sy + 2, 79 + y.ws + 3, y.hip + 3)}"/>`;
+    return {
+      ink: `${y.ink}${b.ink}<path d="${arm(45 - b.ws, b.sy + 2, 45 - b.ws - 4, b.hip + 4)}"/>${reach}`,
+      crisp: kind === 'sister' ? `<circle class="k-dot" cx="68" cy="${n1(y.hip - 2)}" r="2"/>` : '',
+    };
+  }
+  if (kind === 'younger') {
+    const o = person(43, 82, 64);
+    const c = person(78, 82, 40, { fill: 'k-tint', hair: 'tuft' });
+    return {
+      ink: `${o.ink}${c.ink}<path d="${arm(43 - o.ws, o.sy + 2, 43 - o.ws - 4, o.hip + 4)}"/>
+        <path d="M${n1(43 + o.ws)} ${n1(o.sy + 2)} C58 ${n1(o.sy + 2)} 66 ${n1(c.hy - c.r - 6)} 76 ${n1(c.hy - c.r - 1.5)}"/>
+        <path d="${arm(78 - c.ws, c.sy + 2, 78 - c.ws - 3, c.hip + 3)} ${arm(78 + c.ws, c.sy + 2, 78 + c.ws + 3, c.hip + 3)}"/>`,
+    };
+  }
+  const a = person(42, 82, 58);
+  const b = person(78, 82, 58, { fill: 'k-tint' });
+  return {
+    ink: `${a.ink}${b.ink}<path d="${arm(42 - a.ws, a.sy + 2, 42 - a.ws - 4, a.hip + 4)} ${arm(78 + b.ws, b.sy + 2, 78 + b.ws + 4, b.hip + 4)}"/>
+      <path d="M${n1(42 + a.ws)} ${n1(a.sy + 2)} L60 ${n1(a.hip + 1)} L${n1(78 - b.ws)} ${n1(b.sy + 2)}"/>`,
+    crisp: `<circle class="k-dot" cx="60" cy="${n1(a.hip + 1)}" r="2.2"/>`,
+  };
+}
+
 const ICONS = {
   bowl: {
     tone: 'warm',
@@ -185,6 +249,121 @@ const ICONS = {
       <path class="k-paper" d="M44 52 C48 66 72 66 76 52 Z"/>
       <path class="k-shade" stroke-width="1.6" d="M53 61 C55 56 65 56 67 61 C63 64 57 64 53 61 Z"/>
       <path stroke-width="2" d="M103 18 v10 M98 23 h10 M17 60 v8 M13 64 h8"/>`,
+  },
+  // Family words. Older and younger siblings stand beside a plain figure (you); the tinted one is the word.
+  brother: { tone: 'warm', seed: 141, ...family('brother') },
+  sister: { tone: 'warm', seed: 143, ...family('sister') },
+  younger: { tone: 'warm', seed: 145, ...family('younger') },
+  friend: { tone: 'warm', seed: 147, ...family('friend') },
+  me: {
+    tone: 'warm',
+    seed: 149,
+    ink: `${BUST.shirt()}
+      <path stroke-width="1.6" d="M52 62 L60 70 L68 62"/>
+      ${BUST.head(35)}${BUST.ears(35)}
+      <path class="k-dot" d="M45.4 36 C44 20 76 20 74.6 36 C70 28 58 26 45.4 36 Z"/>
+      <path class="k-mid" d="M22 90 C26 84 34 79 45 76 L48 84 C40 86 34 88 32 90 Z"/>
+      <path class="k-paper" d="M45 76 C49 73.5 53 72 57 70.6 L66 67.6 C68.4 66.8 69.6 69.6 67.4 70.8 L62.4 73 L68.6 72.2 C71 72 71.4 75 69 75.6 L62 77.6 L66.4 78 C68.6 78.4 68.4 81.2 66 81.2 L57 81.6 C53 82 50.4 83 48 84 Z"/>
+      <path stroke-width="1.2" d="M57 74.4 L62.4 73 M57.4 78.2 L62 77.6"/>
+      <path class="k-paper" stroke-width="1.8" d="M56.6 71 C57.6 67.6 59.6 65.4 62 64.6 C63.6 64.2 64.2 66 63.2 67"/>`,
+    crisp: `${eyes(37)}<path class="k-dot" d="M56.5 44 q3.5 2.6 7 0 q-3.5 1.2 -7 0 Z"/>`,
+  },
+  aunt: {
+    tone: 'warm',
+    seed: 151,
+    ink: `${BUST.shirt()}
+      <path class="k-tint" stroke-width="1.6" d="M51.5 56.4 C54 57.6 66 57.6 68.5 56.4 V62 C66 63.4 54 63.4 51.5 62 Z"/>
+      <path stroke-width="1.6" d="M68.4 62 C74 63.6 79 67.4 83 73.6"/>
+      ${BUST.head(38)}${BUST.ears(38)}
+      <path class="k-dot" d="M44.6 40 C40.6 38 41 33.4 44.6 32.6 C43.4 28 47.6 24.6 51.4 26.4 C52.6 22.2 58 21 60.6 24 C63.4 20.8 68.6 22.4 69.4 26.6 C73.4 25.4 77 29 75.4 33 C79 34.4 79 39 75.4 40.4 C74 34.6 70 31 64.6 30.4 C60 31.8 56 31.6 52.6 30.4 C48.4 31.4 45.6 35 44.6 40 Z"/>
+      <path stroke-width="1.3" d="M53 34.6 q3 -1.5 6 0 M61 34.6 q3 -1.5 6 0"/>`,
+    crisp: `${eyes(39.5)}<path class="k-dot" d="M56 46 q4 3 8 0 q-4 1.4 -8 0 Z"/><circle class="k-dot" cx="45.6" cy="45.5" r="1.4"/><circle class="k-dot" cx="74.4" cy="45.5" r="1.4"/><circle class="k-dot" cx="75.4" cy="65.6" r="1.1"/><circle class="k-dot" cx="79.4" cy="69.2" r="1.1"/>`,
+  },
+  uncle: {
+    tone: 'warm',
+    seed: 153,
+    ink: `${BUST.shirt()}
+      <path class="k-paper" stroke-width="1.6" d="M50 61 L60 69 L56 74 Z M70 61 L60 69 L64 74 Z"/>
+      <path stroke-width="1.5" d="M60 69 V86"/>
+      ${BUST.head(40)}${BUST.ears(40)}
+      <path class="k-mid" d="M43 35 C43 17 77 17 77 35 Z"/>
+      <path class="k-mid" d="M36 36 C46 31 74 31 84 36 C74 40 46 40 36 36 Z"/>
+      <path stroke-width="1.3" d="M47 31 C52 27 68 27 73 31"/>
+      <path stroke-width="2" d="M52.5 37.5 h5 M62.5 37.5 h5"/>`,
+    crisp: `${eyes(42)}<circle class="k-dot" cx="60" cy="20.4" r="1.6"/><path class="k-dot" d="M51.5 49.5 C54 46.4 58 46.4 60 48.4 C62 46.4 66 46.4 68.5 49.5 C66 50.8 62 50.6 60 49.6 C58 50.6 54 50.8 51.5 49.5 Z"/>`,
+  },
+  grandpa: {
+    tone: 'warm',
+    seed: 155,
+    ink: `${BUST.shirt()}
+      <path stroke-width="1.6" d="M52 62 Q60 68 68 62"/>
+      ${BUST.head(36)}${BUST.ears(36)}
+      <path class="k-paper" stroke-width="1.5" d="M45.6 33 C42 31 41.5 38 44 41 M74.4 33 C78 31 78.5 38 76 41"/>
+      <path stroke-width="1.1" d="M53 26 q7 -2 14 0 M55 29.5 q5 -1.4 10 0"/>
+      <circle stroke-width="1.5" cx="53.6" cy="36" r="4.6"/><circle stroke-width="1.5" cx="66.4" cy="36" r="4.6"/>
+      <path stroke-width="1.5" d="M58.2 35.4 q1.8 -1.4 3.6 0"/>
+      <path class="k-paper" stroke-width="1.6" d="M54 45 C53 55 56.5 65 60 74 C63.5 65 67 55 66 45 C63 47.5 57 47.5 54 45 Z"/>
+      <path stroke-width="1.1" d="M58 50 C58 57 59 63 60 68 M62 50 C62 56 61.5 61 61 65"/>
+      <path stroke-width="1.5" d="M60 43.6 C56 44 53 46 51 49.5 M60 43.6 C64 44 67 46 69 49.5"/>`,
+    crisp: eyes(36.4, 6.4),
+  },
+  grandma: {
+    tone: 'warm',
+    seed: 157,
+    ink: `${BUST.shirt()}
+      <path stroke-width="1.6" d="M51 62 Q60 69 69 62"/>
+      <circle class="k-paper" cx="60" cy="19.5" r="7"/>
+      <path stroke-width="1.1" d="M56 18 q4 -4 8 0 q-2 3 -5 2"/>
+      ${BUST.head(39)}${BUST.ears(39)}
+      <path class="k-paper" d="M44.6 39 C42 22.6 78 22.6 75.4 39 C73.6 33.6 70 30.6 66 30 C62 32 58 32 54 30 C50 30.6 46.4 33.6 44.6 39 Z"/>
+      <path stroke-width="1.1" d="M49 31 C52 28 56 27 59 27.6 M61 27.6 C64 27 68 28 71 31 M60 25.6 V30.6"/>
+      <path stroke-width="1.1" d="M54 34.6 q6 -1.6 12 0"/>
+      <path stroke-width="1.6" d="M51 40.6 q3 -3 6 0 M63 40.6 q3 -3 6 0"/>
+      <path stroke-width="1.1" d="M48.4 40 l-2.2 -1 M48.4 42.4 l-2.2 0.6 M71.6 40 l2.2 -1 M71.6 42.4 l2.2 0.6"/>
+      <path stroke-width="1.5" d="M55 46.6 q5 4 10 0"/>
+      <path stroke-width="1.1" d="M52.6 45 q-1 3 1 5 M67.4 45 q1 3 -1 5"/>`,
+    crisp: '<circle class="k-dot" cx="45.6" cy="46.4" r="1.5"/><circle class="k-dot" cx="74.4" cy="46.4" r="1.5"/>',
+  },
+  nametag: {
+    tone: 'warm',
+    seed: 159,
+    ink: `<path stroke-width="1.8" d="M57 22 C52 13 47 6 43 -1 M63 22 C68 13 73 6 77 -1"/>
+      <path class="k-paper" d="M39 27 C39 25.4 40 24.4 41.6 24.4 H78.4 C80 24.4 81 25.4 81 27 V82 C81 83.6 80 84.6 78.4 84.6 H41.6 C40 84.6 39 83.6 39 82 Z"/>
+      <path class="k-shade" stroke-width="1.4" d="M54 28 H66 V31 H54 Z"/>
+      <path class="k-paper" stroke-width="1.8" d="M55.4 19 H64.6 V30 H55.4 Z"/>
+      <path class="k-tint" stroke-width="1.6" d="M47 35 H73 V57 H47 Z"/>
+      <path class="k-paper" stroke-width="1.4" d="M51.6 57 C52 51.6 55.6 49.6 60 49.6 C64.4 49.6 68 51.6 68.4 57 Z"/>
+      <circle class="k-paper" stroke-width="1.4" cx="60" cy="44.2" r="4.6"/>
+      <path stroke-width="1.3" d="M47 77.6 H73"/>`,
+    crisp: textAt('Lan', 60, 68.4, 12.5),
+  },
+  fullname: {
+    tone: 'earth',
+    paper: false,
+    ink: `<path class="k-paper" d="M8 27 C40 24 80 24 112 27 C114 37 114 47 112 57 C80 60 40 60 8 57 C6 47 6 37 8 27 Z"/>
+      <path class="k-tint" stroke-width="1.7" d="M74 33 H105 V51 H74 Z"/>
+      <path stroke-width="2.6" d="M89.5 79 V64 M84.5 69 l5 -5 l5 5"/>`,
+    crisp: `${textAt('Nguyễn', 30, 42, 9.6)}${textAt('Văn', 59.5, 42, 9.6)}${textAt('Dũng', 89.5, 42, 9.6)}`,
+  },
+  edict: {
+    tone: 'earth',
+    seed: 161,
+    ink: `<path class="k-paper" d="M27 20 C50 18 70 18 93 20 L93 72 C70 74 50 74 27 72 Z"/>
+      <path class="k-tint" stroke-width="1.8" d="M20 16 C22 14 26 14 28 16 V76 C26 78 22 78 20 76 Z M92 16 C94 14 98 14 100 16 V76 C98 78 94 78 92 76 Z"/>
+      <path stroke-width="1.5" d="M42 28 v7 M42 39 v5 M42 48 v8 M42 60 v4 M53 28 v5 M53 37 v8 M53 49 v5 M53 58 v6 M64 28 v8 M64 40 v5 M64 49 v7"/>
+      <path class="k-shade" stroke-width="1.6" d="M72 50 H86 V64 H72 Z"/>
+      <path class="k-paper" stroke-width="1.1" d="M76 54 c2 -2 4 -2 6 0 c-2 2 -2 4 0 6 c-2 -1 -4 -1 -6 0 c1 -2 1 -4 0 -6 Z"/>`,
+  },
+  suitcase: {
+    tone: 'cool',
+    seed: 163,
+    ink: `<path d="M47 34 V27 C47 21 73 21 73 27 V34"/>
+      <path class="k-paper" d="M22 37 C22 35 24 34 26 34 H94 C96 34 98 35 98 37 V77 C98 79 96 80 94 80 H26 C24 80 22 79 22 77 Z"/>
+      <path class="k-tint" stroke-width="1.8" d="M38 34 V80 M82 34 V80"/>
+      <path stroke-width="1.4" d="M38 34 V80 M42 34 V80 M78 34 V80 M82 34 V80"/>
+      <circle class="k-tint" stroke-width="1.5" cx="60" cy="50" r="7"/><path stroke-width="1.1" d="M54 50 h12 M60 44 c-3 4 -3 8 0 12 c3 -4 3 -8 0 -12"/>
+      <path class="k-shade" stroke-width="1.4" d="M51 64 H69 V72 H51 Z"/>
+      <path stroke-width="1.6" d="M28 80 v3 M92 80 v3"/>`,
   },
 };
 
@@ -475,7 +654,41 @@ function legendScene(id) {
   };
 }
 
-const SCENES = { phoStall: phoScene, market: marketScene, legend: legendScene };
+// Issue 4: a family register (gia phả) unrolled on a table. Its tree is nearly all Nguyễn; the wife keeps her own name.
+function genealogyScene() {
+  const box = (cx, cy, w = 58) => `M${cx - w / 2} ${cy - 9} H${cx + w / 2} V${cy + 9} H${cx - w / 2} Z`;
+  const label = (cx, cy, t) => `<text class="k-text k-sign" x="${cx}" y="${n1(cy + 3.8)}" text-anchor="middle">${t}</text>`;
+  const roll = (x) => `<path class="k-shade" stroke-width="1.6" d="M${x - 3} 24 h6 v14 h-6 Z M${x - 3} 212 h6 v14 h-6 Z"/>
+      <circle class="k-mid" stroke-width="1.6" cx="${x}" cy="21.5" r="4.8"/><circle class="k-mid" stroke-width="1.6" cx="${x}" cy="228.5" r="4.8"/>
+      <path class="k-paper" d="M${x - 7.5} 38 C${x - 7.5} 35.4 ${x + 7.5} 35.4 ${x + 7.5} 38 V212 C${x + 7.5} 214.6 ${x - 7.5} 214.6 ${x - 7.5} 212 Z"/>
+      <path stroke-width="1.1" d="M${x - 3.6} 40 V210 M${x + 3.2} 40 V210"/>`;
+  const people = [[168, 98], [132, 137], [200, 137], [268, 137], [132, 175], [200, 175]];
+  let grain = '';
+  for (const [y, a, b] of [[224, 6, 120], [231, 150, 290], [238, 40, 96], [244, 300, 396], [221, 300, 380]]) grain += `M${a} ${y} C${a + (b - a) / 3} ${y - 1.5} ${a + (2 * (b - a)) / 3} ${y + 1.5} ${b} ${y} `;
+  return {
+    tone: 'warm',
+    back: '<path class="k-pale" d="M0 202 C120 199 280 199 400 202 V250 H0 Z"/>',
+    paper: 'M86 44 C150 41.5 250 41.5 314 44 V206 C250 208.5 150 208.5 86 206 Z',
+    under: '<ellipse class="k-mid" cx="200" cy="217" rx="128" ry="4.5"/>',
+    ink: `<path stroke-width="1" d="${grain.trim()}"/>
+      <path d="M86 44 C150 41.5 250 41.5 314 44 M86 206 C150 208.5 250 208.5 314 206"/>
+      ${roll(79)}${roll(321)}
+      <path stroke-width="1" d="M93 51 H307 V199 H93 Z"/>
+      <path stroke-width="1.4" d="M97 55 H303 V195 H97 Z M97 62 h7 v-7 M303 62 h-7 v-7 M97 188 h7 v7 M303 188 h-7 v7"/>
+      <path stroke-width="1.2" d="M148 75 H252 M144 75 l3 -3 l3 3 l-3 3 Z M250 75 l3 -3 l3 3 l-3 3 Z"/>
+      <path stroke-width="1.5" d="M197 96 H223 M197 100 H223 M210 100 V118 M132 118 H268 M132 118 V128 M200 118 V128 M268 118 V128 M132 146 V166 M200 146 V166"/>
+      <path class="k-paper" stroke-width="1.6" d="${people.map(([x, y]) => box(x, y)).join(' ')}"/>
+      <path class="k-tint" stroke-width="1.6" d="${box(247, 98, 48)}"/>
+      <path class="k-shade" stroke-width="1.6" d="M256 163 H280 V187 H256 Z"/>
+      <path stroke-width="1.2" d="M259.5 166.5 H276.5 V183.5 H259.5 Z M268 180.5 C263 177 263 172 268 169.5 C273 172 273 177 268 180.5 Z M268 180.5 C264.5 180.5 262 178.5 261.6 175.6 M268 180.5 C271.5 180.5 274 178.5 274.4 175.6"/>
+      <path class="k-paper" stroke-width="1.6" d="${stick(134, 241.5, 262, 233, 4.2, 5.4)}"/>
+      <path class="k-shade" stroke-width="1.4" d="${stick(134, 241.5, 146, 240.7, 5, 5)}"/>
+      <path class="k-dot" d="M134.4 239.4 C126 240.4 119 242.4 112 245.4 C119.6 245.6 127 244.8 134.6 243.6 Z"/>`,
+    crisp: `<text class="k-text k-sign" x="200" y="68" text-anchor="middle">GIA PHẢ HỌ NGUYỄN</text>${people.map(([x, y]) => label(x, y, 'NGUYỄN')).join('')}${label(247, 98, 'TRẦN')}`,
+  };
+}
+
+const SCENES = { phoStall: phoScene, market: marketScene, legend: legendScene, genealogy: genealogyScene };
 
 function scene(name) {
   const make = SCENES[name];

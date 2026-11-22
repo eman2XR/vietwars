@@ -223,8 +223,6 @@ def check_lesson(r, entry, lesson, earlier_words, audio, known_words, warmed=fro
             r.warn(where, "no picture")
         if w.get("fact") and len(w["fact"]) > 260:
             r.error(where, f"fact is {len(w['fact'])} characters (limit 260)")
-        if not w.get("fact"):
-            r.warn(where, "no did-you-know fact")
         if nfc(w.get("vi", "")).lower() in known_words:
             r.error(where, "the learner already knows this word (web/lessons/known.json)")
         key = nfc(w.get("vi", "")).lower()

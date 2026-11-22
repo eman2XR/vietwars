@@ -67,7 +67,8 @@
           "en": "grass carp (cá trắm)"
         }
       ],
-      "fact": "Trăm năm, a hundred years, means a lifetime. The great poem Truyện Kiều opens with it: \"Trăm năm trong cõi người ta\"."
+      "fact": "Trăm năm, a hundred years, means a lifetime. The great poem Truyện Kiều opens with it: \"Trăm năm trong cõi người ta\".",
+      "note": "trăm is 100: hai trăm nghìn is 200.000₫. Not triệu, a million."
     },
     {
       "vi": "nghìn",
@@ -77,7 +78,8 @@
       },
       "hook": "Say \"sing in\" and drop the \"si\": \"ngin\". A thousand singers, every voice sinking low.",
       "tip": "ngh is the ng of \"sing\" (written ngh before i, e and ê). The huyền tone falls gently. The South says ngàn.",
-      "fact": "Hà Nội says nghìn; the South says ngàn. Both mean a thousand."
+      "fact": "Hà Nội says nghìn; the South says ngàn. Both mean a thousand.",
+      "note": "nghìn is 1.000, the last word of most prices: năm mươi nghìn is 50.000₫."
     },
     {
       "vi": "triệu",
@@ -103,7 +105,7 @@
         "kind": "dots",
         "n": 20
       },
-      "hook": "The Fat Cat returns with twenty kittens (hai mươi), all crying one calm, level note. Ten on its own, mười, sighs down.",
+      "hook": "A 20.000₫ note says hai mươi nghìn: mươi is the -ty, calm and level. Ten on its own, mười, sighs down.",
       "tip": "Like mười, but level: no fall.",
       "note": "After mươi, 1 becomes mốt: hai mươi mốt is 21. At stalls people drop nghìn: \"Năm mươi!\" means 50.000₫, and menus write 50k.",
       "contrast": [
@@ -287,7 +289,8 @@
           "en": "half"
         }
       ],
-      "fact": "\"Một bát nữa!\" (one more bowl!) is a fine thing to say at a phở stall; bát is the Northern word for bowl."
+      "fact": "\"Một bát nữa!\" (one more bowl!) is a fine thing to say at a phở stall; bát is the Northern word for bowl.",
+      "note": "nữa is more: một cốc nữa, one more glass. Not nửa, half."
     }
   ],
   "grammar": {

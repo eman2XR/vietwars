@@ -1,0 +1,452 @@
+{
+  "id": "lesson-04",
+  "number": 4,
+  "title": "People and family",
+  "vi": "Anh, chị, em",
+  "theme": "people and family: family words as I and you",
+  "intro": "The family words Hà Nội uses for everyone, strangers included: anh, chị, em, cô, chú, ông and bà, plus bạn, tôi and tên. Then more prices by ear: round taxi fares, bills in the hundreds of thousands and a tourist price.",
+  "cover": {
+    "picture": {
+      "kind": "scene",
+      "name": "genealogy"
+    }
+  },
+  "feature": {
+    "kicker": "Names and people",
+    "title": "A country of Nguyễns",
+    "dek": "About a third of Vietnamese share one family name, and almost nobody is called by it. Hà Nội uses given names and family words instead, even for strangers.",
+    "intro": "Nguyễn is the family name of about a third of all Vietnamese (estimates run from 30 to 39 percent), far ahead of Trần and Lê. Shout \"Mr Nguyễn!\" down a busy Hà Nội street and a third of the crowd could turn round. Nobody does: people go by the last part of their name, whatever the family name.",
+    "beats": [
+      {
+        "word": "tên",
+        "picture": {
+          "kind": "icon",
+          "name": "fullname"
+        },
+        "text": "The family name comes first, and the name people use comes last. Nguyễn Văn Dũng is anh Dũng to people a little younger and ông Dũng when he is old. Even formally it is ông Dũng, almost never Mr Nguyễn."
+      },
+      {
+        "picture": {
+          "kind": "icon",
+          "name": "younger"
+        },
+        "text": "There is no all-purpose you, so family words do the job, even with strangers. A young waiter is em and calls you anh or chị. New acquaintances may ask each other's age, just to pick the right word."
+      },
+      {
+        "word": "ông",
+        "picture": {
+          "kind": "icon",
+          "name": "grandpa"
+        },
+        "text": "In a big family, rank beats age: someone younger than you can be your ông trẻ, young grandfather, if he belongs to your grandparents' generation. The saying goes: Bé bằng củ khoai, cứ vai mà gọi. Small as a potato, call him by his rank."
+      },
+      {
+        "picture": {
+          "kind": "icon",
+          "name": "edict"
+        },
+        "text": "Why so many Nguyễns? In 1232 the new Trần rulers made the fallen Lý royal clan take the name. When later dynasties fell, many of their families became Nguyễn too, to stay safe."
+      },
+      {
+        "picture": {
+          "kind": "big",
+          "label": "Phúc → Văn"
+        },
+        "text": "Plain Nguyễn was allowed, but the royal double surname, Nguyễn Phúc, was not. In 1842 a young man passed the exams in Huế as Nguyễn Phúc Tường. Emperor Thiệu Trị struck him off, renamed him Nguyễn Văn Tường and had him banished for a year."
+      },
+      {
+        "picture": {
+          "kind": "icon",
+          "name": "suitcase"
+        },
+        "text": "The name travelled with emigrants: in the 2010 US census Nguyen was the 38th most common family name. It is the most common inherited family name in Iceland, where most last names are a father's first name plus -son or -dóttir."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Nguyen",
+        "url": "https://en.wikipedia.org/wiki/Nguyen"
+      },
+      {
+        "title": "Vietnamese name",
+        "url": "https://en.wikipedia.org/wiki/Vietnamese_name"
+      },
+      {
+        "title": "Họ người Việt Nam (Vietnamese)",
+        "url": "https://vi.wikipedia.org/wiki/H%E1%BB%8D_ng%C6%B0%E1%BB%9Di_Vi%E1%BB%87t_Nam"
+      },
+      {
+        "title": "Pronouns in Vietnamese",
+        "url": "https://en.wikipedia.org/wiki/Pronouns_in_Vietnamese"
+      },
+      {
+        "title": "Đại từ nhân xưng (Vietnamese)",
+        "url": "https://vi.wikipedia.org/wiki/%C4%90%E1%BA%A1i_t%E1%BB%AB_nh%C3%A2n_x%C6%B0ng"
+      },
+      {
+        "title": "Ngày Nhà giáo Việt Nam (Vietnamese)",
+        "url": "https://vi.wikipedia.org/wiki/Ng%C3%A0y_Nh%C3%A0_gi%C3%A1o_Vi%E1%BB%87t_Nam"
+      },
+      {
+        "title": "Nguyễn Văn Tường (Vietnamese)",
+        "url": "https://vi.wikipedia.org/wiki/Nguy%E1%BB%85n_V%C4%83n_T%C6%B0%E1%BB%9Dng"
+      },
+      {
+        "title": "Íslenskt mannanafn (Icelandic)",
+        "url": "https://is.wikipedia.org/wiki/%C3%8Dslenskt_mannanafn"
+      }
+    ]
+  },
+  "challenge": {
+    "title": "Street challenge",
+    "text": "Buy from the same stall twice. The first time, give your name, \"Tên tôi là ...\", and ask the seller's: \"Chị tên là gì ạ?\" (gì is what, ạ makes it polite; say cô to a woman a bit younger than your mother, anh or chú to a man). The second time, greet them by name, for example \"Chào chị Lan!\" (hello, Lan)."
+  },
+  "stamp": {
+    "label": "Nguyễn",
+    "picture": {
+      "kind": "scene",
+      "name": "genealogy"
+    }
+  },
+  "words": [
+    {
+      "vi": "tên",
+      "en": "name",
+      "picture": {
+        "kind": "icon",
+        "name": "nametag"
+      },
+      "hook": "A teacher with a class full of Nguyễns calls the register by given name. Say \"ten\", level and calm, with a tighter e: tên, name.",
+      "tip": "ê is tighter than the e in \"ten\": close to the a in \"day\" without sliding into y. The t has no puff of air.",
+      "note": "Tên tôi là ...: my name is ... In a full name, tên is the last part, the one people use.",
+      "fact": "Vietnamese women keep their own family name when they marry. Children usually take their father's."
+    },
+    {
+      "vi": "tôi",
+      "en": "I, me (neutral; safe with strangers)",
+      "picture": {
+        "kind": "icon",
+        "name": "me"
+      },
+      "hook": "A toy soldier salutes and announces: \"I, your humble servant!\" Say \"toy\", level and calm: tôi, I.",
+      "tip": "ô is a tight, rounded o, then a short i: \"toy\" with rounder lips. The t has no puff of air.",
+      "note": "The neutral I, safe with strangers and at work. With friends it sounds stiff (they say mình); with family, people use family words.",
+      "fact": "Tôi began as a word for servant or subject: tôi tớ still means servants, and vua tôi the king and his subjects.",
+      "contrast": [
+        {
+          "vi": "tối",
+          "en": "evening; dark"
+        }
+      ]
+    },
+    {
+      "vi": "anh",
+      "en": "older brother; you (to a man a bit older)",
+      "picture": {
+        "kind": "icon",
+        "name": "brother"
+      },
+      "hook": "Your older brother shrugs: \"Ain't my problem.\" Drop the t and keep it level: anh.",
+      "tip": "In Hà Nội anh sounds close to \"ain\" with a soft ng at the end, the tongue staying forward. Level tone.",
+      "note": "Also I: a man calls himself anh to someone younger, such as a waiter.",
+      "contrast": [
+        {
+          "vi": "ảnh",
+          "en": "photo"
+        }
+      ]
+    },
+    {
+      "vi": "chị",
+      "en": "older sister; you (to a woman a bit older)",
+      "picture": {
+        "kind": "icon",
+        "name": "sister"
+      },
+      "hook": "Your older sister drags you to tai chi in the park at dawn. Say \"chi\", then drop it low and stop dead: chị.",
+      "tip": "ch is the ch in \"chip\" with no puff of air, and the i is short. Nặng drops low and stops with a catch in the throat.",
+      "note": "Also I: a woman calls herself chị to someone younger, such as a waiter.",
+      "contrast": [
+        {
+          "vi": "chỉ",
+          "en": "only; thread"
+        }
+      ]
+    },
+    {
+      "vi": "em",
+      "en": "younger brother or sister; you (to someone younger)",
+      "picture": {
+        "kind": "icon",
+        "name": "younger"
+      },
+      "hook": "At a busy café, say the letter \"M\", calm and level, and the youngest waiter turns round: em.",
+      "tip": "e is open, like the e in \"them\". Keep it level, with no rise at the end, even in Em ơi!",
+      "note": "Em ơi! calls a waiter. Em is also I, when you talk to someone older.",
+      "fact": "Anh yêu em is I love you, from a man to a woman: couples call each other anh and em.",
+      "contrast": [
+        {
+          "vi": "êm",
+          "en": "soft, smooth"
+        }
+      ]
+    },
+    {
+      "vi": "cô",
+      "en": "aunt; you (to a woman a bit younger than your parents)",
+      "picture": {
+        "kind": "icon",
+        "name": "aunt"
+      },
+      "hook": "Your aunt fusses with your coat collar before you go out. The \"co\" of coat, held level and calm: cô.",
+      "tip": "c has no puff of air (like the c in \"scoop\"), so it can sound close to a hard g. ô is a tight, rounded o with no slide into w: not \"coh-oo\".",
+      "note": "Also a woman teacher, and Miss with a name: cô Lan. A woman older than your parents is bác.",
+      "fact": "Students call a woman teacher cô and a man teacher thầy. 20 November is Vietnamese Teachers' Day.",
+      "contrast": [
+        {
+          "vi": "cố",
+          "en": "to try hard"
+        }
+      ]
+    },
+    {
+      "vi": "chú",
+      "en": "uncle; you (to a man a bit younger than your parents)",
+      "picture": {
+        "kind": "icon",
+        "name": "uncle"
+      },
+      "hook": "Your uncle holds out a stick of sugar cane and calls, voice rising: \"Chew!\" chú.",
+      "tip": "u is the oo of \"moon\", with rounded lips. ch has no puff of air. Sắc rises.",
+      "note": "For a man a bit younger than your parents: a taxi driver, a neighbour. Older than your parents: bác.",
+      "contrast": [
+        {
+          "vi": "chủ",
+          "en": "owner, boss"
+        }
+      ]
+    },
+    {
+      "vi": "ông",
+      "en": "grandfather; you (to an old man)",
+      "picture": {
+        "kind": "icon",
+        "name": "grandpa"
+      },
+      "hook": "Grandpa reads the newspaper, humming a calm, level \"ohm\": ông.",
+      "tip": "After ô, the final ng closes with the lips, so ông sounds like a quick \"ohm\". A long ô with a plain m is another word, ôm (to hug, as in xe ôm). Level tone.",
+      "note": "Also Mr with a name: ông Dũng is Mr Dũng.",
+      "contrast": [
+        {
+          "vi": "ống",
+          "en": "pipe, tube"
+        }
+      ]
+    },
+    {
+      "vi": "bạn",
+      "en": "friend; you (to someone your own age)",
+      "picture": {
+        "kind": "icon",
+        "name": "friend"
+      },
+      "hook": "You and your best friend slap a low five: \"bahn!\" (a as in \"father\"), low and cut short: bạn.",
+      "tip": "A long, open a, as in \"father\". The b is soft, almost swallowed. Nặng drops low and stops short.",
+      "note": "To someone your own age. Bạn tên là gì? What's your name?",
+      "contrast": [
+        {
+          "vi": "bán",
+          "en": "to sell"
+        },
+        {
+          "vi": "bàn",
+          "en": "table"
+        }
+      ]
+    },
+    {
+      "vi": "bà",
+      "en": "grandmother; you (to an old woman)",
+      "picture": {
+        "kind": "icon",
+        "name": "grandma"
+      },
+      "hook": "Grandma puts down her heavy market baskets with a long, falling sigh: \"bah...\" bà.",
+      "tip": "A long, open a. Huyền starts a little low and falls gently, often breathy. The b is soft, almost swallowed.",
+      "note": "Also Mrs with a name: bà Lan. Without the mark, ba is three.",
+      "contrast": [
+        {
+          "vi": "ba",
+          "en": "three"
+        }
+      ]
+    }
+  ],
+  "grammar": {
+    "title": "Family words are I and you",
+    "text": "Vietnamese has no all-purpose you. Pick the family word that fits the other person's age compared with yours, and use its partner for yourself: to a young waiter you are anh (a woman says chị) and he is em. Tôi is the neutral I: safe with strangers, but cold with friends and family.",
+    "examples": [
+      {
+        "vi": "Em ơi, cho anh một cốc nữa.",
+        "en": "One more glass for me, please (a man to a young waiter)."
+      },
+      {
+        "vi": "Anh tên là gì?",
+        "en": "What's your name? (to a man a bit older)"
+      }
+    ]
+  },
+  "combos": [
+    {
+      "vi": "Tên tôi là Nam.",
+      "en": "My name is Nam.",
+      "note": "là: is (it joins two nouns). Nam is a common man's name."
+    },
+    {
+      "vi": "Chị ơi, bao nhiêu tiền?",
+      "en": "Excuse me, how much is it? (to a woman your age or a bit older)",
+      "note": "ơi: hey, after the word you call someone by."
+    },
+    {
+      "vi": "Em ơi, cho anh một cốc nữa.",
+      "en": "One more glass for me, please.",
+      "note": "cho anh: for me (a man to someone younger; a woman says cho chị). cốc: glass. một ... nữa: one more."
+    },
+    {
+      "vi": "Hết hai mươi nghìn.",
+      "en": "20.000₫ in total",
+      "note": "hết: in total. You will hear it before most fares and bills."
+    },
+    {
+      "vi": "Hết hai trăm nghìn.",
+      "en": "200.000₫ in total",
+      "note": "hết: in total."
+    },
+    {
+      "vi": "mười lăm nghìn",
+      "en": "15.000₫",
+      "note": "After mười, năm becomes lăm."
+    },
+    {
+      "vi": "năm mươi nghìn",
+      "en": "50.000₫"
+    }
+  ],
+  "situations": [
+    {
+      "who": "Taxi driver",
+      "picture": {
+        "kind": "notes"
+      },
+      "vi": "Hết bảy mươi nghìn anh ạ.",
+      "en": "That's 70,000 altogether.",
+      "note": "hết: in total. anh ạ: politely, to you.",
+      "ask": "Type the fare in digits.",
+      "digits": "70000"
+    },
+    {
+      "who": "Waiter",
+      "picture": {
+        "kind": "icon",
+        "name": "ricebowl"
+      },
+      "vi": "Của anh hết hai trăm nghìn ạ.",
+      "en": "Yours comes to 200,000.",
+      "note": "của anh: yours (to a man); ạ makes it polite.",
+      "ask": "Type the bill in digits.",
+      "digits": "200000"
+    },
+    {
+      "who": "Café",
+      "picture": {
+        "kind": "icon",
+        "name": "phin"
+      },
+      "vi": "Ba cà phê, một trăm linh năm nghìn ạ.",
+      "en": "Three coffees: 105,000.",
+      "note": "linh fills the empty tens: một trăm linh năm is 105; 150 is một trăm năm mươi.",
+      "ask": "What is the bill?",
+      "options": [
+        "105.000₫",
+        "150.000₫",
+        "15.000₫",
+        "10.000₫"
+      ],
+      "answer": "105.000₫"
+    },
+    {
+      "who": "Tea seller",
+      "picture": {
+        "kind": "icon",
+        "name": "tea"
+      },
+      "vi": "Trà đá năm mươi nghìn một cốc.",
+      "en": "Iced tea, 50,000 a glass.",
+      "note": "A glass of trà đá usually costs about 5,000, năm nghìn. Năm mươi nghìn is ten times that: a tourist price.",
+      "ask": "Locals pay about 5.000₫ a glass. What do you say?",
+      "options": [
+        "Đắt quá!",
+        "Ngon quá!",
+        "Rẻ quá!"
+      ],
+      "answer": "Đắt quá!"
+    },
+    {
+      "who": "Bánh mì seller",
+      "picture": {
+        "kind": "icon",
+        "name": "aunt"
+      },
+      "vi": "Bánh mì nóng đây!",
+      "en": "Hot bánh mì here!",
+      "note": "nóng: hot. đây: here. To a woman a bit younger than your mother, cô is polite and warm.",
+      "ask": "She is a bit younger than your mother. Call her over.",
+      "options": [
+        "Cô ơi!",
+        "Em ơi!",
+        "Bà ơi!"
+      ],
+      "answer": "Cô ơi!"
+    },
+    {
+      "who": "Xe ôm driver",
+      "picture": {
+        "kind": "icon",
+        "name": "uncle"
+      },
+      "vi": "Xe ôm không?",
+      "en": "Motorbike taxi?",
+      "note": "A xe ôm, a motorbike taxi, is literally a hug vehicle: you hold on behind the driver. Không at the end makes a question.",
+      "ask": "He is a bit younger than your father. Ask him the price.",
+      "options": [
+        "Chú ơi, bao nhiêu tiền?",
+        "Em ơi, bao nhiêu tiền?",
+        "Ông ơi, bao nhiêu tiền?"
+      ],
+      "answer": "Chú ơi, bao nhiêu tiền?"
+    },
+    {
+      "who": "Young woman at a café",
+      "picture": {
+        "kind": "icon",
+        "name": "friend"
+      },
+      "vi": "Bạn tên là gì?",
+      "en": "What's your name?",
+      "note": "gì: what. Bạn is the you for people your own age.",
+      "ask": "What do you say?",
+      "options": [
+        "Tên tôi là Nam.",
+        "Tên bạn là Nam.",
+        "Bạn tên là gì?"
+      ],
+      "answer": "Tên tôi là Nam."
+    }
+  ],
+  "review": [
+    "trăm",
+    "nghìn",
+    "mươi",
+    "nữa"
+  ]
+}
