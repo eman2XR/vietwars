@@ -82,7 +82,7 @@ The learner's goal (2026-11-22): basic conversation at a dinner table and unders
 - Reviews show the `note`, not the hook, so give a weak word a short `note` that anchors the meaning (for example "c as in carp: cá is fish").
 
 **Pronunciation tips**
-- Hà Nội speech: r, d and gi all sound like z; tr and ch are the same (no puff of air); s and x are the same; final c, t and p are not released; after u and ô, final c and ng close with the lips; ph is f; ng and ngh are the ng of "sing"; nh is the ny of "canyon"; anh sounds close to "ain" with a soft ng.
+- Hà Nội speech: r, d and gi all sound like z; tr and ch are the same (no puff of air); s and x are the same; final c, t and p are not released; after u and ô, final c and ng close with the lips; ph is f; ng and ngh are the ng of "sing"; nh is the ny of "canyon"; anh is a short, open a (as in "cat") gliding towards ee, with a soft ng: not the vowel of "cane", which is nearer ê.
 - Describe tones by shape and feel.
 
 **Contrast words** ("which spelling did you hear?")

@@ -848,6 +848,8 @@ export function runSession(root, session, onDone, onQuit) {
     situation(step) {
       const sit = step.word;
       const digits = !sit.options && sit.digits;
+      // Options are shuffled each time, so the answer's position gives nothing away.
+      const opts = sit.options ? shuffle(sit.options) : [];
       stage.innerHTML = `
         <div class="kicker">Real life${sit.who ? ` · ${esc(sit.who)}` : ''}</div>
         ${pic(sit, 'medium')}
@@ -856,7 +858,7 @@ export function runSession(root, session, onDone, onQuit) {
         ${
           digits
             ? `<form class="digits-form" autocomplete="off" novalidate><input class="type-input digits-input" type="text" inputmode="numeric" placeholder="Type the number" aria-label="Your answer"><div class="row center helper-row"><button type="button" class="btn ghost small sit-hint">Hint</button></div><div class="hint-slot"></div><div class="feedback-slot"></div>${footer('<button type="submit" class="btn primary" data-act="check">Check</button>')}</form>`
-            : `<div class="options">${sit.options.map((o, i) => `<button type="button" class="opt" data-i="${i}" data-key="${esc(o)}"><span class="opt-n">${i + 1}</span><span class="opt-label">${esc(o)}</span></button>`).join('')}</div><div class="feedback-slot"></div>${footer('')}`
+            : `<div class="options">${opts.map((o, i) => `<button type="button" class="opt" data-i="${i}" data-key="${esc(o)}"><span class="opt-n">${i + 1}</span><span class="opt-label">${esc(o)}</span></button>`).join('')}</div><div class="feedback-slot"></div>${footer('')}`
         }`;
       play(sit.vi);
       const price = sit.answer || `${String(sit.digits).replace(/[^0-9]/g, '').replace(/\B(?=(\d{3})+(?!\d))/g, '.')}₫`;
@@ -911,7 +913,7 @@ export function runSession(root, session, onDone, onQuit) {
           b.addEventListener('click', () => {
             if (S.answered) return;
             S.answered = true;
-            const chosen = sit.options[Number(b.dataset.i)];
+            const chosen = opts[Number(b.dataset.i)];
             markOptions(chosen, sit.answer);
             reveal(chosen === sit.answer, chosen);
             if (spoken) play(price);
@@ -924,7 +926,7 @@ export function runSession(root, session, onDone, onQuit) {
     dialogue(step) {
       const d = step.dialogue;
       const where = d.setting === 'table' ? 'At the table' : d.setting === 'street' ? 'In the street' : '';
-      const options = d.check.options;
+      const options = shuffle(d.check.options);
       stage.innerHTML = `
         <div class="kicker">Conversation${where ? ` · ${where}` : ''}</div>
         ${pic(d, 'medium')}

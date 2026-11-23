@@ -161,6 +161,45 @@ function lychee(cx, cy, r) {
   return `<circle class="k-tint" cx="${cx}" cy="${cy}" r="${r}"/><path stroke-width="1" d="${marks.map(([u, v]) => `M${n1(cx + u * r - 1.6)} ${n1(cy + v * r + 0.6)} q1.6 -2.2 3.2 0`).join(' ')}"/>`;
 }
 
+// Issue 6, the family table. A bowl of rice seen from the side, as in the ricebowl icon, scaled by s about the middle
+// of its rim at (x, y); empty leaves the rice out.
+function bowlOfRice(x, y, s = 1, { cls = 'k-tint', empty = false } = {}) {
+  const p = (px, py) => `${n1(x + (px - 60) * s)} ${n1(y + (py - 45) * s)}`;
+  const rice = empty ? '' : `<path class="k-paper" d="M${p(27, 45)} C${p(29, 31)} ${p(43, 23)} ${p(60, 23)} C${p(77, 23)} ${p(91, 31)} ${p(93, 45)} Z"/>
+    <path stroke-width="${n1(Math.max(0.9, 1.5 * s))}" d="M${p(45, 33)} l${n1(3 * s)} ${n1(-1 * s)} M${p(56, 29)} l${n1(3 * s)} ${n1(1 * s)} M${p(66, 33)} l${n1(3 * s)} ${n1(-1 * s)} M${p(51, 40)} l${n1(3 * s)} ${n1(1 * s)} M${p(73, 39)} l${n1(3 * s)} ${n1(-1 * s)}"/>`;
+  return `${rice}<path class="${cls}" d="M${p(21, 45)} C${p(23, 62)} ${p(40, 73)} ${p(60, 73)} C${p(80, 73)} ${p(97, 62)} ${p(99, 45)} Z"/>
+    <path d="M${p(19, 45)} H${n1(x + 41 * s)}"/>
+    <path stroke-width="${n1(Math.max(1, 1.7 * s))}" d="M${p(30, 56)} C${p(45, 61)} ${p(75, 61)} ${p(90, 56)}"/>
+    <path class="k-paper" d="M${p(49, 73)} L${p(47, 79)} H${n1(x + 13 * s)} L${p(71, 73)}"/>`;
+}
+
+// A small rice bowl seen from above at an angle, for a tray: the side below the rim, then rice heaped inside it.
+function trayBowl(x, y, rx = 8, ry = 3.4) {
+  return `<path class="k-tint" stroke-width="1.5" d="M${n1(x - rx)} ${n1(y)} C${n1(x - rx)} ${n1(y + ry * 1.9)} ${n1(x + rx)} ${n1(y + ry * 1.9)} ${n1(x + rx)} ${n1(y)} Z"/>
+    <ellipse class="k-paper" stroke-width="1.5" cx="${n1(x)}" cy="${n1(y)}" rx="${n1(rx)}" ry="${n1(ry)}"/>
+    <path class="k-paper" stroke-width="1.3" d="M${n1(x - rx * 0.72)} ${n1(y - ry * 0.1)} C${n1(x - rx * 0.6)} ${n1(y - ry * 1.5)} ${n1(x + rx * 0.6)} ${n1(y - ry * 1.5)} ${n1(x + rx * 0.72)} ${n1(y - ry * 0.1)}"/>`;
+}
+
+// cháu: a grandmother with her hair in a bun and a walking stick, holding her grandchild's hand. The child is the word.
+function grandkid() {
+  const g = person(44, 83, 62, { hair: 'none' });
+  const c = person(84, 83, 37, { fill: 'k-tint', hair: 'tuft' });
+  const r = g.r;
+  const hy = g.hy;
+  const meet = [69, n1(c.hip - 2)];
+  const hair = `<circle class="k-pale" stroke-width="1.7" cx="44" cy="${n1(hy - r * 1.18)}" r="${n1(r * 0.52)}"/>
+    <path class="k-pale" d="M${n1(44 - r * 1.04)} ${n1(hy + r * 0.15)} C${n1(44 - r * 1.15)} ${n1(hy - r * 1.4)} ${n1(44 + r * 1.15)} ${n1(hy - r * 1.4)} ${n1(44 + r * 1.04)} ${n1(hy + r * 0.15)} C${n1(44 + r * 0.6)} ${n1(hy - r * 0.45)} ${n1(44 - r * 0.6)} ${n1(hy - r * 0.45)} ${n1(44 - r * 1.04)} ${n1(hy + r * 0.15)} Z"/>
+    <path stroke-width="1.1" d="M${n1(44 - r * 0.55)} ${n1(hy - r * 0.62)} C${n1(44 - r * 0.2)} ${n1(hy - r * 0.95)} ${n1(44 + r * 0.2)} ${n1(hy - r * 0.95)} ${n1(44 + r * 0.55)} ${n1(hy - r * 0.62)}"/>`;
+  const stickTop = [n1(44 - g.ws - 5), n1(g.hip + 1)];
+  return {
+    ink: `${g.ink}${hair}${c.ink}
+      <path d="M${n1(44 - g.ws)} ${n1(g.sy + 2)} L${stickTop[0]} ${stickTop[1]}"/>
+      <path stroke-width="2.3" d="M${stickTop[0]} ${stickTop[1]} L${n1(44 - g.ws - 7)} 84 M${stickTop[0]} ${stickTop[1]} c0.6 -3.6 5 -4.6 7 -1.6"/>
+      <path d="M${n1(44 + g.ws)} ${n1(g.sy + 2)} C${n1(44 + g.ws + 6)} ${n1(g.sy + 12)} ${n1(meet[0] - 6)} ${n1(meet[1] - 4)} ${meet[0]} ${meet[1]} M${n1(84 - c.ws)} ${n1(c.sy + 2)} L${meet[0]} ${meet[1]} M${n1(84 + c.ws)} ${n1(c.sy + 2)} L${n1(84 + c.ws + 3)} ${n1(c.hip + 3)}"/>`,
+    crisp: `<circle class="k-dot" cx="${meet[0]}" cy="${meet[1]}" r="2.2"/>`,
+  };
+}
+
 const ICONS = {
   bowl: {
     tone: 'warm',
@@ -529,6 +568,141 @@ const ICONS = {
       <path class="k-pale" stroke-width="1.8" d="M36 54 C38 38 48 30 60 30 C72 30 82 38 84 54 C76 59 44 59 36 54 Z"/>
       <path stroke-width="0.9" d="M46 41 q2 -1.4 4 0 M56 36 q2 -1.4 4 0 M66 40 q2 -1.4 4 0 M42 49 q2 -1.4 4 0 M52 46 q2 -1.4 4 0 M62 47 q2 -1.4 4 0 M72 48 q2 -1.4 4 0 M58 53 q2 -1.4 4 0 M48 53 q2 -1.4 4 0 M70 54 q2 -1.4 4 0"/>
       <path class="k-mid" stroke-width="1.5" d="M60 78 C61 82 63 85 66 87"/>`,
+  },
+  // Issue 6, the family table. mời: a bowl of rice held out in both hands, the polite way to offer it.
+  invite: {
+    tone: 'warm',
+    seed: 203,
+    ink: `${steam([52, 66], 25, 1.5)}
+      ${bowlOfRice(60, 45, 0.66)}
+      <g>
+        <path class="k-shade" d="M20.6 90 L23 82.4 C26.6 81.2 30.4 81.4 33.6 82.8 L34.6 90 Z"/>
+        <path class="k-paper" d="M24 85 C25.6 76 29.6 69 35 65 C34.6 59 34.4 54 36.6 51 C38.4 48.6 41.8 49.4 41.6 52.4 L41 60 C45 61.2 50 62.8 55 64.6 C57.8 65.6 57.4 69.4 54.6 69.2 L47.6 69 C50 70.2 52 71.4 53.6 72.6 C55.6 74.2 54.2 77.2 51.6 76.4 C46 75 41 75.4 37 77.6 C34 79.4 32.6 82.2 32.4 85.4 Z"/>
+        <path stroke-width="1.2" d="M41 60 C43.6 63 46 66 47.6 69 M37.4 66 C40.6 69 42.6 72 43.6 75.2"/>
+      </g>
+      <g transform="matrix(-1 0 0 1 120 0)">
+        <path class="k-shade" d="M20.6 90 L23 82.4 C26.6 81.2 30.4 81.4 33.6 82.8 L34.6 90 Z"/>
+        <path class="k-paper" d="M24 85 C25.6 76 29.6 69 35 65 C34.6 59 34.4 54 36.6 51 C38.4 48.6 41.8 49.4 41.6 52.4 L41 60 C45 61.2 50 62.8 55 64.6 C57.8 65.6 57.4 69.4 54.6 69.2 L47.6 69 C50 70.2 52 71.4 53.6 72.6 C55.6 74.2 54.2 77.2 51.6 76.4 C46 75 41 75.4 37 77.6 C34 79.4 32.6 82.2 32.4 85.4 Z"/>
+        <path stroke-width="1.2" d="M41 60 C43.6 63 46 66 47.6 69 M37.4 66 C40.6 69 42.6 72 43.6 75.2"/>
+      </g>`,
+  },
+  // cháu: a grandmother with her hair in a bun and a walking stick, holding her grandchild's hand.
+  grandchild: { tone: 'warm', seed: 205, ...grandkid() },
+  // đũa: a pair of lacquered chopsticks laid neatly side by side on a little rest.
+  chopsticks: {
+    tone: 'earth',
+    seed: 193,
+    ink: `<path class="k-mid" stroke="none" d="${bar(17, 75, 108, 44, 5.4, 2.6)}"/>
+      <path class="k-tint" stroke-width="1.7" d="M80 50.6 C80 45.6 96 40.4 100.6 43.6 L101.6 49.6 C98.6 54.6 83.6 59.6 81.6 55.6 Z"/>
+      <path stroke-width="1.2" d="M81 51 C86 49.6 95 46.4 101 45.8"/>
+      <path class="k-paper" stroke-width="1.8" d="${bar(11, 64, 106, 29, 6.2, 2.8)}"/>
+      <path class="k-paper" stroke-width="1.8" d="${bar(15, 73, 109, 38, 6.2, 2.8)}"/>
+      <path class="k-shade" stroke-width="1.5" d="${bar(11, 64, 30, 57, 6.2, 5.6)}"/>
+      <path class="k-shade" stroke-width="1.5" d="${bar(15, 73, 34, 66, 6.2, 5.6)}"/>
+      <path stroke-width="1.1" d="M35.4 53.6 l1.4 3.4 M39.4 62.6 l1.4 3.4"/>`,
+  },
+  // canh: a wide bowl of clear broth with greens floating in it and a ladle resting against the rim.
+  soup: {
+    tone: 'leaf',
+    seed: 191,
+    ink: `${steam([44, 57], 31, 1.6)}
+      <ellipse class="k-paper" cx="58" cy="45" rx="41" ry="11.6"/>
+      <ellipse class="k-pale" stroke-width="1.5" cx="58" cy="45.6" rx="36" ry="8.4"/>
+      ${[[40, 45.6, -16], [52, 48.6, 12], [62, 43, -32], [47, 42.4, 38], [33, 47.6, 24]].map(([x, y, a]) => `<path class="k-tint" stroke-width="1.2" transform="rotate(${a} ${x} ${y})" d="M${x - 5.6} ${y} C${x - 2.6} ${y - 3.4} ${x + 2.6} ${y - 3.4} ${x + 5.6} ${y} C${x + 2.6} ${y + 3.4} ${x - 2.6} ${y + 3.4} ${x - 5.6} ${y} Z M${x - 5} ${y} H${x + 4.6}"/>`).join('')}
+      <path stroke-width="1.1" d="M64 48.6 q6 2.4 12 0"/>
+      <path class="k-shade" stroke-width="1.7" d="${bar(73, 46, 105, 13, 3.4, 5.8)}"/>
+      <path class="k-paper" d="M17 46 C19 65 36 77 58 77 C80 77 97 65 99 46 C84 54.6 32 54.6 17 46 Z"/>
+      <path class="k-tint" stroke-width="1.5" d="M24 58 C40 64.4 76 64.4 92 58 L90 62.4 C74 68.4 42 68.4 26 62.4 Z"/>
+      <path class="k-paper" d="M47 77 L45 83 H71 L69 77"/>`,
+  },
+  // no: full after a meal: eyes closed in contentment, both hands on a round belly, the belt let out a notch.
+  // no (full): someone leaning back after a good meal, both hands on the belly, eyes closed.
+  full: (() => {
+    const p = person(60, 84, 66, { fill: 'k-tint' });
+    const hand = p.hip - 5;
+    return {
+      tone: 'warm',
+      seed: 207,
+      ink: `<g transform="rotate(-6 60 84)">${p.ink}
+        <path d="M${n1(60 - p.ws)} ${n1(p.sy + 2)} C${n1(60 - p.ws - 4)} ${n1(p.sy + 10)} 51 ${n1(hand + 1)} 56 ${n1(hand)} M${n1(60 + p.ws)} ${n1(p.sy + 2)} C${n1(60 + p.ws + 4)} ${n1(p.sy + 10)} 69 ${n1(hand + 1)} 64 ${n1(hand)}"/>
+        <circle class="k-paper" stroke-width="1.6" cx="56" cy="${n1(hand)}" r="2.6"/><circle class="k-paper" stroke-width="1.6" cx="64" cy="${n1(hand)}" r="2.6"/>
+        <path stroke-width="1.3" d="M56.2 ${n1(p.hy + 0.6)} q1.5 1.3 3 0 M60.8 ${n1(p.hy + 0.6)} q1.5 1.3 3 0 M57.4 ${n1(p.hy + 4)} q2.6 2 5.2 0"/></g>`,
+    };
+  })(),
+  // vâng: the polite yes: a young person with head bowed a little, and a speech bubble with a tick.
+  nod: {
+    tone: 'warm',
+    seed: 209,
+    ink: `<g transform="translate(-13 3)">${BUST.shirt()}
+        <path stroke-width="1.6" d="M52 62 L60 70 L68 62"/>
+        <g transform="rotate(9 60 60)">${BUST.head(39)}${BUST.ears(39)}
+          <path class="k-dot" d="M45.4 39.6 C44 23.4 76 23.4 74.6 39.6 C70 31.6 58 29.6 45.4 39.6 Z"/>
+          <path stroke-width="1.5" d="M51.4 42.4 q2.6 1.8 5.2 0 M63.4 42.4 q2.6 1.8 5.2 0 M56 48.4 q4 2.4 8 0"/>
+        </g></g>
+      <path class="k-paper" d="M74 10 C74 6 78 4 82 4 H106 C110 4 114 6 114 10 V30 C114 34 110 36 106 36 H90 L80 45 L82 36 C78 36 74 34 74 30 Z"/>
+      <path stroke-width="3.4" d="M84 20.6 L91.4 27.6 L104.4 12.6"/>`,
+  },
+  // A meal on a round tray, from above: rice bowls round the edge, greens at the back, the fish-sauce bowl in the middle.
+  tray: {
+    tone: 'warm',
+    seed: 197,
+    ink: `<ellipse class="k-shade" cx="60" cy="53" rx="54" ry="28"/>
+      <ellipse class="k-pale" cx="60" cy="49" rx="54" ry="28"/>
+      <ellipse stroke-width="1.2" cx="60" cy="49" rx="48" ry="23.6"/>
+      <ellipse class="k-paper" stroke-width="1.5" cx="60" cy="33" rx="15" ry="5.4"/>
+      <path class="k-pale" stroke-width="1.2" d="M48.6 33.4 C48.6 28.4 53 26.4 57 27.2 C60.4 25.6 66 26 69 28.2 C71.6 29.6 71.8 32 71.2 33.6 C66 35.8 54 35.8 48.6 33.4 Z"/>
+      <path stroke-width="1" d="M50.6 32 C54 29.4 58 30.8 62 28.8 C64.4 27.8 66.6 28.2 68.6 29.8 M52.6 34 C56.6 31.8 62.4 32.8 67.6 31.4"/>
+      <path class="k-tint" stroke-width="0.9" d="M54 29.6 c1.6 -2 4 -2 5 -0.6 c-1.6 1.6 -3.4 1.6 -5 0.6 Z M63.4 30.6 c1.6 -2 4 -2 5 -0.6 c-1.6 1.6 -3.4 1.6 -5 0.6 Z"/>
+      ${trayBowl(28, 47)}${trayBowl(92, 47)}${trayBowl(60, 63, 8.6, 3.6)}
+      <path class="k-paper" stroke-width="1.4" d="${bar(32, 58, 50, 63, 1.8, 2.6)}"/><path class="k-paper" stroke-width="1.4" d="${bar(30, 61, 48, 66, 1.8, 2.6)}"/>
+      <path class="k-paper" stroke-width="1.4" d="${bar(88, 58, 70, 63, 1.8, 2.6)}"/><path class="k-paper" stroke-width="1.4" d="${bar(90, 61, 72, 66, 1.8, 2.6)}"/>
+      <ellipse class="k-paper" stroke-width="1.5" cx="60" cy="48" rx="8.6" ry="3.8"/>
+      <ellipse class="k-shade" stroke-width="1" cx="60" cy="48" rx="6.2" ry="2.4"/>`,
+    crisp: `${Array.from({ length: 30 }, (_, i) => { const t = (i / 30) * Math.PI * 2; return `<circle class="k-dot" cx="${n1(60 + Math.cos(t) * 51)}" cy="${n1(49 + Math.sin(t) * 25.8)}" r="0.75"/>`; }).join('')}<circle class="k-paper" cx="58" cy="47.6" r="0.9"/><circle class="k-paper" cx="61.6" cy="48.4" r="0.9"/>`,
+  },
+  // nước mắm: a bottle of fish sauce with a fish on its label, and the little dipping bowl with chilli in it.
+  fishSauce: {
+    tone: 'earth',
+    seed: 195,
+    ink: `<path class="k-paper" d="M33 16 H45 V27 C45 31.4 53 33.6 53 40.6 V79 C53 81.4 51.4 83 49 83 H29 C26.6 83 25 81.4 25 79 V40.6 C25 33.6 33 31.4 33 27 Z"/>
+      <path class="k-tint" stroke="none" d="M27.4 42.6 C30 41.6 48 41.6 50.6 42.6 V78.6 C50.6 80 49.6 80.8 48.4 80.8 H29.6 C28.4 80.8 27.4 80 27.4 78.6 Z"/>
+      <path stroke-width="1.3" d="M27.4 42.6 C30 41.6 48 41.6 50.6 42.6"/>
+      <path class="k-shade" stroke-width="1.7" d="M32 9 H46 V16.4 H32 Z"/>
+      <path class="k-paper" stroke-width="1.5" d="M28.6 51 H49.4 V69 H28.6 Z"/>
+      <path stroke-width="1.3" d="M32.6 60 C35.6 55.6 42 55.6 44.6 60 C42 64.4 35.6 64.4 32.6 60 Z M44.6 60 L48 57 V63 Z"/>
+      <path class="k-paper" d="M62 66 C64 76.4 72 82 84 82 C96 82 104 76.4 106 66 C98 71 70 71 62 66 Z"/>
+      <ellipse class="k-paper" stroke-width="1.8" cx="84" cy="65.4" rx="22" ry="6.6"/>
+      <ellipse class="k-shade" stroke-width="1.2" cx="84" cy="65.6" rx="18.2" ry="4.6"/>
+      ${[[76, 64.6], [84.6, 66.6], [91, 64]].map(([x, y]) => `<circle class="k-tint" stroke-width="1.1" cx="${x}" cy="${y}" r="2.2"/>`).join('')}
+      <path class="k-paper" stroke-width="1" d="M79 67.2 q2 -1.6 4 0 q-2 1.2 -4 0 Z"/>`,
+    crisp: '<circle class="k-dot" cx="35.8" cy="59.4" r="0.9"/>',
+  },
+  // The rice pot, its rice heaped and steaming, with the big flat serving chopsticks (đũa cả) standing in it.
+  ricepot: {
+    tone: 'earth',
+    seed: 199,
+    ink: `${steam([42, 56], 28, 1.6)}
+      <path class="k-paper" stroke-width="1.7" d="${bar(70, 40, 92, 7, 3.4, 5.6)}"/>
+      <path class="k-paper" stroke-width="1.7" d="${bar(75, 41, 101, 11, 3.4, 5.6)}"/>
+      <path class="k-paper" d="M29 42 C31 33 44 29 58 29 C72 29 85 33 87 42 Z"/>
+      <path stroke-width="1.3" d="M41 37 l3 -1 M52 34 l3 1 M63 36 l3 -1 M47 40 l3 1 M71 39 l3 -1"/>
+      <path class="k-shade" d="M24 44 C24 68 38 82 58 82 C78 82 92 68 92 44 Z"/>
+      <path stroke-width="1.4" d="M30 58 C44 64 72 64 86 58"/>
+      <path class="k-paper" stroke-width="1.8" d="M20 43 C20 39 96 39 96 43 C96 47 20 47 20 43 Z"/>
+      <path d="M24 51 C17 51 15 58 22 59 M92 51 C99 51 101 58 94 59"/>`,
+  },
+  // Food passed with care: chopsticks, turned round to the clean ends, putting a piece of chicken into someone's bowl.
+  serve: {
+    tone: 'warm',
+    seed: 201,
+    ink: `${bowlOfRice(52, 62, 0.58)}
+      <path class="k-mid" stroke-width="1.6" d="M57 31.6 C57.6 26 66 24.4 70 28 C73 30.6 72 37 67 38.6 C62 40 56.6 37 57 31.6 Z"/>
+      <path class="k-pale" stroke-width="1.1" d="M59.4 30 C61.4 27.4 66.4 27 68.6 29"/>
+      <path class="k-paper" stroke-width="1.7" d="${bar(68, 29.4, 110, 4, 2.4, 4.6)}"/>
+      <path class="k-paper" stroke-width="1.7" d="${bar(70, 36.6, 113, 14, 2.4, 4.6)}"/>
+      <path class="k-shade" stroke-width="1.4" d="${bar(98.6, 10.8, 110, 4, 4, 4.6)}"/>
+      <path class="k-shade" stroke-width="1.4" d="${bar(101.4, 19.6, 113, 14, 4, 4.6)}"/>
+      <path stroke-width="1.5" stroke-dasharray="2.4 3.2" d="M58 42 C55.6 45 55 48 56 50.6"/>`,
   },
 };
 
@@ -922,7 +1096,91 @@ function fruitTrayScene() {
   };
 }
 
-const SCENES = { phoStall: phoScene, market: marketScene, legend: legendScene, genealogy: genealogyScene, fruitTray: fruitTrayScene };
+// Issue 6: a family meal on a round tray (mâm cơm), seen from above at an angle. Rice bowls and chopsticks round the
+// edge, boiled water spinach, braised fish, a bowl of soup with its ladle and a dish of little pickled aubergines (cà
+// pháo); in the middle, the one shared bowl of fish sauce. The rice pot steams behind, the big serving chopsticks in it.
+function familyTrayScene() {
+  const [cx, cy, rx, ry] = [200, 154, 150, 60];
+  const ring = (x, y, a, b, n, r, cls = 'k-dot') => Array.from({ length: n }, (_, i) => {
+    const t = (i / n) * Math.PI * 2;
+    return `<circle class="${cls}" cx="${n1(x + Math.cos(t) * a)}" cy="${n1(y + Math.sin(t) * b)}" r="${r}"/>`;
+  }).join('');
+  // The front half of an ellipse, right to left, for closing the side of a bowl or plate.
+  const front = (x, y, a, b) => `C${n1(x + a)} ${n1(y + b * 1.33)} ${n1(x - a)} ${n1(y + b * 1.33)} ${n1(x - a)} ${n1(y)}`;
+  const riceBowl = (x, y) => `<path class="k-tint" stroke-width="1.8" d="M${x - 17} ${y} C${x - 16} ${y + 11} ${x - 8} ${y + 14} ${x} ${y + 14} C${x + 8} ${y + 14} ${x + 16} ${y + 11} ${x + 17} ${y} ${front(x, y, 17, 6.6)} Z"/>
+      <path stroke-width="1.1" d="M${x - 13} ${y + 8.6} C${x - 6} ${y + 11.4} ${x + 6} ${y + 11.4} ${x + 13} ${y + 8.6}"/>
+      <path class="k-paper" stroke-width="1.5" d="M${x - 6} ${y + 13.6} L${x - 6.6} ${y + 17} H${x + 6.6} L${x + 6} ${y + 13.6}"/>
+      <ellipse class="k-paper" stroke-width="1.8" cx="${x}" cy="${y}" rx="17" ry="6.6"/>
+      <path class="k-paper" stroke-width="1.6" d="M${x - 13.4} ${y - 0.6} C${x - 11.6} ${y - 11.6} ${x + 11.6} ${y - 11.6} ${x + 13.4} ${y - 0.6}"/>
+      <path stroke-width="1.1" d="M${x - 7} ${y - 5} l2.4 -0.8 M${x + 1} ${y - 7.4} l2.4 0.8 M${x + 6} ${y - 3.6} l2.4 -0.8 M${x - 3} ${y - 2} l2.4 0.8"/>`;
+  // A pair of chopsticks lying on the tray, from their thick ends at (x1, y1) to their tips at (x2, y2).
+  const pair = (x1, y1, x2, y2) => {
+    const len = Math.hypot(x2 - x1, y2 - y1);
+    const [ox, oy] = [(-(y2 - y1) / len) * 4.6, ((x2 - x1) / len) * 4.6];
+    return [0, 1].map((k) => `<path class="k-paper" stroke-width="1.4" d="${stick(x1 + ox * k, y1 + oy * k, x2 + ox * k, y2 + oy * k, 3.4, 2)}"/>`).join('');
+  };
+  const leaf = (x, y, a, s = 1) => `<path class="k-tint" stroke-width="1.1" transform="rotate(${a} ${x} ${y})" d="M${x - 6 * s} ${y} C${x - 3 * s} ${y - 3.4 * s} ${x + 3 * s} ${y - 3.4 * s} ${x + 6 * s} ${y} C${x + 3 * s} ${y + 3.4 * s} ${x - 3 * s} ${y + 3.4 * s} ${x - 6 * s} ${y} Z"/>`;
+  const aubergine = (x, y) => `<circle class="k-paper" stroke-width="1.5" cx="${x}" cy="${y}" r="5.4"/><path class="k-mid" stroke-width="1.1" d="M${x - 3.6} ${y - 4} C${x - 2} ${y - 1.4} ${x + 2} ${y - 1.4} ${x + 3.6} ${y - 4} C${x + 1.4} ${y - 6.4} ${x - 1.4} ${y - 6.4} ${x - 3.6} ${y - 4} Z"/>`;
+  const wisps = (xs, y, h = 40) => `<path stroke-width="1.6" d="${xs.map((x, i) => `M${x} ${y} c-5 ${n1(-h * 0.2)} 4 ${n1(-h * 0.32)} 0 ${n1(-h * 0.5)} c-4 ${n1(-h * 0.18)} 4 ${n1(-h * 0.32)} ${i % 2 ? -1 : 1} ${n1(-h * 0.5)}`).join(' ')}"/>`;
+  // A flat shadow on the tray, down and to the right of a dish.
+  const shadow = (x, y, a, b) => `<ellipse class="k-mid" stroke="none" cx="${x + 3}" cy="${y}" rx="${a}" ry="${b}"/>`;
+  const fish = 'M98 181 C108 171.6 136 169.6 152 177.4 L163 171 C160.6 177.4 160.6 184 163 190.4 L152 184.4 C136 192 108 190.4 98 181 Z';
+  const greens = 'M104 126 C101 119 106 114 112 113.4 C113 108.6 120 106.4 125 109.4 C128 104.6 137 103.4 141 107.6 C145 104 154 105.6 156 110.6 C162 110.6 167 116 165 121.4 C168 125 166 128.6 162 129.4 C150 134 115 133.6 104 126 Z';
+  return {
+    tone: 'warm',
+    back: '<path class="k-pale" d="M0 216 C120 213 280 213 400 216 V250 H0 Z"/>',
+    paper: blob(200, 136, 188, 112, 61, 11, 0.06),
+    under: `<ellipse class="k-mid" cx="${cx}" cy="226" rx="146" ry="6.4"/>`,
+    ink: `${wisps([80, 92], 62, 38)}
+      <path class="k-paper" stroke-width="1.6" d="${stick(66, 76, 40, 18, 4.2, 7.4)}"/>
+      <path class="k-paper" stroke-width="1.6" d="${stick(72, 77, 52, 16, 4.2, 7.4)}"/>
+      <path class="k-paper" stroke-width="1.6" d="M34 78 C36 68 48 63 60 63 C72 63 84 68 86 78 Z"/>
+      <path stroke-width="1.1" d="M45 72 l2.6 -0.8 M55 68.6 l2.6 0.8 M65 71 l2.6 -0.8 M74 73.4 l2.6 0.8"/>
+      <path class="k-shade" d="M29.4 79 C29.4 104 42 124 60 124 C78 124 90.6 104 90.6 79 Z"/>
+      <path stroke-width="1.3" d="M33 96 C46 103 74 103 87 96"/>
+      ${hatch(36, 104, 48, 116, 4, 4.4, -2.6, 1.1)}
+      <path class="k-paper" stroke-width="1.9" d="M26 78.6 C26 73.4 94 73.4 94 78.6 C94 83.8 26 83.8 26 78.6 Z"/>
+      <path stroke-width="1.9" d="M29.6 88 C22.6 88 21 95.4 27.6 96.6 M90.4 88 C97.4 88 99 95.4 92.4 96.6"/>
+      <ellipse class="k-shade" cx="${cx}" cy="${cy + 8}" rx="${rx}" ry="${ry}"/>
+      <ellipse class="k-pale" cx="${cx}" cy="${cy}" rx="${rx}" ry="${ry}"/>
+      <ellipse stroke-width="1.4" cx="${cx}" cy="${cy}" rx="${rx - 12}" ry="${ry - 5.4}"/>
+      ${shadow(134, 132, 35, 7)}${shadow(266, 137, 26, 6)}${shadow(130, 190, 39, 7)}${shadow(272, 190, 25, 5.6)}${[[200, 123], [76, 167], [324, 167], [200, 211]].map(([x, y]) => shadow(x, y, 14, 3.4)).join('')}${shadow(200, 160, 15, 3.6)}
+      <path class="k-paper" stroke-width="1.8" d="M98 124 C98 118 170 118 170 124 ${front(134, 124, 36, 6.4)} Z"/>
+      <ellipse class="k-paper" stroke-width="1.8" cx="134" cy="124" rx="36" ry="12.4"/>
+      <ellipse stroke-width="1.1" cx="134" cy="124.6" rx="29.4" ry="9.4"/>
+      <path class="k-pale" stroke-width="1.6" d="${greens}"/>
+      <path stroke-width="1.3" d="M108 125 C116 117 124 121 132 114 C138 109 146 111 152 115 M112 129 C121 125 130 127 138 121 C144 117 152 119 160 122 M122 112 C128 118 136 122 146 124 M114 119 C120 114 126 116 130 110 M144 110 C150 114 156 116 162 115"/>
+      ${leaf(118, 117, -22)}${leaf(140, 113, 18)}${leaf(153, 121, -8)}${leaf(129, 124, 30, 0.9)}
+      ${wisps([254, 266, 278], 106, 44)}
+      <path class="k-shade" stroke-width="1.6" d="${stick(277, 117, 326, 74, 4, 7)}"/>
+      <path class="k-paper" stroke-width="1.8" d="M238 121 C239 133 250 140 266 140 C282 140 293 133 294 121 ${front(266, 121, 28, 9.6)} Z"/>
+      <path class="k-tint" stroke-width="1.3" d="M243 128 C254 133.4 278 133.4 289 128 L288 131.4 C277 137 255 137 244 131.4 Z"/>
+      <ellipse class="k-paper" stroke-width="1.8" cx="266" cy="120" rx="28" ry="9.6"/>
+      <ellipse class="k-pale" stroke-width="1.3" cx="266" cy="120.6" rx="23.4" ry="6.8"/>
+      ${leaf(255, 120, -14, 0.9)}${leaf(266, 123, 12, 0.9)}${leaf(259, 117.4, 32, 0.8)}
+      <path stroke-width="1.1" d="M268 121.6 q5 2 10 0"/>
+      <path class="k-paper" stroke-width="1.8" d="M90 181 C90 175 170 175 170 181 ${front(130, 181, 40, 6.4)} Z"/>
+      <ellipse class="k-paper" stroke-width="1.8" cx="130" cy="181" rx="40" ry="13.4"/>
+      <ellipse stroke-width="1.1" cx="130" cy="181.6" rx="33" ry="10.2"/>
+      <path class="k-mid" stroke-width="1.7" d="${fish}"/>
+      <path stroke-width="1.3" d="M112 174.4 C108.4 178 108.4 184 112 187.6"/>
+      ${[[120, 177], [128, 177.4], [136, 178], [124, 183.4], [132, 183.8], [140, 183.4], [144, 178.6]].map(([x, y]) => `<path stroke-width="1" d="M${x} ${y} q2.6 2.4 5.2 0"/>`).join('')}
+      <path class="k-tint" stroke-width="1" d="M118 172.6 l5 1.6 M130 172 l4.6 1.8 M141 174.4 l4 2"/>
+      <path class="k-paper" stroke-width="1.8" d="M246 182 C246 176.4 298 176.4 298 182 ${front(272, 182, 26, 6)} Z"/>
+      <ellipse class="k-paper" stroke-width="1.8" cx="272" cy="182" rx="26" ry="10"/>
+      ${aubergine(262, 181)}${aubergine(273, 178)}${aubergine(284, 181)}${aubergine(267, 186.4)}${aubergine(279, 186.4)}
+      ${riceBowl(200, 108)}${riceBowl(76, 152)}${riceBowl(324, 152)}${riceBowl(200, 196)}
+      ${pair(60, 170, 98, 165.6)}${pair(340, 170, 302, 165.6)}${pair(176, 131, 222, 127)}${pair(176, 177.4, 222, 173.4)}
+      <path class="k-paper" stroke-width="1.8" d="M183 150 C184 157.6 191 161.6 200 161.6 C209 161.6 216 157.6 217 150 ${front(200, 150, 17, 5)} Z"/>
+      <ellipse class="k-paper" stroke-width="1.8" cx="200" cy="149.6" rx="17" ry="6.4"/>
+      <ellipse class="k-shade" stroke-width="1.2" cx="200" cy="149.8" rx="13.4" ry="4.4"/>
+      ${[[194.6, 149], [201.4, 148], [205.6, 151]].map(([x, y]) => `<circle class="k-tint" stroke-width="1" cx="${x}" cy="${y}" r="1.9"/>`).join('')}
+      <path class="k-paper" stroke-width="0.9" d="M196.6 151.4 q2 -1.4 4 0 q-2 1.1 -4 0 Z"/>`,
+    crisp: `${ring(cx, cy, rx - 6, ry - 2.7, 60, 1.05)}<circle class="k-dot" cx="104.6" cy="179.4" r="1.7"/>${[[194.6, 149], [201.4, 148], [205.6, 151]].map(([x, y]) => `<circle class="k-dot" cx="${x}" cy="${y}" r="0.6"/>`).join('')}`,
+  };
+}
+
+const SCENES = { phoStall: phoScene, market: marketScene, legend: legendScene, genealogy: genealogyScene, fruitTray: fruitTrayScene, familyTray: familyTrayScene };
 
 function scene(name) {
   const make = SCENES[name];

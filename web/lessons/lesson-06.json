@@ -1,0 +1,484 @@
+{
+  "id": "lesson-06",
+  "number": 6,
+  "title": "At the table",
+  "vi": "Mời cả nhà ăn cơm",
+  "theme": "the family table: inviting the elders to eat, offering more, saying you are full, and prices on the way to dinner",
+  "intro": "Dinner with a Hà Nội family: mời, cháu, bát, đũa, canh, no and vâng, the frame Cháu mời ông ăn cơm ạ, and your first table conversation. Plus prices on the way there: bốn lăm against 54, trăm sáu against 106.",
+  "cover": {
+    "picture": {
+      "kind": "scene",
+      "name": "familyTray"
+    }
+  },
+  "feature": {
+    "kicker": "Family and food",
+    "title": "Words before chopsticks",
+    "dek": "At a Vietnamese family meal, in Hà Nội as across the country, nobody starts until the younger ones have invited each elder to eat. How the shared tray works, from the bowl in the middle to the chopsticks you must never stand in your rice.",
+    "intro": "In a Hà Nội home, as across Vietnam, dinner starts with words. Before anyone eats, the younger ones invite each elder in turn, the oldest first: Cháu mời ông ăn cơm ạ, cháu mời bà ăn cơm ạ, please start, Grandpa; please start, Grandma. Children begin after the adults.",
+    "beats": [
+      {
+        "word": "bát",
+        "picture": {
+          "kind": "icon",
+          "name": "tray"
+        },
+        "text": "A family meal is called a mâm cơm, a tray of rice, even when no tray is used. Everything on it is shared except your own bát of rice, filled by whoever sits by the rice pot, traditionally a woman of the house."
+      },
+      {
+        "picture": {
+          "kind": "icon",
+          "name": "fishSauce"
+        },
+        "text": "In the very middle sits one small bowl of nước mắm, fish sauce, and everyone dips into it. That made it a test of manners: dip your food, keep your chopsticks out of it, and never stir it. Many families now give each person a little bowl of their own, for hygiene."
+      },
+      {
+        "picture": {
+          "kind": "icon",
+          "name": "ricepot"
+        },
+        "text": "A proverb sums up the manners of the tray: Ăn trông nồi, ngồi trông hướng, eat with an eye on the pot, sit with an eye on your place. Before you ask for more rice, look how much is left in the pot."
+      },
+      {
+        "picture": {
+          "kind": "icon",
+          "name": "serve"
+        },
+        "text": "Chopsticks, đũa, have rules too. Never stand them upright in your rice: it looks like incense sticks in an incense bowl, an invitation to the dead. Never tap a bowl with them, as beggars once did. And to put food in someone's bowl, a sign of care, turn them round and use the clean ends."
+      },
+      {
+        "picture": {
+          "kind": "icon",
+          "name": "chopsticks"
+        },
+        "text": "When you have finished, lay your chopsticks down neatly, side by side, and ask the elders' leave before you stand up. As the saying goes, Lời chào cao hơn mâm cỗ: a greeting stands higher than a feast tray: courtesy counts for more than food."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Vietnamese cuisine",
+        "url": "https://en.wikipedia.org/wiki/Vietnamese_cuisine"
+      },
+      {
+        "title": "Phép tắc bàn ăn (Vietnamese)",
+        "url": "https://vi.wikipedia.org/wiki/Ph%C3%A9p_t%E1%BA%AFc_b%C3%A0n_%C4%83n"
+      },
+      {
+        "title": "Mâm (Vietnamese)",
+        "url": "https://vi.wikipedia.org/wiki/M%C3%A2m"
+      },
+      {
+        "title": "Ẩm thực Việt Nam (Vietnamese)",
+        "url": "https://vi.wikipedia.org/wiki/%E1%BA%A8m_th%E1%BB%B1c_Vi%E1%BB%87t_Nam"
+      },
+      {
+        "title": "Đũa (Vietnamese)",
+        "url": "https://vi.wikipedia.org/wiki/%C4%90%C5%A9a"
+      },
+      {
+        "title": "Chopsticks",
+        "url": "https://en.wikipedia.org/wiki/Chopsticks"
+      },
+      {
+        "title": "Rau muống (Vietnamese)",
+        "url": "https://vi.wikipedia.org/wiki/Rau_mu%E1%BB%91ng"
+      }
+    ]
+  },
+  "situations": [
+    {
+      "who": "Fruit seller",
+      "picture": {
+        "kind": "icon",
+        "name": "fruit"
+      },
+      "vi": "Bưởi bốn mươi một quả.",
+      "en": "Pomelos, 40,000 each.",
+      "note": "bốn mươi with nghìn left out is 40.000₫, and một quả, one fruit, means each. 41.000₫ would be bốn mươi mốt, or bốn mốt.",
+      "ask": "On the way to dinner you stop for a pomelo to bring the family. How much is one?",
+      "options": [
+        "40.000₫",
+        "41.000₫",
+        "14.000₫",
+        "400.000₫"
+      ],
+      "answer": "40.000₫"
+    },
+    {
+      "who": "Fruit seller",
+      "picture": {
+        "kind": "icon",
+        "name": "pole"
+      },
+      "vi": "Anh lấy mấy quả ạ?",
+      "en": "How many would you like?",
+      "note": "mấy: how many (for small numbers). lấy: to take. A younger seller calls you anh, and you call yourself anh back.",
+      "ask": "You want just one pomelo. What do you say?",
+      "options": [
+        "Cho anh một quả.",
+        "Cho anh mười quả.",
+        "Cho anh một cân."
+      ],
+      "answer": "Cho anh một quả."
+    },
+    {
+      "who": "Shopkeeper",
+      "picture": {
+        "kind": "icon",
+        "name": "fishSauce"
+      },
+      "vi": "Nước mắm bốn lăm một chai.",
+      "en": "Fish sauce, 45,000 a bottle.",
+      "note": "bốn lăm is bốn mươi lăm nghìn: 45.000₫. 54.000₫ would be năm mươi tư. một chai: a bottle. nước mắm: fish sauce.",
+      "ask": "Bà asked you to bring a bottle of fish sauce. How much is it?",
+      "options": [
+        "45.000₫",
+        "54.000₫",
+        "41.000₫",
+        "450.000₫"
+      ],
+      "answer": "45.000₫"
+    },
+    {
+      "who": "Chicken seller",
+      "picture": {
+        "kind": "icon",
+        "name": "chicken"
+      },
+      "vi": "Gà ta trăm sáu một cân.",
+      "en": "Free-range chicken, 160,000 a kilo.",
+      "note": "trăm sáu is một trăm sáu mươi nghìn: after trăm, a lone digit counts tens. 106 would be một trăm linh sáu; sáu trăm is 600. gà ta: local-breed chicken, usually free-range.",
+      "ask": "At the market with Bà, choosing a chicken for dinner. How much is a kilo?",
+      "options": [
+        "160.000₫",
+        "106.000₫",
+        "600.000₫",
+        "16.000₫"
+      ],
+      "answer": "160.000₫"
+    },
+    {
+      "who": "Fruit seller",
+      "picture": {
+        "kind": "tag",
+        "label": "40.000₫",
+        "mood": "low"
+      },
+      "vi": "Thôi, em bớt cho anh, ba lăm nhé.",
+      "en": "All right, I'll come down for you: 35,000.",
+      "note": "em bớt cho anh: I'll take some off for you (the younger seller is em). ba lăm is ba mươi lăm nghìn: 35.000₫, not 53.000₫ (năm mươi ba). thôi: all right then.",
+      "ask": "You asked her to take a little off the 40.000₫ pomelo. Type her new price, the full amount, in digits.",
+      "digits": "35000"
+    },
+    {
+      "who": "Minh's mother",
+      "picture": {
+        "kind": "icon",
+        "name": "ricepot"
+      },
+      "vi": "Cả nhà ơi, ăn cơm thôi!",
+      "en": "Everyone, dinner's ready!",
+      "note": "cả nhà: the whole family, everyone. thôi here means let's, now: ăn cơm thôi, let's eat. To ông and bà you are cháu, never anh.",
+      "ask": "Ông and bà sit down at the tray. Before you pick up your chopsticks, what do you say?",
+      "options": [
+        "Cháu mời ông bà ăn cơm ạ.",
+        "Anh mời ông bà ăn cơm ạ.",
+        "Cháu no rồi ạ."
+      ],
+      "answer": "Cháu mời ông bà ăn cơm ạ."
+    },
+    {
+      "who": "Bà",
+      "picture": {
+        "kind": "icon",
+        "name": "serve"
+      },
+      "vi": "Cháu ăn thịt gà đi!",
+      "en": "Have some chicken!",
+      "note": "Bà turned her chopsticks round to put a piece in your bowl. đi at the end makes it a friendly go on.",
+      "ask": "Bà has put a piece of chicken in your bowl, and you would love it. What do you say?",
+      "options": [
+        "Vâng, cháu cảm ơn bà ạ.",
+        "Cháu no rồi ạ.",
+        "Cháu mời bà ăn cơm ạ."
+      ],
+      "answer": "Vâng, cháu cảm ơn bà ạ."
+    },
+    {
+      "who": "Chicken seller",
+      "picture": {
+        "kind": "icon",
+        "name": "scale"
+      },
+      "vi": "Của anh hết trăm ba.",
+      "en": "Yours comes to 130,000.",
+      "note": "trăm ba is một trăm ba mươi nghìn: after trăm, a lone digit counts tens. 103.000₫ would be một trăm linh ba. hết: in total.",
+      "ask": "The seller weighs your chicken. Type the total in digits.",
+      "digits": "130000"
+    }
+  ],
+  "dialogues": [
+    {
+      "title": "Dinner at Minh's house",
+      "setting": "table",
+      "picture": {
+        "kind": "icon",
+        "name": "tray"
+      },
+      "lines": [
+        {
+          "who": "You",
+          "vi": "Cháu mời ông ăn cơm ạ. Cháu mời bà ăn cơm ạ.",
+          "en": "Please start, Grandpa. Please start, Grandma.",
+          "you": true
+        },
+        {
+          "who": "Ông",
+          "vi": "Ừ, cháu ăn đi.",
+          "en": "Yes, go ahead and eat."
+        },
+        {
+          "who": "Bà",
+          "vi": "Canh ngon không cháu?",
+          "en": "Is the soup good?"
+        },
+        {
+          "who": "You",
+          "vi": "Vâng, ngon quá ạ!",
+          "en": "Yes, it's delicious!",
+          "you": true
+        },
+        {
+          "who": "Bà",
+          "vi": "Cháu ăn bát nữa nhé?",
+          "en": "Have another bowl, won't you?"
+        }
+      ],
+      "check": {
+        "ask": "Bà offers more, but you couldn't eat another bite. Say your answer aloud first, then pick it.",
+        "options": [
+          "Cháu no rồi ạ.",
+          "Vâng, cho cháu bát nữa ạ.",
+          "Cháu mời bà ăn cơm ạ."
+        ],
+        "answer": "Cháu no rồi ạ.",
+        "note": "Cháu no rồi ạ: I'm full now. Ừ is the casual yes, to friends and anyone younger (to elders you say vâng), and không? near the end turns a sentence into a yes-or-no question."
+      }
+    }
+  ],
+  "challenge": {
+    "title": "Table challenge",
+    "text": "First, say each line of this issue's dialogue after the voice. Then, at your next meal with a Vietnamese family, wait before you pick up your chopsticks and invite the older people, oldest first: \"Cháu mời bác ăn cơm ạ\" to someone older than your parents, \"Cháu mời cô chú ăn cơm ạ\" to a couple a bit younger than your parents. When you have had enough: \"Cháu no rồi ạ.\""
+  },
+  "stamp": {
+    "label": "Mâm cơm",
+    "picture": {
+      "kind": "scene",
+      "name": "familyTray"
+    }
+  },
+  "warmup": [
+    {
+      "vi": "ăn",
+      "en": "to eat"
+    },
+    {
+      "vi": "uống",
+      "en": "to drink"
+    },
+    {
+      "vi": "cảm ơn",
+      "en": "thank you"
+    }
+  ],
+  "words": [
+    {
+      "vi": "mời",
+      "en": "to invite; please (go ahead, have some)",
+      "picture": {
+        "kind": "icon",
+        "name": "invite"
+      },
+      "hook": "You know ơi from Em ơi! Put an m in front and let it sink in a contented sigh as you sweep a hand toward the food: mời. Please, go ahead and start.",
+      "tip": "ơi is the vowel of British \"her\" (no r) sliding into a short ee, as in Em ơi! Huyền starts a little low and sinks gently, often breathy.",
+      "note": "Cháu mời bà ăn cơm ạ: please start, Grandma. Hosts offer with it too: Mời anh uống trà, have some tea.",
+      "contrast": [
+        {
+          "vi": "mới",
+          "en": "new; just now"
+        },
+        {
+          "vi": "mỗi",
+          "en": "each, every"
+        }
+      ]
+    },
+    {
+      "vi": "cháu",
+      "en": "grandchild, niece or nephew; I (to your parents' or grandparents' generation)",
+      "picture": {
+        "kind": "icon",
+        "name": "grandchild"
+      },
+      "hook": "Bà drops a piece of chicken into her grandchild's bowl, and he whoops \"Chow!\", voice shooting up: cháu, the grandchild.",
+      "tip": "ch has no puff of air. au is a short a gliding into oo, so cháu rhymes with \"cow\". Sắc rises. Chào, hello, has a long a and sinks instead.",
+      "note": "To ông, bà, cô, chú and bác (older than your parents) you are cháu, and they call you cháu: Cháu ăn đi! Eat up!",
+      "contrast": [
+        {
+          "vi": "châu",
+          "en": "a continent (châu Á, Asia)"
+        },
+        {
+          "vi": "chầu",
+          "en": "a round (một chầu bia, a round of beer)"
+        }
+      ]
+    },
+    {
+      "vi": "bát",
+      "en": "bowl (a rice bowl)",
+      "picture": {
+        "kind": "icon",
+        "name": "ricebowl"
+      },
+      "hook": "Set a china rice bowl down on a brass tray and it rings out a bright, rising \"baht!\" (as in the Thai money): bát, a bowl.",
+      "tip": "A long, open a, as in \"father\". The final t is cut off, not released. Sắc rises.",
+      "note": "bát cơm: a bowl of rice. Hà Nội says bát; the South says chén for a rice bowl and tô for a big one.",
+      "contrast": [
+        {
+          "vi": "bạt",
+          "en": "a tarpaulin, canvas"
+        },
+        {
+          "vi": "bắt",
+          "en": "to catch"
+        }
+      ]
+    },
+    {
+      "vi": "đũa",
+      "en": "chopsticks",
+      "picture": {
+        "kind": "icon",
+        "name": "chopsticks"
+      },
+      "hook": "A slippery peanut escapes your chopsticks. Your \"doo-uh\", squeezed into one beat, cracks in the middle, then jumps as you lunge again: đũa.",
+      "tip": "đ is a plain d. ua glides from oo to a soft uh in one beat. Ngã rises, breaks in the middle with a creak, then jumps up.",
+      "note": "một đôi đũa: a pair of chopsticks. Never stand them upright in your rice.",
+      "fact": "A saying mocks anyone who aims far above their station: Đũa mốc mà chòi mâm son, mouldy chopsticks reaching for a lacquered tray.",
+      "contrast": [
+        {
+          "vi": "đùa",
+          "en": "to joke"
+        },
+        {
+          "vi": "đua",
+          "en": "to race"
+        }
+      ]
+    },
+    {
+      "vi": "canh",
+      "en": "soup (a clear broth eaten with rice)",
+      "picture": {
+        "kind": "icon",
+        "name": "soup"
+      },
+      "hook": "Grandpa props his cane against the tray and sips his soup, slow and level: \"cane\", canh.",
+      "tip": "Hà Nội anh starts lower than \"cane\": a short, open a, as in \"cat\", gliding quickly towards ee and ending in a soft ng, the tongue staying forward. The vowel of \"cane\" is nearer ê. c has no puff of air. Level tone.",
+      "note": "Almost every family meal has a canh: canh cua (crab), canh rau (greens). Cháu ăn canh đi: have some soup.",
+      "fact": "The simplest canh is the water the greens were boiled in: nước rau muống luộc, with a squeeze of lime, often drunk at the end of the meal.",
+      "contrast": [
+        {
+          "vi": "cạnh",
+          "en": "beside; an edge"
+        },
+        {
+          "vi": "cánh",
+          "en": "a wing"
+        }
+      ]
+    },
+    {
+      "vi": "no",
+      "en": "full (after eating)",
+      "picture": {
+        "kind": "icon",
+        "name": "full"
+      },
+      "hook": "You gnaw the last spare rib clean, lean back and pat your belly: \"gnaw\" (the aw of British \"saw\"), calm and level. Not the English no: no means full.",
+      "tip": "o is open, like the aw of British \"saw\", not the o of English \"no\". Level tone.",
+      "note": "Cháu no rồi ạ: I'm full now (to an elder). rồi: already, now.",
+      "contrast": [
+        {
+          "vi": "nó",
+          "en": "he, she or it (casual)"
+        }
+      ]
+    },
+    {
+      "vi": "vâng",
+      "en": "yes (polite, to someone older)",
+      "picture": {
+        "kind": "icon",
+        "name": "nod"
+      },
+      "hook": "Young people answer their elders with vâng, and it rhymes with \"young\": short and level, with one small nod.",
+      "tip": "â is short, like the u in \"young\". v is a real v in Hà Nội. Level tone.",
+      "note": "Add ạ for elders: Vâng ạ. Hà Nội also says dạ. Vâng, ngon quá ạ! Yes, it's delicious!",
+      "contrast": [
+        {
+          "vi": "vàng",
+          "en": "gold; yellow"
+        }
+      ]
+    }
+  ],
+  "grammar": {
+    "title": "Mời ... ăn cơm: please, start eating",
+    "text": "A family meal starts with mời + who + ăn cơm: please, (who), eat. The younger say it to each elder in turn, oldest first, with cháu in front and ạ at the end: Cháu mời bà ăn cơm ạ. Change the who or the what: Cháu mời cả nhà ăn cơm ạ, Cháu mời chú uống trà ạ. You are cháu to anyone of your parents' or grandparents' generation; to a younger seller you stay anh.",
+    "examples": [
+      {
+        "vi": "Cháu mời ông ăn cơm ạ.",
+        "en": "Please start, Grandpa. (I, your grandchild, invite you to eat.)"
+      },
+      {
+        "vi": "Cháu mời cả nhà ăn cơm ạ.",
+        "en": "Please start, everyone. (cả nhà: the whole family)"
+      }
+    ]
+  },
+  "combos": [
+    {
+      "vi": "Cháu mời ông bà ăn cơm ạ.",
+      "en": "Please start eating, Grandpa and Grandma.",
+      "note": "ông bà together: the grandparents. ạ: polite, to someone older."
+    },
+    {
+      "vi": "Cháu mời chú uống trà ạ.",
+      "en": "Please have some tea, Uncle.",
+      "note": "The same frame with another drink: mời, then who, then what. ạ: polite, to someone older."
+    },
+    {
+      "vi": "hai mươi một bát",
+      "en": "20.000₫ a bowl",
+      "note": "hai mươi, then một bát, a bowl: 20.000₫ each, as in chuối hai mươi một nải. 21.000₫ would be hai mươi mốt: listen for mốt."
+    },
+    {
+      "vi": "trăm hai",
+      "en": "120.000₫",
+      "note": "một trăm hai mươi nghìn: after trăm, a lone digit counts tens."
+    },
+    {
+      "vi": "một trăm linh hai",
+      "en": "102.000₫",
+      "note": "linh fills the empty tens place: 102, with nghìn left out. Against trăm hai, 120.000₫."
+    }
+  ],
+  "review": [
+    "bớt",
+    "nữa",
+    "lăm",
+    "quả"
+  ]
+}
