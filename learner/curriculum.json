@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-22",
+  "updated": "2026-11-23",
   "reviewedAt": "2026-11-22",
   "goal": "Basic conversation at a dinner table (a meal with a Hà Nội family or friends) and understanding basic street talk (sellers, waiters, drivers, neighbours) in Northern Vietnamese. Vocabulary keeps growing, and from issue 6 every issue also teaches one sentence frame and one short dialogue built from known words, alternating between the table and the street (the learner set this goal on 2026-11-22; see docs/PEDAGOGY.md, Conversation).",
   "phases": [
@@ -105,7 +105,7 @@
     {
       "id": "table",
       "title": "At the table: a meal with a Hà Nội family",
-      "status": "active",
+      "status": "done",
       "candidates": [
         "mời",
         "ăn",
@@ -123,7 +123,7 @@
         "cháu"
       ],
       "frames": [
-        "Mời ... ăn cơm (inviting everyone to start, oldest first): taught in issue 6; bring back in issue 7, about issue 9 or 10, and about issue 13",
+        "Mời ... ăn cơm (inviting everyone to start, oldest first): taught in issue 6; brought back in issue 7 (a phở seller: Mời anh vào ăn phở ạ!); bring back about issue 9 or 10, and about issue 13",
         "... nữa nhé? / ... nữa không? (offering more): heard in issue 6 (Cháu ăn bát nữa nhé?); teach as a frame at the next table issue",
         "Cháu no rồi ạ. (I'm full): taught as a chunk in issue 6; bring back with the frame"
       ],
@@ -131,14 +131,14 @@
         "Bà offers more rice; you are full",
         "Inviting the elders to start the meal"
       ],
-      "notes": "The learner's goal is dinner-table conversation. Verify every custom and phrase with the Vietnamese reviewer (Northern usage: vâng for yes; who invites whom). Issue 6 (2026-11-22): mời, cháu, bát, đũa, canh, no, vâng, with a warm-up of ăn, uống and cảm ơn; review bớt, nữa, lăm, quả. Frame: Mời ... ăn cơm (Cháu mời ông ăn cơm ạ; Mời cả nhà ăn cơm; Cháu mời chú uống trà ạ). Chunks: Cháu no rồi ạ., Vâng, ngon quá ạ!, Vâng, cháu cảm ơn bà ạ. Dialogue at Minh's grandparents' table, ending on being full; real life rehearses the issue 5 price traps (bốn lăm against 54, trăm sáu against 106 and 600, a price followed by một quả or một chai, một against mười) on the way to dinner. Story: \"Words before chopsticks\" (the mâm cơm, the shared fish-sauce bowl, Ăn trông nồi ngồi trông hướng, chopstick rules, Lời chào cao hơn mâm cỗ). Left for later: thêm (near-synonym of nữa), đói (antonym of no; the describing unit), nước mắm and chấm as words, mâm, ừ, xơi, gắp, mời ... uống nước as its own frame.",
+      "notes": "The learner's goal is dinner-table conversation. Verify every custom and phrase with the Vietnamese reviewer (Northern usage: vâng for yes; who invites whom). Issue 6 (2026-11-22): mời, cháu, bát, đũa, canh, no, vâng, with a warm-up of ăn, uống and cảm ơn; review bớt, nữa, lăm, quả. Frame: Mời ... ăn cơm (Cháu mời ông ăn cơm ạ; Mời cả nhà ăn cơm; Cháu mời chú uống trà ạ). Chunks: Cháu no rồi ạ., Vâng, ngon quá ạ!, Vâng, cháu cảm ơn bà ạ. Dialogue at Minh's grandparents' table, ending on being full; real life rehearses the issue 5 price traps (bốn lăm against 54, trăm sáu against 106 and 600, a price followed by một quả or một chai, một against mười) on the way to dinner. Story: \"Words before chopsticks\" (the mâm cơm, the shared fish-sauce bowl, Ăn trông nồi ngồi trông hướng, chopstick rules, Lời chào cao hơn mâm cỗ). Left for later: thêm (near-synonym of nữa), đói (antonym of no; the describing unit), nước mắm and chấm as words, mâm, ừ, xơi, gắp, mời ... uống nước as its own frame. Played on 2026-11-23 (iPhone): 88% first try, merit, Too hard, fun OK, story OK (6 seconds on the opening); hardest mời, đũa, canh, bớt. Conversation check right. Real life 5 of 8, every miss a price trap: Của anh hết trăm ba typed as 300 (trăm ba read as ba trăm), Bưởi bốn mươi một quả picked as 41.000₫ (the second issue running for the X mươi | một [unit] parse), and Anh lấy mấy quả ạ? answered with một cân. bớt 0 by meaning (heard as mời). The review that afternoon scored 69% (bớt typed as dat again, bạn as bat, tên as tien).",
       "storyIdea": "The Northern family meal: the shared tray (mâm cơm) and the custom of inviting each elder to eat before you start.",
       "lesson": "lesson-06"
     },
     {
       "id": "transport",
       "title": "Getting around",
-      "status": "planned",
+      "status": "active",
       "candidates": [
         "xe máy",
         "ô tô",
@@ -155,8 +155,13 @@
         "dừng lại",
         "tắc đường"
       ],
-      "notes": "rẽ was a contrast word in lesson 2 (rẻ against rẽ).",
-      "storyIdea": "Millions of motorbikes, the Long Biên bridge, and how to cross a Hà Nội street."
+      "notes": "rẽ was a contrast word in lesson 2 (rẻ against rẽ). Issue 7 (2026-11-23), made easier after issue 6 was rated Too hard: six words (xe ôm, đâu, trái, gần, rẽ, phải), warm-up đi, ăn, uống, review bớt, mời, đắt, 42 answers. Frame Đi ... bao nhiêu? with a xe ôm dialogue (agree the fare, bargain, left or right). The two persistent price traps are taught once in combos (trăm ba against ba trăm; bốn mươi, một quả as 40.000₫ each) and kept out of real life, whose six prices use forms the learner got right before (ba mươi, hai trăm rưỡi, hai lăm, ba lăm, trăm rưỡi, mười nghìn in full). Story: \"The bridge that keeps left\" (Long Biên: the 1899 – 1902 Daydé & Pillé plate, not Eiffel, the 1953 decree to keep left, the war, today). Left for later: xa (in a note), đây, thẳng (đi thẳng), dừng, xuống (Cho anh xuống đây), tắc đường, xe máy, ô tô, xe buýt, đường, ngã tư.",
+      "storyIdea": "Millions of motorbikes, the Long Biên bridge, and how to cross a Hà Nội street.",
+      "lesson": "lesson-07",
+      "frames": [
+        "Đi ... bao nhiêu? (how much to ...?, agreeing a fare with a xe ôm or taxi): taught in issue 7; bring back in issue 8, about issue 10, and about issue 14",
+        "Rẽ trái / rẽ phải (steering a driver): chunks in issue 7"
+      ]
     },
     {
       "id": "politeness",

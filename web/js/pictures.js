@@ -200,6 +200,68 @@ function grandkid() {
   };
 }
 
+// Issue 7, getting around. The trusses of the Long Biên Bridge: between each pair of piers the top chord sags from a
+// peak over one pier to a low point mid-span and climbs to the next, with posts and crossed bracing in every panel.
+function truss(piers, deck, peak, sag, panels, { chord = 3, brace = 1.1, post = 1.3 } = {}) {
+  let out = '';
+  for (let k = 0; k < piers.length - 1; k++) {
+    const [a, b] = [piers[k], piers[k + 1]];
+    const mid = (a + b) / 2;
+    const half = (b - a) / 2;
+    const top = (x) => sag - ((sag - peak) * (1 - Math.cos(Math.PI * Math.abs(x - mid) / half))) / 2;
+    const xs = Array.from({ length: panels + 1 }, (_, i) => a + ((b - a) * i) / panels);
+    const fine = Array.from({ length: 41 }, (_, i) => a + ((b - a) * i) / 40);
+    let braces = '';
+    for (let i = 0; i < panels; i++) {
+      const [x1, x2] = [xs[i], xs[i + 1]];
+      braces += `M${n1(x1)} ${n1(deck)} L${n1(x2)} ${n1(top(x2) + chord)} M${n1(x1)} ${n1(top(x1) + chord)} L${n1(x2)} ${n1(deck)} `;
+    }
+    out += `<path stroke-width="${brace}" d="${braces.trim()}"/>
+      <path stroke-width="${post}" d="${xs.slice(1, -1).map((x) => `M${n1(x)} ${n1(deck)} V${n1(top(x) + chord)}`).join(' ')}"/>
+      <path class="k-tint" stroke-width="${n1(post * 1.1)}" d="M${fine.map((x) => `${n1(x)} ${n1(top(x))}`).join(' L')} L${[...fine].reverse().map((x) => `${n1(x)} ${n1(top(x) + chord)}`).join(' L')} Z"/>`;
+  }
+  const ends = piers.map((x) => `M${n1(x)} ${n1(deck)} V${n1(peak)}`).join(' ');
+  return `${out}<path stroke-width="${n1(post * 1.5)}" d="${ends}"/>
+    <path class="k-tint" stroke-width="${n1(post * 1.1)}" d="M${n1(piers[0])} ${n1(deck)} H${n1(piers[piers.length - 1])} V${n1(deck + chord + 1)} H${n1(piers[0])} Z"/>`;
+}
+
+// A step-through motorbike from the side, facing right, its rear wheel at (x, y), scaled by s. Riders are drawn separately.
+function motorbike(x, y, s = 1, cls = 'k-tint') {
+  const p = (px, py) => `${n1(x + px * s)} ${n1(y + py * s)}`;
+  const xy = (px, py) => [n1(x + px * s), n1(y + py * s)];
+  const w = (v) => n1(Math.max(1, v * s));
+  const wheel = (px) => `<circle class="k-paper" cx="${xy(px, 0)[0]}" cy="${xy(px, 0)[1]}" r="${n1(11 * s)}"/><circle stroke-width="${w(1.3)}" cx="${xy(px, 0)[0]}" cy="${xy(px, 0)[1]}" r="${n1(3.2 * s)}"/>`;
+  return `${wheel(0)}${wheel(64)}
+    <path stroke-width="${w(1.8)}" d="M${p(0, 0)} L${p(14, -8)} M${p(64, 0)} L${p(53, -34)} M${p(48, -37)} L${p(57, -36)}"/>
+    <path class="${cls}" d="M${p(-12, -14)} C${p(-11, -20)} ${p(-4, -23)} ${p(6, -23)} L${p(30, -23)} C${p(34, -23)} ${p(36, -19)} ${p(33, -15)} L${p(26, -9)} H${p(10, -9).split(' ')[0]} C${p(2, -9)} ${p(-6, -12)} ${p(-12, -14)} Z"/>
+    <path class="k-shade" stroke-width="${w(1.5)}" d="M${p(2, -23)} C${p(8, -27)} ${p(26, -27)} ${p(32, -23)} Z"/>
+    <path stroke-width="${w(2.2)}" d="M${p(26, -10)} C${p(32, -6)} ${p(40, -6)} ${p(47, -11)}"/>
+    <path class="${cls}" d="M${p(48, -33)} C${p(54, -34)} ${p(56, -29)} ${p(55, -25)} L${p(51, -10)} C${p(48, -9)} ${p(44, -10)} ${p(43, -12)} L${p(46, -23)} Z"/>
+    <path class="k-paper" stroke-width="${w(1.4)}" d="M${p(54, -32)} C${p(58, -33)} ${p(60, -30)} ${p(58, -27)} C${p(56, -26)} ${p(54, -28)} ${p(54, -32)} Z"/>
+    <path stroke-width="${w(1.6)}" d="M${p(-6, -14)} C${p(-4, -6)} ${p(4, -4)} ${p(8, -6)}"/>`;
+}
+
+// A seated rider, facing right, hips at (x, y): a helmet, a jacket, a bent leg. Returns the drawing and the shoulder.
+function rider(x, y, s = 1, { fill = 'k-paper', helmet = 'k-shade', foot = [10, 15] } = {}) {
+  const p = (px, py) => `${n1(x + px * s)} ${n1(y + py * s)}`;
+  const head = [x + 6 * s, y - 31 * s];
+  return {
+    ink: `<path stroke-width="${n1(Math.max(1.2, 2 * s))}" d="M${p(0, 0)} L${p(12, 2)} L${p(foot[0], foot[1])}"/>
+      <path class="${fill}" d="M${p(-5, 1)} C${p(-6, -10)} ${p(-3, -20)} ${p(3, -23)} C${p(8, -25)} ${p(12, -21)} ${p(11, -16)} L${p(7, 2)} Z"/>
+      <circle class="k-paper" cx="${n1(head[0])}" cy="${n1(head[1])}" r="${n1(7 * s)}"/>
+      <path class="${helmet}" d="M${p(-1.6, -30)} C${p(-2, -41)} ${p(14, -42)} ${p(13.6, -31)} C${p(10, -33)} ${p(3, -33)} ${p(-1.6, -30)} Z"/>`,
+    shoulder: [x + 5 * s, y - 19 * s],
+  };
+}
+
+// A round road sign on its post with an arrow that turns left, or right when mirrored.
+function roadSign(mirror) {
+  const arrow = '<path class="k-paper" stroke-width="1.7" d="M63 52 H70 V31 C70 28.8 68.2 27 66 27 H51 V21 L42 30.5 L51 40 V34 H63 Z"/>';
+  return `<path class="k-pale" stroke-width="1.7" d="M57.4 60 H62.6 V84 H57.4 Z"/><path d="M48 85 H72"/>
+    <circle class="k-paper" cx="60" cy="36" r="26"/><circle class="k-shade" stroke-width="1.4" cx="60" cy="36" r="22"/>
+    ${mirror ? `<g transform="matrix(-1 0 0 1 120 0)">${arrow}</g>` : arrow}`;
+}
+
 const ICONS = {
   bowl: {
     tone: 'warm',
@@ -704,6 +766,77 @@ const ICONS = {
       <path class="k-shade" stroke-width="1.4" d="${bar(101.4, 19.6, 113, 14, 4, 4.6)}"/>
       <path stroke-width="1.5" stroke-dasharray="2.4 3.2" d="M58 42 C55.6 45 55 48 56 50.6"/>`,
   },
+  // xe ôm: a motorbike taxi, the passenger behind with both arms round the driver: the hug in its name.
+  xeOm: (() => {
+    const d = rider(55, 50, 1, { fill: 'k-paper', foot: [13, 12] });
+    const q = rider(35, 50, 0.96, { fill: 'k-pale', helmet: 'k-tint', foot: [9, 13] });
+    return {
+      tone: 'cool',
+      seed: 211,
+      ink: `${motorbike(25, 74, 1)}${q.ink}${d.ink}
+        <path d="M${n1(d.shoulder[0])} ${n1(d.shoulder[1])} C68 33 72 37 76 37.6"/>
+        <path d="M${n1(q.shoulder[0])} ${n1(q.shoulder[1])} C46 37 52 42 60 41"/>`,
+      crisp: '<circle class="k-dot" cx="60" cy="41" r="2.2"/><circle class="k-dot" cx="76" cy="37.6" r="1.8"/>',
+    };
+  })(),
+  // đâu: where: a folded street map with a pin that holds a question mark.
+  where: {
+    tone: 'earth',
+    seed: 213,
+    ink: `<g transform="translate(0 -4)"><path class="k-paper" d="M16 44 L42 38 L42 84 L16 88 Z"/><path class="k-pale" d="M42 38 L68 44 L68 88 L42 84 Z"/><path class="k-paper" d="M68 44 L94 38 L94 84 L68 88 Z"/>
+      <path stroke-width="1.3" d="M18 60 L40 55 M44 55 L66 61 M70 61 L92 55 M18 74 L40 70 M44 70 L66 75 M70 75 L92 70 M30 41 L30 86 M56 41 L56 86 M82 41 L82 86"/>
+      <path stroke-width="2.4" stroke-dasharray="2.6 3.6" d="M24 82 C34 70 48 72 56 64"/></g>
+      <path class="k-tint" d="M60 54 C52 42 44 36 44 26 C44 17 51 11 60 11 C69 11 76 17 76 26 C76 36 68 42 60 54 Z"/>
+      <circle class="k-paper" stroke-width="1.6" cx="60" cy="26" r="10"/>`,
+    crisp: '<text class="k-text" x="60" y="31.4" font-size="15" text-anchor="middle">?</text>',
+  },
+  // rẽ: to turn: a junction from above, the arrow from the road below splitting both ways.
+  turn: {
+    tone: 'leaf',
+    seed: 215,
+    ink: `<path class="k-pale" stroke="none" d="M6 20 H114 V42 H79 C75 42 72 45 72 49 V88 H48 V49 C48 45 45 42 41 42 H6 Z"/>
+      <path d="M6 20 H114 M6 42 H41 C45 42 48 45 48 49 V88 M114 42 H79 C75 42 72 45 72 49 V88"/>
+      <path stroke-width="1.3" d="M10 31 h7 M24 31 h7 M89 31 h7 M103 31 h7"/>
+      <path class="k-paper" stroke-width="1" d="M50 50 h3 v8 h-3 Z M56 50 h3 v8 h-3 Z M61 50 h3 v8 h-3 Z M66 50 h3 v8 h-3 Z"/>
+      <path stroke-width="3.4" d="M60 84 V62 C60 42 52 33 38 31 M60 62 C60 42 68 33 82 31"/>
+      <path stroke-width="3.4" d="M43 25 L35 31 L43 37 M77 25 L85 31 L77 37"/>`,
+  },
+  // trái and phải: a round road sign on its post, the arrow turning left or right.
+  left: { tone: 'cool', seed: 217, ink: roadSign(false) },
+  right: { tone: 'cool', seed: 219, ink: roadSign(true) },
+  // gần: near: someone a short step from a shopfront, the gap between them marked out.
+  near: (() => {
+    const p = person(36, 80, 52);
+    return {
+      tone: 'warm',
+      seed: 221,
+      ink: `<path class="k-paper" d="M62 26 H104 V80 H62 Z"/>
+        <path class="k-tint" d="M58 24 H108 V33 C104 37 101 37 98 33 C95 37 92 37 89 33 C86 37 83 37 80 33 C77 37 74 37 71 33 C68 37 65 37 62 33 C60.6 35 59 35 58 33 Z"/>
+        <path class="k-shade" stroke-width="1.6" d="M76 52 H92 V80 H76 Z"/><path stroke-width="1.3" d="M66 44 H72 V56 H66 Z M96 44 H102 V56 H96 Z"/>
+        ${p.ink}<path d="M${n1(36 - p.ws)} ${n1(p.sy + 2)} L${n1(36 - p.ws - 3)} ${n1(p.hip + 4)} M${n1(36 + p.ws)} ${n1(p.sy + 2)} L60 ${n1(p.sy + 5)}"/>
+        <path d="M6 80 H114"/><path stroke-width="1.6" d="M45 73 H59 M45 70 V76 M59 70 V76"/>`,
+    };
+  })(),
+  // Story: the Long Biên Bridge over the Red River, two of its spans.
+  bridge: {
+    tone: 'cool',
+    seed: 223,
+    ink: `<path class="k-pale" stroke="none" d="M4 70 H116 V84 H4 Z"/>
+      ${[9, 60, 111].map((x) => `<path class="k-paper" stroke-width="1.6" d="M${x - 5} 60 H${x + 5} L${x + 4} 76 H${x - 4} Z"/>`).join('')}
+      ${truss([9, 60, 111], 56, 20, 42, 6, { chord: 2.6, brace: 0.9, post: 1.1 })}
+      <path stroke-width="1.2" d="M10 76 q5 -3 10 0 q5 3 10 0 M74 80 q5 -3 10 0 q5 3 10 0 M36 82 q5 -3 10 0"/>`,
+  },
+  // Story: the maker's plate still fixed to the bridge: 1899 - 1902, Daydé & Pillé, Paris.
+  plaque: {
+    tone: 'earth',
+    seed: 225,
+    ink: `<path class="k-shade" stroke-width="1.6" d="M4 14 H116 V24 H4 Z M4 66 H116 V76 H4 Z"/>
+      <path class="k-pale" d="M14 18 H106 V72 H14 Z"/><path stroke-width="1.2" d="M19 23 H101 V67 H19 Z"/>`,
+    crisp: `${[[17, 21], [103, 21], [17, 69], [103, 69], [10, 19], [110, 19], [10, 71], [110, 71]].map(([x, y]) => `<circle class="k-dot" cx="${x}" cy="${y}" r="1.4"/>`).join('')}
+      <text class="k-text" x="60" y="37" font-size="10.5" text-anchor="middle">1899 – 1902</text>
+      <text class="k-text" x="60" y="50.6" font-size="8.6" letter-spacing="0.4" text-anchor="middle">DAYDÉ &amp; PILLÉ</text>
+      <text class="k-text" x="60" y="61.6" font-size="7.6" letter-spacing="1.6" text-anchor="middle">PARIS</text>`,
+  },
 };
 
 function icon(name) {
@@ -1180,7 +1313,38 @@ function familyTrayScene() {
   };
 }
 
-const SCENES = { phoStall: phoScene, market: marketScene, legend: legendScene, genealogy: genealogyScene, fruitTray: fruitTrayScene, familyTray: familyTrayScene };
+// Issue 7: the Long Biên Bridge from the bank, its spans striding across the Red River on stone piers, a boat below.
+function longBienScene(id) {
+  const piers = [-20, 80, 180, 280, 380, 480];
+  const deck = 140;
+  const water = 'M0 178 C60 175 120 177 200 176 C280 175 340 177 400 175 V250 H0 Z';
+  const pier = (x) => `<path class="k-paper" stroke-width="1.8" d="M${x - 12} ${deck + 6} H${x + 12} V${deck + 11} H${x + 9} L${x + 11} 186 H${x - 11} L${x - 9} ${deck + 11} H${x - 12} Z"/>
+    ${hatch(x + 2, deck + 16, x + 3, 180, 6, 5, 1.2, 1.1)}<path stroke-width="1.1" d="M${x - 9.4} ${deck + 24} H${x + 9.4} M${x - 9.8} ${deck + 36} H${x + 9.8}"/>`;
+  const rails = Array.from({ length: 41 }, (_, i) => `M${i * 10} ${deck - 5} V${deck}`).join(' ');
+  const bike = (x) => {
+    const r = rider(x + 8.6, deck - 14.4, 0.42, { fill: 'k-paper', foot: [12, 12] });
+    return `${motorbike(x, deck - 5.2, 0.42, 'k-shade')}${r.ink}<path stroke-width="1.3" d="M${n1(r.shoulder[0])} ${n1(r.shoulder[1])} L${n1(x + 21.6)} ${n1(deck - 20.4)}"/>`;
+  };
+  return {
+    tone: 'cool',
+    defs: `<clipPath id="${id}-river"><path d="${water}"/></clipPath>`,
+    back: `<path class="k-pale" d="M0 172 C40 166 70 168 100 164 C130 160 160 166 200 165 C240 164 270 160 300 163 C340 166 370 162 400 164 V180 H0 Z"/>
+      ${[28, 46, 120, 138, 236, 252, 330, 352].map((x, i) => `<path class="k-pale" d="M${x} 166 C${x - 6} ${158 - (i % 3) * 3} ${x + 6} ${152 - (i % 3) * 3} ${x + 10} ${160 - (i % 2) * 2} C${x + 14} 156 ${x + 18} 162 ${x + 16} 166 Z"/>`).join('')}`,
+    paper: blob(200, 112, 176, 96, 71, 11, 0.06),
+    ink: `<path class="k-pale" d="${water}"/>
+      <path stroke-width="1" clip-path="url(#${id}-river)" d="${scales(0, 188, 400, 252, 13)}"/>
+      ${[80, 180, 280].map((x) => `<path class="k-mid" stroke="none" d="M${x - 12} 184 H${x + 12} L${x + 7} 204 H${x - 7} Z"/>`).join('')}
+      ${piers.map(pier).join('')}
+      ${truss(piers, deck, 66, 110, 8, { chord: 4, brace: 1.2, post: 1.5 })}
+      <path stroke-width="1.6" d="M0 ${deck - 5} H400"/><path stroke-width="1" d="${rails}"/>
+      ${bike(112)}${bike(236)}
+      <path class="k-tint" stroke-width="1.8" d="M224 214 C240 222 296 222 312 214 L306 224 C292 229 244 229 230 224 Z"/>
+      <path class="k-paper" stroke-width="1.6" d="M252 214 C254 204 280 204 284 214 Z"/>
+      <path stroke-width="1.8" d="${stick(310, 214, 336, 196, 1.6, 1.6)}"/>`,
+  };
+}
+
+const SCENES = { phoStall: phoScene, market: marketScene, legend: legendScene, genealogy: genealogyScene, fruitTray: fruitTrayScene, familyTray: familyTrayScene, longBien: longBienScene };
 
 function scene(name) {
   const make = SCENES[name];

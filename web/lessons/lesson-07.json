@@ -1,0 +1,444 @@
+{
+  "id": "lesson-07",
+  "number": 7,
+  "title": "Getting around",
+  "vi": "Đi Hồ Gươm bao nhiêu?",
+  "theme": "the street: taking a xe ôm, agreeing the fare first, turning left and right, and prices from drivers and street sellers",
+  "intro": "Out on the street: xe ôm, đâu, trái, gần, rẽ and phải, the frame Đi Hồ Gươm bao nhiêu? to agree a fare, and your first ride. Prices the way drivers and sellers say them, and the trăm ba trap explained once.",
+  "cover": {
+    "picture": {
+      "kind": "scene",
+      "name": "longBien"
+    }
+  },
+  "feature": {
+    "kicker": "Getting around",
+    "title": "The bridge that keeps left",
+    "dek": "Hà Nội's oldest bridge over the Red River is one of only two in Vietnam where traffic keeps to the left. A ride across it, from the Paris maker's plate at its end to the decree of 1953 behind its odd rule.",
+    "intro": "Vietnam drives on the right, a rule from the days of French Indochina. But on the Long Biên, the old iron bridge across the Red River in Hà Nội, the motorbikes keep to the left: traffic here has kept left since 1953. The reason is not the one most people tell.",
+    "beats": [
+      {
+        "word": "xe ôm",
+        "picture": {
+          "kind": "icon",
+          "name": "xeOm"
+        },
+        "text": "The quickest way onto the bridge is a xe ôm, a hug vehicle: you hold on behind the driver. Drivers wait by markets, hospitals, schools and bus stations. Wave one down, agree the fare before you get on, and he hands you a helmet: the law requires one for passengers too."
+      },
+      {
+        "picture": {
+          "kind": "icon",
+          "name": "plaque"
+        },
+        "text": "The bridge was finished in 1902 and in use from 1903; a plate at its end still reads 1899 – 1902, Daydé & Pillé, Paris. More than 3,000 Vietnamese workers, many of them forced, built it, and a folk verse says they died like straw: người chết như rạ."
+      },
+      {
+        "picture": {
+          "kind": "icon",
+          "name": "bridge"
+        },
+        "text": "You will often hear that Gustave Eiffel designed it. He did not: he had left his company in 1893, before the bridge was proposed, and his old firm lost the 1897 tender to Daydé & Pillé. The signed drawings in Vietnam's national archives carry no signature of his."
+      },
+      {
+        "picture": {
+          "kind": "icon",
+          "name": "edict"
+        },
+        "text": "So why keep left? A popular story says the bridge leaned under heavy lorries, but no document backs it. The records show years of crashes on the ramps, and a decree after a meeting in October 1953 that moved traffic to the left."
+      },
+      {
+        "picture": {
+          "kind": "icon",
+          "name": "left"
+        },
+        "text": "The bridge was bombed by US aircraft again and again between 1967 and 1972, and the fallen spans were rebuilt, so only about half keeps its first shape. Today a single railway runs down the middle, with motorbikes, bicycles and walkers on narrow lanes either side. Cars cross by newer bridges."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Long Biên Bridge",
+        "url": "https://en.wikipedia.org/wiki/Long_Bi%C3%AAn_Bridge"
+      },
+      {
+        "title": "Cầu Long Biên (Vietnamese)",
+        "url": "https://vi.wikipedia.org/wiki/C%E1%BA%A7u_Long_Bi%C3%AAn"
+      },
+      {
+        "title": "Motorcycle taxi (Vietnam)",
+        "url": "https://en.wikipedia.org/wiki/Motorcycle_taxi"
+      },
+      {
+        "title": "Xe ôm (Vietnamese)",
+        "url": "https://vi.wikipedia.org/wiki/Xe_%C3%B4m"
+      },
+      {
+        "title": "Left- and right-hand traffic",
+        "url": "https://en.wikipedia.org/wiki/Left-_and_right-hand_traffic"
+      },
+      {
+        "title": "Hồ Hoàn Kiếm (Vietnamese)",
+        "url": "https://vi.wikipedia.org/wiki/H%E1%BB%93_Ho%C3%A0n_Ki%E1%BA%BFm"
+      }
+    ]
+  },
+  "situations": [
+    {
+      "who": "Xe ôm driver",
+      "picture": {
+        "kind": "icon",
+        "name": "xeOm"
+      },
+      "vi": "Cầu Long Biên gần thôi, ba mươi anh ạ.",
+      "en": "Long Biên Bridge is close: 30,000.",
+      "note": "ba mươi with nghìn left out is 30.000₫; 13.000₫ would be mười ba. gần thôi: it's just near. cầu: bridge.",
+      "ask": "You asked a xe ôm driver how much to the Long Biên Bridge. What does he want?",
+      "options": [
+        "30.000₫",
+        "13.000₫",
+        "80.000₫"
+      ],
+      "answer": "30.000₫"
+    },
+    {
+      "who": "Taxi driver",
+      "picture": {
+        "kind": "icon",
+        "name": "suitcase"
+      },
+      "vi": "Hết hai trăm rưỡi anh ạ.",
+      "en": "That's 250,000 altogether.",
+      "note": "hai trăm rưỡi: two hundred and a half, 250.000₫. trăm rưỡi on its own would be 150.000₫.",
+      "ask": "Your taxi from Nội Bài airport stops in the Old Quarter. What's the fare?",
+      "options": [
+        "250.000₫",
+        "150.000₫",
+        "90.000₫"
+      ],
+      "answer": "250.000₫"
+    },
+    {
+      "who": "Bánh mì seller",
+      "picture": {
+        "kind": "icon",
+        "name": "baguette"
+      },
+      "vi": "Bánh mì hai lăm anh ạ.",
+      "en": "The bánh mì is 25,000.",
+      "note": "hai lăm is hai mươi lăm nghìn: 25.000₫, with mươi and nghìn left out.",
+      "ask": "A bánh mì cart on the corner. Type the price, the full amount, in digits.",
+      "digits": "25000"
+    },
+    {
+      "who": "Trà đá seller",
+      "picture": {
+        "kind": "icon",
+        "name": "tea"
+      },
+      "vi": "Hai cốc trà đá, mười nghìn anh ạ.",
+      "en": "Two iced teas, 10,000.",
+      "note": "trà đá: iced tea (đá: ice), drunk on low plastic stools on the pavement. cốc: a glass. mười nghìn: 10.000₫, said in full.",
+      "ask": "You and a friend had iced tea at a pavement stall. Type what you owe in digits.",
+      "digits": "10000"
+    },
+    {
+      "who": "Café owner",
+      "picture": {
+        "kind": "icon",
+        "name": "phin"
+      },
+      "vi": "Cà phê trứng ba lăm anh ạ.",
+      "en": "Egg coffee is 35,000.",
+      "note": "ba lăm is ba mươi lăm nghìn: 35.000₫. 53.000₫ would be năm mươi ba. trứng: egg.",
+      "ask": "Egg coffee at a café near the lake. How much is it?",
+      "options": [
+        "35.000₫",
+        "53.000₫",
+        "25.000₫"
+      ],
+      "answer": "35.000₫"
+    },
+    {
+      "who": "Phở seller",
+      "picture": {
+        "kind": "icon",
+        "name": "invite"
+      },
+      "vi": "Mời anh vào ăn phở ạ!",
+      "en": "Come in and have some phở!",
+      "note": "The table's mời, used by sellers too: mời anh vào, please come in (vào: to go in). One bowl is một bát; một cân is a kilo.",
+      "ask": "A phở seller calls this as you walk past, and you are hungry. What do you say?",
+      "options": [
+        "Cho anh một bát phở bò.",
+        "Cho anh một cân phở bò.",
+        "Anh no rồi, cảm ơn em."
+      ],
+      "answer": "Cho anh một bát phở bò."
+    },
+    {
+      "who": "Neighbour",
+      "picture": {
+        "kind": "icon",
+        "name": "where"
+      },
+      "vi": "Anh đi đâu đấy?",
+      "en": "Off somewhere?",
+      "note": "Anh đi đâu đấy? Where are you off to? It is a greeting as much as a question, and a short answer is all it needs. đấy softens the question.",
+      "ask": "A younger neighbour calls this as you head out for breakfast. What do you say?",
+      "options": [
+        "Anh đi ăn phở đây.",
+        "Anh đi đâu?",
+        "Đắt quá!"
+      ],
+      "answer": "Anh đi ăn phở đây."
+    },
+    {
+      "who": "Xe ôm driver",
+      "picture": {
+        "kind": "tag",
+        "label": "150.000₫",
+        "mood": "high"
+      },
+      "vi": "Đi Hồ Gươm trăm rưỡi anh ạ.",
+      "en": "To Hoàn Kiếm Lake, 150,000.",
+      "note": "trăm rưỡi, 150.000₫, for a short ride is a tourist price. Bớt đi em: come down a bit (to a younger driver). đắt is expensive; rẻ is cheap.",
+      "ask": "Another driver wants this for a short ride to the lake. What do you say?",
+      "options": [
+        "Đắt quá! Bớt đi em.",
+        "Rẻ quá! Bớt đi em.",
+        "Vâng, cảm ơn em."
+      ],
+      "answer": "Đắt quá! Bớt đi em."
+    }
+  ],
+  "dialogues": [
+    {
+      "title": "A xe ôm to the lake",
+      "setting": "street",
+      "picture": {
+        "kind": "icon",
+        "name": "xeOm"
+      },
+      "lines": [
+        {
+          "who": "Driver",
+          "vi": "Xe ôm không anh?",
+          "en": "Need a ride?"
+        },
+        {
+          "who": "You",
+          "vi": "Đi Hồ Gươm bao nhiêu em?",
+          "en": "How much to Hoàn Kiếm Lake?",
+          "you": true
+        },
+        {
+          "who": "Driver",
+          "vi": "Gần thôi, năm mươi anh ạ.",
+          "en": "It's close. 50,000."
+        },
+        {
+          "who": "You",
+          "vi": "Đắt quá! Bốn mươi nhé?",
+          "en": "That's a lot! 40, okay?",
+          "you": true
+        },
+        {
+          "who": "Driver",
+          "vi": "Thôi được, anh lên xe đi.",
+          "en": "All right, hop on."
+        },
+        {
+          "who": "Driver",
+          "vi": "Đến hồ rồi. Rẽ trái hay rẽ phải anh?",
+          "en": "Here's the lake. Left or right?"
+        }
+      ],
+      "check": {
+        "ask": "Your hotel is on the right side of the lake. Say your answer aloud first, then pick it.",
+        "options": [
+          "Rẽ phải em nhé.",
+          "Rẽ trái em nhé.",
+          "Bốn mươi nhé?"
+        ],
+        "answer": "Rẽ phải em nhé.",
+        "note": "lên xe: get on (the bike). hay: or. nhé softens a request, like okay?; to a younger driver you are anh and he is em. Hồ Gươm, Sword Lake, is what Hà Nội calls Hoàn Kiếm Lake. Thôi được: all right then. đến ... rồi: we've reached ..."
+      }
+    }
+  ],
+  "challenge": {
+    "title": "Street challenge",
+    "text": "First, say each line of this issue's dialogue after the voice. Then, the next time you need a ride, agree the fare before you get on, with your own destination in the slot: \"Đi Hồ Gươm bao nhiêu em?\" (how much to Hoàn Kiếm Lake?). On the way, steer: \"Rẽ trái em nhé\" (turn left, okay?), \"Rẽ phải em nhé\" (turn right, okay?). And if you ride across the Long Biên, check that you keep to the left: đi bên trái."
+  },
+  "stamp": {
+    "label": "Cầu Long Biên",
+    "picture": {
+      "kind": "scene",
+      "name": "longBien"
+    }
+  },
+  "warmup": [
+    {
+      "vi": "đi",
+      "en": "to go"
+    },
+    {
+      "vi": "ăn",
+      "en": "to eat"
+    },
+    {
+      "vi": "uống",
+      "en": "to drink"
+    }
+  ],
+  "words": [
+    {
+      "vi": "xe ôm",
+      "en": "motorbike taxi",
+      "picture": {
+        "kind": "icon",
+        "name": "xeOm"
+      },
+      "hook": "Hop on behind the driver and hold on tight: a hug. xe, like the \"se\" of \"set\", is any vehicle; ôm, like \"ohm\", is to hug. Both calm and level: the hug ride.",
+      "tip": "x is a plain s. e is open, as in \"bed\". ô is a pure o with rounded lips and no glide into w (English \"ohm\" glides), and the final m closes the lips. Both syllables are level.",
+      "note": "xe: any vehicle. ôm: to hug. Agree the fare before you get on. A ride booked on an app such as Grab is called xe ôm công nghệ.",
+      "fact": "In 2013 nearly a thousand Hà Nội xe ôm drivers joined an association with one shared phone line, aloxeom, to agree fares by distance and make the ride more trusted. Today most rides are booked on apps."
+    },
+    {
+      "vi": "đâu",
+      "en": "where",
+      "picture": {
+        "kind": "icon",
+        "name": "where"
+      },
+      "hook": "On a street corner you pat every pocket: where's the dough? Say it the British way, \"duh-oo\" in one quick, flat beat: đâu, where?",
+      "tip": "đ is a plain d. âu is short: a quick uh gliding to oo, close to British \"dough\". au, as in cháu, is longer and more open. Level tone.",
+      "note": "It goes at the end: Anh đi đâu? Where are you going? Hồ Gươm ở đâu? Where is Hoàn Kiếm Lake? (ở: at, in)",
+      "contrast": [
+        {
+          "vi": "đầu",
+          "en": "head"
+        },
+        {
+          "vi": "đấu",
+          "en": "a match; to compete"
+        }
+      ]
+    },
+    {
+      "vi": "trái",
+      "en": "left (the side)",
+      "picture": {
+        "kind": "icon",
+        "name": "left"
+      },
+      "hook": "A hand shoots up on your left and a voice calls out a rising \"chai?\" to hail you: trái, left. (Hà Nội says tr like ch; level chai is a bottle.)",
+      "tip": "tr sounds like ch in Hà Nội, with no puff of air. ai is a long a gliding to ee, as in \"eye\". Sắc rises.",
+      "note": "rẽ trái: turn left; bên trái: on the left. In the South trái also means fruit; Hà Nội says quả.",
+      "contrast": [
+        {
+          "vi": "trai",
+          "en": "a boy (con trai, a son)"
+        },
+        {
+          "vi": "trại",
+          "en": "a camp"
+        }
+      ]
+    },
+    {
+      "vi": "gần",
+      "en": "near, close by",
+      "picture": {
+        "kind": "icon",
+        "name": "near"
+      },
+      "hook": "The place is so near you could hit it with a water gun. Say \"gun\" and let it sink in a sigh of relief, no ride needed: gần, near.",
+      "tip": "g is a light g, as in \"gun\" but softer: the back of the tongue barely closes. â is short, like the u in \"gun\". Huyền starts a little low and sinks gently.",
+      "note": "Gần thôi: it's just near. The opposite is xa, far.",
+      "contrast": [
+        {
+          "vi": "gân",
+          "en": "a tendon; a vein"
+        }
+      ]
+    },
+    {
+      "vi": "rẽ",
+      "en": "to turn (at a corner)",
+      "picture": {
+        "kind": "icon",
+        "name": "turn"
+      },
+      "hook": "Say British \"zed\" and drop the d: a Z is a road of turns, and your voice cracks, then jumps, as the bike swings round: rẽ, turn.",
+      "tip": "In Hà Nội r sounds like z. e is open, as in \"bed\". Ngã rises, breaks in the middle with a creak, then jumps up. rẻ, cheap, drops instead.",
+      "note": "rẽ trái: turn left; rẽ phải: turn right. You met it once, in issue 2, as the contrast to rẻ, cheap.",
+      "contrast": [
+        {
+          "vi": "rẻ",
+          "en": "cheap"
+        }
+      ]
+    },
+    {
+      "vi": "phải",
+      "en": "right (the side)",
+      "picture": {
+        "kind": "icon",
+        "name": "right"
+      },
+      "hook": "Look at the top right of your phone: the Wi-Fi icon lives on the right. When it drops out, groan its last syllable, falling sharply: \"...Fi\", phải, right.",
+      "tip": "ph is f. ai as in \"eye\". Hỏi starts at your normal pitch and drops sharply, sometimes with a creak; it does not rise like an English question.",
+      "note": "rẽ phải: turn right; bên phải: on the right. phải also means must, and right as in correct: phải không? isn't it?",
+      "contrast": [
+        {
+          "vi": "phai",
+          "en": "to fade"
+        },
+        {
+          "vi": "phái",
+          "en": "a side, a faction"
+        }
+      ]
+    }
+  ],
+  "grammar": {
+    "title": "Đi ... bao nhiêu?: how much to ...?",
+    "text": "To a xe ôm or taxi driver, say đi, then the place, then bao nhiêu?: how much to go there? Add em at the end for a younger driver, anh for one a bit older, chú for one about your father's age (then you are cháu). The answer comes the way sellers say prices, with nghìn left out: năm mươi, 50.000₫. Agree it before you get on. You will also hear Ra Hồ Gươm bao nhiêu? (ra: out, towards the centre).",
+    "examples": [
+      {
+        "vi": "Đi Hồ Gươm bao nhiêu em?",
+        "en": "How much to Hoàn Kiếm Lake? (to a younger driver)"
+      },
+      {
+        "vi": "Đi chợ Đồng Xuân bao nhiêu?",
+        "en": "How much to Đồng Xuân market? (chợ: market)"
+      }
+    ]
+  },
+  "combos": [
+    {
+      "vi": "Đi cầu Long Biên bao nhiêu?",
+      "en": "How much to the Long Biên Bridge?",
+      "note": "cầu: bridge. The frame: đi, then the place, then bao nhiêu?"
+    },
+    {
+      "vi": "Rẽ trái, rồi rẽ phải.",
+      "en": "Turn left, then right.",
+      "note": "rồi: then. After a word it means already, as in no rồi, full now."
+    },
+    {
+      "vi": "trăm ba",
+      "en": "130.000₫",
+      "note": "Sellers' short form of một trăm ba mươi nghìn. trăm comes first, so the lone digit after it counts tens. A digit before trăm counts hundreds: ba trăm is 300.000₫, a different price."
+    },
+    {
+      "vi": "bốn mươi một quả",
+      "en": "40.000₫ each (a fruit)",
+      "note": "A price, then một and a unit, means each: một belongs to quả, one fruit. So 40.000₫ a pomelo; 41.000₫ would be bốn mươi mốt."
+    }
+  ],
+  "review": [
+    "bớt",
+    "mời",
+    "đắt"
+  ]
+}
