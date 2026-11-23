@@ -1,0 +1,522 @@
+{
+ "schema": 3,
+ "resultId": "a9ec2f62-57e6-4cd4-ba27-4285f68c6e07",
+ "kind": "review",
+ "lessonId": "review",
+ "lessonTitle": "Review",
+ "appVersion": "4",
+ "style": "paper",
+ "device": "iPhone",
+ "startedAt": "2026-11-23T16:47:46.965Z",
+ "finishedAt": "2026-11-23T16:50:49.765Z",
+ "durationSec": 183,
+ "summary": {
+  "firstTryAccuracy": 0.69,
+  "exercises": 16,
+  "bestStreak": 6,
+  "grade": "complete",
+  "speedScore": 0,
+  "speedAnswered": 0,
+  "speedCorrect": 0,
+  "bestCombo": 0
+ },
+ "article": null,
+ "quiz": null,
+ "situations": null,
+ "dialogues": null,
+ "timing": {
+  "drills": 127,
+  "article": 0,
+  "pauses": 0,
+  "longestPauseSec": 26
+ },
+ "toneMarks": "relaxed",
+ "words": [
+  {
+   "vi": "đồng",
+   "en": "Vietnam's currency (₫)",
+   "failures": 1,
+   "timeSec": 19,
+   "replays": 1,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 0.5,
+   "meaning": 0,
+   "form": 1,
+   "stars": 1,
+   "firstTry": {
+    "listen": false,
+    "type": "marks"
+   },
+   "attempts": 3,
+   "msMedian": 4157,
+   "known": false
+  },
+  {
+   "vi": "bao nhiêu",
+   "en": "how much, how many",
+   "failures": 2,
+   "timeSec": 14,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 0.5,
+   "meaning": 1,
+   "form": 0,
+   "stars": 1,
+   "firstTry": {
+    "listen": true,
+    "type": "wrong"
+   },
+   "attempts": 3,
+   "msMedian": 3570,
+   "known": false
+  },
+  {
+   "vi": "bớt",
+   "en": "to take some off (a price); to reduce",
+   "failures": 1,
+   "timeSec": 18,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 0.5,
+   "meaning": 1,
+   "form": 0,
+   "stars": 1,
+   "firstTry": {
+    "listen": true,
+    "type": "wrong"
+   },
+   "attempts": 3,
+   "msMedian": 5084,
+   "known": false
+  },
+  {
+   "vi": "uống",
+   "en": "to drink",
+   "failures": 0,
+   "timeSec": 29,
+   "replays": 1,
+   "hints": 1,
+   "revealed": false,
+   "studySec": 0,
+   "share": 1,
+   "meaning": 1,
+   "form": 1,
+   "stars": 3,
+   "firstTry": {
+    "listen": true,
+    "type": "marks"
+   },
+   "attempts": 2,
+   "msMedian": 22571,
+   "known": false
+  },
+  {
+   "vi": "tên",
+   "en": "name",
+   "failures": 2,
+   "timeSec": 22,
+   "replays": 1,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 0.5,
+   "meaning": 1,
+   "form": 0,
+   "stars": 1,
+   "firstTry": {
+    "listen": true,
+    "type": "wrong"
+   },
+   "attempts": 3,
+   "msMedian": 6707,
+   "known": false
+  },
+  {
+   "vi": "tôi",
+   "en": "I, me (neutral; safe with strangers)",
+   "failures": 0,
+   "timeSec": 6,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 1,
+   "meaning": 1,
+   "form": 1,
+   "stars": 3,
+   "firstTry": {
+    "listen": true,
+    "type": "marks"
+   },
+   "attempts": 2,
+   "msMedian": 3011,
+   "known": false
+  },
+  {
+   "vi": "ông",
+   "en": "grandfather; you (to an old man)",
+   "failures": 0,
+   "timeSec": 6,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 1,
+   "meaning": 1,
+   "form": 1,
+   "stars": 3,
+   "firstTry": {
+    "listen": true,
+    "type": "marks"
+   },
+   "attempts": 2,
+   "msMedian": 3455,
+   "known": false
+  },
+  {
+   "vi": "bạn",
+   "en": "friend; you (to someone your own age)",
+   "failures": 1,
+   "timeSec": 14,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 0.5,
+   "meaning": 1,
+   "form": 0,
+   "stars": 1,
+   "firstTry": {
+    "listen": true,
+    "type": "wrong"
+   },
+   "attempts": 3,
+   "msMedian": 4018,
+   "known": false
+  }
+ ],
+ "warmup": [],
+ "toneConfusions": [],
+ "meaningConfusions": [
+  {
+   "target": "đồng",
+   "chose": "name",
+   "t": "listen"
+  }
+ ],
+ "typed": [
+  {
+   "target": "tên",
+   "answer": "tien",
+   "grade": "wrong",
+   "accepted": false,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 4010
+  },
+  {
+   "target": "tôi",
+   "answer": "toi",
+   "grade": "marks",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 1659,
+   "dictation": true
+  },
+  {
+   "target": "ông",
+   "answer": "ong",
+   "grade": "marks",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 2053
+  },
+  {
+   "target": "đồng",
+   "answer": "dong",
+   "grade": "marks",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 1808,
+   "dictation": true
+  },
+  {
+   "target": "tên",
+   "answer": "tện",
+   "grade": "tone",
+   "tiles": true,
+   "retry": true
+  },
+  {
+   "target": "bớt",
+   "answer": "dat",
+   "grade": "wrong",
+   "accepted": false,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 2312
+  },
+  {
+   "target": "bao nhiêu",
+   "answer": "boa nieu",
+   "grade": "wrong",
+   "accepted": false,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 3157,
+   "dictation": true
+  },
+  {
+   "target": "uống",
+   "answer": "Uong",
+   "grade": "marks",
+   "accepted": true,
+   "hints": 1,
+   "keys": 0,
+   "firstKeyMs": 18651
+  },
+  {
+   "target": "bạn",
+   "answer": "bat",
+   "grade": "wrong",
+   "accepted": false,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 1914,
+   "dictation": true
+  },
+  {
+   "target": "bớt",
+   "answer": "bớt",
+   "grade": "perfect",
+   "tiles": true,
+   "retry": true
+  },
+  {
+   "target": "bao nhiêu",
+   "answer": "bao nhiếu",
+   "grade": "tone",
+   "tiles": true,
+   "retry": true
+  },
+  {
+   "target": "bạn",
+   "answer": "bạn",
+   "grade": "perfect",
+   "tiles": true,
+   "retry": true
+  }
+ ],
+ "feedback": {
+  "difficulty": null,
+  "fun": null,
+  "article": null,
+  "hardest": [
+   "bớt",
+   "uống",
+   "tên",
+   "bạn"
+  ],
+  "wantNext": null,
+  "note": null
+ },
+ "events": [
+  {
+   "t": "listen",
+   "w": "bớt",
+   "ok": true,
+   "a": "to take some off (a price); to reduce",
+   "ms": 5084
+  },
+  {
+   "t": "listen",
+   "w": "bạn",
+   "ok": true,
+   "a": "friend; you (to someone your own age)",
+   "ms": 7101
+  },
+  {
+   "t": "listen",
+   "w": "bao nhiêu",
+   "ok": true,
+   "a": "how much, how many",
+   "ms": 2450
+  },
+  {
+   "t": "listen",
+   "w": "uống",
+   "ok": true,
+   "a": "to drink",
+   "ms": 6418,
+   "plays": 1
+  },
+  {
+   "t": "listen",
+   "w": "ông",
+   "ok": true,
+   "a": "grandfather; you (to an old man)",
+   "ms": 2050
+  },
+  {
+   "t": "listen",
+   "w": "tôi",
+   "ok": true,
+   "a": "I, me (neutral; safe with strangers)",
+   "ms": 2635
+  },
+  {
+   "t": "listen",
+   "w": "đồng",
+   "ok": false,
+   "a": "name",
+   "ms": 11481,
+   "plays": 1
+  },
+  {
+   "t": "listen",
+   "w": "tên",
+   "ok": true,
+   "a": "name",
+   "ms": 9930,
+   "plays": 1
+  },
+  {
+   "t": "listen",
+   "w": "đồng",
+   "ok": true,
+   "a": "Vietnam's currency (₫)",
+   "ms": 2970,
+   "retry": true
+  },
+  {
+   "t": "type",
+   "w": "tên",
+   "ok": false,
+   "g": "wrong",
+   "a": "tien",
+   "ms": 6707,
+   "hints": 0,
+   "firstKeyMs": 4010
+  },
+  {
+   "t": "type",
+   "w": "tôi",
+   "ok": true,
+   "g": "marks",
+   "a": "toi",
+   "ms": 3011,
+   "dictation": true,
+   "hints": 0,
+   "firstKeyMs": 1659
+  },
+  {
+   "t": "type",
+   "w": "ông",
+   "ok": true,
+   "g": "marks",
+   "a": "ong",
+   "ms": 3455,
+   "hints": 0,
+   "firstKeyMs": 2053
+  },
+  {
+   "t": "type",
+   "w": "đồng",
+   "ok": true,
+   "g": "marks",
+   "a": "dong",
+   "ms": 4157,
+   "dictation": true,
+   "hints": 0,
+   "firstKeyMs": 1808
+  },
+  {
+   "t": "type",
+   "w": "tên",
+   "g": "tone",
+   "a": "tện",
+   "ms": 5340,
+   "retry": true,
+   "tiles": true
+  },
+  {
+   "t": "type",
+   "w": "bớt",
+   "ok": false,
+   "g": "wrong",
+   "a": "dat",
+   "ms": 4647,
+   "hints": 0,
+   "firstKeyMs": 2312
+  },
+  {
+   "t": "type",
+   "w": "bao nhiêu",
+   "ok": false,
+   "g": "wrong",
+   "a": "boa nieu",
+   "ms": 8115,
+   "dictation": true,
+   "hints": 0,
+   "firstKeyMs": 3157
+  },
+  {
+   "t": "type",
+   "w": "uống",
+   "ok": true,
+   "g": "marks",
+   "a": "Uong",
+   "ms": 22571,
+   "hints": 1,
+   "firstKeyMs": 18651
+  },
+  {
+   "t": "type",
+   "w": "bạn",
+   "ok": false,
+   "g": "wrong",
+   "a": "bat",
+   "ms": 4018,
+   "dictation": true,
+   "hints": 0,
+   "firstKeyMs": 1914
+  },
+  {
+   "t": "type",
+   "w": "bớt",
+   "g": "perfect",
+   "a": "bớt",
+   "ms": 8132,
+   "retry": true,
+   "tiles": true
+  },
+  {
+   "t": "type",
+   "w": "bao nhiêu",
+   "g": "tone",
+   "a": "bao nhiếu",
+   "ms": 3570,
+   "retry": true,
+   "tiles": true
+  },
+  {
+   "t": "type",
+   "w": "bạn",
+   "g": "perfect",
+   "a": "bạn",
+   "ms": 2850,
+   "retry": true,
+   "tiles": true
+  }
+ ],
+ "issue": 12
+}

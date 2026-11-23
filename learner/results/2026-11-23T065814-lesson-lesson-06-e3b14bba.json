@@ -1,0 +1,966 @@
+{
+ "schema": 3,
+ "resultId": "e3b14bba-6eed-4733-8269-bd6115219b9a",
+ "kind": "lesson",
+ "lessonId": "lesson-06",
+ "lessonTitle": "At the table",
+ "appVersion": "4",
+ "style": "paper",
+ "device": "iPhone",
+ "startedAt": "2026-11-23T03:41:38.127Z",
+ "finishedAt": "2026-11-23T06:58:14.770Z",
+ "durationSec": 11797,
+ "summary": {
+  "firstTryAccuracy": 0.88,
+  "exercises": 34,
+  "bestStreak": 12,
+  "grade": "merit",
+  "speedScore": 340,
+  "speedAnswered": 13,
+  "speedCorrect": 11,
+  "bestCombo": 8
+ },
+ "article": {
+  "readSec": 6,
+  "factsShown": 0
+ },
+ "quiz": null,
+ "situations": {
+  "correct": 5,
+  "total": 8
+ },
+ "dialogues": {
+  "correct": 1,
+  "total": 1
+ },
+ "timing": {
+  "warmup": 12,
+  "words": 69,
+  "drills": 244,
+  "conversation": 55,
+  "reallife": 186,
+  "rush": 37,
+  "article": 6,
+  "pauses": 1,
+  "longestPauseSec": 82
+ },
+ "toneMarks": "relaxed",
+ "words": [
+  {
+   "vi": "mời",
+   "en": "to invite; please (go ahead, have some)",
+   "failures": 1,
+   "timeSec": 31,
+   "replays": 1,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 23,
+   "share": 0.67,
+   "meaning": 1,
+   "form": 0.5,
+   "stars": 1,
+   "firstTry": {
+    "listen": true,
+    "spell": false,
+    "type": "marks"
+   },
+   "attempts": 4,
+   "msMedian": 10032,
+   "known": false
+  },
+  {
+   "vi": "cháu",
+   "en": "grandchild, niece or nephew; I (to your parents' or grandparents' generation)",
+   "failures": 1,
+   "timeSec": 26,
+   "replays": 1,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 5,
+   "share": 0.75,
+   "meaning": 0.67,
+   "form": 1,
+   "stars": 2,
+   "firstTry": {
+    "listen": true,
+    "reverse": true,
+    "type": "tone"
+   },
+   "attempts": 5,
+   "msMedian": 4535,
+   "known": false
+  },
+  {
+   "vi": "bát",
+   "en": "bowl (a rice bowl)",
+   "failures": 0,
+   "timeSec": 28,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 2,
+   "share": 1,
+   "meaning": 1,
+   "form": 1,
+   "stars": 3,
+   "firstTry": {
+    "listen": true,
+    "reverse": true,
+    "type": "tone"
+   },
+   "attempts": 4,
+   "msMedian": 9184,
+   "known": false
+  },
+  {
+   "vi": "đũa",
+   "en": "chopsticks",
+   "failures": 1,
+   "timeSec": 22,
+   "replays": 1,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 2,
+   "share": 0.67,
+   "meaning": 1,
+   "form": 0.5,
+   "stars": 1,
+   "firstTry": {
+    "listen": true,
+    "spell": false,
+    "type": "marks"
+   },
+   "attempts": 4,
+   "msMedian": 4536,
+   "known": false
+  },
+  {
+   "vi": "canh",
+   "en": "soup (a clear broth eaten with rice)",
+   "failures": 0,
+   "timeSec": 32,
+   "replays": 2,
+   "hints": 3,
+   "revealed": true,
+   "studySec": 4,
+   "share": 1,
+   "meaning": 1,
+   "form": 1,
+   "stars": 3,
+   "firstTry": {
+    "listen": true,
+    "reverse": true,
+    "type": "perfect"
+   },
+   "attempts": 5,
+   "msMedian": 3891,
+   "known": false
+  },
+  {
+   "vi": "no",
+   "en": "full (after eating)",
+   "failures": 0,
+   "timeSec": 10,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 18,
+   "share": 1,
+   "meaning": 1,
+   "form": 1,
+   "stars": 3,
+   "firstTry": {
+    "listen": true,
+    "reverse": true,
+    "type": "perfect"
+   },
+   "attempts": 4,
+   "msMedian": 2252,
+   "known": false
+  },
+  {
+   "vi": "vâng",
+   "en": "yes (polite, to someone older)",
+   "failures": 0,
+   "timeSec": 16,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 14,
+   "share": 1,
+   "meaning": 1,
+   "form": 1,
+   "stars": 3,
+   "firstTry": {
+    "listen": true,
+    "spell": true,
+    "type": "perfect"
+   },
+   "attempts": 3,
+   "msMedian": 4119,
+   "known": false
+  },
+  {
+   "vi": "bớt",
+   "en": "to take some off (a price); to reduce",
+   "failures": 1,
+   "timeSec": 8,
+   "replays": 2,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 0,
+   "meaning": 0,
+   "form": null,
+   "stars": 0,
+   "firstTry": {
+    "listen": false
+   },
+   "attempts": 2,
+   "msMedian": 5984,
+   "known": false
+  },
+  {
+   "vi": "nữa",
+   "en": "more, another",
+   "failures": 0,
+   "timeSec": 3,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 1,
+   "meaning": 1,
+   "form": null,
+   "stars": 3,
+   "firstTry": {
+    "listen": true
+   },
+   "attempts": 1,
+   "msMedian": 3215,
+   "known": false
+  },
+  {
+   "vi": "lăm",
+   "en": "five, after the tens (as in 15 and 25)",
+   "failures": 0,
+   "timeSec": 2,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 1,
+   "meaning": 1,
+   "form": null,
+   "stars": 3,
+   "firstTry": {
+    "listen": true
+   },
+   "attempts": 1,
+   "msMedian": 2486,
+   "known": false
+  },
+  {
+   "vi": "quả",
+   "en": "fruit; also the counting word for fruit",
+   "failures": 0,
+   "timeSec": 2,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 1,
+   "meaning": 1,
+   "form": null,
+   "stars": 3,
+   "firstTry": {
+    "listen": true
+   },
+   "attempts": 1,
+   "msMedian": 2331,
+   "known": false
+  }
+ ],
+ "warmup": [
+  {
+   "vi": "uống",
+   "ok": false,
+   "ms": 6602
+  },
+  {
+   "vi": "ăn",
+   "ok": true,
+   "ms": 3533
+  },
+  {
+   "vi": "cảm ơn",
+   "ok": true,
+   "ms": 2284
+  }
+ ],
+ "toneConfusions": [
+  {
+   "target": "đũa",
+   "chose": "đùa"
+  },
+  {
+   "target": "mời",
+   "chose": "mới"
+  }
+ ],
+ "meaningConfusions": [
+  {
+   "target": "cháu",
+   "chose": "to invite; please (go ahead, have some)",
+   "t": "listen"
+  },
+  {
+   "target": "bớt",
+   "chose": "to invite; please (go ahead, have some)",
+   "t": "listen"
+  },
+  {
+   "target": "Cháu mời chú uống trà ạ.",
+   "chose": "to invite; please (go ahead, have some)",
+   "t": "speed"
+  },
+  {
+   "target": "cháu",
+   "chose": "to eat",
+   "t": "speed"
+  }
+ ],
+ "typed": [
+  {
+   "target": "vâng",
+   "answer": "vâng",
+   "grade": "perfect",
+   "accepted": true,
+   "hints": 0,
+   "keys": 1,
+   "firstKeyMs": 2652,
+   "deletes": 1
+  },
+  {
+   "target": "cháu",
+   "answer": "chau",
+   "grade": "tone",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 2113
+  },
+  {
+   "target": "no",
+   "answer": "no",
+   "grade": "perfect",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 1901
+  },
+  {
+   "target": "bát",
+   "answer": "bat",
+   "grade": "tone",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 2772
+  },
+  {
+   "target": "canh",
+   "answer": "canh",
+   "grade": "perfect",
+   "accepted": false,
+   "hints": 3,
+   "keys": 0,
+   "firstKeyMs": 15937,
+   "revealed": true
+  },
+  {
+   "target": "mời",
+   "answer": "moi",
+   "grade": "marks",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 1880
+  },
+  {
+   "target": "đũa",
+   "answer": "dua",
+   "grade": "marks",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 1653
+  },
+  {
+   "target": "canh",
+   "answer": "canh",
+   "grade": "perfect",
+   "tiles": true,
+   "retry": true
+  }
+ ],
+ "feedback": {
+  "difficulty": "Too hard",
+  "fun": "OK",
+  "article": "OK",
+  "hardest": [
+   "mời",
+   "đũa",
+   "canh",
+   "bớt"
+  ],
+  "wantNext": null,
+  "note": null
+ },
+ "events": [
+  {
+   "t": "listen",
+   "w": "uống",
+   "ok": false,
+   "a": "to eat",
+   "ms": 6602,
+   "warmup": true,
+   "plays": 2
+  },
+  {
+   "t": "listen",
+   "w": "ăn",
+   "ok": true,
+   "a": "to eat",
+   "ms": 3533,
+   "warmup": true
+  },
+  {
+   "t": "listen",
+   "w": "cảm ơn",
+   "ok": true,
+   "a": "thank you",
+   "ms": 2284,
+   "warmup": true
+  },
+  {
+   "t": "meet",
+   "w": "mời",
+   "ms": 23201,
+   "plays": 3
+  },
+  {
+   "t": "meet",
+   "w": "cháu",
+   "ms": 5200
+  },
+  {
+   "t": "meet",
+   "w": "bát",
+   "ms": 2172
+  },
+  {
+   "t": "meet",
+   "w": "đũa",
+   "ms": 2188
+  },
+  {
+   "t": "listen",
+   "w": "bát",
+   "ok": true,
+   "a": "bowl (a rice bowl)",
+   "ms": 3401
+  },
+  {
+   "t": "listen",
+   "w": "cháu",
+   "ok": false,
+   "a": "to invite; please (go ahead, have some)",
+   "ms": 4535
+  },
+  {
+   "t": "story",
+   "w": "bát",
+   "ms": 7725
+  },
+  {
+   "t": "meet",
+   "w": "canh",
+   "ms": 3976,
+   "plays": 1
+  },
+  {
+   "t": "meet",
+   "w": "no",
+   "ms": 18433,
+   "plays": 1
+  },
+  {
+   "t": "listen",
+   "w": "cháu",
+   "ok": true,
+   "a": "grandchild, niece or nephew; I (to your parents' or grandparents' generation)",
+   "ms": 7085,
+   "retry": true,
+   "plays": 1
+  },
+  {
+   "t": "meet",
+   "w": "vâng",
+   "ms": 13531,
+   "plays": 1
+  },
+  {
+   "t": "listen",
+   "w": "canh",
+   "ok": true,
+   "a": "soup (a clear broth eaten with rice)",
+   "ms": 3233,
+   "plays": 1
+  },
+  {
+   "t": "listen",
+   "w": "no",
+   "ok": true,
+   "a": "full (after eating)",
+   "ms": 1934
+  },
+  {
+   "t": "listen",
+   "w": "vâng",
+   "ok": true,
+   "a": "yes (polite, to someone older)",
+   "ms": 4119
+  },
+  {
+   "t": "listen",
+   "w": "bớt",
+   "ok": false,
+   "a": "to invite; please (go ahead, have some)",
+   "ms": 5984,
+   "plays": 2
+  },
+  {
+   "t": "listen",
+   "w": "canh",
+   "ok": true,
+   "a": "soup (a clear broth eaten with rice)",
+   "ms": 4067,
+   "plays": 1
+  },
+  {
+   "t": "listen",
+   "w": "cháu",
+   "ok": true,
+   "a": "grandchild, niece or nephew; I (to your parents' or grandparents' generation)",
+   "ms": 2450
+  },
+  {
+   "t": "listen",
+   "w": "nữa",
+   "ok": true,
+   "a": "more, another",
+   "ms": 3215
+  },
+  {
+   "t": "listen",
+   "w": "bớt",
+   "ok": true,
+   "a": "to take some off (a price); to reduce",
+   "ms": 2483,
+   "retry": true
+  },
+  {
+   "t": "listen",
+   "w": "mời",
+   "ok": true,
+   "a": "to invite; please (go ahead, have some)",
+   "ms": 12110,
+   "plays": 1
+  },
+  {
+   "t": "listen",
+   "w": "đũa",
+   "ok": true,
+   "a": "chopsticks",
+   "ms": 11495,
+   "plays": 1
+  },
+  {
+   "t": "listen",
+   "w": "bát",
+   "ok": true,
+   "a": "bowl (a rice bowl)",
+   "ms": 9184
+  },
+  {
+   "t": "listen",
+   "w": "no",
+   "ok": true,
+   "a": "full (after eating)",
+   "ms": 2001
+  },
+  {
+   "t": "listen",
+   "w": "quả",
+   "ok": true,
+   "a": "fruit; also the counting word for fruit",
+   "ms": 2331
+  },
+  {
+   "t": "listen",
+   "w": "lăm",
+   "ok": true,
+   "a": "five, after the tens (as in 15 and 25)",
+   "ms": 2486
+  },
+  {
+   "t": "reverse",
+   "w": "canh",
+   "ok": true,
+   "a": "canh",
+   "ms": 1999
+  },
+  {
+   "t": "reverse",
+   "w": "cháu",
+   "ok": true,
+   "a": "cháu",
+   "ms": 7385
+  },
+  {
+   "t": "spell",
+   "w": "đũa",
+   "ok": false,
+   "a": "đùa",
+   "ms": 4536
+  },
+  {
+   "t": "spell",
+   "w": "vâng",
+   "ok": true,
+   "a": "vâng",
+   "ms": 2833
+  },
+  {
+   "t": "spell",
+   "w": "mời",
+   "ok": false,
+   "a": "mới",
+   "ms": 5051
+  },
+  {
+   "t": "reverse",
+   "w": "bát",
+   "ok": true,
+   "a": "bát",
+   "ms": 11118
+  },
+  {
+   "t": "spell",
+   "w": "đũa",
+   "ok": true,
+   "a": "đũa",
+   "ms": 2370,
+   "retry": true
+  },
+  {
+   "t": "reverse",
+   "w": "no",
+   "ok": true,
+   "a": "no",
+   "ms": 2252
+  },
+  {
+   "t": "spell",
+   "w": "mời",
+   "ok": true,
+   "a": "mời",
+   "ms": 10032,
+   "retry": true
+  },
+  {
+   "t": "type",
+   "w": "vâng",
+   "ok": true,
+   "g": "perfect",
+   "a": "vâng",
+   "ms": 8758,
+   "hints": 0,
+   "firstKeyMs": 2652,
+   "deletes": 1
+  },
+  {
+   "t": "type",
+   "w": "cháu",
+   "ok": true,
+   "g": "tone",
+   "a": "chau",
+   "ms": 4469,
+   "hints": 0,
+   "firstKeyMs": 2113
+  },
+  {
+   "t": "type",
+   "w": "no",
+   "ok": true,
+   "g": "perfect",
+   "a": "no",
+   "ms": 3649,
+   "hints": 0,
+   "firstKeyMs": 1901
+  },
+  {
+   "t": "type",
+   "w": "bát",
+   "ok": true,
+   "g": "tone",
+   "a": "bat",
+   "ms": 4719,
+   "hints": 0,
+   "firstKeyMs": 2772
+  },
+  {
+   "t": "type",
+   "w": "canh",
+   "ok": false,
+   "g": "perfect",
+   "a": "canh",
+   "ms": 18416,
+   "hints": 3,
+   "firstKeyMs": 15937,
+   "revealed": true
+  },
+  {
+   "t": "type",
+   "w": "mời",
+   "ok": true,
+   "g": "marks",
+   "a": "moi",
+   "ms": 3665,
+   "hints": 0,
+   "firstKeyMs": 1880
+  },
+  {
+   "t": "type",
+   "w": "đũa",
+   "ok": true,
+   "g": "marks",
+   "a": "dua",
+   "ms": 3408,
+   "hints": 0,
+   "firstKeyMs": 1653
+  },
+  {
+   "t": "type",
+   "w": "canh",
+   "g": "perfect",
+   "a": "canh",
+   "ms": 3891,
+   "retry": true,
+   "tiles": true
+  },
+  {
+   "t": "listen",
+   "w": "trăm hai",
+   "ok": true,
+   "a": "120.000₫",
+   "ms": 9777,
+   "plays": 1
+  },
+  {
+   "t": "listen",
+   "w": "Cháu mời chú uống trà ạ.",
+   "ok": true,
+   "a": "Please have some tea, Uncle.",
+   "ms": 13106,
+   "plays": 1
+  },
+  {
+   "t": "listen",
+   "w": "Cháu mời ông bà ăn cơm ạ.",
+   "ok": true,
+   "a": "Please start eating, Grandpa and Grandma.",
+   "ms": 6660
+  },
+  {
+   "t": "listen",
+   "w": "hai mươi một bát",
+   "ok": true,
+   "a": "20.000₫ a bowl",
+   "ms": 6639
+  },
+  {
+   "t": "listen",
+   "w": "một trăm linh hai",
+   "ok": true,
+   "a": "102.000₫",
+   "ms": 19692,
+   "plays": 1
+  },
+  {
+   "t": "dialogue",
+   "w": "Dinner at Minh's house",
+   "ok": true,
+   "a": "Cháu no rồi ạ.",
+   "ms": 54649,
+   "plays": 2
+  },
+  {
+   "t": "situation",
+   "w": "Gà ta trăm sáu một cân.",
+   "ok": true,
+   "a": "160.000₫",
+   "ms": 30981,
+   "plays": 4
+  },
+  {
+   "t": "situation",
+   "w": "Nước mắm bốn lăm một chai.",
+   "ok": true,
+   "a": "45.000₫",
+   "ms": 23359,
+   "plays": 3
+  },
+  {
+   "t": "situation",
+   "w": "Cả nhà ơi, ăn cơm thôi!",
+   "ok": true,
+   "a": "Cháu mời ông bà ăn cơm ạ.",
+   "ms": 13236
+  },
+  {
+   "t": "situation",
+   "w": "Của anh hết trăm ba.",
+   "ok": false,
+   "a": "300",
+   "ms": 32375,
+   "plays": 2,
+   "hints": 1
+  },
+  {
+   "t": "situation",
+   "w": "Cháu ăn thịt gà đi!",
+   "ok": true,
+   "a": "Vâng, cháu cảm ơn bà ạ.",
+   "ms": 22562,
+   "plays": 1
+  },
+  {
+   "t": "situation",
+   "w": "Thôi, em bớt cho anh, ba lăm nhé.",
+   "ok": true,
+   "a": "35",
+   "ms": 21132,
+   "plays": 1
+  },
+  {
+   "t": "situation",
+   "w": "Anh lấy mấy quả ạ?",
+   "ok": false,
+   "a": "Cho anh một cân.",
+   "ms": 21432,
+   "plays": 3
+  },
+  {
+   "t": "situation",
+   "w": "Bưởi bốn mươi một quả.",
+   "ok": false,
+   "a": "41.000₫",
+   "ms": 20772,
+   "plays": 2
+  },
+  {
+   "t": "speed",
+   "w": "hai mươi một bát",
+   "ok": true,
+   "a": "20.000₫ a bowl",
+   "ms": 3682
+  },
+  {
+   "t": "speed",
+   "w": "nữa",
+   "ok": true,
+   "a": "more, another",
+   "ms": 2051
+  },
+  {
+   "t": "speed",
+   "w": "Cháu mời chú uống trà ạ.",
+   "ok": false,
+   "a": "to invite; please (go ahead, have some)",
+   "ms": 4028
+  },
+  {
+   "t": "speed",
+   "w": "quả",
+   "ok": true,
+   "a": "fruit; also the counting word for fruit",
+   "ms": 1769
+  },
+  {
+   "t": "speed",
+   "w": "cháu",
+   "ok": false,
+   "a": "to eat",
+   "ms": 3616
+  },
+  {
+   "t": "speed",
+   "w": "Cháu mời ông bà ăn cơm ạ.",
+   "ok": true,
+   "a": "Please start eating, Grandpa and Grandma.",
+   "ms": 2209
+  },
+  {
+   "t": "speed",
+   "w": "bớt",
+   "ok": true,
+   "a": "to take some off (a price); to reduce",
+   "ms": 1082
+  },
+  {
+   "t": "speed",
+   "w": "hai mươi một bát",
+   "ok": true,
+   "a": "20.000₫ a bowl",
+   "ms": 3636
+  },
+  {
+   "t": "speed",
+   "w": "hai mươi một bát",
+   "ok": true,
+   "a": "20.000₫ a bowl",
+   "ms": 1751
+  },
+  {
+   "t": "speed",
+   "w": "Cháu mời chú uống trà ạ.",
+   "ok": true,
+   "a": "Please have some tea, Uncle.",
+   "ms": 3782
+  },
+  {
+   "t": "speed",
+   "w": "hai mươi một bát",
+   "ok": true,
+   "a": "20.000₫ a bowl",
+   "ms": 2050
+  },
+  {
+   "t": "speed",
+   "w": "lăm",
+   "ok": true,
+   "a": "five, after the tens (as in 15 and 25)",
+   "ms": 2886
+  },
+  {
+   "t": "speed",
+   "w": "uống",
+   "ok": true,
+   "a": "to drink",
+   "ms": 4446
+  }
+ ],
+ "issue": 11
+}

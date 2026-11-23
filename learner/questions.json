@@ -1,1 +1,28 @@
-[]
+[
+ {
+  "questionId": "mwswkscr-xngvcd",
+  "askedAt": "2026-11-23T06:46:55.371Z",
+  "text": "Isnt soup in vietnamese also soup?",
+  "context": "issue 6, At the table; word: canh (soup (a clear broth eaten with rice))",
+  "number": 10,
+  "state": "closed",
+  "answer": {
+   "text": "Yes, there is a word for that too: **súp** (also written **xúp**), borrowed from French *soupe*. It means a thick, Western-style soup, like **súp cua** (thick crab soup) or **súp gà** (chicken soup), often eaten on its own as a snack or a starter.\n\n**Canh** is different: the light, brothy soup that comes with almost every family meal, eaten with rice, like **canh rau** (vegetable soup) or **canh cua** (field-crab soup with greens). At a family table you will hear canh, not súp.\n\nNoodle soups have their own names and are neither: **phở**, or **bún riêu** and **bún thang** (bún on its own just means rice vermicelli). Rice porridge is **cháo**.",
+   "phrases": [
+    {
+     "vi": "Cháu ăn canh đi.",
+     "en": "Have some soup (an elder to you)."
+    },
+    {
+     "vi": "Canh ngon quá ạ!",
+     "en": "The soup is delicious! (politely, to an elder)"
+    },
+    {
+     "vi": "một bát súp cua",
+     "en": "a bowl of thick crab soup"
+    }
+   ],
+   "at": "2026-11-23T19:25:16Z"
+  }
+ }
+]
