@@ -253,7 +253,7 @@
     },
     {
       "vi": "mốt",
-      "en": "one, after the tens from 20 up",
+      "en": "one at the end of 21, 31 ... 91 (11 stays mười một)",
       "picture": {
         "kind": "digits",
         "label": "21",
@@ -271,7 +271,7 @@
     },
     {
       "vi": "tư",
-      "en": "four, after the tens from 20 up",
+      "en": "four at the end of 24, 34 ... 94 (14 stays mười bốn)",
       "picture": {
         "kind": "digits",
         "label": "24",
