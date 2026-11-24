@@ -196,7 +196,7 @@ export function lessonSteps(lesson, { review = [], warmup = [] } = {}) {
   if (lesson.situations?.length) {
     steps.push({ type: 'stage', beat: looseBeat(), title: 'Real life', text: 'A waiter, a seller or a driver says something. Listen, then answer. Replay as often as you like.' });
     steps.push(...storySteps());
-    shuffle(lesson.situations).forEach((sit) => steps.push({ type: 'situation', word: sit, sit: true }));
+    shuffle(lesson.situations).forEach((sit) => steps.push({ type: sit.say ? 'say' : 'situation', word: sit, sit: true }));
   }
   steps.push({ type: 'speedIntro' }, { type: 'speed', pool: [...words, ...review, ...(lesson.combos || []), ...warmup] });
   steps.push({ type: 'results', beats: queue.splice(0) }, { type: 'feedback' });
@@ -210,6 +210,24 @@ export function reviewSteps(words, pool) {
   shuffle(words).forEach((w, i) => steps.push({ type: 'type', word: w, dictation: i % 2 === 1 }));
   steps.push({ type: 'results' }, { type: 'feedback' });
   return steps;
+}
+
+const SAY_ORDER = ['perfect', 'tone', 'marks', 'sound', 'wrong'];
+
+// Grades a spoken price against every accepted way of saying it and keeps the closest.
+export function gradeSay(answer, accept) {
+  const grades = accept.map((a) => grade(answer, a));
+  if (grades.every((g) => g === 'empty')) return { g: 'empty', match: accept[0] };
+  let best = 'wrong';
+  let match = accept[0];
+  grades.forEach((g, i) => {
+    const r = SAY_ORDER.indexOf(g);
+    if (r >= 0 && r < SAY_ORDER.indexOf(best)) {
+      best = g;
+      match = accept[i];
+    }
+  });
+  return { g: best, match };
 }
 
 function credit(e) {
@@ -304,6 +322,7 @@ export function runSession(root, session, onDone, onQuit) {
       factsShown: S.factsShown,
       situations: S.situations,
       dialogues: S.dialogues,
+      saved: S.saved || 0,
     };
     try {
       localStorage.setItem(saveKey, JSON.stringify(data));
@@ -349,6 +368,7 @@ export function runSession(root, session, onDone, onQuit) {
     S.factsShown = data.factsShown || [];
     S.situations = data.situations || { correct: 0, total: 0 };
     S.dialogues = data.dialogues || { correct: 0, total: 0 };
+    S.saved = data.saved || 0;
   }
 
   function payload(feedback) {
@@ -368,6 +388,7 @@ export function runSession(root, session, onDone, onQuit) {
       progress: { step: S.i, steps: S.steps.length },
       situations: S.situations,
       dialogues: S.dialogues,
+      ...(S.saved ? { savedDong: S.saved } : {}),
       timing: timing(),
       relaxed: Boolean(session.relaxed),
       feedback,
@@ -448,7 +469,7 @@ export function runSession(root, session, onDone, onQuit) {
   function timing() {
     const by = {};
     for (const e of S.events) {
-      const phase = e.t === 'meet' || e.t === 'known' ? 'words' : e.warmup ? 'warmup' : e.t === 'speed' ? 'rush' : e.t === 'quiz' ? 'quiz' : e.t === 'situation' ? 'reallife' : e.t === 'dialogue' ? 'conversation' : 'drills';
+      const phase = e.t === 'meet' || e.t === 'known' ? 'words' : e.warmup ? 'warmup' : e.t === 'speed' ? 'rush' : e.t === 'quiz' ? 'quiz' : e.t === 'situation' || e.t === 'say' ? 'reallife' : e.t === 'dialogue' ? 'conversation' : 'drills';
       by[phase] = (by[phase] || 0) + (e.ms || 0);
     }
     const gaps = [];
@@ -923,6 +944,70 @@ export function runSession(root, session, onDone, onQuit) {
       }
     },
 
+    // Say the price: a price is shown and the learner types how a Hà Nội seller or buyer would say it.
+    say(step) {
+      const sit = step.word;
+      const accept = sit.accept || [sit.vi];
+      stage.innerHTML = `
+        <div class="kicker">Say it${sit.who ? ` · ${esc(sit.who)}` : ''}</div>
+        ${pic(sit, 'medium')}
+        <div class="say-price">${esc(sit.say)}</div>
+        <h2 class="quiz-q">${esc(sit.ask)}</h2>
+        <form class="type-form say-form" autocomplete="off">
+          <input class="type-input vi" type="text" lang="vi" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="done" aria-label="How you say it">
+          <div class="vkeys" aria-label="Tone and vowel keys">
+            <div class="vkeys-row">${TONE_KEYS.map((t) => `<button type="button" class="vkey tone-key t-${t}" data-key="${t}" aria-label="${esc(TONES[t].name)} tone">${contourSVG(t, { width: 26, height: 16 })}<span>${esc(TONES[t].sample)}</span></button>`).join('')}</div>
+            <div class="vkeys-row">${VOWEL_KEYS.map((k) => `<button type="button" class="vkey" data-key="${k}">${k}</button>`).join('')}</div>
+          </div>
+          <div class="feedback-slot"></div>
+          ${footer('<button type="submit" class="btn primary" data-act="check">Check</button>')}
+        </form>`;
+      const form = stage.querySelector('.say-form');
+      const input = form.querySelector('.type-input');
+      input.focus({ preventScroll: true });
+      form.querySelectorAll('.vkey').forEach((k) =>
+        k.addEventListener('click', () => {
+          const pos = document.activeElement === input && input.selectionStart != null ? input.selectionStart : input.value.length;
+          const r = applyKey(input.value, pos, k.dataset.key);
+          input.value = r.text;
+          input.focus({ preventScroll: true });
+          input.setSelectionRange(r.cursor, r.cursor);
+        }),
+      );
+      form.addEventListener('submit', (ev) => {
+        ev.preventDefault();
+        if (S.answered) {
+          next();
+          return;
+        }
+        const answer = input.value;
+        const { g: best, match } = gradeSay(answer, accept);
+        if (best === 'empty') {
+          input.focus();
+          return;
+        }
+        S.answered = true;
+        input.disabled = true;
+        const close = best === 'tone' || best === 'marks' || best === 'sound';
+        const ok = best === 'perfect' || (session.relaxed && close);
+        S.situations.total += 1;
+        if (ok) S.situations.correct += 1;
+        record({ t: 'say', w: sit.say, g: best, ok, a: answer });
+        if (ok && sit.saves) S.saved = (S.saved || 0) + sit.saves;
+        flash(ok);
+        if (ok) right();
+        else wrong();
+        const others = accept.filter((a) => a !== (ok ? match : accept[0]));
+        stage.querySelector('.feedback-slot').innerHTML = `<div class="verdict ${ok ? 'ok' : 'no'}">${ok ? (best === 'perfect' ? 'Right:' : 'Right. With the marks:') : 'Say it like this:'} <span class="vi">${colorize(ok ? match : accept[0])}</span> ${sayButton(sit.vi, 'Hear it')}</div>${others.length ? `<p class="note">Also right: ${others.map((a) => `<span class="vi">${colorize(a)}</span>`).join(', ')}</p>` : ''}${sit.note ? `<p class="note">${esc(sit.note)}</p>` : ''}`;
+        const reply = sit.reply && (ok ? sit.reply : sit.replyMissed || sit.reply);
+        if (reply) {
+          stage.querySelector('.feedback-slot').insertAdjacentHTML('beforeend', `<div class="say-reply"><span class="who">${esc(reply.who || 'Seller')}</span> <span class="vi">${colorize(reply.vi)}</span> ${sayButton(reply.vi, 'Play')}<span class="en">${esc(reply.en)}</span>${ok && sit.saves ? `<span class="saved">${esc(sit.saves.toLocaleString('vi-VN'))}₫ off</span>` : ''}</div>`);
+          playAll([sit.vi, reply.vi]);
+        } else play(sit.vi);
+        stage.querySelector('[data-act=check]').textContent = 'Continue';
+      });
+    },
+
     dialogue(step) {
       const d = step.dialogue;
       const where = d.setting === 'table' ? 'At the table' : d.setting === 'street' ? 'In the street' : '';
@@ -1124,6 +1209,7 @@ export function runSession(root, session, onDone, onQuit) {
           ${S.situations.total ? `<div><b>${S.situations.correct}/${S.situations.total}</b><span>real life</span></div>` : ''}
           ${S.dialogues.total ? `<div><b>${S.dialogues.correct}/${S.dialogues.total}</b><span>conversation</span></div>` : ''}
           ${S.speed.answered ? `<div><b>${S.speed.score}</b><span>rush hour</span></div>` : ''}
+          ${S.saved ? `<div><b>${esc(S.saved.toLocaleString('vi-VN'))}₫</b><span>haggled off</span></div>` : ''}
         </div>
         ${missedWarmup.length ? `<div class="note">Added to your reviews from the warm-up: <span class="vi">${missedWarmup.map((v) => colorize(v)).join(', ')}</span></div>` : ''}
         <div class="word-results">${sum.perWord

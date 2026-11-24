@@ -19,7 +19,7 @@ const lessons = index.map((e) => read(`web/lessons/${e.file}`));
 const words = new Map();
 for (const l of lessons) for (const w of l.words) words.set(w.vi.normalize('NFC'), w);
 
-const ANSWERS = new Set(['listen', 'spell', 'reverse', 'type', 'situation', 'dialogue']);
+const ANSWERS = new Set(['listen', 'spell', 'reverse', 'type', 'situation', 'say', 'dialogue']);
 
 function plan(lesson) {
   const review = (lesson.review || []).map((v) => words.get(v.normalize('NFC'))).filter((w) => w && !known.has(w.vi.normalize('NFC')));

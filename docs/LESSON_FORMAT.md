@@ -29,6 +29,7 @@ All Vietnamese text must be NFC-normalised (the checker catches mistakes).
     { "who": "Phở seller", "picture": { "kind": "icon", "name": "bowl" }, "vi": "Phở bò năm mươi nghìn.", "en": "Beef phở is 50,000.",
       "ask": "How much is the beef phở?", "options": ["50.000₫", "15.000₫", "5.000₫", "500.000₫"], "answer": "50.000₫" },
     { "who": "Taxi driver", "vi": "Hết tám mươi nghìn.", "en": "That's 80,000 altogether.", "note": "...", "ask": "Type the fare in digits.", "digits": "80000" },
+    { "who": "You, buying mangoes", "say": "25.000₫", "vi": "Hai lăm nghìn.", "accept": ["Hai lăm nghìn.", "Hai nhăm nghìn.", "Hai mươi lăm nghìn.", "Hai lăm.", "Hai nhăm."], "en": "25,000 dong", "ask": "The seller holds up two fingers and a five. Say the price back.", "note": "..." },
     { "who": "Fruit seller", "vi": "Cam ba trăm nghìn một cân.", "en": "Oranges, 300,000 a kilo.", "ask": "What do you say?",
       "options": ["Đắt quá!", "Rẻ quá!", "Ngon quá!"], "answer": "Đắt quá!" }   // a reply in words is played after the answer
   ],
@@ -82,10 +83,12 @@ After each session the site saves a result and posts it as a GitHub issue (marke
 - `warmup[]`: `vi`, `ok`, `ms`
 - `toneConfusions[]`, `meaningConfusions[]`, `typed[]` (target, answer, grade: perfect, tone, marks, sound or wrong; hints; keys pressed; dictation)
 - `feedback`: `difficulty`, `fun`, `article` (the story: Skipped it, OK, Interesting, Loved it), `hardest[]`, `wantNext`, `note` (or null if skipped)
-- `events[]`: every answer in order (`t`: listen, spell, reverse, type, situation, speed, meet (time on a word card), story (time on a beat), known; `w` word, `ok` or `g`, `a` answer, `ms` time to answer, `plays` audio replays, `hints`, `firstKeyMs`, `deletes`, `revealed`, `tiles`, and flags `retry`, `warmup`, `dictation`)
+- `events[]`: every answer in order (`t`: listen, spell, reverse, type, situation, say (a price said aloud by typing it; `w` is the price shown, `g` the closest grade over `accept`), speed, meet (time on a word card), story (time on a beat), known; `w` word, `ok` or `g`, `a` answer, `ms` time to answer, `plays` audio replays, `hints`, `firstKeyMs`, `deletes`, `revealed`, `tiles`, and flags `retry`, `warmup`, `dictation`)
 
 Schema 1 (lesson 1) and schema 2 (the short-lived battle version, with a `battle` object) are still read by `ingest.py` and by the site's sync.
 
 ## Questions and answers
 
 A question from Ask is an issue labelled `question` with the text, an optional `Context:` line, and the marker `<!-- vietwars-question -->` followed by a JSON block: `questionId`, `askedAt`, `text`, `context` (for example "issue 3, One to ten, properly; word: một (one)", or null). An answer is a comment on that issue: Markdown for the learner, then `<!-- vietwars-answer {"phrases": [{"vi": "...", "en": "..."}]} -->`, which the site turns into play buttons. `scripts/questions.py answer N FILE` writes it; the site shows the newest comment with an answer block, or else the newest comment. `learner/questions.json` keeps every question with its answer.
+
+A `say` situation shows the price in figures and asks the learner to type how it is said. Every form in `accept` counts (grading is the same as typing a word: missing marks are right when tone marks are relaxed); `vi`, one of them, is played and shown afterwards. Use it for production practice: two or three per issue at most, mixed with listening ones. Optional: `reply` (`who`, `vi`, `en`), what the other person says back, shown and played after the model answer (`replyMissed` instead when the answer was wrong), and `saves`, the đồng a right counter-offer takes off; the results page adds them up as "haggled off" and the result records `savedDong`.

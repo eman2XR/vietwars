@@ -43,6 +43,12 @@ The learner's goal (2026-11-22): basic conversation at a dinner table and unders
 - The learner asked for the story to be tied to the lesson: "Would be nice if the article was tied in better with the content of the lesson." Each beat should use or explain the word or price form it follows, not only share a theme; a story about a place (a bridge, a temple) must still show the issue's words at work there.
 - When the learner asks how something works ("when to use lăm or rưỡi or năm"), answer it with a short clinic issue: few new words, the rule set out plainly once, and practice that tests that rule only.
 
+## Fun, and the learner doing the talking (review of 2026-11-24)
+
+- Fun went Good, Good, Good (issues 3 to 5), then OK, Boring, Boring (6 to 8), while difficulty settled. Drills became 40 to 55% of active time and every issue had the same shape. Treat fun as an outcome to improve: each issue brings **one thing to play that recent issues did not have** (a haggle with a running tally, a seller who answers back, a twist in the story), and the plan says what it is. After issue 1 the learner asked for "fun and unexpected (hint: the website name is Viet wars)": friendly contests (haggling, a race, a duel of prices) fit; violence does not.
+- **The learner says things, not only understands them.** Every issue has two or three `say` questions in real life (production: type how a price or a line is said; docs/LESSON_FORMAT.md), with the seller's `reply` where it makes a small scene. The learner asked: "what the lessons are missing is asking me to say a price? eg how do you say 25, 150".
+- A form missed in three issues by recognition (here "X mươi, một [unit]") is next taught by production: the learner says it.
+
 ## Using the data
 
 `learner/SUMMARY.md` has a **Where the learner struggles** table (struggle score from failed first tries, slow answers, hints, replays and revealed answers), accuracy and speed by **exercise type**, time per phase, long pauses, unfinished attempts, tone and meaning confusions, and every feedback note. Plan from it: review the highest-struggle words, give them new hooks or pictures, and lean on the exercise types that work (listening and real life) when another type is failing.

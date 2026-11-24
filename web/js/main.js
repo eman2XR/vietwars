@@ -307,7 +307,7 @@ function startSession(kind, lesson, opts = {}) {
     words = due;
   }
   preload([
-    ...(lesson?.situations || []).map((x) => x.vi),
+    ...(lesson?.situations || []).flatMap((x) => [x.vi, x.reply?.vi, x.replyMissed?.vi].filter(Boolean)),
     ...(lesson?.dialogues || []).flatMap((d) => [...d.lines.map((l) => l.vi), d.check.answer]),
     ...words.map((w) => w.vi),
     ...words.flatMap((w) => (w.contrast || []).map((c) => c.vi)),

@@ -222,7 +222,7 @@ def build_profile(results):
     }
 
 
-SCORED_TYPES = ("listen", "spell", "reverse", "type", "situation", "dialogue", "speed")
+SCORED_TYPES = ("listen", "spell", "reverse", "type", "situation", "say", "dialogue", "speed")
 
 
 def struggle(results):
@@ -249,7 +249,7 @@ def struggle(results):
             k["ok"] += 1 if ok else 0
             if e.get("ms"):
                 k["ms"].append(e["ms"])
-            if t in ("speed", "situation", "dialogue"):
+            if t in ("speed", "situation", "say", "dialogue"):
                 continue
             w = words[e["w"]]
             w["attempts"] += 1

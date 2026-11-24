@@ -165,7 +165,28 @@ def check_feature(r, lid, lesson, newest=False):
         if not sit.get("en") or not sit.get("ask"):
             r.error(where, "needs en and ask")
         opts = sit.get("options")
-        if opts:
+        if sit.get("say"):
+            accept = sit.get("accept") or []
+            if not accept or not all(isinstance(a, str) and a.strip() for a in accept):
+                r.error(where, "a say question needs accept: the ways of saying it that count as right")
+            elif nfc(sit.get("vi", "")).strip() not in [nfc(a).strip() for a in accept]:
+                r.error(where, "vi (the model answer) must be one of accept")
+            for a in accept:
+                check_text(r, where, a)
+            if opts or sit.get("digits"):
+                r.error(where, "a say question has no options or digits")
+            if not re.search(r"\d", str(sit["say"])):
+                r.error(where, "say shows the price in figures, like 25.000₫")
+            for key in ("reply", "replyMissed"):
+                if sit.get(key) is not None:
+                    rep = sit[key]
+                    if not rep.get("vi") or not rep.get("en"):
+                        r.error(f"{where}.{key}", "needs vi and en")
+                    else:
+                        check_text(r, f"{where}.{key}", rep["vi"])
+            if sit.get("saves") is not None and not (isinstance(sit["saves"], int) and sit["saves"] > 0):
+                r.error(where, "saves is the đồng haggled off, a whole number")
+        elif opts:
             if sit.get("answer") not in opts:
                 r.error(where, "answer must be one of the options")
             if len(set(opts)) != len(opts) or not 2 <= len(opts) <= 4:
@@ -319,6 +340,7 @@ def check_lesson(r, entry, lesson, earlier_words, audio, known_words, warmed=fro
         texts += [x["vi"] for x in (g or {}).get("examples", [])]
         texts += [w["vi"] for w in lesson.get("warmup", [])]
         texts += [x["vi"] for x in lesson.get("situations", [])]
+        texts += [r["vi"] for x in lesson.get("situations", []) for r in (x.get("reply"), x.get("replyMissed")) if r and r.get("vi")]
         texts += [line["vi"] for d in lesson.get("dialogues", []) for line in d.get("lines", [])]
         texts += [d["check"]["answer"] for d in lesson.get("dialogues", []) if d.get("check", {}).get("answer")]
         texts += [x["answer"] for x in lesson.get("situations", []) if re.search(r"[^\W\d_]", x.get("answer", ""))]

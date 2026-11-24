@@ -606,6 +606,12 @@ textarea { width: 100%; padding: 12px; border-radius: var(--radius); border: 1px
 .big-hint { font-size: 1.8rem; display: block; margin: 2px 0; }
 .digits-form { display: flex; flex-direction: column; flex: 1; }
 .digits-input { font-family: var(--display); letter-spacing: 0.04em; }
+.say-reply { margin-top: 10px; padding: 10px 12px; border-left: 3px solid var(--accent); background: var(--soft); border-radius: var(--radius); display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; }
+.say-reply .who { font-weight: 600; }
+.say-reply .en { flex-basis: 100%; font-family: var(--body-text); opacity: 0.8; }
+.say-reply .saved { flex-basis: 100%; font-family: var(--display); color: var(--accent); font-size: 1.2rem; }
+.say-form { display: flex; flex-direction: column; flex: 1; }
+.say-price { align-self: center; font-family: var(--display); font-size: 2.6rem; line-height: 1.1; letter-spacing: 0.03em; color: var(--accent); border: 2px solid var(--accent); border-radius: var(--radius); padding: 6px 18px; margin: 4px 0 10px; transform: rotate(-2deg); }
 
 /* Story beats through the lesson */
 .story { margin-bottom: 18px; }

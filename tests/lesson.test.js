@@ -148,3 +148,22 @@ test('the review deck replays results in order, the same on every device', () =>
   assert.equal(deck['trăm'].box, 3, 'easy in the lesson (box 2), then good in the review a day later (box 3)');
   assert.equal(deck['ba'].box, 0, 'a missed warm-up word joins the deck');
 });
+
+import { gradeSay } from '../web/js/lesson.js';
+
+test('a spoken price counts in any accepted form, and the closest form is shown', () => {
+  const accept = ['hai mươi lăm nghìn', 'hai lăm nghìn', 'hai nhăm'];
+  assert.deepEqual(gradeSay('hai lăm nghìn', accept), { g: 'perfect', match: 'hai lăm nghìn' });
+  assert.equal(gradeSay('hai nham', accept).g, 'marks');
+  assert.equal(gradeSay('hai nham', accept).match, 'hai nhăm');
+  assert.equal(gradeSay('ba mươi', accept).g, 'wrong');
+  assert.equal(gradeSay('  ', accept).g, 'empty');
+});
+
+test('a say question becomes its own step in real life', () => {
+  const base = lessons[lessons.length - 1];
+  const say = { say: '25.000₫', vi: 'hai lăm nghìn', accept: ['hai lăm nghìn'], en: '25,000 dong', ask: 'How do you say it?' };
+  const steps = lessonSteps({ ...base, situations: [...(base.situations || []), say] }, { warmup: base.warmup || [] });
+  assert.equal(steps.filter((s) => s.type === 'say').length, 1);
+  assert.equal(steps.find((s) => s.type === 'say').word, say);
+});

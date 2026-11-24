@@ -215,6 +215,23 @@
    "articleSec": 17,
    "articleRating": "OK",
    "warmupMissed": []
+  },
+  {
+   "finishedAt": "2026-11-24T20:53:08.800Z",
+   "kind": "review",
+   "lesson": "review",
+   "accuracy": 0.83,
+   "minutes": 5.0,
+   "device": "Mac",
+   "style": "paper",
+   "speed": "0/0",
+   "battle": null,
+   "grade": "merit",
+   "bestStreak": 14,
+   "quiz": null,
+   "articleSec": null,
+   "articleRating": null,
+   "warmupMissed": []
   }
  ],
  "lessons": {
@@ -381,27 +398,29 @@
   "gà": {
    "en": "chicken",
    "firstLesson": "lesson-01",
-   "sessions": 3,
-   "strength": 0.61,
-   "meaning": 0.33,
-   "form": 0.75,
+   "sessions": 4,
+   "strength": 0.67,
+   "meaning": 0.5,
+   "form": 0.6,
    "history": [
     0.33,
     0.5,
-    1
+    1,
+    0.5
    ],
    "byExercise": {
-    "listen": 0.33,
+    "listen": 0.5,
     "spell": 1.0,
-    "type": 0.67
+    "type": 0.67,
+    "dictation": 0.0
    },
    "typedErrors": {
-    "wrong": 1
+    "wrong": 2
    },
    "tappedKnowIt": false,
    "knownList": false,
-   "msMedian": 8221,
-   "lastSeen": "2026-11-21T19:43:21.851Z"
+   "msMedian": 2442,
+   "lastSeen": "2026-11-24T20:53:08.800Z"
   },
   "bò": {
    "en": "beef; cow",
@@ -430,26 +449,28 @@
   "cá": {
    "en": "fish",
    "firstLesson": "lesson-01",
-   "sessions": 2,
-   "strength": 0.79,
+   "sessions": 3,
+   "strength": 0.86,
    "meaning": 1.0,
-   "form": 0.67,
+   "form": 0.62,
    "history": [
     0.83,
-    0.75
+    0.75,
+    1
    ],
    "byExercise": {
     "listen": 1.0,
     "spell": 1.0,
-    "type": 0.5
+    "type": 0.5,
+    "dictation": 0.5
    },
    "typedErrors": {
-    "tone": 2
+    "tone": 3
    },
    "tappedKnowIt": false,
    "knownList": false,
-   "msMedian": 3805,
-   "lastSeen": "2026-11-21T18:02:56.658Z"
+   "msMedian": 3692,
+   "lastSeen": "2026-11-24T20:53:08.800Z"
   },
   "rau": {
    "en": "vegetables, greens",
@@ -773,38 +794,40 @@
   "đồng": {
    "en": "đồng (the currency)",
    "firstLesson": "lesson-02",
-   "sessions": 3,
-   "strength": 0.54,
-   "meaning": 0.5,
-   "form": 0.38,
+   "sessions": 4,
+   "strength": 0.67,
+   "meaning": 0.6,
+   "form": 0.4,
    "history": [
     0.63,
     0.5,
-    0.5
+    0.5,
+    1
    ],
    "byExercise": {
-    "listen": 0.5,
+    "listen": 0.6,
     "spell": 0.0,
     "type": 0.5,
     "dictation": 0.5
    },
    "typedErrors": {
-    "marks": 3
+    "marks": 4
    },
    "tappedKnowIt": false,
    "knownList": false,
-   "msMedian": 4157,
-   "lastSeen": "2026-11-23T16:50:49.765Z"
+   "msMedian": 1741,
+   "lastSeen": "2026-11-24T20:53:08.800Z"
   },
   "bao nhiêu": {
    "en": "how much, how many",
    "firstLesson": "lesson-02",
-   "sessions": 3,
-   "strength": 0.56,
+   "sessions": 4,
+   "strength": 0.5,
    "meaning": 1.0,
    "form": 0.0,
    "history": [
     0.67,
+    0.5,
     0.5,
     0.5
    ],
@@ -815,38 +838,40 @@
     "dictation": 0.0
    },
    "typedErrors": {
-    "wrong": 3
+    "wrong": 4
    },
    "tappedKnowIt": false,
    "knownList": false,
-   "msMedian": 3570,
-   "lastSeen": "2026-11-23T16:50:49.765Z"
+   "msMedian": 8220,
+   "lastSeen": "2026-11-24T20:53:08.800Z"
   },
   "đắt": {
    "en": "expensive",
    "firstLesson": "lesson-02",
-   "sessions": 4,
-   "strength": 0.67,
-   "meaning": 0.4,
-   "form": 0.67,
+   "sessions": 5,
+   "strength": 0.5,
+   "meaning": 0.5,
+   "form": 0.5,
    "history": [
     0.38,
     1,
     1,
-    0
+    0,
+    0.5
    ],
    "byExercise": {
-    "listen": 0.4,
+    "listen": 0.5,
     "spell": 1.0,
-    "type": 0.5
+    "type": 0.33
    },
    "typedErrors": {
-    "marks": 2
+    "marks": 2,
+    "wrong": 1
    },
    "tappedKnowIt": false,
    "knownList": false,
-   "msMedian": 8269,
-   "lastSeen": "2026-11-24T02:50:17.326Z"
+   "msMedian": 4561,
+   "lastSeen": "2026-11-24T20:53:08.800Z"
   },
   "rẻ": {
    "en": "cheap",
@@ -877,23 +902,26 @@
   "hơn": {
    "en": "more than; -er (rẻ hơn = cheaper)",
    "firstLesson": "lesson-02",
-   "sessions": 1,
-   "strength": 1,
-   "meaning": 1.0,
-   "form": 1.0,
+   "sessions": 2,
+   "strength": 0.75,
+   "meaning": 0.67,
+   "form": 0.83,
    "history": [
-    1
+    1,
+    0.5
    ],
    "byExercise": {
-    "listen": 1.0,
+    "listen": 0.67,
     "spell": 1.0,
-    "type": 1.0
+    "type": 0.75
    },
-   "typedErrors": {},
+   "typedErrors": {
+    "marks": 1
+   },
    "tappedKnowIt": false,
    "knownList": false,
-   "msMedian": 8344,
-   "lastSeen": "2026-11-21T18:02:56.658Z"
+   "msMedian": 5558,
+   "lastSeen": "2026-11-24T20:53:08.800Z"
   },
   "nữa": {
    "en": "more, another",
@@ -1047,11 +1075,12 @@
   "sáu": {
    "en": "six",
    "firstLesson": "lesson-03",
-   "sessions": 1,
+   "sessions": 2,
    "strength": 1,
    "meaning": 1.0,
-   "form": 0.75,
+   "form": 0.67,
    "history": [
+    1,
     1
    ],
    "byExercise": {
@@ -1060,12 +1089,12 @@
     "type": 0.5
    },
    "typedErrors": {
-    "tone": 1
+    "tone": 2
    },
    "tappedKnowIt": false,
    "knownList": false,
-   "msMedian": 1508,
-   "lastSeen": "2026-11-21T19:43:21.851Z"
+   "msMedian": 2253,
+   "lastSeen": "2026-11-24T20:53:08.800Z"
   },
   "bảy": {
    "en": "seven",
@@ -1118,11 +1147,12 @@
   "chín": {
    "en": "nine (also: ripe, cooked)",
    "firstLesson": "lesson-03",
-   "sessions": 1,
+   "sessions": 2,
    "strength": 1,
    "meaning": 1.0,
    "form": 0.5,
    "history": [
+    1,
     1
    ],
    "byExercise": {
@@ -1131,12 +1161,12 @@
     "type": 0.5
    },
    "typedErrors": {
-    "tone": 1
+    "tone": 2
    },
    "tappedKnowIt": false,
    "knownList": false,
-   "msMedian": 5347,
-   "lastSeen": "2026-11-21T19:43:21.851Z"
+   "msMedian": 5174,
+   "lastSeen": "2026-11-24T20:53:08.800Z"
   },
   "mười": {
    "en": "ten",
@@ -1164,26 +1194,28 @@
   "tên": {
    "en": "name",
    "firstLesson": "lesson-04",
-   "sessions": 2,
-   "strength": 0.58,
-   "meaning": 0.67,
+   "sessions": 3,
+   "strength": 0.56,
+   "meaning": 0.5,
    "form": 0.5,
    "history": [
     0.67,
+    0.5,
     0.5
    ],
    "byExercise": {
-    "listen": 1.0,
+    "listen": 0.67,
     "reverse": 0.0,
     "type": 0.5
    },
    "typedErrors": {
-    "wrong": 1
+    "wrong": 1,
+    "marks": 1
    },
    "tappedKnowIt": false,
    "knownList": false,
-   "msMedian": 6707,
-   "lastSeen": "2026-11-23T16:50:49.765Z"
+   "msMedian": 6350,
+   "lastSeen": "2026-11-24T20:53:08.800Z"
   },
   "tôi": {
    "en": "I, me (neutral; safe with strangers)",
@@ -1276,54 +1308,56 @@
   "cô": {
    "en": "aunt; you (to a woman a bit younger than your parents)",
    "firstLesson": "lesson-04",
-   "sessions": 2,
-   "strength": 0.67,
+   "sessions": 3,
+   "strength": 0.78,
    "meaning": 1.0,
-   "form": 0.17,
+   "form": 0.25,
    "history": [
     0.33,
+    1,
     1
    ],
    "byExercise": {
     "listen": 1.0,
     "spell": 0.0,
-    "type": 0.0,
+    "type": 0.25,
     "dictation": 0.5
    },
    "typedErrors": {
     "wrong": 1,
-    "marks": 1
+    "marks": 2
    },
    "tappedKnowIt": false,
    "knownList": false,
-   "msMedian": 4409,
-   "lastSeen": "2026-11-22T23:44:45.876Z"
+   "msMedian": 2156,
+   "lastSeen": "2026-11-24T20:53:08.800Z"
   },
   "chú": {
    "en": "uncle; you (to a man a bit younger than your parents)",
    "firstLesson": "lesson-04",
-   "sessions": 2,
-   "strength": 0.62,
-   "meaning": 0.67,
-   "form": 0.17,
+   "sessions": 3,
+   "strength": 0.75,
+   "meaning": 0.75,
+   "form": 0.25,
    "history": [
     0.25,
+    1,
     1
    ],
    "byExercise": {
-    "listen": 0.67,
+    "listen": 0.75,
     "spell": 0.0,
     "type": 0.0,
     "dictation": 0.5
    },
    "typedErrors": {
     "wrong": 1,
-    "tone": 1
+    "tone": 2
    },
    "tappedKnowIt": false,
    "knownList": false,
-   "msMedian": 5054,
-   "lastSeen": "2026-11-22T23:44:45.876Z"
+   "msMedian": 2161,
+   "lastSeen": "2026-11-24T20:53:08.800Z"
   },
   "ông": {
    "en": "grandfather; you (to an old man)",
@@ -1352,28 +1386,29 @@
   "bạn": {
    "en": "friend; you (to someone your own age)",
    "firstLesson": "lesson-04",
-   "sessions": 2,
-   "strength": 0.58,
-   "meaning": 0.5,
-   "form": 0.5,
+   "sessions": 3,
+   "strength": 0.56,
+   "meaning": 0.67,
+   "form": 0.38,
    "history": [
     0.67,
+    0.5,
     0.5
    ],
    "byExercise": {
-    "listen": 0.5,
+    "listen": 0.67,
     "spell": 1.0,
     "type": 0.5,
     "dictation": 0.0
    },
    "typedErrors": {
     "tone": 1,
-    "wrong": 1
+    "wrong": 2
    },
    "tappedKnowIt": false,
    "knownList": false,
-   "msMedian": 4018,
-   "lastSeen": "2026-11-23T16:50:49.765Z"
+   "msMedian": 4164,
+   "lastSeen": "2026-11-24T20:53:08.800Z"
   },
   "bà": {
    "en": "grandmother; you (to an old woman)",
@@ -1444,23 +1479,25 @@
   "cam": {
    "en": "orange (the fruit)",
    "firstLesson": "lesson-05",
-   "sessions": 1,
-   "strength": 0.75,
-   "meaning": 0.67,
+   "sessions": 2,
+   "strength": 0.88,
+   "meaning": 0.75,
    "form": 1.0,
    "history": [
-    0.75
+    0.75,
+    1
    ],
    "byExercise": {
-    "listen": 0.5,
+    "listen": 0.67,
     "reverse": 1.0,
-    "type": 1.0
+    "type": 1.0,
+    "dictation": 1.0
    },
    "typedErrors": {},
    "tappedKnowIt": false,
    "knownList": false,
-   "msMedian": 2502,
-   "lastSeen": "2026-11-22T22:27:31.958Z"
+   "msMedian": 1898,
+   "lastSeen": "2026-11-24T20:53:08.800Z"
   },
   "chuối": {
    "en": "banana",
@@ -1534,53 +1571,57 @@
   "bớt": {
    "en": "to take some off (a price); to reduce",
    "firstLesson": "lesson-05",
-   "sessions": 5,
-   "strength": 0.17,
+   "sessions": 6,
+   "strength": 0.5,
    "meaning": 0.33,
-   "form": 0.38,
+   "form": 0.4,
    "history": [
     0.5,
     0.5,
     0,
     0.5,
-    0
+    0,
+    1
    ],
    "byExercise": {
-    "listen": 0.33,
+    "listen": 0.43,
     "spell": 1.0,
-    "type": 0.17
+    "type": 0.17,
+    "dictation": 0.5
    },
    "typedErrors": {
     "wrong": 2,
-    "marks": 1
+    "marks": 2
    },
    "tappedKnowIt": false,
    "knownList": false,
-   "msMedian": 6206,
-   "lastSeen": "2026-11-24T02:50:17.326Z"
+   "msMedian": 5383,
+   "lastSeen": "2026-11-24T20:53:08.800Z"
   },
   "hết": {
    "en": "in total (of a bill); also: used up, sold out",
    "firstLesson": "lesson-05",
-   "sessions": 1,
-   "strength": 0.67,
-   "meaning": 1.0,
-   "form": 0.25,
+   "sessions": 2,
+   "strength": 0.58,
+   "meaning": 0.5,
+   "form": 0.33,
    "history": [
-    0.67
+    0.67,
+    0.5
    ],
    "byExercise": {
-    "listen": 1.0,
+    "listen": 0.5,
     "spell": 0.0,
-    "type": 0.5
+    "type": 0.5,
+    "dictation": 0.5
    },
    "typedErrors": {
-    "marks": 1
+    "marks": 2
    },
    "tappedKnowIt": false,
    "knownList": false,
-   "msMedian": 2826,
-   "lastSeen": "2026-11-22T22:27:31.958Z"
+   "msMedian": 5198,
+   "lastSeen": "2026-11-24T20:53:08.800Z"
   },
   "mời": {
    "en": "to invite; please (go ahead, have some)",
@@ -1609,25 +1650,27 @@
   "cháu": {
    "en": "grandchild, niece or nephew; I (to your parents' or grandparents' generation)",
    "firstLesson": "lesson-06",
-   "sessions": 1,
-   "strength": 0.75,
-   "meaning": 0.67,
+   "sessions": 2,
+   "strength": 0.88,
+   "meaning": 0.75,
    "form": 0.5,
    "history": [
-    0.75
+    0.75,
+    1
    ],
    "byExercise": {
-    "listen": 0.5,
+    "listen": 0.67,
     "reverse": 1.0,
-    "type": 0.5
+    "type": 0.5,
+    "dictation": 0.5
    },
    "typedErrors": {
-    "tone": 1
+    "tone": 2
    },
    "tappedKnowIt": false,
    "knownList": false,
-   "msMedian": 4535,
-   "lastSeen": "2026-11-23T06:58:14.770Z"
+   "msMedian": 2567,
+   "lastSeen": "2026-11-24T20:53:08.800Z"
   },
   "bát": {
    "en": "bowl (a rice bowl)",
@@ -1655,12 +1698,13 @@
   "đũa": {
    "en": "chopsticks",
    "firstLesson": "lesson-06",
-   "sessions": 1,
-   "strength": 0.67,
+   "sessions": 2,
+   "strength": 0.83,
    "meaning": 1.0,
-   "form": 0.25,
+   "form": 0.33,
    "history": [
-    0.67
+    0.67,
+    1
    ],
    "byExercise": {
     "listen": 1.0,
@@ -1668,12 +1712,12 @@
     "type": 0.5
    },
    "typedErrors": {
-    "marks": 1
+    "marks": 2
    },
    "tappedKnowIt": false,
    "knownList": false,
-   "msMedian": 4536,
-   "lastSeen": "2026-11-23T06:58:14.770Z"
+   "msMedian": 2692,
+   "lastSeen": "2026-11-24T20:53:08.800Z"
   },
   "canh": {
    "en": "soup (a clear broth eaten with rice)",
@@ -1741,11 +1785,12 @@
   "uống": {
    "en": "to drink",
    "firstLesson": "review",
-   "sessions": 1,
+   "sessions": 2,
    "strength": 1,
    "meaning": 1.0,
    "form": 0.5,
    "history": [
+    1,
     1
    ],
    "byExercise": {
@@ -1753,12 +1798,12 @@
     "type": 0.5
    },
    "typedErrors": {
-    "marks": 1
+    "marks": 2
    },
    "tappedKnowIt": false,
    "knownList": false,
-   "msMedian": 22571,
-   "lastSeen": "2026-11-23T16:50:49.765Z"
+   "msMedian": 6108,
+   "lastSeen": "2026-11-24T20:53:08.800Z"
   },
   "xe ôm": {
    "en": "motorbike taxi",
@@ -1830,25 +1875,28 @@
   "gần": {
    "en": "near, close by",
    "firstLesson": "lesson-07",
-   "sessions": 1,
-   "strength": 0,
-   "meaning": 0.0,
-   "form": 0.0,
+   "sessions": 2,
+   "strength": 0.5,
+   "meaning": 0.5,
+   "form": 0.17,
    "history": [
-    0
+    0,
+    1
    ],
    "byExercise": {
-    "listen": 0.0,
+    "listen": 0.5,
     "spell": 0.0,
-    "type": 0.0
+    "type": 0.0,
+    "dictation": 0.5
    },
    "typedErrors": {
-    "wrong": 1
+    "wrong": 1,
+    "marks": 1
    },
    "tappedKnowIt": false,
    "knownList": false,
-   "msMedian": 6592,
-   "lastSeen": "2026-11-24T02:50:17.326Z"
+   "msMedian": 4867,
+   "lastSeen": "2026-11-24T20:53:08.800Z"
   },
   "rẽ": {
    "en": "to turn (at a corner)",
@@ -1876,25 +1924,27 @@
   "phải": {
    "en": "right (the side)",
    "firstLesson": "lesson-07",
-   "sessions": 1,
-   "strength": 0.5,
-   "meaning": 0.5,
-   "form": 0.25,
+   "sessions": 2,
+   "strength": 0.75,
+   "meaning": 0.67,
+   "form": 0.33,
    "history": [
-    0.5
+    0.5,
+    1
    ],
    "byExercise": {
-    "listen": 0.5,
+    "listen": 0.67,
     "spell": 0.0,
-    "type": 0.5
+    "type": 0.5,
+    "dictation": 0.5
    },
    "typedErrors": {
-    "tone": 1
+    "tone": 2
    },
    "tappedKnowIt": false,
    "knownList": false,
-   "msMedian": 26609,
-   "lastSeen": "2026-11-24T02:50:17.326Z"
+   "msMedian": 2005,
+   "lastSeen": "2026-11-24T20:53:08.800Z"
   },
   "nhăm": {
    "en": "five after the tens, a casual spoken form of lăm (as in 25)",
@@ -2002,40 +2052,39 @@
  ],
  "weakMeaning": [
   "chục",
-  "gần",
   "bớt",
   "gà",
+  "gần",
+  "hết",
+  "tên",
   "đắt",
-  "bạn",
-  "phải",
-  "đồng",
   "nữa",
-  "cam",
-  "cháu",
-  "chú",
+  "đồng",
+  "bạn",
   "hai",
+  "hơn",
   "một",
+  "phải",
   "rẽ"
  ],
  "weakSpelling": [
   "bao nhiêu",
-  "gần",
   "nhăm",
   "quả",
   "rưỡi",
   "trăm",
-  "chú",
-  "cô",
+  "gần",
   "nghìn",
   "mươi",
   "bốn",
-  "hết",
+  "chú",
+  "cô",
   "mời",
-  "phải",
-  "tám"
+  "tám",
+  "tư",
+  "hết"
  ],
  "strongest": [
-  "hơn",
   "sáu",
   "bảy",
   "chín",
@@ -2049,7 +2098,8 @@
   "cân",
   "thịt",
   "bát",
-  "canh"
+  "canh",
+  "no"
  ],
  "warmupMissed": {
   "ba": 1,
@@ -2102,15 +2152,15 @@
   "chú -> friend; you (to someone your own age)": 1
  },
  "typing": {
-  "wrong": 31,
-  "tone": 19,
-  "marks": 38,
-  "perfect": 23
+  "wrong": 35,
+  "tone": 25,
+  "marks": 47,
+  "perfect": 24
  },
  "unfinished": {
   "lesson-04": 1
  },
- "toneKeysUsed": "18/99",
+ "toneKeysUsed": "20/119",
  "feedback": [
   {
    "finishedAt": "2026-11-21T07:42:39.510Z",
@@ -2277,6 +2327,26 @@
    ],
    "wantNext": "what the lessons are missing is asking me to say a price? eg how to you say 25, 150 etc",
    "note": "should be more fun"
+  },
+  {
+   "finishedAt": "2026-11-24T20:53:08.800Z",
+   "lesson": "review",
+   "kind": "review",
+   "difficulty": null,
+   "fun": null,
+   "article": null,
+   "hardest": [
+    "bao nhiêu",
+    "tên",
+    "bạn",
+    "hết",
+    "đắt",
+    "bớt",
+    "hơn",
+    "gà"
+   ],
+   "wantNext": null,
+   "note": null
   }
  ],
  "struggle": {
@@ -2369,28 +2439,6 @@
     "studySec": 0,
     "struggle": 45
    },
-   "phải": {
-    "attempts": 6,
-    "fails": 2,
-    "medianSec": 15.8,
-    "replays": 2,
-    "hints": 0,
-    "revealed": 0,
-    "deletes": 0,
-    "studySec": 11,
-    "struggle": 45
-   },
-   "bao nhiêu": {
-    "attempts": 10,
-    "fails": 6,
-    "medianSec": 5.4,
-    "replays": 0,
-    "hints": 0,
-    "revealed": 0,
-    "deletes": 0,
-    "studySec": 0,
-    "struggle": 44
-   },
    "trăm": {
     "attempts": 15,
     "fails": 8,
@@ -2413,15 +2461,15 @@
     "studySec": 0,
     "struggle": 42
    },
-   "gần": {
-    "attempts": 6,
-    "fails": 3,
-    "medianSec": 5.9,
-    "replays": 1,
-    "hints": 1,
+   "bao nhiêu": {
+    "attempts": 13,
+    "fails": 7,
+    "medianSec": 6.1,
+    "replays": 0,
+    "hints": 0,
     "revealed": 0,
-    "deletes": 2,
-    "studySec": 4,
+    "deletes": 0,
+    "studySec": 0,
     "struggle": 42
    },
    "lăm": {
@@ -2434,17 +2482,6 @@
     "deletes": 0,
     "studySec": 0,
     "struggle": 41
-   },
-   "cá": {
-    "attempts": 7,
-    "fails": 4,
-    "medianSec": 3.5,
-    "replays": 0,
-    "hints": 0,
-    "revealed": 0,
-    "deletes": 0,
-    "studySec": 0,
-    "struggle": 40
    },
    "nhăm": {
     "attempts": 4,
@@ -2467,17 +2504,6 @@
     "deletes": 1,
     "studySec": 0,
     "struggle": 39
-   },
-   "tên": {
-    "attempts": 7,
-    "fails": 3,
-    "medianSec": 6.7,
-    "replays": 2,
-    "hints": 0,
-    "revealed": 0,
-    "deletes": 0,
-    "studySec": 18,
-    "struggle": 37
    },
    "nước": {
     "attempts": 4,
@@ -2523,16 +2549,16 @@
     "studySec": 0,
     "struggle": 35
    },
-   "bớt": {
-    "attempts": 16,
-    "fails": 7,
-    "medianSec": 4.6,
-    "replays": 5,
+   "tên": {
+    "attempts": 10,
+    "fails": 4,
+    "medianSec": 6.5,
+    "replays": 3,
     "hints": 0,
     "revealed": 0,
-    "deletes": 0,
-    "studySec": 7,
-    "struggle": 34
+    "deletes": 2,
+    "studySec": 18,
+    "struggle": 35
    },
    "một trăm linh hai": {
     "attempts": 1,
@@ -2545,32 +2571,21 @@
     "studySec": 0,
     "struggle": 34
    },
-   "đồng": {
-    "attempts": 12,
-    "fails": 5,
-    "medianSec": 4.5,
-    "replays": 4,
-    "hints": 0,
+   "gần": {
+    "attempts": 8,
+    "fails": 3,
+    "medianSec": 5.0,
+    "replays": 2,
+    "hints": 1,
     "revealed": 0,
-    "deletes": 0,
-    "studySec": 0,
+    "deletes": 5,
+    "studySec": 4,
     "struggle": 33
    },
-   "gà": {
-    "attempts": 10,
+   "cá": {
+    "attempts": 9,
     "fails": 4,
-    "medianSec": 5.1,
-    "replays": 0,
-    "hints": 0,
-    "revealed": 0,
-    "deletes": 0,
-    "studySec": 0,
-    "struggle": 32
-   },
-   "đắt": {
-    "attempts": 12,
-    "fails": 5,
-    "medianSec": 4.8,
+    "medianSec": 3.5,
     "replays": 0,
     "hints": 0,
     "revealed": 0,
@@ -2600,6 +2615,17 @@
     "studySec": 0,
     "struggle": 32
    },
+   "bớt": {
+    "attempts": 18,
+    "fails": 7,
+    "medianSec": 4.6,
+    "replays": 7,
+    "hints": 0,
+    "revealed": 0,
+    "deletes": 0,
+    "studySec": 7,
+    "struggle": 32
+   },
    "canh": {
     "attempts": 5,
     "fails": 1,
@@ -2611,16 +2637,27 @@
     "studySec": 4,
     "struggle": 32
    },
-   "uống": {
-    "attempts": 2,
-    "fails": 0,
-    "medianSec": 14.5,
+   "đắt": {
+    "attempts": 15,
+    "fails": 6,
+    "medianSec": 4.6,
     "replays": 1,
-    "hints": 1,
+    "hints": 0,
     "revealed": 0,
     "deletes": 0,
     "studySec": 0,
     "struggle": 31
+   },
+   "đồng": {
+    "attempts": 14,
+    "fails": 5,
+    "medianSec": 4.0,
+    "replays": 4,
+    "hints": 0,
+    "revealed": 0,
+    "deletes": 0,
+    "studySec": 0,
+    "struggle": 29
    },
    "bún": {
     "attempts": 5,
@@ -2644,6 +2681,17 @@
     "studySec": 0,
     "struggle": 28
    },
+   "gà": {
+    "attempts": 13,
+    "fails": 5,
+    "medianSec": 3.6,
+    "replays": 0,
+    "hints": 0,
+    "revealed": 0,
+    "deletes": 0,
+    "studySec": 0,
+    "struggle": 28
+   },
    "hai": {
     "attempts": 6,
     "fails": 2,
@@ -2653,28 +2701,6 @@
     "revealed": 0,
     "deletes": 0,
     "studySec": 3,
-    "struggle": 27
-   },
-   "chú": {
-    "attempts": 9,
-    "fails": 3,
-    "medianSec": 4.1,
-    "replays": 3,
-    "hints": 0,
-    "revealed": 0,
-    "deletes": 0,
-    "studySec": 1,
-    "struggle": 27
-   },
-   "bạn": {
-    "attempts": 7,
-    "fails": 2,
-    "medianSec": 5.6,
-    "replays": 2,
-    "hints": 0,
-    "revealed": 0,
-    "deletes": 0,
-    "studySec": 2,
     "struggle": 27
    },
    "tám": {
@@ -2698,6 +2724,39 @@
     "deletes": 0,
     "studySec": 0,
     "struggle": 26
+   },
+   "bạn": {
+    "attempts": 10,
+    "fails": 3,
+    "medianSec": 4.4,
+    "replays": 3,
+    "hints": 0,
+    "revealed": 0,
+    "deletes": 0,
+    "studySec": 2,
+    "struggle": 26
+   },
+   "hết": {
+    "attempts": 7,
+    "fails": 2,
+    "medianSec": 5.0,
+    "replays": 3,
+    "hints": 0,
+    "revealed": 0,
+    "deletes": 0,
+    "studySec": 11,
+    "struggle": 26
+   },
+   "hơn": {
+    "attempts": 7,
+    "fails": 1,
+    "medianSec": 7.5,
+    "replays": 1,
+    "hints": 2,
+    "revealed": 0,
+    "deletes": 0,
+    "studySec": 0,
+    "struggle": 25
    },
    "bò": {
     "attempts": 7,
@@ -2743,6 +2802,17 @@
     "studySec": 2,
     "struggle": 23
    },
+   "chú": {
+    "attempts": 11,
+    "fails": 3,
+    "medianSec": 4.0,
+    "replays": 3,
+    "hints": 0,
+    "revealed": 0,
+    "deletes": 0,
+    "studySec": 1,
+    "struggle": 23
+   },
    "tiền": {
     "attempts": 7,
     "fails": 2,
@@ -2752,17 +2822,6 @@
     "revealed": 0,
     "deletes": 0,
     "studySec": 0,
-    "struggle": 22
-   },
-   "đũa": {
-    "attempts": 4,
-    "fails": 1,
-    "medianSec": 4.0,
-    "replays": 1,
-    "hints": 0,
-    "revealed": 0,
-    "deletes": 0,
-    "studySec": 2,
     "struggle": 22
    },
    "rẻ hơn": {
@@ -2776,38 +2835,16 @@
     "studySec": 0,
     "struggle": 21
    },
-   "cô": {
-    "attempts": 7,
+   "phải": {
+    "attempts": 8,
     "fails": 2,
-    "medianSec": 2.8,
-    "replays": 0,
-    "hints": 0,
-    "revealed": 0,
-    "deletes": 0,
-    "studySec": 56,
-    "struggle": 21
-   },
-   "cháu": {
-    "attempts": 5,
-    "fails": 1,
-    "medianSec": 4.5,
-    "replays": 1,
-    "hints": 0,
-    "revealed": 0,
-    "deletes": 0,
-    "studySec": 5,
-    "struggle": 20
-   },
-   "hết": {
-    "attempts": 4,
-    "fails": 1,
-    "medianSec": 2.6,
-    "replays": 0,
+    "medianSec": 3.6,
+    "replays": 2,
     "hints": 0,
     "revealed": 0,
     "deletes": 0,
     "studySec": 11,
-    "struggle": 19
+    "struggle": 21
    },
    "trăm hai": {
     "attempts": 1,
@@ -2941,6 +2978,17 @@
     "studySec": 2,
     "struggle": 17
    },
+   "cô": {
+    "attempts": 9,
+    "fails": 2,
+    "medianSec": 2.2,
+    "replays": 0,
+    "hints": 0,
+    "revealed": 0,
+    "deletes": 0,
+    "studySec": 56,
+    "struggle": 17
+   },
    "Đắt quá!": {
     "attempts": 1,
     "fails": 0,
@@ -2963,15 +3011,26 @@
     "studySec": 1,
     "struggle": 16
    },
-   "cam": {
-    "attempts": 5,
+   "cháu": {
+    "attempts": 7,
     "fails": 1,
-    "medianSec": 2.5,
-    "replays": 0,
+    "medianSec": 4.5,
+    "replays": 1,
     "hints": 0,
     "revealed": 0,
     "deletes": 0,
-    "studySec": 3,
+    "studySec": 5,
+    "struggle": 16
+   },
+   "đũa": {
+    "attempts": 6,
+    "fails": 1,
+    "medianSec": 3.0,
+    "replays": 2,
+    "hints": 0,
+    "revealed": 0,
+    "deletes": 0,
+    "studySec": 2,
     "struggle": 16
    },
    "ngon": {
@@ -2991,6 +3050,17 @@
     "medianSec": 6.6,
     "replays": 1,
     "hints": 0,
+    "revealed": 0,
+    "deletes": 0,
+    "studySec": 0,
+    "struggle": 14
+   },
+   "uống": {
+    "attempts": 4,
+    "fails": 0,
+    "medianSec": 6.3,
+    "replays": 1,
+    "hints": 1,
     "revealed": 0,
     "deletes": 0,
     "studySec": 0,
@@ -3040,17 +3110,6 @@
     "studySec": 17,
     "struggle": 13
    },
-   "hơn": {
-    "attempts": 4,
-    "fails": 0,
-    "medianSec": 7.9,
-    "replays": 0,
-    "hints": 0,
-    "revealed": 0,
-    "deletes": 0,
-    "studySec": 0,
-    "struggle": 12
-   },
    "ông": {
     "attempts": 7,
     "fails": 1,
@@ -3060,6 +3119,17 @@
     "revealed": 0,
     "deletes": 0,
     "studySec": 2,
+    "struggle": 12
+   },
+   "cam": {
+    "attempts": 7,
+    "fails": 1,
+    "medianSec": 2.2,
+    "replays": 0,
+    "hints": 0,
+    "revealed": 0,
+    "deletes": 0,
+    "studySec": 3,
     "struggle": 12
    },
    "Bún cá ba mươi lăm nghìn": {
@@ -3205,6 +3275,17 @@
     "studySec": 0,
     "struggle": 9
    },
+   "chín": {
+    "attempts": 5,
+    "fails": 0,
+    "medianSec": 5.2,
+    "replays": 1,
+    "hints": 0,
+    "revealed": 0,
+    "deletes": 0,
+    "studySec": 1,
+    "struggle": 9
+   },
    "năm mươi nghìn": {
     "attempts": 1,
     "fails": 0,
@@ -3237,17 +3318,6 @@
     "deletes": 0,
     "studySec": 0,
     "struggle": 9
-   },
-   "chín": {
-    "attempts": 3,
-    "fails": 0,
-    "medianSec": 5.3,
-    "replays": 0,
-    "hints": 0,
-    "revealed": 0,
-    "deletes": 0,
-    "studySec": 1,
-    "struggle": 8
    },
    "mười lăm nghìn": {
     "attempts": 1,
@@ -3601,6 +3671,17 @@
     "studySec": 0,
     "struggle": 4
    },
+   "sáu": {
+    "attempts": 5,
+    "fails": 0,
+    "medianSec": 2.0,
+    "replays": 0,
+    "hints": 0,
+    "revealed": 0,
+    "deletes": 0,
+    "studySec": 2,
+    "struggle": 3
+   },
    "hai lăm": {
     "attempts": 1,
     "fails": 0,
@@ -3622,24 +3703,13 @@
     "deletes": 0,
     "studySec": 18,
     "struggle": 3
-   },
-   "sáu": {
-    "attempts": 3,
-    "fails": 0,
-    "medianSec": 1.5,
-    "replays": 0,
-    "hints": 0,
-    "revealed": 0,
-    "deletes": 0,
-    "studySec": 2,
-    "struggle": 2
    }
   },
   "exercises": {
    "listen": {
-    "answers": 252,
+    "answers": 275,
     "accuracy": 0.84,
-    "medianSec": 4.3
+    "medianSec": 4.2
    },
    "spell": {
     "answers": 63,
@@ -3652,8 +3722,8 @@
     "medianSec": 4.0
    },
    "type": {
-    "answers": 120,
-    "accuracy": 0.47,
+    "answers": 130,
+    "accuracy": 0.49,
     "medianSec": 4.8
    },
    "speed": {
@@ -3662,9 +3732,9 @@
     "medianSec": 2.6
    },
    "type (tiles)": {
-    "answers": 22,
-    "accuracy": 0.55,
-    "medianSec": 5.4
+    "answers": 26,
+    "accuracy": 0.62,
+    "medianSec": 5.3
    },
    "situation": {
     "answers": 46,
@@ -3672,9 +3742,9 @@
     "medianSec": 20.9
    },
    "type (from hearing)": {
-    "answers": 14,
+    "answers": 24,
     "accuracy": 0.79,
-    "medianSec": 5.4
+    "medianSec": 4.3
    },
    "dialogue": {
     "answers": 3,
@@ -3684,12 +3754,12 @@
   },
   "phaseSeconds": {
    "words": 373,
-   "drills": 2359,
+   "drills": 2547,
    "reallife": 1121,
    "rush": 254,
    "article": 108,
    "pauses": 10,
-   "longestPauseSec": 6782,
+   "longestPauseSec": 6795,
    "warmup": 20,
    "conversation": 122
   }

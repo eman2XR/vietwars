@@ -2,6 +2,10 @@
 
 Why each lesson was planned the way it was, newest first. Written by the `/next-lesson` skill.
 
+## 2026-11-24: Progress review
+
+- See `learner/REVIEW.md`: fun fell to Boring twice while difficulty settled; new Say the price questions (production, with seller replies and a haggled-off tally), `scripts/outcomes.py` and a "Decide what to change" step before every plan; a market-talk unit goes next.
+
 ## 2026-11-24: Issue 8, A numbers clinic ("A morning of prices at Đồng Xuân")
 
 - Data: issue 7 on the iPhone: 72% first try, merit, 20.9 minutes (8.7 of them drills), "Too hard" and fun "Boring", story "OK" (9 seconds on the opening); hardest gần, phải, bớt, đắt. The short new words were confused with each other by meaning (bớt as expensive and as near, đắt as near, phải as near, gần as to invite, rẽ as left). Real life 6 of 8: Cà phê trứng ba lăm anh ạ. picked as 25.000₫ (the lăm form again, after 53.000₫ in issue 5) and the phở seller's mời answered with Anh no rồi; the dialogue check was right. Issue 6 was also "Too hard".

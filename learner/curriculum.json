@@ -1,6 +1,6 @@
 {
   "updated": "2026-11-24",
-  "reviewedAt": "2026-11-22",
+  "reviewedAt": "2026-11-24",
   "goal": "Basic conversation at a dinner table (a meal with a Hà Nội family or friends) and understanding basic street talk (sellers, waiters, drivers, neighbours) in Northern Vietnamese. Vocabulary keeps growing, and from issue 6 every issue also teaches one sentence frame and one short dialogue built from known words, alternating between the table and the street (the learner set this goal on 2026-11-22; see docs/PEDAGOGY.md, Conversation).",
   "phases": [
     {
@@ -172,6 +172,12 @@
       "frames": [
         "Đi ... bao nhiêu? brought back once (a real-life prompt)"
       ]
+    },
+    {
+      "id": "market-talk",
+      "title": "At the market, you do the talking",
+      "status": "planned",
+      "notes": "Review of 2026-11-24: fun fell to Boring twice and the learner asked to say prices, not only understand them. The learner makes counter-offers (... được không?) and says prices in Say the price questions, with the seller answering back and a running total haggled off. Brings back bớt, đắt, chục (leeches) and the 'X mươi, một [unit]' price, said rather than heard. Story tied to the market: the old quarter's Hàng streets, each named for the goods once sold there, if the sources support it."
     },
     {
       "id": "politeness",

@@ -32,6 +32,7 @@ def lesson_texts(lesson):
     texts.extend(w["vi"] for w in lesson.get("warmup", []))
     texts.extend(c["vi"] for c in lesson.get("combos", []))
     texts.extend(x["vi"] for x in lesson.get("situations", []))
+    texts.extend([r["vi"] for x in lesson.get("situations", []) for r in (x.get("reply"), x.get("replyMissed")) if r and r.get("vi")])
     for d in lesson.get("dialogues", []):
         texts.extend(line["vi"] for line in d.get("lines", []))
         texts.append(d.get("check", {}).get("answer", ""))

@@ -20,7 +20,24 @@ If the newest lesson has not been played yet (`newestPlayed: False`), do not bui
 
 If the learner said something about their knowledge or wishes in the conversation, add it to `learner/NOTES.md` first (newest first, dated). If they said they know certain words, add those to `web/lessons/known.json`.
 
-## 2. Plan
+## 2. Decide what to change (always, before planning)
+
+The learner asked for this on 2026-11-24: before every new issue, look at the data and think through what the next issue should change to improve the outcomes. Run
+
+```sh
+python3 scripts/outcomes.py
+```
+
+It shows the last five issues side by side: first-try accuracy, the difficulty, fun and story ratings, reading time, active minutes per phase, accuracy per exercise type, every miss and what the learner wrote. Read it with the summary's struggle table and the review results since the last issue, and write down:
+
+- **Each outcome that is slipping or stuck**, with its numbers and its trend over the issues (for example fun Good, Good, OK, Boring, Boring; real-life prices 4 of 8; a word or price form missed in three issues).
+- **The likely cause**, from what changed between the issues that went well and those that did not (length, drill share, kind of words, new exercise types, the story, the pictures), not a guess.
+- **The change in this issue that answers it**, and **how the next result will show whether it worked** (the field and the number to beat).
+- What went well and must be kept.
+
+Put this list in the plan and in the lesson log entry under "What changes and why". If the same problem is still there after two issues that tried to fix it, try something different rather than more of the same, and say so in the log.
+
+## 3. Plan
 
 Write a short plan before any content and show it in your final message:
 
@@ -33,7 +50,7 @@ Write a short plan before any content and show it in your final message:
 - Questions the learner asked (the summary's questions section): teach what they wanted to say when it fits the theme.
 - Talk (the learner's goal: dinner-table conversation and street talk): the issue's sentence frame, its dialogue and setting (alternate table and street), and which earlier frames come back on schedule (docs/PEDAGOGY.md, Conversation).
 
-## 3. Write the lesson
+## 4. Write the lesson
 
 Write `web/lessons/lesson-NN.json` (next number) and add it to `web/lessons/index.json` with today's date. Follow every rule in `docs/PEDAGOGY.md`. Research the article first: fetch the sources from Wikipedia with curl (`https://en.wikipedia.org/w/api.php?action=query&prop=extracts&explaintext=1&redirects=1&format=json&titles=...`, and vi.wikipedia.org) and write only what they support. If the theme needs a new cover scene or a word needs a picture no kind fits, add an original drawing to `web/js/pictures.js` in its inked style (the Cover and stamp rule in `docs/PEDAGOGY.md`), and look at it in every style with `scripts/picture_sheet.py`. Then:
 
@@ -45,7 +62,7 @@ node scripts/plan.mjs lesson-NN
 
 Fix every error. Judge every warning: fix it, or note in the log why it stays. `plan.mjs` prints the number of answers (aim for about 45) and where each story beat lands; move or untie beats until they are spread through the whole issue.
 
-## 4. Review
+## 5. Review
 
 Run three reviews as subagents in parallel. Give each the file path and the context, not your opinion of the lesson. Ask for "must fix" and "suggestions" with the field path and an exact replacement, under 700 words.
 
@@ -55,7 +72,7 @@ Run three reviews as subagents in parallel. Give each the file path and the cont
 
 Apply every must-fix and the suggestions you agree with. If the changes are large, send the changed parts back to the Vietnamese reviewer. Then rerun `make_audio.py` and `check_lessons.py`.
 
-## 5. Test
+## 6. Test
 
 ```sh
 node --test
@@ -64,7 +81,7 @@ node --test
 
 All five devices must pass (iPhone 15, iPhone SE, iPad Pro portrait in dark mode and landscape, desktop Safari). Look at the new lesson's screenshots in `.checks/` (the opening with its cover, a story beat, a word card with its fact, a real-life question, the tone keys, results with the stamp) for overflow, clipped text, unreadable colours or a picture that does not read. If art or styles changed, also run `scripts/style_shots.py` and look at the sheets in `docs/styles/`.
 
-## 6. Log, update the curriculum, publish
+## 7. Log, update the curriculum, publish
 
 1. Add an entry at the top of `docs/LESSON_LOG.md`: date, lesson, the data used (sessions, meaning and spelling accuracy, weak words, confusions, story and real-life signals, feedback quotes, questions asked), and each decision with its reason, including review changes.
 2. Update `learner/curriculum.json`: mark the unit `active` with its lesson id, mark the previous one `done`, add notes, reorder upcoming units if the data suggests it, and set `updated`.
