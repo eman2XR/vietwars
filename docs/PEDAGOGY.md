@@ -37,6 +37,12 @@ The learner's goal (2026-11-22): basic conversation at a dinner table and unders
 - **A real task in every challenge**, using the issue's frame.
 - **A consolidation issue every five or six issues** (with the progress review): few new words and a longer dialogue (up to 8 lines) that recombines the recent frames.
 
+## Lessons from issues 6 and 7
+
+- Both were rated "Too hard" (88% and 72% first try) and issue 7 "Boring": most misses were new short words mistaken for each other by meaning (gần, bớt, đắt, phải, rẽ in one issue), and nine minutes of drills. Do not teach more than two short one-syllable words with similar sounds or uses in one issue, give each a picture that could not belong to another, and keep drills short (about 35 answers when the words are new and abstract).
+- The learner asked for the story to be tied to the lesson: "Would be nice if the article was tied in better with the content of the lesson." Each beat should use or explain the word or price form it follows, not only share a theme; a story about a place (a bridge, a temple) must still show the issue's words at work there.
+- When the learner asks how something works ("when to use lăm or rưỡi or năm"), answer it with a short clinic issue: few new words, the rule set out plainly once, and practice that tests that rule only.
+
 ## Using the data
 
 `learner/SUMMARY.md` has a **Where the learner struggles** table (struggle score from failed first tries, slow answers, hints, replays and revealed answers), accuracy and speed by **exercise type**, time per phase, long pauses, unfinished attempts, tone and meaning confusions, and every feedback note. Plan from it: review the highest-struggle words, give them new hooks or pictures, and lean on the exercise types that work (listening and real life) when another type is failing.
