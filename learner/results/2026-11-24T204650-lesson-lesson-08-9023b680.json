@@ -1,0 +1,741 @@
+{
+ "schema": 3,
+ "resultId": "9023b680-639f-4dda-96ab-c68a6d8c87b3",
+ "kind": "lesson",
+ "lessonId": "lesson-08",
+ "lessonTitle": "A numbers clinic",
+ "appVersion": "4",
+ "style": "paper",
+ "device": "Mac",
+ "startedAt": "2026-11-24T20:30:49.145Z",
+ "finishedAt": "2026-11-24T20:46:50.586Z",
+ "durationSec": 961,
+ "summary": {
+  "firstTryAccuracy": 0.75,
+  "exercises": 24,
+  "bestStreak": 7,
+  "grade": "merit",
+  "speedScore": 500,
+  "speedAnswered": 15,
+  "speedCorrect": 14,
+  "bestCombo": 7
+ },
+ "article": {
+  "readSec": 17,
+  "factsShown": 0
+ },
+ "quiz": null,
+ "situations": {
+  "correct": 6,
+  "total": 7
+ },
+ "dialogues": {
+  "correct": 0,
+  "total": 1
+ },
+ "timing": {
+  "words": 65,
+  "drills": 170,
+  "conversation": 17,
+  "reallife": 74,
+  "rush": 41,
+  "article": 17,
+  "pauses": 2,
+  "longestPauseSec": 230
+ },
+ "toneMarks": "relaxed",
+ "words": [
+  {
+   "vi": "nhăm",
+   "en": "five after the tens, a casual spoken form of lăm (as in 25)",
+   "failures": 2,
+   "timeSec": 41,
+   "replays": 1,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 24,
+   "share": 0.67,
+   "meaning": 1,
+   "form": 0,
+   "stars": 1,
+   "firstTry": {
+    "listen": true,
+    "reverse": true,
+    "type": "wrong"
+   },
+   "attempts": 4,
+   "msMedian": 7009,
+   "known": false
+  },
+  {
+   "vi": "mốt",
+   "en": "one, after the tens from 20 up",
+   "failures": 0,
+   "timeSec": 13,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 19,
+   "share": 1,
+   "meaning": 1,
+   "form": 1,
+   "stars": 3,
+   "firstTry": {
+    "listen": true,
+    "spell": true,
+    "type": "marks"
+   },
+   "attempts": 4,
+   "msMedian": 3188,
+   "known": false
+  },
+  {
+   "vi": "tư",
+   "en": "four, after the tens from 20 up",
+   "failures": 1,
+   "timeSec": 22,
+   "replays": 1,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 16,
+   "share": 0.75,
+   "meaning": 1,
+   "form": 0.5,
+   "stars": 2,
+   "firstTry": {
+    "listen": true,
+    "spell": false,
+    "type": "marks"
+   },
+   "attempts": 5,
+   "msMedian": 4132,
+   "known": false
+  },
+  {
+   "vi": "chục",
+   "en": "a set of ten things, as sellers count (ten eggs)",
+   "failures": 3,
+   "timeSec": 48,
+   "replays": 3,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 6,
+   "share": 0.33,
+   "meaning": 0,
+   "form": 0.5,
+   "stars": 0,
+   "firstTry": {
+    "listen": false,
+    "spell": true,
+    "type": "wrong"
+   },
+   "attempts": 5,
+   "msMedian": 5640,
+   "known": false
+  },
+  {
+   "vi": "rưỡi",
+   "en": "and a half (after a unit)",
+   "failures": 0,
+   "timeSec": 5,
+   "replays": 1,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 1,
+   "meaning": 1,
+   "form": null,
+   "stars": 3,
+   "firstTry": {
+    "listen": true
+   },
+   "attempts": 1,
+   "msMedian": 4800,
+   "known": false
+  },
+  {
+   "vi": "năm",
+   "en": "five (also: year)",
+   "failures": 1,
+   "timeSec": 5,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 0,
+   "meaning": 0,
+   "form": null,
+   "stars": 0,
+   "firstTry": {
+    "listen": false
+   },
+   "attempts": 2,
+   "msMedian": 3508,
+   "known": false
+  },
+  {
+   "vi": "mươi",
+   "en": "-ty, the tens (as in 20)",
+   "failures": 0,
+   "timeSec": 3,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 1,
+   "meaning": 1,
+   "form": null,
+   "stars": 3,
+   "firstTry": {
+    "listen": true
+   },
+   "attempts": 1,
+   "msMedian": 3496,
+   "known": false
+  },
+  {
+   "vi": "trăm",
+   "en": "hundred",
+   "failures": 0,
+   "timeSec": 4,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 1,
+   "meaning": 1,
+   "form": null,
+   "stars": 3,
+   "firstTry": {
+    "listen": true
+   },
+   "attempts": 1,
+   "msMedian": 4200,
+   "known": false
+  }
+ ],
+ "warmup": [],
+ "toneConfusions": [
+  {
+   "target": "tư",
+   "chose": "từ"
+  }
+ ],
+ "meaningConfusions": [
+  {
+   "target": "chục",
+   "chose": "and a half (after a unit)",
+   "t": "listen"
+  },
+  {
+   "target": "năm",
+   "chose": "five after the tens, a casual spoken form of lăm (as in 25)",
+   "t": "listen"
+  },
+  {
+   "target": "hai mươi một nải",
+   "chose": "21.000₫ a hand",
+   "t": "listen"
+  },
+  {
+   "target": "hai mươi một nải",
+   "chose": "21.000₫ a hand",
+   "t": "listen"
+  },
+  {
+   "target": "năm ba",
+   "chose": "21.000₫ a hand",
+   "t": "speed"
+  }
+ ],
+ "typed": [
+  {
+   "target": "mốt",
+   "answer": "mot",
+   "grade": "marks",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 2931
+  },
+  {
+   "target": "chục",
+   "answer": "cham",
+   "grade": "wrong",
+   "accepted": false,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 1369
+  },
+  {
+   "target": "nhăm",
+   "answer": "cham",
+   "grade": "wrong",
+   "accepted": false,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 3833
+  },
+  {
+   "target": "tư",
+   "answer": "tu",
+   "grade": "marks",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 1791
+  },
+  {
+   "target": "chục",
+   "answer": "chúc",
+   "grade": "tone",
+   "tiles": true,
+   "retry": true
+  },
+  {
+   "target": "nhăm",
+   "answer": "nhặm",
+   "grade": "tone",
+   "tiles": true,
+   "retry": true
+  }
+ ],
+ "feedback": {
+  "difficulty": "Just right",
+  "fun": "Boring",
+  "article": "OK",
+  "hardest": [
+   "nhăm",
+   "chục",
+   "năm"
+  ],
+  "wantNext": "what the lessons are missing is asking me to say a price? eg how to you say 25, 150 etc",
+  "note": "should be more fun"
+ },
+ "events": [
+  {
+   "t": "meet",
+   "w": "nhăm",
+   "ms": 23590,
+   "plays": 4
+  },
+  {
+   "t": "meet",
+   "w": "mốt",
+   "ms": 19140
+  },
+  {
+   "t": "meet",
+   "w": "tư",
+   "ms": 16059,
+   "plays": 1
+  },
+  {
+   "t": "meet",
+   "w": "chục",
+   "ms": 6175
+  },
+  {
+   "t": "listen",
+   "w": "tư",
+   "ok": true,
+   "a": "four, after the tens from 20 up",
+   "ms": 4132
+  },
+  {
+   "t": "listen",
+   "w": "mốt",
+   "ok": true,
+   "a": "one, after the tens from 20 up",
+   "ms": 3188
+  },
+  {
+   "t": "listen",
+   "w": "chục",
+   "ok": false,
+   "a": "and a half (after a unit)",
+   "ms": 10266,
+   "plays": 3
+  },
+  {
+   "t": "listen",
+   "w": "mươi",
+   "ok": true,
+   "a": "-ty, the tens (as in 20)",
+   "ms": 3496
+  },
+  {
+   "t": "listen",
+   "w": "rưỡi",
+   "ok": true,
+   "a": "and a half (after a unit)",
+   "ms": 4800,
+   "plays": 1
+  },
+  {
+   "t": "listen",
+   "w": "năm",
+   "ok": false,
+   "a": "five after the tens, a casual spoken form of lăm (as in 25)",
+   "ms": 3508
+  },
+  {
+   "t": "listen",
+   "w": "chục",
+   "ok": true,
+   "a": "a set of ten things, as sellers count (ten eggs)",
+   "ms": 2216,
+   "retry": true
+  },
+  {
+   "t": "listen",
+   "w": "mốt",
+   "ok": true,
+   "a": "one, after the tens from 20 up",
+   "ms": 2576
+  },
+  {
+   "t": "listen",
+   "w": "tư",
+   "ok": true,
+   "a": "four, after the tens from 20 up",
+   "ms": 8992,
+   "plays": 1
+  },
+  {
+   "t": "listen",
+   "w": "năm",
+   "ok": true,
+   "a": "five (also: year)",
+   "ms": 1531,
+   "retry": true
+  },
+  {
+   "t": "listen",
+   "w": "nhăm",
+   "ok": true,
+   "a": "five after the tens, a casual spoken form of lăm (as in 25)",
+   "ms": 7009,
+   "plays": 1
+  },
+  {
+   "t": "listen",
+   "w": "trăm",
+   "ok": true,
+   "a": "hundred",
+   "ms": 4200
+  },
+  {
+   "t": "spell",
+   "w": "chục",
+   "ok": true,
+   "a": "chục",
+   "ms": 5640
+  },
+  {
+   "t": "spell",
+   "w": "tư",
+   "ok": false,
+   "a": "từ",
+   "ms": 2026
+  },
+  {
+   "t": "spell",
+   "w": "mốt",
+   "ok": true,
+   "a": "mốt",
+   "ms": 2558
+  },
+  {
+   "t": "reverse",
+   "w": "nhăm",
+   "ok": true,
+   "a": "nhăm",
+   "ms": 24434
+  },
+  {
+   "t": "type",
+   "w": "mốt",
+   "ok": true,
+   "g": "marks",
+   "a": "mot",
+   "ms": 4234,
+   "hints": 0,
+   "firstKeyMs": 2931
+  },
+  {
+   "t": "spell",
+   "w": "tư",
+   "ok": true,
+   "a": "tư",
+   "ms": 2272,
+   "retry": true
+  },
+  {
+   "t": "type",
+   "w": "chục",
+   "ok": false,
+   "g": "wrong",
+   "a": "cham",
+   "ms": 2758,
+   "hints": 0,
+   "firstKeyMs": 1369
+  },
+  {
+   "t": "type",
+   "w": "nhăm",
+   "ok": false,
+   "g": "wrong",
+   "a": "cham",
+   "ms": 4377,
+   "hints": 0,
+   "firstKeyMs": 3833
+  },
+  {
+   "t": "type",
+   "w": "tư",
+   "ok": true,
+   "g": "marks",
+   "a": "tu",
+   "ms": 4827,
+   "hints": 0,
+   "firstKeyMs": 1791
+  },
+  {
+   "t": "type",
+   "w": "chục",
+   "g": "tone",
+   "a": "chúc",
+   "ms": 27530,
+   "retry": true,
+   "tiles": true
+  },
+  {
+   "t": "type",
+   "w": "nhăm",
+   "g": "tone",
+   "a": "nhặm",
+   "ms": 4749,
+   "retry": true,
+   "tiles": true
+  },
+  {
+   "t": "listen",
+   "w": "hai mươi một nải",
+   "ok": false,
+   "a": "21.000₫ a hand",
+   "ms": 7390,
+   "plays": 1
+  },
+  {
+   "t": "listen",
+   "w": "bốn tư",
+   "ok": true,
+   "a": "44.000₫",
+   "ms": 4189
+  },
+  {
+   "t": "listen",
+   "w": "hai mốt một nải",
+   "ok": true,
+   "a": "21.000₫ a hand",
+   "ms": 4493
+  },
+  {
+   "t": "listen",
+   "w": "ba lăm",
+   "ok": true,
+   "a": "35.000₫",
+   "ms": 2909
+  },
+  {
+   "t": "listen",
+   "w": "hai mươi một nải",
+   "ok": false,
+   "a": "21.000₫ a hand",
+   "ms": 2581,
+   "retry": true
+  },
+  {
+   "t": "listen",
+   "w": "năm ba",
+   "ok": true,
+   "a": "53.000₫",
+   "ms": 2825
+  },
+  {
+   "t": "listen",
+   "w": "trăm rưỡi",
+   "ok": true,
+   "a": "150.000₫",
+   "ms": 4284
+  },
+  {
+   "t": "dialogue",
+   "w": "Eggs by the ten",
+   "ok": false,
+   "a": "Cho anh hai mốt.",
+   "ms": 16617
+  },
+  {
+   "t": "situation",
+   "w": "Hai cốc nước mía, hai tư anh ạ.",
+   "ok": true,
+   "a": "24",
+   "ms": 12668,
+   "plays": 1
+  },
+  {
+   "t": "situation",
+   "w": "Thịt bò hai trăm rưỡi một cân anh ạ.",
+   "ok": true,
+   "a": "250.000₫",
+   "ms": 7312
+  },
+  {
+   "t": "situation",
+   "w": "Cam ba nhăm một cân anh ạ.",
+   "ok": true,
+   "a": "35.000₫",
+   "ms": 21592,
+   "plays": 2
+  },
+  {
+   "t": "situation",
+   "w": "Hai lăm thôi anh ạ.",
+   "ok": true,
+   "a": "25",
+   "ms": 5861
+  },
+  {
+   "t": "situation",
+   "w": "Chuối hai chục một nải anh ạ.",
+   "ok": true,
+   "a": "20.000₫",
+   "ms": 14182,
+   "plays": 2
+  },
+  {
+   "t": "situation",
+   "w": "Của anh hết hai mốt ạ.",
+   "ok": false,
+   "a": "20.000₫",
+   "ms": 5753,
+   "plays": 1
+  },
+  {
+   "t": "situation",
+   "w": "Bưởi trăm rưỡi một quả anh ạ.",
+   "ok": true,
+   "a": "Đắt quá! Bớt đi em.",
+   "ms": 6547,
+   "plays": 1
+  },
+  {
+   "t": "speed",
+   "w": "năm ba",
+   "ok": true,
+   "a": "53.000₫",
+   "ms": 4125
+  },
+  {
+   "t": "speed",
+   "w": "hai mốt một nải",
+   "ok": true,
+   "a": "21.000₫ a hand",
+   "ms": 3150
+  },
+  {
+   "t": "speed",
+   "w": "năm ba",
+   "ok": true,
+   "a": "53.000₫",
+   "ms": 3632
+  },
+  {
+   "t": "speed",
+   "w": "mươi",
+   "ok": true,
+   "a": "-ty, the tens (as in 20)",
+   "ms": 2276
+  },
+  {
+   "t": "speed",
+   "w": "năm ba",
+   "ok": true,
+   "a": "53.000₫",
+   "ms": 3399
+  },
+  {
+   "t": "speed",
+   "w": "năm",
+   "ok": true,
+   "a": "five (also: year)",
+   "ms": 1571
+  },
+  {
+   "t": "speed",
+   "w": "mốt",
+   "ok": true,
+   "a": "one, after the tens from 20 up",
+   "ms": 1587
+  },
+  {
+   "t": "speed",
+   "w": "năm ba",
+   "ok": false,
+   "a": "21.000₫ a hand",
+   "ms": 2540
+  },
+  {
+   "t": "speed",
+   "w": "năm ba",
+   "ok": true,
+   "a": "53.000₫",
+   "ms": 4250
+  },
+  {
+   "t": "speed",
+   "w": "năm ba",
+   "ok": true,
+   "a": "53.000₫",
+   "ms": 1293
+  },
+  {
+   "t": "speed",
+   "w": "rưỡi",
+   "ok": true,
+   "a": "and a half (after a unit)",
+   "ms": 1581
+  },
+  {
+   "t": "speed",
+   "w": "mươi",
+   "ok": true,
+   "a": "-ty, the tens (as in 20)",
+   "ms": 2828
+  },
+  {
+   "t": "speed",
+   "w": "trăm rưỡi",
+   "ok": true,
+   "a": "150.000₫",
+   "ms": 4091
+  },
+  {
+   "t": "speed",
+   "w": "mươi",
+   "ok": true,
+   "a": "-ty, the tens (as in 20)",
+   "ms": 1587
+  },
+  {
+   "t": "speed",
+   "w": "tư",
+   "ok": true,
+   "a": "four, after the tens from 20 up",
+   "ms": 2783
+  }
+ ],
+ "issue": 14
+}
