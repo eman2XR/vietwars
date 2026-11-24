@@ -4,6 +4,7 @@
   /Library/Frameworks/Python.framework/Versions/3.13/bin/python3 scripts/picture_sheet.py
   ... scripts/picture_sheet.py --style paper --style lacquer --out .checks/pictures
   ... scripts/picture_sheet.py --covers      only the covers, at 800 by 500 (how a Mac shows an issue's opening)
+  ... scripts/picture_sheet.py --only stall,eggs,oldQuarter   only these pictures (new art)
 
 Writes <out>-<style>.png (default .checks/pictures-<style>.png). Pictures are shown at the sizes the
 site uses: covers at 400 by 250, word pictures at the word-card size and as tiny list thumbnails.
@@ -46,8 +47,10 @@ PAGE = """<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet
   ];
   const label = (s) => s.kind === 'icon' || s.kind === 'scene' ? s.name : `${s.kind}${s.n ? ' ' + s.n : ''}${s.label ? ' ' + s.label : ''}`;
   const cell = (spec, cls) => `<div class="cell ${cls}"><div class="pic-box">${picture(spec)}</div>${label(spec)}</div>`;
-  const icons = ICON_NAMES.map((name) => ({ kind: 'icon', name }));
-  const scenes = SCENE_NAMES.map((name) => ({ kind: 'scene', name }));
+  const only = (new URLSearchParams(location.search).get('only') || '').split(',').filter(Boolean);
+  const keep = (name) => !only.length || only.includes(name);
+  const icons = ICON_NAMES.filter(keep).map((name) => ({ kind: 'icon', name }));
+  const scenes = SCENE_NAMES.filter(keep).map((name) => ({ kind: 'scene', name }));
   document.getElementById('out').innerHTML = `
     <h2>Covers</h2><div class="grid">${scenes.map((s) => cell(s, 'scene-cell')).join('')}</div>
     <div class="only-covers-hide"><h2>Word pictures</h2><div class="grid">${icons.map((s) => cell(s, 'icon-cell')).join('')}</div>
@@ -63,6 +66,7 @@ def main():
     parser.add_argument("--style", action="append", choices=STYLES, help="styles to draw (default: all)")
     parser.add_argument("--out", default=str(ROOT / ".checks" / "pictures"), help="output path prefix")
     parser.add_argument("--covers", action="store_true", help="only the covers, drawn large")
+    parser.add_argument("--only", help="comma-separated icon and scene names to draw (default: all)")
     args = parser.parse_args()
     out = Path(args.out)
     out.parent.mkdir(parents=True, exist_ok=True)
@@ -71,11 +75,11 @@ def main():
         for style in args.style or STYLES:
             dark = style == "paper-dark"
             ctx = browser.new_context(viewport={"width": 1400 if not args.covers else 900, "height": 900}, device_scale_factor=1 if not args.covers else 2, color_scheme="dark" if dark else "light")
-            ctx.route(f"{BASE}**", lambda route: route.fulfill(status=200, content_type="text/html", body=PAGE) if route.request.url.endswith("/_sheet.html") else serve(route))
+            ctx.route(f"{BASE}**", lambda route: route.fulfill(status=200, content_type="text/html", body=PAGE) if route.request.url.split("?")[0].endswith("/_sheet.html") else serve(route))
             page = ctx.new_page()
             errors = []
             page.on("pageerror", lambda e: errors.append(str(e)))
-            page.goto(f"{BASE}_sheet.html")
+            page.goto(f"{BASE}_sheet.html" + (f"?only={args.only}" if args.only else ""))
             if style not in ("paper-dark",):
                 page.evaluate(f"document.documentElement.dataset.style = '{style}'")
             page.wait_for_selector("body[data-ready='1']")

@@ -837,6 +837,125 @@ const ICONS = {
       <text class="k-text" x="60" y="50.6" font-size="8.6" letter-spacing="0.4" text-anchor="middle">DAYDÉ &amp; PILLÉ</text>
       <text class="k-text" x="60" y="61.6" font-size="7.6" letter-spacing="1.6" text-anchor="middle">PARIS</text>`,
   },
+  // hàng: a market stall from the front: a scalloped awning, the seller behind her counter, a basket of fruit and bowls.
+  stall: (() => {
+    const p = person(60, 80, 40, { fill: 'k-tint', hair: 'long', dress: true });
+    let scallop = '';
+    for (let x = 14; x < 106; x += 11.5) scallop += ` C${n1(x + 2)} 35 ${n1(x + 9.5)} 35 ${n1(x + 11.5)} 30`;
+    return {
+      tone: 'warm',
+      seed: 227,
+      ink: `<path d="M19 30 V80 M101 30 V80"/>
+        ${p.ink}<path d="M${n1(60 - p.ws)} ${n1(p.sy + 2)} L44 52 M${n1(60 + p.ws)} ${n1(p.sy + 2)} L77 52"/>
+        <path class="k-tint" d="M10 16 H110 L106 30${scallop} L14 30 Z"/>
+        <path stroke-width="1.2" d="M30 16 L28 30 M48 16 L47 30 M72 16 L73 30 M90 16 L92 30"/>
+        ${[[28, 46], [35, 44], [42, 46], [32, 39], [39, 39]].map(([x, y]) => `<circle class="k-tint" stroke-width="1.5" cx="${x}" cy="${y}" r="4.2"/>`).join('')}
+        <path class="k-pale" stroke-width="1.6" d="M23 49 H47 L44 57 H26 Z"/>
+        <path class="k-paper" stroke-width="1.5" d="M78 53 C78 58 98 58 98 53 Z M80 49 C80 53 96 53 96 49 Z M82 45 C82 48.6 94 48.6 94 45 Z"/>
+        <path class="k-paper" d="M12 57 H108 V63 H12 Z"/>
+        <path class="k-pale" stroke-width="1.6" d="M16 63 H104 V80 H16 Z"/>
+        <path stroke-width="1.1" d="M34 63 V80 M52 63 V80 M70 63 V80 M88 63 V80"/>
+        <path d="M6 80 H114"/>`,
+    };
+  })(),
+  // được: a deal: two hands clasped over the counter, sleeves from either side.
+  deal: {
+    tone: 'earth',
+    seed: 229,
+    ink: `<path class="k-tint" d="M0 66 L38 46 L47 61 L8 84 Z"/><path stroke-width="1.4" d="M31 50 L40 65"/>
+      <path class="k-paper" d="M120 66 L82 46 L73 61 L112 84 Z"/><path stroke-width="1.4" d="M89 50 L80 65"/>
+      <path class="k-paper" d="M38 47 C44 39 56 37 64 39 C73 37 82 43 82 48 C82 56 76 63 67 63 C58 65 49 63 45 60 Z"/>
+      <path stroke-width="1.4" d="M52 42 C56 48 56 55 52 61 M59 41 C63 48 63 55 59 62 M66 42 C70 48 70 55 66 62"/>
+      <path stroke-width="1.6" d="M48 47 C54 40 66 38 74 43"/>
+      <path stroke-width="1.7" d="M60 30 V21 M46 32 L40 25 M74 32 L80 25"/>`,
+  },
+  // lấy: to take: the seller hands a bag of oranges across her counter and the buyer takes it.
+  handover: (() => {
+    const b = person(28, 82, 60);
+    const s2 = person(92, 82, 52, { fill: 'k-tint', hair: 'long', dress: true });
+    return {
+      tone: 'warm',
+      seed: 231,
+      ink: `${b.ink}${s2.ink}
+        <path d="M${n1(28 - b.ws)} ${n1(b.sy + 2)} L${n1(28 - b.ws - 4)} ${n1(b.hip + 4)} M${n1(28 + b.ws)} ${n1(b.sy + 2)} C46 ${n1(b.sy + 6)} 50 46 54 44"/>
+        <path d="M${n1(92 - s2.ws)} ${n1(s2.sy + 2)} C76 ${n1(s2.sy + 6)} 70 46 66 44"/>
+        ${[[56, 42], [63, 40], [60, 35]].map(([x, y]) => `<circle class="k-tint" stroke-width="1.5" cx="${x}" cy="${y}" r="3.8"/>`).join('')}
+        <path class="k-paper" stroke-width="1.8" d="M51 44 H69 L71 63 H49 Z"/><path stroke-width="1.4" d="M54 44 C54 38 66 38 66 44"/>
+        <path class="k-paper" d="M74 60 H114 V82 H74 Z"/><path stroke-width="1.1" d="M78 66 H110 M78 72 H110"/>
+        <path d="M6 82 H114"/>`,
+      crisp: '<circle class="k-dot" cx="54" cy="44" r="2"/><circle class="k-dot" cx="66" cy="44" r="2"/>',
+    };
+  })(),
+  // trứng: a tray of hen's eggs, two rows of five: ten, a chục.
+  eggs: {
+    tone: 'earth',
+    seed: 233,
+    ink: `<path class="k-pale" d="M18 40 H102 L108 58 H12 Z"/>
+      ${[26, 43, 60, 77, 94].map((x) => `<ellipse class="k-paper" cx="${x}" cy="40" rx="6.4" ry="8"/>`).join('')}
+      ${[22, 40, 58, 76, 94].map((x) => `<ellipse class="k-paper" cx="${x + 2}" cy="52" rx="7" ry="8.6"/>`).join('')}
+      <path stroke-width="1.2" d="M${[26, 43, 60, 77, 94].map((x) => `${x + 2} 35 q2 2 1 5`).join(' M')}"/>
+      <path class="k-pale" d="M12 58 H108 L100 76 H20 Z"/>
+      <path stroke-width="1.2" d="M${[30, 48, 66, 84].map((x) => `${x} 60 C${x - 2} 66 ${x - 2} 70 ${x - 1} 75`).join(' M')}"/>
+      <path stroke-width="1.1" d="M18 66 H102"/>`,
+  },
+  // Story: Hàng Bạc, silver street: a boat-shaped silver ingot, the old money, and a silver ring.
+  silver: {
+    tone: 'cool',
+    seed: 235,
+    ink: `<path class="k-pale" d="M16 54 C20 40 38 42 52 42 C66 42 84 40 88 54 C84 70 20 70 16 54 Z"/>
+      <path class="k-mid" stroke-width="1.6" d="M30 51 C36 46 68 46 74 51 C68 57 36 57 30 51 Z"/>
+      <path stroke-width="1.2" d="M22 60 C34 66 70 66 82 60"/>
+      ${hatch(36, 52, 64, 52, 6, 3, 2.6, 1)}
+      <circle class="k-paper" stroke-width="3.4" cx="94" cy="30" r="9.5"/><circle stroke-width="1.1" cx="94" cy="30" r="6.4"/>
+      <path class="k-tint" stroke-width="1.4" d="M90 18 L94 13 L98 18 L94 22 Z"/>
+      <path stroke-width="1.5" d="M14 30 l5 -5 M22 26 l2 -6 M84 46 l4 -4"/>
+      <path d="M8 76 H112"/>`,
+  },
+  // Story: Hàng Mã at the Mid-Autumn Festival: a five-pointed star lantern on its stick, tassels hanging.
+  lantern: {
+    tone: 'warm',
+    seed: 237,
+    ink: (() => {
+      const pts = [];
+      for (let i = 0; i < 10; i++) {
+        const a = -Math.PI / 2 + (i * Math.PI) / 5;
+        const r = i % 2 ? 13 : 30;
+        pts.push([58 + Math.cos(a) * r, 42 + Math.sin(a) * r]);
+      }
+      const star = `M${pts.map(([x, y]) => `${n1(x)} ${n1(y)}`).join(' L')} Z`;
+      const spokesTo = pts.filter((_, i) => i % 2 === 0).map(([x, y]) => `M58 42 L${n1(x)} ${n1(y)}`).join(' ');
+      return `<path stroke-width="4.6" d="M72 54 L108 84"/><path stroke="var(--pic-carrier)" stroke-width="1.6" d="M73 55 L107 83"/>
+        <path class="k-tint" d="${star}"/>
+        <path stroke-width="1.1" d="${spokesTo}"/>
+        <circle class="k-paper" stroke-width="1.4" cx="58" cy="42" r="5"/>
+        <path stroke-width="1.3" d="M${n1(pts[4][0])} ${n1(pts[4][1])} q-1 8 1 14 M${n1(pts[6][0])} ${n1(pts[6][1])} q1 8 -1 14 M${n1(pts[4][0] + 3)} ${n1(pts[4][1])} q0 7 2 12 M${n1(pts[6][0] - 3)} ${n1(pts[6][1])} q0 7 -2 12"/>`;
+    })(),
+  },
+  // Story: Hàng Đào, which sold silk dyed red: bolts of cloth, the top one unrolling.
+  cloth: {
+    tone: 'warm',
+    seed: 239,
+    ink: `<path class="k-pale" d="M14 60 H82 V78 H14 Z"/><ellipse class="k-pale" cx="82" cy="69" rx="5" ry="9"/><ellipse stroke-width="1.2" cx="82" cy="69" rx="1.6" ry="3"/>
+      <path class="k-paper" d="M24 42 H92 V60 H24 Z"/><ellipse class="k-paper" cx="92" cy="51" rx="5" ry="9"/><ellipse stroke-width="1.2" cx="92" cy="51" rx="1.6" ry="3"/>
+      <path class="k-tint" d="M30 24 H96 V42 H30 Z"/>
+      <path class="k-tint" d="M96 24 C104 26 108 34 106 46 C104 58 108 70 112 80 L94 80 C92 68 96 56 98 46 C99 38 98 30 96 24 Z"/>
+      <ellipse class="k-tint" cx="96" cy="33" rx="5" ry="9"/>
+      <path stroke-width="1.1" d="M36 28 H90 M36 34 H90 M30 48 H86 M20 66 H76"/>
+      <path stroke-width="1.2" d="M100 50 C101 60 103 70 106 78"/>
+      <path d="M6 78 H114"/>`,
+  },
+  // trứng: cà phê trứng, Hà Nội's egg coffee: a small cup standing in a bowl of hot water, thick egg foam on top.
+  eggCoffee: {
+    tone: 'earth',
+    seed: 241,
+    ink: `<path class="k-pale" d="M18 56 C20 74 38 82 60 82 C82 82 100 74 102 56 Z"/>
+      <path stroke-width="1.2" d="M26 64 q6 -3 12 0 q6 3 12 0 M70 64 q6 -3 12 0 q6 3 12 0"/>
+      <path class="k-paper" d="M38 30 H82 L78 66 C76 70 44 70 42 66 Z"/>
+      <path class="k-shade" stroke-width="1.6" d="M40.6 50 H79.4 L78 66 C76 70 44 70 42 66 Z"/>
+      <path class="k-tint" d="M36 30 C36 20 46 16 60 16 C74 16 84 20 84 30 C80 34 40 34 36 30 Z"/>
+      <path stroke-width="1.3" d="M46 24 q5 -4 10 -1 M62 22 q5 -3 10 0"/>
+      <path stroke-width="2.4" d="M74 22 L96 6"/>`,
+  },
 };
 
 function icon(name) {
@@ -1344,7 +1463,74 @@ function longBienScene(id) {
   };
 }
 
-const SCENES = { phoStall: phoScene, market: marketScene, legend: legendScene, genealogy: genealogyScene, fruitTray: fruitTrayScene, familyTray: familyTrayScene, longBien: longBienScene };
+// Cover for issue 9: a street in Hà Nội's old quarter: narrow tube houses with tiled eaves over open shopfronts, each
+// selling one kind of ware under its sign, tangled wires overhead and a seller with a carrying pole passing by.
+function oldQuarterScene() {
+  const houses = [[22, 94, 52], [94, 158, 34], [158, 242, 20], [242, 306, 40], [306, 380, 58]];
+  const ground = 214;
+  const shop = 152;
+  let ink = '';
+  houses.forEach(([x0, x1, top], i) => {
+    const fill = i % 2 ? 'k-pale' : 'k-paper';
+    const eave = 112;
+    ink += `<path class="${fill}" d="M${x0} ${ground} V${top} H${x1} V${ground}"/>`;
+    ink += `<path class="k-mid" stroke-width="1.6" d="M${x0 - 4} ${top} H${x1 + 4} L${x1 + 1} ${top - 7} H${x0 - 1} Z"/>`;
+    const w = x1 - x0;
+    const win = w > 70 ? [x0 + w * 0.2, x0 + w * 0.6] : [x0 + w * 0.32];
+    win.forEach((wx) => {
+      const ww = w > 70 ? w * 0.2 : w * 0.36;
+      ink += `<path class="k-shade" stroke-width="1.5" d="M${n1(wx)} ${top + 14} H${n1(wx + ww)} V${eave - 14} H${n1(wx)} Z"/>`;
+      ink += hatch(wx + 2, top + 18, wx + 2, eave - 18, 6, n1(ww - 4), 0, 0.9);
+    });
+    ink += `<path class="k-tint" stroke-width="1.8" d="M${x0 - 6} ${eave + 12} L${x0} ${eave} H${x1} L${x1 + 6} ${eave + 12} Z"/>`;
+    ink += hatch(x0 + 2, eave + 1, x1 - 4, eave + 1, Math.round(w / 6), -1.6, 10, 1);
+    ink += `<path class="k-shade" stroke-width="1.6" d="M${x0 + 6} ${ground} V${shop} H${x1 - 6} V${ground}"/>`;
+  });
+  const hats = [36, 50, 64, 78].map((x, i) => `<path class="k-paper" stroke-width="1.3" d="M${x - 7} ${174 + (i % 2) * 6} L${x} ${160 + (i % 2) * 6} L${x + 7} ${174 + (i % 2) * 6} Z"/>`).join('');
+  const rolls = [[104, 196], [118, 196], [132, 196], [111, 184], [125, 184]].map(([x, y]) => `<circle class="${y < 190 ? 'k-tint' : 'k-paper'}" stroke-width="1.3" cx="${x}" cy="${y}" r="6.4"/><circle stroke-width="0.9" cx="${x}" cy="${y}" r="2"/>`).join('');
+  const star = (cx, cy, r) => {
+    const pts = [];
+    for (let k = 0; k < 10; k++) {
+      const a = -Math.PI / 2 + (k * Math.PI) / 5;
+      pts.push([cx + Math.cos(a) * (k % 2 ? r * 0.44 : r), cy + Math.sin(a) * (k % 2 ? r * 0.44 : r)]);
+    }
+    return `<path class="k-tint" stroke-width="1.3" d="M${pts.map(([x, y]) => `${n1(x)} ${n1(y)}`).join(' L')} Z"/><path stroke-width="1" d="M${cx} ${n1(cy - r - 6)} V${n1(cy - r)}"/>`;
+  };
+  const lanterns = [[262, 168, 8], [284, 176, 9], [272, 192, 7], [294, 196, 6]].map(([x, y, r]) => star(x, y, r)).join('');
+  const silver = [[322, 200], [338, 200], [354, 200], [330, 190], [346, 190]].map(([x, y]) => `<path class="k-pale" stroke-width="1.2" d="M${x - 7} ${y} C${x - 6} ${y - 5} ${x + 6} ${y - 5} ${x + 7} ${y} C${x + 5} ${y + 4} ${x - 5} ${y + 4} ${x - 7} ${y} Z"/>`).join('');
+  const counter = '<path class="k-paper" stroke-width="1.6" d="M314 205 H372 V214 H314 Z"/>';
+  const vendor = `<g transform="translate(160 150) scale(0.9)">
+      <path class="k-pale" stroke-width="1.8" d="M9 31 Q60 23 111 31 L111 34 Q60 26 9 34 Z"/>
+      <path stroke-width="1.4" d="M14 32.4 L7 58 M14 32.4 L21 58 M106 32.4 L99 58 M106 32.4 L113 58"/>
+      ${[[9, 55], [15, 53], [20, 55.4], [101, 55], [107, 53], [112, 55.4]].map(([x, y]) => `<circle class="k-tint" stroke-width="1.5" cx="${x}" cy="${y}" r="4"/>`).join('')}
+      <path class="k-pale" stroke-width="1.8" d="M4 58 H24 L21 76 H7 Z M96 58 H116 L113 76 H99 Z"/>
+      <path stroke-width="1.1" d="M5 64 H23 M6 70 H22 M97 64 H115 M98 70 H114"/>
+      <path d="M56 57 L54 84 M64 57 L67 84"/><path stroke-width="1.8" d="M50 85 h5 M66 85 h6"/>
+      <path class="k-paper" d="M52 25 C55 23.4 65 23.4 68 25 L71 60 C64 62 56 62 49 60 Z"/>
+      <path stroke-width="1.6" d="M67 30 C72 33 75 32 78 29 M53 30 C50 38 49 44 50 49"/>
+      <path class="k-tint" d="M43 23 L60 6 L77 23 C70 25.6 50 25.6 43 23 Z"/>
+      <path stroke-width="1" d="M60 6 L52 24 M60 6 L60 25 M60 6 L68 24"/></g>`;
+  const wires = 'M0 36 C80 62 160 58 230 46 C300 34 350 44 400 30 M0 50 C90 70 200 72 400 44 M20 0 C60 40 120 50 170 52 M250 0 C270 30 320 40 400 58';
+  return {
+    tone: 'earth',
+    back: `<path class="k-pale" d="M0 70 H22 V60 H0 Z M380 66 H400 V96 H380 Z"/>`,
+    paper: 'M14 214 L16 18 L388 16 L386 214 Z',
+    under: `<path class="k-mid" stroke="none" d="M0 214 H400 V250 H0 Z"/>`,
+    ink: `${ink}
+      ${hats}${rolls}${lanterns}${silver}${counter}
+      <path stroke-width="1.2" d="M174 214 V160 M226 214 V160 M174 176 H226"/>
+      <path class="k-paper" stroke-width="1.3" d="M180 176 C180 168 192 168 192 176 Z M200 176 C200 166 214 166 214 176 Z"/>
+      <path d="M0 214 H400"/>
+      <path stroke-width="1" d="${hatch(6, 222, 394, 222, 34, -5, 18, 1).match(/d="([^"]+)"/)[1]}"/>
+      <path stroke-width="1.1" fill="none" d="${wires}"/>
+      ${vendor}`,
+    crisp: [[58, 'HÀNG NÓN'], [126, 'HÀNG ĐÀO'], [200, 'HÀNG GÀ'], [274, 'HÀNG MÃ'], [343, 'HÀNG BẠC']]
+      .map(([x, label]) => `<rect class="k-signboard" x="${x - 26}" y="137" width="52" height="11" rx="1.5"/><text class="k-text k-sign-small" x="${x}" y="145.4" text-anchor="middle">${label}</text>`)
+      .join(''),
+  };
+}
+
+const SCENES = { phoStall: phoScene, market: marketScene, legend: legendScene, genealogy: genealogyScene, fruitTray: fruitTrayScene, familyTray: familyTrayScene, longBien: longBienScene, oldQuarter: oldQuarterScene };
 
 function scene(name) {
   const make = SCENES[name];

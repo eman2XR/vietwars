@@ -1,6 +1,6 @@
 // Runs a lesson (an issue of the magazine) or a review: builds the sequence, renders each step and records every answer.
 
-import { colorize, contourSVG, tonesOf, TONES, grade, escapeHTML as esc, nfc, applyKey, withTone, tokens } from './vi.js';
+import { colorize, contourSVG, tonesOf, TONES, grade, escapeHTML as esc, nfc, applyKey, withTone, tokens, stripAll } from './vi.js';
 import { play, playAll, stop } from './audio.js';
 import { picture } from './pictures.js';
 
@@ -214,9 +214,19 @@ export function reviewSteps(words, pool) {
 
 const SAY_ORDER = ['perfect', 'tone', 'marks', 'sound', 'wrong'];
 
-// Grades a spoken price against every accepted way of saying it and keeps the closest.
+// Words of address and politeness that may close a spoken line (em, anh, chị, ạ, nhé); they are optional when grading.
+const POLITE_TAIL = new Set(['em', 'anh', 'chi', 'a', 'nhe']);
+function dropPoliteTail(s) {
+  const t = tokens(s);
+  while (t.length > 1 && POLITE_TAIL.has(stripAll(t[t.length - 1]))) t.pop();
+  return t.join(' ');
+}
+
+// Grades a spoken price against every accepted way of saying it and keeps the closest. A polite ending (em, ạ, nhé)
+// may be added or left out.
 export function gradeSay(answer, accept) {
-  const grades = accept.map((a) => grade(answer, a));
+  const said = dropPoliteTail(answer);
+  const grades = accept.map((a) => grade(said, dropPoliteTail(a)));
   if (grades.every((g) => g === 'empty')) return { g: 'empty', match: accept[0] };
   let best = 'wrong';
   let match = accept[0];
@@ -997,14 +1007,16 @@ export function runSession(root, session, onDone, onQuit) {
         flash(ok);
         if (ok) right();
         else wrong();
-        const others = accept.filter((a) => a !== (ok ? match : accept[0]));
-        stage.querySelector('.feedback-slot').innerHTML = `<div class="verdict ${ok ? 'ok' : 'no'}">${ok ? (best === 'perfect' ? 'Right:' : 'Right. With the marks:') : 'Say it like this:'} <span class="vi">${colorize(ok ? match : accept[0])}</span> ${sayButton(sit.vi, 'Hear it')}</div>${others.length ? `<p class="note">Also right: ${others.map((a) => `<span class="vi">${colorize(a)}</span>`).join(', ')}</p>` : ''}${sit.note ? `<p class="note">${esc(sit.note)}</p>` : ''}`;
+        const others = accept.filter((a) => a !== (ok ? match : accept[0])).slice(0, 2);
+        form.classList.add('answered');
+        stage.querySelector('.feedback-slot').innerHTML = `<div class="verdict ${ok ? 'ok' : 'no'}">${ok ? (best === 'perfect' ? 'Right:' : 'Right. With the marks:') : 'Say it like this:'} <span class="vi">${colorize(ok ? match : accept[0])}</span> ${sayButton(sit.vi, 'Hear it')}</div>${others.length ? `<p class="note">Also right: ${others.map((a) => `<span class="vi">${colorize(a)}</span>`).join(' · ')}</p>` : ''}${sit.note ? `<p class="note">${esc(sit.note)}</p>` : ''}`;
         const reply = sit.reply && (ok ? sit.reply : sit.replyMissed || sit.reply);
         if (reply) {
           stage.querySelector('.feedback-slot').insertAdjacentHTML('beforeend', `<div class="say-reply"><span class="who">${esc(reply.who || 'Seller')}</span> <span class="vi">${colorize(reply.vi)}</span> ${sayButton(reply.vi, 'Play')}<span class="en">${esc(reply.en)}</span>${ok && sit.saves ? `<span class="saved">${esc(sit.saves.toLocaleString('vi-VN'))}₫ off</span>` : ''}</div>`);
           playAll([sit.vi, reply.vi]);
         } else play(sit.vi);
         stage.querySelector('[data-act=check]').textContent = 'Continue';
+        stage.querySelector('.feedback-slot').scrollIntoView({ block: 'start', behavior: 'smooth' });
       });
     },
 

@@ -1,0 +1,441 @@
+{
+  "id": "lesson-09",
+  "number": 9,
+  "title": "Your turn to haggle",
+  "vi": "Được không em?",
+  "theme": "the old quarter's Hàng streets; saying prices and making counter-offers with ... được không?",
+  "intro": "This time you do the talking: three counter-offers to say and win, a seller who bargains back, and a grandmother who haggles better than you. Plus the old quarter, where most streets are named for what they once sold.",
+  "cover": {
+    "picture": {
+      "kind": "scene",
+      "name": "oldQuarter"
+    }
+  },
+  "feature": {
+    "kicker": "The old quarter",
+    "title": "Streets named for what they sold",
+    "dek": "In Hà Nội's old quarter a street name is a shopping list, and not every one still tells the truth. Shop there today, and haggle as you go.",
+    "intro": "Most street names in Hà Nội's old quarter begin with hàng, wares, and end with what was once sold there: Hàng Gà for poultry, Hàng Đồng for copper, Hàng Tre for bamboo. An old rhyme counts ba mươi sáu phố, thirty-six streets; the protected quarter today has 76.",
+    "beats": [
+      {
+        "picture": {
+          "kind": "icon",
+          "name": "stall"
+        },
+        "text": "Hàng means wares, and the stall or shop that sells them: a hàng phở is a phở shop. From the Lý and Trần dynasties on, craftsmen from villages around the capital settled east of the citadel, each trade in its own street. Rivers and lakes ran through the quarter then, and trading boats could come right into the streets."
+      },
+      {
+        "picture": {
+          "kind": "icon",
+          "name": "cloth"
+        },
+        "text": "Some names have drifted from their streets. Hàng Buồm, sails street, once made sails and bags of woven rattan; today it sells cakes and sweets. Hàng Đào sounds like peaches but sold silk dyed red: điều, the word for that red, is said to have drifted in speech into đào. And Hàng Chai, bottles, was a short lane where poor families lived by collecting and selling scrap, old bottles among it."
+      },
+      {
+        "picture": {
+          "kind": "icon",
+          "name": "silver"
+        },
+        "text": "On Hàng Bạc, silver street, money itself was made. In the 15th century, under King Lê Thánh Tông, the minister Lưu Xuân Tín was given the task of casting silver ingots for the court, and brought silversmiths from his home village, Châu Khê; their workshop stood at number 58. Today it sells silver jewellery, so you can ask: được không?"
+      },
+      {
+        "picture": {
+          "kind": "icon",
+          "name": "lantern"
+        },
+        "text": "Hàng Mã has sold paper goods for more than 500 years: paper houses, motorbikes and money, burnt as offerings to ancestors and the dead, and before the Mid-Autumn Festival, star lanterns and toys. The street is named for the goods, and the same words name them anywhere in Việt Nam: paper offerings are hàng mã or đồ mã."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Old Quarter, Hanoi",
+        "url": "https://en.wikipedia.org/wiki/Hanoi_old_quarter"
+      },
+      {
+        "title": "Khu phố cổ Hà Nội (Vietnamese)",
+        "url": "https://vi.wikipedia.org/wiki/Khu_ph%E1%BB%91_c%E1%BB%95_H%C3%A0_N%E1%BB%99i"
+      },
+      {
+        "title": "Phố Hàng Bạc (Vietnamese)",
+        "url": "https://vi.wikipedia.org/wiki/Ph%E1%BB%91_H%C3%A0ng_B%E1%BA%A1c"
+      },
+      {
+        "title": "Phố Hàng Đào (Vietnamese)",
+        "url": "https://vi.wikipedia.org/wiki/Ph%E1%BB%91_H%C3%A0ng_%C4%90%C3%A0o"
+      },
+      {
+        "title": "Phố Hàng Buồm (Vietnamese)",
+        "url": "https://vi.wikipedia.org/wiki/Ph%E1%BB%91_H%C3%A0ng_Bu%E1%BB%93m"
+      },
+      {
+        "title": "Phố Hàng Chai (Vietnamese)",
+        "url": "https://vi.wikipedia.org/wiki/Ph%E1%BB%91_H%C3%A0ng_Chai"
+      },
+      {
+        "title": "Phố Hàng Gà (Vietnamese)",
+        "url": "https://vi.wikipedia.org/wiki/Ph%E1%BB%91_H%C3%A0ng_G%C3%A0"
+      },
+      {
+        "title": "Hàng Mã Street",
+        "url": "https://en.wikipedia.org/wiki/H%C3%A0ng_M%C3%A3_Street"
+      }
+    ]
+  },
+  "warmup": [
+    {
+      "vi": "cảm ơn",
+      "en": "thank you"
+    },
+    {
+      "vi": "không",
+      "en": "no, not (also ends a yes-or-no question)"
+    }
+  ],
+  "words": [
+    {
+      "vi": "hàng",
+      "en": "wares, goods; a shop or stall that sells them",
+      "picture": {
+        "kind": "icon",
+        "name": "stall"
+      },
+      "hook": "You hang your wares across the front of your stall and sigh as you settle down to sell: hàng.",
+      "tip": "a is long and open, as in \"father\"; ng is the ng of \"sing\". Huyền tone: start a little low and sink gently.",
+      "note": "hàng phở: a phở shop. Hàng plus the goods also names streets in the old quarter: Hàng Gà, Hàng Bạc.",
+      "contrast": [
+        {
+          "vi": "hãng",
+          "en": "a company, a firm"
+        },
+        {
+          "vi": "hạng",
+          "en": "rank, class"
+        }
+      ]
+    },
+    {
+      "vi": "được",
+      "en": "OK, all right; can be done",
+      "picture": {
+        "kind": "icon",
+        "name": "deal"
+      },
+      "hook": "You shake on the price, and the seller gives one heavy nod: \"durk!\" (no r, the way the English say \"dirk\"), cut off short. Deal: được, OK.",
+      "tip": "đ is a firm d. ươ glides from ư (an u with the lips spread, not rounded) to a short uh; the final c is not released. Nặng tone: low, then a sudden stop.",
+      "note": "Được không? asks \"OK or not?\" after an offer: Hai mươi được không em? Can it be twenty? The answer: Được! (OK!) or Không được (no, I can't).",
+      "contrast": [
+        {
+          "vi": "đuốc",
+          "en": "a torch"
+        }
+      ]
+    },
+    {
+      "vi": "lấy",
+      "en": "to take; I'll have (at a stall or at the table)",
+      "picture": {
+        "kind": "icon",
+        "name": "serve"
+      },
+      "hook": "Bà holds out the dish of fish and you say \"lay it on my rice!\", voice rising: lấy, take.",
+      "tip": "â is a short uh, and ây glides quickly from uh to ee, close to the \"ay\" of \"lay\" but shorter. Sắc tone: rise.",
+      "note": "Anh lấy hai cân: I'll take two kilos. The seller asks: Anh lấy mấy cân? At the table: Cháu lấy cá đi! Have some fish!",
+      "contrast": [
+        {
+          "vi": "lây",
+          "en": "to spread, to catch (an illness)"
+        }
+      ]
+    },
+    {
+      "vi": "trứng",
+      "en": "egg",
+      "picture": {
+        "kind": "icon",
+        "name": "eggCoffee"
+      },
+      "hook": "A chunk of eggshell lands in your cà phê trứng, Hà Nội's egg coffee. Say chunk without the k (keep the ng of sing) and call it out, rising: trứng, egg.",
+      "tip": "In Hà Nội tr sounds like ch. ư is an u said with the lips spread, not rounded; ng as in \"sing\". Sắc tone: rise.",
+      "note": "trứng gà: hen's eggs. Eggs are sold by the ten: một chục trứng.",
+      "contrast": [
+        {
+          "vi": "trúng",
+          "en": "to hit, to win (a prize)"
+        },
+        {
+          "vi": "trừng",
+          "en": "to glare"
+        }
+      ]
+    }
+  ],
+  "review": [
+    "bớt",
+    "đắt",
+    "chục",
+    "gà",
+    "hết"
+  ],
+  "grammar": {
+    "title": "... được không? Is that OK?",
+    "text": "Say your offer, then được không? (literally \"OK or not?\"): Hai mươi được không? Can it be twenty? It works for any request: Bớt được không? Can you take some off? Add em, chị or anh at the end to make it warmer: Hai mươi được không em? The seller answers Được (OK) or Không được (no, it can't be done).",
+    "examples": [
+      {
+        "vi": "Hai mươi được không em?",
+        "en": "Can it be 20,000? (to a younger seller)"
+      },
+      {
+        "vi": "Bớt được không chị?",
+        "en": "Can you take some off? (to an older woman)"
+      }
+    ]
+  },
+  "combos": [
+    {
+      "vi": "Hai lăm được không?",
+      "en": "Can it be 25,000?",
+      "note": "hai lăm is hai mươi lăm nghìn; many Hà Nội sellers say hai nhăm."
+    },
+    {
+      "vi": "Anh lấy hai cân.",
+      "en": "I'll take two kilos.",
+      "note": "anh: I, when the seller is younger than you."
+    },
+    {
+      "vi": "một chục trứng",
+      "en": "ten eggs",
+      "note": "chục: a ten, the way sellers count."
+    },
+    {
+      "vi": "hàng phở",
+      "en": "a phở shop",
+      "note": "hàng, then what it sells."
+    },
+    {
+      "vi": "Được rồi!",
+      "en": "OK then, fine (accepting a price)",
+      "note": "rồi: already, done. Được rồi: OK then, fine; how you accept a price (it can also mean that's enough)."
+    }
+  ],
+  "dialogues": [
+    {
+      "title": "What did you pay?",
+      "setting": "table",
+      "picture": {
+        "kind": "icon",
+        "name": "eggs"
+      },
+      "lines": [
+        {
+          "who": "Bà",
+          "vi": "Cháu mua gì về đấy?",
+          "en": "What did you bring back?"
+        },
+        {
+          "who": "You",
+          "vi": "Cháu mua một chục trứng ạ.",
+          "en": "I bought ten eggs.",
+          "you": true
+        },
+        {
+          "who": "Bà",
+          "vi": "Bao nhiêu tiền một chục?",
+          "en": "How much for ten?"
+        },
+        {
+          "who": "You",
+          "vi": "Ba mươi nghìn ạ. Có đắt không bà?",
+          "en": "30,000. Is that expensive, Grandma?",
+          "you": true
+        },
+        {
+          "who": "Bà",
+          "vi": "Đắt đấy! Bà mua hai lăm thôi.",
+          "en": "That's expensive! I only pay 25."
+        }
+      ],
+      "check": {
+        "ask": "Next time, at the egg stall (the seller is an older woman), ask for Bà's price. Say it aloud first, then pick it.",
+        "options": [
+          "Hai lăm được không chị?",
+          "Hai mốt được không chị?",
+          "Hai lăm không được chị?"
+        ],
+        "answer": "Hai lăm được không chị?",
+        "note": "... được không? asks if it can be done; không được is the answer no. Hai mốt is 21,000. gì: what; về: back (home). Có ... không? asks a yes or no question."
+      }
+    }
+  ],
+  "situations": [
+    {
+      "who": "You, with a xe ôm driver",
+      "picture": {
+        "kind": "icon",
+        "name": "xeOm"
+      },
+      "say": "25.000₫",
+      "vi": "Hai lăm được không em?",
+      "accept": [
+        "Hai lăm được không em?",
+        "Hai nhăm được không em?",
+        "Hai nhăm nghìn được không em?",
+        "Hai mươi nhăm được không em?",
+        "Hai mươi lăm được không em?",
+        "Hai lăm nghìn được không em?",
+        "Hai mươi lăm nghìn được không em?"
+      ],
+      "en": "Can it be 25,000?",
+      "ask": "A young xe ôm driver wants ba mươi (30,000) to Hàng Mã. Offer 25,000 and ask if that's OK.",
+      "note": "hai lăm (or hai nhăm) for 25, then được không? Hai mươi lăm nghìn được không? is the full form; all of them count.",
+      "reply": {
+        "who": "Driver",
+        "vi": "Hai lăm à? Thôi, lên đi anh.",
+        "en": "25? Fine, hop on."
+      },
+      "saves": 5000
+    },
+    {
+      "who": "You, on Hàng Bạc",
+      "picture": {
+        "kind": "icon",
+        "name": "silver"
+      },
+      "say": "150.000₫",
+      "vi": "Trăm rưỡi được không em?",
+      "accept": [
+        "Trăm rưỡi được không em?",
+        "Một trăm rưỡi được không em?",
+        "Một trăm năm mươi được không em?",
+        "Một trăm năm mươi nghìn được không em?",
+        "Trăm năm mươi được không em?",
+        "Trăm năm mươi nghìn được không em?"
+      ],
+      "en": "Can it be 150,000?",
+      "ask": "At a small silver stall, a young seller says a ring is hai trăm (200,000). Offer 150,000 and ask if that's OK.",
+      "note": "trăm rưỡi, a hundred and a half, is what sellers say for 150,000; một trăm năm mươi nghìn is the full form. Trăm tám is 180 (108 is trăm linh tám).",
+      "reply": {
+        "who": "Seller",
+        "vi": "Trăm tám thôi anh, bạc thật đấy!",
+        "en": "180 is my best, it's real silver!"
+      },
+      "saves": 20000
+    },
+    {
+      "who": "You, at a fruit stall",
+      "picture": {
+        "kind": "icon",
+        "name": "bananas"
+      },
+      "say": "20.000₫ a hand",
+      "vi": "Hai mươi một nải được không?",
+      "accept": [
+        "Hai mươi một nải được không?",
+        "Hai chục một nải được không?",
+        "Hai mươi nghìn một nải được không?",
+        "Một nải hai mươi được không?",
+        "Một nải hai mươi nghìn được không?",
+        "Hai chục nghìn một nải được không?"
+      ],
+      "en": "Can it be 20,000 a hand?",
+      "ask": "Bananas are hai lăm một nải (25,000 a hand). Offer 20,000 a hand (nải) and ask if that's OK.",
+      "note": "hai mươi, then một nải, one hand: the một counts the hand. Hai mốt một nải would be 21,000 a hand.",
+      "reply": {
+        "who": "Seller",
+        "vi": "Được, anh lấy mấy nải?",
+        "en": "OK, how many hands will you take?"
+      },
+      "saves": 5000
+    },
+    {
+      "who": "Egg seller",
+      "picture": {
+        "kind": "icon",
+        "name": "stall"
+      },
+      "vi": "Hết trứng rồi anh ạ.",
+      "en": "The eggs are all gone.",
+      "ask": "You ask for ten eggs. What does she tell you?",
+      "options": [
+        "They're sold out.",
+        "That's 30,000 in total.",
+        "Take as many as you like."
+      ],
+      "answer": "They're sold out.",
+      "note": "hết: used up, sold out (on a bill it means in total). rồi: already."
+    },
+    {
+      "who": "Fruit seller",
+      "picture": {
+        "kind": "icon",
+        "name": "scale"
+      },
+      "vi": "Anh lấy mấy cân ạ?",
+      "en": "How many kilos will you take?",
+      "ask": "She puts your mangoes on the scale. What do you answer?",
+      "options": [
+        "Anh lấy hai cân.",
+        "Anh lấy hai nải.",
+        "Hai mươi được không?"
+      ],
+      "answer": "Anh lấy hai cân.",
+      "note": "lấy: to take; mấy: how many. Answer with her unit, cân (kilo); nải is a hand of bananas."
+    },
+    {
+      "who": "Mango seller",
+      "picture": {
+        "kind": "icon",
+        "name": "fruit"
+      },
+      "vi": "Xoài năm mươi một cân anh ạ.",
+      "en": "Mangoes, 50,000 a kilo.",
+      "ask": "How much a kilo?",
+      "options": [
+        "50.000₫",
+        "51.000₫",
+        "15.000₫"
+      ],
+      "answer": "50.000₫",
+      "note": "năm mươi, then một cân: the một counts the kilo. 51.000₫ a kilo would be năm mốt một cân. xoài: mango."
+    },
+    {
+      "who": "Orange seller",
+      "picture": {
+        "kind": "icon",
+        "name": "handover"
+      },
+      "vi": "Được, hai lăm anh nhé.",
+      "en": "OK, 25 then.",
+      "ask": "You offered a price for a bag of oranges, and she agrees. Type the price in digits.",
+      "digits": "25000",
+      "note": "Được: OK. hai lăm is hai mươi lăm nghìn: 25.000₫."
+    },
+    {
+      "who": "Chicken seller",
+      "picture": {
+        "kind": "icon",
+        "name": "meat"
+      },
+      "vi": "Thịt gà hai trăm một cân anh ạ.",
+      "en": "Chicken, 200,000 a kilo.",
+      "ask": "At the next stall the same chicken was 120,000 a kilo. What do you say?",
+      "options": [
+        "Đắt quá! Bớt được không em?",
+        "Rẻ quá! Bớt được không em?",
+        "Cảm ơn, anh lấy hai cân."
+      ],
+      "answer": "Đắt quá! Bớt được không em?",
+      "note": "thịt gà: chicken (the meat). Bớt được không em? Can you take some off?"
+    }
+  ],
+  "challenge": {
+    "title": "Market challenge",
+    "text": "At a market stall or a souvenir stall (not a café, a food stall or a shop with price tags), ask the price (Bao nhiêu tiền?), then make one counter-offer with this issue's frame: Hai mươi được không em? (Can it be twenty?). Use chị, anh or cô instead of em if the seller is older than you. Whatever the answer, smile and finish with Cảm ơn (thank you). Back home, tell someone what you paid, the Hà Nội way: hai mươi một cân."
+  },
+  "stamp": {
+    "label": "Phố cổ Hà Nội",
+    "picture": {
+      "kind": "scene",
+      "name": "oldQuarter"
+    }
+  }
+}
