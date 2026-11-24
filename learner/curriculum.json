@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-23",
+  "updated": "2026-11-24",
   "reviewedAt": "2026-11-22",
   "goal": "Basic conversation at a dinner table (a meal with a Hà Nội family or friends) and understanding basic street talk (sellers, waiters, drivers, neighbours) in Northern Vietnamese. Vocabulary keeps growing, and from issue 6 every issue also teaches one sentence frame and one short dialogue built from known words, alternating between the table and the street (the learner set this goal on 2026-11-22; see docs/PEDAGOGY.md, Conversation).",
   "phases": [
@@ -138,7 +138,7 @@
     {
       "id": "transport",
       "title": "Getting around",
-      "status": "active",
+      "status": "done",
       "candidates": [
         "xe máy",
         "ô tô",
@@ -155,12 +155,22 @@
         "dừng lại",
         "tắc đường"
       ],
-      "notes": "rẽ was a contrast word in lesson 2 (rẻ against rẽ). Issue 7 (2026-11-23), made easier after issue 6 was rated Too hard: six words (xe ôm, đâu, trái, gần, rẽ, phải), warm-up đi, ăn, uống, review bớt, mời, đắt, 42 answers. Frame Đi ... bao nhiêu? with a xe ôm dialogue (agree the fare, bargain, left or right). The two persistent price traps are taught once in combos (trăm ba against ba trăm; bốn mươi, một quả as 40.000₫ each) and kept out of real life, whose six prices use forms the learner got right before (ba mươi, hai trăm rưỡi, hai lăm, ba lăm, trăm rưỡi, mười nghìn in full). Story: \"The bridge that keeps left\" (Long Biên: the 1899 – 1902 Daydé & Pillé plate, not Eiffel, the 1953 decree to keep left, the war, today). Left for later: xa (in a note), đây, thẳng (đi thẳng), dừng, xuống (Cho anh xuống đây), tắc đường, xe máy, ô tô, xe buýt, đường, ngã tư.",
+      "notes": "rẽ was a contrast word in lesson 2 (rẻ against rẽ). Issue 7 (2026-11-23), made easier after issue 6 was rated Too hard: six words (xe ôm, đâu, trái, gần, rẽ, phải), warm-up đi, ăn, uống, review bớt, mời, đắt, 42 answers. Frame Đi ... bao nhiêu? with a xe ôm dialogue (agree the fare, bargain, left or right). The two persistent price traps are taught once in combos (trăm ba against ba trăm; bốn mươi, một quả as 40.000₫ each) and kept out of real life, whose six prices use forms the learner got right before (ba mươi, hai trăm rưỡi, hai lăm, ba lăm, trăm rưỡi, mười nghìn in full). Story: \"The bridge that keeps left\" (Long Biên: the 1899 – 1902 Daydé & Pillé plate, not Eiffel, the 1953 decree to keep left, the war, today). Left for later: xa (in a note), đây, thẳng (đi thẳng), dừng, xuống (Cho anh xuống đây), tắc đường, xe máy, ô tô, xe buýt, đường, ngã tư. Played on 2026-11-24 (iPhone): 72% first try, merit, 20.9 minutes, Too hard, fun Boring, story OK; hardest gần, phải, bớt, đắt (the short new words confused with each other by meaning); Cà phê trứng ba lăm heard as 25.000₫. Asked for a clear rule for lăm, rưỡi and năm, and an article tied to the lesson, so issue 8 is a numbers clinic; xa, thẳng, dừng and the rest wait for a later street issue.",
       "storyIdea": "Millions of motorbikes, the Long Biên bridge, and how to cross a Hà Nội street.",
       "lesson": "lesson-07",
       "frames": [
-        "Đi ... bao nhiêu? (how much to ...?, agreeing a fare with a xe ôm or taxi): taught in issue 7; bring back in issue 8, about issue 10, and about issue 14",
+        "Đi ... bao nhiêu? (how much to ...?, agreeing a fare with a xe ôm or taxi): taught in issue 7; brought back in issue 8 (Đi Hồ Tây bao nhiêu em?, in a real-life prompt, answered hai nhăm); bring back about issue 10 and about issue 14",
         "Rẽ trái / rẽ phải (steering a driver): chunks in issue 7"
+      ]
+    },
+    {
+      "id": "numbers-clinic",
+      "title": "A numbers clinic: the forms in spoken prices",
+      "status": "done",
+      "lesson": "lesson-08",
+      "notes": "A one-issue clinic after issues 6 and 7 were both rated Too hard (issue 7 also Boring), answering the learner's request of 2026-11-24: \"I need to understand better prices, like when to use lam or rau or nam for example\" (rau is almost certainly rưỡi). Four new words, each a form with one rule: nhăm (five after the tens, Hà Nội), mốt (one after the tens from 20), tư (four after the tens from 20), chục (a ten, as sellers count); review lăm, rưỡi, năm, mươi, trăm (heard, not typed). One grammar note sets out năm, lăm or nhăm; một or mốt; bốn or tư; mười, mươi or chục; and rưỡi as half the unit before it. 33 answers before rush hour. Story: a morning at Đồng Xuân market, each beat a stall with a price in one form and one sourced fact about numbers or money. Done when published: the forms come back in every later price line, not as a unit of their own. Left for later: lạng (100 g), triệu rưỡi and triệu hai, trăm plus a digit (trăm hai, trăm mốt) as a rule of its own.",
+      "frames": [
+        "Đi ... bao nhiêu? brought back once (a real-life prompt)"
       ]
     },
     {

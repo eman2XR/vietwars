@@ -1,0 +1,360 @@
+{
+  "id": "lesson-08",
+  "number": 8,
+  "title": "A numbers clinic",
+  "vi": "Ba nhăm hay năm ba?",
+  "theme": "numbers as Hà Nội sellers say them: when five is năm, lăm or nhăm, one một or mốt, four bốn or tư, ten mười, mươi or chục, and what rưỡi adds",
+  "intro": "A numbers clinic, from your question: when Hà Nội says năm, lăm or nhăm, một or mốt, bốn or tư, mười, mươi or chục, and what rưỡi adds. Four small words, one rule each, and a morning of prices at Đồng Xuân market.",
+  "cover": {
+    "picture": {
+      "kind": "scene",
+      "name": "market"
+    }
+  },
+  "feature": {
+    "kicker": "Numbers clinic",
+    "title": "A morning of prices at Đồng Xuân",
+    "dek": "Hà Nội's biggest covered market, one stall at a time, and the four small words that change a price: nhăm, mốt, tư and chục.",
+    "intro": "Đồng Xuân is Hà Nội's largest covered market, and its food stalls are at the back. Every price there is long: the đồng is one of the three lowest-valued currencies in the world, about 26,000 to the US dollar, so sellers drop the nghìn and shorten the rest. Walk the stalls with us: each one uses a form from this issue.",
+    "beats": [
+      {
+        "picture": {
+          "kind": "icon",
+          "name": "orange"
+        },
+        "text": "First stop, oranges: \"Ba nhăm một cân,\" 35,000 a kilo. Five after a tens digit is lăm, and in everyday Hà Nội speech often nhăm, though written prices always say lăm. It also keeps it apart from năm, year: hai mươi năm is twenty years, hai mươi lăm is 25. In chữ Nôm, the old script, lăm and nhăm each had a character of their own."
+      },
+      {
+        "picture": {
+          "kind": "dots",
+          "n": 10
+        },
+        "text": "At the back, eggs are sold by the ten: \"ba nhăm một chục,\" 35,000 for ten. Chục is the everyday ten for things you count, so ten eggs are usually một chục trứng, though mười quả trứng is correct too. It counts money too: hai chục is 20,000, the same as hai mươi."
+      },
+      {
+        "picture": {
+          "kind": "icon",
+          "name": "scale"
+        },
+        "text": "Back at the oranges, your bag weighs 600 grams: \"hai mốt,\" 21,000. From 21 to 91 the one at the end is mốt; eleven stays mười một. Four changes too: after twenty it is often tư, from tứ, the Sino-Vietnamese four, and short prices always use it: hai tư for 24. In full, hai mươi bốn is just as correct."
+      },
+      {
+        "picture": {
+          "kind": "notes"
+        },
+        "text": "Last, beef for dinner: \"hai trăm rưỡi một cân,\" 250,000 a kilo. Rưỡi is half of the unit before it, so trăm rưỡi is 150,000. You pay in notes, or by scanning the stall's QR code. The 100, 200 and 500 đồng notes have all but gone, because people round their prices, and the hào and xu, tenths and hundredths of a đồng, went long ago."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Vietnamese numerals",
+        "url": "https://en.wikipedia.org/wiki/Vietnamese_numerals"
+      },
+      {
+        "title": "Hệ đếm tiếng Việt (Vietnamese)",
+        "url": "https://vi.wikipedia.org/wiki/H%E1%BB%87_%C4%91%E1%BA%BFm_ti%E1%BA%BFng_Vi%E1%BB%87t"
+      },
+      {
+        "title": "Vietnamese đồng",
+        "url": "https://en.wikipedia.org/wiki/Vietnamese_%C4%91%E1%BB%93ng"
+      },
+      {
+        "title": "Đồng (đơn vị tiền tệ) (Vietnamese)",
+        "url": "https://vi.wikipedia.org/wiki/%C4%90%E1%BB%93ng_(%C4%91%C6%A1n_v%E1%BB%8B_ti%E1%BB%81n_t%E1%BB%87)"
+      },
+      {
+        "title": "Đồng Xuân Market",
+        "url": "https://en.wikipedia.org/wiki/%C4%90%E1%BB%93ng_Xu%C3%A2n_Market"
+      },
+      {
+        "title": "Chợ Đồng Xuân (Vietnamese)",
+        "url": "https://vi.wikipedia.org/wiki/Ch%E1%BB%A3_%C4%90%E1%BB%93ng_Xu%C3%A2n"
+      }
+    ]
+  },
+  "situations": [
+    {
+      "who": "Fruit seller",
+      "picture": {
+        "kind": "icon",
+        "name": "orange"
+      },
+      "vi": "Cam ba nhăm một cân anh ạ.",
+      "en": "Oranges, 35,000 a kilo.",
+      "note": "ba nhăm is ba mươi lăm nghìn, said the Hà Nội way. 53.000₫ would be năm mươi ba: there the five comes first, so it stays năm.",
+      "ask": "Oranges piled at the front of a stall. How much a kilo?",
+      "options": [
+        "35.000₫",
+        "53.000₫",
+        "90.000₫"
+      ],
+      "answer": "35.000₫"
+    },
+    {
+      "who": "Fruit seller",
+      "picture": {
+        "kind": "icon",
+        "name": "scale"
+      },
+      "vi": "Của anh hết hai mốt ạ.",
+      "en": "Yours comes to 21,000.",
+      "note": "hai mốt is hai mươi mốt nghìn: 21.000₫. 20.000₫ would stop at the tens: hai mươi, or hai chục.",
+      "ask": "She weighs the oranges you picked. What do you owe?",
+      "options": [
+        "21.000₫",
+        "20.000₫",
+        "70.000₫"
+      ],
+      "answer": "21.000₫"
+    },
+    {
+      "who": "Sugarcane juice seller",
+      "picture": {
+        "kind": "icon",
+        "name": "water"
+      },
+      "vi": "Hai cốc nước mía, hai tư anh ạ.",
+      "en": "Two sugarcane juices, 24,000.",
+      "note": "hai tư is hai mươi tư nghìn: 24.000₫, with tư for four after the tens. nước mía: sugarcane juice (mía: sugarcane). cốc: a glass.",
+      "ask": "Two glasses of sugarcane juice at a cart by the market gate. Type what you owe in digits.",
+      "digits": "24000"
+    },
+    {
+      "who": "Banana seller",
+      "picture": {
+        "kind": "icon",
+        "name": "bananas"
+      },
+      "vi": "Chuối hai chục một nải anh ạ.",
+      "en": "Bananas, 20,000 a hand.",
+      "note": "hai chục is two tens: 20.000₫, the same as hai mươi. Then một nải, one hand of bananas: this một counts the hand, it is not part of the price. 21.000₫ a hand would be hai mốt một nải.",
+      "ask": "A hand of bananas. How much is it?",
+      "options": [
+        "20.000₫",
+        "21.000₫",
+        "50.000₫"
+      ],
+      "answer": "20.000₫"
+    },
+    {
+      "who": "Butcher",
+      "picture": {
+        "kind": "icon",
+        "name": "meat"
+      },
+      "vi": "Thịt bò hai trăm rưỡi một cân anh ạ.",
+      "en": "Beef, 250,000 a kilo.",
+      "note": "rưỡi is half of the unit before it: hai trăm rưỡi is two hundred and a half, 250.000₫. 205.000₫ would be hai trăm linh năm.",
+      "ask": "Beef for dinner. How much a kilo?",
+      "options": [
+        "250.000₫",
+        "205.000₫",
+        "400.000₫"
+      ],
+      "answer": "250.000₫"
+    },
+    {
+      "who": "Xe ôm driver",
+      "picture": {
+        "kind": "icon",
+        "name": "xeOm"
+      },
+      "vi": "Hai lăm thôi anh ạ.",
+      "en": "Just 25,000.",
+      "note": "hai lăm (many Hà Nội sellers say hai nhăm) is hai mươi lăm nghìn: 25.000₫. thôi: just, only. Hồ Tây, West Lake, is two to three kilometres from the market at its nearest shore.",
+      "ask": "Outside the market you ask a young driver: \"Đi Hồ Tây bao nhiêu em?\" (Hồ Tây: West Lake). Type his price in digits.",
+      "digits": "25000"
+    },
+    {
+      "who": "Pomelo seller",
+      "picture": {
+        "kind": "icon",
+        "name": "fruit"
+      },
+      "vi": "Bưởi trăm rưỡi một quả anh ạ.",
+      "en": "Pomelos, 150,000 each.",
+      "note": "trăm rưỡi, a hundred and a half: 150.000₫ for one pomelo is a tourist price. Bớt đi em: come down a bit (to a younger seller). bưởi: pomelo.",
+      "ask": "Two stalls back, the same pomelos were 40,000 each. What do you say?",
+      "options": [
+        "Đắt quá! Bớt đi em.",
+        "Rẻ quá! Bớt đi em.",
+        "Cho anh hai chục."
+      ],
+      "answer": "Đắt quá! Bớt đi em."
+    }
+  ],
+  "dialogues": [
+    {
+      "title": "Eggs by the ten",
+      "setting": "street",
+      "picture": {
+        "kind": "icon",
+        "name": "buy"
+      },
+      "lines": [
+        {
+          "who": "Seller",
+          "vi": "Trứng gà ba nhăm một chục anh ạ.",
+          "en": "Hen's eggs, 35,000 for ten."
+        },
+        {
+          "who": "You",
+          "vi": "Đắt quá! Ba mươi nhé em?",
+          "en": "That's a lot! 30, okay?",
+          "you": true
+        },
+        {
+          "who": "Seller",
+          "vi": "Thôi được, ba chục. Anh mua mấy chục ạ?",
+          "en": "All right, 30. How many tens will you buy?"
+        }
+      ],
+      "check": {
+        "ask": "You want twenty eggs for a family dinner. Say your answer aloud first, then pick it.",
+        "options": [
+          "Cho anh hai chục.",
+          "Cho anh hai mốt.",
+          "Ba nhăm nhé em?"
+        ],
+        "answer": "Cho anh hai chục.",
+        "note": "trứng gà: hen's eggs (trứng: egg). ba chục here is the price, 30.000₫; mấy chục asks how many tens of eggs. mua: to buy (issue 5). Cho anh hai chục: two tens, twenty eggs. hai mốt would be 21."
+      }
+    }
+  ],
+  "challenge": {
+    "title": "Market challenge",
+    "text": "First, say each line of this issue's dialogue after the voice. Then, at a stall, ask \"Bao nhiêu một cân?\" (how much a kilo?) or \"Bao nhiêu một chục?\" (how much for ten?) and catch the last digit: nhăm or lăm is five, mốt is one, tư is four. Say the price back to check it, and buy ten of something: \"Cho anh một chục\" (ten, please)."
+  },
+  "stamp": {
+    "label": "Chợ Đồng Xuân",
+    "picture": {
+      "kind": "scene",
+      "name": "market"
+    }
+  },
+  "words": [
+    {
+      "vi": "nhăm",
+      "en": "five after the tens, a casual spoken form of lăm (as in 25)",
+      "picture": {
+        "kind": "digits",
+        "label": "35",
+        "mark": 1
+      },
+      "hook": "A seller hands you a slice of orange to taste: \"nyum\". Say \"yum\" with the ny of \"canyon\" in front, short and level, and that orange is ba nhăm, 35. The same five as lăm, in casual Hà Nội speech.",
+      "tip": "nh is the ny of \"canyon\", here at the start of the word. ă is short, like the u in \"yum\". Level tone, as in năm and lăm: only the first sound changes, n, l or nh.",
+      "note": "Five after a tens digit from 20 up: ba nhăm, 35, the same as ba lăm. Spoken only: prices are written lăm, and 15 is nearly always mười lăm. Never at the start: 50 is năm mươi.",
+      "contrast": [
+        {
+          "vi": "nhắm",
+          "en": "to shut (the eyes)"
+        }
+      ]
+    },
+    {
+      "vi": "mốt",
+      "en": "one, after the tens from 20 up",
+      "picture": {
+        "kind": "digits",
+        "label": "21",
+        "mark": 1
+      },
+      "hook": "Remember the knight of một, who fell into the moat with a thud? After twenty he climbs back out, calling up as he rises: mốt. Same moat, the other way: hai mốt, 21.",
+      "tip": "ô is a tight, rounded o with no glide. The final t is cut off, not released. Sắc rises. một is the same syllable with nặng: low and cut short.",
+      "note": "One at the end of 21 to 91: hai mươi mốt or hai mốt, 21. 11 stays mười một, and 101 is một trăm linh một.",
+      "contrast": [
+        {
+          "vi": "một",
+          "en": "one"
+        }
+      ]
+    },
+    {
+      "vi": "tư",
+      "en": "four, after the tens from 20 up",
+      "picture": {
+        "kind": "digits",
+        "label": "24",
+        "mark": 1
+      },
+      "hook": "Four friends squeeze into one photo and all grin wide: say t, then a grinning \"oo\", lips spread, calm and level. After twenty, four often takes this form: hai tư, 24. You know it from thứ tư, Wednesday.",
+      "tip": "t has no puff of air. ư is oo with the lips spread, not rounded. Keep it level.",
+      "note": "Four at the end of 24 to 94: hai mươi tư or hai tư, 24. In full, hai mươi bốn is also common; short prices use tư. 14 stays mười bốn, and 40 is bốn mươi.",
+      "contrast": [
+        {
+          "vi": "từ",
+          "en": "from; a word"
+        }
+      ]
+    },
+    {
+      "vi": "chục",
+      "en": "a set of ten things, as sellers count (ten eggs)",
+      "picture": {
+        "kind": "dots",
+        "n": 10
+      },
+      "hook": "A tray of ten eggs lands on the counter with a heavy thud: \"chook\" (rhymes with \"book\"), stopped dead. That is chục, a ten.",
+      "tip": "ch has no puff of air (Hà Nội says tr the same way). u is oo. The final c is not released, and after u the lips close. Nặng drops low and stops short.",
+      "note": "một chục trứng: ten eggs. As a price, hai chục is 20.000₫, the same as hai mươi. Mấy chục? How many tens?",
+      "contrast": [
+        {
+          "vi": "chúc",
+          "en": "to wish (chúc mừng, congratulations)"
+        }
+      ]
+    }
+  ],
+  "grammar": {
+    "title": "After the tens, the last digit changes",
+    "text": "Năm, lăm or rưỡi? Five at the start is năm: năm mươi, 50; năm ba, 53. Five at the end, after the tens, is lăm: mười lăm, 15; ba lăm, 35; from 25 up casual Hà Nội speech often says nhăm, though prices are written lăm. Rưỡi is half of the unit just before it: trăm rưỡi, 150 (một trăm năm mươi); hai trăm rưỡi, 250. One and four change after the tens from 20: hai mốt, 21; hai tư, 24 (hai mươi bốn is also correct; but mười một, 11; mười bốn, 14). Hundreds shorten too: trăm mốt is 110.000₫, not 101. Chục is a ten that sellers count with: hai chục, 20, the same as hai mươi.",
+    "examples": [
+      {
+        "vi": "ba nhăm",
+        "en": "35.000₫ (ba mươi lăm nghìn, as many Hà Nội sellers say it)"
+      },
+      {
+        "vi": "trăm rưỡi",
+        "en": "150.000₫ (một trăm năm mươi nghìn)"
+      }
+    ]
+  },
+  "combos": [
+    {
+      "vi": "ba lăm",
+      "en": "35.000₫",
+      "note": "ba mươi lăm nghìn, with mươi and nghìn left out. Many Hà Nội sellers say ba nhăm."
+    },
+    {
+      "vi": "năm ba",
+      "en": "53.000₫",
+      "note": "năm mươi ba nghìn. The five comes first, so it stays năm; five at the end, after the tens, is lăm: ba lăm, 35."
+    },
+    {
+      "vi": "hai mốt một nải",
+      "en": "21.000₫ a hand",
+      "note": "hai mươi mốt nghìn a hand: one at the end, after the tens, is mốt."
+    },
+    {
+      "vi": "hai mươi một nải",
+      "en": "20.000₫ a hand",
+      "note": "Not 21, which is hai mươi mốt. Here một is one hand (nải); hai mốt một nải would be 21.000₫ a hand."
+    },
+    {
+      "vi": "trăm rưỡi",
+      "en": "150.000₫",
+      "note": "A hundred and a half: rưỡi is half of the unit before it. Said in full: một trăm năm mươi nghìn."
+    },
+    {
+      "vi": "bốn tư",
+      "en": "44.000₫",
+      "note": "bốn mươi tư nghìn: four at the start stays bốn; four at the end, after the tens, is tư."
+    }
+  ],
+  "review": [
+    "rưỡi",
+    "năm",
+    "mươi",
+    "trăm"
+  ]
+}
