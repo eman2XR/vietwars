@@ -1,0 +1,931 @@
+{
+ "schema": 3,
+ "resultId": "6eeb01fd-39c5-4ea5-8ccf-46a00908e4ff",
+ "kind": "lesson",
+ "lessonId": "lesson-07",
+ "lessonTitle": "Getting around",
+ "appVersion": "4",
+ "style": "paper",
+ "device": "iPhone",
+ "startedAt": "2026-11-24T02:29:21.882Z",
+ "finishedAt": "2026-11-24T02:50:17.326Z",
+ "durationSec": 1255,
+ "summary": {
+  "firstTryAccuracy": 0.72,
+  "exercises": 29,
+  "bestStreak": 7,
+  "grade": "merit",
+  "speedScore": 550,
+  "speedAnswered": 16,
+  "speedCorrect": 15,
+  "bestCombo": 8
+ },
+ "article": {
+  "readSec": 9,
+  "factsShown": 0
+ },
+ "quiz": null,
+ "situations": {
+  "correct": 6,
+  "total": 8
+ },
+ "dialogues": {
+  "correct": 1,
+  "total": 1
+ },
+ "timing": {
+  "warmup": 8,
+  "words": 37,
+  "drills": 522,
+  "conversation": 50,
+  "reallife": 258,
+  "rush": 45,
+  "article": 9,
+  "pauses": 4,
+  "longestPauseSec": 215
+ },
+ "toneMarks": "relaxed",
+ "words": [
+  {
+   "vi": "xe ôm",
+   "en": "motorbike taxi",
+   "failures": 0,
+   "timeSec": 14,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 5,
+   "share": 1,
+   "meaning": 1,
+   "form": 1,
+   "stars": 3,
+   "firstTry": {
+    "listen": true,
+    "reverse": true,
+    "type": "perfect"
+   },
+   "attempts": 3,
+   "msMedian": 2371,
+   "known": false
+  },
+  {
+   "vi": "đâu",
+   "en": "where",
+   "failures": 0,
+   "timeSec": 13,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 2,
+   "share": 1,
+   "meaning": 1,
+   "form": 1,
+   "stars": 3,
+   "firstTry": {
+    "listen": true,
+    "spell": true,
+    "type": "marks"
+   },
+   "attempts": 4,
+   "msMedian": 3890,
+   "known": false
+  },
+  {
+   "vi": "trái",
+   "en": "left (the side)",
+   "failures": 0,
+   "timeSec": 13,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 12,
+   "share": 1,
+   "meaning": 1,
+   "form": 1,
+   "stars": 3,
+   "firstTry": {
+    "listen": true,
+    "reverse": true,
+    "type": "tone"
+   },
+   "attempts": 4,
+   "msMedian": 3588,
+   "known": false
+  },
+  {
+   "vi": "gần",
+   "en": "near, close by",
+   "failures": 3,
+   "timeSec": 34,
+   "replays": 1,
+   "hints": 1,
+   "revealed": false,
+   "studySec": 4,
+   "share": 0,
+   "meaning": 0,
+   "form": 0,
+   "stars": 0,
+   "firstTry": {
+    "listen": false,
+    "spell": false,
+    "type": "wrong"
+   },
+   "attempts": 6,
+   "msMedian": 6592,
+   "known": false
+  },
+  {
+   "vi": "rẽ",
+   "en": "to turn (at a corner)",
+   "failures": 1,
+   "timeSec": 91,
+   "replays": 1,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 4,
+   "share": 0.75,
+   "meaning": 0.67,
+   "form": 1,
+   "stars": 2,
+   "firstTry": {
+    "listen": false,
+    "reverse": true,
+    "type": "tone"
+   },
+   "attempts": 5,
+   "msMedian": 3167,
+   "known": false
+  },
+  {
+   "vi": "phải",
+   "en": "right (the side)",
+   "failures": 2,
+   "timeSec": 296,
+   "replays": 2,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 11,
+   "share": 0.5,
+   "meaning": 0.5,
+   "form": 0.5,
+   "stars": 1,
+   "firstTry": {
+    "listen": false,
+    "spell": false,
+    "type": "tone"
+   },
+   "attempts": 6,
+   "msMedian": 26609,
+   "known": false
+  },
+  {
+   "vi": "bớt",
+   "en": "to take some off (a price); to reduce",
+   "failures": 2,
+   "timeSec": 10,
+   "replays": 2,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 0,
+   "meaning": 0,
+   "form": null,
+   "stars": 0,
+   "firstTry": {
+    "listen": false
+   },
+   "attempts": 2,
+   "msMedian": 6206,
+   "known": false
+  },
+  {
+   "vi": "mời",
+   "en": "to invite; please (go ahead, have some)",
+   "failures": 0,
+   "timeSec": 7,
+   "replays": 1,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 1,
+   "meaning": 1,
+   "form": null,
+   "stars": 3,
+   "firstTry": {
+    "listen": true
+   },
+   "attempts": 1,
+   "msMedian": 6741,
+   "known": false
+  },
+  {
+   "vi": "đắt",
+   "en": "expensive",
+   "failures": 1,
+   "timeSec": 10,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 0,
+   "meaning": 0,
+   "form": null,
+   "stars": 0,
+   "firstTry": {
+    "listen": false
+   },
+   "attempts": 2,
+   "msMedian": 8269,
+   "known": false
+  }
+ ],
+ "warmup": [
+  {
+   "vi": "ăn",
+   "ok": true,
+   "ms": 3252
+  },
+  {
+   "vi": "uống",
+   "ok": true,
+   "ms": 1400
+  },
+  {
+   "vi": "đi",
+   "ok": true,
+   "ms": 3101
+  }
+ ],
+ "toneConfusions": [
+  {
+   "target": "phải",
+   "chose": "phái"
+  },
+  {
+   "target": "gần",
+   "chose": "gân"
+  }
+ ],
+ "meaningConfusions": [
+  {
+   "target": "bớt",
+   "chose": "expensive",
+   "t": "listen"
+  },
+  {
+   "target": "rẽ",
+   "chose": "left (the side)",
+   "t": "listen"
+  },
+  {
+   "target": "đắt",
+   "chose": "near, close by",
+   "t": "listen"
+  },
+  {
+   "target": "bớt",
+   "chose": "near, close by",
+   "t": "listen"
+  },
+  {
+   "target": "gần",
+   "chose": "to invite; please (go ahead, have some)",
+   "t": "listen"
+  },
+  {
+   "target": "phải",
+   "chose": "near, close by",
+   "t": "listen"
+  },
+  {
+   "target": "trái",
+   "chose": "Turn left, then right.",
+   "t": "speed"
+  }
+ ],
+ "typed": [
+  {
+   "target": "rẽ",
+   "answer": "rè",
+   "grade": "tone",
+   "accepted": true,
+   "hints": 0,
+   "keys": 1,
+   "firstKeyMs": 49356,
+   "deletes": 2
+  },
+  {
+   "target": "xe ôm",
+   "answer": "xe ôm",
+   "grade": "perfect",
+   "accepted": true,
+   "hints": 0,
+   "keys": 1,
+   "firstKeyMs": 1736,
+   "deletes": 1
+  },
+  {
+   "target": "trái",
+   "answer": "trai",
+   "grade": "tone",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 1605
+  },
+  {
+   "target": "đâu",
+   "answer": "dau",
+   "grade": "marks",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 1883,
+   "deletes": 1
+  },
+  {
+   "target": "phải",
+   "answer": "phai",
+   "grade": "tone",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 45885
+  },
+  {
+   "target": "gần",
+   "answer": "gah",
+   "grade": "wrong",
+   "accepted": false,
+   "hints": 1,
+   "keys": 0,
+   "firstKeyMs": 7035,
+   "deletes": 2
+  },
+  {
+   "target": "gần",
+   "answer": "gần",
+   "grade": "perfect",
+   "tiles": true,
+   "retry": true
+  }
+ ],
+ "feedback": {
+  "difficulty": "Too hard",
+  "fun": "Boring",
+  "article": "OK",
+  "hardest": [
+   "gần",
+   "phải",
+   "bớt",
+   "đắt"
+  ],
+  "wantNext": "I need to understand better prices, like when to use lam or rau or nam for example",
+  "note": "Would be nice if the article was toed in better with the content of the lesson"
+ },
+ "events": [
+  {
+   "t": "listen",
+   "w": "ăn",
+   "ok": true,
+   "a": "to eat",
+   "ms": 3252,
+   "warmup": true,
+   "plays": 1
+  },
+  {
+   "t": "listen",
+   "w": "uống",
+   "ok": true,
+   "a": "to drink",
+   "ms": 1400,
+   "warmup": true
+  },
+  {
+   "t": "listen",
+   "w": "đi",
+   "ok": true,
+   "a": "to go",
+   "ms": 3101,
+   "warmup": true
+  },
+  {
+   "t": "meet",
+   "w": "xe ôm",
+   "ms": 4815
+  },
+  {
+   "t": "meet",
+   "w": "đâu",
+   "ms": 1774
+  },
+  {
+   "t": "meet",
+   "w": "trái",
+   "ms": 12053
+  },
+  {
+   "t": "meet",
+   "w": "gần",
+   "ms": 3720
+  },
+  {
+   "t": "listen",
+   "w": "trái",
+   "ok": true,
+   "a": "left (the side)",
+   "ms": 1718
+  },
+  {
+   "t": "listen",
+   "w": "đâu",
+   "ok": true,
+   "a": "where",
+   "ms": 2449
+  },
+  {
+   "t": "story",
+   "w": "xe ôm",
+   "ms": 3617
+  },
+  {
+   "t": "meet",
+   "w": "rẽ",
+   "ms": 3550
+  },
+  {
+   "t": "meet",
+   "w": "phải",
+   "ms": 10641
+  },
+  {
+   "t": "listen",
+   "w": "phải",
+   "ok": true,
+   "a": "right (the side)",
+   "ms": 1450
+  },
+  {
+   "t": "listen",
+   "w": "rẽ",
+   "ok": true,
+   "a": "to turn (at a corner)",
+   "ms": 26055,
+   "plays": 1
+  },
+  {
+   "t": "listen",
+   "w": "bớt",
+   "ok": false,
+   "a": "expensive",
+   "ms": 3888,
+   "plays": 1
+  },
+  {
+   "t": "listen",
+   "w": "rẽ",
+   "ok": false,
+   "a": "left (the side)",
+   "ms": 1900
+  },
+  {
+   "t": "listen",
+   "w": "xe ôm",
+   "ok": true,
+   "a": "motorbike taxi",
+   "ms": 2371
+  },
+  {
+   "t": "listen",
+   "w": "đắt",
+   "ok": false,
+   "a": "near, close by",
+   "ms": 8269
+  },
+  {
+   "t": "listen",
+   "w": "bớt",
+   "ok": false,
+   "a": "near, close by",
+   "ms": 6206,
+   "retry": true,
+   "plays": 1
+  },
+  {
+   "t": "listen",
+   "w": "rẽ",
+   "ok": true,
+   "a": "to turn (at a corner)",
+   "ms": 2868,
+   "retry": true
+  },
+  {
+   "t": "listen",
+   "w": "trái",
+   "ok": true,
+   "a": "left (the side)",
+   "ms": 2034
+  },
+  {
+   "t": "listen",
+   "w": "đắt",
+   "ok": true,
+   "a": "expensive",
+   "ms": 2200,
+   "retry": true
+  },
+  {
+   "t": "listen",
+   "w": "đâu",
+   "ok": true,
+   "a": "where",
+   "ms": 2067
+  },
+  {
+   "t": "listen",
+   "w": "gần",
+   "ok": false,
+   "a": "to invite; please (go ahead, have some)",
+   "ms": 6592,
+   "plays": 1
+  },
+  {
+   "t": "listen",
+   "w": "phải",
+   "ok": false,
+   "a": "near, close by",
+   "ms": 212280,
+   "plays": 1
+  },
+  {
+   "t": "listen",
+   "w": "mời",
+   "ok": true,
+   "a": "to invite; please (go ahead, have some)",
+   "ms": 6741,
+   "plays": 1
+  },
+  {
+   "t": "reverse",
+   "w": "xe ôm",
+   "ok": true,
+   "a": "xe ôm",
+   "ms": 2299
+  },
+  {
+   "t": "listen",
+   "w": "gần",
+   "ok": true,
+   "a": "near, close by",
+   "ms": 7289,
+   "retry": true
+  },
+  {
+   "t": "listen",
+   "w": "phải",
+   "ok": true,
+   "a": "right (the side)",
+   "ms": 26609,
+   "retry": true,
+   "plays": 1
+  },
+  {
+   "t": "spell",
+   "w": "phải",
+   "ok": false,
+   "a": "phái",
+   "ms": 2057
+  },
+  {
+   "t": "spell",
+   "w": "đâu",
+   "ok": true,
+   "a": "đâu",
+   "ms": 3890
+  },
+  {
+   "t": "reverse",
+   "w": "rẽ",
+   "ok": true,
+   "a": "rẽ",
+   "ms": 3167
+  },
+  {
+   "t": "reverse",
+   "w": "trái",
+   "ok": true,
+   "a": "trái",
+   "ms": 5985
+  },
+  {
+   "t": "spell",
+   "w": "phải",
+   "ok": true,
+   "a": "phải",
+   "ms": 5055,
+   "retry": true
+  },
+  {
+   "t": "spell",
+   "w": "gần",
+   "ok": false,
+   "a": "gân",
+   "ms": 2350
+  },
+  {
+   "t": "type",
+   "w": "rẽ",
+   "ok": true,
+   "g": "tone",
+   "a": "rè",
+   "ms": 56912,
+   "hints": 0,
+   "firstKeyMs": 49356,
+   "deletes": 2
+  },
+  {
+   "t": "type",
+   "w": "xe ôm",
+   "ok": true,
+   "g": "perfect",
+   "a": "xe ôm",
+   "ms": 9375,
+   "hints": 0,
+   "firstKeyMs": 1736,
+   "deletes": 1
+  },
+  {
+   "t": "type",
+   "w": "trái",
+   "ok": true,
+   "g": "tone",
+   "a": "trai",
+   "ms": 3588,
+   "hints": 0,
+   "firstKeyMs": 1605
+  },
+  {
+   "t": "spell",
+   "w": "gần",
+   "ok": true,
+   "a": "gần",
+   "ms": 1714,
+   "retry": true
+  },
+  {
+   "t": "type",
+   "w": "đâu",
+   "ok": true,
+   "g": "marks",
+   "a": "dau",
+   "ms": 4470,
+   "hints": 0,
+   "firstKeyMs": 1883,
+   "deletes": 1
+  },
+  {
+   "t": "type",
+   "w": "phải",
+   "ok": true,
+   "g": "tone",
+   "a": "phai",
+   "ms": 48902,
+   "hints": 0,
+   "firstKeyMs": 45885
+  },
+  {
+   "t": "type",
+   "w": "gần",
+   "ok": false,
+   "g": "wrong",
+   "a": "gah",
+   "ms": 10953,
+   "hints": 1,
+   "firstKeyMs": 7035,
+   "deletes": 2
+  },
+  {
+   "t": "type",
+   "w": "gần",
+   "g": "perfect",
+   "a": "gần",
+   "ms": 5183,
+   "retry": true,
+   "tiles": true
+  },
+  {
+   "t": "listen",
+   "w": "bốn mươi một quả",
+   "ok": true,
+   "a": "40.000₫ each (a fruit)",
+   "ms": 5900
+  },
+  {
+   "t": "listen",
+   "w": "Đi cầu Long Biên bao nhiêu?",
+   "ok": true,
+   "a": "How much to the Long Biên Bridge?",
+   "ms": 3554
+  },
+  {
+   "t": "listen",
+   "w": "Rẽ trái, rồi rẽ phải.",
+   "ok": true,
+   "a": "Turn left, then right.",
+   "ms": 9860,
+   "plays": 1
+  },
+  {
+   "t": "listen",
+   "w": "trăm ba",
+   "ok": true,
+   "a": "130.000₫",
+   "ms": 10052,
+   "plays": 1
+  },
+  {
+   "t": "dialogue",
+   "w": "A xe ôm to the lake",
+   "ok": true,
+   "a": "Rẽ phải em nhé.",
+   "ms": 50299
+  },
+  {
+   "t": "situation",
+   "w": "Cà phê trứng ba lăm anh ạ.",
+   "ok": false,
+   "a": "25.000₫",
+   "ms": 27428,
+   "plays": 4
+  },
+  {
+   "t": "situation",
+   "w": "Anh đi đâu đấy?",
+   "ok": true,
+   "a": "Anh đi ăn phở đây.",
+   "ms": 14475,
+   "plays": 1
+  },
+  {
+   "t": "situation",
+   "w": "Hai cốc trà đá, mười nghìn anh ạ.",
+   "ok": true,
+   "a": "10000",
+   "ms": 41561,
+   "plays": 3
+  },
+  {
+   "t": "situation",
+   "w": "Bánh mì hai lăm anh ạ.",
+   "ok": true,
+   "a": "25000",
+   "ms": 9838,
+   "plays": 1
+  },
+  {
+   "t": "situation",
+   "w": "Đi Hồ Gươm trăm rưỡi anh ạ.",
+   "ok": true,
+   "a": "Đắt quá! Bớt đi em.",
+   "ms": 46785,
+   "plays": 2
+  },
+  {
+   "t": "situation",
+   "w": "Mời anh vào ăn phở ạ!",
+   "ok": false,
+   "a": "Anh no rồi, cảm ơn em.",
+   "ms": 86922,
+   "plays": 2
+  },
+  {
+   "t": "situation",
+   "w": "Hết hai trăm rưỡi anh ạ.",
+   "ok": true,
+   "a": "250.000₫",
+   "ms": 14843,
+   "plays": 2
+  },
+  {
+   "t": "situation",
+   "w": "Cầu Long Biên gần thôi, ba mươi anh ạ.",
+   "ok": true,
+   "a": "30.000₫",
+   "ms": 16483,
+   "plays": 1
+  },
+  {
+   "t": "speed",
+   "w": "đắt",
+   "ok": true,
+   "a": "expensive",
+   "ms": 2591
+  },
+  {
+   "t": "speed",
+   "w": "gần",
+   "ok": true,
+   "a": "near, close by",
+   "ms": 2808
+  },
+  {
+   "t": "speed",
+   "w": "mời",
+   "ok": true,
+   "a": "to invite; please (go ahead, have some)",
+   "ms": 6146
+  },
+  {
+   "t": "speed",
+   "w": "phải",
+   "ok": true,
+   "a": "right (the side)",
+   "ms": 1703
+  },
+  {
+   "t": "speed",
+   "w": "mời",
+   "ok": true,
+   "a": "to invite; please (go ahead, have some)",
+   "ms": 1622
+  },
+  {
+   "t": "speed",
+   "w": "phải",
+   "ok": true,
+   "a": "right (the side)",
+   "ms": 1889
+  },
+  {
+   "t": "speed",
+   "w": "Rẽ trái, rồi rẽ phải.",
+   "ok": true,
+   "a": "Turn left, then right.",
+   "ms": 3034
+  },
+  {
+   "t": "speed",
+   "w": "phải",
+   "ok": true,
+   "a": "right (the side)",
+   "ms": 2009
+  },
+  {
+   "t": "speed",
+   "w": "trái",
+   "ok": false,
+   "a": "Turn left, then right.",
+   "ms": 1773
+  },
+  {
+   "t": "speed",
+   "w": "xe ôm",
+   "ok": true,
+   "a": "motorbike taxi",
+   "ms": 4229
+  },
+  {
+   "t": "speed",
+   "w": "uống",
+   "ok": true,
+   "a": "to drink",
+   "ms": 5835
+  },
+  {
+   "t": "speed",
+   "w": "mời",
+   "ok": true,
+   "a": "to invite; please (go ahead, have some)",
+   "ms": 1826
+  },
+  {
+   "t": "speed",
+   "w": "đắt",
+   "ok": true,
+   "a": "expensive",
+   "ms": 1693
+  },
+  {
+   "t": "speed",
+   "w": "đâu",
+   "ok": true,
+   "a": "where",
+   "ms": 1900
+  },
+  {
+   "t": "speed",
+   "w": "Đi cầu Long Biên bao nhiêu?",
+   "ok": true,
+   "a": "How much to the Long Biên Bridge?",
+   "ms": 3287
+  },
+  {
+   "t": "speed",
+   "w": "Đi cầu Long Biên bao nhiêu?",
+   "ok": true,
+   "a": "How much to the Long Biên Bridge?",
+   "ms": 2213
+  }
+ ],
+ "issue": 13
+}
