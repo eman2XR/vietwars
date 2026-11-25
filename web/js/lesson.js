@@ -411,6 +411,7 @@ export function runSession(root, session, onDone, onQuit) {
         <button class="icon-btn" data-act="quit" aria-label="Close">&times;</button>
         <div class="progress" role="progressbar" aria-label="Progress"><div class="fill"></div></div>
         <div class="streak-pill" aria-live="polite"></div>
+        ${session.talk ? '<button class="icon-btn talk-btn" data-act="talk" aria-label="Talk to the editors"><span>Talk</span></button>' : ''}
         ${session.ask ? '<button class="icon-btn ask-btn" data-act="ask" aria-label="Ask a question"><span>?</span></button>' : ''}
       </header>
       <main class="stage" aria-live="polite"></main>
@@ -432,6 +433,22 @@ export function runSession(root, session, onDone, onQuit) {
     if (w && !w.sit) parts.push(`word: ${w.vi} (${w.en})`);
     if (w && w.sit) parts.push(`line: ${w.vi}`);
     return parts.join('; ');
+  }
+  // What is on screen, in more detail, for a live conversation with the editors.
+  function talkContext() {
+    const step = S.steps[S.i] || {};
+    const w = step.word;
+    const lines = [lesson ? `In issue ${lesson.number}, "${lesson.title}" (${lesson.theme || ''}), on a ${step.type || 'screen'} screen.` : `In a spaced review, on a ${step.type || 'screen'} screen.`];
+    if (w && !w.sit) lines.push(`The word on screen: ${w.vi} (${w.en})${w.hook ? `. Hook: ${w.hook}` : ''}${w.note ? ` Note: ${w.note}` : ''}`);
+    if (w && w.sit) lines.push(`The real-life line on screen: ${w.say ? `the learner must say ${w.say}; the model answer is ${w.vi}` : `${w.vi} (${w.en})`}. Question: ${w.ask}`);
+    if (step.beat) lines.push(`The story beat on screen: ${step.beat.text}`);
+    if (step.dialogue) lines.push(`The dialogue on screen: ${step.dialogue.lines.map((l) => `${l.who}: ${l.vi} (${l.en})`).join(' / ')}`);
+    if (lesson) {
+      lines.push(`This issue's new words: ${lesson.words.map((x) => `${x.vi} (${x.en})`).join(', ')}.`);
+      if (lesson.grammar) lines.push(`This issue's sentence frame: ${lesson.grammar.title}`);
+      if (lesson.feature) lines.push(`This issue's story: ${lesson.feature.title}. ${lesson.feature.intro}`);
+    }
+    return lines.join('\n');
   }
   askSheet?.addEventListener('keydown', (ev) => {
     if (ev.key === 'Escape') askSheet.hidden = true;
@@ -1310,6 +1327,10 @@ export function runSession(root, session, onDone, onQuit) {
       return;
     }
     const act = ev.target.closest('[data-act]')?.dataset.act;
+    if (act === 'talk') {
+      session.talk(talkContext());
+      return;
+    }
     if (act === 'ask') {
       askSheet.hidden = false;
       askSheet.querySelector('.ask-context').textContent = `About: ${askContext()}`;

@@ -101,6 +101,21 @@ export function queueQuestion(text, context) {
   return q;
 }
 
+export const TALK_MARKER = '<!-- vietwars-talk -->';
+
+// Queues the transcript of a live conversation; it is posted as a GitHub issue like a result, for the editors.
+export function queueTalk({ context, model, turns, startedAt }) {
+  const t = { talkId: `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`, startedAt, endedAt: new Date().toISOString(), device: navigator.userAgent.match(/iPhone|iPad|Macintosh/)?.[0] || 'device', context, model, turns };
+  const first = (turns.find((x) => x.who === 'you') || turns[0]).text.replace(/\s+/g, ' ');
+  const title = `Talk: ${first.slice(0, 70)}${first.length > 70 ? '...' : ''}`;
+  const text = turns.map((x) => `**${x.who === 'you' ? 'Learner' : 'Editor'}:** ${x.text}`).join('\n\n');
+  const body = `${text}\n\n${TALK_MARKER}\n\`\`\`json\n${JSON.stringify(t, null, 1)}\n\`\`\`\n`;
+  const box = store.outbox();
+  box.push({ title, body, resultId: t.talkId, labels: ['talk'] });
+  store.saveOutbox(box);
+  return t;
+}
+
 async function listIssues(token, page) {
   const h = { Accept: 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28' };
   if (token) h.Authorization = `Bearer ${token}`;

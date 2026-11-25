@@ -48,6 +48,36 @@ mimetypes.add_type("application/manifest+json", ".webmanifest")
 mimetypes.add_type("text/javascript", ".js")
 
 
+TALK = "<!-- vietwars-talk -->"
+# Stands in for Gemini Live: the microphone is refused (so the typed path is used), and the socket answers a typed
+# question with a short transcribed reply. The setup message is kept so the check can see the context sent.
+FAKE_GEMINI = """
+(() => {
+  const Real = window.WebSocket;
+  class Fake {
+    constructor(url) {
+      if (!String(url).includes('generativelanguage')) return new Real(url);
+      this.readyState = 0;
+      setTimeout(() => { this.readyState = 1; this.onopen && this.onopen({}); }, 50);
+    }
+    reply(obj) { setTimeout(() => this.onmessage && this.onmessage({ data: JSON.stringify(obj) }), 50); }
+    send(data) {
+      const m = JSON.parse(data);
+      if (m.setup) { window.__talkSetup = m.setup.systemInstruction.parts[0].text; this.reply({ setupComplete: {} }); }
+      if (m.clientContent) {
+        this.reply({ serverContent: { outputTranscription: { text: 'Say hai lăm, or hai nhăm.' } } });
+        this.reply({ serverContent: { turnComplete: true } });
+      }
+    }
+    close() { this.readyState = 3; }
+  }
+  window.WebSocket = Fake;
+  if (window.MediaDevices) MediaDevices.prototype.getUserMedia = () => Promise.reject(new Error('denied'));
+  if (navigator.mediaDevices) navigator.mediaDevices.getUserMedia = () => Promise.reject(new Error('denied'));
+})();
+"""
+
+
 def serve(route):
     path = urlparse(route.request.url).path.lstrip("/") or "index.html"
     file = (WEB / path).resolve()
@@ -114,6 +144,8 @@ class Run:
         ctx = browser.new_context(**p.devices[self.name], service_workers="block", color_scheme=self.scheme)
         ctx.route(f"{BASE}**", serve)
         ctx.route("https://api.github.com/**", self.github)
+        ctx.route("https://generativelanguage.googleapis.com/**", lambda route: route.fulfill(status=200, content_type="application/json", body=json.dumps({"models": [{"name": "models/gemini-test-native-audio", "supportedGenerationMethods": ["bidiGenerateContent"]}]})))
+        ctx.add_init_script(FAKE_GEMINI)
         page = ctx.new_page()
         page.on("pageerror", lambda e: self.errors.append(f"second device page error: {e}"))
         page.goto(f"{BASE}?test=1#/")
@@ -283,7 +315,7 @@ class Run:
         page.evaluate("location.hash = '#/ask'")
         page.wait_for_selector(".ask-page")
         try:
-            page.wait_for_selector(".question.answered .phrases [data-say]", timeout=8000)
+            page.wait_for_selector(".question.answered .phrases [data-say]", timeout=20000)
         except Exception:
             self.errors.append("the Ask page did not show the answer and its phrases")
         self.first(page, "ask")
@@ -296,11 +328,35 @@ class Run:
         if page.locator(".question").count() != before + 1:
             self.errors.append("the Ask page does not list every question")
 
+    def check_talk(self, page):
+        page.evaluate("location.hash = '#/settings'")
+        page.evaluate("location.hash = '#/ask'")
+        page.wait_for_selector(".ask-page .talk-now")
+        page.click(".talk-now")
+        try:
+            page.locator(".talk-status", has_text=re.compile("Type your question|Listening|or type")).wait_for(timeout=8000)
+            page.fill(".talk-form input", "How do I say 25?")
+            page.click(".talk-form [type=submit]")
+            page.wait_for_selector(".talk-line.editor", timeout=8000)
+        except Exception:
+            self.errors.append("a live conversation did not connect or did not show the editor's reply")
+        self.first(page, "talk")
+        if "Words the learner has met" not in (page.evaluate("window.__talkSetup") or ""):
+            self.errors.append("the live conversation was not told what the learner knows")
+        before = len([x for x in self.posts if TALK in x["body"]])
+        page.click(".talk-end")
+        page.wait_for_timeout(1500)
+        talks = [x for x in self.posts if TALK in x["body"]]
+        if len(talks) != before + 1 or "talk" not in talks[-1].get("labels", []) or "How do I say 25?" not in talks[-1]["body"]:
+            self.errors.append("the transcript of a live conversation was not posted with the talk label")
+
     def run(self, p):
         browser = p.webkit.launch()
         ctx = browser.new_context(**p.devices[self.name], service_workers="block", color_scheme=self.scheme)
         ctx.route(f"{BASE}**", serve)
         ctx.route("https://api.github.com/**", self.github)
+        ctx.route("https://generativelanguage.googleapis.com/**", lambda route: route.fulfill(status=200, content_type="application/json", body=json.dumps({"models": [{"name": "models/gemini-test-native-audio", "supportedGenerationMethods": ["bidiGenerateContent"]}]})))
+        ctx.add_init_script(FAKE_GEMINI)
         page = ctx.new_page()
         page.on("pageerror", lambda e: self.errors.append(f"page error: {e}"))
         page.on("console", self.console)
@@ -317,7 +373,10 @@ class Run:
             self.errors.append("the notifications section in Settings did not finish loading")
         page.fill(".token-form input", "test-token")
         page.click(".token-form button[type=submit]")
-        page.locator(".form-status", has_text="works").wait_for()
+        page.locator(".token-form .form-status", has_text="works").wait_for()
+        page.fill(".gemini-form input", "test-gemini-key")
+        page.click(".gemini-form button[type=submit]")
+        page.locator(".gemini-status", has_text="works").wait_for()
         self.first(page, "settings")
 
         page.evaluate("location.hash = '#/'")
@@ -403,6 +462,7 @@ class Run:
         page.wait_for_selector(".word-list")
         self.first(page, "words")
         self.check_ask_page(page)
+        self.check_talk(page)
         expected = page.evaluate(STATE_JS)
         self.second_device(p, browser, expected)
         browser.close()

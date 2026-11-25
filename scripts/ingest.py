@@ -66,6 +66,47 @@ def open_issues():
     return found
 
 
+TALK = re.compile(r"<!-- vietwars-talk -->\s*```json\s*(\{.*\})\s*```", re.S)
+TALKS = ROOT / "learner" / "talks"
+
+
+def save_talks(close=False):
+    """Saves live conversations (Talk in the app) to learner/talks/ and closes their issues."""
+    out = gh("issue", "list", "-R", REPO, "--state", "open", "--label", "talk", "--limit", "100", "--json", "number,body")
+    new = 0
+    for issue in json.loads(out):
+        m = TALK.search(issue["body"] or "")
+        if not m:
+            continue
+        try:
+            t = json.loads(m.group(1))
+        except json.JSONDecodeError:
+            print(f"issue #{issue['number']}: talk block is not valid JSON, skipped")
+            continue
+        TALKS.mkdir(parents=True, exist_ok=True)
+        path = TALKS / f"{t['startedAt'][:19].replace(':', '')}-{t['talkId'][:8]}.json"
+        if not path.exists():
+            path.write_text(json.dumps({**t, "issue": issue["number"]}, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+            new += 1
+        gh("issue", "close", str(issue["number"]), "-R", REPO, "--comment", f"Saved to `{path.relative_to(ROOT)}` for the editors.")
+    return new
+
+
+def talks_md():
+    """The newest live conversations, for the summary: what the learner asked and said."""
+    if not TALKS.exists():
+        return []
+    talks = [json.loads(p.read_text(encoding="utf-8")) for p in sorted(TALKS.glob("*.json"), reverse=True)[:10]]
+    if not talks:
+        return []
+    lines = ["", "## Live conversations (Talk), newest first", "", "What the learner said to the editors out loud. Treat requests and complaints as feedback; full transcripts are in `learner/talks/`.", ""]
+    for t in talks:
+        said = " / ".join(" ".join(x["text"].split())[:200] for x in t.get("turns", []) if x.get("who") == "you")
+        where = (t.get("context") or "").split("\n")[0][:120]
+        lines.append(f"- {t['startedAt'][:16]} ({where}): {said or '(only the editor spoke)'}")
+    return lines
+
+
 def from_file(path):
     data = json.loads(Path(path).read_text(encoding="utf-8"))
     if isinstance(data, dict) and "history" in data:
@@ -342,6 +383,7 @@ def summary_md(p):
             line = f"- {str(q.get('askedAt', ''))[:10]}" + (f" ({q['context']})" if q.get("context") else "") + f": \"{q.get('text', '')}\""
             line += f" Answered: {first}" + (f" Phrases: {said}." if said else "") if a else " Not answered yet."
             lines.append(line)
+    lines += talks_md()
     notes = ROOT / "learner" / "NOTES.md"
     if notes.exists():
         lines += ["", "## Notes from the learner outside the app", "", notes.read_text(encoding="utf-8").strip()]
@@ -383,6 +425,12 @@ def main():
     elif not args.offline:
         for number, r in open_issues():
             new += save(r, issue=number)
+        try:
+            talks = save_talks()
+            if talks:
+                print(f"{talks} new conversation{'s' if talks != 1 else ''} saved to learner/talks/")
+        except Exception as e:
+            print(f"conversations not saved: {str(e).splitlines()[0] if str(e) else e}")
         try:
             from questions import sync as sync_questions
             sync_questions()

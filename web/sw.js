@@ -19,6 +19,8 @@ const SHELL_FILES = [
   'js/pictures.js',
   'js/deck.js',
   'js/push.js',
+  'js/talk.js',
+  'js/pcm-capture.js',
   'push.json',
   'lessons/index.json',
   'lessons/known.json',

@@ -9,6 +9,7 @@ import { lessonSteps, reviewSteps, runSession, stampHTML } from './lesson.js';
 import { queue, flush, testToken, pullResults, pullQuestions, queueQuestion, REPO } from './sync.js';
 import { picture } from './pictures.js';
 import { pushSupport, currentSubscription, enablePush, disablePush, loadPushKeys } from './push.js';
+import { openTalk, setTalkContext, talkKey, findModel } from './talk.js';
 
 const APP_VERSION = '4';
 const REVIEW_LIMIT = 20;
@@ -329,6 +330,7 @@ function startSession(kind, lesson, opts = {}) {
         queueQuestion(text, context);
         flush();
       },
+      talk: talkKey() ? (onScreen) => talk(onScreen) : null,
       resume: opts.resume || null,
       jumpTo: testMode ? params.get('jump') : null,
     },
@@ -536,11 +538,13 @@ async function askPage() {
         <div class="row"><button type="submit" class="btn primary">Send</button></div>
         <p class="form-status hint"></p>
       </form>
+      ${talkKey() ? '<div class="row"><button type="button" class="btn talk-now" data-act="talk">Talk now</button><span class="hint">Ask out loud and hear the answer straight away.</span></div>' : ''}
       <h2 class="section-title">Your questions</h2>
       <div class="question-list"></div>
     </div>`;
   draw();
   markAnswersRead();
+  app.querySelector('.talk-now')?.addEventListener('click', () => talk('On the Ask page, where the learner can also type questions for the editors.'));
   app.querySelector('.page-ask').addEventListener('submit', async (ev) => {
     ev.preventDefault();
     const text = ev.target.q.value.trim();
@@ -640,6 +644,25 @@ async function drawNotify(message = '') {
     : `<div class="row"><button class="btn primary small" type="button" data-act="notify-on"${denied ? ' disabled' : ''}>Notify me</button></div><p class="notify-status hint">${esc(message || (denied ? 'Notifications are blocked. Allow them for this site or app in Settings, under Notifications.' : ''))}</p>`;
 }
 
+// What the learner has met and finds hard, for a live conversation with the editors.
+function learnerContext() {
+  const deck = store.deck();
+  const met = Object.keys(deck).map((vi) => WORDS.get(vi)).filter(Boolean);
+  const weak = Object.entries(deck).filter(([, c]) => (c.box ?? 0) <= 1).map(([vi]) => vi);
+  const played = LESSONS.filter((l) => store.progress().lessons?.[l.id]).map((l) => `${l.number} ${l.title}`);
+  return [
+    `Issues played: ${played.join('; ') || 'none yet'}.`,
+    `Words the learner has met: ${met.map((w) => `${w.vi} (${w.en})`).join(', ') || 'none yet'}.`,
+    `Words they already knew: ${[...KNOWN].join(', ')}.`,
+    `Words still weak: ${weak.join(', ') || 'none'}.`,
+  ].join('\n');
+}
+
+function talk(onScreen) {
+  setTalkContext(() => `${onScreen}\n${learnerContext()}`);
+  openTalk();
+}
+
 function settingsPage() {
   const s = store.settings();
   const outbox = store.outbox().length;
@@ -685,6 +708,15 @@ function settingsPage() {
         <div class="row">${outbox ? '<button class="btn small" data-act="send">Send now</button>' : ''}<button class="btn ghost small" data-act="copy">Copy all my data</button></div>
         <p class="copy-status hint"></p>
       </section>
+      <section class="panel talk-panel">
+        <h2>Talk to the editors</h2>
+        <p>Ask out loud during an issue (the Talk button) or on the Ask page, and hear the answer straight away. It uses Google's Gemini Live with your own key, kept on this device only. The editors read each conversation's transcript to improve the issues.</p>
+        <form class="gemini-form">
+          <input name="key" type="password" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Gemini API key" value="${esc(s.geminiKey || '')}" aria-label="Gemini API key">
+          <div class="row"><button class="btn primary small" type="submit">Save and test</button>${s.geminiKey ? '<button class="btn ghost small" type="button" data-act="forget-gemini">Remove</button>' : ''}</div>
+          <p class="gemini-status form-status">${s.geminiModel ? `Using ${esc(s.geminiModel)}.` : ''}</p>
+        </form>
+      </section>
       <section class="panel notify-panel">
         <h2>Notifications</h2>
         <p>Get a notification on this device when a new issue is ready, when one of your questions has an answer, and once a day when words are due for review.</p>
@@ -698,6 +730,22 @@ function settingsPage() {
       <p class="hint">Version ${APP_VERSION}</p>
     </div>`;
   drawNotify();
+  app.querySelector('.gemini-form').addEventListener('submit', async (ev) => {
+    ev.preventDefault();
+    const key = ev.target.key.value.trim();
+    const note = app.querySelector('.gemini-status');
+    const { geminiModel, ...rest } = store.settings();
+    store.saveSettings({ ...rest, geminiKey: key });
+    if (!key) return settingsPage();
+    note.textContent = 'Testing...';
+    try {
+      const model = await findModel(key);
+      store.saveSettings({ ...store.settings(), geminiModel: model });
+      note.textContent = `Saved. The key works (${model}).`;
+    } catch (err) {
+      note.textContent = `Saved, but the test failed: ${err.message}.`;
+    }
+  });
   const form = app.querySelector('.token-form');
   const status = app.querySelector('.form-status');
   form.addEventListener('submit', async (ev) => {
@@ -762,6 +810,12 @@ function settingsPage() {
         : `Synced. ${r.total} session${r.total === 1 ? '' : 's'} in total${r.added ? `, ${r.added} new from other devices` : ''}.`;
       return;
     }
+    if (act === 'forget-gemini') {
+      const { geminiKey, geminiModel, ...rest } = store.settings();
+      store.saveSettings(rest);
+      settingsPage();
+      return;
+    }
     if (act === 'forget') {
       const { token, ...rest } = store.settings();
       store.saveSettings(rest);
@@ -814,6 +868,12 @@ document.addEventListener('click', (ev) => {
 
 async function boot() {
   applyStyle();
+  // A one-time setup link (#/settings?gemini=KEY) saves the Gemini key on this device and removes it from the address.
+  const setup = (location.hash.match(/[?&]gemini=([^&]+)/) || [])[1];
+  if (setup) {
+    store.saveSettings({ ...store.settings(), geminiKey: decodeURIComponent(setup) });
+    history.replaceState(null, '', `${location.pathname}${location.search}#/settings`);
+  }
   await Promise.all([loadLessons(), loadAudio()]);
   window.addEventListener('hashchange', render);
   render();

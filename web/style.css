@@ -657,3 +657,18 @@ textarea { width: 100%; padding: 12px; border-radius: var(--radius); border: 1px
 .dialogue .line-vi { font-size: 1.2rem; font-weight: 600; line-height: 1.35; }
 .dialogue .line-en { grid-column: 3; color: var(--muted); font-family: var(--body-text); font-size: 0.98rem; }
 .check-q { font-family: var(--display); font-weight: 600; font-size: 1.15rem; margin: 18px 0 6px; }
+
+/* Live conversation with the editors (talk.js) */
+.talk-sheet { position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; max-height: 78vh; display: flex; flex-direction: column; gap: 10px; background: var(--card, var(--bg)); border-top: 1px solid var(--rule); box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.18); padding: 16px max(16px, env(safe-area-inset-right)) max(16px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left)); border-radius: 14px 14px 0 0; }
+.talk-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.talk-status { font-family: var(--sans); font-size: 0.85rem; color: var(--accent); }
+.talk-about { margin: 0; }
+.talk-log { flex: 1; overflow-y: auto; min-height: 90px; display: flex; flex-direction: column; gap: 8px; }
+.talk-line { margin: 0; padding: 8px 12px; border-radius: var(--radius); background: var(--soft); font-family: var(--body-text); line-height: 1.45; }
+.talk-line.you { align-self: flex-end; max-width: 85%; }
+.talk-line.editor { align-self: flex-start; max-width: 92%; border-left: 3px solid var(--accent); }
+.talk-line b { font-family: var(--sans); font-size: 0.8rem; margin-right: 4px; }
+.talk-form { display: flex; gap: 8px; }
+.talk-form input { flex: 1; min-height: 44px; font-size: 16px; padding: 8px 12px; border: 1px solid var(--rule); border-radius: var(--radius); background: var(--bg); color: inherit; }
+.talk-end { min-height: 44px; }
+.talk-btn span { font-family: var(--sans); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.04em; }
