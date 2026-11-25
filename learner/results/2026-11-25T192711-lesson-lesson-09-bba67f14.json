@@ -1,0 +1,782 @@
+{
+ "schema": 3,
+ "resultId": "bba67f14-cf58-421d-87f8-16997f2ffa03",
+ "kind": "lesson",
+ "lessonId": "lesson-09",
+ "lessonTitle": "Your turn to haggle",
+ "appVersion": "4",
+ "style": "paper",
+ "device": "Mac",
+ "startedAt": "2026-11-25T02:08:33.262Z",
+ "finishedAt": "2026-11-25T19:27:11.105Z",
+ "durationSec": 62318,
+ "summary": {
+  "firstTryAccuracy": 0.71,
+  "exercises": 24,
+  "bestStreak": 6,
+  "grade": "merit",
+  "speedScore": 450,
+  "speedAnswered": 11,
+  "speedCorrect": 11,
+  "bestCombo": 11
+ },
+ "article": {
+  "readSec": 2,
+  "factsShown": 0
+ },
+ "quiz": null,
+ "situations": {
+  "correct": 4,
+  "total": 8
+ },
+ "dialogues": {
+  "correct": 0,
+  "total": 1
+ },
+ "timing": {
+  "warmup": 3,
+  "words": 27,
+  "drills": 206,
+  "conversation": 71,
+  "reallife": 274,
+  "rush": 43,
+  "article": 2,
+  "pauses": 7,
+  "longestPauseSec": 156
+ },
+ "toneMarks": "relaxed",
+ "words": [
+  {
+   "vi": "hàng",
+   "en": "wares, goods; a shop or stall that sells them",
+   "failures": 2,
+   "timeSec": 18,
+   "replays": 1,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 11,
+   "share": 0.75,
+   "meaning": 1,
+   "form": 0.5,
+   "stars": 2,
+   "firstTry": {
+    "listen": true,
+    "spell": false,
+    "type": "tone"
+   },
+   "attempts": 5,
+   "msMedian": 3998,
+   "known": false
+  },
+  {
+   "vi": "được",
+   "en": "OK, all right; can be done",
+   "failures": 5,
+   "timeSec": 30,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 8,
+   "share": 0.25,
+   "meaning": 0.5,
+   "form": 0,
+   "stars": 0,
+   "firstTry": {
+    "listen": true,
+    "spell": false,
+    "type": "wrong"
+   },
+   "attempts": 7,
+   "msMedian": 2926,
+   "known": false
+  },
+  {
+   "vi": "lấy",
+   "en": "to take; I'll have (at a stall or at the table)",
+   "failures": 1,
+   "timeSec": 23,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 8,
+   "share": 0.67,
+   "meaning": 1,
+   "form": 0.5,
+   "stars": 1,
+   "firstTry": {
+    "listen": true,
+    "spell": true,
+    "type": "wrong"
+   },
+   "attempts": 4,
+   "msMedian": 7259,
+   "known": false
+  },
+  {
+   "vi": "trứng",
+   "en": "egg",
+   "failures": 0,
+   "timeSec": 40,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 1,
+   "share": 1,
+   "meaning": 1,
+   "form": 1,
+   "stars": 3,
+   "firstTry": {
+    "listen": true,
+    "reverse": true,
+    "type": "marks"
+   },
+   "attempts": 3,
+   "msMedian": 5084,
+   "known": false
+  },
+  {
+   "vi": "bớt",
+   "en": "to take some off (a price); to reduce",
+   "failures": 0,
+   "timeSec": 5,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 1,
+   "meaning": 1,
+   "form": null,
+   "stars": 3,
+   "firstTry": {
+    "listen": true
+   },
+   "attempts": 1,
+   "msMedian": 5059,
+   "known": false
+  },
+  {
+   "vi": "đắt",
+   "en": "expensive",
+   "failures": 1,
+   "timeSec": 6,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 0,
+   "meaning": 0,
+   "form": null,
+   "stars": 0,
+   "firstTry": {
+    "listen": false
+   },
+   "attempts": 2,
+   "msMedian": 4275,
+   "known": false
+  },
+  {
+   "vi": "chục",
+   "en": "a set of ten things, as sellers count (ten eggs)",
+   "failures": 0,
+   "timeSec": 4,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 1,
+   "meaning": 1,
+   "form": null,
+   "stars": 3,
+   "firstTry": {
+    "listen": true
+   },
+   "attempts": 1,
+   "msMedian": 3592,
+   "known": false
+  },
+  {
+   "vi": "gà",
+   "en": "chicken",
+   "failures": 0,
+   "timeSec": 7,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 1,
+   "meaning": 1,
+   "form": null,
+   "stars": 3,
+   "firstTry": {
+    "listen": true
+   },
+   "attempts": 1,
+   "msMedian": 6545,
+   "known": false
+  },
+  {
+   "vi": "hết",
+   "en": "in total (of a bill); also: used up, sold out",
+   "failures": 0,
+   "timeSec": 4,
+   "replays": 1,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 1,
+   "meaning": 1,
+   "form": null,
+   "stars": 3,
+   "firstTry": {
+    "listen": true
+   },
+   "attempts": 1,
+   "msMedian": 3796,
+   "known": false
+  }
+ ],
+ "warmup": [
+  {
+   "vi": "cảm ơn",
+   "ok": true,
+   "ms": 1844
+  },
+  {
+   "vi": "không",
+   "ok": true,
+   "ms": 1511
+  }
+ ],
+ "toneConfusions": [
+  {
+   "target": "được",
+   "chose": "đuốc"
+  },
+  {
+   "target": "hàng",
+   "chose": "hãng"
+  },
+  {
+   "target": "được",
+   "chose": "đuốc"
+  },
+  {
+   "target": "hàng",
+   "chose": "hạng"
+  }
+ ],
+ "meaningConfusions": [
+  {
+   "target": "được",
+   "chose": "to take; I'll have (at a stall or at the table)",
+   "t": "listen"
+  },
+  {
+   "target": "đắt",
+   "chose": "to take some off (a price); to reduce",
+   "t": "listen"
+  },
+  {
+   "target": "Anh lấy hai cân.",
+   "chose": "OK then, fine (accepting a price)",
+   "t": "listen"
+  },
+  {
+   "target": "Anh lấy hai cân.",
+   "chose": "OK then, fine (accepting a price)",
+   "t": "listen"
+  }
+ ],
+ "typed": [
+  {
+   "target": "hàng",
+   "answer": "hang",
+   "grade": "tone",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 2065
+  },
+  {
+   "target": "được",
+   "answer": "doc",
+   "grade": "wrong",
+   "accepted": false,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 10958
+  },
+  {
+   "target": "trứng",
+   "answer": "trung",
+   "grade": "marks",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 32353
+  },
+  {
+   "target": "lấy",
+   "answer": "boc",
+   "grade": "wrong",
+   "accepted": false,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 4812
+  },
+  {
+   "target": "được",
+   "answer": "đươc",
+   "grade": "tone",
+   "tiles": true,
+   "retry": true
+  },
+  {
+   "target": "lấy",
+   "answer": "lấy",
+   "grade": "perfect",
+   "tiles": true,
+   "retry": true
+  }
+ ],
+ "feedback": {
+  "difficulty": null,
+  "fun": "OK",
+  "article": "Interesting",
+  "hardest": [
+   "được",
+   "lấy",
+   "đắt"
+  ],
+  "wantNext": "let's try something different than numbers and prices for the next lesson",
+  "note": null
+ },
+ "events": [
+  {
+   "t": "listen",
+   "w": "cảm ơn",
+   "ok": true,
+   "a": "thank you",
+   "ms": 1844,
+   "warmup": true
+  },
+  {
+   "t": "listen",
+   "w": "không",
+   "ok": true,
+   "a": "no, not (also ends a yes-or-no question)",
+   "ms": 1511,
+   "warmup": true
+  },
+  {
+   "t": "meet",
+   "w": "hàng",
+   "ms": 10553
+  },
+  {
+   "t": "meet",
+   "w": "được",
+   "ms": 7920
+  },
+  {
+   "t": "meet",
+   "w": "lấy",
+   "ms": 7581
+  },
+  {
+   "t": "meet",
+   "w": "trứng",
+   "ms": 1215
+  },
+  {
+   "t": "listen",
+   "w": "hàng",
+   "ok": true,
+   "a": "wares, goods; a shop or stall that sells them",
+   "ms": 4168
+  },
+  {
+   "t": "listen",
+   "w": "được",
+   "ok": false,
+   "a": "to take; I'll have (at a stall or at the table)",
+   "ms": 3516
+  },
+  {
+   "t": "listen",
+   "w": "được",
+   "ok": true,
+   "a": "OK, all right; can be done",
+   "ms": 2279,
+   "retry": true
+  },
+  {
+   "t": "listen",
+   "w": "lấy",
+   "ok": true,
+   "a": "to take; I'll have (at a stall or at the table)",
+   "ms": 6687
+  },
+  {
+   "t": "listen",
+   "w": "trứng",
+   "ok": true,
+   "a": "egg",
+   "ms": 1565
+  },
+  {
+   "t": "listen",
+   "w": "được",
+   "ok": true,
+   "a": "OK, all right; can be done",
+   "ms": 2459
+  },
+  {
+   "t": "listen",
+   "w": "hết",
+   "ok": true,
+   "a": "in total (of a bill); also: used up, sold out",
+   "ms": 3796,
+   "plays": 1
+  },
+  {
+   "t": "listen",
+   "w": "đắt",
+   "ok": false,
+   "a": "to take some off (a price); to reduce",
+   "ms": 4275
+  },
+  {
+   "t": "listen",
+   "w": "gà",
+   "ok": true,
+   "a": "chicken",
+   "ms": 6545
+  },
+  {
+   "t": "listen",
+   "w": "hàng",
+   "ok": true,
+   "a": "wares, goods; a shop or stall that sells them",
+   "ms": 5539,
+   "plays": 1
+  },
+  {
+   "t": "listen",
+   "w": "bớt",
+   "ok": true,
+   "a": "to take some off (a price); to reduce",
+   "ms": 5059
+  },
+  {
+   "t": "listen",
+   "w": "đắt",
+   "ok": true,
+   "a": "expensive",
+   "ms": 1879,
+   "retry": true
+  },
+  {
+   "t": "listen",
+   "w": "chục",
+   "ok": true,
+   "a": "a set of ten things, as sellers count (ten eggs)",
+   "ms": 3592
+  },
+  {
+   "t": "reverse",
+   "w": "trứng",
+   "ok": true,
+   "a": "trứng",
+   "ms": 5084
+  },
+  {
+   "t": "spell",
+   "w": "được",
+   "ok": false,
+   "a": "đuốc",
+   "ms": 2926
+  },
+  {
+   "t": "spell",
+   "w": "lấy",
+   "ok": true,
+   "a": "lấy",
+   "ms": 1382
+  },
+  {
+   "t": "spell",
+   "w": "hàng",
+   "ok": false,
+   "a": "hãng",
+   "ms": 1463
+  },
+  {
+   "t": "type",
+   "w": "hàng",
+   "ok": true,
+   "g": "tone",
+   "a": "hang",
+   "ms": 3998,
+   "hints": 0,
+   "firstKeyMs": 2065
+  },
+  {
+   "t": "spell",
+   "w": "được",
+   "ok": false,
+   "a": "đuốc",
+   "ms": 1336,
+   "retry": true
+  },
+  {
+   "t": "type",
+   "w": "được",
+   "ok": false,
+   "g": "wrong",
+   "a": "doc",
+   "ms": 12213,
+   "hints": 0,
+   "firstKeyMs": 10958
+  },
+  {
+   "t": "spell",
+   "w": "hàng",
+   "ok": false,
+   "a": "hạng",
+   "ms": 2538,
+   "retry": true
+  },
+  {
+   "t": "type",
+   "w": "trứng",
+   "ok": true,
+   "g": "marks",
+   "a": "trung",
+   "ms": 33737,
+   "hints": 0,
+   "firstKeyMs": 32353
+  },
+  {
+   "t": "type",
+   "w": "lấy",
+   "ok": false,
+   "g": "wrong",
+   "a": "boc",
+   "ms": 7259,
+   "hints": 0,
+   "firstKeyMs": 4812
+  },
+  {
+   "t": "type",
+   "w": "được",
+   "g": "tone",
+   "a": "đươc",
+   "ms": 5179,
+   "retry": true,
+   "tiles": true
+  },
+  {
+   "t": "type",
+   "w": "lấy",
+   "g": "perfect",
+   "a": "lấy",
+   "ms": 7670,
+   "retry": true,
+   "tiles": true
+  },
+  {
+   "t": "listen",
+   "w": "Anh lấy hai cân.",
+   "ok": false,
+   "a": "OK then, fine (accepting a price)",
+   "ms": 8193,
+   "plays": 1
+  },
+  {
+   "t": "listen",
+   "w": "Hai lăm được không?",
+   "ok": true,
+   "a": "Can it be 25,000?",
+   "ms": 5028
+  },
+  {
+   "t": "listen",
+   "w": "Được rồi!",
+   "ok": true,
+   "a": "OK then, fine (accepting a price)",
+   "ms": 7849
+  },
+  {
+   "t": "listen",
+   "w": "một chục trứng",
+   "ok": true,
+   "a": "ten eggs",
+   "ms": 19783,
+   "plays": 2
+  },
+  {
+   "t": "listen",
+   "w": "Anh lấy hai cân.",
+   "ok": false,
+   "a": "OK then, fine (accepting a price)",
+   "ms": 21019,
+   "retry": true,
+   "plays": 2
+  },
+  {
+   "t": "listen",
+   "w": "hàng phở",
+   "ok": true,
+   "a": "a phở shop",
+   "ms": 7971
+  },
+  {
+   "t": "dialogue",
+   "w": "What did you pay?",
+   "ok": false,
+   "a": "Hai mốt được không chị?",
+   "ms": 70931
+  },
+  {
+   "t": "say",
+   "w": "25.000₫",
+   "ok": true,
+   "g": "marks",
+   "a": "hai lam duoc khong?",
+   "ms": 22192
+  },
+  {
+   "t": "situation",
+   "w": "Hết trứng rồi anh ạ.",
+   "ok": false,
+   "a": "That's 30,000 in total.",
+   "ms": 15004
+  },
+  {
+   "t": "situation",
+   "w": "Xoài năm mươi một cân anh ạ.",
+   "ok": true,
+   "a": "50.000₫",
+   "ms": 16280,
+   "plays": 1
+  },
+  {
+   "t": "say",
+   "w": "20.000₫ a hand",
+   "ok": false,
+   "g": "wrong",
+   "a": "hai muoi douc khong?",
+   "ms": 144774
+  },
+  {
+   "t": "say",
+   "w": "150.000₫",
+   "ok": false,
+   "g": "wrong",
+   "a": "tram rau douc khong?",
+   "ms": 23994
+  },
+  {
+   "t": "situation",
+   "w": "Thịt gà hai trăm một cân anh ạ.",
+   "ok": true,
+   "a": "Đắt quá! Bớt được không em?",
+   "ms": 10486
+  },
+  {
+   "t": "situation",
+   "w": "Được, hai lăm anh nhé.",
+   "ok": true,
+   "a": "25",
+   "ms": 17442,
+   "plays": 1
+  },
+  {
+   "t": "situation",
+   "w": "Anh lấy mấy cân ạ?",
+   "ok": false,
+   "a": "Anh lấy hai nải.",
+   "ms": 24191,
+   "plays": 2
+  },
+  {
+   "t": "speed",
+   "w": "hàng",
+   "ok": true,
+   "a": "wares, goods; a shop or stall that sells them",
+   "ms": 2106
+  },
+  {
+   "t": "speed",
+   "w": "đắt",
+   "ok": true,
+   "a": "expensive",
+   "ms": 2141
+  },
+  {
+   "t": "speed",
+   "w": "một chục trứng",
+   "ok": true,
+   "a": "ten eggs",
+   "ms": 3943
+  },
+  {
+   "t": "speed",
+   "w": "Hai lăm được không?",
+   "ok": true,
+   "a": "Can it be 25,000?",
+   "ms": 12939
+  },
+  {
+   "t": "speed",
+   "w": "đắt",
+   "ok": true,
+   "a": "expensive",
+   "ms": 2731
+  },
+  {
+   "t": "speed",
+   "w": "một chục trứng",
+   "ok": true,
+   "a": "ten eggs",
+   "ms": 2969
+  },
+  {
+   "t": "speed",
+   "w": "gà",
+   "ok": true,
+   "a": "chicken",
+   "ms": 1474
+  },
+  {
+   "t": "speed",
+   "w": "được",
+   "ok": true,
+   "a": "OK, all right; can be done",
+   "ms": 6283
+  },
+  {
+   "t": "speed",
+   "w": "lấy",
+   "ok": true,
+   "a": "to take; I'll have (at a stall or at the table)",
+   "ms": 4791
+  },
+  {
+   "t": "speed",
+   "w": "hàng phở",
+   "ok": true,
+   "a": "a phở shop",
+   "ms": 2046
+  },
+  {
+   "t": "speed",
+   "w": "một chục trứng",
+   "ok": true,
+   "a": "ten eggs",
+   "ms": 2062
+  }
+ ],
+ "issue": 24
+}

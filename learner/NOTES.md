@@ -1,5 +1,7 @@
 Things the learner said in conversation, newest first. Add to this file whenever the learner gives feedback outside the app.
 
+- 2026-11-25 (Talk, during a review): about đồng, "I already know this, I'll never forget, so can you not show this again?" Added to web/lessons/known.json. Also surprised that the review desk still had words due right after a review (a review takes at most 20 words; misses come back after 10 minutes; issue 9's words had just joined).
+
 - 2026-11-25 (Talk, issue 9, the table dialogue): "This one was a little hard to follow" and "There's just a lot of new words in here." Issue 9's dialogue and real-life lines carried many extras beyond its four words; docs/PEDAGOGY.md now limits extras to three per issue. Also asked how to pronounce không, and asked the editor to check the say question was accurate (it was).
 
 - 2026-11-25 (Talk, issue 9): "this doesn't look like an egg to me" about trứng's picture (the egg-coffee cup); it is now a plain egg. Also asked how to remember the tones ("the accents"), which tones are most common, and whether spelling with tones matters; the editor said hearing and saying them matters more for now. A short, fun tone aid (not drills) may be welcome: the learner asked for less focus on tones in issue 2, but now wants help remembering them.
