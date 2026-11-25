@@ -207,6 +207,12 @@ What they wanted to know or say. Teach these in coming issues where they fit.
 
 - 2026-11-23 (issue 6, At the table; word: canh (soup (a clear broth eaten with rice))): "Isnt soup in vietnamese also soup?" Answered: Yes, there is a word for that too: **súp** (also written **xúp**), borrowed from French *soupe*. It means a thick, Western-style soup, like **súp cua** (thick c Phrases: Cháu ăn canh đi. (Have some soup (an elder to you).), Canh ngon quá ạ! (The soup is delicious! (politely, to an elder)), một bát súp cua (a bowl of thick crab soup).
 
+## Live conversations (Talk), newest first
+
+What the learner said to the editors out loud. Treat requests and complaints as feedback; full transcripts are in `learner/talks/`.
+
+- 2026-11-25T01:06 (In a spaced review, on a listen screen.): quick affirmation. / focus on finding some great local dining spots or would you prefer more details on hiking and nature reserves around Carmel.
+
 ## Notes from the learner outside the app
 
 Things the learner said in conversation, newest first. Add to this file whenever the learner gives feedback outside the app.
