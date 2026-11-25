@@ -538,7 +538,7 @@ async function askPage() {
         <div class="row"><button type="submit" class="btn primary">Send</button></div>
         <p class="form-status hint"></p>
       </form>
-      ${talkKey() ? '<div class="row"><button type="button" class="btn talk-now" data-act="talk">Talk now</button><span class="hint">Ask out loud and hear the answer straight away.</span></div>' : ''}
+      ${talkKey() ? '<div class="row"><button type="button" class="btn talk-now" data-act="talk">Ask a question</button><span class="hint">Ask out loud and hear the answer straight away.</span></div>' : ''}
       <h2 class="section-title">Your questions</h2>
       <div class="question-list"></div>
     </div>`;
@@ -709,8 +709,8 @@ function settingsPage() {
         <p class="copy-status hint"></p>
       </section>
       <section class="panel talk-panel">
-        <h2>Talk to the editors</h2>
-        <p>Ask out loud during an issue (the Talk button) or on the Ask page, and hear the answer straight away. It uses Google's Gemini Live with your own key, kept on this device only. The editors read each conversation's transcript to improve the issues.</p>
+        <h2>Ask a question</h2>
+        <p>Ask out loud during an issue (the Ask button at the top) or on the Ask page, and hear the answer straight away. It uses Google's Gemini Live with your own key, kept on this device only. The editors read each conversation's transcript to improve the issues.</p>
         <form class="gemini-form">
           <input name="key" type="password" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Gemini API key" value="${esc(s.geminiKey || '')}" aria-label="Gemini API key">
           <div class="row"><button class="btn primary small" type="submit">Save and test</button>${s.geminiKey ? '<button class="btn ghost small" type="button" data-act="forget-gemini">Remove</button>' : ''}</div>

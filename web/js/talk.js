@@ -74,9 +74,9 @@ export function openTalk() {
   const sheet = document.createElement('div');
   sheet.className = 'talk-sheet';
   sheet.setAttribute('role', 'dialog');
-  sheet.setAttribute('aria-label', 'Talk to the editors');
+  sheet.setAttribute('aria-label', 'Ask a question');
   sheet.innerHTML = `
-    <div class="talk-head"><div class="label">Talk to the editors</div><span class="talk-status">Connecting...</span></div>
+    <div class="talk-head"><div class="label">Ask a question</div><span class="talk-status">Connecting...</span></div>
     <p class="talk-about hint">About: ${esc(context.split('\n')[0])}</p>
     <div class="talk-log" aria-live="polite"></div>
     <form class="talk-form" autocomplete="off">
@@ -145,7 +145,7 @@ export function openTalk() {
 
   if (!key) {
     status.textContent = 'Needs a key';
-    log.innerHTML = '<p class="hint">Add your Gemini key in Settings, under Talk to the editors.</p>';
+    log.innerHTML = '<p class="hint">Add your Gemini key in Settings, under Ask a question.</p>';
     return end;
   }
   connect(key, `${RULES}\n\nWhat is on screen and what the learner knows:\n${context}`, {

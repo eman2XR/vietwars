@@ -411,7 +411,7 @@ export function runSession(root, session, onDone, onQuit) {
         <button class="icon-btn" data-act="quit" aria-label="Close">&times;</button>
         <div class="progress" role="progressbar" aria-label="Progress"><div class="fill"></div></div>
         <div class="streak-pill" aria-live="polite"></div>
-        ${session.talk ? '<button class="icon-btn talk-btn" data-act="talk" aria-label="Talk to the editors"><span>Talk</span></button>' : ''}
+        ${session.talk ? '<button class="icon-btn talk-btn" data-act="talk" aria-label="Ask a question out loud"><span>Ask</span></button>' : ''}
         ${session.ask ? '<button class="icon-btn ask-btn" data-act="ask" aria-label="Ask a question"><span>?</span></button>' : ''}
       </header>
       <main class="stage" aria-live="polite"></main>
