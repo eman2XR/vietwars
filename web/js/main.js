@@ -11,7 +11,7 @@ import { picture } from './pictures.js';
 import { pushSupport, currentSubscription, enablePush, disablePush, loadPushKeys } from './push.js';
 import { openTalk, setTalkContext, talkKey, findModel } from './talk.js';
 
-const APP_VERSION = '4';
+const APP_VERSION = '5';
 const REVIEW_LIMIT = 20;
 const app = document.getElementById('app');
 const params = new URLSearchParams(location.search);
@@ -424,8 +424,8 @@ function home() {
       ${
         store.settings().seen !== APP_VERSION
           ? `<section class="news">
-          <div class="label">New: ask the editors</div>
-          <p>Wondering how to say something, or what a word really means? Tap ? in any issue, or Ask on this page. The answer comes back here within a few hours, with the Vietnamese ready to play.</p>
+          <div class="label">New: ask a question out loud</div>
+          <p>Stuck on a word or a price? Tap Ask a question at the top of any issue and ask out loud: an editor answers straight away, knowing which screen you are on. Notes for the editors go on the Ask page.</p>
           <div class="row"><a class="btn small" href="#/ask">Ask a question</a><button class="btn ghost small" data-act="seen">Got it</button></div>
         </section>`
           : ''
