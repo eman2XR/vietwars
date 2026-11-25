@@ -88,8 +88,17 @@ export function openTalk() {
   const status = sheet.querySelector('.talk-status');
   const log = sheet.querySelector('.talk-log');
   const turns = [];
+  const talkId = `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
   let live = null;
   let ended = false;
+
+  // Keeps the transcript in the outbox as it grows, so a reload or a closed tab does not lose it.
+  function persist(open) {
+    const said = turns.filter((t) => t.text.trim());
+    if (said.length) queueTalk({ talkId, context, model: live?.model || null, turns: said.map(({ who, text }) => ({ who, text: text.trim() })), startedAt: live?.startedAt || new Date().toISOString(), open });
+  }
+  const onHide = () => persist(false);
+  window.addEventListener('pagehide', onHide);
 
   function say(who, text) {
     if (!text) return;
@@ -107,18 +116,19 @@ export function openTalk() {
     el.innerHTML = `<b>${who === 'you' ? 'You' : 'Editor'}</b> ${esc(t.text.trim())}`;
     log.scrollTop = log.scrollHeight;
   }
-  const closeTurns = () => turns.forEach((t) => (t.done = true));
+  const closeTurns = () => {
+    turns.forEach((t) => (t.done = true));
+    if (!ended) persist(true);
+  };
 
   async function end() {
     if (ended) return;
     ended = true;
     live?.close();
     sheet.remove();
-    const said = turns.filter((t) => t.text.trim());
-    if (said.length) {
-      queueTalk({ context, model: live?.model || null, turns: said.map(({ who, text }) => ({ who, text: text.trim() })), startedAt: live?.startedAt || new Date().toISOString() });
-      flush();
-    }
+    window.removeEventListener('pagehide', onHide);
+    persist(false);
+    flush();
   }
   sheet.querySelector('.talk-end').addEventListener('click', end);
   sheet.addEventListener('keydown', (ev) => ev.key === 'Escape' && end());

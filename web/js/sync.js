@@ -48,7 +48,7 @@ export async function flush() {
   let error;
   const left = [];
   for (const item of box) {
-    if (error) {
+    if (error || (item.liveUntil && item.liveUntil > Date.now())) {
       left.push(item);
       continue;
     }
@@ -103,15 +103,16 @@ export function queueQuestion(text, context) {
 
 export const TALK_MARKER = '<!-- vietwars-talk -->';
 
-// Queues the transcript of a live conversation; it is posted as a GitHub issue like a result, for the editors.
-export function queueTalk({ context, model, turns, startedAt }) {
-  const t = { talkId: `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`, startedAt, endedAt: new Date().toISOString(), device: navigator.userAgent.match(/iPhone|iPad|Macintosh/)?.[0] || 'device', context, model, turns };
+// Saves the transcript of a live conversation in the outbox, replacing any earlier copy of the same conversation; it
+// is posted as a GitHub issue like a result. While the conversation is open (liveUntil), flush leaves it alone.
+export function queueTalk({ talkId, context, model, turns, startedAt, open = false }) {
+  const t = { talkId, startedAt, endedAt: new Date().toISOString(), device: navigator.userAgent.match(/iPhone|iPad|Macintosh/)?.[0] || 'device', context, model, turns };
   const first = (turns.find((x) => x.who === 'you') || turns[0]).text.replace(/\s+/g, ' ');
   const title = `Talk: ${first.slice(0, 70)}${first.length > 70 ? '...' : ''}`;
   const text = turns.map((x) => `**${x.who === 'you' ? 'Learner' : 'Editor'}:** ${x.text}`).join('\n\n');
   const body = `${text}\n\n${TALK_MARKER}\n\`\`\`json\n${JSON.stringify(t, null, 1)}\n\`\`\`\n`;
-  const box = store.outbox();
-  box.push({ title, body, resultId: t.talkId, labels: ['talk'] });
+  const box = store.outbox().filter((x) => x.resultId !== talkId);
+  box.push({ title, body, resultId: talkId, labels: ['talk'], ...(open ? { liveUntil: Date.now() + 90000 } : {}) });
   store.saveOutbox(box);
   return t;
 }
