@@ -211,6 +211,7 @@ What they wanted to know or say. Teach these in coming issues where they fit.
 
 What the learner said to the editors out loud. Treat requests and complaints as feedback; full transcripts are in `learner/talks/`.
 
+- 2026-11-25T01:06 (In a spaced review, on a listen screen.): Is there a ways to say this word?
 - 2026-11-25T01:06 (In a spaced review, on a listen screen.): quick affirmation. / focus on finding some great local dining spots or would you prefer more details on hiking and nature reserves around Carmel.
 
 ## Notes from the learner outside the app

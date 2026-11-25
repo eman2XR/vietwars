@@ -1,5 +1,7 @@
 Things the learner said in conversation, newest first. Add to this file whenever the learner gives feedback outside the app.
 
+- 2026-11-25 (Talk, during a review): asked about đắt on a listening question ("Is there a way to say this word?"); the editor explained đắt (North) against mắc (South). đắt is still a meaning leech (0.50); keep it in reviews and real-life lines.
+
 - 2026-11-24 (after issue 8): "there should be more illustrations of market scenes and scenarios generated next time." Draw new scenes for real-life moments and story beats (a stall with its seller, haggling, weighing on a scale, a xe ôm at a corner) rather than reusing single objects.
 - 2026-11-22: The goal: "I want to have basic conversations at a dinner table for example and understand basic street talk. Introduce them wherever it makes sense, think of known/proven to work schedules/pedagogy." From issue 6 every issue has a sentence frame and a short dialogue (docs/PEDAGOGY.md, Conversation), and the next unit is a family meal.
 - 2026-11-22: "don't add the random did you know popups next time, they're annoying (the ones that actually pop up, not the other ones)." The pop-up fact cards during drills are gone from the engine; the did-you-know box on word cards stays.
