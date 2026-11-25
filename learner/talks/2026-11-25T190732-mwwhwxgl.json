@@ -1,0 +1,43 @@
+{
+ "talkId": "mwwhwxgl-mx5rzc",
+ "startedAt": "2026-11-25T19:07:32.332Z",
+ "endedAt": "2026-11-25T19:09:14.127Z",
+ "device": "Macintosh",
+ "context": "In issue 9, \"Your turn to haggle\" (the old quarter's Hàng streets; saying prices and making counter-offers with ... được không?), on a type screen.\nThe word on screen: được (OK, all right; can be done). Hook: You shake on the price, and the seller gives one heavy nod: \"durk!\" (no r, the way the English say \"dirk\"), cut off short. Deal: được, OK. Note: Được không? asks \"OK or not?\" after an offer: Hai mươi được không em? Can it be twenty? The answer: Được! (OK!) or Không được (no, I can't).\nThis issue's new words: hàng (wares, goods; a shop or stall that sells them), được (OK, all right; can be done), lấy (to take; I'll have (at a stall or at the table)), trứng (egg).\nThis issue's sentence frame: ... được không? Is that OK?\nThis issue's story: Streets named for what they sold. Most street names in Hà Nội's old quarter begin with hàng, wares, and end with what was once sold there: Hàng Gà for poultry, Hàng Đồng for copper, Hàng Tre for bamboo. An old rhyme counts ba mươi sáu phố, thirty-six streets; the protected quarter today has 76.\nIssues played: 1 Phở and friends; 2 Big numbers and prices; 3 One to ten, properly; 4 People and family; 5 At the market; 6 At the table; 7 Getting around; 8 A numbers clinic.\nWords the learner has met: gà (chicken), bò (beef; cow), cá (fish), trăm (hundred), nghìn (thousand), triệu (million), mươi (-ty, the tens (as in 20)), lăm (five, after the tens (as in 15 and 25)), linh (zero (for an empty tens place, as in 105)), rưỡi (and a half (after a unit)), tiền (money), đồng (Vietnam's currency (₫)), bao nhiêu (how much, how many), đắt (expensive), rẻ (cheap), hơn (more than; -er (as in cheaper)), nữa (more, another), bốn (four), tám (eight), chín (nine (also: ripe, cooked)), ba (three), một (one), hai (two), năm (five (also: year)), sáu (six), bảy (seven), mười (ten), tên (name), tôi (I, me (neutral; safe with strangers)), anh (older brother; you (to a man a bit older)), chị (older sister; you (to a woman a bit older)), em (younger brother or sister; you (to someone younger)), cô (aunt; you (to a woman a bit younger than your parents)), chú (uncle; you (to a man a bit younger than your parents)), ông (grandfather; you (to an old man)), bạn (friend; you (to someone your own age)), bà (grandmother; you (to an old woman)), mua (to buy), quả (fruit; also the counting word for fruit), cam (orange (the fruit)), chuối (banana), cân (a kilo; also: scale, to weigh), thịt (meat), bớt (to take some off (a price); to reduce), hết (in total (of a bill); also: used up, sold out), mời (to invite; please (go ahead, have some)), cháu (grandchild, niece or nephew; I (to your parents' or grandparents' generation)), bát (bowl (a rice bowl)), đũa (chopsticks), canh (soup (a clear broth eaten with rice)), no (full (after eating)), vâng (yes (polite, to someone older)), uống (to drink), xe ôm (motorbike taxi), đâu (where), trái (left (the side)), gần (near, close by), rẽ (to turn (at a corner)), phải (right (the side)), nhăm (five after the tens, a casual spoken form of lăm (as in 25)), mốt (one at the end of 21, 31 ... 91 (11 stays mười một)), tư (four at the end of 24, 34 ... 94 (14 stays mười bốn)), chục (a set of ten things, as sellers count (ten eggs)).\nWords they already knew: phở, cơm, bún, bánh mì, rau, nước, trà, cà phê, ngon.\nWords still weak: gà, đồng, bao nhiêu, đắt, hơn, năm, tên, bạn, bớt, hết, gần, rẽ, phải, nhăm, tư, chục.",
+ "model": "gemini-2.5-flash-native-audio-latest",
+ "turns": [
+  {
+   "who": "you",
+   "text": "Hello, can you?"
+  },
+  {
+   "who": "editor",
+   "text": "Vâng, chào bạn! Yes, I can hear you. We're looking at the word \"được\" on screen, which means \"OK\" or \"all right\"."
+  },
+  {
+   "who": "you",
+   "text": "Uh, I'm trying to figure out how I can remember the accents or try to understand them better. Do you have any tips?"
+  },
+  {
+   "who": "editor",
+   "text": "That's a great question! Tones are challenging. Try focusing on just a few at a time. For \"được\", for example, notice how it's a short, heavy sound, almost cut off. Listening and practicing consistently makes a big difference."
+  },
+  {
+   "who": "you",
+   "text": "How many of them in which ones are the most common?"
+  },
+  {
+   "who": "editor",
+   "text": "Northern Vietnamese has six tones. The \"dấu sắc\" and \"dấu huyền\" are quite common, but don't worry too much about counting them right now. Context will also help a lot."
+  },
+  {
+   "who": "you",
+   "text": "Should I worry about being able to write spell properly with the tones?"
+  },
+  {
+   "who": "editor",
+   "text": "For your goal of dinner-table and street talk, focusing on pronunciation and understanding is more important right now. Spelling can come later!"
+  }
+ ],
+ "issue": 19
+}

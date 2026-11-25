@@ -956,6 +956,17 @@ const ICONS = {
       <path stroke-width="1.3" d="M46 24 q5 -4 10 -1 M62 22 q5 -3 10 0"/>
       <path stroke-width="2.4" d="M74 22 L96 6"/>`,
   },
+  // trứng: an egg standing up, and one cracked open beside it with its yolk in the half shell.
+  egg: {
+    tone: 'warm',
+    seed: 243,
+    ink: `<path class="k-paper" d="M46 14 C60 14 70 38 70 54 C70 70 60 80 46 80 C32 80 22 70 22 54 C22 38 32 14 46 14 Z"/>
+      <path stroke-width="1.4" d="M31 46 C33 36 37 28 41 24"/>
+      <path class="k-paper" d="M76 60 L80 54 L84 59 L89 53 L93 59 L98 54 L102 60 C102 72 96 80 89 80 C82 80 76 72 76 60 Z"/>
+      <ellipse class="k-tint" cx="89" cy="62" rx="8" ry="5"/>
+      <path stroke-width="1.2" d="M85 61 q2 -2 5 -1"/>
+      <path d="M12 82 H110"/>`,
+  },
 };
 
 function icon(name) {

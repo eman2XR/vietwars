@@ -211,12 +211,16 @@ What they wanted to know or say. Teach these in coming issues where they fit.
 
 What the learner said to the editors out loud. Treat requests and complaints as feedback; full transcripts are in `learner/talks/`.
 
+- 2026-11-25T19:09 (In issue 9, "Your turn to haggle" (the old quarter's Hàng streets; saying prices and making counter-offers with ... được): Hey, this doesn't look like an egg to me. Can you send a feedback?
+- 2026-11-25T19:07 (In issue 9, "Your turn to haggle" (the old quarter's Hàng streets; saying prices and making counter-offers with ... được): Hello, can you? / Uh, I'm trying to figure out how I can remember the accents or try to understand them better. Do you have any tips? / How many of them in which ones are the most common? / Should I worry about being able to write spell properly with the tones?
 - 2026-11-25T01:06 (In a spaced review, on a listen screen.): Is there a ways to say this word?
 - 2026-11-25T01:06 (In a spaced review, on a listen screen.): quick affirmation. / focus on finding some great local dining spots or would you prefer more details on hiking and nature reserves around Carmel.
 
 ## Notes from the learner outside the app
 
 Things the learner said in conversation, newest first. Add to this file whenever the learner gives feedback outside the app.
+
+- 2026-11-25 (Talk, during a review): asked about đắt on a listening question ("Is there a way to say this word?"); the editor explained đắt (North) against mắc (South). đắt is still a meaning leech (0.50); keep it in reviews and real-life lines.
 
 - 2026-11-24 (after issue 8): "there should be more illustrations of market scenes and scenarios generated next time." Draw new scenes for real-life moments and story beats (a stall with its seller, haggling, weighing on a scale, a xe ôm at a corner) rather than reusing single objects.
 - 2026-11-22: The goal: "I want to have basic conversations at a dinner table for example and understand basic street talk. Introduce them wherever it makes sense, think of known/proven to work schedules/pedagogy." From issue 6 every issue has a sentence frame and a short dialogue (docs/PEDAGOGY.md, Conversation), and the next unit is a family meal.

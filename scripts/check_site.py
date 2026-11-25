@@ -54,6 +54,10 @@ TALK = "<!-- vietwars-talk -->"
 # question with a short transcribed reply. The setup message is kept so the check can see the context sent.
 FAKE_GEMINI = """
 (() => {
+  // Keeps the checks silent: clips play muted and the speech fallback says nothing.
+  const play = HTMLMediaElement.prototype.play;
+  HTMLMediaElement.prototype.play = function () { this.muted = true; return play.call(this); };
+  if (window.speechSynthesis) window.speechSynthesis.speak = () => {};
   const Real = window.WebSocket;
   class Fake {
     constructor(url) {

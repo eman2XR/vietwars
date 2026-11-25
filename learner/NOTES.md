@@ -1,5 +1,7 @@
 Things the learner said in conversation, newest first. Add to this file whenever the learner gives feedback outside the app.
 
+- 2026-11-25 (Talk, issue 9): "this doesn't look like an egg to me" about trứng's picture (the egg-coffee cup); it is now a plain egg. Also asked how to remember the tones ("the accents"), which tones are most common, and whether spelling with tones matters; the editor said hearing and saying them matters more for now. A short, fun tone aid (not drills) may be welcome: the learner asked for less focus on tones in issue 2, but now wants help remembering them.
+
 - 2026-11-25 (Talk, during a review): asked about đắt on a listening question ("Is there a way to say this word?"); the editor explained đắt (North) against mắc (South). đắt is still a meaning leech (0.50); keep it in reviews and real-life lines.
 
 - 2026-11-24 (after issue 8): "there should be more illustrations of market scenes and scenarios generated next time." Draw new scenes for real-life moments and story beats (a stall with its seller, haggling, weighing on a scale, a xe ôm at a corner) rather than reusing single objects.

@@ -635,8 +635,10 @@ textarea { width: 100%; padding: 12px; border-radius: var(--radius); border: 1px
 .ask-sheet .ask-form { width: min(560px, 100%); background: var(--card); border: 1px solid var(--rule); border-radius: var(--radius); padding: 16px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); }
 .ask-sheet .row { justify-content: flex-end; gap: 10px; }
 .ask-form textarea { margin: 6px 0 8px; }
-.ask-link { display: block; margin-top: 26px; padding: 14px 16px; border: 1px solid var(--rule); border-radius: var(--radius); background: var(--card); color: var(--ink); text-decoration: none; }
-.ask-link span:not(.label) { display: block; font-family: var(--body-text); color: var(--muted); }
+.ask-link { display: flex; align-items: center; gap: 14px; margin: 18px 0; padding: 16px 18px; border-radius: var(--radius); background: var(--accent); color: var(--accent-ink); text-decoration: none; }
+.ask-link .mic { width: 30px; height: 30px; }
+.ask-link b { display: block; font-family: var(--sans); font-size: 1.05rem; letter-spacing: 0.02em; }
+.ask-link-text span { display: block; font-family: var(--body-text); opacity: 0.9; }
 .badge { display: inline-block; margin-top: 8px; padding: 2px 10px; border-radius: 999px; background: var(--accent); color: var(--accent-ink); font-size: 0.8rem; }
 .question { border-top: 1px solid var(--rule); padding: 14px 0; }
 .question-text { font-family: var(--display); font-weight: 600; font-size: 1.25rem; margin: 0 0 8px; }
@@ -671,4 +673,8 @@ textarea { width: 100%; padding: 12px; border-radius: var(--radius); border: 1px
 .talk-form { display: flex; gap: 8px; }
 .talk-form input { flex: 1; min-height: 44px; font-size: 16px; padding: 8px 12px; border: 1px solid var(--rule); border-radius: var(--radius); background: var(--bg); color: inherit; }
 .talk-end { min-height: 44px; }
-.talk-btn span { font-family: var(--sans); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.04em; }
+.talk-btn { flex: none; display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 14px; border: none; border-radius: 999px; background: var(--accent); color: var(--accent-ink); font-family: var(--sans); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.02em; cursor: pointer; }
+.mic { width: 18px; height: 18px; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+.talk-now { display: inline-flex; align-items: center; gap: 8px; }
+.talk-now .mic { width: 20px; height: 20px; }
+@media (max-width: 400px) { .streak-pill { min-width: 0; } .session-bar { gap: 8px; } }

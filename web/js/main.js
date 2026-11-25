@@ -444,6 +444,7 @@ function home() {
         </a>`
           : ''
       }
+      <a class="ask-link" href="#/ask"><svg class="mic" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21M8.5 21h7"/></svg><span class="ask-link-text"><b>Ask a question</b><span>Ask out loud and hear the answer straight away, or send the editors feedback.</span></span></a>
       <div class="stats home-stats">
         <div><b>${streak(p.days)}</b><span>day streak</span></div>
         <div><b>${learned}</b><span>words</span></div>
@@ -475,7 +476,6 @@ function home() {
           return st === 'locked' ? `<div class="issue status-locked">${inner}</div>` : `<a class="issue status-${st}" href="#/lesson/${esc(l.id)}">${inner}</a>`;
         }).join('')}
       </div>
-      <a class="ask-link" href="#/ask"><span class="label">Ask a question</span><span>Ask out loud, or send the editors feedback.</span></a>
       <div class="row links"><a class="text-link" href="#/words">Your words</a><a class="text-link" href="#/settings">Style and settings</a></div>
     </div>`;
 }
@@ -493,7 +493,7 @@ async function askPage() {
       <a class="back" href="#/">Magazine</a>
       <h1 class="title">Ask a question</h1>
       <p class="lead">Ask out loud and hear the answer straight away: how to say something, the difference between two words, why it is like that.</p>
-      ${talkKey() ? '<div class="row"><button type="button" class="btn primary talk-now" data-act="talk">Ask a question</button></div>' : '<p class="hint">Add your Gemini key in <a href="#/settings">Settings</a>, under Ask a question, to start.</p>'}
+      ${talkKey() ? '<div class="row"><button type="button" class="btn primary talk-now" data-act="talk"><svg class="mic" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21M8.5 21h7"/></svg>Ask a question</button></div>' : '<p class="hint">Add your Gemini key in <a href="#/settings">Settings</a>, under Ask a question, to start.</p>'}
       <h2 class="section-title">Feedback for the editors</h2>
       <p>What should change? A word that kept tripping you up, an issue that dragged, something you want to learn next, anything on the site. The editors read every note before they write the next issue.</p>
       <form class="ask-form page-feedback">
