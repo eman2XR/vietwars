@@ -423,9 +423,9 @@ export function runSession(root, session, onDone, onQuit) {
     const w = step.word;
     const lines = [lesson ? `In issue ${lesson.number}, "${lesson.title}" (${lesson.theme || ''}), on a ${step.type || 'screen'} screen.` : `In a spaced review, on a ${step.type || 'screen'} screen.`];
     if (w && !w.sit) lines.push(`The word on screen: ${w.vi} (${w.en})${w.hook ? `. Hook: ${w.hook}` : ''}${w.note ? ` Note: ${w.note}` : ''}`);
-    if (w && w.sit) lines.push(`The real-life line on screen: ${w.say ? `the learner must say ${w.say}; the model answer is ${w.vi}` : `${w.vi} (${w.en})`}. Question: ${w.ask}`);
+    if (w && w.sit && !step.dialogue) lines.push(`The real-life line on screen: ${w.say ? `the learner must say ${w.say}; the model answer is ${w.vi}` : `${w.vi} (${w.en})`}. Question: ${w.ask}`);
     if (step.beat) lines.push(`The story beat on screen: ${step.beat.text}`);
-    if (step.dialogue) lines.push(`The dialogue on screen: ${step.dialogue.lines.map((l) => `${l.who}: ${l.vi} (${l.en})`).join(' / ')}`);
+    if (step.dialogue) lines.push(`The dialogue on screen, "${step.dialogue.title}": ${step.dialogue.lines.map((l) => `${l.who}: ${l.vi} (${l.en})`).join(' / ')}. Then the learner picks what to say: ${step.dialogue.check.ask}`);
     if (lesson) {
       lines.push(`This issue's new words: ${lesson.words.map((x) => `${x.vi} (${x.en})`).join(', ')}.`);
       if (lesson.grammar) lines.push(`This issue's sentence frame: ${lesson.grammar.title}`);

@@ -1,5 +1,7 @@
 Things the learner said in conversation, newest first. Add to this file whenever the learner gives feedback outside the app.
 
+- 2026-11-25 (Talk, issue 9, the table dialogue): "This one was a little hard to follow" and "There's just a lot of new words in here." Issue 9's dialogue and real-life lines carried many extras beyond its four words; docs/PEDAGOGY.md now limits extras to three per issue. Also asked how to pronounce không, and asked the editor to check the say question was accurate (it was).
+
 - 2026-11-25 (Talk, issue 9): "this doesn't look like an egg to me" about trứng's picture (the egg-coffee cup); it is now a plain egg. Also asked how to remember the tones ("the accents"), which tones are most common, and whether spelling with tones matters; the editor said hearing and saying them matters more for now. A short, fun tone aid (not drills) may be welcome: the learner asked for less focus on tones in issue 2, but now wants help remembering them.
 
 - 2026-11-25 (Talk, during a review): asked about đắt on a listening question ("Is there a way to say this word?"); the editor explained đắt (North) against mắc (South). đắt is still a meaning leech (0.50); keep it in reviews and real-life lines.

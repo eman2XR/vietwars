@@ -211,6 +211,9 @@ What they wanted to know or say. Teach these in coming issues where they fit.
 
 What the learner said to the editors out loud. Treat requests and complaints as feedback; full transcripts are in `learner/talks/`.
 
+- 2026-11-25T19:18 (In issue 9, "Your turn to haggle" (the old quarter's Hàng streets; saying prices and making counter-offers with ... được): Can you check if what this page is saying here is actually.
+- 2026-11-25T19:16 (In issue 9, "Your turn to haggle" (the old quarter's Hàng streets; saying prices and making counter-offers with ... được): This one was a little hard to follow. Send that feedback. / There's just a lot of new words in here.
+- 2026-11-25T19:11 (In issue 9, "Your turn to haggle" (the old quarter's Hàng streets; saying prices and making counter-offers with ... được): to pronounce the the word for no can you help me out / Hm. / ربع حنا / Can you of me pronounce that word again give me some tips or hands or ways to pronounce it in a different way? / No the word no. / Խնդրում խ
 - 2026-11-25T19:09 (In issue 9, "Your turn to haggle" (the old quarter's Hàng streets; saying prices and making counter-offers with ... được): Hey, this doesn't look like an egg to me. Can you send a feedback?
 - 2026-11-25T19:07 (In issue 9, "Your turn to haggle" (the old quarter's Hàng streets; saying prices and making counter-offers with ... được): Hello, can you? / Uh, I'm trying to figure out how I can remember the accents or try to understand them better. Do you have any tips? / How many of them in which ones are the most common? / Should I worry about being able to write spell properly with the tones?
 - 2026-11-25T01:06 (In a spaced review, on a listen screen.): Is there a ways to say this word?
@@ -219,6 +222,8 @@ What the learner said to the editors out loud. Treat requests and complaints as 
 ## Notes from the learner outside the app
 
 Things the learner said in conversation, newest first. Add to this file whenever the learner gives feedback outside the app.
+
+- 2026-11-25 (Talk, issue 9): "this doesn't look like an egg to me" about trứng's picture (the egg-coffee cup); it is now a plain egg. Also asked how to remember the tones ("the accents"), which tones are most common, and whether spelling with tones matters; the editor said hearing and saying them matters more for now. A short, fun tone aid (not drills) may be welcome: the learner asked for less focus on tones in issue 2, but now wants help remembering them.
 
 - 2026-11-25 (Talk, during a review): asked about đắt on a listening question ("Is there a way to say this word?"); the editor explained đắt (North) against mắc (South). đắt is still a meaning leech (0.50); keep it in reviews and real-life lines.
 
