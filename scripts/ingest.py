@@ -92,6 +92,41 @@ def save_talks(close=False):
     return new
 
 
+FEEDBACK = re.compile(r"<!-- vietwars-feedback -->\s*```json\s*(\{.*\})\s*```", re.S)
+FEEDBACK_DIR = ROOT / "learner" / "feedback"
+
+
+def save_feedback():
+    """Saves notes sent with Feedback for the editors (the Ask page) to learner/feedback/ and closes their issues."""
+    out = gh("issue", "list", "-R", REPO, "--state", "open", "--label", "feedback", "--limit", "100", "--json", "number,body")
+    new = 0
+    for issue in json.loads(out):
+        m = FEEDBACK.search(issue["body"] or "")
+        if not m:
+            continue
+        try:
+            f = json.loads(m.group(1))
+        except json.JSONDecodeError:
+            print(f"issue #{issue['number']}: feedback block is not valid JSON, skipped")
+            continue
+        FEEDBACK_DIR.mkdir(parents=True, exist_ok=True)
+        path = FEEDBACK_DIR / f"{f['at'][:19].replace(':', '')}-{f['feedbackId'][:8]}.json"
+        if not path.exists():
+            path.write_text(json.dumps({**f, "issue": issue["number"]}, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+            new += 1
+        gh("issue", "close", str(issue["number"]), "-R", REPO, "--comment", f"Saved to `{path.relative_to(ROOT)}`; the editors read it before the next issue.")
+    return new
+
+
+def feedback_md():
+    if not FEEDBACK_DIR.exists():
+        return []
+    notes = [json.loads(p.read_text(encoding="utf-8")) for p in sorted(FEEDBACK_DIR.glob("*.json"), reverse=True)[:15]]
+    if not notes:
+        return []
+    return ["", "## Feedback for the editors, newest first", "", "Notes the learner sent from the Ask page. Act on them in the next plan; all notes are in `learner/feedback/`.", ""] + [f"- {n['at'][:10]}: \"{' '.join(n['text'].split())}\"" for n in notes]
+
+
 def talks_md():
     """The newest live conversations, for the summary: what the learner asked and said."""
     if not TALKS.exists():
@@ -383,7 +418,7 @@ def summary_md(p):
             line = f"- {str(q.get('askedAt', ''))[:10]}" + (f" ({q['context']})" if q.get("context") else "") + f": \"{q.get('text', '')}\""
             line += f" Answered: {first}" + (f" Phrases: {said}." if said else "") if a else " Not answered yet."
             lines.append(line)
-    lines += talks_md()
+    lines += feedback_md() + talks_md()
     notes = ROOT / "learner" / "NOTES.md"
     if notes.exists():
         lines += ["", "## Notes from the learner outside the app", "", notes.read_text(encoding="utf-8").strip()]
@@ -425,6 +460,12 @@ def main():
     elif not args.offline:
         for number, r in open_issues():
             new += save(r, issue=number)
+        try:
+            notes = save_feedback()
+            if notes:
+                print(f"{notes} new feedback note{'s' if notes != 1 else ''} saved to learner/feedback/")
+        except Exception as e:
+            print(f"feedback not saved: {str(e).splitlines()[0] if str(e) else e}")
         try:
             talks = save_talks()
             if talks:

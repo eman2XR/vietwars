@@ -33,6 +33,7 @@ DEVICES = [
 ]
 MARKER = re.compile(r"<!-- vietwars-result -->\n```json\n(.*)\n```", re.S)
 QUESTION = "<!-- vietwars-question -->"
+FEEDBACK = "<!-- vietwars-feedback -->"
 ANSWER = 'Say **Cho tôi xin hóa đơn**.\n\n<!-- vietwars-answer {"phrases": [{"vi": "Cho tôi xin hóa đơn.", "en": "The bill, please."}]} -->'
 
 STATE_JS = """() => {
@@ -234,7 +235,7 @@ class Run:
                 page.click("[data-act=next]")
             elif step == "meet" and label == "lesson" and not self.asked:
                 self.asked = True
-                self.ask_in_session(page)
+                self.in_session_buttons(page)
             elif step == "meet":
                 meets += 1
                 page.click("[data-act=known]" if meets == 2 else "[data-act=next]")
@@ -289,44 +290,25 @@ class Run:
         self.errors.append(f"{label}: did not finish within 600 actions")
         return False
 
-    def ask_in_session(self, page):
-        if not page.locator(".ask-btn").count():
-            self.errors.append("an issue has no ? button for questions")
-            return
-        page.click(".ask-btn")
-        page.wait_for_selector(".ask-sheet:not([hidden])")
-        page.fill(".ask-sheet textarea", "How do I ask for the bill?")
-        self.first(page, "lesson-ask-sheet")
-        before = len(self.posts)
-        page.click(".ask-sheet [type=submit]")
-        page.wait_for_selector(".ask-sheet[hidden]", state="attached")
-        page.locator(".fact-card.show", has_text="Question sent").wait_for()
-        for _ in range(20):
-            if len(self.posts) > before:
-                break
-            page.wait_for_timeout(100)
-        q = [x for x in self.posts[before:] if QUESTION in x["body"]]
-        if not q:
-            self.errors.append("a question asked in an issue was not posted")
-        elif "word:" not in q[0]["body"] or "question" not in (q[0].get("labels") or []):
-            self.errors.append("a posted question has no word context or no question label")
+    def in_session_buttons(self, page):
+        if page.locator(".ask-btn").count():
+            self.errors.append("an issue still shows the ? button for typed questions")
+        if not page.locator(".talk-btn").count():
+            self.errors.append("an issue has no Ask button for questions out loud")
 
     def check_ask_page(self, page):
         page.evaluate("location.hash = '#/ask'")
         page.wait_for_selector(".ask-page")
-        try:
-            page.wait_for_selector(".question.answered .phrases [data-say]", timeout=20000)
-        except Exception:
-            self.errors.append("the Ask page did not show the answer and its phrases")
+        if page.locator(".question").count():
+            self.errors.append("the Ask page still lists typed questions")
         self.first(page, "ask")
-        before = len([x for x in self.posts if QUESTION in x["body"]])
-        page.fill(".page-ask textarea", "What is the difference between nữa and nửa?")
-        page.click(".page-ask [type=submit]")
-        page.locator(".page-ask .form-status", has_text="Sent").wait_for()
-        if len([x for x in self.posts if QUESTION in x["body"]]) != before + 1:
-            self.errors.append("a question from the Ask page was not posted")
-        if page.locator(".question").count() != before + 1:
-            self.errors.append("the Ask page does not list every question")
+        before = len([x for x in self.posts if FEEDBACK in x["body"]])
+        page.fill(".page-feedback textarea", "The haggling in issue 9 was fun.")
+        page.click(".page-feedback [type=submit]")
+        page.locator(".page-feedback .form-status", has_text="Sent").wait_for()
+        sent = [x for x in self.posts if FEEDBACK in x["body"]]
+        if len(sent) != before + 1 or "feedback" not in (sent[-1].get("labels") or []):
+            self.errors.append("feedback from the Ask page was not posted with the feedback label")
 
     def check_talk(self, page):
         page.evaluate("location.hash = '#/settings'")

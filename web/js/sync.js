@@ -101,6 +101,19 @@ export function queueQuestion(text, context) {
   return q;
 }
 
+export const FEEDBACK_MARKER = '<!-- vietwars-feedback -->';
+
+// Queues a note for the editors (no answer expected); it is posted as a GitHub issue like a result.
+export function queueFeedback(text, context) {
+  const f = { feedbackId: `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`, at: new Date().toISOString(), text, context: context || null };
+  const title = `Feedback: ${text.replace(/\s+/g, ' ').slice(0, 70)}${text.length > 70 ? '...' : ''}`;
+  const body = `${text}\n\n${FEEDBACK_MARKER}\n\`\`\`json\n${JSON.stringify(f, null, 1)}\n\`\`\`\n`;
+  const box = store.outbox();
+  box.push({ title, body, resultId: f.feedbackId, labels: ['feedback'] });
+  store.saveOutbox(box);
+  return f;
+}
+
 export const TALK_MARKER = '<!-- vietwars-talk -->';
 
 // Saves the transcript of a live conversation in the outbox, replacing any earlier copy of the same conversation; it

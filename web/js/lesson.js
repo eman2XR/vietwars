@@ -412,28 +412,11 @@ export function runSession(root, session, onDone, onQuit) {
         <div class="progress" role="progressbar" aria-label="Progress"><div class="fill"></div></div>
         <div class="streak-pill" aria-live="polite"></div>
         ${session.talk ? '<button class="icon-btn talk-btn" data-act="talk" aria-label="Ask a question out loud"><span>Ask</span></button>' : ''}
-        ${session.ask ? '<button class="icon-btn ask-btn" data-act="ask" aria-label="Ask a question"><span>?</span></button>' : ''}
       </header>
       <main class="stage" aria-live="polite"></main>
       <div class="fact-card" role="status"></div>
-      <div class="ask-sheet" hidden>
-        <form class="ask-form">
-          <div class="label">Ask the editors</div>
-          <textarea name="q" rows="3" placeholder="How do I say...? What is the difference between...?" aria-label="Your question"></textarea>
-          <p class="hint ask-context"></p>
-          <div class="row"><button type="button" class="btn ghost small" data-act="ask-cancel">Cancel</button><button type="submit" class="btn primary small">Send</button></div>
-        </form>
-      </div>
     </div>`;
   const sessionEl = root.querySelector('.session');
-  const askSheet = root.querySelector('.ask-sheet');
-  function askContext() {
-    const w = S.steps[S.i]?.word;
-    const parts = [lesson ? `issue ${lesson.number}, ${lesson.title}` : 'review'];
-    if (w && !w.sit) parts.push(`word: ${w.vi} (${w.en})`);
-    if (w && w.sit) parts.push(`line: ${w.vi}`);
-    return parts.join('; ');
-  }
   // What is on screen, in more detail, for a live conversation with the editors.
   function talkContext() {
     const step = S.steps[S.i] || {};
@@ -450,21 +433,6 @@ export function runSession(root, session, onDone, onQuit) {
     }
     return lines.join('\n');
   }
-  askSheet?.addEventListener('keydown', (ev) => {
-    if (ev.key === 'Escape') askSheet.hidden = true;
-  });
-  askSheet?.querySelector('.ask-form').addEventListener('submit', (ev) => {
-    ev.preventDefault();
-    const text = ev.target.q.value.trim();
-    if (!text) return;
-    session.ask(text, askContext());
-    ev.target.q.value = '';
-    askSheet.hidden = true;
-    factEl.innerHTML = '<div class="label">Question sent</div>The answer will appear under Ask on the home screen.<button type="button" class="fact-close" aria-label="Close">&times;</button>';
-    factEl.classList.add('show');
-    clearTimeout(factTimer);
-    factTimer = setTimeout(() => factEl.classList.remove('show'), 5000);
-  });
   const stage = root.querySelector('.stage');
   const fill = root.querySelector('.fill');
   const streakEl = root.querySelector('.streak-pill');
@@ -1300,7 +1268,7 @@ export function runSession(root, session, onDone, onQuit) {
   };
 
   function onKey(ev) {
-    if (ev.target.matches('input, textarea') || (askSheet && !askSheet.hidden)) return;
+    if (ev.target.matches('input, textarea') || document.querySelector('.talk-sheet')) return;
     const k = ev.key.toLowerCase();
     const n = Number(k) || (k.length === 1 && k >= 'a' && k <= 'd' && stage.dataset.step === 'quiz' ? k.charCodeAt(0) - 96 : 0);
     if (n >= 1 && n <= 6) {
@@ -1329,16 +1297,6 @@ export function runSession(root, session, onDone, onQuit) {
     const act = ev.target.closest('[data-act]')?.dataset.act;
     if (act === 'talk') {
       session.talk(talkContext());
-      return;
-    }
-    if (act === 'ask') {
-      askSheet.hidden = false;
-      askSheet.querySelector('.ask-context').textContent = `About: ${askContext()}`;
-      askSheet.querySelector('textarea').focus();
-      return;
-    }
-    if (act === 'ask-cancel') {
-      askSheet.hidden = true;
       return;
     }
     if (act === 'next') next();

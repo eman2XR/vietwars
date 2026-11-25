@@ -54,6 +54,7 @@ def open_issues():
     waiting += sum(1 for i in issues if "<!-- vietwars-push -->" in (i.get("body") or ""))
     # So is the transcript of a live conversation (Talk in the app).
     waiting += sum(1 for i in issues if "<!-- vietwars-talk -->" in (i.get("body") or ""))
+    waiting += sum(1 for i in issues if "<!-- vietwars-feedback -->" in (i.get("body") or ""))
     return waiting, questions, None
 
 

@@ -6,7 +6,7 @@ import { store, localDay, streak } from './store.js';
 import { dueWords, nextDue, INTERVAL_DAYS } from './srs.js';
 import { deckFromResult } from './deck.js';
 import { lessonSteps, reviewSteps, runSession, stampHTML } from './lesson.js';
-import { queue, flush, testToken, pullResults, pullQuestions, queueQuestion, REPO } from './sync.js';
+import { queue, flush, testToken, pullResults, queueFeedback, REPO } from './sync.js';
 import { picture } from './pictures.js';
 import { pushSupport, currentSubscription, enablePush, disablePush, loadPushKeys } from './push.js';
 import { openTalk, setTalkContext, talkKey, findModel } from './talk.js';
@@ -326,10 +326,6 @@ function startSession(kind, lesson, opts = {}) {
       testMode,
       saveKey: kind === 'lesson' ? lesson.id : null,
       relaxed: !store.settings().strictTones,
-      ask: (text, context) => {
-        queueQuestion(text, context);
-        flush();
-      },
       talk: talkKey() ? (onScreen) => talk(onScreen) : null,
       resume: opts.resume || null,
       jumpTo: testMode ? params.get('jump') : null,
@@ -479,7 +475,7 @@ function home() {
           return st === 'locked' ? `<div class="issue status-locked">${inner}</div>` : `<a class="issue status-${st}" href="#/lesson/${esc(l.id)}">${inner}</a>`;
         }).join('')}
       </div>
-      <a class="ask-link" href="#/ask"><span class="label">Ask the editors</span><span>How do I say...? What is the difference between...?</span>${newAnswers() ? `<b class="badge">${newAnswers()} new answer${newAnswers() === 1 ? '' : 's'}</b>` : ''}</a>
+      <a class="ask-link" href="#/ask"><span class="label">Ask a question</span><span>Ask out loud, or send the editors feedback.</span></a>
       <div class="row links"><a class="text-link" href="#/words">Your words</a><a class="text-link" href="#/settings">Style and settings</a></div>
     </div>`;
 }
@@ -491,101 +487,31 @@ document.addEventListener('click', (ev) => {
   }
 });
 
-function inlineMd(t) {
-  return esc(t).replace(/\*\*(.+?)\*\*/g, '<b>$1</b>').replace(/(^|[^*])\*(?!\s)(.+?)\*(?!\*)/g, '$1<i>$2</i>');
-}
-
-function renderAnswer(text) {
-  return text
-    .split(/\n\s*\n/)
-    .map((block) => {
-      const lines = block.split('\n').filter((l) => l.trim());
-      if (lines.length && lines.every((l) => /^\s*[-*] /.test(l))) return `<ul>${lines.map((l) => `<li>${inlineMd(l.replace(/^\s*[-*] /, ''))}</li>`).join('')}</ul>`;
-      return `<p>${lines.map(inlineMd).join('<br>')}</p>`;
-    })
-    .join('');
-}
-
-function questionHTML(q) {
-  const a = q.answer;
-  return `<article class="question ${a ? 'answered' : 'waiting'}">
-    <div class="kicker">${esc(new Date(q.askedAt).toLocaleDateString('en-GB', { day: 'numeric', month: 'short' }))}${q.context ? ` · ${esc(q.context)}` : ''}</div>
-    <h3 class="question-text">${esc(q.text)}</h3>
-    ${
-      a
-        ? `<div class="answer">${renderAnswer(a.text || '')}${(a.phrases || []).length ? `<div class="phrases">${a.phrases.map((p) => `<div class="pair"><span class="vi pair-vi">${colorize(p.vi)}</span><span class="pair-en">${esc(p.en || '')}</span><button type="button" class="say mini" data-say="${esc(p.vi)}" aria-label="Play">Play</button></div>`).join('')}</div>` : ''}</div>`
-        : '<p class="hint">Waiting for an answer. The editors check a few times a day.</p>'
-    }
-  </article>`;
-}
-
-function drawQuestions() {
-  const list = app.querySelector('.question-list');
-  if (!list) return;
-  const qs = store.settings().questions || [];
-  list.innerHTML = qs.length ? [...qs].reverse().map(questionHTML).join('') : '<p class="hint">No questions yet.</p>';
-}
-
 async function askPage() {
-  const draw = drawQuestions;
   app.innerHTML = `
     <div class="page ask-page">
       <a class="back" href="#/">Magazine</a>
-      <h1 class="title">Ask the editors</h1>
-      <p class="lead">How do I say something? What is the difference between two words? Why is it like that? Answers come from the same editors who write your issues, with the Vietnamese to hear.</p>
-      <form class="ask-form page-ask">
-        <textarea name="q" rows="3" placeholder="How do I ask for the bill? What is the difference between nữa and nửa?" aria-label="Your question"></textarea>
-        <div class="row"><button type="submit" class="btn primary">Send</button></div>
+      <h1 class="title">Ask a question</h1>
+      <p class="lead">Ask out loud and hear the answer straight away: how to say something, the difference between two words, why it is like that.</p>
+      ${talkKey() ? '<div class="row"><button type="button" class="btn primary talk-now" data-act="talk">Ask a question</button></div>' : '<p class="hint">Add your Gemini key in <a href="#/settings">Settings</a>, under Ask a question, to start.</p>'}
+      <h2 class="section-title">Feedback for the editors</h2>
+      <p>What should change? A word that kept tripping you up, an issue that dragged, something you want to learn next, anything on the site. The editors read every note before they write the next issue.</p>
+      <form class="ask-form page-feedback">
+        <textarea name="q" rows="3" placeholder="The prices in issue 9 were fun; more like that, please." aria-label="Your feedback"></textarea>
+        <div class="row"><button type="submit" class="btn">Send</button></div>
         <p class="form-status hint"></p>
       </form>
-      ${talkKey() ? '<div class="row"><button type="button" class="btn talk-now" data-act="talk">Ask a question</button><span class="hint">Ask out loud and hear the answer straight away.</span></div>' : ''}
-      <h2 class="section-title">Your questions</h2>
-      <div class="question-list"></div>
     </div>`;
-  draw();
-  markAnswersRead();
-  app.querySelector('.talk-now')?.addEventListener('click', () => talk('On the Ask page, where the learner can also type questions for the editors.'));
-  app.querySelector('.page-ask').addEventListener('submit', async (ev) => {
+  app.querySelector('.talk-now')?.addEventListener('click', () => talk('On the Ask page, where the learner can also send written feedback to the editors.'));
+  app.querySelector('.page-feedback').addEventListener('submit', async (ev) => {
     ev.preventDefault();
     const text = ev.target.q.value.trim();
     if (!text) return;
-    queueQuestion(text, null);
+    queueFeedback(text, 'the Ask page');
     ev.target.q.value = '';
-    draw();
     const r = await flush();
-    app.querySelector('.form-status').textContent = r.left ? `Saved; it will be sent when ${r.error === 'No GitHub token set' ? 'a token is set in Settings' : 'you are online'}.` : 'Sent.';
+    app.querySelector('.form-status').textContent = r.left ? `Saved; it will be sent when ${r.error === 'No GitHub token set' ? 'a token is set in Settings' : 'you are online'}.` : 'Sent. Thank you.';
   });
-  await refreshQuestions();
-  if ((location.hash || '').startsWith('#/ask')) {
-    draw();
-    markAnswersRead();
-  }
-}
-
-// Merges answers from GitHub into the questions saved on this device.
-async function refreshQuestions() {
-  const local = store.settings().questions || [];
-  let remote;
-  try {
-    remote = await pullQuestions(new Map(local.filter((q) => q.answer).map((q) => [q.questionId, q.answer])));
-  } catch {
-    return false;
-  }
-  const byId = new Map(local.map((q) => [q.questionId, q]));
-  for (const q of remote) byId.set(q.questionId, { ...(byId.get(q.questionId) || {}), ...q });
-  const merged = [...byId.values()].sort((a, b) => String(a.askedAt).localeCompare(String(b.askedAt)));
-  store.saveSettings({ ...store.settings(), questions: merged });
-  return true;
-}
-
-function newAnswers() {
-  const read = new Set(store.settings().answersRead || []);
-  return (store.settings().questions || []).filter((q) => q.answer && !read.has(q.questionId)).length;
-}
-
-function markAnswersRead() {
-  const ids = (store.settings().questions || []).filter((q) => q.answer).map((q) => q.questionId);
-  store.saveSettings({ ...store.settings(), answersRead: ids });
 }
 
 function wordsPage() {
@@ -879,9 +805,6 @@ async function boot() {
   render();
   if (store.outbox().length) flush().then(() => syncAndRefresh());
   else syncAndRefresh();
-  refreshQuestions().then((ok) => {
-    if (ok && newAnswers() && (location.hash || '#/') === '#/' && !document.body.classList.contains('in-session')) home();
-  });
   const loadedAt = Date.now();
   // While the app is on screen, pick up results from other devices every few minutes.
   setInterval(() => {
@@ -896,16 +819,6 @@ async function boot() {
     }
     const last = Date.parse(store.settings().syncedAt || 0) || 0;
     if (Date.now() - last > 30000) syncAndRefresh();
-    if ((store.settings().questions || []).some((q) => !q.answer)) {
-      refreshQuestions().then((ok) => {
-        if (!ok || document.body.classList.contains('in-session')) return;
-        const hash = location.hash || '#/';
-        if (hash.startsWith('#/ask')) {
-          drawQuestions();
-          markAnswersRead();
-        } else if (hash === '#/' && newAnswers()) home();
-      });
-    }
   });
   if ('serviceWorker' in navigator && location.protocol === 'https:' && !testMode) {
     // When a new version of the site takes over an open page, reload once so every file comes from that version.
