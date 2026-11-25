@@ -175,8 +175,8 @@ def check_feature(r, lid, lesson, newest=False):
                 check_text(r, where, a)
             if opts or sit.get("digits"):
                 r.error(where, "a say question has no options or digits")
-            if not re.search(r"\d", str(sit["say"])):
-                r.error(where, "say shows the price in figures, like 25.000₫")
+            if len(str(sit["say"]).strip()) < 2:
+                r.error(where, "say shows what to say: a price in figures (25.000₫) or a short cue in English (Hello! to an old man)")
             for key in ("reply", "replyMissed"):
                 if sit.get(key) is not None:
                     rep = sit[key]

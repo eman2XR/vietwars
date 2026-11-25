@@ -161,6 +161,8 @@ test('a spoken price counts in any accepted form, and the closest form is shown'
   assert.equal(gradeSay('Hai mươi được không em?', ['Hai mươi được không?']).g, 'perfect', 'a polite ending is optional');
   assert.equal(gradeSay('Hai mươi được không?', ['Hai mươi được không em ạ?']).g, 'perfect');
   assert.equal(gradeSay('hai muoi duoc khong a', ['Hai mươi được không?']).g, 'marks');
+  assert.equal(gradeSay('hai lam douc khong', ['Hai lăm được không?']).g, 'sound', 'a one-letter slip is said right');
+  assert.equal(gradeSay('hai muoi douc khong', ['Hai mươi một nải được không?']).g, 'wrong', 'a missing word is not');
 });
 
 test('a say question becomes its own step in real life', () => {

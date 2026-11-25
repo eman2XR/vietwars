@@ -222,11 +222,34 @@ function dropPoliteTail(s) {
   return t.join(' ');
 }
 
-// Grades a spoken price against every accepted way of saying it and keeps the closest. A polite ending (em, ạ, nhé)
-// may be added or left out.
+// Letters apart, counting a swap of two neighbours as one (douc for duoc).
+function letterDistance(a, b) {
+  const d = Array.from({ length: a.length + 1 }, (_, i) => [i, ...Array(b.length).fill(0)]);
+  for (let j = 1; j <= b.length; j++) d[0][j] = j;
+  for (let i = 1; i <= a.length; i++) {
+    for (let j = 1; j <= b.length; j++) {
+      d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+      if (i > 1 && j > 1 && a[i - 1] === b[j - 2] && a[i - 2] === b[j - 1]) d[i][j] = Math.min(d[i][j], d[i - 2][j - 2] + 1);
+    }
+  }
+  return d[a.length][b.length];
+}
+
+// A spoken line typed with every word in place but a slip of one letter in some (douc for được): the learner said it right.
+function nearMiss(said, target) {
+  const a = tokens(said).map((t) => stripAll(t).toLowerCase());
+  const t = tokens(target).map((x) => stripAll(x).toLowerCase());
+  return a.length === t.length && a.every((w, i) => w === t[i] || (t[i].length >= 3 && letterDistance(w, t[i]) <= 1));
+}
+
+// Grades a spoken line against every accepted way of saying it and keeps the closest. A polite ending (em, ạ, nhé)
+// may be added or left out, and a one-letter slip in a word counts as said the way it sounds.
 export function gradeSay(answer, accept) {
   const said = dropPoliteTail(answer);
-  const grades = accept.map((a) => grade(said, dropPoliteTail(a)));
+  const grades = accept.map((a) => {
+    const g = grade(said, dropPoliteTail(a));
+    return g === 'wrong' && nearMiss(said, dropPoliteTail(a)) ? 'sound' : g;
+  });
   if (grades.every((g) => g === 'empty')) return { g: 'empty', match: accept[0] };
   let best = 'wrong';
   let match = accept[0];
@@ -946,7 +969,7 @@ export function runSession(root, session, onDone, onQuit) {
       stage.innerHTML = `
         <div class="kicker">Say it${sit.who ? ` · ${esc(sit.who)}` : ''}</div>
         ${pic(sit, 'medium')}
-        <div class="say-price">${esc(sit.say)}</div>
+        <div class="say-price${/[a-z]{3}/i.test(sit.say) ? ' say-cue' : ''}">${esc(sit.say)}</div>
         <h2 class="quiz-q">${esc(sit.ask)}</h2>
         <form class="type-form say-form" autocomplete="off">
           <input class="type-input vi" type="text" lang="vi" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="done" aria-label="How you say it">
@@ -1204,7 +1227,7 @@ export function runSession(root, session, onDone, onQuit) {
           <div><b>${S.bestStreak}</b><span>best streak</span></div>
           ${S.quiz.total ? `<div><b>${S.quiz.correct}/${S.quiz.total}</b><span>quiz</span></div>` : ''}
           ${S.situations.total ? `<div><b>${S.situations.correct}/${S.situations.total}</b><span>real life</span></div>` : ''}
-          ${S.dialogues.total ? `<div><b>${S.dialogues.correct}/${S.dialogues.total}</b><span>conversation</span></div>` : ''}
+          ${S.dialogues.total ? `<div><b>${S.dialogues.correct}/${S.dialogues.total}</b><span>talk</span></div>` : ''}
           ${S.speed.answered ? `<div><b>${S.speed.score}</b><span>rush hour</span></div>` : ''}
           ${S.saved ? `<div><b>${esc(S.saved.toLocaleString('vi-VN'))}₫</b><span>haggled off</span></div>` : ''}
         </div>

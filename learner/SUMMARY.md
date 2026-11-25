@@ -3,8 +3,8 @@
 Built by `scripts/ingest.py` from `learner/results/`. Do not edit by hand.
 
 - Sessions: 15 (9 lessons, 5 reviews, 1 unfinished), last 2026-11-25T19:49 UTC on Mac
-- Words met: 76; on the known list (never taught or reviewed again): 9
-- Weak in meaning (under 0.7): bớt, chục, được, đắt, gà, nữa, tên, gần, hai, hết, mua, một, đồng
+- Words met: 76; on the known list (never taught or reviewed again): 10
+- Weak in meaning (under 0.7): bớt, chục, được, đắt, gà, nữa, tên, gần, hai, hết, mua, một
 - Weak in spelling or tone (under 0.6): bao nhiêu, quả, rưỡi, trăm, được, gần, nghìn, tư, mươi, bốn, chú, cô, hàng, mời, nhăm
 - Typing, first tries: 28 perfect, 30 wrong or missing tone, 54 missing vowel marks, 0 spelled as it sounds in Hà Nội, 43 wrong (of 155)
 - Unfinished attempts (closed midway): lesson-04 (1). Repeated unfinished attempts mean the issue is too long or too hard.
@@ -39,7 +39,6 @@ Built by `scripts/ingest.py` from `learner/results/`. Do not edit by hand.
 | gà | chicken | 0.60 | 0.60 | 0.60 | 1.00 |  | 0.67 | 0.00 | wrong 2 |  |
 | nữa | more, another | 0.60 | 0.38 | 0.60 | 1.00 |  | 0.17 |  | wrong 2, marks 1 |  |
 | tên | name | 0.60 | 0.50 | 0.75 |  | 0.00 | 0.50 | 0.50 | wrong 1, marks 2 |  |
-| đồng | đồng (the currency) | 0.67 | 0.42 | 0.67 | 0.00 |  | 0.50 | 0.50 | marks 5 |  |
 | một | one | 0.67 | 0.67 | 0.67 | 1.00 |  | 0.50 |  | marks 2 |  |
 | hai | two | 0.67 | 1.00 | 0.50 |  | 1.00 | 1.00 | 1.00 |  |  |
 | mua | to buy | 0.67 | 1.00 | 0.50 |  | 1.00 | 1.00 |  |  |  |
@@ -100,6 +99,7 @@ Built by `scripts/ingest.py` from `learner/results/`. Do not edit by hand.
 | lấy | to take; I'll have (at a stall or at the table) | 1.00 | 0.50 | 1.00 | 1.00 |  | 0.00 |  | wrong 1 |  |
 | trứng | egg | 1.00 | 0.50 | 1.00 |  | 1.00 | 0.50 |  | marks 1 |  |
 | cơm | cooked rice; a meal | 0.00 | 0.25 | 0.00 | 0.00 |  | 0.50 |  | marks 1 | known list |
+| đồng | đồng (the currency) | 0.67 | 0.42 | 0.67 | 0.00 |  | 0.50 | 0.50 | marks 5 | known list |
 | phở | pho (noodle soup) | 1.00 | 0.25 | 1.00 | 0.00 |  | 0.50 |  | marks 1 | known list |
 | bún | rice vermicelli noodles | 1.00 | 0.75 | 1.00 | 1.00 |  | 0.50 |  | tone 1 | known list |
 | bánh mì | bread; a baguette sandwich | 1.00 | 0.50 | 1.00 |  | 1.00 | 0.50 |  | tone 1 | known list |
@@ -231,6 +231,8 @@ What the learner said to the editors out loud. Treat requests and complaints as 
 ## Notes from the learner outside the app
 
 Things the learner said in conversation, newest first. Add to this file whenever the learner gives feedback outside the app.
+
+- 2026-11-25 (Talk, during a review): about đồng, "I already know this, I'll never forget, so can you not show this again?" Added to web/lessons/known.json. Also surprised that the review desk still had words due right after a review (a review takes at most 20 words; misses come back after 10 minutes; issue 9's words had just joined).
 
 - 2026-11-25 (Talk, issue 9, the table dialogue): "This one was a little hard to follow" and "There's just a lot of new words in here." Issue 9's dialogue and real-life lines carried many extras beyond its four words; docs/PEDAGOGY.md now limits extras to three per issue. Also asked how to pronounce không, and asked the editor to check the say question was accurate (it was).
 

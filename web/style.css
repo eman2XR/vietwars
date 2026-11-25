@@ -298,7 +298,7 @@ a { color: var(--accent); }
 .stats > div { flex: 1 1 0; min-width: 0; padding: 12px 4px; text-align: center; }
 .stats > div + div { border-left: 1px solid var(--rule); }
 .stats b { display: block; font-family: var(--display); font-weight: 600; font-size: 1.6rem; line-height: 1.15; }
-.stats span { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+.stats span { display: block; overflow-wrap: anywhere; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
 
 .review-card { display: flex; gap: 14px; align-items: center; justify-content: space-between; flex-wrap: wrap; padding: 14px 16px; border: 1px solid var(--rule); border-radius: var(--radius); background: var(--card); }
 .review-card.is-due { border-color: var(--accent); }
@@ -613,6 +613,7 @@ textarea { width: 100%; padding: 12px; border-radius: var(--radius); border: 1px
 .say-reply .en { flex-basis: 100%; font-family: var(--body-text); opacity: 0.8; }
 .say-reply .saved { flex-basis: 100%; font-family: var(--display); color: var(--accent); font-size: 1.2rem; }
 .say-form.answered .vkeys { display: none; }
+.say-price.say-cue { font-size: 1.35rem; letter-spacing: 0.01em; line-height: 1.25; text-align: center; max-width: 92%; }
 .say-form { display: flex; flex-direction: column; flex: 1; }
 .say-price { align-self: center; font-family: var(--display); font-size: 2.6rem; line-height: 1.1; letter-spacing: 0.03em; color: var(--accent); border: 2px solid var(--accent); border-radius: var(--radius); padding: 6px 18px; margin: 4px 0 10px; transform: rotate(-2deg); }
 

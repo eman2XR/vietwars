@@ -1,0 +1,398 @@
+{
+  "id": "lesson-10",
+  "number": 10,
+  "title": "Hello in six tones",
+  "vi": "Anh có khỏe không?",
+  "theme": "greetings and small talk in the street; the six tones and the marks that write them",
+  "intro": "Something different: no prices this time. The first things you say to anyone (hello, sorry, are you well, nice to meet you), and the story of the marks that write the tones. Between them, the new words carry all six.",
+  "cover": {
+    "picture": {
+      "kind": "scene",
+      "name": "marks"
+    }
+  },
+  "feature": {
+    "kicker": "The alphabet",
+    "title": "Six tones, five marks",
+    "dek": "Every tone's name is said in its own tone, and a dictionary printed in Rome in 1651 helped put the marks on the page. Meet them through the first words you say to anyone.",
+    "intro": "Northern Vietnamese has six tones and writes five of them as marks; the level tone has none. The names are a gift to learners: each one is said in the tone it names, so ngang is level, huyền falls and sắc rises. Say the name and you hear the tone.",
+    "beats": [
+      {
+        "word": "chào",
+        "picture": {
+          "kind": "icon",
+          "name": "wave"
+        },
+        "text": "Chào carries huyền, the grave accent: the mark slopes down to the right, and the voice settles low, as the name huyền does. The level tone, ngang, needs no mark at all, as in xin, anh and không."
+      },
+      {
+        "picture": {
+          "kind": "scene",
+          "name": "marks"
+        },
+        "text": "Writing Vietnamese in Latin letters began with Portuguese and Italian Jesuits. From about 1620 Francisco de Pina and others used it to help them learn the language, and Alexandre de Rhodes built on their work in a Vietnamese, Portuguese and Latin dictionary printed in Rome in 1651. He wrote that he took the acute, the grave and the tilde from Greek, and added the dot and the hook. For about two hundred years the script stayed mostly with Catholic missionaries, and even they mostly wrote in chữ Nôm."
+      },
+      {
+        "picture": {
+          "kind": "icon",
+          "name": "stretch"
+        },
+        "text": "Biết has sắc, the acute accent, rising like the line of the mark. Khỏe has hỏi, the hook, which looks like a tiny question mark without its dot; in Hà Nội it falls. In the Centre and South hỏi and ngã have merged into one tone, so they have five where Hà Nội keeps six."
+      },
+      {
+        "picture": {
+          "kind": "icon",
+          "name": "bump"
+        },
+        "text": "Lỗi, in xin lỗi, has ngã, the tilde. In the North the voice starts in the middle, breaks off with a catch in the throat, then rises sharply, and the wavy line draws just that."
+      },
+      {
+        "picture": {
+          "kind": "icon",
+          "name": "meet"
+        },
+        "text": "Gặp has nặng, the only mark that sits under the letter: a dot for a low tone that turns creaky and stops short. And you can type them all: iPhones and Macs have a Vietnamese keyboard built in, with Telex, the same way of typing marks this site understands."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Vietnamese alphabet",
+        "url": "https://en.wikipedia.org/wiki/Vietnamese_alphabet"
+      },
+      {
+        "title": "Hook above",
+        "url": "https://en.wikipedia.org/wiki/Hook_above"
+      },
+      {
+        "title": "Francisco de Pina",
+        "url": "https://en.wikipedia.org/wiki/Francisco_de_Pina"
+      },
+      {
+        "title": "Alexandre de Rhodes",
+        "url": "https://en.wikipedia.org/wiki/Alexandre_de_Rhodes"
+      },
+      {
+        "title": "Chữ Quốc ngữ (Vietnamese)",
+        "url": "https://vi.wikipedia.org/wiki/Ch%E1%BB%AF_Qu%E1%BB%91c_ng%E1%BB%AF"
+      }
+    ]
+  },
+  "words": [
+    {
+      "vi": "chào",
+      "en": "hello; goodbye",
+      "picture": {
+        "kind": "icon",
+        "name": "wave"
+      },
+      "hook": "Like Italian \"ciao\", it means hello and goodbye: you wave \"ciao!\" across the street and your voice sinks as your hand comes down: chào.",
+      "tip": "ch is softer than in \"church\", with no puff of air; ao glides from a long a to o, like \"ow\". Huyền: start a little low and sink gently.",
+      "note": "Always with the person: Chào anh, Chào chị; to someone your grandparents' age, Cháu chào bà ạ (cháu rises, chào sinks). The same word says goodbye.",
+      "contrast": [
+        {
+          "vi": "cháo",
+          "en": "rice porridge"
+        }
+      ]
+    },
+    {
+      "vi": "biết",
+      "en": "to know (a fact, or how to do something)",
+      "picture": {
+        "kind": "icon",
+        "name": "know"
+      },
+      "hook": "Do you know the way? \"You bet!\" you call out, your voice rising, but slide the vowel from ee to uh in one beat, \"bee-uht\": biết, to know.",
+      "tip": "b is a soft, swallowed b. iê glides from ee to a short uh, and the final t is not released. Sắc: rise.",
+      "note": "Anh có biết tiếng Việt không? Do you know Vietnamese? The answer: Biết (I do) or Không biết (I don't).",
+      "contrast": [
+        {
+          "vi": "biệt",
+          "en": "apart, separate (as in tạm biệt, goodbye)"
+        }
+      ]
+    },
+    {
+      "vi": "khỏe",
+      "en": "well, healthy; strong",
+      "picture": {
+        "kind": "icon",
+        "name": "stretch"
+      },
+      "hook": "Early morning at the lake, a man stretching clears his throat, \"kh\", then says \"weh\", his voice dropping: khỏe, fit and well.",
+      "tip": "kh is a soft rasp at the back of the mouth, like the ch in Scottish \"loch\"; oe sounds like \"weh\". Hỏi in Hà Nội: a drop, not a question rise.",
+      "note": "Anh có khỏe không? Are you well? Said to someone you haven't seen for a while, not as a daily greeting. The answer: Khỏe, cảm ơn anh (fine, thanks). Also written khoẻ.",
+      "contrast": [
+        {
+          "vi": "khoe",
+          "en": "to show off"
+        }
+      ]
+    },
+    {
+      "vi": "xin lỗi",
+      "en": "sorry; excuse me",
+      "picture": {
+        "kind": "icon",
+        "name": "bump"
+      },
+      "hook": "You bump into someone and blurt out \"sin! loy!\", the second word cracking then jumping up: xin lỗi, sorry.",
+      "tip": "x sounds like s. xin is level; lỗi has ngã: start mid, catch your breath in the throat, then rise sharply. ôi: a tight, rounded o, as in \"oh\", gliding to ee; tighter than \"boy\".",
+      "note": "Add the person: Xin lỗi em, Xin lỗi chị. It also asks for attention: Xin lỗi, ... (excuse me, ...)."
+    },
+    {
+      "vi": "gặp",
+      "en": "to meet (someone)",
+      "picture": {
+        "kind": "icon",
+        "name": "meet"
+      },
+      "hook": "Mind the gap: on the station platform you meet an old friend and stop dead with a heavy thud: gặp, to meet.",
+      "tip": "g is soft, made at the back of the throat; ă is a short a, as in \"gap\"; the final p closes the lips without a pop. Nặng: low, then a sudden stop.",
+      "note": "Rất vui được gặp anh: very nice to meet you (rất: very; vui: glad; được here means get to, not the OK of issue 9). The polite phrase for introductions.",
+      "contrast": [
+        {
+          "vi": "gắp",
+          "en": "to pick up with chopsticks"
+        }
+      ]
+    }
+  ],
+  "review": [
+    "tên",
+    "bạn",
+    "hết",
+    "được"
+  ],
+  "grammar": {
+    "title": "Anh có ... không? Are you ...? Do you ...?",
+    "text": "Put có before the describing word or the verb and không at the end: Anh có khỏe không? Are you well? Chị có biết tiếng Việt không? Do you know Vietnamese? Answer with the word itself, or không plus the word: Khỏe. Không biết. In quick speech có is often left out: Anh khỏe không? Có ... không? about health is for someone you haven't seen for a while; neighbours you see every day are more likely to ask Đi đâu đấy? (Where are you off to?).",
+    "examples": [
+      {
+        "vi": "Anh có khỏe không?",
+        "en": "Are you well? (to a man a bit older)"
+      },
+      {
+        "vi": "Em có biết tiếng Việt không?",
+        "en": "Do you know Vietnamese? (to someone younger)"
+      }
+    ]
+  },
+  "combos": [
+    {
+      "vi": "Chào anh!",
+      "en": "Hello! (to a man a bit older)",
+      "note": "Chào plus the word for the person."
+    },
+    {
+      "vi": "Cháu chào bà ạ.",
+      "en": "Hello (politely, to a grandmother)",
+      "note": "cháu: I, to someone your grandparents' age; ạ makes it polite."
+    },
+    {
+      "vi": "Xin lỗi em.",
+      "en": "Sorry. (to someone younger)",
+      "note": "xin lỗi plus the word for the person: em for someone younger."
+    },
+    {
+      "vi": "Rất vui được gặp anh.",
+      "en": "Very nice to meet you.",
+      "note": "rất: very; vui: glad; được here means get to. Said when you are introduced."
+    },
+    {
+      "vi": "Không biết.",
+      "en": "I don't know.",
+      "note": "không before a verb says not."
+    }
+  ],
+  "dialogues": [
+    {
+      "title": "The new neighbour",
+      "setting": "street",
+      "picture": {
+        "kind": "icon",
+        "name": "wave"
+      },
+      "lines": [
+        {
+          "who": "You",
+          "vi": "Cháu chào bà ạ.",
+          "en": "Hello. (politely, to a grandmother)",
+          "you": true
+        },
+        {
+          "who": "Bà",
+          "vi": "Chào cháu! Cháu có biết tiếng Việt không?",
+          "en": "Hello! Do you know Vietnamese?"
+        },
+        {
+          "who": "You",
+          "vi": "Vâng, cháu biết ạ.",
+          "en": "Yes, I do.",
+          "you": true
+        },
+        {
+          "who": "Bà",
+          "vi": "Rất vui được gặp cháu!",
+          "en": "Very nice to meet you!"
+        }
+      ],
+      "check": {
+        "ask": "Your new neighbour, an old woman, is glad to meet you. Say your answer aloud first, then pick it.",
+        "options": [
+          "Cảm ơn bà ạ.",
+          "Xin lỗi bà ạ.",
+          "Không biết ạ."
+        ],
+        "answer": "Cảm ơn bà ạ.",
+        "note": "Cảm ơn bà ạ: thank you (politely, to a grandmother). Xin lỗi would be an apology; Không biết, I don't know. tiếng Việt: Vietnamese (the language). In Vietnam the younger person greets first."
+      }
+    }
+  ],
+  "situations": [
+    {
+      "who": "You, on the stairs",
+      "picture": {
+        "kind": "icon",
+        "name": "wave"
+      },
+      "say": "Hello! (to an old man)",
+      "vi": "Cháu chào ông ạ.",
+      "accept": [
+        "Cháu chào ông ạ.",
+        "Chào ông ạ.",
+        "Cháu chào ông.",
+        "Dạ, cháu chào ông ạ."
+      ],
+      "en": "Hello (politely, to an old man).",
+      "ask": "Your elderly neighbour opens his door. Greet him politely.",
+      "note": "To someone your grandparents' age you are cháu, and ạ makes it polite: Cháu chào ông ạ. His reply, Cháu đi đâu đấy?, is a greeting more than a question; a vague answer is fine.",
+      "reply": {
+        "who": "Ông",
+        "vi": "Chào cháu! Cháu đi đâu đấy?",
+        "en": "Hello! Where are you off to?"
+      }
+    },
+    {
+      "who": "You, at the market",
+      "picture": {
+        "kind": "icon",
+        "name": "bump"
+      },
+      "say": "Sorry! (to a young woman)",
+      "vi": "Xin lỗi em.",
+      "accept": [
+        "Xin lỗi em.",
+        "Xin lỗi.",
+        "Anh xin lỗi.",
+        "Anh xin lỗi em."
+      ],
+      "en": "Sorry.",
+      "ask": "You bump into a young woman and her oranges roll away. Say sorry.",
+      "note": "Xin lỗi, with em for someone younger than you."
+    },
+    {
+      "who": "You, meeting a friend",
+      "picture": {
+        "kind": "icon",
+        "name": "meet"
+      },
+      "say": "Are you well? (to a friend your age)",
+      "vi": "Bạn có khỏe không?",
+      "accept": [
+        "Bạn có khỏe không?",
+        "Bạn khỏe không?",
+        "Bạn có khoẻ không?",
+        "Bạn khoẻ không?",
+        "Khỏe không?",
+        "Khoẻ không?"
+      ],
+      "en": "Are you well?",
+      "ask": "You meet a friend your age in the street. Ask how they are.",
+      "note": "bạn for a friend your age, then có ... không? around khỏe. Between close friends people often use the name instead, or just say Khỏe không?",
+      "reply": {
+        "who": "Friend",
+        "vi": "Khỏe, cảm ơn bạn!",
+        "en": "Fine, thanks!"
+      }
+    },
+    {
+      "who": "Neighbour",
+      "picture": {
+        "kind": "icon",
+        "name": "stretch"
+      },
+      "vi": "Chào em! Em có khỏe không?",
+      "en": "Hello! Are you well?",
+      "ask": "A woman neighbour a little older than you, back from a trip, greets you on the stairs. What do you answer?",
+      "options": [
+        "Em khỏe, cảm ơn chị.",
+        "Xin lỗi chị.",
+        "Không biết."
+      ],
+      "answer": "Em khỏe, cảm ơn chị.",
+      "note": "She is older, so she calls you em and you call her chị."
+    },
+    {
+      "who": "Café owner",
+      "picture": {
+        "kind": "icon",
+        "name": "know"
+      },
+      "vi": "Anh có biết tiếng Việt không?",
+      "en": "Do you know Vietnamese?",
+      "ask": "The young woman who owns your café, younger than you, hears you order. What do you answer?",
+      "options": [
+        "Anh biết.",
+        "Anh khỏe.",
+        "Rất vui được gặp em."
+      ],
+      "answer": "Anh biết."
+    },
+    {
+      "who": "A child",
+      "picture": {
+        "kind": "icon",
+        "name": "nametag"
+      },
+      "vi": "Chú tên là gì ạ?",
+      "en": "What's your name? (a child, politely, to a man)",
+      "ask": "A neighbour's child looks up at you. What does she want to know?",
+      "options": [
+        "Your name",
+        "Where you are going",
+        "If you are well"
+      ],
+      "answer": "Your name",
+      "note": "Children call a man about their parents' age chú (uncle). tên: name; gì: what."
+    },
+    {
+      "who": "Phở seller",
+      "picture": {
+        "kind": "icon",
+        "name": "bowl"
+      },
+      "vi": "Hết phở rồi anh ạ!",
+      "en": "The phở is all gone!",
+      "ask": "You ask for a bowl at two in the afternoon. What does she tell you?",
+      "options": [
+        "They have run out of phở.",
+        "That's 50,000 in total.",
+        "Have some phở!"
+      ],
+      "answer": "They have run out of phở.",
+      "note": "hết: used up, all gone (on a bill it means in total). rồi: already."
+    }
+  ],
+  "challenge": {
+    "title": "Street challenge",
+    "text": "Greet three people today the Vietnamese way, with the word for the person: Chào anh, Chào chị, or Cháu chào bà ạ to someone your grandparents' age. If you bump into someone, Xin lỗi. And add the Vietnamese keyboard to your iPhone (Settings > General > Keyboard > Keyboards > Add New Keyboard > Vietnamese, then choose the Telex layout), so you can type the marks yourself."
+  },
+  "stamp": {
+    "label": "Sáu thanh",
+    "picture": {
+      "kind": "scene",
+      "name": "marks"
+    }
+  }
+}

@@ -967,6 +967,75 @@ const ICONS = {
       <path stroke-width="1.2" d="M85 61 q2 -2 5 -1"/>
       <path d="M12 82 H110"/>`,
   },
+  // chào: someone waving hello, the hand up and moving.
+  wave: (() => {
+    const p = person(52, 82, 62, { fill: 'k-tint' });
+    const hx = 52 + p.ws + 16;
+    const hy = p.sy - 16;
+    return {
+      tone: 'warm',
+      seed: 245,
+      ink: `${p.ink}<path d="M${n1(52 - p.ws)} ${n1(p.sy + 2)} L${n1(52 - p.ws - 4)} ${n1(p.hip + 4)} M${n1(52 + p.ws)} ${n1(p.sy + 2)} L${n1(hx)} ${n1(hy)}"/>
+        <circle class="k-paper" stroke-width="1.8" cx="${n1(hx)}" cy="${n1(hy - 3)}" r="4"/>
+        <path stroke-width="1.6" d="M${n1(hx + 8)} ${n1(hy - 12)} q5 4 4 10 M${n1(hx + 13)} ${n1(hy - 16)} q7 6 5 15 M${n1(hx - 9)} ${n1(hy - 13)} q-4 4 -3 9"/>
+        <path d="M14 82 H106"/>`,
+    };
+  })(),
+  // khoẻ: morning exercise by the lake: arms stretched up, the sun just over the water.
+  stretch: (() => {
+    const p = person(60, 74, 56, { fill: 'k-tint' });
+    return {
+      tone: 'cool',
+      seed: 247,
+      ink: `<circle class="k-paper" stroke-width="1.8" cx="94" cy="62" r="9"/>
+        <path class="k-pale" d="M6 66 H114 V86 H6 Z"/>
+        <path stroke-width="1.2" d="M12 74 q5 -3 10 0 q5 3 10 0 M78 78 q5 -3 10 0 q5 3 10 0 M44 82 q5 -3 10 0"/>
+        ${p.ink}<path d="M${n1(60 - p.ws)} ${n1(p.sy + 1)} L40 ${n1(p.sy - 20)} M${n1(60 + p.ws)} ${n1(p.sy + 1)} L80 ${n1(p.sy - 20)}"/>
+        <circle class="k-paper" stroke-width="1.6" cx="39" cy="${n1(p.sy - 22)}" r="3"/><circle class="k-paper" stroke-width="1.6" cx="81" cy="${n1(p.sy - 22)}" r="3"/>`,
+    };
+  })(),
+  // biết: to know: someone thinking in Vietnamese, the word in a thought bubble.
+  know: {
+    tone: 'earth',
+    seed: 249,
+    ink: `<g transform="translate(-16 6)">${BUST.shirt('k-tint')}${BUST.head(40)}${BUST.ears(40)}
+        <path class="k-dot" d="M45.4 39 C44 23 76 23 74.6 39 C70 31 58 29 45.4 39 Z"/>
+        <path stroke-width="1.5" d="M53 44 h3 M64 44 h3 M56 51 q4 3 8 0"/></g>
+      <circle class="k-paper" stroke-width="1.6" cx="66" cy="30" r="2.6"/><circle class="k-paper" stroke-width="1.6" cx="72" cy="22" r="3.6"/>
+      <path class="k-paper" d="M74 4 C86 0 108 2 112 12 C116 22 104 30 92 28 C82 30 72 26 72 18 C70 10 70 6 74 4 Z"/>`,
+    crisp: '<text class="k-text" x="92" y="20.5" font-size="11" text-anchor="middle">Việt</text>',
+  },
+  // xin lỗi: a bump in the street: two people collide and oranges fly from a bag.
+  bump: (() => {
+    const a = person(46, 82, 60);
+    const b = person(70, 82, 58, { fill: 'k-tint', hair: 'long', dress: true });
+    return {
+      tone: 'warm',
+      seed: 251,
+      ink: `${a.ink}${b.ink}
+        <path d="M${n1(46 - a.ws)} ${n1(a.sy + 2)} L${n1(46 - a.ws - 4)} ${n1(a.hip + 4)} M${n1(46 + a.ws)} ${n1(a.sy + 2)} L${n1(46 + a.ws + 4)} ${n1(a.sy - 12)}"/>
+        <path d="M${n1(70 + b.ws)} ${n1(b.sy + 2)} L${n1(70 + b.ws + 10)} ${n1(b.sy + 10)} M${n1(70 - b.ws)} ${n1(b.sy + 2)} L${n1(70 - b.ws - 2)} ${n1(b.hip + 2)}"/>
+        <path class="k-paper" stroke-width="1.6" d="M${n1(70 + b.ws + 6)} ${n1(b.sy + 10)} h12 l2 12 h-16 Z"/>
+        ${[[96, 30, 3.6], [104, 22, 3.4], [100, 14, 3.2]].map(([x, y, r]) => `<circle class="k-tint" stroke-width="1.5" cx="${x}" cy="${y}" r="${r}"/>`).join('')}
+        <path stroke-width="1.6" d="M58 ${n1(a.sy - 14)} l0 -7 M52 ${n1(a.sy - 12)} l-4 -5 M64 ${n1(a.sy - 12)} l4 -5"/>
+        <path d="M10 82 H110"/>`,
+    };
+  })(),
+  // gặp: to meet: two people walking towards each other along a pavement, about to meet.
+  meet: (() => {
+    const a = person(30, 80, 56);
+    const b = person(90, 80, 54, { fill: 'k-tint', hair: 'long' });
+    return {
+      tone: 'leaf',
+      seed: 253,
+      ink: `${a.ink}${b.ink}
+        <path d="M${n1(30 - a.ws)} ${n1(a.sy + 2)} L${n1(30 - a.ws - 5)} ${n1(a.hip + 3)} M${n1(30 + a.ws)} ${n1(a.sy + 2)} L${n1(30 + a.ws + 7)} ${n1(a.sy + 8)}"/>
+        <path d="M${n1(90 + b.ws)} ${n1(b.sy + 2)} L${n1(90 + b.ws + 5)} ${n1(b.hip + 3)} M${n1(90 - b.ws)} ${n1(b.sy + 2)} L${n1(90 - b.ws - 7)} ${n1(b.sy + 8)}"/>
+        <path stroke-width="2.2" stroke-dasharray="3 4" d="M44 64 H54 M66 64 H76"/>
+        <path stroke-width="2.2" d="M50 60 L55 64 L50 68 M70 60 L65 64 L70 68"/>
+        <path d="M6 80 H114"/><path stroke-width="1.1" d="M14 86 l4 -6 M34 86 l4 -6 M54 86 l4 -6 M74 86 l4 -6 M94 86 l4 -6"/>`,
+    };
+  })(),
 };
 
 function icon(name) {
@@ -1541,7 +1610,33 @@ function oldQuarterScene() {
   };
 }
 
-const SCENES = { phoStall: phoScene, market: marketScene, legend: legendScene, genealogy: genealogyScene, fruitTray: fruitTrayScene, familyTray: familyTrayScene, longBien: longBienScene, oldQuarter: oldQuarterScene };
+// Cover for issue 10: an open dictionary like the one printed in Rome in 1651, the six tones of one syllable across its
+// pages, a quill and an inkpot beside it.
+function marksScene() {
+  const lines = (x0, y0, n, w) => Array.from({ length: n }, (_, i) => `M${x0} ${y0 + i * 9} h${w - (i % 3) * 14}`).join(' ');
+  return {
+    tone: 'earth',
+    paper: blob(200, 128, 170, 102, 81, 11, 0.06),
+    under: '<ellipse class="k-mid" cx="200" cy="214" rx="150" ry="7"/>',
+    ink: `<path class="k-shade" d="M56 70 C110 58 170 62 200 76 C230 62 290 58 344 70 L346 206 C290 196 230 198 200 210 C170 198 110 196 54 206 Z"/>
+      <path class="k-paper" d="M62 64 C112 52 168 56 200 70 L200 202 C168 190 112 188 62 198 Z"/>
+      <path class="k-paper" d="M338 64 C288 52 232 56 200 70 L200 202 C232 190 288 188 338 198 Z"/>
+      <path stroke-width="1.4" d="M200 70 V202"/>
+      <path stroke-width="1" d="${lines(80, 150, 4, 100)} ${lines(220, 150, 4, 100)}"/>
+      <path stroke-width="1.2" d="M86 92 h84 M86 98 h84"/>
+<g transform="translate(14 46)">
+      <path class="k-tint" stroke-width="1.6" d="M352 120 C348 128 348 140 352 146 H376 C380 140 380 128 376 120 Z"/>
+      <path stroke-width="1.6" d="M350 120 H378"/>
+      <path class="k-paper" stroke-width="1.6" d="M366 122 C356 96 346 70 322 40 C340 58 356 84 368 118 Z"/>
+      <path stroke-width="1.1" d="M330 50 l6 2 M336 60 l6 1 M342 72 l6 1 M348 86 l5 0"/></g>`,
+    crisp: `<text class="k-text" x="128" y="88" font-size="10.5" letter-spacing="1.4" text-anchor="middle">DICTIONARIUM</text>
+      <text class="k-text k-year" x="128" y="114" text-anchor="middle">ROMAE 1651</text>
+      ${['ma', 'mà', 'má'].map((t, i) => `<text class="k-text" x="${222 + i * 34}" y="104" font-size="20" text-anchor="middle">${t}</text>`).join('')}
+      ${['mả', 'mã', 'mạ'].map((t, i) => `<text class="k-text" x="${222 + i * 34}" y="134" font-size="20" text-anchor="middle">${t}</text>`).join('')}`,
+  };
+}
+
+const SCENES = { phoStall: phoScene, market: marketScene, legend: legendScene, genealogy: genealogyScene, fruitTray: fruitTrayScene, familyTray: familyTrayScene, longBien: longBienScene, oldQuarter: oldQuarterScene, marks: marksScene };
 
 function scene(name) {
   const make = SCENES[name];

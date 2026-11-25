@@ -860,7 +860,7 @@
     "marks": 5
    },
    "tappedKnowIt": false,
-   "knownList": false,
+   "knownList": true,
    "msMedian": 2224,
    "lastSeen": "2026-11-25T19:49:25.544Z"
   },
@@ -2219,7 +2219,8 @@
   "nước",
   "phở",
   "rau",
-  "trà"
+  "trà",
+  "đồng"
  ],
  "weakMeaning": [
   "bớt",
@@ -2233,8 +2234,7 @@
   "hai",
   "hết",
   "mua",
-  "một",
-  "đồng"
+  "một"
  ],
  "weakSpelling": [
   "bao nhiêu",

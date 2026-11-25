@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-24",
+  "updated": "2026-11-25",
   "reviewedAt": "2026-11-24",
   "goal": "Basic conversation at a dinner table (a meal with a Hà Nội family or friends) and understanding basic street talk (sellers, waiters, drivers, neighbours) in Northern Vietnamese. Vocabulary keeps growing, and from issue 6 every issue also teaches one sentence frame and one short dialogue built from known words, alternating between the table and the street (the learner set this goal on 2026-11-22; see docs/PEDAGOGY.md, Conversation).",
   "phases": [
@@ -176,14 +176,14 @@
     {
       "id": "market-talk",
       "title": "At the market, you do the talking",
-      "status": "active",
+      "status": "done",
       "notes": "Review of 2026-11-24: fun fell to Boring twice and the learner asked to say prices, not only understand them. The learner makes counter-offers (... được không?) and says prices in Say the price questions, with the seller answering back and a running total haggled off. Brings back bớt, đắt, chục (leeches) and the 'X mươi, một [unit]' price, said rather than heard. Story tied to the market: the old quarter's Hàng streets, each named for the goods once sold there, if the sources support it. Issue 9 (2026-11-24): hàng, được, lấy, trứng; frame ... được không?; three Say the price counter-offers with seller replies and a haggled-off total; story of the Hàng streets; new cover oldQuarter.",
       "lesson": "lesson-09"
     },
     {
       "id": "politeness",
       "title": "Greetings and small talk (street)",
-      "status": "planned",
+      "status": "active",
       "warmupIdeas": [
         "xin chào",
         "cảm ơn",
@@ -204,8 +204,9 @@
         "cháu",
         "con"
       ],
-      "notes": "ạ at the end of a sentence to older people; vâng is the typical Northern polite yes. After issue 4: add cháu and con, what you call yourself to cô, chú, ông and bà (Cháu chào bà ạ). Reshaped for the street half of the goal: greeting neighbours and sellers, where are you from, see you again. Table manners (mời, vâng, ạ) move to the table unit.",
-      "storyIdea": "Hà Nội manners: vâng and ạ, greeting elders first, and the Temple of Literature (Văn Miếu, 1070), the first university."
+      "notes": "ạ at the end of a sentence to older people; vâng is the typical Northern polite yes. After issue 4: add cháu and con, what you call yourself to cô, chú, ông and bà (Cháu chào bà ạ). Reshaped for the street half of the goal: greeting neighbours and sellers, where are you from, see you again. Table manners (mời, vâng, ạ) move to the table unit. Issue 10 (2026-11-25): chào, biết, khỏe, xin lỗi, gặp, one per tone, with the story of the tone marks; the learner asked for something other than prices after issue 9 and for help remembering tones. Bring prices and đắt back in issue 11.",
+      "storyIdea": "Hà Nội manners: vâng and ạ, greeting elders first, and the Temple of Literature (Văn Miếu, 1070), the first university.",
+      "lesson": "lesson-10"
     },
     {
       "id": "verbs",
