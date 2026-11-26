@@ -1,0 +1,825 @@
+{
+ "schema": 3,
+ "resultId": "c76c6888-fdb6-413e-a3ab-87d0fedc5b71",
+ "kind": "lesson",
+ "lessonId": "lesson-10",
+ "lessonTitle": "Hello in six tones",
+ "appVersion": "5",
+ "style": "paper",
+ "device": "iPhone",
+ "startedAt": "2026-11-26T06:45:45.222Z",
+ "finishedAt": "2026-11-26T08:19:05.638Z",
+ "durationSec": 5600,
+ "summary": {
+  "firstTryAccuracy": 0.7,
+  "exercises": 27,
+  "bestStreak": 11,
+  "grade": "merit",
+  "speedScore": 350,
+  "speedAnswered": 13,
+  "speedCorrect": 11,
+  "bestCombo": 7
+ },
+ "article": {
+  "readSec": 966,
+  "factsShown": 0
+ },
+ "quiz": null,
+ "situations": {
+  "correct": 2,
+  "total": 7
+ },
+ "dialogues": {
+  "correct": 0,
+  "total": 1
+ },
+ "timing": {
+  "words": 27,
+  "drills": 168,
+  "conversation": 47,
+  "reallife": 135,
+  "rush": 43,
+  "article": 966,
+  "pauses": 2,
+  "longestPauseSec": 77
+ },
+ "toneMarks": "relaxed",
+ "words": [
+  {
+   "vi": "chào",
+   "en": "hello; goodbye",
+   "failures": 3,
+   "timeSec": 20,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 3,
+   "share": 0.33,
+   "meaning": 0.5,
+   "form": 0,
+   "stars": 0,
+   "firstTry": {
+    "listen": false,
+    "reverse": true,
+    "type": "wrong"
+   },
+   "attempts": 5,
+   "msMedian": 3567,
+   "known": false
+  },
+  {
+   "vi": "biết",
+   "en": "to know (a fact, or how to do something)",
+   "failures": 2,
+   "timeSec": 35,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 3,
+   "share": 0.5,
+   "meaning": 0.5,
+   "form": 0.5,
+   "stars": 1,
+   "firstTry": {
+    "listen": false,
+    "spell": true,
+    "type": "wrong"
+   },
+   "attempts": 6,
+   "msMedian": 7502,
+   "known": false
+  },
+  {
+   "vi": "khỏe",
+   "en": "well, healthy; strong",
+   "failures": 1,
+   "timeSec": 16,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 17,
+   "share": 0.67,
+   "meaning": 0,
+   "form": 1,
+   "stars": 1,
+   "firstTry": {
+    "listen": false,
+    "spell": true,
+    "type": "tone"
+   },
+   "attempts": 4,
+   "msMedian": 4623,
+   "known": false
+  },
+  {
+   "vi": "xin lỗi",
+   "en": "sorry; excuse me",
+   "failures": 0,
+   "timeSec": 10,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 3,
+   "share": 1,
+   "meaning": 1,
+   "form": 1,
+   "stars": 3,
+   "firstTry": {
+    "listen": true,
+    "reverse": true,
+    "type": "sound"
+   },
+   "attempts": 4,
+   "msMedian": 2401,
+   "known": false
+  },
+  {
+   "vi": "gặp",
+   "en": "to meet (someone)",
+   "failures": 2,
+   "timeSec": 22,
+   "replays": 0,
+   "hints": 2,
+   "revealed": false,
+   "studySec": 3,
+   "share": 0.75,
+   "meaning": 0.5,
+   "form": 1,
+   "stars": 2,
+   "firstTry": {
+    "listen": false,
+    "spell": true,
+    "type": "marks"
+   },
+   "attempts": 5,
+   "msMedian": 2869,
+   "known": false
+  },
+  {
+   "vi": "tên",
+   "en": "name",
+   "failures": 1,
+   "timeSec": 14,
+   "replays": 1,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 0,
+   "meaning": 0,
+   "form": null,
+   "stars": 0,
+   "firstTry": {
+    "listen": false
+   },
+   "attempts": 2,
+   "msMedian": 11520,
+   "known": false
+  },
+  {
+   "vi": "bạn",
+   "en": "friend; you (to someone your own age)",
+   "failures": 0,
+   "timeSec": 10,
+   "replays": 1,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 1,
+   "meaning": 1,
+   "form": null,
+   "stars": 3,
+   "firstTry": {
+    "listen": true
+   },
+   "attempts": 1,
+   "msMedian": 10076,
+   "known": false
+  },
+  {
+   "vi": "hết",
+   "en": "in total (of a bill); also: used up, sold out",
+   "failures": 0,
+   "timeSec": 4,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 1,
+   "meaning": 1,
+   "form": null,
+   "stars": 3,
+   "firstTry": {
+    "listen": true
+   },
+   "attempts": 1,
+   "msMedian": 3938,
+   "known": false
+  },
+  {
+   "vi": "được",
+   "en": "OK, all right; can be done",
+   "failures": 0,
+   "timeSec": 8,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 1,
+   "meaning": 1,
+   "form": null,
+   "stars": 3,
+   "firstTry": {
+    "listen": true
+   },
+   "attempts": 1,
+   "msMedian": 7684,
+   "known": false
+  }
+ ],
+ "warmup": [],
+ "toneConfusions": [],
+ "meaningConfusions": [
+  {
+   "target": "chào",
+   "chose": "to meet (someone)",
+   "t": "listen"
+  },
+  {
+   "target": "biết",
+   "chose": "hello; goodbye",
+   "t": "listen"
+  },
+  {
+   "target": "gặp",
+   "chose": "well, healthy; strong",
+   "t": "listen"
+  },
+  {
+   "target": "chào",
+   "chose": "to know (a fact, or how to do something)",
+   "t": "listen"
+  },
+  {
+   "target": "gặp",
+   "chose": "well, healthy; strong",
+   "t": "listen"
+  },
+  {
+   "target": "tên",
+   "chose": "friend; you (to someone your own age)",
+   "t": "listen"
+  },
+  {
+   "target": "khỏe",
+   "chose": "friend; you (to someone your own age)",
+   "t": "listen"
+  },
+  {
+   "target": "Không biết.",
+   "chose": "Very nice to meet you.",
+   "t": "listen"
+  },
+  {
+   "target": "Rất vui được gặp anh.",
+   "chose": "to know (a fact, or how to do something)",
+   "t": "speed"
+  },
+  {
+   "target": "gặp",
+   "chose": "to know (a fact, or how to do something)",
+   "t": "speed"
+  }
+ ],
+ "typed": [
+  {
+   "target": "khỏe",
+   "answer": "khoe",
+   "grade": "tone",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 2525
+  },
+  {
+   "target": "xin lỗi",
+   "answer": "sin loi",
+   "grade": "sound",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 1861
+  },
+  {
+   "target": "biết",
+   "answer": "bau",
+   "grade": "wrong",
+   "accepted": false,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 9601
+  },
+  {
+   "target": "gặp",
+   "answer": "gap",
+   "grade": "marks",
+   "accepted": true,
+   "hints": 2,
+   "keys": 0,
+   "firstKeyMs": 10376
+  },
+  {
+   "target": "chào",
+   "answer": "chau",
+   "grade": "wrong",
+   "accepted": false,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 1852
+  },
+  {
+   "target": "biết",
+   "answer": "biết",
+   "grade": "perfect",
+   "tiles": true,
+   "retry": true
+  },
+  {
+   "target": "chào",
+   "answer": "chào",
+   "grade": "perfect",
+   "tiles": true,
+   "retry": true
+  }
+ ],
+ "feedback": {
+  "difficulty": "Too hard",
+  "fun": "Boring",
+  "article": "OK",
+  "hardest": [
+   "chào",
+   "biết",
+   "khỏe",
+   "tên",
+   "được"
+  ],
+  "wantNext": null,
+  "note": null
+ },
+ "events": [
+  {
+   "t": "meet",
+   "w": "chào",
+   "ms": 2963
+  },
+  {
+   "t": "meet",
+   "w": "biết",
+   "ms": 2872
+  },
+  {
+   "t": "meet",
+   "w": "khỏe",
+   "ms": 16588
+  },
+  {
+   "t": "meet",
+   "w": "xin lỗi",
+   "ms": 2520
+  },
+  {
+   "t": "listen",
+   "w": "xin lỗi",
+   "ok": true,
+   "a": "sorry; excuse me",
+   "ms": 2401
+  },
+  {
+   "t": "listen",
+   "w": "biết",
+   "ok": true,
+   "a": "to know (a fact, or how to do something)",
+   "ms": 2368
+  },
+  {
+   "t": "story",
+   "w": "chào",
+   "ms": 1683
+  },
+  {
+   "t": "meet",
+   "w": "gặp",
+   "ms": 2522
+  },
+  {
+   "t": "listen",
+   "w": "gặp",
+   "ok": true,
+   "a": "to meet (someone)",
+   "ms": 1950
+  },
+  {
+   "t": "listen",
+   "w": "chào",
+   "ok": false,
+   "a": "to meet (someone)",
+   "ms": 3567
+  },
+  {
+   "t": "listen",
+   "w": "biết",
+   "ok": false,
+   "a": "hello; goodbye",
+   "ms": 2381
+  },
+  {
+   "t": "listen",
+   "w": "hết",
+   "ok": true,
+   "a": "in total (of a bill); also: used up, sold out",
+   "ms": 3938
+  },
+  {
+   "t": "listen",
+   "w": "gặp",
+   "ok": false,
+   "a": "well, healthy; strong",
+   "ms": 2869
+  },
+  {
+   "t": "listen",
+   "w": "chào",
+   "ok": false,
+   "a": "to know (a fact, or how to do something)",
+   "ms": 5367,
+   "retry": true
+  },
+  {
+   "t": "listen",
+   "w": "biết",
+   "ok": true,
+   "a": "to know (a fact, or how to do something)",
+   "ms": 7502,
+   "retry": true
+  },
+  {
+   "t": "listen",
+   "w": "xin lỗi",
+   "ok": true,
+   "a": "sorry; excuse me",
+   "ms": 1751
+  },
+  {
+   "t": "listen",
+   "w": "gặp",
+   "ok": false,
+   "a": "well, healthy; strong",
+   "ms": 3183,
+   "retry": true
+  },
+  {
+   "t": "listen",
+   "w": "tên",
+   "ok": false,
+   "a": "friend; you (to someone your own age)",
+   "ms": 2456
+  },
+  {
+   "t": "listen",
+   "w": "khỏe",
+   "ok": false,
+   "a": "friend; you (to someone your own age)",
+   "ms": 3703
+  },
+  {
+   "t": "listen",
+   "w": "được",
+   "ok": true,
+   "a": "OK, all right; can be done",
+   "ms": 7684
+  },
+  {
+   "t": "listen",
+   "w": "bạn",
+   "ok": true,
+   "a": "friend; you (to someone your own age)",
+   "ms": 10076,
+   "plays": 1
+  },
+  {
+   "t": "listen",
+   "w": "tên",
+   "ok": true,
+   "a": "name",
+   "ms": 11520,
+   "retry": true,
+   "plays": 1
+  },
+  {
+   "t": "listen",
+   "w": "khỏe",
+   "ok": true,
+   "a": "well, healthy; strong",
+   "ms": 5550,
+   "retry": true
+  },
+  {
+   "t": "spell",
+   "w": "gặp",
+   "ok": true,
+   "a": "gặp",
+   "ms": 2300
+  },
+  {
+   "t": "reverse",
+   "w": "xin lỗi",
+   "ok": true,
+   "a": "xin lỗi",
+   "ms": 2266
+  },
+  {
+   "t": "spell",
+   "w": "biết",
+   "ok": true,
+   "a": "biết",
+   "ms": 3023
+  },
+  {
+   "t": "reverse",
+   "w": "chào",
+   "ok": true,
+   "a": "chào",
+   "ms": 2830
+  },
+  {
+   "t": "spell",
+   "w": "khỏe",
+   "ok": true,
+   "a": "khỏe",
+   "ms": 2557
+  },
+  {
+   "t": "type",
+   "w": "khỏe",
+   "ok": true,
+   "g": "tone",
+   "a": "khoe",
+   "ms": 4623,
+   "hints": 0,
+   "firstKeyMs": 2525
+  },
+  {
+   "t": "type",
+   "w": "xin lỗi",
+   "ok": true,
+   "g": "sound",
+   "a": "sin loi",
+   "ms": 3886,
+   "hints": 0,
+   "firstKeyMs": 1861
+  },
+  {
+   "t": "type",
+   "w": "biết",
+   "ok": false,
+   "g": "wrong",
+   "a": "bau",
+   "ms": 11006,
+   "hints": 0,
+   "firstKeyMs": 9601
+  },
+  {
+   "t": "type",
+   "w": "gặp",
+   "ok": true,
+   "g": "marks",
+   "a": "gap",
+   "ms": 11610,
+   "hints": 2,
+   "firstKeyMs": 10376
+  },
+  {
+   "t": "type",
+   "w": "chào",
+   "ok": false,
+   "g": "wrong",
+   "a": "chau",
+   "ms": 2980,
+   "hints": 0,
+   "firstKeyMs": 1852
+  },
+  {
+   "t": "type",
+   "w": "biết",
+   "g": "perfect",
+   "a": "biết",
+   "ms": 8992,
+   "retry": true,
+   "tiles": true
+  },
+  {
+   "t": "type",
+   "w": "chào",
+   "g": "perfect",
+   "a": "chào",
+   "ms": 5473,
+   "retry": true,
+   "tiles": true
+  },
+  {
+   "t": "listen",
+   "w": "Cháu chào bà ạ.",
+   "ok": true,
+   "a": "Hello (politely, to a grandmother)",
+   "ms": 4508
+  },
+  {
+   "t": "listen",
+   "w": "Không biết.",
+   "ok": false,
+   "a": "Very nice to meet you.",
+   "ms": 6051
+  },
+  {
+   "t": "listen",
+   "w": "Rất vui được gặp anh.",
+   "ok": true,
+   "a": "Very nice to meet you.",
+   "ms": 6564
+  },
+  {
+   "t": "listen",
+   "w": "Xin lỗi em.",
+   "ok": true,
+   "a": "Sorry. (to someone younger)",
+   "ms": 3763
+  },
+  {
+   "t": "listen",
+   "w": "Chào anh!",
+   "ok": true,
+   "a": "Hello! (to a man a bit older)",
+   "ms": 3124
+  },
+  {
+   "t": "listen",
+   "w": "Không biết.",
+   "ok": true,
+   "a": "I don't know.",
+   "ms": 2459,
+   "retry": true
+  },
+  {
+   "t": "dialogue",
+   "w": "The new neighbour",
+   "ok": false,
+   "a": "Không biết ạ.",
+   "ms": 46503,
+   "plays": 4
+  },
+  {
+   "t": "say",
+   "ok": true,
+   "g": "marks",
+   "a": "xin loi",
+   "ms": 47972
+  },
+  {
+   "t": "say",
+   "w": "Are you well? (to a friend your age)",
+   "ok": false,
+   "g": "wrong",
+   "a": "khong hue khom",
+   "ms": 26308
+  },
+  {
+   "t": "situation",
+   "w": "Chú tên là gì ạ?",
+   "ok": false,
+   "a": "Where you are going",
+   "ms": 12054,
+   "plays": 2
+  },
+  {
+   "t": "say",
+   "w": "Hello! (to an old man)",
+   "ok": false,
+   "g": "wrong",
+   "a": "chau ba",
+   "ms": 8965
+  },
+  {
+   "t": "situation",
+   "w": "Chào em! Em có khỏe không?",
+   "ok": false,
+   "a": "Không biết.",
+   "ms": 10033
+  },
+  {
+   "t": "situation",
+   "w": "Anh có biết tiếng Việt không?",
+   "ok": false,
+   "a": "Rất vui được gặp em.",
+   "ms": 20127,
+   "plays": 1
+  },
+  {
+   "t": "situation",
+   "w": "Hết phở rồi anh ạ!",
+   "ok": true,
+   "a": "They have run out of phở.",
+   "ms": 10017
+  },
+  {
+   "t": "speed",
+   "w": "tên",
+   "ok": true,
+   "a": "name",
+   "ms": 1687
+  },
+  {
+   "t": "speed",
+   "w": "chào",
+   "ok": true,
+   "a": "hello; goodbye",
+   "ms": 2398
+  },
+  {
+   "t": "speed",
+   "w": "Rất vui được gặp anh.",
+   "ok": true,
+   "a": "Very nice to meet you.",
+   "ms": 3596
+  },
+  {
+   "t": "speed",
+   "w": "được",
+   "ok": true,
+   "a": "OK, all right; can be done",
+   "ms": 2503
+  },
+  {
+   "t": "speed",
+   "w": "được",
+   "ok": true,
+   "a": "OK, all right; can be done",
+   "ms": 1492
+  },
+  {
+   "t": "speed",
+   "w": "khỏe",
+   "ok": true,
+   "a": "well, healthy; strong",
+   "ms": 4307
+  },
+  {
+   "t": "speed",
+   "w": "Chào anh!",
+   "ok": true,
+   "a": "Hello! (to a man a bit older)",
+   "ms": 2421
+  },
+  {
+   "t": "speed",
+   "w": "Rất vui được gặp anh.",
+   "ok": false,
+   "a": "to know (a fact, or how to do something)",
+   "ms": 3225
+  },
+  {
+   "t": "speed",
+   "w": "gặp",
+   "ok": false,
+   "a": "to know (a fact, or how to do something)",
+   "ms": 6864
+  },
+  {
+   "t": "speed",
+   "w": "Xin lỗi em.",
+   "ok": true,
+   "a": "Sorry. (to someone younger)",
+   "ms": 2372
+  },
+  {
+   "t": "speed",
+   "w": "biết",
+   "ok": true,
+   "a": "to know (a fact, or how to do something)",
+   "ms": 5374
+  },
+  {
+   "t": "speed",
+   "w": "tên",
+   "ok": true,
+   "a": "name",
+   "ms": 1808
+  },
+  {
+   "t": "speed",
+   "w": "Cháu chào bà ạ.",
+   "ok": true,
+   "a": "Hello (politely, to a grandmother)",
+   "ms": 5333
+  }
+ ],
+ "issue": 28
+}

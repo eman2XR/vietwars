@@ -2,20 +2,19 @@
 
 Built by `scripts/ingest.py` from `learner/results/`. Do not edit by hand.
 
-- Sessions: 15 (9 lessons, 5 reviews, 1 unfinished), last 2026-11-25T19:49 UTC on Mac
-- Words met: 76; on the known list (never taught or reviewed again): 10
-- Weak in meaning (under 0.7): bớt, chục, được, đắt, gà, nữa, tên, gần, hai, hết, mua, một
-- Weak in spelling or tone (under 0.6): bao nhiêu, quả, rưỡi, trăm, được, gần, nghìn, tư, mươi, bốn, chú, cô, hàng, mời, nhăm
-- Typing, first tries: 28 perfect, 30 wrong or missing tone, 54 missing vowel marks, 0 spelled as it sounds in Hà Nội, 43 wrong (of 155)
+- Sessions: 16 (10 lessons, 5 reviews, 1 unfinished), last 2026-11-26T08:19 UTC on iPhone
+- Words met: 81; on the known list (never taught or reviewed again): 10
+- Weak in meaning (under 0.7): khỏe, biết, bớt, chào, chục, gặp, tên, đắt, gà, nữa, gần, hai, mua, một, được
+- Weak in spelling or tone (under 0.6): bao nhiêu, chào, quả, rưỡi, trăm, xin lỗi, được, gần, nghìn, tư, mươi, bốn, chú, cô, hàng
+- Typing, first tries: 28 perfect, 31 wrong or missing tone, 55 missing vowel marks, 1 spelled as it sounds in Hà Nội, 45 wrong (of 160)
 - Unfinished attempts (closed midway): lesson-04 (1). Repeated unfinished attempts mean the issue is too long or too hard.
-- Answers typed with the on-screen tone keys: 21/143
+- Answers typed with the on-screen tone keys: 21/148
 - Warm-up words missed: ba (1), bốn (1), chín (1), tám (1), uống (1)
 
 ## Sessions
 
 | When (UTC) | Kind | Lesson | First try | Grade | Minutes | Rush hour | Quiz | Article read (s) | Article rating |
 |---|---|---|---|---|---|---|---|---|---|
-| 2026-11-21T19:47 | review | review | 63% | complete | 2.5 | 0/0 |  |  |  |
 | 2026-11-22T17:33 | unfinished | lesson-04 | 89% |  | 6.4 | stopped at step 33 of 83 |  |  |  |
 | 2026-11-22T19:26 | lesson | lesson-04 | 76% | merit | 120.2 | 10/10 |  | 40 | Interesting |
 | 2026-11-22T22:27 | lesson | lesson-05 | 87% | merit | 13.3 | 19/19 |  | 22 | OK |
@@ -27,34 +26,39 @@ Built by `scripts/ingest.py` from `learner/results/`. Do not edit by hand.
 | 2026-11-24T20:53 | review | review | 83% | merit | 5.0 | 0/0 |  |  |  |
 | 2026-11-25T19:27 | lesson | lesson-09 | 71% | merit | 1038.6 | 11/11 |  | 2 | Interesting |
 | 2026-11-25T19:49 | review | review | 83% | merit | 5.5 | 0/0 |  |  |  |
+| 2026-11-26T08:19 | lesson | lesson-10 | 70% | merit | 93.3 | 11/13 |  | 966 | OK |
 
 ## Words, weakest meaning first (known-list words last)
 
 | Word | Gloss | Meaning | Spelling | Listen | Spell | Reverse | Type | Hear+type | Typing errors | Notes |
 |---|---|---|---|---|---|---|---|---|---|---|
+| khỏe | well, healthy; strong | 0.00 | 0.75 | 0.00 | 1.00 |  | 0.50 |  | tone 1 |  |
 | đắt | expensive | 0.50 | 0.50 | 0.43 | 1.00 |  | 0.33 |  | marks 2, wrong 1 |  |
+| tên | name | 0.50 | 0.50 | 0.60 |  | 0.00 | 0.50 | 0.50 | wrong 1, marks 2 |  |
 | bớt | to take some off (a price); to reduce | 0.50 | 0.40 | 0.50 | 1.00 |  | 0.17 | 0.50 | wrong 2, marks 2 |  |
 | chục | a set of ten things, as sellers count (ten eggs) | 0.50 | 0.50 | 0.50 | 1.00 |  | 0.00 |  | wrong 1 |  |
-| được | OK, all right; can be done | 0.50 | 0.00 | 0.50 | 0.00 |  | 0.00 |  | wrong 1 |  |
+| chào | hello; goodbye | 0.50 | 0.00 | 0.00 |  | 1.00 | 0.00 |  | wrong 1 |  |
+| biết | to know (a fact, or how to do something) | 0.50 | 0.50 | 0.50 | 1.00 |  | 0.00 |  | wrong 1 |  |
+| gặp | to meet (someone) | 0.50 | 0.75 | 0.50 | 1.00 |  | 0.50 |  | marks 1 |  |
 | gà | chicken | 0.60 | 0.60 | 0.60 | 1.00 |  | 0.67 | 0.00 | wrong 2 |  |
 | nữa | more, another | 0.60 | 0.38 | 0.60 | 1.00 |  | 0.17 |  | wrong 2, marks 1 |  |
-| tên | name | 0.60 | 0.50 | 0.75 |  | 0.00 | 0.50 | 0.50 | wrong 1, marks 2 |  |
 | một | one | 0.67 | 0.67 | 0.67 | 1.00 |  | 0.50 |  | marks 2 |  |
 | hai | two | 0.67 | 1.00 | 0.50 |  | 1.00 | 1.00 | 1.00 |  |  |
 | mua | to buy | 0.67 | 1.00 | 0.50 |  | 1.00 | 1.00 |  |  |  |
-| hết | in total (of a bill); also: used up, sold out | 0.67 | 0.33 | 0.67 | 0.00 |  | 0.50 | 0.50 | marks 2 |  |
 | gần | near, close by | 0.67 | 0.12 | 0.67 | 0.00 |  | 0.00 | 0.25 | wrong 2, marks 1 |  |
+| được | OK, all right; can be done | 0.67 | 0.00 | 0.67 | 0.00 |  | 0.00 |  | wrong 1 |  |
 | triệu | million | 0.75 | 0.50 | 0.75 | 1.00 |  | 0.00 | 0.50 | wrong 1, marks 2 |  |
 | lăm | five, after mười or mươi (mười lăm = 15) | 0.75 | 0.33 | 0.75 | 0.00 |  | 0.50 |  | marks 2 |  |
 | hơn | more than; -er (rẻ hơn = cheaper) | 0.75 | 0.75 | 0.75 | 1.00 |  | 0.75 | 0.50 | marks 2 |  |
 | chú | uncle; you (to a man a bit younger than your parents) | 0.75 | 0.25 | 0.75 | 0.00 |  | 0.00 | 0.50 | wrong 1, tone 2 |  |
 | ông | grandfather; you (to an old man) | 0.75 | 0.50 | 0.67 |  | 1.00 | 0.50 |  | marks 2 |  |
-| bạn | friend; you (to someone your own age) | 0.75 | 0.40 | 0.75 | 1.00 |  | 0.50 | 0.17 | tone 2, wrong 2 |  |
 | cam | orange (the fruit) | 0.75 | 1.00 | 0.67 |  | 1.00 | 1.00 | 1.00 |  |  |
+| hết | in total (of a bill); also: used up, sold out | 0.75 | 0.33 | 0.75 | 0.00 |  | 0.50 | 0.50 | marks 2 |  |
 | cháu | grandchild, niece or nephew; I (to your parents' or grandparents' generation) | 0.75 | 0.50 | 0.67 |  | 1.00 | 0.50 | 0.50 | tone 2 |  |
 | rẽ | to turn (at a corner) | 0.75 | 0.50 | 0.67 |  | 1.00 | 0.50 |  | tone 2 |  |
 | phải | right (the side) | 0.75 | 0.25 | 0.75 | 0.00 |  | 0.50 | 0.25 | tone 2, wrong 1 |  |
 | năm | five (also: year) | 0.80 | 0.38 | 0.80 | 0.00 |  | 0.50 |  | marks 3 |  |
+| bạn | friend; you (to someone your own age) | 0.80 | 0.40 | 0.80 | 1.00 |  | 0.50 | 0.17 | tone 2, wrong 2 |  |
 | trăm | hundred | 0.83 | 0.00 | 0.83 | 0.00 |  | 0.00 |  | wrong 3 |  |
 | rưỡi | and a half (after a unit) | 0.83 | 0.00 | 0.80 |  | 1.00 | 0.00 | 0.00 | wrong 2 |  |
 | bò | beef; cow | 1.00 | 0.67 | 1.00 | 1.00 |  | 0.50 |  | wrong 1 |  |
@@ -98,6 +102,7 @@ Built by `scripts/ingest.py` from `learner/results/`. Do not edit by hand.
 | hàng | wares, goods; a shop or stall that sells them | 1.00 | 0.25 | 1.00 | 0.00 |  | 0.50 |  | tone 1 |  |
 | lấy | to take; I'll have (at a stall or at the table) | 1.00 | 0.50 | 1.00 | 1.00 |  | 0.00 |  | wrong 1 |  |
 | trứng | egg | 1.00 | 0.50 | 1.00 |  | 1.00 | 0.50 |  | marks 1 |  |
+| xin lỗi | sorry; excuse me | 1.00 | 0.00 | 1.00 |  | 1.00 | 0.00 |  | sound 1 |  |
 | cơm | cooked rice; a meal | 0.00 | 0.25 | 0.00 | 0.00 |  | 0.50 |  | marks 1 | known list |
 | đồng | đồng (the currency) | 0.67 | 0.42 | 0.67 | 0.00 |  | 0.50 | 0.50 | marks 5 | known list |
 | phở | pho (noodle soup) | 1.00 | 0.25 | 1.00 | 0.00 |  | 0.50 |  | marks 1 | known list |
@@ -122,31 +127,31 @@ Struggle score combines failed first tries, slow answers, hints, replays and rev
 | cơm | 53 | 6 | 5 | 2.0 | 0 | 0 | 0 | 0 |
 | Hết hai trăm nghìn. | 53 | 2 | 1 | 12.6 | 2 | 0 | 0 | 0 |
 | rưỡi | 48 | 11 | 6 | 7.9 | 5 | 1 | 0 | 0 |
-| được | 47 | 7 | 5 | 2.9 | 0 | 0 | 0 | 8 |
 | phở | 45 | 6 | 4 | 3.5 | 0 | 0 | 0 | 0 |
 | trăm | 42 | 15 | 8 | 6.3 | 1 | 0 | 0 | 0 |
 | triệu | 42 | 10 | 4 | 8.7 | 12 | 0 | 0 | 0 |
+| được | 42 | 8 | 5 | 3.2 | 0 | 0 | 0 | 8 |
 | lăm | 41 | 10 | 5 | 6.6 | 3 | 0 | 0 | 0 |
+| chào | 41 | 5 | 3 | 3.6 | 0 | 0 | 0 | 3 |
 | bao nhiêu | 40 | 16 | 8 | 6.5 | 0 | 0 | 0 | 0 |
 | chục | 39 | 6 | 3 | 4.6 | 3 | 0 | 0 | 6 |
-| một chục trứng | 38 | 1 | 0 | 19.8 | 2 | 0 | 0 | 0 |
 
 ## Exercise types
 
 | Exercise | Answers | Accuracy | Median answer (s) |
 |---|---|---|---|
-| say | 3 | 33% | 24.0 |
-| dialogue | 4 | 50% | 52.5 |
-| type | 144 | 51% | 4.9 |
-| spell | 68 | 60% | 2.9 |
-| type (tiles) | 34 | 62% | 5.3 |
-| situation | 51 | 65% | 20.7 |
+| say | 6 | 33% | 25.2 |
+| dialogue | 5 | 40% | 50.3 |
+| type | 149 | 52% | 4.9 |
+| spell | 71 | 62% | 2.8 |
+| situation | 55 | 62% | 17.7 |
+| type (tiles) | 36 | 64% | 5.4 |
 | type (from hearing) | 34 | 74% | 4.0 |
-| listen | 315 | 84% | 4.2 |
-| speed | 119 | 96% | 2.6 |
-| reverse | 29 | 97% | 4.0 |
+| listen | 338 | 83% | 4.1 |
+| speed | 132 | 95% | 2.6 |
+| reverse | 31 | 97% | 3.9 |
 
-Time spent (all finished sessions): words 6.7 min, drills 49.6 min, reallife 23.2 min, rush 5.0 min, article 1.8 min, warmup 0.4 min, conversation 3.2 min; long pauses (over a minute): 17
+Time spent (all finished sessions): words 7.1 min, drills 52.4 min, reallife 25.5 min, rush 5.7 min, article 17.9 min, warmup 0.4 min, conversation 4.0 min; long pauses (over a minute): 19
 
 ## Tone and spelling confusions (heard -> picked)
 
@@ -180,6 +185,7 @@ Time spent (all finished sessions): words 6.7 min, drills 49.6 min, reallife 23.
 - hai -> five (also: year): 2
 - hai mươi một nải -> 21.000₫ a hand: 2
 - Anh lấy hai cân. -> OK then, fine (accepting a price): 2
+- gặp -> well, healthy; strong: 2
 - gà -> fish: 1
 - cơm -> rice vermicelli noodles: 1
 - cơm gà -> beef pho: 1
@@ -194,10 +200,10 @@ Time spent (all finished sessions): words 6.7 min, drills 49.6 min, reallife 23.
 - gà -> and a half (after a unit): 1
 - một -> four: 1
 - thứ bảy -> One more iced tea, please.: 1
-- lăm -> -ty, the tens (hai mươi = 20): 1
 
 ## Feedback, newest first
 
+- 2026-11-26 lesson lesson-10: difficulty Too hard, fun Boring, article OK; hardest chào, biết, khỏe, tên, được
 - 2026-11-25 review review: difficulty n/a, fun n/a; hardest bao nhiêu, nghìn, tư, gần, mua
 - 2026-11-25 lesson lesson-09: difficulty n/a, fun OK, article Interesting; hardest được, lấy, đắt; wants next "let's try something different than numbers and prices for the next lesson"
 - 2026-11-24 review review: difficulty n/a, fun n/a; hardest bao nhiêu, tên, bạn, hết, đắt, bớt, hơn, gà
@@ -207,7 +213,6 @@ Time spent (all finished sessions): words 6.7 min, drills 49.6 min, reallife 23.
 - 2026-11-23 lesson lesson-06: difficulty Too hard, fun OK, article OK; hardest mời, đũa, canh, bớt
 - 2026-11-22 review review: difficulty n/a, fun n/a; hardest đồng, bao nhiêu, bớt
 - 2026-11-22 lesson lesson-05: difficulty Just right, fun Good, article OK; hardest quả, bớt, hết
-- 2026-11-22 lesson lesson-04: difficulty Just right, fun Good, article Interesting; hardest tên, cô, chú, bạn, trăm, mươi; wants next "I think i need to learn numbers more. Especially someone telling me a price and me understanding what it is. But you should take into account that people in vietnam most of the time don’t even mention the thousand, they would just say 10 instead of 10 thousand. Same for hundred - double check how people naturally speak"; note "The lesson is a bit too long, should be shorter"
 
 ## Questions the learner asked, newest first
 
@@ -219,6 +224,7 @@ What they wanted to know or say. Teach these in coming issues where they fit.
 
 What the learner said to the editors out loud. Treat requests and complaints as feedback; full transcripts are in `learner/talks/`.
 
+- 2026-11-26T08:14 (In issue 10, "Hello in six tones" (greetings and small talk in the street; the six tones and the marks that write them),): What am I supposed to say? / the feedback that this page says say it but it doesn't say what to say. / And can you also ask the editors to add the back button because there's no way I can go back.
 - 2026-11-25T19:47 (In a spaced review, on a type screen.): I already know this I'll never forget so can you not show this again?
 - 2026-11-25T19:18 (In issue 9, "Your turn to haggle" (the old quarter's Hàng streets; saying prices and making counter-offers with ... được): Can you check if what this page is saying here is actually.
 - 2026-11-25T19:16 (In issue 9, "Your turn to haggle" (the old quarter's Hàng streets; saying prices and making counter-offers with ... được): This one was a little hard to follow. Send that feedback. / There's just a lot of new words in here.

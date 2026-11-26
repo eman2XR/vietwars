@@ -341,7 +341,7 @@ export function runSession(root, session, onDone, onQuit) {
     const data = {
       v: 1,
       savedAt: Date.now(),
-      i: S.i,
+      i: S.returnTo ?? S.i,
       total: S.steps.length,
       steps: S.steps.map((st) => ({ ...st, word: ref(st.word), pool: st.pool ? st.pool.map(ref) : undefined, q: st.q ? st.q.q : undefined, grammar: st.grammar ? 1 : undefined })),
       events: S.events,
@@ -370,12 +370,14 @@ export function runSession(root, session, onDone, onQuit) {
       if (st.word) lookup.set(st.word.vi, st.word);
       for (const w of st.pool || []) lookup.set(w.vi, w);
     }
+    const sitLookup = new Map((lesson?.situations || []).map((x) => [x.vi, x]));
     const quizByText = new Map((lesson?.quiz || []).map((q) => [q.q, q]));
     const steps = [];
     for (const st of data.steps || []) {
       const out = { ...st };
       if (st.word !== undefined) {
-        out.word = lookup.get(st.word);
+        // A situation and a combo can share their Vietnamese (Xin lỗi em.), so situations are matched among situations.
+        out.word = (st.sit && sitLookup.get(st.word)) || lookup.get(st.word);
         if (!out.word) continue;
       }
       if (st.pool) out.pool = st.pool.map((v) => lookup.get(v)).filter(Boolean);
@@ -432,6 +434,7 @@ export function runSession(root, session, onDone, onQuit) {
     <div class="session">
       <header class="session-bar">
         <button class="icon-btn" data-act="quit" aria-label="Close">&times;</button>
+        <button class="icon-btn back-btn" data-act="back" aria-label="Back to the last word card or story" hidden>&lsaquo;</button>
         <div class="progress" role="progressbar" aria-label="Progress"><div class="fill"></div></div>
         <div class="streak-pill" aria-live="polite"></div>
         ${session.talk ? '<button class="talk-btn" data-act="talk" aria-label="Ask a question out loud"><svg class="mic" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21M8.5 21h7"/></svg><span>Ask a question</span></button>' : ''}
@@ -458,6 +461,13 @@ export function runSession(root, session, onDone, onQuit) {
   }
   const stage = root.querySelector('.stage');
   const fill = root.querySelector('.fill');
+  const backBtn = root.querySelector('.back-btn');
+  // Screens the learner can step back to and read again; questions are not replayed.
+  const PEEK = new Set(['feature', 'story', 'meet', 'grammar', 'stage']);
+  function prevPeek(i) {
+    for (let j = i - 1; j >= 0; j--) if (PEEK.has(S.steps[j].type)) return j;
+    return -1;
+  }
   const streakEl = root.querySelector('.streak-pill');
   const factEl = root.querySelector('.fact-card');
   let factTimer;
@@ -512,6 +522,12 @@ export function runSession(root, session, onDone, onQuit) {
     clearInterval(S.timer);
     const cur = S.steps[S.i];
     if (cur?.type === 'feature') S.readMs = Date.now() - S.stepStart;
+    if (S.returnTo != null) {
+      S.i = S.returnTo;
+      S.returnTo = null;
+      render();
+      return;
+    }
     if (cur?.type === 'story') S.events.push({ t: 'story', w: cur.word?.vi, ms: Date.now() - S.stepStart, at: Date.now() - S.started });
     if (cur?.type === 'meet') S.events.push({ t: 'meet', w: cur.word.vi, ms: Date.now() - S.stepStart, at: Date.now() - S.started, plays: S.plays || undefined });
     S.i += 1;
@@ -544,6 +560,8 @@ export function runSession(root, session, onDone, onQuit) {
     if (!SCORED.has(step.type) && step.type !== 'speed') factEl.classList.remove('show');
     if (step.word && step.type !== 'meet' && !step.warmup) S.met.add(nfc(step.word.vi));
     RENDER[step.type](step);
+    if (S.returnTo != null) stage.querySelectorAll('[data-act=next]').forEach((b) => (b.textContent = 'Back to where I was'));
+    backBtn.hidden = prevPeek(S.i) < 0 || ['speed', 'speedIntro', 'results', 'feedback'].includes(step.type);
     window.scrollTo(0, 0);
     snapshot();
   }
@@ -1320,6 +1338,15 @@ export function runSession(root, session, onDone, onQuit) {
     const act = ev.target.closest('[data-act]')?.dataset.act;
     if (act === 'talk') {
       session.talk(talkContext());
+      return;
+    }
+    if (act === 'back') {
+      const to = prevPeek(S.i);
+      if (to < 0) return;
+      clearInterval(S.timer);
+      if (S.returnTo == null) S.returnTo = S.answered ? S.i + 1 : S.i;
+      S.i = to;
+      render();
       return;
     }
     if (act === 'next') next();

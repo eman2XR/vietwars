@@ -299,6 +299,19 @@ class Run:
             self.errors.append("an issue still shows the ? button for typed questions")
         if not page.locator(".talk-btn").count():
             self.errors.append("an issue has no Ask button for questions out loud")
+        back = page.locator(".back-btn:not([hidden])")
+        if not back.count():
+            self.errors.append("an issue has no back button on its second word card")
+            return
+        here = page.locator(".stage").get_attribute("data-step")
+        word = page.locator(".stage").inner_text()[:40]
+        back.click()
+        page.wait_for_selector(".stage [data-act=next]:has-text('Back to where I was')")
+        self.first(page, "lesson-back")
+        page.click(".stage [data-act=next]")
+        page.wait_for_timeout(200)
+        if page.locator(".stage").get_attribute("data-step") != here or page.locator(".stage").inner_text()[:40] != word:
+            self.errors.append("Back, then Back to where I was, did not return to the same screen")
 
     def check_ask_page(self, page):
         page.evaluate("location.hash = '#/ask'")

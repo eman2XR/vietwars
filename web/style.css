@@ -395,6 +395,8 @@ body.in-session { overscroll-behavior: none; }
   padding: calc(6px + env(safe-area-inset-top)) calc(12px + env(safe-area-inset-right)) 6px calc(12px + env(safe-area-inset-left));
   background: var(--bg); border-bottom: 1px solid var(--rule);
 }
+.back-btn { margin-left: -14px; font-size: 2.1rem; }
+.back-btn[hidden] { display: none; }
 .progress { flex: 1; height: 3px; background: var(--rule); overflow: hidden; }
 .fill { height: 100%; width: 0; background: var(--accent); transition: width 0.3s ease; }
 .streak-pill { min-width: 84px; text-align: right; font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
