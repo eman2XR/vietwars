@@ -62,7 +62,7 @@ test('spaced repetition moves words along the intervals', () => {
   assert.equal(card.box, 3);
   card = schedule(card, 'again', now);
   assert.equal(card.box, 0);
-  assert.ok(card.due <= now + 15 * 60000);
+  assert.ok(card.due > now + day / 2 && card.due <= now + day, 'a missed word comes back the next day');
   for (let i = 0; i < 20; i++) card = schedule(card, 'good', now);
   assert.equal(card.box, INTERVAL_DAYS.length - 1);
   assert.equal(outcomeFor(1), 'easy');

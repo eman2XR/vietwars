@@ -2,7 +2,6 @@
 
 export const INTERVAL_DAYS = [0, 1, 3, 7, 14, 30, 60, 120];
 const DAY = 86400000;
-const SOON = 10 * 60000;
 const SLACK = 3 * 3600000;
 
 export function schedule(card, outcome, now = Date.now()) {
@@ -11,7 +10,8 @@ export function schedule(card, outcome, now = Date.now()) {
   if (outcome === 'again') box = 0;
   else if (outcome === 'good') box = Math.min(box + 1, last);
   else if (outcome === 'easy') box = Math.min(box + 2, last);
-  const due = box === 0 ? now + SOON : now + INTERVAL_DAYS[box] * DAY - SLACK;
+  // A missed word is practised again before the session ends, so it comes back the next day, not minutes later.
+  const due = now + Math.max(1, INTERVAL_DAYS[box]) * DAY - SLACK;
   return { ...card, box, due, reviewed: now };
 }
 

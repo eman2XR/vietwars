@@ -1,0 +1,27 @@
+{
+ "talkId": "mwxw6gi9-kf86b3",
+ "startedAt": "2026-11-26T18:34:37.719Z",
+ "endedAt": "2026-11-26T18:35:13.840Z",
+ "device": "Macintosh",
+ "context": "In a spaced review, on a listen screen.\nThe word on screen: linh (zero (for an empty tens place, as in 105)). Hook: Picture 1_5 with an empty slot in the middle, where a tiny bell rings one flat \"ling\".\nIssues played: 1 Phở and friends; 2 Big numbers and prices; 3 One to ten, properly; 4 People and family; 5 At the market; 6 At the table; 7 Getting around; 8 A numbers clinic; 9 Your turn to haggle; 10 Hello in six tones.\nWords the learner has met: gà (chicken), bò (beef; cow), cá (fish), trăm (hundred), nghìn (thousand), triệu (million), mươi (-ty, the tens (as in 20)), lăm (five, after the tens (as in 15 and 25)), linh (zero (for an empty tens place, as in 105)), rưỡi (and a half (after a unit)), tiền (money), bao nhiêu (how much, how many), đắt (expensive), rẻ (cheap), hơn (more than; -er (as in cheaper)), nữa (more, another), bốn (four), tám (eight), chín (nine (also: ripe, cooked)), ba (three), một (one), hai (two), năm (five (also: year)), sáu (six), bảy (seven), mười (ten), tên (name), tôi (I, me (neutral; safe with strangers)), anh (older brother; you (to a man a bit older)), chị (older sister; you (to a woman a bit older)), em (younger brother or sister; you (to someone younger)), cô (aunt; you (to a woman a bit younger than your parents)), chú (uncle; you (to a man a bit younger than your parents)), ông (grandfather; you (to an old man)), bạn (friend; you (to someone your own age)), bà (grandmother; you (to an old woman)), mua (to buy), quả (fruit; also the counting word for fruit), cam (orange (the fruit)), chuối (banana), cân (a kilo; also: scale, to weigh), thịt (meat), bớt (to take some off (a price); to reduce), hết (in total (of a bill); also: used up, sold out), mời (to invite; please (go ahead, have some)), cháu (grandchild, niece or nephew; I (to your parents' or grandparents' generation)), bát (bowl (a rice bowl)), đũa (chopsticks), canh (soup (a clear broth eaten with rice)), no (full (after eating)), vâng (yes (polite, to someone older)), uống (to drink), xe ôm (motorbike taxi), đâu (where), trái (left (the side)), gần (near, close by), rẽ (to turn (at a corner)), phải (right (the side)), nhăm (five after the tens, a casual spoken form of lăm (as in 25)), mốt (one at the end of 21, 31 ... 91 (11 stays mười một)), tư (four at the end of 24, 34 ... 94 (14 stays mười bốn)), chục (a set of ten things, as sellers count (ten eggs)), hàng (wares, goods; a shop or stall that sells them), được (OK, all right; can be done), lấy (to take; I'll have (at a stall or at the table)), trứng (egg), chào (hello; goodbye), biết (to know (a fact, or how to do something)), khỏe (well, healthy; strong), xin lỗi (sorry; excuse me), gặp (to meet (someone)).\nWords they already knew: phở, cơm, bún, bánh mì, rau, nước, trà, cà phê, ngon, đồng.\nWords still weak: nghìn, bao nhiêu, đắt, hơn, năm, tên, mua, chuối, gần, phải, tư, hàng, lấy, chào, biết, khỏe, gặp.",
+ "model": "gemini-2.5-flash-native-audio-latest",
+ "turns": [
+  {
+   "who": "you",
+   "text": "say a lot."
+  },
+  {
+   "who": "editor",
+   "text": "In Vietnamese, you can say nhiều. It means \"a lot\" or \"very much\". You might hear it when talking about tiền (money) or even prices."
+  },
+  {
+   "who": "you",
+   "text": "So is a lot of money."
+  },
+  {
+   "who": "editor",
+   "text": "Vâng, đúng rồi. Nhiều tiền means \"a lot of money,\" which connects to \"đắt\" (expensive) that you learned before. Are you thinking about bargaining?"
+  }
+ ],
+ "issue": 29
+}

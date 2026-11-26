@@ -1,0 +1,789 @@
+{
+ "schema": 3,
+ "resultId": "f4125c3d-1e01-4f66-84ae-3effbfef208c",
+ "kind": "lesson",
+ "lessonId": "lesson-11",
+ "lessonTitle": "So hot, so cold",
+ "appVersion": "5",
+ "style": "paper",
+ "device": "iPhone",
+ "startedAt": "2026-11-26T18:45:42.026Z",
+ "finishedAt": "2026-11-26T18:57:26.951Z",
+ "durationSec": 705,
+ "summary": {
+  "firstTryAccuracy": 0.61,
+  "exercises": 23,
+  "bestStreak": 4,
+  "grade": "complete",
+  "speedScore": 90,
+  "speedAnswered": 13,
+  "speedCorrect": 7,
+  "bestCombo": 2
+ },
+ "article": {
+  "readSec": 23,
+  "factsShown": 0
+ },
+ "quiz": null,
+ "situations": {
+  "correct": 2,
+  "total": 8
+ },
+ "dialogues": {
+  "correct": 1,
+  "total": 1
+ },
+ "timing": {
+  "words": 30,
+  "drills": 154,
+  "conversation": 44,
+  "reallife": 175,
+  "rush": 41,
+  "article": 23,
+  "pauses": 3,
+  "longestPauseSec": 77
+ },
+ "toneMarks": "relaxed",
+ "words": [
+  {
+   "vi": "nóng",
+   "en": "hot",
+   "failures": 3,
+   "timeSec": 35,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 10,
+   "share": 0.25,
+   "meaning": 0,
+   "form": 0.5,
+   "stars": 0,
+   "firstTry": {
+    "listen": false,
+    "spell": true,
+    "type": "wrong"
+   },
+   "attempts": 7,
+   "msMedian": 5684,
+   "known": false
+  },
+  {
+   "vi": "rét",
+   "en": "cold (of the weather, and how you feel in it)",
+   "failures": 0,
+   "timeSec": 11,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 5,
+   "share": 1,
+   "meaning": 1,
+   "form": 1,
+   "stars": 3,
+   "firstTry": {
+    "listen": true,
+    "spell": true,
+    "type": "tone"
+   },
+   "attempts": 3,
+   "msMedian": 4324,
+   "known": false
+  },
+  {
+   "vi": "đẹp",
+   "en": "beautiful, pretty; good-looking",
+   "failures": 0,
+   "timeSec": 21,
+   "replays": 1,
+   "hints": 1,
+   "revealed": false,
+   "studySec": 9,
+   "share": 1,
+   "meaning": 1,
+   "form": 1,
+   "stars": 3,
+   "firstTry": {
+    "listen": true,
+    "spell": true,
+    "type": "marks"
+   },
+   "attempts": 3,
+   "msMedian": 7472,
+   "known": false
+  },
+  {
+   "vi": "đói",
+   "en": "hungry",
+   "failures": 5,
+   "timeSec": 27,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 6,
+   "share": 0.25,
+   "meaning": 0,
+   "form": 1,
+   "stars": 0,
+   "firstTry": {
+    "listen": false,
+    "reverse": false,
+    "type": "marks"
+   },
+   "attempts": 7,
+   "msMedian": 3466,
+   "known": false
+  },
+  {
+   "vi": "chào",
+   "en": "hello; goodbye",
+   "failures": 0,
+   "timeSec": 5,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 1,
+   "meaning": 1,
+   "form": null,
+   "stars": 3,
+   "firstTry": {
+    "listen": true
+   },
+   "attempts": 1,
+   "msMedian": 5399,
+   "known": false
+  },
+  {
+   "vi": "biết",
+   "en": "to know (a fact, or how to do something)",
+   "failures": 2,
+   "timeSec": 9,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 0,
+   "meaning": 0,
+   "form": null,
+   "stars": 0,
+   "firstTry": {
+    "listen": false
+   },
+   "attempts": 2,
+   "msMedian": 5567,
+   "known": false
+  },
+  {
+   "vi": "khỏe",
+   "en": "well, healthy; strong",
+   "failures": 0,
+   "timeSec": 3,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 1,
+   "meaning": 1,
+   "form": null,
+   "stars": 3,
+   "firstTry": {
+    "listen": true
+   },
+   "attempts": 1,
+   "msMedian": 3317,
+   "known": false
+  },
+  {
+   "vi": "được",
+   "en": "OK, all right; can be done",
+   "failures": 0,
+   "timeSec": 5,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 1,
+   "meaning": 1,
+   "form": null,
+   "stars": 3,
+   "firstTry": {
+    "listen": true
+   },
+   "attempts": 1,
+   "msMedian": 4949,
+   "known": false
+  }
+ ],
+ "warmup": [],
+ "toneConfusions": [],
+ "meaningConfusions": [
+  {
+   "target": "nóng",
+   "chose": "beautiful, pretty; good-looking",
+   "t": "listen"
+  },
+  {
+   "target": "đói",
+   "chose": "beautiful, pretty; good-looking",
+   "t": "listen"
+  },
+  {
+   "target": "nóng",
+   "chose": "cold (of the weather, and how you feel in it)",
+   "t": "listen"
+  },
+  {
+   "target": "đói",
+   "chose": "beautiful, pretty; good-looking",
+   "t": "listen"
+  },
+  {
+   "target": "đói",
+   "chose": "beautiful, pretty; good-looking",
+   "t": "listen"
+  },
+  {
+   "target": "biết",
+   "chose": "hello; goodbye",
+   "t": "listen"
+  },
+  {
+   "target": "biết",
+   "chose": "cold (of the weather, and how you feel in it)",
+   "t": "listen"
+  },
+  {
+   "target": "Cháu đói rồi.",
+   "chose": "It's so cold!",
+   "t": "listen"
+  },
+  {
+   "target": "trà nóng",
+   "chose": "So hot!",
+   "t": "listen"
+  },
+  {
+   "target": "Trời rét quá!",
+   "chose": "How beautiful!",
+   "t": "speed"
+  },
+  {
+   "target": "nóng",
+   "chose": "So hot!",
+   "t": "speed"
+  },
+  {
+   "target": "Trời rét quá!",
+   "chose": "beautiful, pretty; good-looking",
+   "t": "speed"
+  },
+  {
+   "target": "Nóng quá!",
+   "chose": "beautiful, pretty; good-looking",
+   "t": "speed"
+  },
+  {
+   "target": "đẹp",
+   "chose": "hot",
+   "t": "speed"
+  },
+  {
+   "target": "đói",
+   "chose": "I'm hungry now. (to an older relative)",
+   "t": "speed"
+  }
+ ],
+ "typed": [
+  {
+   "target": "đẹp",
+   "answer": "dep",
+   "grade": "marks",
+   "accepted": true,
+   "hints": 1,
+   "keys": 0,
+   "firstKeyMs": 8839
+  },
+  {
+   "target": "nóng",
+   "answer": "nogn",
+   "grade": "wrong",
+   "accepted": false,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 2850
+  },
+  {
+   "target": "rét",
+   "answer": "ret",
+   "grade": "tone",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 2036
+  },
+  {
+   "target": "đói",
+   "answer": "doi",
+   "grade": "marks",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 4367
+  },
+  {
+   "target": "nóng",
+   "answer": "nóng",
+   "grade": "perfect",
+   "tiles": true,
+   "retry": true
+  }
+ ],
+ "feedback": {
+  "difficulty": "Just right",
+  "fun": "Good",
+  "article": "Interesting",
+  "hardest": [
+   "nóng",
+   "đẹp",
+   "đói",
+   "biết",
+   "được"
+  ],
+  "wantNext": null,
+  "note": null
+ },
+ "events": [
+  {
+   "t": "meet",
+   "w": "nóng",
+   "ms": 10101,
+   "plays": 2
+  },
+  {
+   "t": "meet",
+   "w": "rét",
+   "ms": 5222
+  },
+  {
+   "t": "meet",
+   "w": "đẹp",
+   "ms": 8696
+  },
+  {
+   "t": "meet",
+   "w": "đói",
+   "ms": 5633
+  },
+  {
+   "t": "listen",
+   "w": "nóng",
+   "ok": false,
+   "a": "beautiful, pretty; good-looking",
+   "ms": 2985
+  },
+  {
+   "t": "listen",
+   "w": "đói",
+   "ok": false,
+   "a": "beautiful, pretty; good-looking",
+   "ms": 2198
+  },
+  {
+   "t": "listen",
+   "w": "nóng",
+   "ok": true,
+   "a": "hot",
+   "ms": 5950,
+   "retry": true
+  },
+  {
+   "t": "listen",
+   "w": "đói",
+   "ok": true,
+   "a": "hungry",
+   "ms": 3355,
+   "retry": true
+  },
+  {
+   "t": "listen",
+   "w": "được",
+   "ok": true,
+   "a": "OK, all right; can be done",
+   "ms": 4949
+  },
+  {
+   "t": "listen",
+   "w": "nóng",
+   "ok": false,
+   "a": "cold (of the weather, and how you feel in it)",
+   "ms": 5684
+  },
+  {
+   "t": "listen",
+   "w": "đẹp",
+   "ok": true,
+   "a": "beautiful, pretty; good-looking",
+   "ms": 7472,
+   "plays": 1
+  },
+  {
+   "t": "listen",
+   "w": "đói",
+   "ok": false,
+   "a": "beautiful, pretty; good-looking",
+   "ms": 3466
+  },
+  {
+   "t": "listen",
+   "w": "khỏe",
+   "ok": true,
+   "a": "well, healthy; strong",
+   "ms": 3317
+  },
+  {
+   "t": "listen",
+   "w": "nóng",
+   "ok": true,
+   "a": "hot",
+   "ms": 5371,
+   "retry": true
+  },
+  {
+   "t": "listen",
+   "w": "rét",
+   "ok": true,
+   "a": "cold (of the weather, and how you feel in it)",
+   "ms": 4500
+  },
+  {
+   "t": "listen",
+   "w": "đói",
+   "ok": false,
+   "a": "beautiful, pretty; good-looking",
+   "ms": 5550,
+   "retry": true
+  },
+  {
+   "t": "listen",
+   "w": "chào",
+   "ok": true,
+   "a": "hello; goodbye",
+   "ms": 5399
+  },
+  {
+   "t": "listen",
+   "w": "biết",
+   "ok": false,
+   "a": "hello; goodbye",
+   "ms": 3850
+  },
+  {
+   "t": "spell",
+   "w": "đẹp",
+   "ok": true,
+   "a": "đẹp",
+   "ms": 2567
+  },
+  {
+   "t": "reverse",
+   "w": "đói",
+   "ok": false,
+   "a": "nóng",
+   "ms": 3652
+  },
+  {
+   "t": "spell",
+   "w": "rét",
+   "ok": true,
+   "a": "rét",
+   "ms": 2368
+  },
+  {
+   "t": "listen",
+   "w": "biết",
+   "ok": false,
+   "a": "cold (of the weather, and how you feel in it)",
+   "ms": 5567,
+   "retry": true
+  },
+  {
+   "t": "spell",
+   "w": "nóng",
+   "ok": true,
+   "a": "nóng",
+   "ms": 1733
+  },
+  {
+   "t": "reverse",
+   "w": "đói",
+   "ok": false,
+   "a": "đẹp",
+   "ms": 2884,
+   "retry": true
+  },
+  {
+   "t": "type",
+   "w": "đẹp",
+   "ok": true,
+   "g": "marks",
+   "a": "dep",
+   "ms": 10766,
+   "hints": 1,
+   "firstKeyMs": 8839
+  },
+  {
+   "t": "type",
+   "w": "nóng",
+   "ok": false,
+   "g": "wrong",
+   "a": "nogn",
+   "ms": 6488,
+   "hints": 0,
+   "firstKeyMs": 2850
+  },
+  {
+   "t": "type",
+   "w": "rét",
+   "ok": true,
+   "g": "tone",
+   "a": "ret",
+   "ms": 4324,
+   "hints": 0,
+   "firstKeyMs": 2036
+  },
+  {
+   "t": "type",
+   "w": "đói",
+   "ok": true,
+   "g": "marks",
+   "a": "doi",
+   "ms": 6043,
+   "hints": 0,
+   "firstKeyMs": 4367
+  },
+  {
+   "t": "type",
+   "w": "nóng",
+   "g": "perfect",
+   "a": "nóng",
+   "ms": 7169,
+   "retry": true,
+   "tiles": true
+  },
+  {
+   "t": "listen",
+   "w": "Cháu đói rồi.",
+   "ok": false,
+   "a": "It's so cold!",
+   "ms": 7854
+  },
+  {
+   "t": "listen",
+   "w": "Nóng quá!",
+   "ok": true,
+   "a": "So hot!",
+   "ms": 3105
+  },
+  {
+   "t": "listen",
+   "w": "Trời rét quá!",
+   "ok": true,
+   "a": "It's so cold!",
+   "ms": 2593
+  },
+  {
+   "t": "listen",
+   "w": "Đẹp quá!",
+   "ok": true,
+   "a": "How beautiful!",
+   "ms": 6655
+  },
+  {
+   "t": "listen",
+   "w": "Cháu đói rồi.",
+   "ok": true,
+   "a": "I'm hungry now. (to an older relative)",
+   "ms": 2496,
+   "retry": true
+  },
+  {
+   "t": "listen",
+   "w": "trà nóng",
+   "ok": false,
+   "a": "So hot!",
+   "ms": 11018,
+   "plays": 1
+  },
+  {
+   "t": "listen",
+   "w": "trà nóng",
+   "ok": true,
+   "a": "hot tea",
+   "ms": 2906,
+   "retry": true
+  },
+  {
+   "t": "dialogue",
+   "w": "Soup at Bà's",
+   "ok": true,
+   "a": "Ngon quá ạ!",
+   "ms": 43617,
+   "plays": 2
+  },
+  {
+   "t": "situation",
+   "w": "Phở bò năm lăm một bát.",
+   "ok": false,
+   "a": "513",
+   "ms": 37049,
+   "plays": 2
+  },
+  {
+   "t": "say",
+   "w": "So hot! (the soup)",
+   "ok": false,
+   "g": "wrong",
+   "a": "nogn",
+   "ms": 22593
+  },
+  {
+   "t": "say",
+   "w": "It's so cold! (the weather)",
+   "ok": true,
+   "g": "tone",
+   "a": "ret qua",
+   "ms": 6034
+  },
+  {
+   "t": "situation",
+   "w": "Trà nóng ba nghìn một cốc anh ạ.",
+   "ok": false,
+   "a": "30.000₫",
+   "ms": 71833,
+   "plays": 3
+  },
+  {
+   "t": "situation",
+   "w": "Hai cốc trà nóng, hết sáu nghìn ạ.",
+   "ok": false,
+   "a": "60.000₫",
+   "ms": 10185,
+   "plays": 1
+  },
+  {
+   "t": "situation",
+   "w": "Bánh mì trứng hai mươi, được không anh?",
+   "ok": false,
+   "a": "25.000₫",
+   "ms": 10365,
+   "plays": 1
+  },
+  {
+   "t": "situation",
+   "w": "Chào anh! Bánh mì hai lăm nhé.",
+   "ok": true,
+   "a": "25.000₫",
+   "ms": 8391
+  },
+  {
+   "t": "say",
+   "w": "How beautiful! (the sunset)",
+   "ok": false,
+   "g": "wrong",
+   "a": "dat qua",
+   "ms": 8374
+  },
+  {
+   "t": "speed",
+   "w": "rét",
+   "ok": true,
+   "a": "cold (of the weather, and how you feel in it)",
+   "ms": 3502
+  },
+  {
+   "t": "speed",
+   "w": "trà nóng",
+   "ok": true,
+   "a": "hot tea",
+   "ms": 4538
+  },
+  {
+   "t": "speed",
+   "w": "Trời rét quá!",
+   "ok": false,
+   "a": "How beautiful!",
+   "ms": 3169
+  },
+  {
+   "t": "speed",
+   "w": "chào",
+   "ok": true,
+   "a": "hello; goodbye",
+   "ms": 2002
+  },
+  {
+   "t": "speed",
+   "w": "chào",
+   "ok": true,
+   "a": "hello; goodbye",
+   "ms": 2168
+  },
+  {
+   "t": "speed",
+   "w": "nóng",
+   "ok": false,
+   "a": "So hot!",
+   "ms": 2549
+  },
+  {
+   "t": "speed",
+   "w": "Trời rét quá!",
+   "ok": false,
+   "a": "beautiful, pretty; good-looking",
+   "ms": 2011
+  },
+  {
+   "t": "speed",
+   "w": "rét",
+   "ok": true,
+   "a": "cold (of the weather, and how you feel in it)",
+   "ms": 4696
+  },
+  {
+   "t": "speed",
+   "w": "Nóng quá!",
+   "ok": false,
+   "a": "beautiful, pretty; good-looking",
+   "ms": 2735
+  },
+  {
+   "t": "speed",
+   "w": "khỏe",
+   "ok": true,
+   "a": "well, healthy; strong",
+   "ms": 2334
+  },
+  {
+   "t": "speed",
+   "w": "đẹp",
+   "ok": false,
+   "a": "hot",
+   "ms": 4662
+  },
+  {
+   "t": "speed",
+   "w": "đói",
+   "ok": false,
+   "a": "I'm hungry now. (to an older relative)",
+   "ms": 3850
+  },
+  {
+   "t": "speed",
+   "w": "khỏe",
+   "ok": true,
+   "a": "well, healthy; strong",
+   "ms": 2670
+  }
+ ],
+ "issue": 35
+}

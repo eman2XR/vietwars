@@ -12,7 +12,6 @@ import { pushSupport, currentSubscription, enablePush, disablePush, loadPushKeys
 import { openTalk, setTalkContext, talkKey, findModel } from './talk.js';
 
 const APP_VERSION = '5';
-const REVIEW_LIMIT = 20;
 const app = document.getElementById('app');
 const params = new URLSearchParams(location.search);
 const testMode = params.has('test');
@@ -297,7 +296,6 @@ function startSession(kind, lesson, opts = {}) {
   } else {
     const due = dueWords(store.deck())
       .filter((vi) => !KNOWN.has(vi))
-      .slice(0, REVIEW_LIMIT)
       .map((vi) => WORDS.get(vi))
       .filter(Boolean);
     if (!due.length) {

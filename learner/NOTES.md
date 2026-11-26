@@ -1,5 +1,7 @@
 Things the learner said in conversation, newest first. Add to this file whenever the learner gives feedback outside the app.
 
+- 2026-11-26: "it's a bit weird that once I review some words and then when I'm done there's more to review - seems like a bug (even if it's not). fix it". A review now takes every due word (no 20-word limit), and a missed word comes back the next day instead of after 10 minutes (it is already retried within the session); web/js/srs.js and main.js.
+
 - 2026-11-26 (Talk, issue 10, a say screen): "this page says say it but it doesn't say what to say" (a resume bug: the say question Xin lỗi em. came back as the combo with the same Vietnamese, so it had no cue; fixed in restore()), and "add the back button because there's no way I can go back" (added: ‹ in issues steps back to the last word card or story page, then Back to where I was). Issue 10 rated Too hard and Boring.
 
 - 2026-11-25 (Talk, during a review): about đồng, "I already know this, I'll never forget, so can you not show this again?" Added to web/lessons/known.json. Also surprised that the review desk still had words due right after a review (a review takes at most 20 words; misses come back after 10 minutes; issue 9's words had just joined).
