@@ -1,0 +1,383 @@
+{
+  "id": "lesson-11",
+  "number": 11,
+  "title": "So hot, so cold",
+  "vi": "Trời rét quá!",
+  "theme": "describing words for the weather, food and views; Hà Nội's four seasons; ... quá!",
+  "intro": "Four words you can see and feel (hot, cold, beautiful, hungry) and one pattern to say them with feeling: ... quá!, so ...! Back at Bà's table, and at a tea stall on a winter evening.",
+  "cover": {
+    "picture": {
+      "kind": "scene",
+      "name": "seasons"
+    }
+  },
+  "feature": {
+    "kicker": "Hà Nội's seasons",
+    "title": "Four seasons in one city",
+    "dek": "A sticky summer, a short autumn scented with milk flowers, a dry winter wind born over Siberia and a spring of drizzle. Meet them through the words you need in each.",
+    "intro": "Officially Hà Nội has two seasons: rainy from April to October and dry from November to March. But the months between give it four you can feel. Each has its word: nóng in summer, đẹp in autumn, rét in winter, and đói in any season when phở steams past.",
+    "beats": [
+      {
+        "picture": {
+          "kind": "icon",
+          "name": "hot"
+        },
+        "text": "Summer runs from May to August: hot and humid, with most of the year's rain. The record usually given is 42.8 °C, from May 1926, and in its damp heat a summer afternoon can feel far hotter than the thermometer says. Nóng quá! (so hot!) is the summer sigh."
+      },
+      {
+        "picture": {
+          "kind": "icon",
+          "name": "milkFlower"
+        },
+        "text": "From September to mid-November come the cool, clear days of autumn, and the scent of hoa sữa, the milk flower, named for its creamy blossom and seen as the herald of autumn in Hà Nội. In 1985 Trịnh Công Sơn wrote Nhớ mùa thu Hà Nội, Remembering Hà Nội's Autumn, a song of yellow and red leaves over the old streets. Not everyone loves the milk flower: planted thickly, its scent turns cloying, and in 1994 residents in four provinces and cities of central Vietnam petitioned against it."
+      },
+      {
+        "picture": {
+          "kind": "icon",
+          "name": "chill"
+        },
+        "text": "From late November the northeast monsoon, gió mùa đông bắc or gió bấc, sends waves of cold air down from a high-pressure system over Siberia. Until mid-February the city is rét and dry. Then spring comes in damp, with mưa phùn, a fine drizzle, through March and sometimes into April. Northerners call this cold rét; lạnh, cold, also works."
+      },
+      {
+        "picture": {
+          "kind": "scene",
+          "name": "seasons"
+        },
+        "text": "The city's coldest day on record was 12 January 1955, at 2.7 °C. And on 24 January 2016, in a cold wave, the temperature on the peak of Ba Vì mountain, inside Hà Nội's boundaries, fell to 0 °C and snow was seen there. Trời rét quá!"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Hanoi (Climate)",
+        "url": "https://en.wikipedia.org/wiki/Hanoi#Climate"
+      },
+      {
+        "title": "Hà Nội (Khí hậu)",
+        "url": "https://vi.wikipedia.org/wiki/H%C3%A0_N%E1%BB%99i"
+      },
+      {
+        "title": "Alstonia scholaris",
+        "url": "https://en.wikipedia.org/wiki/Alstonia_scholaris"
+      },
+      {
+        "title": "Hoa sữa",
+        "url": "https://vi.wikipedia.org/wiki/Hoa_s%E1%BB%AFa"
+      },
+      {
+        "title": "Gió mùa Đông Bắc",
+        "url": "https://vi.wikipedia.org/wiki/Gi%C3%B3_m%C3%B9a_%C4%90%C3%B4ng_B%E1%BA%AFc"
+      },
+      {
+        "title": "Nhớ mùa thu Hà Nội",
+        "url": "https://vi.wikipedia.org/wiki/Nh%E1%BB%9B_m%C3%B9a_thu_H%C3%A0_N%E1%BB%99i"
+      }
+    ]
+  },
+  "words": [
+    {
+      "vi": "nóng",
+      "en": "hot",
+      "picture": {
+        "kind": "icon",
+        "name": "hot"
+      },
+      "hook": "You grab the pot handle and yelp \"nawng!\", your voice jumping up as you snatch your hand back: nóng, hot.",
+      "tip": "n as in English; o is an open \"aw\", kept short; after o, the final ng ends with the lips pressed shut and the cheeks slightly puffed. Sắc: rise.",
+      "note": "nóng: the pot handle that burns. Nóng quá! So hot! trà nóng: hot tea (the describing word comes after the noun).",
+      "contrast": [
+        {
+          "vi": "nông",
+          "en": "shallow; farming (as in nông dân, farmer)"
+        }
+      ]
+    },
+    {
+      "vi": "rét",
+      "en": "cold (of the weather, and how you feel in it)",
+      "picture": {
+        "kind": "icon",
+        "name": "chill"
+      },
+      "hook": "In January the northeast wind zips through your coat: \"zet!\", sharp and rising, cut short: rét, cold.",
+      "tip": "In Hà Nội r sounds like z; e is open, as in \"bed\"; the final t is not released. Sắc: rise.",
+      "note": "rét: \"zet!\", the January wind. Trời rét quá! It's so cold! rét is the Northern word for the winter cold; lạnh also means cold, and is the word for cold food and drinks.",
+      "contrast": [
+        {
+          "vi": "rết",
+          "en": "centipede"
+        }
+      ]
+    },
+    {
+      "vi": "đẹp",
+      "en": "beautiful, pretty; good-looking",
+      "picture": {
+        "kind": "icon",
+        "name": "sunset"
+      },
+      "hook": "The sun drops behind West Lake and you say \"dep!\", low and clipped short: đẹp, beautiful.",
+      "tip": "đ is a full d, as in \"day\"; e is open, as in \"bed\"; close the lips on p without a pop. Nặng: low, then a sudden stop.",
+      "note": "Đẹp quá! How beautiful! Said of views, clothes, people and photos.",
+      "contrast": [
+        {
+          "vi": "dép",
+          "en": "sandals (in Hà Nội d sounds like z: \"zép\")"
+        }
+      ]
+    },
+    {
+      "vi": "đói",
+      "en": "hungry",
+      "picture": {
+        "kind": "icon",
+        "name": "hungry"
+      },
+      "hook": "Noon, nothing since breakfast: you press your growling stomach and moan \"doy?\", rising: đói, hungry.",
+      "tip": "đ as in \"day\"; oi like the \"oy\" in \"boy\", with an open o. Sắc: rise.",
+      "note": "Cháu đói quá: I'm so hungry. The opposite is no, full, from issue 6.",
+      "contrast": [
+        {
+          "vi": "đôi",
+          "en": "a pair (đôi đũa: a pair of chopsticks)"
+        }
+      ]
+    }
+  ],
+  "review": [
+    "chào",
+    "biết",
+    "khỏe",
+    "được"
+  ],
+  "grammar": {
+    "title": "... quá! So ...!",
+    "text": "Put quá after a describing word to say it with feeling: Nóng quá! So hot! Đẹp quá! How beautiful! You already know Đắt quá! and Ngon quá!. The describing word comes after the thing it describes, and trời, the sky, stands in for the weather: Trời rét quá! It's so cold!",
+    "examples": [
+      {
+        "vi": "Trời nóng quá!",
+        "en": "It's so hot!"
+      },
+      {
+        "vi": "Phở ngon quá!",
+        "en": "The phở is so good!"
+      }
+    ]
+  },
+  "combos": [
+    {
+      "vi": "Nóng quá!",
+      "en": "So hot!",
+      "note": "A describing word plus quá."
+    },
+    {
+      "vi": "Trời rét quá!",
+      "en": "It's so cold!",
+      "note": "trời: the sky, the weather."
+    },
+    {
+      "vi": "Đẹp quá!",
+      "en": "How beautiful!",
+      "note": "For a view, a photo or someone's new shirt."
+    },
+    {
+      "vi": "Cháu đói rồi.",
+      "en": "I'm hungry now. (to an older relative)",
+      "note": "rồi: already, now."
+    },
+    {
+      "vi": "trà nóng",
+      "en": "hot tea",
+      "note": "The describing word comes after the noun."
+    }
+  ],
+  "dialogues": [
+    {
+      "title": "Soup at Bà's",
+      "setting": "table",
+      "picture": {
+        "kind": "icon",
+        "name": "soup"
+      },
+      "lines": [
+        {
+          "who": "Bà",
+          "vi": "Chào cháu! Cháu khỏe không?",
+          "en": "Hello, dear! Are you well?"
+        },
+        {
+          "who": "You",
+          "vi": "Cháu khỏe ạ. Cháu mời bà ăn cơm ạ.",
+          "en": "I'm well. Please start, Grandma.",
+          "you": true
+        },
+        {
+          "who": "Bà",
+          "vi": "Canh nóng nhé, cháu!",
+          "en": "Careful, the soup's hot!"
+        },
+        {
+          "who": "You",
+          "vi": "Vâng, cháu đói quá ạ!",
+          "en": "Yes, I'm so hungry!",
+          "you": true
+        }
+      ],
+      "check": {
+        "ask": "You taste Bà's soup, and it is delicious. Say your answer aloud first, then pick it.",
+        "options": [
+          "Ngon quá ạ!",
+          "Đẹp quá ạ!",
+          "Cháu không biết ạ."
+        ],
+        "answer": "Ngon quá ạ!",
+        "note": "Ngon quá ạ!: so delicious (politely). Đẹp quá: how beautiful; Cháu không biết: I don't know. Cháu mời bà ăn cơm ạ: the younger one invites each elder to start, as at every family meal (issue 6)."
+      }
+    }
+  ],
+  "situations": [
+    {
+      "who": "Tea seller",
+      "picture": {
+        "kind": "icon",
+        "name": "tea"
+      },
+      "vi": "Trà nóng ba nghìn một cốc anh ạ.",
+      "en": "Hot tea, 3,000 a glass.",
+      "ask": "How much is a glass of hot tea?",
+      "options": [
+        "3.000₫",
+        "30.000₫",
+        "13.000₫"
+      ],
+      "answer": "3.000₫",
+      "note": "cốc: a glass (the Northern word)."
+    },
+    {
+      "who": "Phở seller",
+      "picture": {
+        "kind": "icon",
+        "name": "bowl"
+      },
+      "vi": "Phở bò năm lăm một bát.",
+      "en": "Beef phở, 55,000 a bowl.",
+      "ask": "Type the price of a bowl in digits.",
+      "digits": "55000",
+      "note": "năm lăm: 55 (năm at the start, lăm after the tens), with nghìn left out. Hà Nội sellers often say năm nhăm."
+    },
+    {
+      "who": "Bánh mì seller",
+      "picture": {
+        "kind": "icon",
+        "name": "baguette"
+      },
+      "vi": "Chào anh! Bánh mì hai lăm nhé.",
+      "en": "Hello! The bánh mì is 25,000.",
+      "ask": "What does the bánh mì cost?",
+      "options": [
+        "25.000₫",
+        "20.000₫",
+        "52.000₫"
+      ],
+      "answer": "25.000₫"
+    },
+    {
+      "who": "Bánh mì seller",
+      "picture": {
+        "kind": "icon",
+        "name": "baguette"
+      },
+      "vi": "Bánh mì trứng hai mươi, được không anh?",
+      "en": "Egg bánh mì, 20,000, OK?",
+      "ask": "You asked for something cheaper. What price is she offering?",
+      "options": [
+        "20.000₫",
+        "25.000₫",
+        "12.000₫"
+      ],
+      "answer": "20.000₫",
+      "note": "được không?: OK? (issue 9). bánh mì trứng: an egg bánh mì."
+    },
+    {
+      "who": "Tea seller",
+      "picture": {
+        "kind": "icon",
+        "name": "tea"
+      },
+      "vi": "Hai cốc trà nóng, hết sáu nghìn ạ.",
+      "en": "Two hot teas, 6,000 in total.",
+      "ask": "You and a friend had a hot tea each. What do you pay?",
+      "options": [
+        "6.000₫",
+        "3.000₫",
+        "60.000₫"
+      ],
+      "answer": "6.000₫",
+      "note": "hết: in total, on a bill."
+    },
+    {
+      "who": "You, at the table",
+      "picture": {
+        "kind": "icon",
+        "name": "hot"
+      },
+      "say": "So hot! (the soup)",
+      "vi": "Nóng quá!",
+      "accept": [
+        "Nóng quá!",
+        "Nóng quá ạ!",
+        "Canh nóng quá!",
+        "Canh nóng quá ạ!"
+      ],
+      "en": "So hot!",
+      "ask": "Bà's soup is steaming and you burn your tongue. Say it.",
+      "note": "Nóng quá ạ! with ạ is politer at Bà's table."
+    },
+    {
+      "who": "You, by West Lake",
+      "picture": {
+        "kind": "icon",
+        "name": "sunset"
+      },
+      "say": "How beautiful! (the sunset)",
+      "vi": "Đẹp quá!",
+      "accept": [
+        "Đẹp quá!",
+        "Đẹp quá ạ!",
+        "Đẹp quá nhỉ!"
+      ],
+      "en": "How beautiful!",
+      "ask": "Your friend shows you the sunset over West Lake. Say what you think."
+    },
+    {
+      "who": "You, in the street",
+      "picture": {
+        "kind": "icon",
+        "name": "chill"
+      },
+      "say": "It's so cold! (the weather)",
+      "vi": "Trời rét quá!",
+      "accept": [
+        "Trời rét quá!",
+        "Rét quá!",
+        "Trời lạnh quá!",
+        "Lạnh quá!",
+        "Rét quá nhỉ!",
+        "Trời rét quá nhỉ!"
+      ],
+      "en": "It's so cold!",
+      "ask": "The northeast wind hits you at a street corner in January. Say it to your friend.",
+      "note": "rét is the Northern word for this cold. trời: the sky, the weather."
+    }
+  ],
+  "challenge": {
+    "title": "Street challenge",
+    "text": "Say a ... quá! out loud every time the weather, a view or a meal gets a reaction from you today: Nóng quá!, Rét quá!, Đẹp quá!, Ngon quá!. Bonus: look up today's weather in Hà Nội and say it in one sentence, Trời nóng quá! or Trời rét quá! Bonus: say Đẹp quá! about a friend's photo or new shirt, and watch them smile."
+  },
+  "stamp": {
+    "label": "Bốn mùa",
+    "picture": {
+      "kind": "scene",
+      "name": "seasons"
+    }
+  }
+}

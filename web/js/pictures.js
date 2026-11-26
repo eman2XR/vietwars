@@ -1036,6 +1036,68 @@ const ICONS = {
         <path d="M6 80 H114"/><path stroke-width="1.1" d="M14 86 l4 -6 M34 86 l4 -6 M54 86 l4 -6 M74 86 l4 -6 M94 86 l4 -6"/>`,
     };
   })(),
+  // nóng: a bowl of soup too hot to touch: steam rising and a hand snatched back from the rim.
+  hot: {
+    tone: 'warm',
+    seed: 255,
+    ink: `${bowlOfRice(52, 62, 1.05, { cls: 'k-tint', empty: true })}
+      <path stroke-width="2" d="M40 40 c-5 -6 5 -10 0 -17 M52 38 c-5 -6 5 -10 0 -18 M64 40 c-5 -6 5 -10 0 -17"/>
+      <path class="k-paper" stroke-width="1.8" d="M90 46 c6 -2 12 1 13 6 c1 4 -3 7 -8 6 l-9 -2 c-3 -1 -3 -9 4 -10 Z"/>
+      <path stroke-width="1.8" d="M103 52 L112 50"/>
+      <path stroke-width="1.5" d="M82 40 l-5 -4 M84 50 l-7 0 M82 59 l-5 4"/>
+      <path d="M16 82 H106"/>`,
+  },
+  // rét: the northeast wind in winter: someone hunched in a coat and scarf, wind lines streaming past.
+  chill: (() => {
+    const p = person(62, 82, 60, { fill: 'k-shade' });
+    return {
+      tone: 'cool',
+      seed: 257,
+      ink: `<path stroke-width="1.6" d="M8 30 q14 -5 28 0 t28 0 M4 50 q12 -4 24 0 M8 66 q10 -4 20 0"/>
+        ${p.ink}
+        <path class="k-tint" stroke-width="1.8" d="M${n1(62 - p.ws + 1)} ${n1(p.sy - 1)} q${n1(p.ws - 1)} 6 ${n1(2 * p.ws - 2)} 0 l0 4 q-${n1(p.ws - 1)} 6 -${n1(2 * p.ws - 2)} 0 Z"/>
+        <path class="k-tint" stroke-width="1.6" d="M${n1(62 + p.ws - 4)} ${n1(p.sy + 2)} l14 4 l-2 5 l-12 -4 Z"/>
+        <path d="M${n1(62 - p.ws)} ${n1(p.sy + 3)} L${n1(62 - 4)} ${n1(p.sy + 12)} M${n1(62 + p.ws)} ${n1(p.sy + 3)} L${n1(62 + 4)} ${n1(p.sy + 12)}"/>
+        <path stroke-width="1.4" d="M${n1(62 - 10)} ${n1(p.hy - 1)} l-3 -2 M${n1(62 + 10)} ${n1(p.hy - 1)} l3 -2"/>
+        <path d="M14 82 H106"/>`,
+    };
+  })(),
+  // đẹp: sunset over West Lake: the sun half down, a pagoda tower and a boat against the water.
+  sunset: {
+    tone: 'warm',
+    seed: 259,
+    ink: `<path class="k-tint" stroke-width="1.8" d="M44 58 a16 16 0 0 1 32 0 Z"/>
+      <path stroke-width="1.4" d="M60 30 v-6 M40 38 l-4 -4 M80 38 l4 -4 M32 50 h-6 M88 50 h6"/>
+      <path class="k-pale" d="M6 58 H114 V86 H6 Z"/>
+      <path stroke-width="1.2" d="M46 64 h28 M50 70 h20 M54 76 h12"/>
+      <path class="k-paper" stroke-width="1.6" d="M92 58 V38 M88 58 h8 M86 46 h12 M87 38 h10 M89 30 h6 M92 30 v-6"/>
+      <path class="k-shade" stroke-width="1.6" d="M14 74 h22 l-4 5 h-14 Z"/>
+      <path stroke-width="1.4" d="M25 74 v-12 l7 10"/>`,
+  },
+  // đói: hungry: someone looking at an empty bowl, a rumble drawn at the stomach.
+  hungry: (() => {
+    const p = person(44, 82, 62, { fill: 'k-tint' });
+    return {
+      tone: 'earth',
+      seed: 261,
+      ink: `${p.ink}
+        <path d="M${n1(44 - p.ws)} ${n1(p.sy + 2)} L${n1(44 - 2)} ${n1(p.hip - 2)} M${n1(44 + p.ws)} ${n1(p.sy + 2)} L${n1(44 + p.ws + 6)} ${n1(p.hip - 6)}"/>
+        <path stroke-width="1.6" d="M${n1(44 + 14)} ${n1(p.hip - 10)} q4 -2 6 1 q2 3 6 1 M${n1(44 + 14)} ${n1(p.hip - 3)} q4 -2 6 1 q2 3 6 1"/>
+        <path stroke-width="1.4" d="M${n1(44 - 4)} ${n1(p.hy + 3)} q4 -2 8 0"/>
+        ${bowlOfRice(90, 62, 0.62, { cls: 'k-paper', empty: true })}
+        <path d="M10 82 H112"/>`,
+    };
+  })(),
+  // hoa sữa: the milk-flower tree of a Hà Nội autumn: a tall trunk and tiers of leaves with white flower clusters.
+  milkFlower: {
+    tone: 'leaf',
+    seed: 263,
+    ink: `<path class="k-shade" stroke-width="1.8" d="M57 84 L58 46 M62 84 L61 46 M57 84 H62"/>
+      ${[[60, 22, 26, 8], [60, 38, 34, 9], [60, 54, 40, 9]].map(([x, y, rx, ry]) => `<ellipse class="k-tint" stroke-width="1.8" cx="${x}" cy="${y}" rx="${rx}" ry="${ry}"/>`).join('')}
+      ${[[44, 20], [72, 18], [34, 36], [58, 34], [84, 38], [28, 52], [52, 50], [76, 52], [94, 54]].map(([x, y]) => `<circle class="k-paper" stroke-width="1.3" cx="${x}" cy="${y}" r="3.2"/><circle class="k-paper" stroke-width="1.3" cx="${x + 4}" cy="${y + 2}" r="2.4"/>`).join('')}
+      <path stroke-width="1.3" d="M96 30 q4 -3 8 0 M100 22 q4 -3 8 0 M14 34 q4 -3 8 0"/>
+      <path d="M16 84 H104"/>`,
+  },
 };
 
 function icon(name) {
@@ -1636,7 +1698,36 @@ function marksScene() {
   };
 }
 
-const SCENES = { phoStall: phoScene, market: marketScene, legend: legendScene, genealogy: genealogyScene, fruitTray: fruitTrayScene, familyTray: familyTrayScene, longBien: longBienScene, oldQuarter: oldQuarterScene, marks: marksScene };
+// Cover for issue 11: a Hà Nội lakeside on a cold evening: a milk-flower tree in bloom, a tea seller's kettle steaming on
+// a low stool, a customer in a scarf, and the northeast wind streaming in over the water.
+function seasonsScene() {
+  const seller = person(250, 206, 64, { fill: 'k-tint', hair: 'long', dress: true });
+  const guest = person(318, 206, 72, { fill: 'k-shade' });
+  const blooms = [[96, 58], [128, 50], [160, 60], [84, 84], [116, 80], [150, 86], [182, 82], [100, 108], [138, 110], [172, 108]];
+  return {
+    tone: 'cool',
+    paper: blob(200, 128, 172, 100, 91, 13, 0.06),
+    under: '<ellipse class="k-mid" cx="200" cy="214" rx="160" ry="7"/>',
+    ink: `<path class="k-pale" d="M30 150 C120 146 280 146 370 150 V170 C280 166 120 166 30 170 Z"/>
+      <path stroke-width="1.2" d="M60 158 h40 M180 160 h50 M300 157 h40"/>
+      <path stroke-width="1.6" d="M24 206 H376"/>
+      <path stroke-width="1.7" d="M200 40 q22 -7 44 0 t44 0 M226 64 q18 -6 36 0 t36 0 M292 92 q14 -5 28 0 t28 0"/>
+      <path class="k-shade" stroke-width="2" d="M128 214 L131 120 M140 214 L137 120 M126 214 H142"/>
+      ${[[134, 64, 54, 18], [134, 90, 66, 18], [134, 114, 70, 16]].map(([x, y, rx, ry]) => `<ellipse class="k-tint" stroke-width="2" cx="${x}" cy="${y}" rx="${rx}" ry="${ry}"/>`).join('')}
+      ${blooms.map(([x, y]) => `<circle class="k-paper" stroke-width="1.4" cx="${x}" cy="${y}" r="4.6"/><circle class="k-paper" stroke-width="1.4" cx="${x + 6}" cy="${y + 3}" r="3.4"/>`).join('')}
+      <path class="k-paper" stroke-width="1.8" d="M268 206 v-16 h26 v16 M266 190 h30"/>
+      <path class="k-shade" stroke-width="1.8" d="M272 190 c-2 -12 4 -18 9 -18 c5 0 11 6 9 18 Z M290 178 l9 -5"/>
+      <path stroke-width="1.6" d="M276 164 c-4 -5 4 -8 0 -14 M286 162 c-4 -5 4 -8 0 -14"/>
+      ${seller.ink}${guest.ink}
+      <path class="k-tint" stroke-width="1.8" d="M${n1(318 - guest.ws + 1)} ${n1(guest.sy - 1)} q${n1(guest.ws - 1)} 7 ${n1(2 * guest.ws - 2)} 0 l0 5 q-${n1(guest.ws - 1)} 7 -${n1(2 * guest.ws - 2)} 0 Z"/>
+      <path class="k-tint" stroke-width="1.6" d="M${n1(318 - guest.ws + 3)} ${n1(guest.sy + 3)} l-16 6 l2 6 l15 -6 Z"/>
+      <path d="M${n1(318 - guest.ws)} ${n1(guest.sy + 4)} L${n1(318 - 22)} ${n1(guest.sy + 22)} M${n1(318 + guest.ws)} ${n1(guest.sy + 4)} L${n1(318 + guest.ws + 3)} ${n1(guest.hip + 2)}"/>
+      <path class="k-paper" stroke-width="1.6" d="M${n1(318 - 30)} ${n1(guest.sy + 18)} h9 v10 h-9 Z"/>
+      <path d="M${n1(250 - seller.ws)} ${n1(seller.sy + 4)} L${n1(250 - seller.ws - 3)} ${n1(seller.sy + 30)} M${n1(250 + seller.ws)} ${n1(seller.sy + 4)} L${n1(266)} ${n1(seller.sy + 26)}"/>`,
+  };
+}
+
+const SCENES = { phoStall: phoScene, market: marketScene, legend: legendScene, genealogy: genealogyScene, fruitTray: fruitTrayScene, familyTray: familyTrayScene, longBien: longBienScene, oldQuarter: oldQuarterScene, marks: marksScene, seasons: seasonsScene };
 
 function scene(name) {
   const make = SCENES[name];

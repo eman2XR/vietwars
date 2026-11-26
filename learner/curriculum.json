@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-25",
+  "updated": "2026-11-26",
   "reviewedAt": "2026-11-24",
   "goal": "Basic conversation at a dinner table (a meal with a Hà Nội family or friends) and understanding basic street talk (sellers, waiters, drivers, neighbours) in Northern Vietnamese. Vocabulary keeps growing, and from issue 6 every issue also teaches one sentence frame and one short dialogue built from known words, alternating between the table and the street (the learner set this goal on 2026-11-22; see docs/PEDAGOGY.md, Conversation).",
   "phases": [
@@ -183,7 +183,7 @@
     {
       "id": "politeness",
       "title": "Greetings and small talk (street)",
-      "status": "active",
+      "status": "done",
       "warmupIdeas": [
         "xin chào",
         "cảm ơn",
@@ -238,7 +238,7 @@
     {
       "id": "describing",
       "title": "Describing words",
-      "status": "planned",
+      "status": "active",
       "candidates": [
         "to",
         "nhỏ",
@@ -257,8 +257,9 @@
         "khát",
         "rét"
       ],
-      "notes": "rét is the Northern word for cold weather (lạnh also works). Describing words follow the noun.",
-      "storyIdea": "Hà Nội through the seasons: hoa sữa in autumn, West Lake, and why Northerners say rét."
+      "notes": "rét is the Northern word for cold weather (lạnh also works). Describing words follow the noun. Issue 11 (2026-11-26): nóng, rét, đẹp, đói with ... quá!, after issue 10 (abstract greetings) was Too hard and Boring. Later describing words (to, nhỏ, mệt, mới, cũ) can come back in a later issue.",
+      "storyIdea": "Hà Nội through the seasons: hoa sữa in autumn, West Lake, and why Northerners say rét.",
+      "lesson": "lesson-11"
     },
     {
       "id": "questions",
