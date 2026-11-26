@@ -211,7 +211,7 @@
     {
       "id": "verbs",
       "title": "Everyday verbs",
-      "status": "planned",
+      "status": "active",
       "candidates": [
         "ăn",
         "uống",
@@ -233,12 +233,13 @@
         "là"
       ],
       "notes": "Likely partly known: use a warm-up for ăn, uống, đi, có, là. Verbs unlock the patterns phase. Review 2026-11-26: keep issue 11's recipe (four picturable words, a short frame to say, reaction lines, a winnable dialogue check). Verbs to act out fit: ăn, uống, đi are already taught, so pick visible actions (ngủ, xem, nghe, nói, mua is taught) and a frame like Cháu muốn ... (I want to ...).",
-      "storyIdea": "A day in Hà Nội: morning exercise around Hoàn Kiếm Lake at dawn, and the legend of the returned sword."
+      "storyIdea": "A day in Hà Nội: morning exercise around Hoàn Kiếm Lake at dawn, and the legend of the returned sword.",
+      "lesson": "lesson-12"
     },
     {
       "id": "describing",
       "title": "Describing words",
-      "status": "active",
+      "status": "done",
       "candidates": [
         "to",
         "nhỏ",

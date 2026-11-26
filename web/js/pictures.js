@@ -1098,6 +1098,64 @@ const ICONS = {
       <path stroke-width="1.3" d="M96 30 q4 -3 8 0 M100 22 q4 -3 8 0 M14 34 q4 -3 8 0"/>
       <path d="M16 84 H104"/>`,
   },
+  // nấu: cooking: a pot on a gas ring, a lid lifted, steam and a ladle.
+  cook: {
+    tone: 'warm',
+    seed: 265,
+    ink: `<path class="k-shade" stroke-width="1.8" d="M26 74 H94 V80 H26 Z"/>
+      <path stroke-width="1.6" d="M40 74 l4 -5 M60 74 v-6 M80 74 l-4 -5"/>
+      <path class="k-tint" stroke-width="2" d="M34 46 H86 V66 C86 70 82 72 78 72 H42 C38 72 34 70 34 66 Z"/>
+      <path stroke-width="2" d="M30 48 H34 M86 48 H90"/>
+      <path class="k-paper" stroke-width="1.8" d="M44 34 C50 26 70 26 76 34 Z M58 26 v-4 h4 v4"/>
+      <path stroke-width="1.6" d="M46 20 c-4 -5 4 -8 0 -13 M74 20 c-4 -5 4 -8 0 -13"/>
+      <path stroke-width="2" d="M96 30 L74 52 M100 26 a5 5 0 1 0 0.1 0"/>
+      <path d="M16 84 H104"/>`,
+  },
+  // ngủ: asleep after lunch: someone curled on a mat with a pillow, z's floating up.
+  sleep: {
+    tone: 'cool',
+    seed: 267,
+    ink: `<path class="k-pale" stroke-width="1.6" d="M14 74 H106 V80 H14 Z"/>
+      <path class="k-paper" stroke-width="1.8" d="M20 62 C20 56 34 56 34 62 C34 68 20 68 20 62 Z"/>
+      <circle class="k-paper" cx="38" cy="60" r="8"/>
+      <path class="k-dot" d="M30.5 58 C31 51 45 51 45.5 58 C42 55 35 54 30.5 58 Z"/>
+      <path stroke-width="1.4" d="M34 62 q2 1.5 4 0 M40 62 q2 1.5 4 0"/>
+      <path class="k-tint" stroke-width="1.8" d="M46 56 C60 52 86 54 98 60 C100 66 96 72 90 72 H46 C44 66 44 60 46 56 Z"/>
+      <path stroke-width="1.8" d="M66 26 h8 l-8 9 h8 M80 14 h6 l-6 7 h6 M56 38 h5 l-5 6 h5"/>
+      <path d="M10 84 H110"/>`,
+  },
+  // xem: watching a show on the walking street: two people from behind, looking at a juggler.
+  watch: (() => {
+    const a = person(30, 84, 52);
+    const b = person(52, 84, 48, { fill: 'k-tint', hair: 'long' });
+    const j = person(90, 74, 46, { fill: 'k-shade' });
+    return {
+      tone: 'leaf',
+      seed: 269,
+      ink: `${j.ink}
+        <path d="M${n1(90 - j.ws)} ${n1(j.sy + 2)} L${n1(90 - j.ws - 6)} ${n1(j.sy - 8)} M${n1(90 + j.ws)} ${n1(j.sy + 2)} L${n1(90 + j.ws + 6)} ${n1(j.sy - 8)}"/>
+        ${[[78, 14], [90, 8], [102, 14]].map(([x, y]) => `<circle class="k-paper" stroke-width="1.6" cx="${x}" cy="${y}" r="3.4"/>`).join('')}
+        ${a.ink}${b.ink}
+        <path d="M74 74 H108 M6 84 H64"/>`,
+    };
+  })(),
+  // muốn: wanting: someone pointing at the last bánh mì, a thought bubble with the bread in it.
+  want: (() => {
+    const p = person(34, 84, 60, { fill: 'k-tint' });
+    return {
+      tone: 'earth',
+      seed: 271,
+      ink: `${p.ink}
+        <path d="M${n1(34 + p.ws)} ${n1(p.sy + 3)} L${n1(70)} ${n1(p.sy + 12)} M${n1(34 - p.ws)} ${n1(p.sy + 3)} L${n1(34 - p.ws - 3)} ${n1(p.hip + 2)}"/>
+        <path class="k-shade" stroke-width="1.6" d="M72 66 H110 V84"/>
+        <path class="k-tint" stroke-width="1.8" d="M78 62 C82 56 102 56 106 62 C102 66 82 66 78 62 Z"/>
+        <path stroke-width="1.2" d="M86 59 l-2 3 M93 58 l-2 3 M100 59 l-2 3"/>
+        <circle class="k-paper" stroke-width="1.5" cx="46" cy="22" r="2.4"/><circle class="k-paper" stroke-width="1.5" cx="54" cy="15" r="3.4"/>
+        <path class="k-paper" d="M60 4 C74 0 96 2 100 10 C104 18 92 24 80 22 C70 24 60 20 60 13 Z"/>
+        <path class="k-tint" stroke-width="1.6" d="M68 12 C71 8 89 8 92 12 C89 15 71 15 68 12 Z"/>
+        <path d="M4 84 H70"/>`,
+    };
+  })(),
 };
 
 function icon(name) {
@@ -1727,7 +1785,32 @@ function seasonsScene() {
   };
 }
 
-const SCENES = { phoStall: phoScene, market: marketScene, legend: legendScene, genealogy: genealogyScene, fruitTray: fruitTrayScene, familyTray: familyTrayScene, longBien: longBienScene, oldQuarter: oldQuarterScene, marks: marksScene, seasons: seasonsScene };
+// Cover for issue 12: the Lake of the Returned Sword: Turtle Tower on its islet, and the golden turtle rising beside a
+// royal boat with the sword in its mouth.
+function swordLakeScene() {
+  return {
+    tone: 'cool',
+    paper: blob(200, 126, 172, 102, 93, 11, 0.06),
+    under: '<ellipse class="k-mid" cx="200" cy="214" rx="158" ry="7"/>',
+    ink: `<path class="k-pale" d="M28 132 C120 126 280 126 372 132 V206 H28 Z"/>
+      <path stroke-width="1.2" d="M52 150 h34 M110 178 h40 M290 160 h40 M250 192 h50 M60 196 h30"/>
+      <path class="k-shade" stroke-width="1.8" d="M66 136 C78 126 128 126 140 136 Z"/>
+      <path class="k-paper" stroke-width="2" d="M84 128 V96 H122 V128 M80 96 H126 L120 88 H86 Z M90 88 V72 H116 V88 M87 72 H119 L114 66 H92 Z M96 66 V56 H110 V66 M94 56 H112 L108 50 H98 Z"/>
+      <path stroke-width="1.4" d="M95 128 v-14 a4 4 0 0 1 8 0 v14 M107 114 a4 4 0 0 1 8 0 v8 h-8 Z M99 86 v-8 a3 3 0 0 1 6 0 v8 M103 63 a3 3 0 1 0 0.1 0"/>
+      <path class="k-tint" stroke-width="2" d="M196 168 C200 150 236 146 252 160 C256 166 252 172 244 172 H202 C196 172 194 170 196 168 Z"/>
+      <path stroke-width="1.4" d="M210 160 l8 -6 M224 156 l4 6 M236 156 l-4 6"/>
+      <path class="k-tint" stroke-width="2" d="M250 160 C258 150 270 150 274 156 C276 162 268 166 258 164"/>
+      <circle class="k-dot" cx="267" cy="155" r="1.6"/>
+      <path class="k-paper" stroke-width="2" d="M272 160 L330 118 L334 122 L276 164 Z"/>
+      <path stroke-width="2" d="M326 116 l10 10 M332 122 l8 -6"/>
+      <path class="k-shade" stroke-width="2" d="M282 190 H362 L352 202 H292 Z"/>
+      <path stroke-width="2" d="M322 190 V170"/>
+      ${person(322, 190, 34, { fill: 'k-tint' }).ink}
+      <path stroke-width="1.4" d="M190 176 q10 -4 20 0 M240 178 q10 -4 20 0"/>`,
+  };
+}
+
+const SCENES = { phoStall: phoScene, market: marketScene, legend: legendScene, genealogy: genealogyScene, fruitTray: fruitTrayScene, familyTray: familyTrayScene, longBien: longBienScene, oldQuarter: oldQuarterScene, marks: marksScene, seasons: seasonsScene, swordLake: swordLakeScene };
 
 function scene(name) {
   const make = SCENES[name];

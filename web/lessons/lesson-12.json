@@ -1,0 +1,375 @@
+{
+  "id": "lesson-12",
+  "number": 12,
+  "title": "I want to ...",
+  "vi": "Cháu muốn ngủ!",
+  "theme": "everyday verbs (cook, sleep, watch, want); a day around Hoàn Kiếm Lake; muốn + a verb",
+  "intro": "Four verbs you can act out (cook, sleep, watch, want) and one pattern that turns them into wishes: muốn + a verb, I want to ... A walk round the Lake of the Returned Sword, a nap after lunch, and Bà's cooking.",
+  "cover": {
+    "picture": {
+      "kind": "scene",
+      "name": "swordLake"
+    }
+  },
+  "feature": {
+    "kicker": "Hà Nội's lake",
+    "title": "The lake that took the sword back",
+    "dek": "A golden turtle, a borrowed sword, the last giant turtle of the lake, and streets that close to traffic every weekend. A day around Hoàn Kiếm, in four verbs.",
+    "intro": "Hoàn Kiếm, about 12 hectares of green water in the middle of Hà Nội, is where the city goes to walk, meet and watch. Its name, Hồ Hoàn Kiếm, means the Lake of the Returned Sword, and the story behind it is in Vietnamese school textbooks. Most people in Hà Nội just call it Hồ Gươm, Sword Lake.",
+    "beats": [
+      {
+        "picture": {
+          "kind": "scene",
+          "name": "swordLake"
+        },
+        "text": "Legend says the Dragon King lent Lê Lợi a magic sword to drive out the Ming. Early in 1428, after the victory, the new king was boating on the lake with his court when a golden turtle rose and asked him to return the sword to the Dragon King. He held it out, the turtle took it in its mouth and dived, and the lake has been Hoàn Kiếm, the returned sword, ever since. One of its older names is Lục Thủy, green water, for the colour of the lake."
+      },
+      {
+        "picture": {
+          "kind": "scene",
+          "name": "swordLake"
+        },
+        "text": "The turtles were real. Giant soft-shell turtles lived in the lake; a Vietnamese scientist named them Rafetus leloii after the king, though most experts count them as Rafetus swinhoei, one of the rarest turtles on Earth. The last one, known across Hà Nội as Cụ Rùa (cụ is the respectful word for a very old person), was lifted out and treated for its wounds in 2011, and was found dead on 19 January 2016."
+      },
+      {
+        "picture": {
+          "kind": "icon",
+          "name": "sleep"
+        },
+        "text": "Around noon the city slows down. A midday nap, ngủ trưa, after lunch is a common habit in Vietnam, as the siesta is in Spain: in offices and schools many people put their heads down or roll out a mat for a short sleep before the afternoon."
+      },
+      {
+        "picture": {
+          "kind": "icon",
+          "name": "watch"
+        },
+        "text": "On Friday, Saturday and Sunday evenings since 1 September 2016, the streets round the lake (sixteen at first, more since 2020) close to traffic and become a walking street. Families come to stroll and to xem, to watch: folk games, street performers and music, from early evening until midnight."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Hoàn Kiếm Lake",
+        "url": "https://en.wikipedia.org/wiki/Ho%C3%A0n_Ki%E1%BA%BFm_Lake"
+      },
+      {
+        "title": "Hồ Hoàn Kiếm",
+        "url": "https://vi.wikipedia.org/wiki/H%E1%BB%93_Ho%C3%A0n_Ki%E1%BA%BFm"
+      },
+      {
+        "title": "Ngủ trưa",
+        "url": "https://vi.wikipedia.org/wiki/Ng%E1%BB%A7_tr%C6%B0a"
+      },
+      {
+        "title": "Phố đi bộ Hồ Gươm",
+        "url": "https://vi.wikipedia.org/wiki/Ph%E1%BB%91_%C4%91i_b%E1%BB%99_H%E1%BB%93_G%C6%B0%C6%A1m"
+      }
+    ]
+  },
+  "words": [
+    {
+      "vi": "nấu",
+      "en": "to cook",
+      "picture": {
+        "kind": "icon",
+        "name": "cook"
+      },
+      "hook": "Bà lifts the lid and calls \"nuh-oo!\" in one quick beat, her voice rising: dinner is cooked. nấu, to cook.",
+      "tip": "â is the short \"uh\" of \"nut\", gliding to u: \"nuh-oo\" in one quick beat (not \"now\", which is au). Sắc: rise.",
+      "note": "nấu: Bà's pot, lid up. Bà nấu ngon quá! Bà cooks so well! nấu cơm: to cook rice, and so to cook a meal.",
+      "contrast": [
+        {
+          "vi": "nâu",
+          "en": "brown"
+        }
+      ]
+    },
+    {
+      "vi": "xem",
+      "en": "to watch; to look at",
+      "picture": {
+        "kind": "icon",
+        "name": "watch"
+      },
+      "hook": "At the walking street the crowd points at the juggler: \"look at them!\", but say them with an s, \"sem\": xem, to watch.",
+      "tip": "x sounds like s; e is open, as in \"them\"; close the lips on m. Ngang: level.",
+      "note": "xem: the crowd round the juggler. Đi xem! Let's go and watch! xem is also to look at, to check: xem giá, to check the price."
+    },
+    {
+      "vi": "ngủ",
+      "en": "to sleep",
+      "picture": {
+        "kind": "icon",
+        "name": "sleep"
+      },
+      "hook": "After lunch heads hit the desks with a short \"ngoo!\", the voice dropping sharply: ngủ, to sleep.",
+      "tip": "Start with the ng at the end of \"sing\", then \"oo\": say \"sing-oo\" and drop the si. Hỏi in Hà Nội: a drop.",
+      "note": "ngủ: the mat and the z's. Cháu muốn ngủ: I want to sleep. ngủ trưa: a midday nap (trưa: noon)."
+    },
+    {
+      "vi": "muốn",
+      "en": "to want (to)",
+      "picture": {
+        "kind": "icon",
+        "name": "want"
+      },
+      "hook": "You point at the last bánh mì: \"moo-un!\", one beat, oo then a quick uh, your voice rising: muốn, I want.",
+      "tip": "uô glides from \"oo\" to a short \"uh\"; end on n. Sắc: rise.",
+      "note": "muốn: the bánh mì in the thought bubble. muốn + a verb: Anh muốn ăn phở, I want to eat phở.",
+      "contrast": [
+        {
+          "vi": "muộn",
+          "en": "late (the Northern word)"
+        }
+      ]
+    }
+  ],
+  "review": [
+    "nóng",
+    "đói",
+    "biết",
+    "nữa"
+  ],
+  "grammar": {
+    "title": "muốn + a verb: I want to ...",
+    "text": "Put muốn before a verb to say what you want to do: Cháu muốn ngủ. I want to sleep. Anh muốn xem. I want to watch. To ask, put gì (what) at the end, Bạn muốn ăn gì? What do you want to eat?, or wrap it in có ... không?: Bạn có muốn xem không? Do you want to watch?",
+    "examples": [
+      {
+        "vi": "Cháu muốn ngủ.",
+        "en": "I want to sleep. (to an older relative)"
+      },
+      {
+        "vi": "Bạn muốn ăn gì?",
+        "en": "What do you want to eat? (to a friend)"
+      }
+    ]
+  },
+  "combos": [
+    {
+      "vi": "Cháu muốn ngủ.",
+      "en": "I want to sleep. (to an older relative)",
+      "note": "muốn + a verb."
+    },
+    {
+      "vi": "Anh muốn ăn phở.",
+      "en": "I want to eat phở. (to someone younger)",
+      "note": "ăn: to eat, from issue 6."
+    },
+    {
+      "vi": "Bà nấu ngon quá!",
+      "en": "Bà cooks so well!",
+      "note": "ngon quá: so delicious, said of the cooking."
+    },
+    {
+      "vi": "Bạn có biết nấu ăn không?",
+      "en": "Can you cook? (to a friend)",
+      "note": "biết + a verb: to know how to; nấu ăn: to cook (food). có ... không?: issue 10."
+    },
+    {
+      "vi": "Đi xem đi!",
+      "en": "Let's go and watch!",
+      "note": "đi: to go."
+    },
+    {
+      "vi": "ngủ trưa",
+      "en": "a midday nap",
+      "note": "trưa: noon."
+    }
+  ],
+  "dialogues": [
+    {
+      "title": "The walking street",
+      "setting": "street",
+      "picture": {
+        "kind": "icon",
+        "name": "watch"
+      },
+      "lines": [
+        {
+          "who": "Friend",
+          "vi": "Bạn có đói không?",
+          "en": "Are you hungry?"
+        },
+        {
+          "who": "You",
+          "vi": "Có, mình đói quá!",
+          "en": "Yes, I'm so hungry!",
+          "you": true
+        },
+        {
+          "who": "Friend",
+          "vi": "Bạn muốn ăn gì?",
+          "en": "What do you want to eat?"
+        },
+        {
+          "who": "You",
+          "vi": "Mình muốn ăn bánh mì.",
+          "en": "I want to eat bánh mì.",
+          "you": true
+        }
+      ],
+      "check": {
+        "ask": "After the bánh mì your friend asks if you want to go home. The juggler is just starting a new act. Say your answer aloud first, then pick it.",
+        "options": [
+          "Mình muốn xem nữa.",
+          "Mình muốn ngủ.",
+          "Mình muốn nấu."
+        ],
+        "answer": "Mình muốn xem nữa.",
+        "note": "Mình muốn xem nữa: I want to watch some more (mình: the friendly I, issue 3; nữa: more, issue 2). Mình muốn ngủ: I want to sleep; Mình muốn nấu: I want to cook."
+      }
+    }
+  ],
+  "situations": [
+    {
+      "who": "Tea seller",
+      "picture": {
+        "kind": "icon",
+        "name": "tea"
+      },
+      "vi": "Trà nóng bốn nghìn một cốc anh ạ.",
+      "en": "Hot tea, 4,000 a glass.",
+      "ask": "How much is a glass of hot tea?",
+      "options": [
+        "4.000₫",
+        "40.000₫",
+        "14.000₫"
+      ],
+      "answer": "4.000₫",
+      "note": "One number before nghìn is that many thousand: bốn nghìn, 4.000. Two (bốn mươi nghìn) is tens of thousands."
+    },
+    {
+      "who": "Phở seller",
+      "picture": {
+        "kind": "icon",
+        "name": "bowl"
+      },
+      "vi": "Phở bò năm mươi nghìn anh ạ.",
+      "en": "Beef phở is 50,000.",
+      "ask": "How much is the beef phở?",
+      "options": [
+        "50.000₫",
+        "5.000₫",
+        "15.000₫"
+      ],
+      "answer": "50.000₫",
+      "note": "năm mươi nghìn: two numbers before nghìn, so tens of thousands."
+    },
+    {
+      "who": "Bánh mì seller",
+      "picture": {
+        "kind": "icon",
+        "name": "baguette"
+      },
+      "vi": "Hai cái bánh mì, hết bốn mươi nghìn anh ạ.",
+      "en": "Two bánh mì, 40,000 in total.",
+      "ask": "Type what you pay in digits.",
+      "digits": "40000"
+    },
+    {
+      "who": "Tea seller",
+      "picture": {
+        "kind": "icon",
+        "name": "tea"
+      },
+      "vi": "Hai cốc trà, hết tám nghìn ạ.",
+      "en": "Two teas, 8,000 in total.",
+      "ask": "What do you pay?",
+      "options": [
+        "8.000₫",
+        "80.000₫",
+        "18.000₫"
+      ],
+      "answer": "8.000₫",
+      "note": "tám nghìn: one number before nghìn, 8.000."
+    },
+    {
+      "who": "Bánh mì seller",
+      "picture": {
+        "kind": "icon",
+        "name": "stall"
+      },
+      "vi": "Bánh mì trứng hai lăm anh nhé.",
+      "en": "An egg bánh mì is 25,000.",
+      "ask": "What does the egg bánh mì cost?",
+      "options": [
+        "25.000₫",
+        "2.500₫",
+        "52.000₫"
+      ],
+      "answer": "25.000₫"
+    },
+    {
+      "who": "You, at a phở stall",
+      "picture": {
+        "kind": "icon",
+        "name": "bowl"
+      },
+      "say": "I want to eat phở! (to the young seller)",
+      "vi": "Anh muốn ăn phở.",
+      "accept": [
+        "Anh muốn ăn phở.",
+        "Anh muốn ăn phở em ạ.",
+        "Anh muốn ăn phở bò.",
+        "Em ơi, anh muốn ăn phở.",
+        "Cho anh một bát phở.",
+        "Em ơi, cho anh một bát phở.",
+        "Cho anh bát phở.",
+        "Cho anh một bát phở bò.",
+        "Anh ăn phở."
+      ],
+      "en": "I want to eat phở.",
+      "ask": "The young seller asks what you would like. Tell her.",
+      "note": "Anh muốn ăn phở is understood; to order, a Hà Nội customer usually says Cho anh một bát phở (both count)."
+    },
+    {
+      "who": "You, after lunch at Bà's",
+      "picture": {
+        "kind": "icon",
+        "name": "sleep"
+      },
+      "say": "I want to sleep! (to Bà)",
+      "vi": "Cháu muốn ngủ ạ.",
+      "accept": [
+        "Cháu muốn ngủ ạ.",
+        "Cháu muốn ngủ.",
+        "Cháu muốn đi ngủ ạ.",
+        "Cháu muốn đi ngủ.",
+        "Cháu muốn ngủ trưa ạ.",
+        "Cháu muốn ngủ trưa.",
+        "Cháu muốn đi ngủ trưa ạ."
+      ],
+      "en": "I want to sleep.",
+      "ask": "Lunch was big and your eyes are closing. Tell Bà.",
+      "note": "Cháu ... ạ: polite to Bà."
+    },
+    {
+      "who": "You, at Bà's table",
+      "picture": {
+        "kind": "icon",
+        "name": "cook"
+      },
+      "say": "Bà cooks so well! (the soup)",
+      "vi": "Bà nấu ngon quá!",
+      "accept": [
+        "Bà nấu ngon quá!",
+        "Bà nấu ngon quá ạ!",
+        "Bà nấu canh ngon quá!",
+        "Bà nấu canh ngon quá ạ!",
+        "Bà ơi, bà nấu ngon quá!"
+      ],
+      "en": "Bà cooks so well!",
+      "ask": "You taste Bà's soup. Tell her what you think of her cooking."
+    }
+  ],
+  "challenge": {
+    "title": "Street challenge",
+    "text": "Say three wishes out loud today with muốn: Mình muốn ăn phở, Mình muốn ngủ, Mình muốn xem. At a café, order with Cho anh ... (or Cho em ... to someone older), and tell a friend Mình muốn uống cà phê. Bonus: on a weekend evening, walk the streets round Hoàn Kiếm and xem."
+  },
+  "stamp": {
+    "label": "Hồ Gươm",
+    "picture": {
+      "kind": "scene",
+      "name": "swordLake"
+    }
+  }
+}

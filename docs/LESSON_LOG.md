@@ -2,6 +2,19 @@
 
 Why each lesson was planned the way it was, newest first. Written by the `/next-lesson` skill.
 
+## 2026-11-26: Issue 12, I want to ... ("The lake that took the sword back")
+
+- Data: issue 11, 61% first try, "Just right", fun "Good", story "Interesting" (the best ratings together so far), 7.8 active minutes; new words confused by meaning (nóng and đói taken for đẹp); plain nghìn prices heard as tens (ba nghìn as 30.000₫, sáu nghìn as 60.000₫; real life 1/5); dialogue check right (first in four issues). The progress review of today (`learner/REVIEW.md`) changed the engine to meet new words two at a time against known words.
+- What changes and why:
+  - Keep issue 11's recipe: four words you can act out (nấu, xem, ngủ, muốn), one frame to say (muốn + a verb), three say lines (I want to eat phở, I want to sleep, Bà cooks so well), a dialogue check that follows from the scene (the juggler starts a new act: Mình muốn xem nữa). To beat: fun Good, difficulty Just right.
+  - New words confused: pairs met as nấu + xem and ngủ + muốn (the two similar nasal-u words apart). To beat: under 2 wrong listening answers on new words (issue 11: 4).
+  - Prices ten times too big: two plain nghìn lines against their tens (bốn nghìn against 40.000 and 14.000; tám nghìn against 80.000), with the rule in the note (one number before nghìn is that many thousand). To beat: both right.
+- Extras: none new in dialogue or real life (mình from issue 3, cốc and cái); trưa in a combo and a beat.
+- Review (4): nóng, đói (in trà nóng and the dialogue), biết (Bạn có biết nấu ăn không?), nữa (the check).
+- Story (sources: en Hoàn Kiếm Lake, vi Hồ Hoàn Kiếm, vi Ngủ trưa, vi Phố đi bộ Hồ Gươm): the legend of 1428, Lục Thủy as one older name; the giant turtles (Rafetus leloii, disputed against R. swinhoei), Cụ Rùa treated in 2011 and found dead on 19 January 2016; ngủ trưa; the walking street since 1 September 2016. Four untied beats, as in issue 11; tying the nap beat to ngủ put it next to the Conversation beat, so it stays untied.
+- Pictures: new cover and stamp `swordLake` (Turtle Tower, the turtle taking the sword, a boat), icons cook, sleep, watch, want.
+- Reviews: the Vietnamese reviewer fixed the nấu vowel (nuh-oo, not now), the muốn hook (one beat, not one), the ngủ hook (a sharp drop, not a slow sink, which would teach huyền), mình instead of stiff tôi with a friend, more natural seller lines and wider accept lists (Cho anh một bát phở also counts). The fact-check fixed the tea prices (4.000 a glass, so two are 8.000), the Cụ gloss (a respectful word for a very old person; the turtle was female), the disputed species name, Lục Thủy as one of several older names, and the street count since 2020. The learning-design review reordered the pairs, gave the egg bánh mì line its own stall picture, and made the check need a small inference.
+
 ## 2026-11-26: Progress review
 
 - See `learner/REVIEW.md`: issue 11's recipe worked (Just right, Good, Interesting); new words are now met two at a time against known words; reviews clear the desk; plain nghìn prices under 10.000₫ in every issue.
