@@ -167,11 +167,14 @@ export function lessonSteps(lesson, { review = [], warmup = [] } = {}) {
       });
       steps.push(...storySteps());
     }
-    chunk(part, 4).forEach((group, gi) => {
-      group.forEach((w, wi) => steps.push({ type: 'meet', word: w, n: offset + gi * 4 + wi + 1, of: words.length }));
-      shuffle(group)
-        .slice(0, Math.min(2, group.length))
-        .forEach((w) => steps.push({ type: 'listen', word: w, pool: group.length >= 3 ? group : pool }));
+    // New words are met two at a time, and each is heard straight away against words already met (earlier ones and the
+    // review words), not against new words still to come: in issues 10 and 11 the first questions mixed up the new words.
+    const seen = [];
+    chunk(part, 2).forEach((group, gi) => {
+      group.forEach((w, wi) => steps.push({ type: 'meet', word: w, n: offset + gi * 2 + wi + 1, of: words.length }));
+      seen.push(...group);
+      const known = [...seen, ...review, ...(pi > 0 ? parts[0] : [])];
+      shuffle(group).forEach((w) => steps.push({ type: 'listen', word: w, pool: known.length >= 3 ? known : pool }));
       group.forEach((w) => met.add(nfc(w.vi)));
       steps.push(...storySteps());
     });

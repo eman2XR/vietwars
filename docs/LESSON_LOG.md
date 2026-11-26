@@ -2,6 +2,10 @@
 
 Why each lesson was planned the way it was, newest first. Written by the `/next-lesson` skill.
 
+## 2026-11-26: Progress review
+
+- See `learner/REVIEW.md`: issue 11's recipe worked (Just right, Good, Interesting); new words are now met two at a time against known words; reviews clear the desk; plain nghìn prices under 10.000₫ in every issue.
+
 ## 2026-11-26: Issue 11, So hot, so cold ("Four seasons in one city")
 
 - Data (`scripts/outcomes.py`): issue 10 on the Mac, 70% first try, "Too hard", fun "Boring" (after OK and Boring), story "OK"; 23.1 active minutes, 16.1 of them on the opening (the page was left open). The five new words were confused with each other by meaning in listening (chào as to meet, biết as hello, gặp as well, khỏe and tên as friend); typing missed biết and chào; real life 1/4 listening and 1/3 say ('chau ba' for an old man, 'khong hue khom'); the dialogue check failed for the third issue running (0/1 in 8, 9, 10). In Ask a question the learner said a say screen "says say it but doesn't say what to say" (a resume bug: a say question and a combo shared their Vietnamese, Xin lỗi em.; fixed in `restore()`) and asked for a back button (added: it steps back to the last word card or story page).

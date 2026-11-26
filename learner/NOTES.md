@@ -1,5 +1,7 @@
 Things the learner said in conversation, newest first. Add to this file whenever the learner gives feedback outside the app.
 
+- 2026-11-26 (Talk, issue 11, on the iPhone): asked the editor to repeat "Trà nóng ba nghìn một cốc anh ạ"; the model answered in mixed Vietnamese and English. talk.js now keeps explanations in English and repeats a phrase slowly, then at normal speed. Issue 11 rated Just right, Good, Interesting.
+
 - 2026-11-26: "it's a bit weird that once I review some words and then when I'm done there's more to review - seems like a bug (even if it's not). fix it". A review now takes every due word (no 20-word limit), and a missed word comes back the next day instead of after 10 minutes (it is already retried within the session); web/js/srs.js and main.js.
 
 - 2026-11-26 (Talk, issue 10, a say screen): "this page says say it but it doesn't say what to say" (a resume bug: the say question Xin lỗi em. came back as the combo with the same Vietnamese, so it had no cue; fixed in restore()), and "add the back button because there's no way I can go back" (added: ‹ in issues steps back to the last word card or story page, then Back to where I was). Issue 10 rated Too hard and Boring.

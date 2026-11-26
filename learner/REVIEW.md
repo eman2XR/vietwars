@@ -1,32 +1,32 @@
-# Progress review, 2026-11-24
+# Progress review, 2026-11-26
 
 ## Where things stand
 
-- 13 sessions in four days: 8 issues, 4 reviews, 1 issue closed midway (issue 4, long since finished). The learner plays every day and does the review desk when it lights up.
-- 72 words met, 9 on the known list; 41 of the other 63 hold up by meaning (0.8 or more). With the known words that is about 50 of the phase target of 300, a sixth of the way.
-- Spaced reviews: 63%, 91%, 69%, 83% first try. Typed recall in reviews is good when marks are forgiven (today 19 of 24 typed right first time). The words that keep failing are short words taken for one another by meaning: bớt (0.33), tên (taken for hơn), hết (taken for ăn), hơn (taken for mời), gà, đắt, and chục (0.00, heard as rưỡi).
-- Real life is improving: 4/8, 5/8 in issues 5 and 6, then 6/8 and 6/7 in issues 7 and 8. One price shape has now failed three times: "X mươi, một [unit]" (hai mươi một nải, 20.000₫ a hand, picked as 21.000₫ in issues 5 and 8; bốn mươi một quả in issue 6).
-- Conversation checks: 2 of 3 (issue 8's was missed: Cho anh hai mốt. for twenty eggs, the mốt and chục rule).
-- Difficulty is right again: issue 8 "Just right" after two "Too hard", 75% first try, 6.4 minutes of active play.
+- 18 sessions in six days: 11 issues and 6 reviews (plus one issue closed midway in issue 4). The learner plays every day and clears the review desk most days.
+- 85 words met, 10 on the known list; 54 of the 85 hold up by meaning (0.8 or more). With the known words that is about 64 of the phase target of 300, a fifth of the way.
+- Spaced reviews: 63%, 91%, 69%, 83%, 83%, 80% first try. Retention is steady; the misses are number words (nghìn, triệu, linh, ba), cân and chuối, phải and gần, bao nhiêu.
+- Ratings, issues 6 to 11: difficulty Too hard, Too hard, Just right, (none), Too hard, Just right; fun OK, Boring, Boring, OK, Boring, **Good**; story OK five times, then Interesting in issues 9 and 11.
+- Conversation checks: wrong in issues 8, 9 and 10, right in issue 11.
 
 ## What is working / what is not
 
-- Working: listening (84%), rush hour (95%), short issues (issue 8 was 33 answers), the clinic format for a question the learner asked, stories tied to the words (rated OK every time since issue 5).
-- Not working: **fun**. Issues 3, 4 and 5 were "Good"; issues 6, 7 and 8 were "OK", "Boring", "Boring", and the learner wrote "should be more fun". What changed: the issues became drill-heavy (drills are 40 to 55% of active time) and every issue has the same shape. The learner never says anything: every real-life question is understanding a seller, never answering one. Their own words: "what the lessons are missing is asking me to say a price? eg how do you say 25, 150", and after issue 1, "make it more fun and unexpected (hint: the website name is Viet wars)".
-- Typing: marks are the most common slip (47 of 131 typed answers, against 24 perfect), and the tone keys are used for 20 of 119 answers. Relaxed grading forgives this, which keeps it from hurting; it is not a priority while the learner asks for less focus on tones.
+- Working: issue 11's recipe (four concrete, picturable words; the frame ... quá!; reaction lines to say; a story with surprises; a dialogue check that follows from the scene), short issues (32 answers, 7.8 active minutes), the say questions, spelling (3/3 in issues 10 and 11), the review desk, and Ask a question (eight conversations so far, most of them feedback the editors acted on: the egg picture, too many extra words, the back button, the blank say screen).
+- Not working:
+  - **New words are confused with each other right after they are taught**, in every recent issue. Issue 10: 5 of 9 listening answers on new words wrong (chào taken for gặp, biết for chào, gặp for khỏe). Issue 11: nóng and đói taken for đẹp, nóng for rét, đói for nóng in reverse. Cause: the engine met new words four at a time and then asked about them with only those same new words as options, so the first questions tested four fresh meanings against each other.
+  - **Small prices are heard ten times too big**: ba nghìn picked as 30.000₫ and sáu nghìn as 60.000₫ in issue 11, and real life was 1/5 there. Earlier issues trained tens (hai mươi, hai lăm), so a bare number before nghìn now sounds like tens.
+  - The review desk filled up again right after a review ("seems like a bug"): a review took at most 20 words, and missed words came back after 10 minutes.
+  - Ask a question once answered in mixed Vietnamese and English ("Hot tea, 3,000 một glass, sir") when asked to repeat a phrase.
 
 ## Changes made
 
-- **A new question type, Say the price**: a price is shown in figures and the learner types how it is said; every accepted form counts (hai lăm, hai nhăm, hai mươi lăm nghìn), graded like a typed word. It can carry the seller's reply and an amount haggled off, added up on the results page. Retrieval by production fixes a form better than recognising it, and it answers the learner's request directly. Rule in docs/PEDAGOGY.md: two or three per issue.
-- **Fun as a measured outcome**: a new section in docs/PEDAGOGY.md asks every issue for one thing to play that the last issues did not have, and for the learner to be the one talking in real life. Issue 9 makes real life a haggle at the market.
-- **Planning from outcomes**: `scripts/outcomes.py` shows the recent issues side by side (ratings, minutes per phase, accuracy per exercise type, misses, feedback), and the next-lesson skill now starts every plan with "Decide what to change": each slipping outcome, its likely cause, the change, and the number the next result has to beat (the learner asked for this on 2026-11-24).
-- **The "X mươi, một [unit]" price**: three issues taught it by recognition; issue 9 has the learner say it instead.
-- **Curriculum**: a market unit where the learner does the talking (counter-offers with ... được không?, saying prices) goes next, before greetings and small talk.
-- **Leech note**: đắt had no note, and reviews show notes; it now has one.
-- Known list unchanged ("I know it" never used).
+- **New words are met two at a time** (`lessonSteps` in `web/js/lesson.js`): meet two, hear each against words already met and the review words, then the next two. It adds two answers to an issue (issue 11: 32 to 34).
+- **A review clears the desk**: it takes every due word, and a missed word comes back the next day instead of after 10 minutes (it is retried within the session anyway). `web/js/srs.js`, `web/js/main.js`.
+- **Ask a question stays in English** for explanations, and repeats a phrase slowly, then at normal speed, then gives its meaning (`web/js/talk.js`).
+- **docs/PEDAGOGY.md**: a new section keeps issue 11's recipe, records the confusion of new words, and asks every issue for at least one plain nghìn amount under 10.000₫ against its tens, with the rule in the note.
+- **Curriculum**: verbs next, as planned, with a note to keep issue 11's recipe (visible actions, a frame like Cháu muốn ...).
+- Known list unchanged.
 
 ## Suggestions for the learner
 
-- When a Say the price question comes up, say the price aloud before you type it: it is the same retrieval, and it is what you will do at a stall.
-- Keep doing the review desk; it is where bớt, tên, hết and đắt get their practice.
-- If an issue feels like a chore, say which part in the feedback note (drills, the story, real life): the next issue is planned around it.
+- When a seller says a price, count the words before nghìn: one number (ba nghìn) is a few thousand, two (ba mươi nghìn) is tens of thousands.
+- Keep using Ask a question: every comment so far changed something on the site.
