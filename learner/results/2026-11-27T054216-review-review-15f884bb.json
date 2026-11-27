@@ -1,0 +1,100 @@
+{
+ "schema": 3,
+ "resultId": "15f884bb-04c7-4d55-8359-2ddc77ee4c01",
+ "kind": "review",
+ "lessonId": "review",
+ "lessonTitle": "Review",
+ "appVersion": "5",
+ "style": "paper",
+ "device": "iPhone",
+ "startedAt": "2026-11-27T05:41:51.679Z",
+ "finishedAt": "2026-11-27T05:42:16.631Z",
+ "durationSec": 25,
+ "summary": {
+  "firstTryAccuracy": 1,
+  "exercises": 2,
+  "bestStreak": 2,
+  "grade": "distinction",
+  "speedScore": 0,
+  "speedAnswered": 0,
+  "speedCorrect": 0,
+  "bestCombo": 0
+ },
+ "article": null,
+ "quiz": null,
+ "situations": null,
+ "dialogues": null,
+ "timing": {
+  "drills": 10,
+  "article": 0,
+  "pauses": 0,
+  "longestPauseSec": 13
+ },
+ "toneMarks": "relaxed",
+ "words": [
+  {
+   "vi": "gặp",
+   "en": "to meet (someone)",
+   "failures": 0,
+   "timeSec": 10,
+   "replays": 1,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 1,
+   "meaning": 1,
+   "form": 1,
+   "stars": 3,
+   "firstTry": {
+    "listen": true,
+    "type": "marks"
+   },
+   "attempts": 2,
+   "msMedian": 6970,
+   "known": false
+  }
+ ],
+ "warmup": [],
+ "toneConfusions": [],
+ "meaningConfusions": [],
+ "typed": [
+  {
+   "target": "gặp",
+   "answer": "gap",
+   "grade": "marks",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 1633
+  }
+ ],
+ "feedback": {
+  "difficulty": null,
+  "fun": null,
+  "article": null,
+  "hardest": [],
+  "wantNext": null,
+  "note": null
+ },
+ "events": [
+  {
+   "t": "listen",
+   "w": "gặp",
+   "ok": true,
+   "a": "to meet (someone)",
+   "ms": 6970,
+   "plays": 1
+  },
+  {
+   "t": "type",
+   "w": "gặp",
+   "ok": true,
+   "g": "marks",
+   "a": "gap",
+   "ms": 2937,
+   "hints": 0,
+   "firstKeyMs": 1633
+  }
+ ],
+ "issue": 38
+}

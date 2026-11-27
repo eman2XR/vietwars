@@ -294,7 +294,8 @@ function startSession(kind, lesson, opts = {}) {
     steps = lessonSteps(lesson, { review, warmup });
     words = [...lesson.words, ...review];
   } else {
-    const due = dueWords(store.deck())
+    // A review also takes words that fall due in the next 12 hours, so finishing one clears the desk for the rest of the day.
+    const due = dueWords(store.deck(), Date.now() + 12 * 3600000)
       .filter((vi) => !KNOWN.has(vi))
       .map((vi) => WORDS.get(vi))
       .filter(Boolean);

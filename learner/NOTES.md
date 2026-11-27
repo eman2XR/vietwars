@@ -1,5 +1,7 @@
 Things the learner said in conversation, newest first. Add to this file whenever the learner gives feedback outside the app.
 
+- 2026-11-27 (two reviews): after a 23-word review, a second review of one word (gặp) appeared two hours later. A review now also takes words due in the next 12 hours. In Ask a question during the review: "I don't understand how [hơn] means more than, but it's cheaper" (rẻ hơn = cheaper); the editor explained comparisons. hơn's gloss could say "more ... than; -er (rẻ hơn: cheaper)".
+
 - 2026-11-26 (Talk, issue 11, on the iPhone): asked the editor to repeat "Trà nóng ba nghìn một cốc anh ạ"; the model answered in mixed Vietnamese and English. talk.js now keeps explanations in English and repeats a phrase slowly, then at normal speed. Issue 11 rated Just right, Good, Interesting.
 
 - 2026-11-26: "it's a bit weird that once I review some words and then when I'm done there's more to review - seems like a bug (even if it's not). fix it". A review now takes every due word (no 20-word limit), and a missed word comes back the next day instead of after 10 minutes (it is already retried within the session); web/js/srs.js and main.js.
