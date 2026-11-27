@@ -579,12 +579,21 @@ export function runSession(root, session, onDone, onQuit) {
     actions.querySelector('[data-act=next]').focus({ preventScroll: true });
   }
 
-  function answerBox(w) {
+  // After a miss the learner asked for a way to remember the word (2026-11-27): its second cue if it has one (the first
+  // did not stick), otherwise its hook, and which word it was taken for.
+  function cueHTML(w, chosen) {
+    const cue = w.remember || w.hook;
+    const mixed = chosen && chosen.vi && nfc(chosen.vi) !== nfc(w.vi) ? `<p class="note mixed">You picked <span class="vi">${colorize(chosen.vi)}</span>: ${esc(chosen.en || '')}.</p>` : '';
+    return `${mixed}${cue ? `<div class="hook cue"><div class="label">${w.remember ? 'Another way to remember it' : 'Memory hook'}</div>${esc(cue)}</div>` : ''}`;
+  }
+
+  function answerBox(w, missed) {
     return `<div class="answer-box">
       ${pic(w, 'small')}
       <div class="answer-text">
         <div class="answer-vi vi">${colorize(w.vi)}</div>
         <div class="answer-en">${esc(w.en)}</div>
+        ${missed ? cueHTML(w, missed === true ? null : missed) : ''}
         ${w.note ? `<div class="note">${esc(w.note)}</div>` : ''}
         <div class="row">${sayButton(w.vi, 'Hear it')}</div>
       </div>
@@ -748,7 +757,7 @@ export function runSession(root, session, onDone, onQuit) {
         key: 'en',
         label: (o) => esc(o.en),
         autoplay: true,
-        after: () => answerBox(step.word),
+        after: (ok, chosen) => answerBox(step.word, !ok && (chosen || true)),
       });
     },
 
@@ -776,7 +785,7 @@ export function runSession(root, session, onDone, onQuit) {
         key: 'vi',
         label: (o) => `<span class="vi opt-vi">${colorize(o.vi)}</span>`,
         autoplay: false,
-        after: () => answerBox(step.word),
+        after: (ok, chosen) => answerBox(step.word, !ok && (chosen || true)),
       });
     },
 
@@ -897,7 +906,7 @@ export function runSession(root, session, onDone, onQuit) {
           wrong: 'Not quite. It is:',
         }[g];
         stage.classList.add('answered', `graded-${ok ? 'perfect' : g}`);
-        stage.querySelector('.feedback-slot').innerHTML = `<div class="verdict">${esc(msg)}</div>${answerBox(w)}`;
+        stage.querySelector('.feedback-slot').innerHTML = `<div class="verdict">${esc(msg)}</div>${answerBox(w, g === 'wrong' || revealed)}`;
         play(w.vi);
         const btn = stage.querySelector('[data-act=check]');
         btn.textContent = 'Continue';
@@ -1140,7 +1149,7 @@ export function runSession(root, session, onDone, onQuit) {
         if (ok) right();
         else wrong();
         stage.classList.add('answered', `graded-${ok ? 'perfect' : 'wrong'}`);
-        stage.querySelector('.feedback-slot').innerHTML = `<div class="verdict">${ok ? 'Perfect.' : 'Not quite. It is:'}</div>${answerBox(w)}`;
+        stage.querySelector('.feedback-slot').innerHTML = `<div class="verdict">${ok ? 'Perfect.' : 'Not quite. It is:'}</div>${answerBox(w, !ok)}`;
         play(w.vi);
         stage.querySelector('[data-act=check]').textContent = 'Continue';
       });

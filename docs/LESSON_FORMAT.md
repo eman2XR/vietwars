@@ -51,6 +51,7 @@ All Vietnamese text must be NFC-normalised (the checker catches mistakes).
       "en": "grandfather; you (to an old man)",   // up to 80 characters, unique in the issue
       "picture": { "kind": "icon", "name": "..." },
       "hook": "...",              // memory hook, up to 260 characters
+      "remember": "...",          // optional: a second, different cue, shown after a miss instead of the hook (for words the learner keeps missing)
       "tip": "...",               // Hà Nội pronunciation tip, up to 260 characters
       "fact": "...",              // did you know, up to 260 characters
       "note": "...",              // optional usage note, up to 200 characters; shown in reviews

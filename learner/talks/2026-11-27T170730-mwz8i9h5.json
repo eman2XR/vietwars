@@ -1,0 +1,27 @@
+{
+ "talkId": "mwz8i9h5-qhy3zj",
+ "startedAt": "2026-11-27T17:07:30.044Z",
+ "endedAt": "2026-11-27T17:08:16.319Z",
+ "device": "iPhone",
+ "context": "In issue 12, \"I want to ...\" (everyday verbs (cook, sleep, watch, want); a day around Hoàn Kiếm Lake; muốn + a verb), on a say screen.\nThe word on screen: Cháu muốn ngủ ạ. (I want to sleep.) Note: Cháu ... ạ: polite to Bà.\nThis issue's new words: nấu (to cook), xem (to watch; to look at), ngủ (to sleep), muốn (to want (to)).\nThis issue's sentence frame: muốn + a verb: I want to ...\nThis issue's story: The lake that took the sword back. Hoàn Kiếm, about 12 hectares of green water in the middle of Hà Nội, is where the city goes to walk, meet and watch. Its name, Hồ Hoàn Kiếm, means the Lake of the Returned Sword, and the story behind it is in Vietnamese school textbooks. Most people in Hà Nội just call it Hồ Gươm, Sword Lake.\nIssues played: 1 Phở and friends; 2 Big numbers and prices; 3 One to ten, properly; 4 People and family; 5 At the market; 6 At the table; 7 Getting around; 8 A numbers clinic; 9 Your turn to haggle; 10 Hello in six tones; 11 So hot, so cold.\nWords the learner has met: gà (chicken), bò (beef; cow), cá (fish), trăm (hundred), nghìn (thousand), triệu (million), mươi (-ty, the tens (as in 20)), lăm (five, after the tens (as in 15 and 25)), linh (zero (for an empty tens place, as in 105)), rưỡi (and a half (after a unit)), tiền (money), bao nhiêu (how much, how many), đắt (expensive), rẻ (cheap), hơn (-er; more (after the describing word: cheap + more = cheaper)), nữa (more, another), bốn (four), tám (eight), chín (nine (also: ripe, cooked)), ba (three), một (one), hai (two), năm (five (also: year)), sáu (six), bảy (seven), mười (ten), tên (name), tôi (I, me (neutral; safe with strangers)), anh (older brother; you (to a man a bit older)), chị (older sister; you (to a woman a bit older)), em (younger brother or sister; you (to someone younger)), cô (aunt; you (to a woman a bit younger than your parents)), chú (uncle; you (to a man a bit younger than your parents)), ông (grandfather; you (to an old man)), bạn (friend; you (to someone your own age)), bà (grandmother; you (to an old woman)), mua (to buy), quả (fruit; also the counting word for fruit), cam (orange (the fruit)), chuối (banana), cân (a kilo; also: scale, to weigh), thịt (meat), bớt (to take some off (a price); to reduce), hết (in total (of a bill); also: used up, sold out), mời (to invite; please (go ahead, have some)), cháu (grandchild, niece or nephew; I (to your parents' or grandparents' generation)), bát (bowl (a rice bowl)), đũa (chopsticks), canh (soup (a clear broth eaten with rice)), no (full (after eating)), vâng (yes (polite, to someone older)), uống (to drink), xe ôm (motorbike taxi), đâu (where), trái (left (the side)), gần (near, close by), rẽ (to turn (at a corner)), phải (right (the side)), nhăm (five after the tens, a casual spoken form of lăm (as in 25)), mốt (one at the end of 21, 31 ... 91 (11 stays mười một)), tư (four at the end of 24, 34 ... 94 (14 stays mười bốn)), chục (a set of ten things, as sellers count (ten eggs)), hàng (wares, goods; a shop or stall that sells them), được (OK, all right; can be done), lấy (to take; I'll have (at a stall or at the table)), trứng (egg), chào (hello; goodbye), biết (to know (a fact, or how to do something)), khỏe (well, healthy; strong), xin lỗi (sorry; excuse me), gặp (to meet (someone)), nóng (hot), rét (cold (of the weather, and how you feel in it)), đẹp (beautiful, pretty; good-looking), đói (hungry).\nWords they already knew: phở, cơm, bún, bánh mì, rau, nước, trà, cà phê, ngon, đồng.\nWords still weak: nghìn, triệu, linh, bao nhiêu, đắt, hơn, ba, tên, ông, mua, chuối, cân, canh, xe ôm, đâu, gần, phải, tư, lấy, biết, nóng, đói.",
+ "model": "gemini-2.5-flash-native-audio-latest",
+ "turns": [
+  {
+   "who": "you",
+   "text": "What's the end for here?"
+  },
+  {
+   "who": "editor",
+   "text": "That's a polite particle, `ạ`, which makes your sentence more respectful, especially when speaking to someone older, like `bà` (grandmother). So, `Cháu muốn ngủ ạ` means \"I want to sleep,\" politely."
+  },
+  {
+   "who": "you",
+   "text": "But technically I could just say"
+  },
+  {
+   "who": "editor",
+   "text": "Yes, you could, but adding `ạ` shows respect, which is very common in Vietnamese conversation, especially with family."
+  }
+ ],
+ "issue": 39
+}

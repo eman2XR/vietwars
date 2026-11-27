@@ -1,0 +1,736 @@
+{
+ "schema": 3,
+ "resultId": "fd799b68-6b61-44a3-86e6-df4dd2cd6ef9",
+ "kind": "lesson",
+ "lessonId": "lesson-12",
+ "lessonTitle": "I want to ...",
+ "appVersion": "5",
+ "style": "paper",
+ "device": "iPhone",
+ "startedAt": "2026-11-27T16:57:05.316Z",
+ "finishedAt": "2026-11-27T17:11:54.867Z",
+ "durationSec": 890,
+ "summary": {
+  "firstTryAccuracy": 0.73,
+  "exercises": 26,
+  "bestStreak": 6,
+  "grade": "merit",
+  "speedScore": 400,
+  "speedAnswered": 10,
+  "speedCorrect": 10,
+  "bestCombo": 10
+ },
+ "article": {
+  "readSec": 30,
+  "factsShown": 0
+ },
+ "quiz": null,
+ "situations": {
+  "correct": 5,
+  "total": 8
+ },
+ "dialogues": {
+  "correct": 1,
+  "total": 1
+ },
+ "timing": {
+  "words": 30,
+  "drills": 204,
+  "conversation": 38,
+  "reallife": 197,
+  "rush": 44,
+  "article": 30,
+  "pauses": 2,
+  "longestPauseSec": 89
+ },
+ "toneMarks": "relaxed",
+ "words": [
+  {
+   "vi": "nấu",
+   "en": "to cook",
+   "failures": 3,
+   "timeSec": 30,
+   "replays": 1,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 9,
+   "share": 0.5,
+   "meaning": 0.5,
+   "form": 0.5,
+   "stars": 1,
+   "firstTry": {
+    "listen": false,
+    "spell": false,
+    "type": "marks"
+   },
+   "attempts": 6,
+   "msMedian": 5086,
+   "known": false
+  },
+  {
+   "vi": "xem",
+   "en": "to watch; to look at",
+   "failures": 1,
+   "timeSec": 32,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 12,
+   "share": 0.75,
+   "meaning": 0.67,
+   "form": 1,
+   "stars": 2,
+   "firstTry": {
+    "listen": true,
+    "reverse": false,
+    "type": "perfect"
+   },
+   "attempts": 5,
+   "msMedian": 3317,
+   "known": false
+  },
+  {
+   "vi": "ngủ",
+   "en": "to sleep",
+   "failures": 0,
+   "timeSec": 25,
+   "replays": 1,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 3,
+   "share": 1,
+   "meaning": 1,
+   "form": 1,
+   "stars": 3,
+   "firstTry": {
+    "listen": true,
+    "reverse": true,
+    "type": "tone"
+   },
+   "attempts": 4,
+   "msMedian": 8299,
+   "known": false
+  },
+  {
+   "vi": "muốn",
+   "en": "to want (to)",
+   "failures": 4,
+   "timeSec": 38,
+   "replays": 3,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 6,
+   "share": 0.25,
+   "meaning": 0.5,
+   "form": 0,
+   "stars": 0,
+   "firstTry": {
+    "listen": false,
+    "spell": false,
+    "type": "wrong"
+   },
+   "attempts": 7,
+   "msMedian": 4799,
+   "known": false
+  },
+  {
+   "vi": "nóng",
+   "en": "hot",
+   "failures": 0,
+   "timeSec": 11,
+   "replays": 1,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 1,
+   "meaning": 1,
+   "form": null,
+   "stars": 3,
+   "firstTry": {
+    "listen": true
+   },
+   "attempts": 1,
+   "msMedian": 10542,
+   "known": false
+  },
+  {
+   "vi": "đói",
+   "en": "hungry",
+   "failures": 0,
+   "timeSec": 3,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 1,
+   "meaning": 1,
+   "form": null,
+   "stars": 3,
+   "firstTry": {
+    "listen": true
+   },
+   "attempts": 1,
+   "msMedian": 3163,
+   "known": false
+  },
+  {
+   "vi": "biết",
+   "en": "to know (a fact, or how to do something)",
+   "failures": 0,
+   "timeSec": 7,
+   "replays": 1,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 1,
+   "meaning": 1,
+   "form": null,
+   "stars": 3,
+   "firstTry": {
+    "listen": true
+   },
+   "attempts": 1,
+   "msMedian": 6958,
+   "known": false
+  },
+  {
+   "vi": "nữa",
+   "en": "more, another",
+   "failures": 0,
+   "timeSec": 3,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 1,
+   "meaning": 1,
+   "form": null,
+   "stars": 3,
+   "firstTry": {
+    "listen": true
+   },
+   "attempts": 1,
+   "msMedian": 2922,
+   "known": false
+  }
+ ],
+ "warmup": [],
+ "toneConfusions": [
+  {
+   "target": "muốn",
+   "chose": "muộn"
+  },
+  {
+   "target": "nấu",
+   "chose": "nâu"
+  }
+ ],
+ "meaningConfusions": [
+  {
+   "target": "nấu",
+   "chose": "to want (to)",
+   "t": "listen"
+  },
+  {
+   "target": "nấu",
+   "chose": "to sleep",
+   "t": "listen"
+  },
+  {
+   "target": "muốn",
+   "chose": "hungry",
+   "t": "listen"
+  },
+  {
+   "target": "muốn",
+   "chose": "to know (a fact, or how to do something)",
+   "t": "listen"
+  },
+  {
+   "target": "Bạn có biết nấu ăn không?",
+   "chose": "Bà cooks so well!",
+   "t": "listen"
+  }
+ ],
+ "typed": [
+  {
+   "target": "xem",
+   "answer": "xem",
+   "grade": "perfect",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 4425
+  },
+  {
+   "target": "muốn",
+   "answer": "nau",
+   "grade": "wrong",
+   "accepted": false,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 3486
+  },
+  {
+   "target": "ngủ",
+   "answer": "ngu",
+   "grade": "tone",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 6835
+  },
+  {
+   "target": "nấu",
+   "answer": "nau",
+   "grade": "marks",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 3559
+  },
+  {
+   "target": "muốn",
+   "answer": "muốn",
+   "grade": "perfect",
+   "tiles": true,
+   "retry": true
+  }
+ ],
+ "feedback": {
+  "difficulty": "Just right",
+  "fun": "OK",
+  "article": "Interesting",
+  "hardest": [
+   "nấu",
+   "muốn",
+   "nóng",
+   "nữa"
+  ],
+  "wantNext": null,
+  "note": null
+ },
+ "events": [
+  {
+   "t": "meet",
+   "w": "nấu",
+   "ms": 9147
+  },
+  {
+   "t": "meet",
+   "w": "xem",
+   "ms": 12134
+  },
+  {
+   "t": "listen",
+   "w": "xem",
+   "ok": true,
+   "a": "to watch; to look at",
+   "ms": 1592
+  },
+  {
+   "t": "listen",
+   "w": "nấu",
+   "ok": true,
+   "a": "to cook",
+   "ms": 2455
+  },
+  {
+   "t": "meet",
+   "w": "ngủ",
+   "ms": 2896
+  },
+  {
+   "t": "meet",
+   "w": "muốn",
+   "ms": 5985,
+   "plays": 1
+  },
+  {
+   "t": "listen",
+   "w": "ngủ",
+   "ok": true,
+   "a": "to sleep",
+   "ms": 8299,
+   "plays": 1
+  },
+  {
+   "t": "listen",
+   "w": "muốn",
+   "ok": true,
+   "a": "to want (to)",
+   "ms": 2113
+  },
+  {
+   "t": "listen",
+   "w": "đói",
+   "ok": true,
+   "a": "hungry",
+   "ms": 3163
+  },
+  {
+   "t": "listen",
+   "w": "nấu",
+   "ok": false,
+   "a": "to want (to)",
+   "ms": 6059
+  },
+  {
+   "t": "listen",
+   "w": "nóng",
+   "ok": true,
+   "a": "hot",
+   "ms": 10542,
+   "plays": 1
+  },
+  {
+   "t": "listen",
+   "w": "nữa",
+   "ok": true,
+   "a": "more, another",
+   "ms": 2922
+  },
+  {
+   "t": "listen",
+   "w": "xem",
+   "ok": true,
+   "a": "to watch; to look at",
+   "ms": 3317
+  },
+  {
+   "t": "listen",
+   "w": "nấu",
+   "ok": false,
+   "a": "to sleep",
+   "ms": 8784,
+   "retry": true,
+   "plays": 1
+  },
+  {
+   "t": "listen",
+   "w": "biết",
+   "ok": true,
+   "a": "to know (a fact, or how to do something)",
+   "ms": 6958,
+   "plays": 1
+  },
+  {
+   "t": "listen",
+   "w": "muốn",
+   "ok": false,
+   "a": "hungry",
+   "ms": 10242,
+   "plays": 1
+  },
+  {
+   "t": "listen",
+   "w": "ngủ",
+   "ok": true,
+   "a": "to sleep",
+   "ms": 3167
+  },
+  {
+   "t": "spell",
+   "w": "muốn",
+   "ok": false,
+   "a": "muộn",
+   "ms": 2350
+  },
+  {
+   "t": "spell",
+   "w": "nấu",
+   "ok": false,
+   "a": "nâu",
+   "ms": 3347
+  },
+  {
+   "t": "listen",
+   "w": "muốn",
+   "ok": false,
+   "a": "to know (a fact, or how to do something)",
+   "ms": 10901,
+   "retry": true,
+   "plays": 2
+  },
+  {
+   "t": "reverse",
+   "w": "xem",
+   "ok": false,
+   "a": "ngủ",
+   "ms": 6682
+  },
+  {
+   "t": "spell",
+   "w": "muốn",
+   "ok": true,
+   "a": "muốn",
+   "ms": 1950,
+   "retry": true
+  },
+  {
+   "t": "spell",
+   "w": "nấu",
+   "ok": true,
+   "a": "nấu",
+   "ms": 4717,
+   "retry": true
+  },
+  {
+   "t": "reverse",
+   "w": "ngủ",
+   "ok": true,
+   "a": "ngủ",
+   "ms": 3713
+  },
+  {
+   "t": "reverse",
+   "w": "xem",
+   "ok": true,
+   "a": "xem",
+   "ms": 2342,
+   "retry": true
+  },
+  {
+   "t": "type",
+   "w": "xem",
+   "ok": true,
+   "g": "perfect",
+   "a": "xem",
+   "ms": 17590,
+   "hints": 0,
+   "firstKeyMs": 4425
+  },
+  {
+   "t": "type",
+   "w": "muốn",
+   "ok": false,
+   "g": "wrong",
+   "a": "nau",
+   "ms": 5176,
+   "hints": 0,
+   "firstKeyMs": 3486
+  },
+  {
+   "t": "type",
+   "w": "ngủ",
+   "ok": true,
+   "g": "tone",
+   "a": "ngu",
+   "ms": 10030,
+   "hints": 0,
+   "firstKeyMs": 6835
+  },
+  {
+   "t": "type",
+   "w": "nấu",
+   "ok": true,
+   "g": "marks",
+   "a": "nau",
+   "ms": 5086,
+   "hints": 0,
+   "firstKeyMs": 3559
+  },
+  {
+   "t": "type",
+   "w": "muốn",
+   "g": "perfect",
+   "a": "muốn",
+   "ms": 4799,
+   "retry": true,
+   "tiles": true
+  },
+  {
+   "t": "listen",
+   "w": "Cháu muốn ngủ.",
+   "ok": true,
+   "a": "I want to sleep. (to an older relative)",
+   "ms": 3367
+  },
+  {
+   "t": "listen",
+   "w": "Bạn có biết nấu ăn không?",
+   "ok": false,
+   "a": "Bà cooks so well!",
+   "ms": 7013
+  },
+  {
+   "t": "listen",
+   "w": "Anh muốn ăn phở.",
+   "ok": true,
+   "a": "I want to eat phở. (to someone younger)",
+   "ms": 2665
+  },
+  {
+   "t": "listen",
+   "w": "Bà nấu ngon quá!",
+   "ok": true,
+   "a": "Bà cooks so well!",
+   "ms": 9676,
+   "plays": 1
+  },
+  {
+   "t": "listen",
+   "w": "Đi xem đi!",
+   "ok": true,
+   "a": "Let's go and watch!",
+   "ms": 5545
+  },
+  {
+   "t": "listen",
+   "w": "Bạn có biết nấu ăn không?",
+   "ok": true,
+   "a": "Can you cook? (to a friend)",
+   "ms": 15855,
+   "retry": true,
+   "plays": 1
+  },
+  {
+   "t": "listen",
+   "w": "ngủ trưa",
+   "ok": true,
+   "a": "a midday nap",
+   "ms": 11230,
+   "plays": 1
+  },
+  {
+   "t": "dialogue",
+   "w": "The walking street",
+   "ok": true,
+   "a": "Mình muốn xem nữa.",
+   "ms": 37835
+  },
+  {
+   "t": "say",
+   "w": "Bà cooks so well! (the soup)",
+   "ok": false,
+   "g": "wrong",
+   "a": "ba nua qua",
+   "ms": 27467
+  },
+  {
+   "t": "situation",
+   "w": "Trà nóng bốn nghìn một cốc anh ạ.",
+   "ok": false,
+   "a": "40.000₫",
+   "ms": 12429,
+   "plays": 1
+  },
+  {
+   "t": "say",
+   "w": "I want to sleep! (to Bà)",
+   "ok": true,
+   "g": "sound",
+   "a": "chau mun ngu",
+   "ms": 69017
+  },
+  {
+   "t": "situation",
+   "w": "Hai cái bánh mì, hết bốn mươi nghìn anh ạ.",
+   "ok": true,
+   "a": "40",
+   "ms": 29883,
+   "plays": 2
+  },
+  {
+   "t": "say",
+   "w": "I want to eat phở! (to the young seller)",
+   "ok": false,
+   "g": "wrong",
+   "a": "toi muon pho",
+   "ms": 22093
+  },
+  {
+   "t": "situation",
+   "w": "Bánh mì trứng hai lăm anh nhé.",
+   "ok": true,
+   "a": "25.000₫",
+   "ms": 10179
+  },
+  {
+   "t": "situation",
+   "w": "Hai cốc trà, hết tám nghìn ạ.",
+   "ok": true,
+   "a": "8.000₫",
+   "ms": 10264
+  },
+  {
+   "t": "situation",
+   "w": "Phở bò năm mươi nghìn anh ạ.",
+   "ok": true,
+   "a": "50.000₫",
+   "ms": 15874,
+   "plays": 1
+  },
+  {
+   "t": "speed",
+   "w": "ngủ trưa",
+   "ok": true,
+   "a": "a midday nap",
+   "ms": 7582
+  },
+  {
+   "t": "speed",
+   "w": "Cháu muốn ngủ.",
+   "ok": true,
+   "a": "I want to sleep. (to an older relative)",
+   "ms": 3817
+  },
+  {
+   "t": "speed",
+   "w": "nóng",
+   "ok": true,
+   "a": "hot",
+   "ms": 5232
+  },
+  {
+   "t": "speed",
+   "w": "Cháu muốn ngủ.",
+   "ok": true,
+   "a": "I want to sleep. (to an older relative)",
+   "ms": 3391
+  },
+  {
+   "t": "speed",
+   "w": "Đi xem đi!",
+   "ok": true,
+   "a": "Let's go and watch!",
+   "ms": 2911
+  },
+  {
+   "t": "speed",
+   "w": "Bà nấu ngon quá!",
+   "ok": true,
+   "a": "Bà cooks so well!",
+   "ms": 6521
+  },
+  {
+   "t": "speed",
+   "w": "Bà nấu ngon quá!",
+   "ok": true,
+   "a": "Bà cooks so well!",
+   "ms": 1966
+  },
+  {
+   "t": "speed",
+   "w": "Đi xem đi!",
+   "ok": true,
+   "a": "Let's go and watch!",
+   "ms": 2553
+  },
+  {
+   "t": "speed",
+   "w": "nóng",
+   "ok": true,
+   "a": "hot",
+   "ms": 4964
+  },
+  {
+   "t": "speed",
+   "w": "Bạn có biết nấu ăn không?",
+   "ok": true,
+   "a": "Can you cook? (to a friend)",
+   "ms": 4860
+  }
+ ],
+ "issue": 40
+}

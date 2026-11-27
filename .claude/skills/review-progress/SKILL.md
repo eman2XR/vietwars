@@ -34,7 +34,7 @@ Make the changes the analysis supports, and only those:
 - `learner/curriculum.json`: reorder units, add units the learner asked for, insert a remedial or consolidation lesson for leeches, split or merge units, adjust the pace, move to the next phase when its exit condition is met. Set `reviewedAt` and `updated` to today.
 - `web/lessons/known.json`: add words only when the learner says they know them, or when a word was confirmed with "I know it" and never failed since. Never remove a word the learner put there without asking.
 - `docs/PEDAGOGY.md`: change a rule when the data shows it does not work for this learner (for example lesson size, warm-up use, hook style, article length or topics). Keep it short; record why in `learner/REVIEW.md`.
-- Leech fixes: improve the hook, note or picture of a failing word in its lesson file, then run `scripts/make_audio.py` and `scripts/check_lessons.py`.
+- Leech fixes: the learner asked on 2026-11-27 for a better memory cue whenever they struggle with a word. Give every word missed in two or more sessions a `remember` cue (a different angle from its hook: what comes after it, its opposite, its partner word; shown after a miss), or improve its hook, note or picture in its lesson file, then run `scripts/make_audio.py` and `scripts/check_lessons.py`.
 - Engine or design problems (an exercise type that does not teach, a confusing screen): fix them if they are small and run `scripts/check_site.py`; otherwise list them in the review for the user.
 
 ## 4. Report and publish

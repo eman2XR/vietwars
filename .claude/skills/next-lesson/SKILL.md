@@ -35,6 +35,8 @@ It shows the last five issues side by side: first-try accuracy, the difficulty, 
 - **The change in this issue that answers it**, and **how the next result will show whether it worked** (the field and the number to beat).
 - What went well and must be kept.
 
+For each word the last issue or reviews show the learner struggling with (missed in two or more sessions, or named in `hardest`), add or improve its `remember` cue in its lesson file (the learner asked for this on 2026-11-27), and have the Vietnamese reviewer check it with the new issue.
+
 Put this list in the plan and in the lesson log entry under "What changes and why". If the same problem is still there after two issues that tried to fix it, try something different rather than more of the same, and say so in the log.
 
 ## 3. Plan

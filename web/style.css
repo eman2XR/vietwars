@@ -681,3 +681,6 @@ textarea { width: 100%; padding: 12px; border-radius: var(--radius); border: 1px
 .talk-now { display: inline-flex; align-items: center; gap: 8px; }
 .talk-now .mic { width: 20px; height: 20px; }
 @media (max-width: 400px) { .streak-pill { min-width: 0; } .session-bar { gap: 8px; } }
+
+.answer-box .hook.cue { margin: 10px 0 4px; }
+.answer-box .mixed { margin: 8px 0 0; }
