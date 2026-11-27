@@ -684,3 +684,43 @@ textarea { width: 100%; padding: 12px; border-radius: var(--radius); border: 1px
 
 .answer-box .hook.cue { margin: 10px 0 4px; }
 .answer-box .mixed { margin: 8px 0 0; }
+
+/* Milestones: a rank line on the home page, red seals, and a card with the rank, a fact and a saying */
+.rank-line { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; align-items: baseline; margin: 0 0 14px; padding: 12px 16px; border: 1px solid var(--rule); border-radius: var(--radius); background: var(--card); color: var(--ink); text-decoration: none; }
+.rank-line .label { grid-column: 1 / -1; }
+.rank-name { font-family: var(--display); font-size: 1.25rem; font-weight: 600; }
+.rank-name small { font-family: var(--sans); font-size: 0.78rem; font-weight: 500; color: var(--muted); }
+.rank-next { font-size: 0.85rem; color: var(--muted); text-align: right; }
+.rank-progress { grid-column: 1 / -1; height: 4px; background: var(--rule); overflow: hidden; border-radius: 2px; }
+.rank-progress .fill { display: block; height: 100%; width: 0; background: var(--accent); }
+.seal { flex: none; width: 92px; height: 92px; padding: 4px; border: 2px solid var(--accent); border-radius: 6px; transform: rotate(-4deg); background: var(--card); }
+.seal-inner { height: 100%; border: 1px solid var(--accent); border-radius: 3px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; color: var(--accent); text-align: center; }
+.seal-num { font-family: var(--display); font-size: 1.7rem; font-weight: 700; line-height: 1; }
+.seal-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.04em; line-height: 1.15; padding: 0 4px; }
+.seal.locked { border-style: dashed; border-color: var(--rule); transform: none; opacity: 0.6; }
+.seal.locked .seal-inner { border-color: var(--rule); color: var(--muted); }
+.seal-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(112px, 1fr)); gap: 18px 12px; margin-top: 18px; }
+.seal-slot { display: flex; flex-direction: column; align-items: center; gap: 8px; color: var(--ink); text-decoration: none; text-align: center; min-height: 44px; }
+.seal-caption { font-size: 0.85rem; line-height: 1.25; }
+.seal-caption small { display: block; color: var(--muted); font-size: 0.75rem; }
+.milestone-news { margin-bottom: 18px; padding: 16px; border: 2px solid var(--accent); border-radius: var(--radius); background: var(--card); }
+.milestone-card { display: grid; grid-template-columns: auto 1fr; gap: 14px 18px; align-items: start; }
+.milestone-card .saying { grid-column: 1 / -1; }
+.milestone-text p { margin: 6px 0 0; font-family: var(--body-text); }
+.milestone-rank { margin: 4px 0 0; font-family: var(--display); font-size: 1.6rem; line-height: 1.15; }
+.milestone-en { color: var(--muted); }
+.saying { border-top: 1px solid var(--rule); padding-top: 12px; }
+.saying-vi { font-family: var(--display); font-size: 1.35rem; line-height: 1.4; margin: 6px 0 8px; }
+.saying-vi .known-word { text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 4px; }
+.saying-literal { margin: 8px 0 2px; font-style: italic; font-family: var(--body-text); }
+.saying-meaning { margin: 0; font-family: var(--body-text); color: var(--muted); }
+.milestone-news .row { margin-top: 14px; }
+@media (max-width: 400px) { .milestone-card { grid-template-columns: 1fr; } .seal { margin: 0 auto; } .rank-next { text-align: left; grid-column: 1 / -1; } }
+
+/* Mix-ups in a review: two words side by side before telling them apart by ear */
+.mixup-title { font-family: var(--display); font-size: 1.5rem; margin: 6px 0 14px; }
+.mixup-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.mixup-word { padding: 12px; border: 1px solid var(--rule); border-radius: var(--radius); background: var(--card); text-align: center; }
+.mixup-word .big { font-size: 1.8rem; }
+.mixup-word .note { text-align: left; font-size: 0.9rem; }
+@media (max-width: 360px) { .mixup-pair { grid-template-columns: 1fr; } }

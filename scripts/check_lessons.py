@@ -404,6 +404,34 @@ def load_known(r):
     return {nfc(w).lower() for w in words}
 
 
+def check_milestones(r, audio):
+    """web/milestones.json: rising word counts, a rank or a fact on each, a saying with its meaning, and sources."""
+    path = WEB / "milestones.json"
+    if not path.exists():
+        return
+    data = json.loads(path.read_text(encoding="utf-8"))
+    last = 0
+    for i, m in enumerate(data.get("milestones", [])):
+        where = f"milestones[{i}]"
+        if not isinstance(m.get("words"), int) or m["words"] <= last:
+            r.error(where, "words must be a whole number, higher than the milestone before")
+        last = m.get("words", last) if isinstance(m.get("words"), int) else last
+        if not m.get("fact"):
+            r.error(where, "needs a fact")
+        if not m.get("sources"):
+            r.error(where, "needs sources for its fact")
+        saying = m.get("saying") or {}
+        for field in ("vi", "literal", "meaning"):
+            if not saying.get(field):
+                r.error(where, f"saying needs {field}")
+        if saying.get("vi"):
+            check_text(r, f"{where}.saying", saying["vi"])
+            if audio is not None and nfc(saying["vi"]) not in audio:
+                r.error(where, f"no audio clip for {saying['vi']!r}; run scripts/make_audio.py")
+        if m.get("rank") and not (m["rank"].get("vi") and m["rank"].get("en")):
+            r.error(where, "rank needs vi and en")
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--no-audio", action="store_true")
@@ -432,6 +460,7 @@ def main():
         warmed |= warm
     if index["lessons"]:
         check_plan(r, index["lessons"][-1]["id"])
+    check_milestones(r, audio)
     if numbers != list(range(1, len(numbers) + 1)):
         r.error("index", f"lesson numbers should run 1, 2, 3... in order; found {numbers}")
 

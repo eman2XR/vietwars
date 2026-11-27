@@ -47,6 +47,9 @@ def all_texts():
     for entry in index["lessons"]:
         lesson = json.loads((WEB / "lessons" / entry["file"]).read_text(encoding="utf-8"))
         texts.extend(lesson_texts(lesson))
+    milestones = WEB / "milestones.json"
+    if milestones.exists():
+        texts.extend(m["saying"]["vi"] for m in json.loads(milestones.read_text(encoding="utf-8"))["milestones"])
     return sorted({nfc(t) for t in texts})
 
 

@@ -211,7 +211,7 @@ class Run:
             kind = "warmup" if "is-warmup" in classes else step
             self.seen_types.add(kind)
             self.first(page, f"{label}-{kind}")
-            if step in ("feature", "reviewIntro", "stage", "story", "grammar", "speedIntro", "results"):
+            if step in ("feature", "reviewIntro", "stage", "story", "grammar", "speedIntro", "results", "mixup"):
                 page.click("[data-act=next]")
             elif step == "situation":
                 if page.locator(".digits-input").count():
@@ -455,6 +455,15 @@ class Run:
         page.click("[data-act=home]")
         page.wait_for_selector(".home")
         self.first(page, "home-after")
+        if not page.locator(".rank-line").count():
+            self.errors.append("the home page has no rank line for word milestones")
+        page.evaluate("location.hash = '#/milestones'")
+        page.wait_for_selector(".milestones-page")
+        if page.locator(".seal-slot").count() < 10:
+            self.errors.append("the Milestones page does not show the seals")
+        self.first(page, "milestones")
+        page.evaluate("location.hash = '#/'")
+        page.wait_for_selector(".home")
         if not page.locator(".ask-link").count():
             self.errors.append("the home page has no link to Ask")
         page.evaluate("location.hash = '#/words'")

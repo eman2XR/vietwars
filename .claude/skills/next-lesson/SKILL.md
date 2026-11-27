@@ -43,8 +43,9 @@ Put this list in the plan and in the lesson log entry under "What changes and wh
 
 Write a short plan before any content and show it in your final message:
 
-- Theme and why: the learner's `wantNext`, otherwise the next `planned` unit in `learner/curriculum.json` (reorder units if the data says so).
-- Number of new words and why (meaning accuracy and the difficulty rating; see PEDAGOGY.md).
+- Theme and why: the learner's `wantNext`, otherwise the next `planned` unit in `learner/curriculum.json` (reorder units if the data says so). Every fifth issue (15, 20, ...) is a clinic built from the leeches and mix-ups instead (docs/PEDAGOGY.md, Variety).
+- Number of new words: the ladder step (+1, -1 or keep) from the last two issues, with the numbers behind it (docs/PEDAGOGY.md, Size and difficulty).
+- The headline format: one from the table in docs/PEDAGOGY.md (Variety) that none of the last three issues used, or a new one; say what to build in the engine if it is new, and add it to the table with the issue number.
 - Review words and why (weakest meaning, words marked hardest, meaning confusions). Never known-list words.
 - A warm-up, if the theme has basics the learner probably knows.
 - What the data says to change (tone pairs, spelling, typing with the tone keys, fun and difficulty ratings, the story rating and reading time, real-life scores).

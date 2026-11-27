@@ -56,6 +56,30 @@ The learner's goal (2026-11-22): basic conversation at a dinner table and unders
 - **New words are confused with each other right after they are taught**, in every recent issue (issue 10: chào taken for gặp, biết for chào; issue 11: nóng and đói taken for đẹp). The engine now meets new words two at a time and asks each against words already met, not against new words still to come. Still avoid teaching words that share a first sound and a tone class together when another choice fits (đói, đẹp).
 - **Small prices are heard ten times too big** (issue 11: ba nghìn picked as 30.000₫, sáu nghìn as 60.000₫; the review desk keeps missing nghìn and triệu). Every issue's price lines include at least one plain nghìn amount under 10.000₫ against its tens (3.000 against 30.000), and the note says the rule: a single number before nghìn is that many thousand.
 
+## Variety: a different thing to play in every issue (review of 2026-11-27)
+
+Fun was "Good" in issues 3 to 5, 9 (the haggle) and 11 (... quá! reactions), and "OK" or "Boring" whenever an issue had the same shape as the one before. So every issue has one **headline format**, named in the plan and the log, that none of the three issues before it used. Formats so far and ideas (build the engine part the first time a format is used, as the say questions were in issue 9):
+
+| Format | What the learner does | Used |
+| --- | --- | --- |
+| Haggle | says counter-offers; the seller answers back; a tally of đồng saved | 9 |
+| Reactions | says short exclamations in scenes (So hot! How beautiful!) | 11, 12 |
+| Ask the way | asks, hears the answer, then picks the way | 13 |
+| Order chain | orders in three turns at one stall or café (order, answer a question, pay the total); one scene, the seller replies each time | |
+| Phone call | hears a call from Bà or a friend with no picture cues, answers two questions about it | |
+| Read the board | reads a menu board, a price list or a street sign drawn in the inked style, and picks or works something out (what can you afford, which is cheapest) | |
+| Overheard | hears two locals talk (a short exchange between others) and answers who, what or how much | |
+| Map walk | follows spoken directions on a small drawn map and taps where they end up | |
+| Match rush | a rush-hour variant: match pictures to words heard, against the clock | |
+| Two endings | the dialogue branches on the learner's choice, each with its own reply | |
+
+**Rhythm.** Alternate table and street (Conversation, above). Vary the kind of story (history or legend, food, a place, language, people, a craft). And every fifth issue is a **clinic** (issue 8 was one, "Just right"): no new topic, its words are the learner's leeches and mix-ups (the review desk's confusions and the struggle table), taught with new hooks, `remember` cues and pictures, in a format that has not been used recently.
+
+## Adapting between issues (automatic)
+
+- The review desk now adapts by itself: it adds **mix-ups** (pairs the learner has taken for each other, from the answers so far, shown side by side and then told apart by ear; practice, not scored) and **real life again** (up to three real-life lines from issues already played, the ones missed first, never one from the last review). Planning can rely on this for old real-life lines and leave room in new issues for new ones.
+- **Milestones** (`web/milestones.json`): every 25 to 50 words a rank from the old imperial exams, a sourced fact and a saying with the learner's known words underlined. Add milestones above 1,000 the same way when the learner gets close; each needs the Vietnamese and fact reviews.
+
 ## Using the data
 
 `learner/SUMMARY.md` has a **Where the learner struggles** table (struggle score from failed first tries, slow answers, hints, replays and revealed answers), accuracy and speed by **exercise type**, time per phase, long pauses, unfinished attempts, tone and meaning confusions, and every feedback note. Plan from it: review the highest-struggle words, give them new hooks or pictures, and lean on the exercise types that work (listening and real life) when another type is failing.
@@ -80,7 +104,7 @@ The learner's goal (2026-11-22): basic conversation at a dinner table and unders
 ## Rules for a new lesson
 
 **Size and difficulty**
-- 8 to 10 new words by default (issues over 8 are split into two parts automatically). Judge difficulty on **meaning** (listen and reverse) and on the struggle data, not on spelling. Above 85% meaning accuracy and "Too easy": up to 14. "Too hard", an unfinished issue, or a session over 25 minutes: fewer new words and fewer review words (3 to 5).
+- **New words follow a ladder, set from the last two issues** (review of 2026-11-27; issues 10 to 13 showed four concrete words at about 35 answers is "Just right", while five abstract ones were "Too hard"). Start from the last issue's count and move one step: **+1** after two issues in a row with first-try accuracy of 75% or more, meaning (listen and reverse) of 80% or more, and no "Too hard"; **-1** after "Too hard", an unfinished issue, first-try accuracy under 65%, or a session over 20 active minutes; otherwise keep it. Range 3 to 7 (issues over 8 are split into two parts automatically). Abstract words (greetings, question words, feelings without a picture) count as one and a half. Write the step and its reason in the plan. Judge difficulty on **meaning** and the struggle data, not on spelling.
 - **Limit an issue by answers, not words**: about 45 first-try answers before rush hour (issue 4, at 58, felt "a bit too long"). `node scripts/plan.mjs` counts them; the checker warns above 50. Review words all land in the last part (each adds a listening and a typing question there), so many review words make that part long.
 - Review words are heard and used in an issue (listening, real life, combos) but not typed: typing them from memory is the spaced reviews' job, and in issue 4 typing the same number words again failed every time without improving.
 - Put 3 to 8 earlier words in `review`, chosen by the **struggle score** and **meaning weakness** first, then words the learner marked hardest, then meaning confusions. Judge typing on the lenient grades: a `wrong` typed answer (another word came out, such as tram for nghìn) is a recall failure worth reviewing; tone and mark slips are not. Do not drill spelling weakness hard: the learner asked for less focus on tones. Words the review desk already schedules can wait for a better-fitting issue (triệu and rưỡi suit telling the time).

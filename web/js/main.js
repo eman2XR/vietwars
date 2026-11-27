@@ -10,6 +10,8 @@ import { queue, flush, testToken, pullResults, queueFeedback, REPO } from './syn
 import { picture } from './pictures.js';
 import { pushSupport, currentSubscription, enablePush, disablePush, loadPushKeys } from './push.js';
 import { openTalk, setTalkContext, talkKey, findModel } from './talk.js';
+import { milestoneState, sayingWords, milestoneDates } from './milestones.js';
+import { mixupsFor, realLifeFor } from './adapt.js';
 
 const APP_VERSION = '5';
 const app = document.getElementById('app');
@@ -26,6 +28,7 @@ export const STYLES = [
 ];
 
 let LESSONS = [];
+let MILESTONES = [];
 const WORDS = new Map();
 let KNOWN = new Set();
 let SITE_KNOWN = [];
@@ -68,6 +71,7 @@ async function loadLessons() {
   const index = await getJSON('lessons/index.json', { lessons: [] });
   LESSONS = (await Promise.all(index.lessons.map((l) => getJSON(`lessons/${l.file}`, null)))).filter(Boolean);
   SITE_KNOWN = ((await getJSON('lessons/known.json', { words: [] })).words || []).map(nfc);
+  MILESTONES = (await getJSON('milestones.json', { milestones: [] })).milestones || [];
   for (const lesson of LESSONS) {
     for (const w of lesson.words) {
       const key = nfc(w.vi);
@@ -288,6 +292,7 @@ function startSession(kind, lesson, opts = {}) {
   let steps;
   let words;
   let warmup = [];
+  let extraAudio = [];
   if (kind === 'lesson') {
     const review = (lesson.review || []).map((vi) => WORDS.get(nfc(vi))).filter((w) => w && !KNOWN.has(nfc(w.vi)));
     warmup = lesson.warmup || [];
@@ -303,8 +308,12 @@ function startSession(kind, lesson, opts = {}) {
       location.hash = '#/';
       return;
     }
-    steps = reviewSteps(due, [...WORDS.values()]);
+    const history = store.history();
+    const mixups = mixupsFor(history, WORDS, due, { known: KNOWN });
+    const realLife = realLifeFor(history, LESSONS, { max: 3 });
+    steps = reviewSteps(due, [...WORDS.values()], { mixups, realLife });
     words = due;
+    extraAudio = [...mixups.flatMap((m) => [m.a.vi, m.b.vi]), ...realLife.flatMap((x) => [x.vi, x.reply?.vi].filter(Boolean))];
   }
   preload([
     ...(lesson?.situations || []).flatMap((x) => [x.vi, x.reply?.vi, x.replyMissed?.vi].filter(Boolean)),
@@ -314,6 +323,7 @@ function startSession(kind, lesson, opts = {}) {
     ...(lesson?.combos || []).map((c) => c.vi),
     ...(lesson?.grammar?.examples || []).map((x) => x.vi),
     ...warmup.map((w) => w.vi),
+    ...extraAudio,
   ]);
   document.body.classList.add('in-session');
   endSession = runSession(
@@ -394,6 +404,9 @@ function home() {
   const nd = nextDue(live);
   const outbox = store.outbox().length;
   const learned = Object.keys(live).length + KNOWN.size;
+  const ms = milestoneState(learned, MILESTONES);
+  const newest = ms.earned[ms.earned.length - 1];
+  const fresh = newest && newest.words > (store.settings().milestoneSeen || 0) ? newest : null;
   const states = LESSONS.map((l, i) => lessonState(i, p));
   let currentIdx = states.indexOf('open');
   if (currentIdx < 0) currentIdx = LESSONS.length - 1;
@@ -420,6 +433,7 @@ function home() {
         <a class="icon-btn" href="#/settings" aria-label="Settings">${GEAR}</a>
       </header>
       ${notice ? `<div class="notice">${esc(notice)}</div>` : ''}
+      ${fresh ? `<section class="milestone-news">${milestoneCard(fresh, { headline: true })}<div class="row"><a class="btn small" href="#/milestones">All milestones</a><button type="button" class="btn primary small" data-act="milestone-seen" data-n="${fresh.words}">Keep going</button></div></section>` : ''}
       ${
         store.settings().seen !== APP_VERSION
           ? `<section class="news">
@@ -449,6 +463,7 @@ function home() {
         <div><b>${learned}</b><span>words</span></div>
         <div><b>${done}</b><span>stamps</span></div>
       </div>
+      ${MILESTONES.length ? rankLine(ms) : ''}
       <section class="review-card ${due.length ? 'is-due' : ''}">${reviewHTML}</section>
       ${outbox ? `<div class="outbox-note">${outbox} result${outbox === 1 ? '' : 's'} not sent yet. <a href="#/settings">Send</a></div>` : ''}
       <h2 class="section-title">Passport</h2>
@@ -475,11 +490,106 @@ function home() {
           return st === 'locked' ? `<div class="issue status-locked">${inner}</div>` : `<a class="issue status-${st}" href="#/lesson/${esc(l.id)}">${inner}</a>`;
         }).join('')}
       </div>
-      <div class="row links"><a class="text-link" href="#/words">Your words</a><a class="text-link" href="#/settings">Style and settings</a></div>
+      <div class="row links"><a class="text-link" href="#/words">Your words</a><a class="text-link" href="#/milestones">Milestones</a><a class="text-link" href="#/settings">Style and settings</a></div>
+    </div>`;
+  const bar = app.querySelector('.rank-line .fill');
+  if (bar) bar.style.width = `${Math.round(ms.progress * 100)}%`;
+}
+
+// Every word met in an issue or a review (the deck) and every known word: the count on the home page.
+function wordCount() {
+  return Object.keys(store.deck()).filter((vi) => !KNOWN.has(vi) && WORDS.has(vi)).length + KNOWN.size;
+}
+
+function metWords() {
+  return new Set([...Object.keys(store.deck()), ...KNOWN].map(nfc));
+}
+
+function rankLine(ms) {
+  const name = ms.rank ? `<span class="vi">${colorize(ms.rank.rank.vi)}</span> <small>${esc(ms.rank.rank.en)}</small>` : 'New reader';
+  const next = ms.next ? `${ms.toNext} word${ms.toNext === 1 ? '' : 's'} to ${ms.next.words}${ms.next.rank ? `: <span class="vi">${colorize(ms.next.rank.vi)}</span>` : ', and a new saying'}` : 'Every milestone reached';
+  return `<a class="rank-line" href="#/milestones"><span class="label">Your rank</span><span class="rank-name">${name}</span><span class="rank-next">${next}</span><span class="rank-progress"><span class="fill"></span></span></a>`;
+}
+
+function sealHTML(m, { locked = false } = {}) {
+  return `<div class="seal${locked ? ' locked' : ''}"><div class="seal-inner"><div class="seal-num">${m.words}</div><div class="seal-label">${m.rank ? `<span class="vi">${esc(m.rank.vi)}</span>` : 'words'}</div></div></div>`;
+}
+
+function milestoneCard(m, { headline = false } = {}) {
+  const known = metWords();
+  const parts = sayingWords(m.saying.vi, known);
+  const k = parts.filter((x) => x.known).length;
+  return `<article class="milestone-card">
+      ${sealHTML(m)}
+      <div class="milestone-text">
+        <div class="kicker">${headline ? 'Milestone reached · ' : ''}${m.words} words</div>
+        ${m.rank ? `<h2 class="milestone-rank"><span class="vi">${colorize(m.rank.vi)}</span></h2><p class="milestone-en">${esc(m.rank.en)}</p>` : '<h2 class="milestone-rank">A new saying</h2>'}
+        <p>${esc(m.fact)}</p>
+      </div>
+      <div class="saying">
+        <div class="label">A saying you can start to read</div>
+        <p class="saying-vi vi">${parts.map((x) => `<span class="${x.known ? 'known-word' : ''}">${colorize(x.text)}</span>`).join(' ')}</p>
+        <div class="row">${`<button type="button" class="say" data-say="${esc(m.saying.vi)}" aria-label="Play">Play</button>`}<span class="hint">You know ${k} of its ${parts.length} words (underlined).</span></div>
+        <p class="saying-literal">${esc(m.saying.literal)}</p>
+        <p class="saying-meaning">${esc(m.saying.meaning)}</p>
+      </div>
+    </article>`;
+}
+
+// When each milestone was first reached, from replaying the results in order.
+function earnedDates() {
+  const p = freshProgress();
+  const deck = {};
+  const counts = [];
+  const results = [...store.history()].sort((a, b) => String(a.finishedAt).localeCompare(String(b.finishedAt)));
+  for (const r of results) {
+    applyResult(p, deck, r);
+    counts.push({ at: r.finishedAt, count: Object.keys(deck).filter((vi) => !KNOWN.has(vi) && WORDS.has(vi)).length + KNOWN.size });
+  }
+  return milestoneDates(counts, MILESTONES);
+}
+
+function milestonesPage() {
+  const count = wordCount();
+  const ms = milestoneState(count, MILESTONES);
+  const dates = earnedDates();
+  app.innerHTML = `
+    <div class="page milestones-page">
+      <a class="back" href="#/">Magazine</a>
+      <h1 class="title">Milestones</h1>
+      <p class="lead">${count} words so far. Every milestone brings a rank from the old imperial exams, a true story about them, and a Vietnamese saying you can start to read.</p>
+      ${MILESTONES.length ? rankLine(ms) : ''}
+      <div class="seal-grid">
+        ${MILESTONES.map((m) => {
+          const got = count >= m.words;
+          const when = got && dates[m.words] ? shortDate(dates[m.words]) : got ? 'Reached' : m === ms.next ? `${ms.toNext} to go` : '';
+          const inner = `${sealHTML(m, { locked: !got })}<div class="seal-caption">${m.rank ? `<span class="vi">${esc(m.rank.vi)}</span>` : 'A saying'}<small>${esc(when)}</small></div>`;
+          return got ? `<a class="seal-slot" href="#/milestone/${m.words}">${inner}</a>` : `<div class="seal-slot">${inner}</div>`;
+        }).join('')}
+      </div>
+    </div>`;
+  const bar = app.querySelector('.rank-line .fill');
+  if (bar) bar.style.width = `${Math.round(ms.progress * 100)}%`;
+}
+
+function milestonePage(n) {
+  const m = MILESTONES.find((x) => String(x.words) === String(n));
+  const count = wordCount();
+  if (!m) return milestonesPage();
+  app.innerHTML = `
+    <div class="page milestone-page">
+      <a class="back" href="#/milestones">Milestones</a>
+      ${count >= m.words ? milestoneCard(m) : `<h1 class="title">${m.words} words</h1><p class="lead">${m.words - count} words to go${m.rank ? ` to <span class="vi">${colorize(m.rank.vi)}</span>` : ''}.</p>`}
+      ${count >= m.words && m.sources?.length ? `<p class="hint">Source: ${m.sources.map((x) => `<a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.title)}</a>`).join(', ')}</p>` : ''}
     </div>`;
 }
 
 document.addEventListener('click', (ev) => {
+  const seenMilestone = ev.target.closest('[data-act=milestone-seen]');
+  if (seenMilestone) {
+    store.saveSettings({ ...store.settings(), milestoneSeen: Number(seenMilestone.dataset.n) });
+    seenMilestone.closest('.milestone-news')?.remove();
+  }
   if (ev.target.closest('[data-act=seen]')) {
     store.saveSettings({ ...store.settings(), seen: APP_VERSION });
     ev.target.closest('.news')?.remove();
@@ -781,6 +891,8 @@ function render() {
   }
   if (route === 'review') return startSession('review');
   if (route === 'words') return wordsPage();
+  if (route === 'milestones') return milestonesPage();
+  if (route === 'milestone') return milestonePage(arg);
   if (route === 'ask') return askPage();
   if (route === 'settings') return settingsPage();
   return home();

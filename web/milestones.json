@@ -1,0 +1,248 @@
+{
+  "note": "Word-count milestones, shown on the home page and the Milestones page. Ranks follow the old imperial exams; each milestone brings a fact and a saying. Facts must be sourced; sayings are checked by the Vietnamese reviewer. Run scripts/make_audio.py after changing a saying.",
+  "milestones": [
+    {
+      "words": 25,
+      "rank": {
+        "vi": "Học trò",
+        "en": "pupil"
+      },
+      "fact": "Vietnam's first university, the Imperial Academy (Quốc Tử Giám), opened in 1076 inside Hà Nội's Temple of Literature, Văn Miếu, and taught for seven centuries. You have enrolled.",
+      "saying": {
+        "vi": "Uống nước nhớ nguồn.",
+        "literal": "Drink water, remember the source.",
+        "meaning": "Remember those who made what you enjoy possible."
+      },
+      "sources": [
+        {
+          "title": "Temple of Literature, Hanoi",
+          "url": "https://en.wikipedia.org/wiki/Temple_of_Literature,_Hanoi"
+        }
+      ]
+    },
+    {
+      "words": 50,
+      "rank": {
+        "vi": "Sĩ tử",
+        "en": "exam candidate"
+      },
+      "fact": "Candidates sat the imperial exams for 844 years, from 1075 to 1919; Vietnam was the last country to hold them. Until 1840 elephants guarded the exam halls, partly to stop cheating.",
+      "saying": {
+        "vi": "Tiền nào của nấy.",
+        "literal": "Such money, such goods.",
+        "meaning": "You get what you pay for."
+      },
+      "sources": [
+        {
+          "title": "Confucian court examination system in Vietnam",
+          "url": "https://en.wikipedia.org/wiki/Confucian_court_examination_system_in_Vietnam"
+        }
+      ]
+    },
+    {
+      "words": 75,
+      "fact": "Under the Lê, candidates wrote their exams in small bamboo cages; under the Nguyễn each brought a lều chõng instead, a low bamboo bed under a little thatched tent, carried all the way to the exam.",
+      "saying": {
+        "vi": "Một miếng khi đói bằng một gói khi no.",
+        "literal": "One bite when hungry is worth a whole parcel when full.",
+        "meaning": "Help given when it is needed counts for more than plenty later."
+      },
+      "sources": [
+        {
+          "title": "Confucian court examination system in Vietnam",
+          "url": "https://en.wikipedia.org/wiki/Confucian_court_examination_system_in_Vietnam"
+        },
+        {
+          "title": "Khoa bảng Việt Nam",
+          "url": "https://vi.wikipedia.org/wiki/Khoa_b%E1%BA%A3ng_Vi%E1%BB%87t_Nam"
+        }
+      ]
+    },
+    {
+      "words": 100,
+      "rank": {
+        "vi": "Tú tài",
+        "en": "licentiate, the lower pass of the provincial exam"
+      },
+      "fact": "Tú tài was the lower pass of the provincial exam, thi Hương; the best candidates became cử nhân. A hundred words: your first degree.",
+      "saying": {
+        "vi": "Trăm nghe không bằng một thấy.",
+        "literal": "A hundred hearings are not worth one seeing.",
+        "meaning": "Seeing once beats hearing a hundred times: come and see Hà Nội for yourself."
+      },
+      "sources": [
+        {
+          "title": "Confucian court examination system in Vietnam",
+          "url": "https://en.wikipedia.org/wiki/Confucian_court_examination_system_in_Vietnam"
+        }
+      ]
+    },
+    {
+      "words": 125,
+      "fact": "Just before Tết, calligraphers sit outside the Temple of Literature, and people come to xin chữ: ask for a character, such as a wish for the new year, to hang at home.",
+      "saying": {
+        "vi": "Muốn ăn thì lăn vào bếp.",
+        "literal": "Want to eat? Then roll into the kitchen.",
+        "meaning": "If you want something, work for it."
+      },
+      "sources": [
+        {
+          "title": "Temple of Literature, Hanoi",
+          "url": "https://en.wikipedia.org/wiki/Temple_of_Literature,_Hanoi"
+        }
+      ]
+    },
+    {
+      "words": 150,
+      "rank": {
+        "vi": "Cử nhân",
+        "en": "laureate of the provincial exam"
+      },
+      "fact": "Cử nhân, the higher pass of the provincial exam, let a scholar go on to the exams in the capital. The titles live on: today cử nhân is a bachelor's degree, tiến sĩ a doctorate, and sinh viên a university student.",
+      "saying": {
+        "vi": "Đi một ngày đàng, học một sàng khôn.",
+        "literal": "Walk one day on the road (đàng, an old word for đường), learn a sieveful of wisdom.",
+        "meaning": "Travel teaches you more than staying at home."
+      },
+      "sources": [
+        {
+          "title": "Confucian court examination system in Vietnam",
+          "url": "https://en.wikipedia.org/wiki/Confucian_court_examination_system_in_Vietnam"
+        }
+      ]
+    },
+    {
+      "words": 175,
+      "fact": "The Temple of Literature is on the back of the 100.000₫ note. Look at one the next time you pay.",
+      "saying": {
+        "vi": "Có công mài sắt, có ngày nên kim.",
+        "literal": "Keep grinding the iron and one day it becomes a needle.",
+        "meaning": "Patient effort gets there in the end."
+      },
+      "sources": [
+        {
+          "title": "Temple of Literature, Hanoi",
+          "url": "https://en.wikipedia.org/wiki/Temple_of_Literature,_Hanoi"
+        }
+      ]
+    },
+    {
+      "words": 200,
+      "rank": {
+        "vi": "Phó bảng",
+        "en": "the supplementary list"
+      },
+      "fact": "Phó bảng, the supplementary list, was created under the Nguyễn in 1829 for good scholars who just missed the doctors' list: above cử nhân, below tiến sĩ.",
+      "saying": {
+        "vi": "Học ăn, học nói, học gói, học mở.",
+        "literal": "Learn to eat, learn to speak, learn to wrap, learn to unwrap.",
+        "meaning": "Learn good manners in everything, from the table to conversation."
+      },
+      "sources": [
+        {
+          "title": "Phó bảng",
+          "url": "https://vi.wikipedia.org/wiki/Ph%C3%B3_b%E1%BA%A3ng"
+        }
+      ]
+    },
+    {
+      "words": 250,
+      "fact": "Students at the Imperial Academy stayed three to seven years, with small tests every month and four big ones a year.",
+      "saying": {
+        "vi": "Học thầy không tày học bạn.",
+        "literal": "Learning from a teacher is not equal to learning from friends (tày: an old word for bằng, equal).",
+        "meaning": "You learn as much from friends as from teachers: the classic reply to Không thầy đố mày làm nên."
+      },
+      "sources": [
+        {
+          "title": "Temple of Literature, Hanoi",
+          "url": "https://en.wikipedia.org/wiki/Temple_of_Literature,_Hanoi"
+        }
+      ]
+    },
+    {
+      "words": 300,
+      "rank": {
+        "vi": "Tiến sĩ",
+        "en": "doctor"
+      },
+      "fact": "From 1484 the names of doctors, going back to the exam of 1442, were carved on stone stelae carried by stone turtles at the Temple of Literature. 82 remain, with 1,307 names, and they are on UNESCO's Memory of the World register. People used to rub the turtles' heads; now a fence protects them.",
+      "saying": {
+        "vi": "Không thầy đố mày làm nên.",
+        "literal": "Without a teacher, I dare you to succeed.",
+        "meaning": "Nobody gets far without a teacher. (mày is the blunt, familiar you, fine in a saying but never for strangers or elders.)"
+      },
+      "sources": [
+        {
+          "title": "Temple of Literature, Hanoi",
+          "url": "https://en.wikipedia.org/wiki/Temple_of_Literature,_Hanoi"
+        }
+      ]
+    },
+    {
+      "words": 500,
+      "rank": {
+        "vi": "Thám hoa",
+        "en": "third place at the court exam"
+      },
+      "fact": "Thám hoa was third place at the court exam, thi Đình, where the emperor himself set the questions and ranked those who passed.",
+      "saying": {
+        "vi": "Một cây làm chẳng nên non, ba cây chụm lại nên hòn núi cao.",
+        "literal": "One tree alone cannot make a mountain; three trees huddled together make a high mountain.",
+        "meaning": "Together we can do what none of us can alone."
+      },
+      "sources": [
+        {
+          "title": "Temple of Literature, Hanoi",
+          "url": "https://en.wikipedia.org/wiki/Temple_of_Literature,_Hanoi"
+        },
+        {
+          "title": "Confucian court examination system in Vietnam",
+          "url": "https://en.wikipedia.org/wiki/Confucian_court_examination_system_in_Vietnam"
+        }
+      ]
+    },
+    {
+      "words": 750,
+      "rank": {
+        "vi": "Bảng nhãn",
+        "en": "second place at the court exam"
+      },
+      "fact": "Bảng nhãn was second place at the court exam. The three top titles, trạng nguyên, bảng nhãn and thám hoa, were adopted in 1247, under the Trần.",
+      "saying": {
+        "vi": "Lời nói chẳng mất tiền mua, lựa lời mà nói cho vừa lòng nhau.",
+        "literal": "Words cost no money to buy; choose your words to please each other.",
+        "meaning": "Kind words are free, so choose them well."
+      },
+      "sources": [
+        {
+          "title": "Confucian court examination system in Vietnam",
+          "url": "https://en.wikipedia.org/wiki/Confucian_court_examination_system_in_Vietnam"
+        },
+        {
+          "title": "Trạng nguyên",
+          "url": "https://vi.wikipedia.org/wiki/Tr%E1%BA%A1ng_nguy%C3%AAn"
+        }
+      ]
+    },
+    {
+      "words": 1000,
+      "rank": {
+        "vi": "Trạng nguyên",
+        "en": "first place in the land"
+      },
+      "fact": "Trạng nguyên, first in the land: there were only 55 of them (49 if you count from 1247, when the three top titles began), from Lê Văn Thịnh in 1075 to Trịnh Tuệ in 1736.",
+      "saying": {
+        "vi": "Nước chảy đá mòn.",
+        "literal": "Flowing water wears away the stone.",
+        "meaning": "Steady effort wins."
+      },
+      "sources": [
+        {
+          "title": "Confucian court examination system in Vietnam",
+          "url": "https://en.wikipedia.org/wiki/Confucian_court_examination_system_in_Vietnam"
+        }
+      ]
+    }
+  ]
+}

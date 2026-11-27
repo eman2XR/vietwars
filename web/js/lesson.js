@@ -206,11 +206,24 @@ export function lessonSteps(lesson, { review = [], warmup = [] } = {}) {
   return steps;
 }
 
-export function reviewSteps(words, pool) {
+// A review: the due words heard and typed, plus pairs the learner has mixed up (seen side by side, then told apart by
+// ear, as practice) and real-life lines from earlier issues that tripped them up.
+export function reviewSteps(words, pool, { mixups = [], realLife = [] } = {}) {
   const steps = [{ type: 'reviewIntro' }];
   shuffle(words).forEach((w) => steps.push({ type: 'listen', word: w, pool }));
+  if (mixups.length) {
+    steps.push({ type: 'stage', title: 'Mix-ups', text: `${mixups.length === 1 ? 'Two words you have' : 'Words you have'} taken for each other. Look at both, then pick the one you hear.` });
+    for (const { a, b } of mixups) {
+      steps.push({ type: 'mixup', pair: [a, b] });
+      shuffle([a, b]).forEach((w) => steps.push({ type: 'listen', word: w, pool: [a, b], mixup: true }));
+    }
+  }
   steps.push({ type: 'stage', title: 'From memory', text: 'Type each word: from its meaning, or from hearing it.' });
   shuffle(words).forEach((w, i) => steps.push({ type: 'type', word: w, dictation: i % 2 === 1 }));
+  if (realLife.length) {
+    steps.push({ type: 'stage', title: 'Real life again', text: 'Lines from earlier issues, the ones that caught you out first. Listen, then answer.' });
+    realLife.forEach((sit) => steps.push({ type: sit.say ? 'say' : 'situation', word: sit, sit: true }));
+  }
   steps.push({ type: 'results' }, { type: 'feedback' });
   return steps;
 }
@@ -627,7 +640,7 @@ export function runSession(root, session, onDone, onQuit) {
 
   function choiceExercise(step, { prompt, top, opts, key, label, after, autoplay }) {
     stage.innerHTML = `
-      <div class="kicker">${esc(prompt)}${step.retry ? ' <span class="tag">again</span>' : ''}${step.warmup ? ' <span class="tag">warm-up</span>' : ''}</div>
+      <div class="kicker">${esc(prompt)}${step.retry ? ' <span class="tag">again</span>' : ''}${step.warmup ? ' <span class="tag">warm-up</span>' : ''}${step.mixup ? ' <span class="tag">mix-up</span>' : ''}</div>
       ${top}
       ${optionButtons(opts, label, key)}
       <div class="feedback-slot"></div>
@@ -639,13 +652,14 @@ export function runSession(root, session, onDone, onQuit) {
         S.answered = true;
         const chosen = opts[Number(b.dataset.i)];
         const ok = chosen[key] === step.word[key];
-        record({ t: step.type, w: step.word.vi, ok, a: chosen[key], retry: Boolean(step.retry) || undefined, combo: step.combo || undefined, warmup: step.warmup || undefined });
+        // Mix-up answers are practice: they are recorded but, like retries, are not first tries.
+        record({ t: step.type, w: step.word.vi, ok, a: chosen[key], retry: Boolean(step.retry || step.mixup) || undefined, mixup: step.mixup || undefined, combo: step.combo || undefined, warmup: step.warmup || undefined });
         markOptions(chosen[key], step.word[key]);
         flash(ok);
         if (ok) right();
         else {
           wrong();
-          insertRetry(step);
+          if (!step.mixup) insertRetry(step);
         }
         stage.querySelector('.feedback-slot').innerHTML = after(ok, chosen);
         if (!autoplay || !ok) play(step.word.vi);
@@ -710,6 +724,21 @@ export function runSession(root, session, onDone, onQuit) {
           showNext(step.n === step.of ? 'On to the words' : 'Next question');
         }),
       );
+    },
+
+    mixup(step) {
+      const card = (w) => `<div class="mixup-word">
+          ${pic(w, 'small')}
+          <div class="big vi">${colorize(w.vi)}</div>
+          <div class="meaning">${esc(w.en)}</div>
+          ${w.remember || w.hook ? `<p class="note">${esc(w.remember || w.hook)}</p>` : ''}
+          <div class="row center">${sayButton(w.vi, 'Play')}</div>
+        </div>`;
+      stage.innerHTML = `
+        <div class="kicker">Mix-up</div>
+        <h2 class="mixup-title">These two get mixed up</h2>
+        <div class="mixup-pair">${step.pair.map(card).join('')}</div>
+        ${footer('<button class="btn primary" data-act="next">Tell them apart</button>')}`;
     },
 
     reviewIntro() {
