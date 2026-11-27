@@ -2,6 +2,21 @@
 
 Why each lesson was planned the way it was, newest first. Written by the `/next-lesson` skill.
 
+## 2026-11-27: Issue 13, Where is the market? ("Puppets that walk on water")
+
+- Data: issue 12, 73% first try, "Just right", fun "OK" (issue 11 "Good"), story "Interesting", 9.1 active minutes; listening 15/18 after new words began to be met two at a time (issue 11: 8/15); nấu and muốn confused with each other (and muốn typed "nau"); spelling 0/2 (nâu, muộn); bốn nghìn heard as 40.000₫ (plain nghìn misheard in issues 11 and 12); say 1/3. In Ask a question the learner asked for a better memory cue whenever they struggle (now a `remember` cue after every miss) and what ạ is for.
+- What changes and why:
+  - Plain nghìn heard as tens twice by recognition: the learner says one (Năm nghìn for 5.000₫), and hears 3.000 against 30.000 and 40.000 against 4.000. To beat: all three right.
+  - Fun (OK): something new to play is asking the way and following the answer: the learner asks an older woman where the market is (say), she answers (Ở gần đây, rẽ trái em ạ.), and the next question checks the way (left or right, near or far). To beat: fun Good.
+  - Keep issue 11's recipe and the pairs: four places you can picture, met as quán + nhà and chợ + hồ; a dialogue check that needs one step of inference (Bà phones while you choose her oranges: Cháu ở chợ ạ).
+  - muốn, the weakest review word, is said (Mình muốn về nhà) rather than recognised; nấu waits for the review desk.
+- Words (4): quán (a small eatery or café), nhà (house, home), chợ (market), hồ (lake). Contrasts quan, chờ. Second cues (`remember`) for quán against chợ, chợ against chị, nhà with ngủ.
+- Review (4): muốn, đói (combos and the say line), phải, rẽ (combos and the directions).
+- Extras: đây (here), về, cho; thẳng, rồi as "then" and đây as "right now" were cut in review.
+- Story (sources: en Water puppetry, vi Múa rối nước): the Red River Delta, the 1121 stele thought to be the first record (a golden turtle carrying three mountains), the village pond and the thủy đình, puppeteers waist-deep behind a bamboo screen, fig-wood puppets up to 15 kg, Chú Tễu (his name linked to laughing), the Thăng Long theatre's 1992 revival of 17 pieces including Lê Lợi trả gươm (issue 12's legend). Four untied beats; tying the pond beat to hồ put it next to the Practise beat.
+- Pictures: new cover and stamp `puppets` (the water pavilion, Chú Tễu, a dragon puppet, a drum), icons eatery, lake, house; stall and left reused.
+- Reviews: the fact-check softened "found only in Vietnam" (China had water puppets under the Song), hedged the stele and Chú Tễu, and placed the theatre on the shore of Hoàn Kiếm Lake. The Vietnamese reviewer priced oranges by the kilo (as Bà asks for một cân cam), fixed the say setup (a friend asks, not the seller), and widened the accept lists (Cho em hỏi ..., Mình về đây). The learning-design review cut the extras to three, put muốn into production, made the dialogue check need inference, added the learner's own Chợ ở đâu ạ? to the dialogue, turned the directions into a two-step scene, and added the hồ hook and the chợ and nhà cues. A fresh Vietnamese reviewer checked the revised parts.
+
 ## 2026-11-26: Issue 12, I want to ... ("The lake that took the sword back")
 
 - Data: issue 11, 61% first try, "Just right", fun "Good", story "Interesting" (the best ratings together so far), 7.8 active minutes; new words confused by meaning (nóng and đói taken for đẹp); plain nghìn prices heard as tens (ba nghìn as 30.000₫, sáu nghìn as 60.000₫; real life 1/5); dialogue check right (first in four issues). The progress review of today (`learner/REVIEW.md`) changed the engine to meet new words two at a time against known words.

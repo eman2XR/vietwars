@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-26",
+  "updated": "2026-11-27",
   "reviewedAt": "2026-11-26",
   "goal": "Basic conversation at a dinner table (a meal with a Hà Nội family or friends) and understanding basic street talk (sellers, waiters, drivers, neighbours) in Northern Vietnamese. Vocabulary keeps growing, and from issue 6 every issue also teaches one sentence frame and one short dialogue built from known words, alternating between the table and the street (the learner set this goal on 2026-11-22; see docs/PEDAGOGY.md, Conversation).",
   "phases": [
@@ -211,7 +211,7 @@
     {
       "id": "verbs",
       "title": "Everyday verbs",
-      "status": "active",
+      "status": "done",
       "candidates": [
         "ăn",
         "uống",
@@ -307,7 +307,7 @@
     {
       "id": "city",
       "title": "Places in the city",
-      "status": "planned",
+      "status": "active",
       "candidates": [
         "nhà",
         "phố",
@@ -324,8 +324,9 @@
         "ngân hàng",
         "nhà vệ sinh"
       ],
-      "notes": "phố and ga were contrast words in lesson 1; reuse that memory.",
-      "storyIdea": "The 36 streets of the Old Quarter, each once named for its trade: Hàng Bạc (silver), Hàng Đồng (copper), Hàng Mã (paper offerings)."
+      "notes": "phố and ga were contrast words in lesson 1; reuse that memory. Issue 13 (2026-11-27): quán, nhà, chợ, hồ with ... ở đâu?; the story is water puppetry (the questions unit's storyIdea), since the Old Quarter story was told in issue 9.",
+      "storyIdea": "The 36 streets of the Old Quarter, each once named for its trade: Hàng Bạc (silver), Hàng Đồng (copper), Hàng Mã (paper offerings).",
+      "lesson": "lesson-13"
     },
     {
       "id": "weather",

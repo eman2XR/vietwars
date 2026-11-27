@@ -249,6 +249,8 @@ What the learner said to the editors out loud. Treat requests and complaints as 
 
 Things the learner said in conversation, newest first. Add to this file whenever the learner gives feedback outside the app.
 
+- 2026-11-27 (Ask a question, on the iPhone): "If you see me struggle with the word, try to add a better memory cue, or give me some other tips that would help me remember it." After a miss the app now shows the word's cue and the word it was taken for; the twelve most-missed words got a second cue (`remember`), and both skills now add one for every word missed in two sessions. Also asked in issue 12 what ạ at the end is for (politeness to an elder; optional but expected with family). Issue 12: 73%, Just right, OK, Interesting; listening 15/18 after the new two-at-a-time introduction.
+
 - 2026-11-27 (two reviews): after a 23-word review, a second review of one word (gặp) appeared two hours later. A review now also takes words due in the next 12 hours. In Ask a question during the review: "I don't understand how [hơn] means more than, but it's cheaper" (rẻ hơn = cheaper); the editor explained comparisons. hơn's gloss could say "more ... than; -er (rẻ hơn: cheaper)".
 
 - 2026-11-26 (Talk, issue 11, on the iPhone): asked the editor to repeat "Trà nóng ba nghìn một cốc anh ạ"; the model answered in mixed Vietnamese and English. talk.js now keeps explanations in English and repeats a phrase slowly, then at normal speed. Issue 11 rated Just right, Good, Interesting.

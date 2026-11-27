@@ -1,0 +1,377 @@
+{
+  "id": "lesson-13",
+  "number": 13,
+  "title": "Where is the market?",
+  "vi": "Chợ ở đâu ạ?",
+  "theme": "places in the city (quán, chợ, hồ, nhà); asking the way with ... ở đâu?; water puppetry",
+  "intro": "Four places you will walk to every day (a little eatery, the market, the lake, home) and the question that finds them: ... ở đâu?, where is ...? This time you ask the way and hear the answer.",
+  "cover": {
+    "picture": {
+      "kind": "scene",
+      "name": "puppets"
+    }
+  },
+  "feature": {
+    "kicker": "Hà Nội's stage on water",
+    "title": "Puppets that walk on water",
+    "dek": "A theatre with a pond for a stage, puppeteers standing waist-deep behind a bamboo screen, and a cheeky narrator whose name is all about laughing.",
+    "intro": "Water puppetry, múa rối nước, grew up in the rice villages of the Red River Delta, the country around Hà Nội. The stage is the surface of a pond or a lake, and the puppets seem to walk, row and dance on the water. Puppetry is found all over the world; puppets on water live on as a tradition almost only in Vietnam.",
+    "beats": [
+      {
+        "picture": {
+          "kind": "icon",
+          "name": "lake"
+        },
+        "text": "The first written record is thought to be a stone stele of 1121, under the Lý dynasty, at the Sùng Thiện Diên Linh tower, which describes a golden turtle carrying three mountains on the waves. Traditionally the show is put on in the village pond, ao làng, in front of a water pavilion, thủy đình, roofed like the village communal house."
+      },
+      {
+        "picture": {
+          "kind": "scene",
+          "name": "puppets"
+        },
+        "text": "Up to eight puppeteers stand waist-deep in the water behind a split-bamboo screen. They move the puppets with long bamboo rods and strings hidden under the surface, so the water hides every trick. The puppets are carved from light fig wood so that they float, and lacquered; some weigh up to 15 kilograms."
+      },
+      {
+        "picture": {
+          "kind": "scene",
+          "name": "puppets"
+        },
+        "text": "Most shows are introduced by Chú Tễu, a smiling, pot-bellied boy in a loincloth. His name is linked to laughing (tễu is said to mean laugh in old Vietnamese, close to today's tếu, jokey), and he is the jester who introduces each scene and pokes fun at officials. The scenes are village life (ploughing, fishing, catching frogs, a fox after the ducks) and legends."
+      },
+      {
+        "picture": {
+          "kind": "icon",
+          "name": "house"
+        },
+        "text": "In 1992 Hà Nội's Thăng Long Water Puppet Theatre revived 17 classic pieces, among them a dragon dance, the buffalo boy, a boat race and Lê Lợi trả gươm: Lê Lợi returning the sword to the turtle, the legend of issue 12, played on the water."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Water puppetry",
+        "url": "https://en.wikipedia.org/wiki/Water_puppetry"
+      },
+      {
+        "title": "Múa rối nước",
+        "url": "https://vi.wikipedia.org/wiki/M%C3%BAa_r%E1%BB%91i_n%C6%B0%E1%BB%9Bc"
+      }
+    ]
+  },
+  "words": [
+    {
+      "vi": "quán",
+      "en": "a small eatery, café or bar",
+      "picture": {
+        "kind": "icon",
+        "name": "eatery"
+      },
+      "hook": "Low plastic stools under an awning, steam from the pot: you call \"kwahn!\" for a table, your voice rising: quán, the little eatery.",
+      "tip": "qu sounds like kw; a is long, as in \"father\"; end on n. Sắc: rise.",
+      "note": "quán: the stools and the awning. quán phở, a phở shop; quán cà phê, a café.",
+      "remember": "quán is where you sit down to eat or drink: quán phở, quán cà phê. chợ is where you buy food to take home.",
+      "contrast": [
+        {
+          "vi": "quan",
+          "en": "an official (a mandarin, in old days)"
+        }
+      ]
+    },
+    {
+      "vi": "nhà",
+      "en": "house; home",
+      "picture": {
+        "kind": "icon",
+        "name": "house"
+      },
+      "hook": "You push open the door of your narrow house and sigh \"nyah...\", the voice settling low: nhà, home.",
+      "tip": "nh is the ny of \"canyon\"; a is long; huyền: start a little low and sink gently.",
+      "note": "nhà: the tall narrow house. về nhà, to go home; ở nhà, at home.",
+      "remember": "nhà is where you sleep (ngủ, issue 12) and where Bà cooks: về nhà, go home; ở nhà, at home."
+    },
+    {
+      "vi": "chợ",
+      "en": "a market",
+      "picture": {
+        "kind": "icon",
+        "name": "stall"
+      },
+      "hook": "At the market a seller swings a fish past your nose and you gasp \"chuh!\", low and cut short: chợ, the market.",
+      "tip": "ch is soft, with no puff of air; ơ is the \"uh\" of \"her\", without the r; nặng: low, then a sudden stop.",
+      "note": "chợ: the stall piled with fruit. đi chợ, to go to the market, and so to do the food shopping.",
+      "contrast": [
+        {
+          "vi": "chờ",
+          "en": "to wait"
+        }
+      ],
+      "remember": "chợ has the ơ of \"uh\": the market you shop at, đi chợ. chị has the i of \"see\": the older woman you ask, Chị ơi, chợ ở đâu ạ?"
+    },
+    {
+      "vi": "hồ",
+      "en": "a lake",
+      "picture": {
+        "kind": "icon",
+        "name": "lake"
+      },
+      "hook": "Hồ Gươm, Sword Lake from issue 12: the turtle rises from the green water and you say \"hoh!\", round lips, the voice dropping: hồ, a lake.",
+      "tip": "h as in English; ô is a tight \"oh\" with no glide to oo; huyền: low and gently falling.",
+      "note": "hồ: the still water and the little tower. Hồ Gươm, Sword Lake; Hồ Tây, West Lake."
+    }
+  ],
+  "review": [
+    "muốn",
+    "đói",
+    "phải",
+    "rẽ"
+  ],
+  "grammar": {
+    "title": "... ở đâu? Where is ...?",
+    "text": "ở means at, in, or be at. Put the place first and ở đâu? (where?) after it: Chợ ở đâu? Where is the market? Answer with ở and the place: Ở gần đây, it's near here. Cháu ở nhà, I'm at home. Add ạ to someone older: Chợ ở đâu ạ?",
+    "examples": [
+      {
+        "vi": "Chợ ở đâu ạ?",
+        "en": "Where is the market? (politely)"
+      },
+      {
+        "vi": "Cháu ở nhà ạ.",
+        "en": "I'm at home. (to an older relative)"
+      }
+    ]
+  },
+  "combos": [
+    {
+      "vi": "Chợ ở đâu?",
+      "en": "Where is the market?",
+      "note": "The place, then ở đâu?"
+    },
+    {
+      "vi": "Ở gần đây.",
+      "en": "It's near here.",
+      "note": "gần: near (issue 7); đây: here."
+    },
+    {
+      "vi": "Hồ Gươm ở gần đây.",
+      "en": "Sword Lake is near here.",
+      "note": "Hồ Gươm: Sword Lake (issue 12)."
+    },
+    {
+      "vi": "Anh muốn đi chợ.",
+      "en": "I want to go to the market. (to someone younger)",
+      "note": "đi chợ: to go to the market, and so to do the food shopping."
+    },
+    {
+      "vi": "Mình đói quá, quán phở ở đâu?",
+      "en": "I'm starving, where's the phở place? (to a friend)",
+      "note": "quán phở: a phở shop."
+    },
+    {
+      "vi": "Rẽ phải.",
+      "en": "Turn right.",
+      "note": "rẽ: to turn; phải: right (issue 7)."
+    },
+    {
+      "vi": "về nhà",
+      "en": "to go home",
+      "note": "về: to go back."
+    }
+  ],
+  "dialogues": [
+    {
+      "title": "Errands for Bà",
+      "setting": "table",
+      "picture": {
+        "kind": "icon",
+        "name": "stall"
+      },
+      "lines": [
+        {
+          "who": "Bà",
+          "vi": "Cháu đi đâu đấy?",
+          "en": "Where are you off to?"
+        },
+        {
+          "who": "You",
+          "vi": "Cháu đi chợ ạ. Chợ ở đâu ạ?",
+          "en": "I'm going to the market. Where is it?",
+          "you": true
+        },
+        {
+          "who": "Bà",
+          "vi": "Chợ ở gần đây thôi. Cháu mua cho bà một cân cam nhé.",
+          "en": "The market's just near here. Buy me a kilo of oranges, will you?"
+        },
+        {
+          "who": "You",
+          "vi": "Vâng ạ.",
+          "en": "Yes, Grandma.",
+          "you": true
+        }
+      ],
+      "check": {
+        "ask": "Bà phones while you are still choosing her oranges: Cháu ở đâu đấy? Say your answer aloud first, then pick it.",
+        "options": [
+          "Cháu ở quán cà phê ạ.",
+          "Cháu ở chợ ạ.",
+          "Cháu ở nhà ạ."
+        ],
+        "answer": "Cháu ở chợ ạ.",
+        "note": "Cháu ở chợ ạ: I'm at the market (still buying the oranges). Cháu ở quán cà phê: at a café; Cháu ở nhà: at home. mua cho bà: buy for Grandma (mua, cân, cam: issue 5)."
+      }
+    }
+  ],
+  "situations": [
+    {
+      "who": "You, at a tea stall",
+      "picture": {
+        "kind": "icon",
+        "name": "tea"
+      },
+      "say": "5.000₫",
+      "vi": "Năm nghìn.",
+      "accept": [
+        "Năm nghìn.",
+        "Năm nghìn ạ.",
+        "Năm nghìn em.",
+        "Năm nghìn đồng.",
+        "Năm nghìn em ạ."
+      ],
+      "en": "5,000 dong",
+      "ask": "Your friend can't see the sign and asks how much a glass of tea is. Read it out.",
+      "note": "One number before nghìn is that many thousand: năm nghìn, 5.000. Năm mươi nghìn would be 50.000."
+    },
+    {
+      "who": "Tea seller",
+      "picture": {
+        "kind": "icon",
+        "name": "tea"
+      },
+      "vi": "Một cốc trà, ba nghìn ạ.",
+      "en": "One tea, 3,000.",
+      "ask": "How much is the tea?",
+      "options": [
+        "3.000₫",
+        "30.000₫",
+        "13.000₫"
+      ],
+      "answer": "3.000₫",
+      "note": "ba nghìn: one number before nghìn, 3.000."
+    },
+    {
+      "who": "Fruit seller",
+      "picture": {
+        "kind": "icon",
+        "name": "orange"
+      },
+      "vi": "Cam bốn mươi nghìn một cân anh ạ.",
+      "en": "Oranges, 40,000 a kilo.",
+      "ask": "What does a kilo of oranges cost?",
+      "options": [
+        "40.000₫",
+        "4.000₫",
+        "14.000₫"
+      ],
+      "answer": "40.000₫",
+      "note": "bốn mươi nghìn: two numbers before nghìn, so tens of thousands. bốn nghìn would be 4.000."
+    },
+    {
+      "who": "Phở seller",
+      "picture": {
+        "kind": "icon",
+        "name": "eatery"
+      },
+      "vi": "Phở gà bốn lăm anh ạ.",
+      "en": "Chicken phở is 45,000.",
+      "ask": "How much is the chicken phở?",
+      "options": [
+        "45.000₫",
+        "4.500₫",
+        "54.000₫"
+      ],
+      "answer": "45.000₫",
+      "note": "bốn lăm: short for bốn mươi lăm nghìn, 45.000. After a ten, năm (5) becomes lăm."
+    },
+    {
+      "who": "Bánh mì seller",
+      "picture": {
+        "kind": "icon",
+        "name": "baguette"
+      },
+      "vi": "Bánh mì ba mươi nghìn anh nhé.",
+      "en": "The bánh mì is 30,000.",
+      "ask": "Type the price in digits.",
+      "digits": "30000"
+    },
+    {
+      "who": "You, lost in the old quarter",
+      "picture": {
+        "kind": "icon",
+        "name": "left"
+      },
+      "say": "Excuse me, where is the market? (to an older woman)",
+      "vi": "Xin lỗi chị, chợ ở đâu ạ?",
+      "accept": [
+        "Xin lỗi chị, chợ ở đâu ạ?",
+        "Xin lỗi chị, chợ ở đâu?",
+        "Chị ơi, chợ ở đâu ạ?",
+        "Chợ ở đâu ạ?",
+        "Xin lỗi, chợ ở đâu ạ?",
+        "Chị ơi, cho em hỏi chợ ở đâu ạ?",
+        "Cho em hỏi chợ ở đâu ạ?"
+      ],
+      "en": "Excuse me, where is the market?",
+      "ask": "Stop a woman a little older than you and ask the way to the market.",
+      "note": "Xin lỗi (issue 10), then the place and ở đâu ạ?",
+      "reply": {
+        "who": "Woman",
+        "vi": "Ở gần đây, rẽ trái em ạ.",
+        "en": "It's near here, turn left."
+      }
+    },
+    {
+      "who": "Woman",
+      "picture": {
+        "kind": "icon",
+        "name": "left"
+      },
+      "vi": "Chợ ở gần đây, rẽ trái em ạ.",
+      "en": "The market's near here, turn left.",
+      "ask": "She points the way. Which way is the market?",
+      "options": [
+        "Turn left, it's near.",
+        "Turn right, it's near.",
+        "Turn left, it's far."
+      ],
+      "answer": "Turn left, it's near.",
+      "note": "rẽ trái: turn left; rẽ phải: turn right (issue 7). ở gần đây: near here."
+    },
+    {
+      "who": "You, after the show",
+      "picture": {
+        "kind": "icon",
+        "name": "house"
+      },
+      "say": "I want to go home! (to a friend)",
+      "vi": "Mình muốn về nhà.",
+      "accept": [
+        "Mình muốn về nhà.",
+        "Mình muốn về nhà quá!",
+        "Tôi muốn về nhà.",
+        "Tớ muốn về nhà."
+      ],
+      "en": "I want to go home.",
+      "ask": "The puppet show is over and it is late. Tell your friend you're going home.",
+      "note": "muốn + a verb (issue 12); về nhà: go home."
+    }
+  ],
+  "challenge": {
+    "title": "Street challenge",
+    "text": "Ask the way once today, even if you know it: Xin lỗi anh (or chị), ... ở đâu ạ? Try Hồ Gươm ở đâu ạ? or Chợ ở đâu ạ? Listen for gần (near), thẳng (straight), trái (left) and phải (right). Bonus: see a water puppet show at the Thăng Long theatre on the shore of Hoàn Kiếm Lake (Hồ Gươm) and look for Chú Tễu."
+  },
+  "stamp": {
+    "label": "Rối nước",
+    "picture": {
+      "kind": "scene",
+      "name": "puppets"
+    }
+  }
+}

@@ -1156,6 +1156,42 @@ const ICONS = {
         <path d="M4 84 H70"/>`,
     };
   })(),
+  // quán: a pavement eatery: an awning, a low table and plastic stools, steam from a bowl.
+  eatery: {
+    tone: 'warm',
+    seed: 273,
+    ink: `<path class="k-tint" stroke-width="2" d="M14 26 H106 L100 38 H20 Z"/>
+      <path stroke-width="1.4" d="M32 26 l-3 12 M50 26 l-1 12 M70 26 l1 12 M88 26 l3 12"/>
+      <path stroke-width="2" d="M22 38 V84 M98 38 V84"/>
+      <path class="k-paper" stroke-width="1.8" d="M40 62 H80 V66 H40 Z M46 66 V80 M74 66 V80"/>
+      ${bowlOfRice(60, 56, 0.45, { cls: 'k-paper', empty: true })}
+      <path stroke-width="1.4" d="M56 46 c-3 -4 3 -6 0 -10 M64 46 c-3 -4 3 -6 0 -10"/>
+      ${[30, 90].map((x) => `<path class="k-shade" stroke-width="1.6" d="M${x - 6} 70 H${x + 6} L${x + 4} 74 H${x - 4} Z M${x - 4} 74 L${x - 5} 82 M${x + 4} 74 L${x + 5} 82"/>`).join('')}
+      <path d="M10 84 H110"/>`,
+  },
+  // hồ: a lake: still water with a small tower on its islet and a willow on the shore.
+  lake: {
+    tone: 'cool',
+    seed: 275,
+    ink: `<path class="k-pale" d="M6 52 C30 48 90 48 114 52 V84 H6 Z"/>
+      <path stroke-width="1.2" d="M16 62 h20 M70 70 h26 M30 76 h18"/>
+      <path class="k-shade" stroke-width="1.6" d="M52 56 C56 52 72 52 76 56 Z"/>
+      <path class="k-paper" stroke-width="1.8" d="M58 54 V40 H70 V54 M56 40 H72 L69 36 H59 Z M60 36 V30 H68 V36 M59 30 H69 L66 26 H62 Z"/>
+      <path stroke-width="1.8" d="M98 52 V24 M98 26 q-8 6 -10 20 M98 30 q-6 8 -6 18 M98 26 q8 6 10 20"/>
+      <path d="M6 52 H24 M96 52 H114"/>`,
+  },
+  // nhà: home: a narrow Hà Nội tube house with a balcony, a door and a pot plant.
+  house: {
+    tone: 'earth',
+    seed: 277,
+    ink: `<path class="k-paper" stroke-width="2" d="M40 84 V22 H80 V84"/>
+      <path class="k-tint" stroke-width="1.8" d="M36 22 H84 L80 14 H40 Z"/>
+      <path stroke-width="1.6" d="M48 32 h24 v12 h-24 Z M60 32 v12 M44 50 H76 M46 50 v4 M54 50 v4 M62 50 v4 M70 50 v4"/>
+      <path class="k-shade" stroke-width="1.8" d="M52 84 V62 H68 V84"/>
+      <circle class="k-dot" cx="65" cy="73" r="1.4"/>
+      <path class="k-tint" stroke-width="1.6" d="M84 84 l2 -8 h8 l2 8 Z M90 76 c-4 -6 -2 -12 0 -14 c2 2 4 8 0 14"/>
+      <path d="M10 84 H110"/>`,
+  },
 };
 
 function icon(name) {
@@ -1810,7 +1846,35 @@ function swordLakeScene() {
   };
 }
 
-const SCENES = { phoStall: phoScene, market: marketScene, legend: legendScene, genealogy: genealogyScene, fruitTray: fruitTrayScene, familyTray: familyTrayScene, longBien: longBienScene, oldQuarter: oldQuarterScene, marks: marksScene, seasons: seasonsScene, swordLake: swordLakeScene };
+// Cover for issue 13: a water puppet show: the water pavilion (thủy đình) with its curved roof and bamboo screen,
+// Chú Tễu smiling on the water, a dragon puppet arching through the waves, and the musicians' drum at the side.
+function puppetsScene() {
+  return {
+    tone: 'warm',
+    paper: blob(200, 126, 172, 102, 95, 11, 0.06),
+    under: '<ellipse class="k-mid" cx="200" cy="214" rx="158" ry="7"/>',
+    ink: `<path class="k-pale" d="M28 150 C120 146 280 146 372 150 V206 H28 Z"/>
+      <path stroke-width="1.2" d="M50 170 h30 M120 190 h40 M260 182 h30 M310 196 h40"/>
+      <path class="k-paper" stroke-width="2" d="M110 150 V98 H290 V150"/>
+      <path stroke-width="1.3" d="M122 98 V150 M134 98 V150 M146 98 V150 M158 98 V150 M242 98 V150 M254 98 V150 M266 98 V150 M278 98 V150"/>
+      <path class="k-tint" stroke-width="2" d="M170 150 V110 H230 V150"/>
+      <path class="k-tint" stroke-width="2.2" d="M92 98 C120 92 160 86 200 84 C240 86 280 92 308 98 C312 90 318 84 322 82 C300 80 250 66 200 62 C150 66 100 80 78 82 C82 84 88 90 92 98 Z"/>
+      <path stroke-width="1.6" d="M120 86 C150 78 250 78 280 86 M200 62 V52 M194 56 h12"/>
+      <circle class="k-paper" stroke-width="2" cx="200" cy="148" r="11"/>
+      <path class="k-dot" d="M190 144 C190 134 210 134 210 144 C206 139 194 139 190 144 Z"/>
+      <path stroke-width="1.6" d="M194 151 q6 5 12 0 M195 145 h3 M202 145 h3"/>
+      <path class="k-tint" stroke-width="2" d="M188 160 C188 156 212 156 212 160 V168 H188 Z"/>
+      <path class="k-tint" stroke-width="2.2" d="M260 176 C270 156 290 156 298 170 C304 182 318 182 324 168 C328 160 336 158 342 162"/>
+      <path class="k-paper" stroke-width="2" d="M342 162 C348 150 362 152 362 162 C362 168 354 170 348 168 Z"/>
+      <circle class="k-dot" cx="354" cy="160" r="1.6"/>
+      <path stroke-width="1.6" d="M270 164 l-4 -6 M284 160 l0 -7 M298 166 l4 -6 M314 176 l2 -7 M328 166 l4 -5 M360 158 l6 -6 M362 164 l7 -1"/>
+      <path stroke-width="1.4" d="M248 182 q8 -4 16 0 M330 186 q8 -4 16 0"/>
+      <path class="k-shade" stroke-width="2" d="M48 132 C48 124 76 124 76 132 V146 C76 152 48 152 48 146 Z"/>
+      <path stroke-width="1.8" d="M48 132 C48 140 76 140 76 132 M52 124 l-8 -10 M72 124 l8 -10"/>`,
+  };
+}
+
+const SCENES = { phoStall: phoScene, market: marketScene, legend: legendScene, genealogy: genealogyScene, fruitTray: fruitTrayScene, familyTray: familyTrayScene, longBien: longBienScene, oldQuarter: oldQuarterScene, marks: marksScene, seasons: seasonsScene, swordLake: swordLakeScene, puppets: puppetsScene };
 
 function scene(name) {
   const make = SCENES[name];
