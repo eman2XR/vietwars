@@ -1,10 +1,10 @@
 {
   "id": "lesson-14",
   "number": 14,
-  "title": "One brown, please",
-  "vi": "Cho anh một nâu.",
+  "title": "One iced milk coffee",
+  "vi": "Một cà phê sữa đá.",
   "theme": "ordering at a Hà Nội café (đá, nâu, đường, ít); an order in three turns; Hà Nội's coffee",
-  "intro": "Four words for the café counter (ice, brown, sugar, a little) and your first full order in three turns: ask for a coffee, answer the waiter, hear the bill. In Hà Nội, milk coffee has its own name.",
+  "intro": "Four words for the café counter (ice, brown, sugar, a little) and your first full order in three turns: name the drink, answer the waiter, hear the bill.",
   "cover": {
     "picture": {
       "kind": "scene",
@@ -127,24 +127,24 @@
     "hết"
   ],
   "grammar": {
-    "title": "Cho anh ... Ordering at the counter",
-    "text": "Order with cho (give) plus the word for yourself, then what you want: Cho anh một nâu đá. One iced brown, please (to someone younger). Change it with a describing word after it: ít đường, a little sugar; không đường, no sugar; ít đá, not much ice.",
+    "title": "Just name it: Một + the drink",
+    "text": "To order, say the number and the drink: Một cà phê sữa đá. One iced milk coffee. Hai trà đá. Two iced teas. Add a describing word after it: ít đường, a little sugar; không đường, no sugar.",
     "examples": [
       {
-        "vi": "Cho anh một nâu đá.",
-        "en": "One iced milk coffee, please. (to someone younger)"
+        "vi": "Một cà phê sữa đá.",
+        "en": "One iced milk coffee."
       },
       {
-        "vi": "Cho em một trà đá.",
-        "en": "One iced tea, please. (to someone older)"
+        "vi": "Hai trà đá.",
+        "en": "Two iced teas."
       }
     ]
   },
   "combos": [
     {
-      "vi": "nâu đá",
-      "en": "iced milk coffee (Hà Nội)",
-      "note": "nâu nóng: hot milk coffee."
+      "vi": "Một cà phê sữa đá.",
+      "en": "One iced milk coffee.",
+      "note": "In Hà Nội also Một nâu đá."
     },
     {
       "vi": "trà đá",
@@ -160,8 +160,12 @@
       "en": "no sugar"
     },
     {
-      "vi": "Mình muốn uống nâu nóng.",
-      "en": "I want a hot milk coffee. (to a friend)",
+      "vi": "Một nâu nóng.",
+      "en": "One hot milk coffee (Hà Nội)."
+    },
+    {
+      "vi": "Mình muốn uống trà đá.",
+      "en": "I want an iced tea. (to a friend)",
       "note": "muốn + a verb (issue 12)."
     }
   ],
@@ -181,18 +185,18 @@
         },
         {
           "who": "You",
-          "vi": "Mình uống trà đá.",
-          "en": "I'll have iced tea.",
+          "vi": "Trà đá.",
+          "en": "Iced tea.",
           "you": true
         },
         {
           "who": "Friend",
-          "vi": "Trà đá ở đây ba nghìn thôi.",
-          "en": "Iced tea here is only 3,000."
+          "vi": "Trà đá ba nghìn thôi.",
+          "en": "Iced tea is only 3,000."
         }
       ],
       "check": {
-        "ask": "Your friend says iced tea here is only 3,000. You are pleasantly surprised. Say your answer aloud first, then pick it.",
+        "ask": "Your friend says iced tea is only 3,000. You are pleasantly surprised. Say your answer aloud first, then pick it.",
         "options": [
           "Rẻ quá!",
           "Nóng quá!",
@@ -211,22 +215,21 @@
         "kind": "icon",
         "name": "brownCoffee"
       },
-      "say": "One milk coffee, please! (to the young waiter)",
-      "vi": "Cho anh một nâu.",
+      "say": "One milk coffee! (to the waiter)",
+      "vi": "Một cà phê sữa.",
       "accept": [
-        "Cho anh một nâu.",
-        "Cho anh một cốc nâu.",
-        "Em ơi, cho anh một nâu.",
-        "Cho anh nâu.",
+        "Một cà phê sữa.",
         "Một nâu.",
-        "Cho anh một cà phê nâu.",
+        "Cà phê sữa.",
+        "Một cà phê sữa nhé.",
         "Cho anh một cà phê sữa.",
-        "Cho anh một cà phê sữa đá.",
-        "Cho anh một cốc cà phê sữa."
+        "Cho anh một nâu.",
+        "Em ơi, một cà phê sữa.",
+        "Cho anh một cốc nâu."
       ],
-      "en": "One milk coffee, please.",
-      "ask": "The order, turn 1 of 3. The young waiter comes over. Order a milk coffee, the Hà Nội way.",
-      "note": "In Hà Nội milk coffee is often nâu, brown; cà phê sữa (milk coffee) is understood everywhere too."
+      "en": "One milk coffee.",
+      "ask": "The order, turn 1 of 3. The waiter comes over. Order a milk coffee.",
+      "note": "Một cà phê sữa is all you need. In Hà Nội milk coffee is also nâu, brown: Một nâu."
     },
     {
       "chain": "order",
@@ -239,12 +242,12 @@
       "en": "Hot or iced?",
       "ask": "Turn 2 of 3. It is a hot afternoon and the waiter checks. What do you answer?",
       "options": [
-        "Đá em nhé.",
+        "Đá.",
         "Nóng quá!",
         "Ít đường."
       ],
-      "answer": "Đá em nhé.",
-      "note": "hay: or. Đá em nhé: iced, please."
+      "answer": "Đá.",
+      "note": "hay: or. Just Đá. (iced) is a full answer; Đá em nhé is the friendlier form."
     },
     {
       "chain": "order",
@@ -315,15 +318,15 @@
         "kind": "icon",
         "name": "little"
       },
-      "say": "Iced coffee, a little sugar! (to the young waiter)",
-      "vi": "Cho anh một cà phê đá, ít đường.",
+      "say": "Iced coffee, a little sugar! (to the waiter)",
+      "vi": "Một cà phê đá, ít đường.",
       "accept": [
-        "Cho anh một cà phê đá, ít đường.",
-        "Cho anh một cà phê đá ít đường.",
-        "Cho anh cà phê đá, ít đường.",
-        "Em ơi, cho anh một cà phê đá, ít đường.",
         "Một cà phê đá, ít đường.",
-        "Cho anh một đen đá, ít đường."
+        "Một cà phê đá ít đường.",
+        "Cà phê đá, ít đường.",
+        "Một đen đá, ít đường.",
+        "Cho anh một cà phê đá, ít đường.",
+        "Em ơi, một cà phê đá, ít đường."
       ],
       "en": "One iced coffee, a little sugar.",
       "ask": "You want your coffee black and only a little sweet. Order it.",
@@ -349,7 +352,7 @@
   ],
   "challenge": {
     "title": "Street challenge",
-    "text": "Order a coffee the Hà Nội way today: Cho anh (or em) một nâu đá, or đen đá, ít đường. Try trà đá at a pavement stall and check the price. Bonus: find egg coffee and eat the foam with the teaspoon before you drink."
+    "text": "Order a coffee today with just its name: Một cà phê sữa đá (or the Hà Nội way, Một nâu đá), and Ít đường if you like it less sweet. Try Trà đá at a pavement stall and check the price. Bonus: find egg coffee and eat the foam with the teaspoon before you drink."
   },
   "stamp": {
     "label": "Nâu đá",

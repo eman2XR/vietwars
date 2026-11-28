@@ -51,6 +51,7 @@ Write a short plan before any content and show it in your final message:
 - What the data says to change (tone pairs, spelling, typing with the tone keys, fun and difficulty ratings, the story rating and reading time, real-life scores).
 - The story: its subject and hook (the unit's `storyIdea`, or better), its sources, how the beats spread through the issue, the challenge, and the cover scene (reuse one, or draw a new one in context).
 - Questions the learner asked (the summary's questions section): teach what they wanted to say when it fits the theme.
+- Functional first (docs/PEDAGOGY.md): every line the learner says or picks is the shortest phrase a local would understand (Một cà phê sữa đá, not Cho anh một ...); short forms first in `accept`, polite forms still accepted.
 - Talk (the learner's goal: dinner-table conversation and street talk): the issue's sentence frame, its dialogue and setting (alternate table and street), and which earlier frames come back on schedule (docs/PEDAGOGY.md, Conversation).
 
 ## 4. Write the lesson

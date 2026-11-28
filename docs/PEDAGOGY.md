@@ -13,6 +13,17 @@ Every lesson is planned from data: `learner/SUMMARY.md` (built from the results 
 - Never show words on the known list. Judge **meaning** and **spelling** separately.
 - Sessions must be finishable: under 20 to 25 minutes, and they can stop and resume.
 
+
+## Functional first: the shortest sentence that works (learner, 2026-11-28)
+
+The learner: "make the sentences be simplified for now while I'm still learning. For example I just need to know một cà phê sữa đá to order coffee. Cho anh would be nice but that should come later when I'm more advanced. Focus on functional sentences that people would understand even if not proper."
+
+- Every model answer the learner says or picks (say questions, dialogue lines marked `you`, check answers, real-life reply options, combos and grammar examples) is the **shortest phrase a Hà Nội local would understand**: the thing plus a number or a describing word (Một cà phê sữa đá. Hai trà đá. Ít đường. Đá. Bao nhiêu? Chợ ở đâu? Đắt quá!). No pronoun-and-politeness frames (Cho anh ..., Cháu ... ạ, Xin lỗi chị, ... ạ?) in the model answer for now.
+- Put the short form **first** in `accept` (the word tiles are built from it), and keep the longer polite forms in `accept` so they still count.
+- Others may speak naturally (a seller says Của anh hết ba mươi nghìn ạ.); the learner's side stays short. Glossing a polite form in a note is fine ("the friendlier form is Đá em nhé").
+- Never explain these choices to the learner in the lesson text (no "no long sentences", "the name is enough", "polite forms come later"): intros, asks and notes say what to do and what words mean, not how the issue was designed.
+- Politeness frames (cho + pronoun, cháu ... ạ, the pronoun system in requests) come back as their own unit later, in phase 2 of `learner/curriculum.json`, once the learner asks or the short forms are solid.
+
 ## How an issue plays (the engine does this; a lesson file only supplies content)
 
 1. **The opening**: cover illustration, kicker, headline, standfirst (`dek`) and a two- or three-sentence `intro`. Reading time is recorded.
