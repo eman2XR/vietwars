@@ -1192,6 +1192,49 @@ const ICONS = {
       <path class="k-tint" stroke-width="1.6" d="M84 84 l2 -8 h8 l2 8 Z M90 76 c-4 -6 -2 -12 0 -14 c2 2 4 8 0 14"/>
       <path d="M10 84 H110"/>`,
   },
+  // đá: ice: a tall glass full of ice cubes, one cube falling in with a splash.
+  ice: {
+    tone: 'cool',
+    seed: 279,
+    ink: `<path class="k-paper" stroke-width="2" d="M42 30 L46 84 H74 L78 30 Z"/>
+      ${[[50, 70], [62, 66], [52, 54], [64, 50], [54, 40]].map(([x, y]) => `<path class="k-pale" stroke-width="1.6" d="M${x} ${y} l9 -2 l2 9 l-9 2 Z"/>`).join('')}
+      <path class="k-pale" stroke-width="1.6" d="M70 10 l9 -1 l1 9 l-9 1 Z"/>
+      <path stroke-width="1.4" d="M66 22 l-3 -4 M74 22 v-4 M82 22 l3 -4"/>
+      <path d="M20 84 H100"/>`,
+  },
+  // nâu: Hà Nội's brown coffee: a glass with condensed milk at the bottom and coffee dripping from a phin on top.
+  brownCoffee: {
+    tone: 'earth',
+    seed: 281,
+    ink: `<path class="k-paper" stroke-width="2" d="M40 28 L45 84 H75 L80 28 Z"/>
+      <path class="k-shade" stroke-width="1.6" d="M41.6 46 H78.4 L76.6 66 H43.4 Z"/>
+      <path class="k-pale" stroke-width="1.6" d="M43.4 66 H76.6 L75 84 H45 Z"/>
+      <path stroke-width="1.4" d="M48 64 q6 -5 12 0 t12 0"/>
+      <path stroke-width="2" d="M66 86 L86 14 M83 12 l6 2"/>
+      <path d="M20 86 H100"/>`,
+  },
+  // đường: sugar: a sugar bowl with a spoon and a few cubes beside it.
+  sugar: {
+    tone: 'warm',
+    seed: 283,
+    ink: `<path class="k-paper" stroke-width="2" d="M32 50 C32 72 88 72 88 50 Z"/>
+      <path class="k-tint" stroke-width="1.8" d="M30 50 H90 M50 70 L48 78 H72 L70 70"/>
+      <path class="k-pale" stroke-width="1.4" d="M40 50 C44 44 76 44 80 50 Z"/>
+      <path stroke-width="2" d="M72 48 L96 24 M98 20 a4 4 0 1 0 0.1 0"/>
+      ${[[18, 72], [26, 76]].map(([x, y]) => `<path class="k-paper" stroke-width="1.6" d="M${x} ${y} h8 v8 h-8 Z"/>`).join('')}
+      <path d="M12 84 H108"/>`,
+  },
+  // ít: a little: a teaspoon tipping just a few grains into a cup.
+  little: {
+    tone: 'leaf',
+    seed: 285,
+    ink: `<path class="k-paper" stroke-width="2" d="M36 58 H80 L76 84 H40 Z"/>
+      <path stroke-width="1.8" d="M80 64 c10 0 10 12 0 12"/>
+      <path class="k-paper" stroke-width="2" d="M54 36 C54 28 70 26 72 34 C72 40 58 42 54 36 Z"/>
+      <path stroke-width="2.2" d="M71 32 L102 18"/>
+      ${[[56, 44], [58, 49], [55, 53]].map(([x, y]) => `<circle class="k-dot" cx="${x}" cy="${y}" r="1.3"/>`).join('')}
+      <path d="M20 84 H100"/>`,
+  },
 };
 
 function icon(name) {
@@ -1874,7 +1917,32 @@ function puppetsScene() {
   };
 }
 
-const SCENES = { phoStall: phoScene, market: marketScene, legend: legendScene, genealogy: genealogyScene, fruitTray: fruitTrayScene, familyTray: familyTrayScene, longBien: longBienScene, oldQuarter: oldQuarterScene, marks: marksScene, seasons: seasonsScene, swordLake: swordLakeScene, puppets: puppetsScene };
+// Cover for issue 14: a Hà Nội pavement café: an awning, low stools, a phin dripping into a glass of nâu đá, and an egg
+// coffee kept warm in its bowl of hot water.
+function cafeScene() {
+  const stool = (x, y, cls = 'k-shade') => `<path class="${cls}" stroke-width="2" d="M${x - 14} ${y} H${x + 14} L${x + 11} ${y + 6} H${x - 11} Z M${x - 9} ${y + 6} L${x - 12} ${y + 26} M${x + 9} ${y + 6} L${x + 12} ${y + 26}"/>`;
+  return {
+    tone: 'earth',
+    paper: blob(200, 126, 172, 102, 97, 11, 0.06),
+    under: '<ellipse class="k-mid" cx="200" cy="214" rx="158" ry="7"/>',
+    ink: `<path class="k-tint" stroke-width="2.2" d="M40 48 H360 L348 74 H52 Z"/>
+      <path stroke-width="1.6" d="M88 48 l-6 26 M136 48 l-3 26 M184 48 l-1 26 M232 48 l1 26 M280 48 l3 26 M328 48 l6 26"/>
+      <path stroke-width="2.2" d="M58 74 V210 M342 74 V210"/>
+      <path class="k-paper" stroke-width="2" d="M130 150 H270 V158 H130 Z M142 158 V206 M258 158 V206"/>
+      <path class="k-paper" stroke-width="2" d="M160 108 L163 150 H189 L192 108 Z"/>
+      <path class="k-shade" stroke-width="1.6" d="M161.6 126 H190.4 L189 150 H163 Z"/>
+      <path class="k-pale" stroke-width="1.6" d="M162.6 142 H189.4 L189 150 H163 Z"/>
+      <path class="k-tint" stroke-width="2" d="M163 90 H189 L186 104 H166 Z M156 106 H196"/>
+      <path stroke-width="1.6" d="M176 110 v4 M176 118 v3"/>
+      <path class="k-pale" stroke-width="2" d="M212 134 C212 152 252 152 252 134 Z"/>
+      <path class="k-paper" stroke-width="2" d="M222 120 C222 140 242 140 242 120 Z"/>
+      <path class="k-tint" stroke-width="1.6" d="M222 120 C226 114 238 114 242 120 Z"/>
+      <path stroke-width="1.5" d="M226 108 c-3 -4 3 -6 0 -10 M238 108 c-3 -4 3 -6 0 -10"/>
+      ${stool(100, 180)}${stool(300, 180)}`,
+  };
+}
+
+const SCENES = { phoStall: phoScene, market: marketScene, legend: legendScene, genealogy: genealogyScene, fruitTray: fruitTrayScene, familyTray: familyTrayScene, longBien: longBienScene, oldQuarter: oldQuarterScene, marks: marksScene, seasons: seasonsScene, swordLake: swordLakeScene, puppets: puppetsScene, cafe: cafeScene };
 
 function scene(name) {
   const make = SCENES[name];

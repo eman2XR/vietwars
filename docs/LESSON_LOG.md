@@ -2,6 +2,21 @@
 
 Why each lesson was planned the way it was, newest first. Written by the `/next-lesson` skill.
 
+## 2026-11-27: Issue 14, One brown, please ("Brown, black and egg")
+
+- Data: issue 13, 81% first try (61%, 73%, 81% over three issues), fun "OK", story "Interesting", 12.9 active minutes; listening 15/19; say 0/3 typed (now word tiles, see the progress review); dialogue check 0/1 (it needed an inference); plain nghìn heard as tens again (bốn mươi nghìn picked as 14.000). The learner asked for feedback in rush hour, a greeting and a smaller sheet in Ask a question, and fewer microphone prompts (all fixed today).
+- What changes and why:
+  - Headline format (none of issues 11 to 13 used it): an **order chain**, three real-life lines with `"chain": "order"` that the engine now plays together and in order: order a nâu (say, tiles), answer "nóng hay đá?", hear the bill. To beat: fun above OK.
+  - Say questions with tiles (0/3 typed in issue 13): two say lines, short. To beat: 2 of 2.
+  - Dialogue check (rule of today): the reply the scene states (iced tea is only 3.000: Rẻ quá!). To beat: 1/1.
+  - Load ladder: keep 4 words (issue 12 was 73%, under 75%).
+  - Prices: plain nghìn against its tens twice (ba nghìn, sáu nghìn), the bill and a typed egg-coffee price.
+- Words (4): đá (ice), nâu (brown, and in Hà Nội, milk coffee), đường (sugar), ít (a little). nâu is taught against nấu (issue 12, a sắc against level contrast, not the voice's hỏi problem) with a `remember` cue; the design review agreed to keep it.
+- Review (4): nóng, rẻ, muốn, hết. Extras: hay (or), của (in Của anh hết, now glossed); đen was cut from production.
+- Story (sources: en Vietnamese iced coffee, en Egg coffee, vi Cà phê trứng): coffee with the French and condensed milk for café au lait; nâu and đen in Hà Nội against cà phê sữa đá in the South; egg coffee from the late 1940s, by the family's account, at Cà Phê Giảng; yogurt coffee (Hà Nội, 2012), coconut coffee (Cộng), salt coffee (Huế, 2010). Four untied beats.
+- Pictures: new cover and stamp `cafe`; icons ice, brownCoffee, sugar, little.
+- Reviews: the fact-check made the egg-coffee date "late 1940s, his family says" and the bowl "sometimes", made the phin and condensed milk Vietnamese rather than Hà Nội's own, and credited salt coffee to Huế cleanly. The Vietnamese reviewer fixed the ít vowel (tense ee, not English it), the đường hook (one syllable), and the dialogue check, and widened the accept lists. The design review fixed the chain's logic (order a plain nâu, since the waiter then asks hot or iced) and cut đen from the say line; a recheck of the changed lines found nothing.
+
 ## 2026-11-27: Progress review
 
 - See `learner/REVIEW.md`: first try 61%, 73%, 81%; say questions get word tiles (4 of 15 right typed); rush hour shows each answer; Ask a question greets first and keeps the microphone; dialogue checks ask for the reply the scene states.

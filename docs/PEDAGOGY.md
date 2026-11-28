@@ -65,7 +65,7 @@ Fun was "Good" in issues 3 to 5, 9 (the haggle) and 11 (... quá! reactions), an
 | Haggle | says counter-offers; the seller answers back; a tally of đồng saved | 9 |
 | Reactions | says short exclamations in scenes (So hot! How beautiful!) | 11, 12 |
 | Ask the way | asks, hears the answer, then picks the way | 13 |
-| Order chain | orders in three turns at one stall or café (order, answer a question, pay the total); one scene, the seller replies each time | |
+| Order chain | orders in three turns at one stall or café (order, answer a question, pay the total); situations share `"chain"` and play in order | 14 |
 | Phone call | hears a call from Bà or a friend with no picture cues, answers two questions about it | |
 | Read the board | reads a menu board, a price list or a street sign drawn in the inked style, and picks or works something out (what can you afford, which is cheapest) | |
 | Overheard | hears two locals talk (a short exchange between others) and answers who, what or how much | |

@@ -1,0 +1,358 @@
+{
+  "id": "lesson-14",
+  "number": 14,
+  "title": "One brown, please",
+  "vi": "Cho anh một nâu.",
+  "theme": "ordering at a Hà Nội café (đá, nâu, đường, ít); an order in three turns; Hà Nội's coffee",
+  "intro": "Four words for the café counter (ice, brown, sugar, a little) and your first full order in three turns: ask for a coffee, answer the waiter, hear the bill. In Hà Nội, milk coffee has its own name.",
+  "cover": {
+    "picture": {
+      "kind": "scene",
+      "name": "cafe"
+    }
+  },
+  "feature": {
+    "kicker": "Hà Nội's coffee",
+    "title": "Brown, black and egg",
+    "dek": "Why Hà Nội orders its milk coffee as brown, why it comes with condensed milk, and the milk shortage that gave the city egg coffee.",
+    "intro": "Coffee came to Vietnam with the French, and Vietnam made it its own: dark-roast robusta dripped slowly through a little metal filter, the phin, onto sweetened condensed milk, then poured over ice. In Hà Nội today a café can be three plastic stools on a pavement or a shop with a menu of a dozen coffees.",
+    "beats": [
+      {
+        "picture": {
+          "kind": "icon",
+          "name": "brownCoffee"
+        },
+        "text": "Why condensed milk? Iced milk coffee is believed to be an adaptation of the French café au lait. Fresh milk was scarce and spoiled quickly in the heat, so tins of sweetened condensed milk took its place, and dark-roast robusta, more bitter than arabica, balanced the sweetness. Ice, for the tropical heat, was the last change."
+      },
+      {
+        "picture": {
+          "kind": "icon",
+          "name": "ice"
+        },
+        "text": "In Hà Nội cafés milk coffee is often ordered by its colour: nâu, brown. Nâu đá is iced, nâu nóng is hot, and black coffee is đen, black: đen đá, đen nóng. In the South the same glass is cà phê sữa đá, milk coffee with ice."
+      },
+      {
+        "picture": {
+          "kind": "icon",
+          "name": "eggCoffee"
+        },
+        "text": "Egg coffee, cà phê trứng, was created in the late 1940s by Nguyễn Văn Giảng of Cà Phê Giảng in Hà Nội, his family says, when milk was scarce: egg yolks whipped with condensed milk and sugar into a thick foam over the coffee. It comes in a small cup, sometimes standing in a bowl of warm water to keep it warm, with a teaspoon for the foam."
+      },
+      {
+        "picture": {
+          "kind": "scene",
+          "name": "cafe"
+        },
+        "text": "New coffees keep coming. Yogurt coffee, cà phê sữa chua, was created in Hà Nội in 2012 by Phạm Duy Trí, and coconut coffee, cà phê cốt dừa, was made popular by the Hà Nội chain Cộng Cà Phê. Salt coffee, cà phê muối, was created in Huế in 2010."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Vietnamese iced coffee",
+        "url": "https://en.wikipedia.org/wiki/Vietnamese_iced_coffee"
+      },
+      {
+        "title": "Egg coffee",
+        "url": "https://en.wikipedia.org/wiki/Egg_coffee"
+      },
+      {
+        "title": "Cà phê trứng",
+        "url": "https://vi.wikipedia.org/wiki/C%C3%A0_ph%C3%AA_tr%E1%BB%A9ng"
+      }
+    ]
+  },
+  "words": [
+    {
+      "vi": "đá",
+      "en": "ice (also: stone)",
+      "picture": {
+        "kind": "icon",
+        "name": "ice"
+      },
+      "hook": "Ice cubes clink into your glass: \"dah!\", the voice jumping up: đá, ice.",
+      "tip": "đ is a full d, as in \"day\"; a is long, as in \"father\"; sắc: rise.",
+      "note": "đá: the glass full of cubes. trà đá, iced tea; nâu đá, iced milk coffee. đá also means stone.",
+      "contrast": [
+        {
+          "vi": "da",
+          "en": "skin; leather (in Hà Nội d sounds like z: \"za\")"
+        }
+      ]
+    },
+    {
+      "vi": "nâu",
+      "en": "brown; in a Hà Nội café, coffee with milk",
+      "picture": {
+        "kind": "icon",
+        "name": "brownCoffee"
+      },
+      "hook": "The condensed milk swirls up and the black coffee turns brown: a quick \"nuh-oo\", short and kept level: nâu, brown.",
+      "tip": "The same nuh-oo as nấu (issue 12), but level: no rise.",
+      "note": "nâu: the layered brown glass. nâu đá, iced milk coffee; nâu nóng, hot. In the South it is cà phê sữa đá.",
+      "remember": "nâu stays level: the brown milk coffee you drink. nấu rises: the cooking Bà does at the stove (issue 12).",
+      "contrast": [
+        {
+          "vi": "nấu",
+          "en": "to cook (issue 12)"
+        }
+      ]
+    },
+    {
+      "vi": "đường",
+      "en": "sugar (also: road)",
+      "picture": {
+        "kind": "icon",
+        "name": "sugar"
+      },
+      "hook": "You stir the sugar in slowly: one long, low syllable, ư gliding into ơ, then ng, sinking: đường, sugar.",
+      "tip": "đ as in \"day\"; ươ glides from ư (oo with spread lips) to ơ (\"uh\"), then ng; huyền: low and falling gently.",
+      "note": "đường: the sugar bowl. ít đường, a little sugar; không đường, no sugar. The same word is a road: đường phố, a street."
+    },
+    {
+      "vi": "ít",
+      "en": "a little; few",
+      "picture": {
+        "kind": "icon",
+        "name": "little"
+      },
+      "hook": "Just a tiny bit: a short, sharp \"eet!\", the voice rising: ít, a little.",
+      "tip": "i is \"ee\" as in \"see\", cut short; the final t is held, not released; sắc: rise.",
+      "note": "ít: the teaspoon tipping a few grains. ít đường, a little sugar; ít đá, not much ice."
+    }
+  ],
+  "review": [
+    "nóng",
+    "rẻ",
+    "muốn",
+    "hết"
+  ],
+  "grammar": {
+    "title": "Cho anh ... Ordering at the counter",
+    "text": "Order with cho (give) plus the word for yourself, then what you want: Cho anh một nâu đá. One iced brown, please (to someone younger). Change it with a describing word after it: ít đường, a little sugar; không đường, no sugar; ít đá, not much ice.",
+    "examples": [
+      {
+        "vi": "Cho anh một nâu đá.",
+        "en": "One iced milk coffee, please. (to someone younger)"
+      },
+      {
+        "vi": "Cho em một trà đá.",
+        "en": "One iced tea, please. (to someone older)"
+      }
+    ]
+  },
+  "combos": [
+    {
+      "vi": "nâu đá",
+      "en": "iced milk coffee (Hà Nội)",
+      "note": "nâu nóng: hot milk coffee."
+    },
+    {
+      "vi": "trà đá",
+      "en": "iced tea",
+      "note": "The pavement drink of Hà Nội."
+    },
+    {
+      "vi": "ít đường",
+      "en": "a little sugar"
+    },
+    {
+      "vi": "không đường",
+      "en": "no sugar"
+    },
+    {
+      "vi": "Mình muốn uống nâu nóng.",
+      "en": "I want a hot milk coffee. (to a friend)",
+      "note": "muốn + a verb (issue 12)."
+    }
+  ],
+  "dialogues": [
+    {
+      "title": "A pavement café",
+      "setting": "street",
+      "picture": {
+        "kind": "scene",
+        "name": "cafe"
+      },
+      "lines": [
+        {
+          "who": "Friend",
+          "vi": "Bạn uống gì?",
+          "en": "What are you having?"
+        },
+        {
+          "who": "You",
+          "vi": "Mình uống trà đá.",
+          "en": "I'll have iced tea.",
+          "you": true
+        },
+        {
+          "who": "Friend",
+          "vi": "Trà đá ở đây ba nghìn thôi.",
+          "en": "Iced tea here is only 3,000."
+        }
+      ],
+      "check": {
+        "ask": "Your friend says iced tea here is only 3,000. You are pleasantly surprised. Say your answer aloud first, then pick it.",
+        "options": [
+          "Rẻ quá!",
+          "Nóng quá!",
+          "Hết đá rồi."
+        ],
+        "answer": "Rẻ quá!",
+        "note": "Rẻ quá: so cheap. thôi: only. Nóng quá: so hot; Hết đá rồi: the ice is all gone."
+      }
+    }
+  ],
+  "situations": [
+    {
+      "chain": "order",
+      "who": "You, at a café",
+      "picture": {
+        "kind": "icon",
+        "name": "brownCoffee"
+      },
+      "say": "One milk coffee, please! (to the young waiter)",
+      "vi": "Cho anh một nâu.",
+      "accept": [
+        "Cho anh một nâu.",
+        "Cho anh một cốc nâu.",
+        "Em ơi, cho anh một nâu.",
+        "Cho anh nâu.",
+        "Một nâu.",
+        "Cho anh một cà phê nâu."
+      ],
+      "en": "One milk coffee, please.",
+      "ask": "The order, turn 1 of 3. The young waiter comes over. Order a milk coffee, the Hà Nội way.",
+      "note": "In Hà Nội milk coffee is nâu, brown."
+    },
+    {
+      "chain": "order",
+      "who": "Waiter",
+      "picture": {
+        "kind": "icon",
+        "name": "ice"
+      },
+      "vi": "Anh uống nóng hay đá ạ?",
+      "en": "Hot or iced?",
+      "ask": "Turn 2 of 3. It is a hot afternoon and the waiter checks. What do you answer?",
+      "options": [
+        "Đá em nhé.",
+        "Nóng quá!",
+        "Ít đường."
+      ],
+      "answer": "Đá em nhé.",
+      "note": "hay: or. Đá em nhé: iced, please."
+    },
+    {
+      "chain": "order",
+      "who": "Waiter",
+      "picture": {
+        "kind": "icon",
+        "name": "bill"
+      },
+      "vi": "Của anh hết ba mươi nghìn ạ.",
+      "en": "That's 30,000 in total.",
+      "ask": "Turn 3 of 3. You ask for the bill. What do you pay?",
+      "options": [
+        "30.000₫",
+        "3.000₫",
+        "13.000₫"
+      ],
+      "answer": "30.000₫",
+      "note": "Của anh hết ...: yours comes to. ba mươi nghìn is 30.000; ba nghìn would be 3.000."
+    },
+    {
+      "who": "Tea seller",
+      "picture": {
+        "kind": "icon",
+        "name": "tea"
+      },
+      "vi": "Trà đá ba nghìn một cốc anh ạ.",
+      "en": "Iced tea, 3,000 a glass.",
+      "ask": "How much is a glass of iced tea?",
+      "options": [
+        "3.000₫",
+        "30.000₫",
+        "13.000₫"
+      ],
+      "answer": "3.000₫",
+      "note": "One number before nghìn: ba nghìn, 3.000. Many stalls now charge năm nghìn, 5.000."
+    },
+    {
+      "who": "Tea seller",
+      "picture": {
+        "kind": "icon",
+        "name": "tea"
+      },
+      "vi": "Hai cốc trà đá, hết sáu nghìn ạ.",
+      "en": "Two iced teas, 6,000 in total.",
+      "ask": "You and a friend had an iced tea each. What do you pay?",
+      "options": [
+        "6.000₫",
+        "60.000₫",
+        "16.000₫"
+      ],
+      "answer": "6.000₫",
+      "note": "hết here: in total. In Hết đá rồi it means all gone."
+    },
+    {
+      "who": "Waiter at Cà Phê Giảng",
+      "picture": {
+        "kind": "icon",
+        "name": "eggCoffee"
+      },
+      "vi": "Cà phê trứng bốn mươi nghìn anh nhé.",
+      "en": "Egg coffee is 40,000.",
+      "ask": "Type the price of an egg coffee in digits.",
+      "digits": "40000"
+    },
+    {
+      "who": "You, at the counter",
+      "picture": {
+        "kind": "icon",
+        "name": "little"
+      },
+      "say": "Iced coffee, a little sugar! (to the young waiter)",
+      "vi": "Cho anh một cà phê đá, ít đường.",
+      "accept": [
+        "Cho anh một cà phê đá, ít đường.",
+        "Cho anh một cà phê đá ít đường.",
+        "Cho anh cà phê đá, ít đường.",
+        "Em ơi, cho anh một cà phê đá, ít đường.",
+        "Một cà phê đá, ít đường.",
+        "Cho anh một đen đá, ít đường."
+      ],
+      "en": "One iced coffee, a little sugar.",
+      "ask": "You want your coffee black and only a little sweet. Order it.",
+      "note": "cà phê đá: iced black coffee; Hà Nội also calls it đen đá."
+    },
+    {
+      "who": "Waiter",
+      "picture": {
+        "kind": "icon",
+        "name": "ice"
+      },
+      "vi": "Hết đá rồi anh ạ.",
+      "en": "We've run out of ice.",
+      "ask": "You order an iced coffee on a hot day. What does the waiter tell you?",
+      "options": [
+        "They have run out of ice.",
+        "It's 30,000.",
+        "Hot or iced?"
+      ],
+      "answer": "They have run out of ice.",
+      "note": "hết ... rồi: all gone (issues 9 and 11)."
+    }
+  ],
+  "challenge": {
+    "title": "Street challenge",
+    "text": "Order a coffee the Hà Nội way today: Cho anh (or em) một nâu đá, or đen đá, ít đường. Try trà đá at a pavement stall and check the price. Bonus: find egg coffee and eat the foam with the teaspoon before you drink."
+  },
+  "stamp": {
+    "label": "Nâu đá",
+    "picture": {
+      "kind": "scene",
+      "name": "cafe"
+    }
+  }
+}

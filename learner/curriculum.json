@@ -307,7 +307,7 @@
     {
       "id": "city",
       "title": "Places in the city",
-      "status": "active",
+      "status": "done",
       "candidates": [
         "nhà",
         "phố",
@@ -327,6 +327,22 @@
       "notes": "phố and ga were contrast words in lesson 1; reuse that memory. Issue 13 (2026-11-27): quán, nhà, chợ, hồ with ... ở đâu?; the story is water puppetry (the questions unit's storyIdea), since the Old Quarter story was told in issue 9.",
       "storyIdea": "The 36 streets of the Old Quarter, each once named for its trade: Hàng Bạc (silver), Hàng Đồng (copper), Hàng Mã (paper offerings).",
       "lesson": "lesson-13"
+    },
+    {
+      "id": "cafe",
+      "title": "At the café: ordering in Hà Nội",
+      "status": "active",
+      "lesson": "lesson-14",
+      "candidates": [
+        "đá",
+        "nâu",
+        "đường",
+        "ít",
+        "sữa",
+        "đen",
+        "thêm"
+      ],
+      "notes": "Added 2026-11-27 for the order-chain format; Hà Nội says nâu for milk coffee."
     },
     {
       "id": "weather",

@@ -215,7 +215,21 @@ export function lessonSteps(lesson, { review = [], warmup = [] } = {}) {
   if (lesson.situations?.length) {
     steps.push({ type: 'stage', beat: looseBeat(), title: 'Real life', text: 'A waiter, a seller or a driver says something. Listen, then answer. Replay as often as you like.' });
     steps.push(...storySteps());
-    shuffle(lesson.situations).forEach((sit) => steps.push({ type: sit.say ? 'say' : 'situation', word: sit, sit: true }));
+    // Lines that share a `chain` (an order in three turns, say) stay together and in file order; the units are shuffled.
+    const units = [];
+    const chains = new Map();
+    for (const sit of lesson.situations) {
+      if (!sit.chain) units.push([sit]);
+      else if (chains.has(sit.chain)) chains.get(sit.chain).push(sit);
+      else {
+        const unit = [sit];
+        chains.set(sit.chain, unit);
+        units.push(unit);
+      }
+    }
+    shuffle(units)
+      .flat()
+      .forEach((sit) => steps.push({ type: sit.say ? 'say' : 'situation', word: sit, sit: true }));
   }
   steps.push({ type: 'speedIntro' }, { type: 'speed', pool: [...words, ...review, ...(lesson.combos || []), ...warmup] });
   steps.push({ type: 'results', beats: queue.splice(0) }, { type: 'feedback' });

@@ -105,3 +105,15 @@ test('say tiles hold the words of the model answer plus two tone variants, and a
   assert.equal(gradeSay('xin lỗi chị chợ ở đâu ạ', ['Xin lỗi chị, chợ ở đâu ạ?']).g, 'perfect');
   assert.equal(gradeSay('năm nghìn', ['Năm nghìn.']).g, 'perfect');
 });
+
+test('situations in a chain play together and in order', async () => {
+  const { lessonSteps } = await import('../web/js/lesson.js');
+  const sit = (vi, chain) => ({ vi, en: vi, ask: 'q', options: ['a', 'b'], answer: 'a', ...(chain ? { chain } : {}) });
+  const lesson = { id: 't', words: [{ vi: 'xx', en: 'x word' }], situations: [sit('A'), sit('C1', 'order'), sit('B'), sit('C2', 'order'), sit('C3', 'order'), sit('D')] };
+  for (let i = 0; i < 20; i++) {
+    const order = lessonSteps(lesson).filter((s) => s.type === 'situation').map((s) => s.word.vi);
+    const at = order.indexOf('C1');
+    assert.deepEqual(order.slice(at, at + 3), ['C1', 'C2', 'C3']);
+    assert.equal(order.length, 6);
+  }
+});
