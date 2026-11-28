@@ -88,7 +88,7 @@
       },
       "hook": "The condensed milk swirls up and the black coffee turns brown: a quick \"nuh-oo\", short and kept level: nâu, brown.",
       "tip": "The same nuh-oo as nấu (issue 12), but level: no rise.",
-      "note": "nâu: the layered brown glass. nâu đá, iced milk coffee; nâu nóng, hot. In the South it is cà phê sữa đá.",
+      "note": "nâu: the layered brown glass. nâu đá, iced milk coffee; nâu nóng, hot. cà phê sữa (đá), milk coffee, is understood everywhere and said in Hà Nội too; nâu is the local word.",
       "remember": "nâu stays level: the brown milk coffee you drink. nấu rises: the cooking Bà does at the stove (issue 12).",
       "contrast": [
         {
@@ -219,11 +219,14 @@
         "Em ơi, cho anh một nâu.",
         "Cho anh nâu.",
         "Một nâu.",
-        "Cho anh một cà phê nâu."
+        "Cho anh một cà phê nâu.",
+        "Cho anh một cà phê sữa.",
+        "Cho anh một cà phê sữa đá.",
+        "Cho anh một cốc cà phê sữa."
       ],
       "en": "One milk coffee, please.",
       "ask": "The order, turn 1 of 3. The young waiter comes over. Order a milk coffee, the Hà Nội way.",
-      "note": "In Hà Nội milk coffee is nâu, brown."
+      "note": "In Hà Nội milk coffee is often nâu, brown; cà phê sữa (milk coffee) is understood everywhere too."
     },
     {
       "chain": "order",

@@ -4,7 +4,7 @@
 
 import { store } from './store.js';
 import { queueTalk, flush } from './sync.js';
-import { stop as stopClips } from './audio.js';
+import { stop as stopClips, play as playClip } from './audio.js';
 
 const HOST = 'generativelanguage.googleapis.com';
 const SOCKET = `wss://${HOST}/ws/google.ai.generativelanguage.v1beta.GenerativeService.BidiGenerateContent`;
@@ -137,7 +137,7 @@ export function openTalk() {
       el.dataset.i = String(turns.length - 1);
       log.appendChild(el);
     }
-    el.innerHTML = `<b>${who === 'you' ? 'You' : 'Editor'}</b> ${esc(t.text.trim())}`;
+    el.innerHTML = `<b>${{ you: 'You', editor: 'Editor', note: 'Note' }[who] || 'Editor'}</b> ${esc(t.text.trim())}`;
     log.scrollTop = log.scrollHeight;
   }
   const closeTurns = () => {
@@ -177,6 +177,16 @@ export function openTalk() {
     heard: (t) => say('you', t),
     spoke: (t) => say('editor', t),
     turnDone: closeTurns,
+    // The greeting is the app's own, so the learner knows the editor is listening; Gemini answers from the first question.
+    ready: () => {
+      say('editor', 'Xin chào! Ask me anything about this screen, out loud or by typing.');
+      closeTurns();
+      playClip('Xin chào!');
+    },
+    dropped: (msg) => {
+      say('note', msg);
+      closeTurns();
+    },
     note: (msg) => log.insertAdjacentHTML('beforeend', `<p class="hint">${esc(msg)}</p>`),
     failed: (msg) => {
       status.textContent = 'Not connected';
@@ -211,6 +221,7 @@ async function connect(key, instruction, on) {
       ws.send(JSON.stringify({ clientContent: { turns: [{ role: 'user', parts: [{ text: t }] }], turnComplete: true } }));
     },
     close() {
+      live.closing = true;
       if (mic) releaseMic();
       playing.forEach((s) => s.stop());
       if (ws.readyState <= 1) ws.close();
@@ -277,9 +288,7 @@ async function connect(key, instruction, on) {
     if (msg.setupComplete) {
       live.ready = true;
       startMic();
-      // The editor speaks first: a short greeting, so the learner knows it is listening. This prompt is not shown
-      // in the transcript.
-      ws.send(JSON.stringify({ clientContent: { turns: [{ role: 'user', parts: [{ text: '(The learner has just opened the conversation and has not said anything yet. Greet them in one short line: say Xin chào! and then, in English, ask what they would like to know about what is on their screen.)' }] }], turnComplete: true } }));
+      on.ready?.();
       return;
     }
     const sc = msg.serverContent;
@@ -303,7 +312,11 @@ async function connect(key, instruction, on) {
   };
   ws.onclose = (ev) => {
     if (!live.ready) on.failed(ev.reason || 'Gemini closed the connection. Check the key in Settings.');
-    else on.status('Ended');
+    else {
+      on.status('Ended');
+      // An unexpected close is shown (and kept in the transcript) so it can be fixed.
+      if (!live.closing) on.dropped?.(`The connection closed${ev.reason ? `: ${ev.reason}` : ''} (code ${ev.code}). Tap End, then Ask a question again.`);
+    }
   };
   return live;
 }

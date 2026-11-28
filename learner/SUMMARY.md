@@ -239,6 +239,9 @@ What they wanted to know or say. Teach these in coming issues where they fit.
 
 What the learner said to the editors out loud. Treat requests and complaints as feedback; full transcripts are in `learner/talks/`.
 
+- 2026-11-28T18:36 (In issue 14, "One brown, please" (ordering at a Hà Nội café (đá, nâu, đường, ít); an order in three turns; Hà Nội's coff): Can you hear me? / So when I've ordered coffee in Vietnam before / I usually say / not this brown coffee. / Aber da ist
+- 2026-11-28T18:35 (In issue 14, "One brown, please" (ordering at a Hà Nội café (đá, nâu, đường, ít); an order in three turns; Hà Nội's coff): So I've ordered coffee in Vietnam before. / And I've usually said coffee / not what this screen is telling me.
+- 2026-11-28T18:34 (In issue 14, "One brown, please" (ordering at a Hà Nội café (đá, nâu, đường, ít); an order in three turns; Hà Nội's coff): (only the editor spoke)
 - 2026-11-27T23:53 (On the Ask page, where the learner can also send written feedback to the editors.): What does mean? / use it in a sentence. / But mean on the sentence? / And if you are someone older I'd say and if you're someone younger I'd say M. / What about an auntie. / .
 - 2026-11-27T23:48 (In issue 13, "Where is the market?" (places in the city (quán, chợ, hồ, nhà); asking the way with ... ở đâu?; water pupp): Can you read this out loud to me?
 - 2026-11-27T23:45 (In issue 13, "Where is the market?" (places in the city (quán, chợ, hồ, nhà); asking the way with ... ở đâu?; water pupp): Doesn't more mean want to go home instead of I'm going home. / I said to which I thought was correct. / What about D? / way. So Toy Benja. / So what it says on this page is incorrect.
@@ -246,9 +249,6 @@ What the learner said to the editors out loud. Treat requests and complaints as 
 - 2026-11-27T17:07 (In issue 12, "I want to ..." (everyday verbs (cook, sleep, watch, want); a day around Hoàn Kiếm Lake; muốn + a verb), on): What's the end for here? / But technically I could just say
 - 2026-11-27T03:27 (In a spaced review, on a listen screen.): I don't understand how means more then, but it's cheaper.
 - 2026-11-26T18:54 (In issue 11, "So hot, so cold" (describing words for the weather, food and views; Hà Nội's four seasons; ... quá!), on a): The new repeat this same Vietnamese form. / Sehr gerne.
-- 2026-11-26T18:36 (In a spaced review, on a listen screen.): Is this the same as word to turn? / I don't know the editors to make a note when words are spelled the same but different tones.
-- 2026-11-26T18:35 (In a spaced review, on a listen screen.): How do you say 105 in Vietnamese? / Can you uh give some feedback to the editors to whenever introducing stuff like this like 105. / that I should also show the translation / maybe show the word or something.
-- 2026-11-26T18:34 (In a spaced review, on a listen screen.): say a lot. / So is a lot of money.
 
 ## Notes from the learner outside the app
 
