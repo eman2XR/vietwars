@@ -1235,6 +1235,27 @@ const ICONS = {
       ${[[56, 44], [58, 49], [55, 53]].map(([x, y]) => `<circle class="k-dot" cx="${x}" cy="${y}" r="1.3"/>`).join('')}
       <path d="M20 84 H100"/>`,
   },
+  // bia: a glass of bia hơi with a head of foam, and the steel keg it came in.
+  beer: {
+    tone: 'warm',
+    seed: 287,
+    ink: `<path class="k-shade" stroke-width="2" d="M70 40 C70 34 100 34 100 40 V78 C100 84 70 84 70 78 Z"/>
+      <path stroke-width="1.6" d="M70 52 C70 56 100 56 100 52 M70 66 C70 70 100 70 100 66"/>
+      <path class="k-tint" stroke-width="2" d="M28 40 L32 84 H56 L60 40 Z"/>
+      <path class="k-paper" stroke-width="2" d="M26 40 C26 30 36 28 40 32 C44 26 54 28 56 34 C62 32 64 40 60 42 H28 Z"/>
+      <path stroke-width="1.3" d="M38 56 v8 M46 50 v6 M42 70 v6"/>
+      <path d="M14 84 H108"/>`,
+  },
+  // lạnh: cold: a bottle beaded with cold drops, a puff of chill coming off it.
+  coldDrink: {
+    tone: 'cool',
+    seed: 289,
+    ink: `<path class="k-paper" stroke-width="2" d="M52 84 V48 C52 40 56 38 56 30 V16 H64 V30 C64 38 68 40 68 48 V84 Z"/>
+      <path class="k-tint" stroke-width="1.6" d="M52 56 H68 V70 H52 Z"/>
+      ${[[56, 46], [63, 50], [58, 76], [65, 78], [55, 66]].map(([x, y]) => `<path class="k-pale" stroke-width="1.2" d="M${x} ${y} q-2 3 0 4 q2 -1 0 -4 Z"/>`).join('')}
+      <path stroke-width="1.5" d="M80 40 l8 -4 M82 52 h10 M80 64 l8 4 M40 40 l-8 -4 M38 52 h-10 M40 64 l-8 4"/>
+      <path d="M24 84 H96"/>`,
+  },
 };
 
 function icon(name) {
@@ -1942,7 +1963,26 @@ function cafeScene() {
   };
 }
 
-const SCENES = { phoStall: phoScene, market: marketScene, legend: legendScene, genealogy: genealogyScene, fruitTray: fruitTrayScene, familyTray: familyTrayScene, longBien: longBienScene, oldQuarter: oldQuarterScene, marks: marksScene, seasons: seasonsScene, swordLake: swordLakeScene, puppets: puppetsScene, cafe: cafeScene };
+// Cover for issue 15: a bia hơi corner: a steel keg, glasses with foam on a low table, plastic stools, and a chalked
+// price board on the wall.
+function biaHoiScene() {
+  const stool = (x, y, cls) => `<path class="${cls}" stroke-width="2" d="M${x - 13} ${y} H${x + 13} L${x + 10} ${y + 5} H${x - 10} Z M${x - 8} ${y + 5} L${x - 11} ${y + 24} M${x + 8} ${y + 5} L${x + 11} ${y + 24}"/>`;
+  const glass = (x, y) => `<path class="k-tint" stroke-width="1.8" d="M${x - 9} ${y} L${x - 7} ${y + 26} H${x + 7} L${x + 9} ${y} Z"/><path class="k-paper" stroke-width="1.6" d="M${x - 10} ${y} C${x - 10} ${y - 7} ${x + 10} ${y - 7} ${x + 10} ${y} Z"/>`;
+  return {
+    tone: 'warm',
+    paper: blob(200, 126, 172, 102, 99, 11, 0.06),
+    under: '<ellipse class="k-mid" cx="200" cy="214" rx="158" ry="7"/>',
+    ink: `<path class="k-shade" stroke-width="2.2" d="M240 58 H340 V128 H240 Z"/>
+      <path stroke-width="1.4" d="M252 76 h50 M252 92 h60 M252 108 h44 M318 76 h12 M322 92 h10 M318 108 h12"/>
+      <path class="k-pale" stroke-width="2.2" d="M64 120 C64 108 120 108 120 120 V196 C120 208 64 208 64 196 Z"/>
+      <path stroke-width="1.8" d="M64 144 C64 152 120 152 120 144 M64 172 C64 180 120 180 120 172 M92 108 V96 h10"/>
+      <path class="k-paper" stroke-width="2" d="M150 160 H260 V168 H150 Z M162 168 V206 M248 168 V206"/>
+      ${glass(180, 132)}${glass(212, 128)}${glass(238, 134)}
+      ${stool(150, 186, 'k-tint')}${stool(300, 186, 'k-shade')}`,
+  };
+}
+
+const SCENES = { phoStall: phoScene, market: marketScene, legend: legendScene, genealogy: genealogyScene, fruitTray: fruitTrayScene, familyTray: familyTrayScene, longBien: longBienScene, oldQuarter: oldQuarterScene, marks: marksScene, seasons: seasonsScene, swordLake: swordLakeScene, puppets: puppetsScene, cafe: cafeScene, biaHoi: biaHoiScene };
 
 function scene(name) {
   const make = SCENES[name];

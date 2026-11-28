@@ -296,7 +296,9 @@ function startSession(kind, lesson, opts = {}) {
   if (kind === 'lesson') {
     const review = (lesson.review || []).map((vi) => WORDS.get(nfc(vi))).filter((w) => w && !KNOWN.has(nfc(w.vi)));
     warmup = lesson.warmup || [];
-    steps = lessonSteps(lesson, { review, warmup });
+    const mixups = (lesson.mixups || []).map(([a, b]) => ({ a: WORDS.get(nfc(a)), b: WORDS.get(nfc(b)) })).filter((p) => p.a && p.b && !KNOWN.has(nfc(p.a.vi)) && !KNOWN.has(nfc(p.b.vi)));
+    steps = lessonSteps(lesson, { review, warmup, mixups });
+    extraAudio = mixups.flatMap((m) => [m.a.vi, m.b.vi]);
     words = [...lesson.words, ...review];
   } else {
     // A review also takes words that fall due in the next 12 hours, so finishing one clears the desk for the rest of the day.

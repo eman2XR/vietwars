@@ -1,0 +1,387 @@
+{
+  "id": "lesson-15",
+  "number": 15,
+  "title": "Mix-up clinic",
+  "vi": "Bia lạnh không?",
+  "theme": "a clinic: the words most often taken for each other (đói and đẹp, biết and chào, gặp and khỏe, bớt and đắt), small prices, and reading a price board; Hà Nội's bia hơi corners",
+  "intro": "A clinic issue: the pairs of words you have mixed up most, side by side, two new words for a street corner (beer, cold), and a price board to read.",
+  "cover": {
+    "picture": {
+      "kind": "scene",
+      "name": "biaHoi"
+    }
+  },
+  "feature": {
+    "kicker": "Hà Nội's street corners",
+    "title": "Fresh beer, every day",
+    "dek": "Bia hơi is brewed every day, delivered fresh every day, drunk on a plastic stool by evening, and costs less than a bánh mì.",
+    "intro": "Bia hơi, fresh beer, is found mostly in the North, in small bars and on street corners: a steel keg, a few low tables and a price board on the wall.",
+    "beats": [
+      {
+        "picture": {
+          "kind": "icon",
+          "name": "beer"
+        },
+        "text": "It is brewed every day and matured only briefly, and each bar gets a fresh batch delivered every day in steel barrels."
+      },
+      {
+        "picture": {
+          "kind": "icon",
+          "name": "coldDrink"
+        },
+        "text": "It is a very light lager, around 4.1 to 4.3% alcohol, and cheap: a glass typically costs between 10.000₫ and 15.000₫, a fraction of the price of draught or bottled beer in Western-style bars."
+      },
+      {
+        "picture": {
+          "kind": "scene",
+          "name": "biaHoi"
+        },
+        "text": "The glasses are part of the look: made from recycled glass, with the flaws of the process left clearly visible. Today the rough finish is deliberate, but it began in the 1970s, when the first of these glasses were made quickly from cheap materials."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Bia hơi",
+        "url": "https://en.wikipedia.org/wiki/Bia_h%C6%A1i"
+      }
+    ]
+  },
+  "words": [
+    {
+      "vi": "bia",
+      "en": "beer",
+      "picture": {
+        "kind": "icon",
+        "name": "beer"
+      },
+      "hook": "Raise a glass at a street corner: \"bee-uh!\", one beat, kept level: bia, beer.",
+      "tip": "b is a soft, swallowed b; ia glides from ee to a short uh, in one beat; ngang: level.",
+      "note": "bia: the foaming glass and the keg. bia hơi, fresh draught beer; bia lạnh, cold beer.",
+      "contrast": [
+        {
+          "vi": "bìa",
+          "en": "a cover; cardboard"
+        }
+      ]
+    },
+    {
+      "vi": "lạnh",
+      "en": "cold (of drinks and food; also of the weather)",
+      "picture": {
+        "kind": "icon",
+        "name": "coldDrink"
+      },
+      "hook": "An ice-cold bottle against your palm: \"lie-ng!\", low and cut short: lạnh, cold.",
+      "tip": "In Hà Nội anh sounds close to \"ine\" in \"nine\" plus ng: lie-ng, one beat. Nặng: low, then a sudden stop.",
+      "note": "lạnh: the frosted bottle. bia lạnh, cold beer; trời lạnh, cold weather. For the winter weather Hà Nội also says rét (issue 11).",
+      "contrast": [
+        {
+          "vi": "lành",
+          "en": "gentle; healed"
+        }
+      ]
+    }
+  ],
+  "review": [
+    "đói",
+    "đẹp",
+    "biết",
+    "chào",
+    "gặp",
+    "khỏe",
+    "bớt",
+    "đắt"
+  ],
+  "mixups": [
+    [
+      "đói",
+      "đẹp"
+    ],
+    [
+      "biết",
+      "chào"
+    ],
+    [
+      "gặp",
+      "khỏe"
+    ],
+    [
+      "bớt",
+      "đắt"
+    ]
+  ],
+  "grammar": {
+    "title": "... không? A one-word question",
+    "text": "Put không after a word to ask about it: Bia lạnh không? Cold beer? Khỏe không? Are you well? Đói không? Hungry? Answer yes with the word itself (Lạnh! Khỏe! Đói!) and no with không before it (Không đói. Not hungry.).",
+    "examples": [
+      {
+        "vi": "Bia lạnh không?",
+        "en": "Cold beer?"
+      },
+      {
+        "vi": "Đói không?",
+        "en": "Hungry?"
+      }
+    ]
+  },
+  "combos": [
+    {
+      "vi": "bia hơi",
+      "en": "fresh draught beer",
+      "note": "hơi: steam, gas, so 'gas beer'. (hơi also means a bit: hơi đắt, a bit dear.)"
+    },
+    {
+      "vi": "bia lạnh",
+      "en": "cold beer"
+    },
+    {
+      "vi": "Đắt quá!",
+      "en": "Too expensive!",
+      "note": "First the complaint: đắt."
+    },
+    {
+      "vi": "Bớt đi!",
+      "en": "Take some off!",
+      "note": "Then the request: bớt."
+    },
+    {
+      "vi": "Khỏe không?",
+      "en": "Are you well?"
+    },
+    {
+      "vi": "Không biết.",
+      "en": "I don't know."
+    },
+    {
+      "vi": "gặp bạn",
+      "en": "to meet a friend",
+      "note": "gặp: the meeting itself (issue 10)."
+    }
+  ],
+  "dialogues": [
+    {
+      "title": "Home for dinner",
+      "setting": "table",
+      "picture": {
+        "kind": "icon",
+        "name": "grandma"
+      },
+      "lines": [
+        {
+          "who": "Bà",
+          "vi": "Chào cháu!",
+          "en": "Hello, dear!"
+        },
+        {
+          "who": "You",
+          "vi": "Chào bà!",
+          "en": "Hello, Grandma!",
+          "you": true
+        },
+        {
+          "who": "Bà",
+          "vi": "Đói không?",
+          "en": "Hungry?"
+        }
+      ],
+      "check": {
+        "ask": "You have not eaten since the morning. Bà asks if you are hungry. Say your answer aloud first, then pick it.",
+        "options": [
+          "Đói quá!",
+          "Đẹp quá!",
+          "Biết."
+        ],
+        "answer": "Đói quá!",
+        "note": "Đói quá: so hungry. Đẹp quá: so beautiful (for a view, not your stomach); Biết: I know."
+      }
+    }
+  ],
+  "situations": [
+    {
+      "who": "Friend",
+      "board": {
+        "title": "Bia hơi",
+        "items": [
+          {
+            "vi": "Bia hơi",
+            "price": "15.000₫"
+          },
+          {
+            "vi": "Trà đá",
+            "price": "3.000₫"
+          },
+          {
+            "vi": "Bia lạnh",
+            "price": "20.000₫"
+          },
+          {
+            "vi": "Nước",
+            "price": "8.000₫"
+          }
+        ]
+      },
+      "vi": "Bạn uống gì?",
+      "en": "What are you having?",
+      "ask": "Read the board. You have 10.000₫. Which one costs too much?",
+      "options": [
+        "Bia hơi",
+        "Trà đá",
+        "Nước"
+      ],
+      "answer": "Bia hơi"
+    },
+    {
+      "who": "You, at the bia hơi corner",
+      "board": {
+        "title": "Bia hơi",
+        "items": [
+          {
+            "vi": "Bia hơi",
+            "price": "15.000₫"
+          },
+          {
+            "vi": "Trà đá",
+            "price": "3.000₫"
+          },
+          {
+            "vi": "Bia lạnh",
+            "price": "20.000₫"
+          },
+          {
+            "vi": "Nước",
+            "price": "8.000₫"
+          }
+        ]
+      },
+      "say": "Your friend asks how much the beer is. Read the price of bia hơi off the board.",
+      "vi": "Mười lăm.",
+      "accept": [
+        "Mười lăm.",
+        "Mười lăm nghìn.",
+        "Mười lăm nghìn một cốc."
+      ],
+      "en": "15 (thousand).",
+      "ask": "Read it out loud.",
+      "note": "mười lăm: 15 (after mười, năm becomes lăm); nghìn: thousand."
+    },
+    {
+      "who": "Waiter",
+      "picture": {
+        "kind": "icon",
+        "name": "coldDrink"
+      },
+      "vi": "Bia lạnh không?",
+      "en": "Cold beer?",
+      "ask": "It is a hot evening. The waiter checks you want it cold. What do you answer?",
+      "options": [
+        "Lạnh!",
+        "Nóng!",
+        "Đói quá!"
+      ],
+      "answer": "Lạnh!"
+    },
+    {
+      "who": "Friend",
+      "picture": {
+        "kind": "icon",
+        "name": "beer"
+      },
+      "vi": "Khỏe không?",
+      "en": "Are you well?",
+      "ask": "You feel great. Answer your friend.",
+      "options": [
+        "Khỏe!",
+        "Gặp!",
+        "Chào!"
+      ],
+      "answer": "Khỏe!"
+    },
+    {
+      "who": "Tea seller",
+      "picture": {
+        "kind": "icon",
+        "name": "stall"
+      },
+      "vi": "Trà đá ba nghìn.",
+      "en": "Iced tea, 3,000.",
+      "ask": "How much is the iced tea?",
+      "options": [
+        "3.000₫",
+        "30.000₫",
+        "300.000₫"
+      ],
+      "answer": "3.000₫",
+      "note": "One number before nghìn is that many thousand: ba nghìn, 3.000. Ba mươi nghìn would be 30.000."
+    },
+    {
+      "chain": "haggle",
+      "who": "You, at a market stall",
+      "picture": {
+        "kind": "icon",
+        "name": "stall"
+      },
+      "say": "Too expensive! (the seller wants 60.000₫ for a hat)",
+      "vi": "Đắt quá!",
+      "accept": [
+        "Đắt quá!",
+        "Đắt quá.",
+        "Đắt quá em ơi!",
+        "Đắt thế!"
+      ],
+      "en": "Too expensive!",
+      "ask": "The haggle, turn 1 of 3. Complain about the price.",
+      "note": "First the complaint: đắt."
+    },
+    {
+      "chain": "haggle",
+      "who": "You",
+      "picture": {
+        "kind": "icon",
+        "name": "discount"
+      },
+      "say": "Take some off! (ask for a lower price)",
+      "vi": "Bớt đi!",
+      "accept": [
+        "Bớt đi!",
+        "Bớt đi.",
+        "Bớt đi em!",
+        "Bớt được không?",
+        "Bớt chút đi!",
+        "Bớt chút đi em!",
+        "Bớt cho chị đi!"
+      ],
+      "en": "Take some off!",
+      "ask": "Turn 2 of 3. Ask her to lower it.",
+      "note": "Then the request: bớt."
+    },
+    {
+      "chain": "haggle",
+      "who": "Seller",
+      "picture": {
+        "kind": "icon",
+        "name": "deal"
+      },
+      "vi": "Bốn mươi nghìn.",
+      "en": "40,000.",
+      "ask": "Turn 3 of 3. Her new price?",
+      "options": [
+        "40.000₫",
+        "4.000₫",
+        "14.000₫"
+      ],
+      "answer": "40.000₫",
+      "note": "bốn mươi: forty (mươi = tens), so 40.000; bốn nghìn would be 4.000."
+    }
+  ],
+  "challenge": {
+    "title": "Street challenge",
+    "text": "Find a price board today (a tea stall, a bia hơi corner, a phở shop) and read two prices out loud in Vietnamese. At a market stall with no prices, try the two-step: Đắt quá! Bớt đi!"
+  },
+  "stamp": {
+    "label": "Bia hơi",
+    "picture": {
+      "kind": "scene",
+      "name": "biaHoi"
+    }
+  }
+}

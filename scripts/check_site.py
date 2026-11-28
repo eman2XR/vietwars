@@ -201,7 +201,7 @@ class Run:
         resumed = label != "lesson"
         for _ in range(600):
             actions += 1
-            if not resumed and actions == 30 and page.get_attribute(".stage", "data-step") in ("listen", "meet", "type", "spell", "reverse"):
+            if not resumed and actions >= 30 and page.get_attribute(".stage", "data-step") in ("listen", "meet", "type", "spell", "reverse"):
                 resumed = True
                 self.leave_and_resume(page, label)
             if page.locator(".done-page").count():

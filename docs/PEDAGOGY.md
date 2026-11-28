@@ -20,7 +20,7 @@ The learner: "make the sentences be simplified for now while I'm still learning.
 
 - Every model answer the learner says or picks (say questions, dialogue lines marked `you`, check answers, real-life reply options, combos and grammar examples) is the **shortest phrase a Hà Nội local would understand**: the thing plus a number or a describing word (Một cà phê sữa đá. Hai trà đá. Ít đường. Đá. Bao nhiêu? Chợ ở đâu? Đắt quá!). No pronoun-and-politeness frames (Cho anh ..., Cháu ... ạ, Xin lỗi chị, ... ạ?) in the model answer for now.
 - Put the short form **first** in `accept` (the word tiles are built from it), and keep the longer polite forms in `accept` so they still count.
-- Others may speak naturally (a seller says Của anh hết ba mươi nghìn ạ.); the learner's side stays short. Glossing a polite form in a note is fine ("the friendlier form is Đá em nhé").
+- What others say is short too (learner, 2026-11-28: "I think they should just say ... without the anh ạ"): sellers and waiters say the thing and the price (Trà đá ba nghìn. Nóng hay đá? Ba mươi nghìn. Hết đá rồi.), without vocative tails (anh ạ, anh nhé, em ạ) or set phrases like Của anh hết ... ạ, until the politeness unit.
 - Never explain these choices to the learner in the lesson text (no "no long sentences", "the name is enough", "polite forms come later"): intros, asks and notes say what to do and what words mean, not how the issue was designed.
 - Politeness frames (cho + pronoun, cháu ... ạ, the pronoun system in requests) come back as their own unit later, in phase 2 of `learner/curriculum.json`, once the learner asks or the short forms are solid.
 
@@ -78,7 +78,7 @@ Fun was "Good" in issues 3 to 5, 9 (the haggle) and 11 (... quá! reactions), an
 | Ask the way | asks, hears the answer, then picks the way | 13 |
 | Order chain | orders in three turns at one stall or café (order, answer a question, pay the total); situations share `"chain"` and play in order | 14 |
 | Phone call | hears a call from Bà or a friend with no picture cues, answers two questions about it | |
-| Read the board | reads a menu board, a price list or a street sign drawn in the inked style, and picks or works something out (what can you afford, which is cheapest) | |
+| Read the board | reads a chalked price board (`board` on a situation) and works something out (what costs too much, read a price aloud) | 15 |
 | Overheard | hears two locals talk (a short exchange between others) and answers who, what or how much | |
 | Map walk | follows spoken directions on a small drawn map and taps where they end up | |
 | Match rush | a rush-hour variant: match pictures to words heard, against the clock | |

@@ -331,7 +331,7 @@
     {
       "id": "cafe",
       "title": "At the café: ordering in Hà Nội",
-      "status": "active",
+      "status": "done",
       "lesson": "lesson-14",
       "candidates": [
         "đá",
@@ -410,6 +410,6 @@
     }
   ],
   "notes": "",
-  "clinics": "Every fifth issue is a clinic built from leeches and mix-ups (docs/PEDAGOGY.md, Variety): issue 15 is the next one.",
+  "clinics": "Every fifth issue is a clinic built from leeches and mix-ups (docs/PEDAGOGY.md, Variety): issue 15 was the first; issue 20 is next.",
   "functionalFirst": "2026-11-28: the learner asked for the shortest functional sentences for now (Một cà phê sữa đá, not Cho anh một ...). Polite frames (cho + pronoun, cháu ... ạ) become their own unit in phase 2."
 }

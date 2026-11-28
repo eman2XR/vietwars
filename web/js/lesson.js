@@ -121,6 +121,14 @@ export function sayTiles(vi) {
   return shuffle([...words, ...extra]);
 }
 
+// A price board, as chalked up at a stall or a bia hơi corner: the learner reads it to answer.
+function boardHTML(board) {
+  return `<div class="board" role="table" aria-label="${esc(board.title || 'Price board')}">
+    ${board.title ? `<div class="board-title vi">${colorize(board.title)}</div>` : ''}
+    ${(board.items || []).map((it) => `<div class="board-row" role="row"><span class="vi board-item">${colorize(it.vi)}</span><span class="board-price">${esc(it.price)}</span></div>`).join('')}
+  </div>`;
+}
+
 export { maskWord };
 
 export function stampHTML(lesson, grade = '', date = '') {
@@ -147,7 +155,7 @@ const PART_SIZE = 8;
 const MAX_SPELL = 3;
 
 // Builds an issue. More than eight new words are split into two parts, each met and practised on its own, before the shared finale.
-export function lessonSteps(lesson, { review = [], warmup = [] } = {}) {
+export function lessonSteps(lesson, { review = [], warmup = [], mixups = [] } = {}) {
   const words = lesson.words;
   const steps = [{ type: 'feature' }];
   // Beats play in file order. A beat tied to a new word waits until that word has been met; an untied beat waits for the next part, practise or real-life screen.
@@ -203,6 +211,15 @@ export function lessonSteps(lesson, { review = [], warmup = [] } = {}) {
     // Review words are only heard here; typing them from memory belongs to the spaced reviews.
     shuffle(part).forEach((w) => steps.push({ type: 'type', word: w }));
   });
+  // A clinic's mix-ups: pairs the learner has taken for each other, side by side and then told apart by ear.
+  if (mixups.length) {
+    steps.push({ type: 'stage', beat: looseBeat(), title: 'Mix-ups', text: 'Words you have taken for each other. Look at both, then pick the one you hear.' });
+    steps.push(...storySteps());
+    for (const { a, b } of mixups) {
+      steps.push({ type: 'mixup', pair: [a, b] });
+      shuffle([a, b]).forEach((w) => steps.push({ type: 'listen', word: w, pool: [a, b], mixup: true }));
+    }
+  }
   if (lesson.grammar) steps.push({ type: 'grammar', grammar: lesson.grammar });
   if (lesson.combos?.length) {
     shuffle(lesson.combos).forEach((c) => steps.push({ type: 'listen', word: c, pool: lesson.combos, combo: true }));
@@ -856,7 +873,7 @@ export function runSession(root, session, onDone, onQuit) {
       let keys = 0;
       stage.innerHTML = `
         <div class="kicker">${dict ? 'Type what you hear' : 'Type it in Vietnamese'}${step.retry ? ' <span class="tag">again</span>' : ''}</div>
-        ${dict ? listenTop(w.vi) : `${pic(w, 'medium')}<div class="prompt-en">${esc(w.en)}</div>`}
+        ${dict ? `${listenTop(w.vi)}<p class="hint center">Listen, then type the word you hear. Tap the speaker to hear it again.</p>` : `${pic(w, 'medium')}<div class="prompt-en">${esc(w.en)}</div>`}
         <form class="type-form" autocomplete="off">
           <input class="type-input vi" type="text" lang="vi" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="done" aria-label="Your answer">
           <div class="vkeys" aria-label="Tone and vowel keys">
@@ -980,7 +997,7 @@ export function runSession(root, session, onDone, onQuit) {
       const opts = sit.options ? shuffle(sit.options) : [];
       stage.innerHTML = `
         <div class="kicker">Real life${sit.who ? ` · ${esc(sit.who)}` : ''}</div>
-        ${pic(sit, 'medium')}
+        ${sit.board ? boardHTML(sit.board) : pic(sit, 'medium')}
         ${listenTop(sit.vi)}
         <h2 class="quiz-q">${esc(sit.ask)}</h2>
         ${
@@ -1057,7 +1074,7 @@ export function runSession(root, session, onDone, onQuit) {
       const accept = sit.accept || [sit.vi];
       stage.innerHTML = `
         <div class="kicker">Say it${sit.who ? ` · ${esc(sit.who)}` : ''}</div>
-        ${pic(sit, 'medium')}
+        ${sit.board ? boardHTML(sit.board) : pic(sit, 'medium')}
         <div class="say-price${/[a-z]{3}/i.test(sit.say) ? ' say-cue' : ''}">${esc(sit.say)}</div>
         <h2 class="quiz-q">${esc(sit.ask)}</h2>
         <form class="type-form say-form" autocomplete="off">

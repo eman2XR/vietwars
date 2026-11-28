@@ -1,0 +1,646 @@
+{
+ "schema": 3,
+ "resultId": "a7f84729-438c-4b89-a8ee-bdd714875100",
+ "kind": "lesson",
+ "lessonId": "lesson-14",
+ "lessonTitle": "One iced milk coffee",
+ "appVersion": "5",
+ "style": "paper",
+ "device": "iPhone",
+ "startedAt": "2026-11-28T18:28:49.968Z",
+ "finishedAt": "2026-11-28T19:02:46.105Z",
+ "durationSec": 2036,
+ "summary": {
+  "firstTryAccuracy": 0.91,
+  "exercises": 23,
+  "bestStreak": 11,
+  "grade": "distinction",
+  "speedScore": 400,
+  "speedAnswered": 13,
+  "speedCorrect": 12,
+  "bestCombo": 8
+ },
+ "article": {
+  "readSec": 103,
+  "factsShown": 0
+ },
+ "quiz": null,
+ "situations": {
+  "correct": 3,
+  "total": 6
+ },
+ "dialogues": {
+  "correct": 0,
+  "total": 1
+ },
+ "timing": {
+  "words": 36,
+  "drills": 116,
+  "conversation": 18,
+  "reallife": 72,
+  "rush": 35,
+  "article": 103,
+  "pauses": 2,
+  "longestPauseSec": 1387
+ },
+ "toneMarks": "relaxed",
+ "words": [
+  {
+   "vi": "đá",
+   "en": "ice (also: stone)",
+   "failures": 0,
+   "timeSec": 14,
+   "replays": 1,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 11,
+   "share": 1,
+   "meaning": 1,
+   "form": 1,
+   "stars": 3,
+   "firstTry": {
+    "listen": true,
+    "spell": true,
+    "type": "marks"
+   },
+   "attempts": 4,
+   "msMedian": 2819,
+   "known": false
+  },
+  {
+   "vi": "nâu",
+   "en": "brown; in a Hà Nội café, coffee with milk",
+   "failures": 1,
+   "timeSec": 21,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 6,
+   "share": 0.75,
+   "meaning": 1,
+   "form": 0.5,
+   "stars": 2,
+   "firstTry": {
+    "listen": true,
+    "spell": false,
+    "type": "marks"
+   },
+   "attempts": 5,
+   "msMedian": 1799,
+   "known": false
+  },
+  {
+   "vi": "đường",
+   "en": "sugar (also: road)",
+   "failures": 1,
+   "timeSec": 40,
+   "replays": 1,
+   "hints": 1,
+   "revealed": false,
+   "studySec": 9,
+   "share": 0.75,
+   "meaning": 0.67,
+   "form": 1,
+   "stars": 2,
+   "firstTry": {
+    "listen": false,
+    "reverse": true,
+    "type": "marks"
+   },
+   "attempts": 5,
+   "msMedian": 6201,
+   "known": false
+  },
+  {
+   "vi": "ít",
+   "en": "a little; few",
+   "failures": 0,
+   "timeSec": 9,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 10,
+   "share": 1,
+   "meaning": 1,
+   "form": 1,
+   "stars": 3,
+   "firstTry": {
+    "listen": true,
+    "reverse": true,
+    "type": "tone"
+   },
+   "attempts": 4,
+   "msMedian": 2083,
+   "known": false
+  },
+  {
+   "vi": "nóng",
+   "en": "hot",
+   "failures": 0,
+   "timeSec": 5,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 1,
+   "meaning": 1,
+   "form": null,
+   "stars": 3,
+   "firstTry": {
+    "listen": true
+   },
+   "attempts": 1,
+   "msMedian": 4950,
+   "known": false
+  },
+  {
+   "vi": "rẻ",
+   "en": "cheap",
+   "failures": 0,
+   "timeSec": 4,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 1,
+   "meaning": 1,
+   "form": null,
+   "stars": 3,
+   "firstTry": {
+    "listen": true
+   },
+   "attempts": 1,
+   "msMedian": 3567,
+   "known": false
+  },
+  {
+   "vi": "muốn",
+   "en": "to want (to)",
+   "failures": 0,
+   "timeSec": 12,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 1,
+   "meaning": 1,
+   "form": null,
+   "stars": 3,
+   "firstTry": {
+    "listen": true
+   },
+   "attempts": 1,
+   "msMedian": 11618,
+   "known": false
+  },
+  {
+   "vi": "hết",
+   "en": "in total (of a bill); also: used up, sold out",
+   "failures": 0,
+   "timeSec": 2,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 1,
+   "meaning": 1,
+   "form": null,
+   "stars": 3,
+   "firstTry": {
+    "listen": true
+   },
+   "attempts": 1,
+   "msMedian": 2169,
+   "known": false
+  }
+ ],
+ "warmup": [],
+ "toneConfusions": [
+  {
+   "target": "nâu",
+   "chose": "nấu"
+  }
+ ],
+ "meaningConfusions": [
+  {
+   "target": "đường",
+   "chose": "ice (also: stone)",
+   "t": "listen"
+  },
+  {
+   "target": "ít",
+   "chose": "iced tea",
+   "t": "speed"
+  }
+ ],
+ "typed": [
+  {
+   "target": "nâu",
+   "answer": "nau",
+   "grade": "marks",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 6690
+  },
+  {
+   "target": "ít",
+   "answer": "it",
+   "grade": "tone",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 1490
+  },
+  {
+   "target": "đường",
+   "answer": "duong",
+   "grade": "marks",
+   "accepted": true,
+   "hints": 1,
+   "keys": 0,
+   "firstKeyMs": 17542
+  },
+  {
+   "target": "đá",
+   "answer": "da",
+   "grade": "marks",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 1814
+  }
+ ],
+ "feedback": {
+  "difficulty": "Just right",
+  "fun": "Good",
+  "article": "Interesting",
+  "hardest": [],
+  "wantNext": null,
+  "note": null
+ },
+ "events": [
+  {
+   "t": "meet",
+   "w": "đá",
+   "ms": 11164,
+   "plays": 1
+  },
+  {
+   "t": "meet",
+   "w": "nâu",
+   "ms": 5934
+  },
+  {
+   "t": "listen",
+   "w": "đá",
+   "ok": true,
+   "a": "ice (also: stone)",
+   "ms": 2819
+  },
+  {
+   "t": "listen",
+   "w": "nâu",
+   "ok": true,
+   "a": "brown; in a Hà Nội café, coffee with milk",
+   "ms": 8217
+  },
+  {
+   "t": "meet",
+   "w": "đường",
+   "ms": 9197
+  },
+  {
+   "t": "meet",
+   "w": "ít",
+   "ms": 9801,
+   "plays": 1
+  },
+  {
+   "t": "listen",
+   "w": "đường",
+   "ok": true,
+   "a": "sugar (also: road)",
+   "ms": 5218
+  },
+  {
+   "t": "listen",
+   "w": "ít",
+   "ok": true,
+   "a": "a little; few",
+   "ms": 2083
+  },
+  {
+   "t": "listen",
+   "w": "ít",
+   "ok": true,
+   "a": "a little; few",
+   "ms": 1749
+  },
+  {
+   "t": "listen",
+   "w": "nâu",
+   "ok": true,
+   "a": "brown; in a Hà Nội café, coffee with milk",
+   "ms": 1767
+  },
+  {
+   "t": "listen",
+   "w": "nóng",
+   "ok": true,
+   "a": "hot",
+   "ms": 4950
+  },
+  {
+   "t": "listen",
+   "w": "đường",
+   "ok": false,
+   "a": "ice (also: stone)",
+   "ms": 2250
+  },
+  {
+   "t": "listen",
+   "w": "rẻ",
+   "ok": true,
+   "a": "cheap",
+   "ms": 3567
+  },
+  {
+   "t": "listen",
+   "w": "hết",
+   "ok": true,
+   "a": "in total (of a bill); also: used up, sold out",
+   "ms": 2169
+  },
+  {
+   "t": "listen",
+   "w": "muốn",
+   "ok": true,
+   "a": "to want (to)",
+   "ms": 11618
+  },
+  {
+   "t": "listen",
+   "w": "đường",
+   "ok": true,
+   "a": "sugar (also: road)",
+   "ms": 7250,
+   "retry": true,
+   "plays": 1
+  },
+  {
+   "t": "listen",
+   "w": "đá",
+   "ok": true,
+   "a": "ice (also: stone)",
+   "ms": 7687,
+   "plays": 1
+  },
+  {
+   "t": "spell",
+   "w": "nâu",
+   "ok": false,
+   "a": "nấu",
+   "ms": 1734
+  },
+  {
+   "t": "reverse",
+   "w": "đường",
+   "ok": true,
+   "a": "đường",
+   "ms": 6201
+  },
+  {
+   "t": "reverse",
+   "w": "ít",
+   "ok": true,
+   "a": "ít",
+   "ms": 2800
+  },
+  {
+   "t": "spell",
+   "w": "đá",
+   "ok": true,
+   "a": "đá",
+   "ms": 1549
+  },
+  {
+   "t": "spell",
+   "w": "nâu",
+   "ok": true,
+   "a": "nâu",
+   "ms": 1799,
+   "retry": true
+  },
+  {
+   "t": "type",
+   "w": "nâu",
+   "ok": true,
+   "g": "marks",
+   "a": "nau",
+   "ms": 7401,
+   "hints": 0,
+   "firstKeyMs": 6690
+  },
+  {
+   "t": "type",
+   "w": "ít",
+   "ok": true,
+   "g": "tone",
+   "a": "it",
+   "ms": 1931,
+   "hints": 0,
+   "firstKeyMs": 1490
+  },
+  {
+   "t": "type",
+   "w": "đường",
+   "ok": true,
+   "g": "marks",
+   "a": "duong",
+   "ms": 18670,
+   "hints": 1,
+   "firstKeyMs": 17542
+  },
+  {
+   "t": "type",
+   "w": "đá",
+   "ok": true,
+   "g": "marks",
+   "a": "da",
+   "ms": 2290,
+   "hints": 0,
+   "firstKeyMs": 1814
+  },
+  {
+   "t": "listen",
+   "w": "ít đường",
+   "ok": true,
+   "a": "a little sugar",
+   "ms": 5101,
+   "plays": 1
+  },
+  {
+   "t": "listen",
+   "w": "không đường",
+   "ok": true,
+   "a": "no sugar",
+   "ms": 3201
+  },
+  {
+   "t": "listen",
+   "w": "trà đá",
+   "ok": true,
+   "a": "iced tea",
+   "ms": 1955
+  },
+  {
+   "t": "dialogue",
+   "w": "A pavement café",
+   "ok": false,
+   "a": "Hết đá rồi.",
+   "ms": 17536,
+   "plays": 3
+  },
+  {
+   "t": "situation",
+   "w": "Trà đá ba nghìn một cốc anh ạ.",
+   "ok": true,
+   "a": "3.000₫",
+   "ms": 9834,
+   "plays": 1
+  },
+  {
+   "t": "situation",
+   "w": "Hết đá rồi anh ạ.",
+   "ok": true,
+   "a": "They have run out of ice.",
+   "ms": 14108,
+   "plays": 2
+  },
+  {
+   "t": "situation",
+   "w": "Hai cốc trà đá, hết sáu nghìn ạ.",
+   "ok": false,
+   "a": "60.000₫",
+   "ms": 8750,
+   "plays": 1
+  },
+  {
+   "t": "situation",
+   "w": "Anh uống nóng hay đá ạ?",
+   "ok": false,
+   "a": "Nóng quá!",
+   "ms": 7617,
+   "plays": 1
+  },
+  {
+   "t": "situation",
+   "w": "Của anh hết ba mươi nghìn ạ.",
+   "ok": true,
+   "a": "30.000₫",
+   "ms": 17982,
+   "plays": 2
+  },
+  {
+   "t": "situation",
+   "w": "Cà phê trứng bốn mươi nghìn anh nhé.",
+   "ok": false,
+   "a": "41",
+   "ms": 13836,
+   "plays": 1
+  },
+  {
+   "t": "speed",
+   "w": "nâu",
+   "ok": true,
+   "a": "brown; in a Hà Nội café, coffee with milk",
+   "ms": 6579
+  },
+  {
+   "t": "speed",
+   "w": "không đường",
+   "ok": true,
+   "a": "no sugar",
+   "ms": 3869
+  },
+  {
+   "t": "speed",
+   "w": "trà đá",
+   "ok": true,
+   "a": "iced tea",
+   "ms": 2592
+  },
+  {
+   "t": "speed",
+   "w": "trà đá",
+   "ok": true,
+   "a": "iced tea",
+   "ms": 1314
+  },
+  {
+   "t": "speed",
+   "w": "ít",
+   "ok": true,
+   "a": "a little; few",
+   "ms": 3558
+  },
+  {
+   "t": "speed",
+   "w": "rẻ",
+   "ok": true,
+   "a": "cheap",
+   "ms": 2631
+  },
+  {
+   "t": "speed",
+   "w": "hết",
+   "ok": true,
+   "a": "in total (of a bill); also: used up, sold out",
+   "ms": 1924
+  },
+  {
+   "t": "speed",
+   "w": "đá",
+   "ok": true,
+   "a": "ice (also: stone)",
+   "ms": 2078
+  },
+  {
+   "t": "speed",
+   "w": "ít",
+   "ok": false,
+   "a": "iced tea",
+   "ms": 1956
+  },
+  {
+   "t": "speed",
+   "w": "nóng",
+   "ok": true,
+   "a": "hot",
+   "ms": 2876
+  },
+  {
+   "t": "speed",
+   "w": "trà đá",
+   "ok": true,
+   "a": "iced tea",
+   "ms": 1662
+  },
+  {
+   "t": "speed",
+   "w": "ít",
+   "ok": true,
+   "a": "a little; few",
+   "ms": 2497
+  },
+  {
+   "t": "speed",
+   "w": "trà đá",
+   "ok": true,
+   "a": "iced tea",
+   "ms": 1478
+  }
+ ],
+ "issue": 52
+}

@@ -249,8 +249,9 @@ def check_lesson(r, entry, lesson, earlier_words, audio, known_words, warmed=fro
         check_limit(r, lid, lesson, field)
 
     words = lesson.get("words", [])
-    if not 4 <= len(words) <= 16:
-        r.error(lid, f"has {len(words)} words; use 4 to 16")
+    low = 2 if lesson.get("mixups") else 4  # a clinic teaches few new words and brings back mix-ups instead
+    if not low <= len(words) <= 16:
+        r.error(lid, f"has {len(words)} words; use {low} to 16")
     seen = set()
     for i, w in enumerate(words):
         where = f"{lid}.words[{i}] {w.get('vi', '?')}"

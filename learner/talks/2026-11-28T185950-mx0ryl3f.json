@@ -1,0 +1,27 @@
+{
+ "talkId": "mx0ryl3f-d2wo5d",
+ "startedAt": "2026-11-28T18:59:50.475Z",
+ "endedAt": "2026-11-28T19:00:19.787Z",
+ "device": "iPhone",
+ "context": "In issue 14, \"One iced milk coffee\" (ordering at a Hà Nội café (đá, nâu, đường, ít); an order in three turns; Hà Nội's coffee), on a situation screen.\nThe word on screen: Hết đá rồi anh ạ. (We've run out of ice.) Note: hết ... rồi: all gone (issues 9 and 11).\nThis issue's new words: đá (ice (also: stone)), nâu (brown; in a Hà Nội café, coffee with milk), đường (sugar (also: road)), ít (a little; few).\nThis issue's sentence frame: Just name it: Một + the drink\nThis issue's story: Brown, black and egg. Coffee came to Vietnam with the French, and Vietnam made it its own: dark-roast robusta dripped slowly through a little metal filter, the phin, onto sweetened condensed milk, then poured over ice. In Hà Nội today a café can be three plastic stools on a pavement or a shop with a menu of a dozen coffees.\nIssues played: 1 Phở and friends; 2 Big numbers and prices; 3 One to ten, properly; 4 People and family; 5 At the market; 6 At the table; 7 Getting around; 8 A numbers clinic; 9 Your turn to haggle; 10 Hello in six tones; 11 So hot, so cold; 12 I want to ...; 13 Where is the market?.\nWords the learner has met: gà (chicken), bò (beef; cow), cá (fish), trăm (hundred), nghìn (thousand), triệu (million), mươi (-ty, the tens (as in 20)), lăm (five, after the tens (as in 15 and 25)), linh (zero (for an empty tens place, as in 105)), rưỡi (and a half (after a unit)), tiền (money), bao nhiêu (how much, how many), đắt (expensive), rẻ (cheap), hơn (-er; more (after the describing word: cheap + more = cheaper)), nữa (more, another), bốn (four), tám (eight), chín (nine (also: ripe, cooked)), ba (three), một (one), hai (two), năm (five (also: year)), sáu (six), bảy (seven), mười (ten), tên (name), tôi (I, me (neutral; safe with strangers)), anh (older brother; you (to a man a bit older)), chị (older sister; you (to a woman a bit older)), em (younger brother or sister; you (to someone younger)), cô (aunt; you (to a woman a bit younger than your parents)), chú (uncle; you (to a man a bit younger than your parents)), ông (grandfather; you (to an old man)), bạn (friend; you (to someone your own age)), bà (grandmother; you (to an old woman)), mua (to buy), quả (fruit; also the counting word for fruit), cam (orange (the fruit)), chuối (banana), cân (a kilo; also: scale, to weigh), thịt (meat), bớt (to take some off (a price); to reduce), hết (in total (of a bill); also: used up, sold out), mời (to invite; please (go ahead, have some)), cháu (grandchild, niece or nephew; I (to your parents' or grandparents' generation)), bát (bowl (a rice bowl)), đũa (chopsticks), canh (soup (a clear broth eaten with rice)), no (full (after eating)), vâng (yes (polite, to someone older)), uống (to drink), xe ôm (motorbike taxi), đâu (where), trái (left (the side)), gần (near, close by), rẽ (to turn (at a corner)), phải (right (the side)), nhăm (five after the tens, a casual spoken form of lăm (as in 25)), mốt (one at the end of 21, 31 ... 91 (11 stays mười một)), tư (four at the end of 24, 34 ... 94 (14 stays mười bốn)), chục (a set of ten things, as sellers count (ten eggs)), hàng (wares, goods; a shop or stall that sells them), được (OK, all right; can be done), lấy (to take; I'll have (at a stall or at the table)), trứng (egg), chào (hello; goodbye), biết (to know (a fact, or how to do something)), khỏe (well, healthy; strong), xin lỗi (sorry; excuse me), gặp (to meet (someone)), nóng (hot), rét (cold (of the weather, and how you feel in it)), đẹp (beautiful, pretty; good-looking), đói (hungry), nấu (to cook), xem (to watch; to look at), ngủ (to sleep), muốn (to want (to)), quán (a small eatery, café or bar), nhà (house; home), chợ (a market), hồ (a lake).\nWords they already knew: phở, cơm, bún, bánh mì, rau, nước, trà, cà phê, ngon, đồng.\nWords still weak: nghìn, bao nhiêu, hơn, tên, ông, cam, chuối, cháu, đũa, canh, xe ôm, đâu, lấy, nấu, xem, muốn, chợ, hồ.",
+ "model": "gemini-2.5-flash-native-audio-latest",
+ "turns": [
+  {
+   "who": "editor",
+   "text": "Xin chào! Ask me anything about this screen, out loud or by typing."
+  },
+  {
+   "who": "you",
+   "text": "Here as well, I think they should just say"
+  },
+  {
+   "who": "you",
+   "text": "uh without the anger"
+  },
+  {
+   "who": "editor",
+   "text": "Thanks for the comment! The word \"ạ\""
+  }
+ ],
+ "issue": 51
+}

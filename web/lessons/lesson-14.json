@@ -238,7 +238,7 @@
         "kind": "icon",
         "name": "ice"
       },
-      "vi": "Anh uống nóng hay đá ạ?",
+      "vi": "Nóng hay đá?",
       "en": "Hot or iced?",
       "ask": "Turn 2 of 3. It is a hot afternoon and the waiter checks. What do you answer?",
       "options": [
@@ -247,7 +247,7 @@
         "Ít đường."
       ],
       "answer": "Đá.",
-      "note": "hay: or. Just Đá. (iced) is a full answer; Đá em nhé is the friendlier form."
+      "note": "hay: or."
     },
     {
       "chain": "order",
@@ -256,8 +256,8 @@
         "kind": "icon",
         "name": "bill"
       },
-      "vi": "Của anh hết ba mươi nghìn ạ.",
-      "en": "That's 30,000 in total.",
+      "vi": "Ba mươi nghìn.",
+      "en": "30,000.",
       "ask": "Turn 3 of 3. You ask for the bill. What do you pay?",
       "options": [
         "30.000₫",
@@ -265,7 +265,7 @@
         "13.000₫"
       ],
       "answer": "30.000₫",
-      "note": "Của anh hết ...: yours comes to. ba mươi nghìn is 30.000; ba nghìn would be 3.000."
+      "note": "ba mươi nghìn is 30.000; ba nghìn would be 3.000."
     },
     {
       "who": "Tea seller",
@@ -273,8 +273,8 @@
         "kind": "icon",
         "name": "tea"
       },
-      "vi": "Trà đá ba nghìn một cốc anh ạ.",
-      "en": "Iced tea, 3,000 a glass.",
+      "vi": "Trà đá ba nghìn.",
+      "en": "Iced tea, 3,000.",
       "ask": "How much is a glass of iced tea?",
       "options": [
         "3.000₫",
@@ -290,16 +290,15 @@
         "kind": "icon",
         "name": "tea"
       },
-      "vi": "Hai cốc trà đá, hết sáu nghìn ạ.",
-      "en": "Two iced teas, 6,000 in total.",
+      "vi": "Hai trà đá, sáu nghìn.",
+      "en": "Two iced teas, 6,000.",
       "ask": "You and a friend had an iced tea each. What do you pay?",
       "options": [
         "6.000₫",
         "60.000₫",
         "16.000₫"
       ],
-      "answer": "6.000₫",
-      "note": "hết here: in total. In Hết đá rồi it means all gone."
+      "answer": "6.000₫"
     },
     {
       "who": "Waiter at Cà Phê Giảng",
@@ -307,8 +306,8 @@
         "kind": "icon",
         "name": "eggCoffee"
       },
-      "vi": "Cà phê trứng bốn mươi nghìn anh nhé.",
-      "en": "Egg coffee is 40,000.",
+      "vi": "Cà phê trứng bốn mươi nghìn.",
+      "en": "Egg coffee, 40,000.",
       "ask": "Type the price of an egg coffee in digits.",
       "digits": "40000"
     },
@@ -338,8 +337,8 @@
         "kind": "icon",
         "name": "ice"
       },
-      "vi": "Hết đá rồi anh ạ.",
-      "en": "We've run out of ice.",
+      "vi": "Hết đá rồi.",
+      "en": "The ice is all gone.",
       "ask": "You order an iced coffee on a hot day. What does the waiter tell you?",
       "options": [
         "They have run out of ice.",

@@ -100,3 +100,5 @@ A `say` situation shows a price in figures, or a short English cue (Hello! to an
 A list of `{ words, rank?, fact, saying, sources }`, rising by `words`. `rank` is `{ vi, en }` (a title from the old imperial exams; a milestone without one keeps the rank before it). `fact` is one or two sourced sentences. `saying` is `{ vi, literal, meaning }`: a well-known Vietnamese saying, its word-for-word English and what it means; its audio is made by `scripts/make_audio.py`, and the words the learner has met are underlined. `scripts/check_lessons.py` checks the file.
 
 A situation may carry `"chain": "name"`: situations with the same chain play one after another, in file order (an order in three turns: order, answer the waiter, pay). The rest are shuffled around them.
+
+A situation may carry `"board": { "title": "...", "items": [{ "vi": "Bia hơi", "price": "15.000₫" }] }`: a chalked price board shown instead of the picture, for questions the learner answers by reading it. A lesson may list `"mixups": [["đói", "đẹp"], ...]`: pairs of earlier words shown side by side and told apart by ear (practice), before the grammar note; a clinic uses them.

@@ -2,6 +2,19 @@
 
 Why each lesson was planned the way it was, newest first. Written by the `/next-lesson` skill.
 
+## 2026-11-28: Issue 15, Mix-up clinic ("Fresh beer, every day")
+
+- Data: issue 14, 91% first try (61%, 73%, 81%, 91% over four issues), 6.3 active minutes; misses: đường taken for đá, nâu spelled nấu, the dialogue check, sáu nghìn heard as 60.000₫, "nóng hay đá?" answered Nóng quá!, the egg-coffee price typed 41. Mix-ups from all answers: đói/đẹp 4, biết/chào 3, gặp/khỏe 2, bớt/đắt 2, tên/tôi 2, hai/năm 2, triệu/nghìn 2. The learner asked for the shortest functional sentences (theirs and the sellers'), which became the Functional first rule.
+- What changes and why:
+  - Clinic (every fifth issue): the four most frequent pairs as mix-up cards with `remember` cues and two-option listening (`mixups`, new in the engine for issues), the eight words under review, and a dialogue check and real-life options that set the pairs against each other (Đói quá! against Đẹp quá!, Khỏe! against Gặp! and Chào!). To beat: none of these pairs confused in the next two reviews.
+  - Headline format (new): Read the board, a chalked price board on a situation (`board`): which drink costs too much with 10.000₫, read the bia hơi price aloud.
+  - Load: two new words (bia, lạnh), the clinic's exception to the ladder (which would allow five; issue 16 can take it).
+  - Functional first: every learner line short (Lạnh! Đắt quá! Bớt đi! Mười lăm. Đói quá!), sellers short too.
+  - Prices: a spoken plain nghìn (Trà đá ba nghìn against 30.000 and 300.000), the board, and a haggle chain ending at bốn mươi nghìn.
+- Story (source: en Bia hơi, a short unsourced stub; vi Bia tươi confirms none of the specifics): Northern street corners, brewed daily and delivered in steel barrels, 4.1 to 4.3%, 10.000 to 15.000₫ a glass, recycled glasses whose flaws date from the 1970s. Three untied beats.
+- Pictures: new cover and stamp `biaHoi`; icons beer, coldDrink. Second cues added for đẹp, chào, gặp and khỏe.
+- Reviews: the Vietnamese reviewer fixed the grammar note's no-answer (Không đói), the lạnh note (nước lạnh is unboiled water in Hà Nội), the đói cue's pronoun frame and the lạnh hook (lie-ng). The fact-check removed an unsupported "made that day", made the dek "less than a bánh mì", kept haggling to stalls without prices, and made the board what a bia hơi corner sells. The design review made the board questions need the board, added the spoken small price and the khỏe line, put the short Mười lăm. first, and removed a design note from the intro.
+
 ## 2026-11-27: Issue 14, One brown, please ("Brown, black and egg")
 
 - Data: issue 13, 81% first try (61%, 73%, 81% over three issues), fun "OK", story "Interesting", 12.9 active minutes; listening 15/19; say 0/3 typed (now word tiles, see the progress review); dialogue check 0/1 (it needed an inference); plain nghìn heard as tens again (bốn mươi nghìn picked as 14.000). The learner asked for feedback in rush hour, a greeting and a smaller sheet in Ask a question, and fewer microphone prompts (all fixed today).

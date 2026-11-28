@@ -1,0 +1,1365 @@
+{
+ "schema": 3,
+ "resultId": "01622f49-d67a-46d5-97d8-954768f41e7d",
+ "kind": "review",
+ "lessonId": "review",
+ "lessonTitle": "Review",
+ "appVersion": "5",
+ "style": "paper",
+ "device": "iPhone",
+ "startedAt": "2026-11-28T19:02:54.581Z",
+ "finishedAt": "2026-11-28T19:09:30.420Z",
+ "durationSec": 396,
+ "summary": {
+  "firstTryAccuracy": 0.83,
+  "exercises": 46,
+  "bestStreak": 14,
+  "grade": "merit",
+  "speedScore": 0,
+  "speedAnswered": 0,
+  "speedCorrect": 0,
+  "bestCombo": 0
+ },
+ "article": null,
+ "quiz": null,
+ "situations": {
+  "correct": 3,
+  "total": 3
+ },
+ "dialogues": null,
+ "timing": {
+  "drills": 228,
+  "reallife": 25,
+  "article": 0,
+  "pauses": 0,
+  "longestPauseSec": 37
+ },
+ "toneMarks": "relaxed",
+ "words": [
+  {
+   "vi": "nấu",
+   "en": "to cook",
+   "failures": 0,
+   "timeSec": 15,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 1,
+   "meaning": 1,
+   "form": 1,
+   "stars": 3,
+   "firstTry": {
+    "listen": true,
+    "type": "marks"
+   },
+   "attempts": 2,
+   "msMedian": 13109,
+   "known": false
+  },
+  {
+   "vi": "xem",
+   "en": "to watch; to look at",
+   "failures": 0,
+   "timeSec": 11,
+   "replays": 1,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 1,
+   "meaning": 1,
+   "form": 1,
+   "stars": 3,
+   "firstTry": {
+    "listen": true,
+    "type": "perfect"
+   },
+   "attempts": 2,
+   "msMedian": 7998,
+   "known": false
+  },
+  {
+   "vi": "nghìn",
+   "en": "thousand",
+   "failures": 0,
+   "timeSec": 7,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 1,
+   "meaning": 1,
+   "form": 1,
+   "stars": 3,
+   "firstTry": {
+    "listen": true,
+    "type": "tone"
+   },
+   "attempts": 2,
+   "msMedian": 4566,
+   "known": false
+  },
+  {
+   "vi": "bao nhiêu",
+   "en": "how much, how many",
+   "failures": 0,
+   "timeSec": 11,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 1,
+   "meaning": 1,
+   "form": 1,
+   "stars": 3,
+   "firstTry": {
+    "listen": true,
+    "type": "marks"
+   },
+   "attempts": 2,
+   "msMedian": 8844,
+   "known": false
+  },
+  {
+   "vi": "hơn",
+   "en": "-er; more (after the describing word: cheap + more = cheaper)",
+   "failures": 0,
+   "timeSec": 8,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 1,
+   "meaning": 1,
+   "form": 1,
+   "stars": 3,
+   "firstTry": {
+    "listen": true,
+    "type": "marks"
+   },
+   "attempts": 2,
+   "msMedian": 5000,
+   "known": false
+  },
+  {
+   "vi": "tên",
+   "en": "name",
+   "failures": 0,
+   "timeSec": 5,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 1,
+   "meaning": 1,
+   "form": 1,
+   "stars": 3,
+   "firstTry": {
+    "listen": true,
+    "type": "marks"
+   },
+   "attempts": 2,
+   "msMedian": 2633,
+   "known": false
+  },
+  {
+   "vi": "ông",
+   "en": "grandfather; you (to an old man)",
+   "failures": 1,
+   "timeSec": 8,
+   "replays": 1,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 0.5,
+   "meaning": 0,
+   "form": 1,
+   "stars": 1,
+   "firstTry": {
+    "listen": false,
+    "type": "marks"
+   },
+   "attempts": 3,
+   "msMedian": 2347,
+   "known": false
+  },
+  {
+   "vi": "cam",
+   "en": "orange (the fruit)",
+   "failures": 2,
+   "timeSec": 9,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 0.5,
+   "meaning": 1,
+   "form": 0,
+   "stars": 1,
+   "firstTry": {
+    "listen": true,
+    "type": "wrong"
+   },
+   "attempts": 3,
+   "msMedian": 3196,
+   "known": false
+  },
+  {
+   "vi": "chuối",
+   "en": "banana",
+   "failures": 2,
+   "timeSec": 13,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 0.5,
+   "meaning": 1,
+   "form": 0,
+   "stars": 1,
+   "firstTry": {
+    "listen": true,
+    "type": "wrong"
+   },
+   "attempts": 3,
+   "msMedian": 4639,
+   "known": false
+  },
+  {
+   "vi": "cháu",
+   "en": "grandchild, niece or nephew; I (to your parents' or grandparents' generation)",
+   "failures": 1,
+   "timeSec": 6,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 0.5,
+   "meaning": 0,
+   "form": 1,
+   "stars": 1,
+   "firstTry": {
+    "listen": false,
+    "type": "tone"
+   },
+   "attempts": 3,
+   "msMedian": 1820,
+   "known": false
+  },
+  {
+   "vi": "đũa",
+   "en": "chopsticks",
+   "failures": 0,
+   "timeSec": 3,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 1,
+   "meaning": 1,
+   "form": 1,
+   "stars": 3,
+   "firstTry": {
+    "listen": true,
+    "type": "marks"
+   },
+   "attempts": 2,
+   "msMedian": 1800,
+   "known": false
+  },
+  {
+   "vi": "canh",
+   "en": "soup (a clear broth eaten with rice)",
+   "failures": 0,
+   "timeSec": 4,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 1,
+   "meaning": 1,
+   "form": 1,
+   "stars": 3,
+   "firstTry": {
+    "listen": true,
+    "type": "perfect"
+   },
+   "attempts": 2,
+   "msMedian": 2858,
+   "known": false
+  },
+  {
+   "vi": "xe ôm",
+   "en": "motorbike taxi",
+   "failures": 0,
+   "timeSec": 8,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 1,
+   "meaning": 1,
+   "form": 1,
+   "stars": 3,
+   "firstTry": {
+    "listen": true,
+    "type": "marks"
+   },
+   "attempts": 2,
+   "msMedian": 6909,
+   "known": false
+  },
+  {
+   "vi": "đâu",
+   "en": "where",
+   "failures": 0,
+   "timeSec": 7,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 1,
+   "meaning": 1,
+   "form": 1,
+   "stars": 3,
+   "firstTry": {
+    "listen": true,
+    "type": "marks"
+   },
+   "attempts": 2,
+   "msMedian": 3657,
+   "known": false
+  },
+  {
+   "vi": "lấy",
+   "en": "to take; I'll have (at a stall or at the table)",
+   "failures": 0,
+   "timeSec": 6,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 1,
+   "meaning": 1,
+   "form": 1,
+   "stars": 3,
+   "firstTry": {
+    "listen": true,
+    "type": "marks"
+   },
+   "attempts": 2,
+   "msMedian": 2979,
+   "known": false
+  },
+  {
+   "vi": "bò",
+   "en": "beef; cow",
+   "failures": 1,
+   "timeSec": 9,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 0.5,
+   "meaning": 0,
+   "form": 1,
+   "stars": 1,
+   "firstTry": {
+    "listen": false,
+    "type": "tone"
+   },
+   "attempts": 3,
+   "msMedian": 3274,
+   "known": false
+  },
+  {
+   "vi": "gà",
+   "en": "chicken",
+   "failures": 2,
+   "timeSec": 6,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 0.5,
+   "meaning": 1,
+   "form": 0,
+   "stars": 1,
+   "firstTry": {
+    "listen": true,
+    "type": "wrong"
+   },
+   "attempts": 3,
+   "msMedian": 2304,
+   "known": false
+  },
+  {
+   "vi": "chục",
+   "en": "a set of ten things, as sellers count (ten eggs)",
+   "failures": 0,
+   "timeSec": 40,
+   "replays": 1,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 1,
+   "meaning": 1,
+   "form": 1,
+   "stars": 3,
+   "firstTry": {
+    "listen": true,
+    "type": "tone"
+   },
+   "attempts": 2,
+   "msMedian": 36251,
+   "known": false
+  },
+  {
+   "vi": "trứng",
+   "en": "egg",
+   "failures": 0,
+   "timeSec": 5,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 1,
+   "meaning": 1,
+   "form": 1,
+   "stars": 3,
+   "firstTry": {
+    "listen": true,
+    "type": "marks"
+   },
+   "attempts": 2,
+   "msMedian": 2721,
+   "known": false
+  },
+  {
+   "vi": "nhăm",
+   "en": "five after the tens, a casual spoken form of lăm (as in 25)",
+   "failures": 1,
+   "timeSec": 13,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 0.5,
+   "meaning": 1,
+   "form": 0,
+   "stars": 1,
+   "firstTry": {
+    "listen": true,
+    "type": "wrong"
+   },
+   "attempts": 3,
+   "msMedian": 4408,
+   "known": false
+  },
+  {
+   "vi": "chợ",
+   "en": "a market",
+   "failures": 0,
+   "timeSec": 6,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 1,
+   "meaning": 1,
+   "form": 1,
+   "stars": 3,
+   "firstTry": {
+    "listen": true,
+    "type": "marks"
+   },
+   "attempts": 2,
+   "msMedian": 3297,
+   "known": false
+  },
+  {
+   "vi": "hồ",
+   "en": "a lake",
+   "failures": 0,
+   "timeSec": 6,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 1,
+   "meaning": 1,
+   "form": 1,
+   "stars": 3,
+   "firstTry": {
+    "listen": true,
+    "type": "marks"
+   },
+   "attempts": 2,
+   "msMedian": 3179,
+   "known": false
+  },
+  {
+   "vi": "xin lỗi",
+   "en": "sorry; excuse me",
+   "failures": 1,
+   "timeSec": 7,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 0.5,
+   "meaning": 0,
+   "form": 1,
+   "stars": 1,
+   "firstTry": {
+    "listen": false,
+    "type": "sound"
+   },
+   "attempts": 3,
+   "msMedian": 1978,
+   "known": false
+  }
+ ],
+ "warmup": [],
+ "toneConfusions": [],
+ "meaningConfusions": [
+  {
+   "target": "cháu",
+   "chose": "I, me (neutral; safe with strangers)",
+   "t": "listen"
+  },
+  {
+   "target": "xin lỗi",
+   "chose": "hello; goodbye",
+   "t": "listen"
+  },
+  {
+   "target": "bò",
+   "chose": "four",
+   "t": "listen"
+  },
+  {
+   "target": "ông",
+   "chose": "water (also: drink, liquid, country)",
+   "t": "listen"
+  }
+ ],
+ "typed": [
+  {
+   "target": "chuối",
+   "answer": "choi",
+   "grade": "wrong",
+   "accepted": false,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 1596,
+   "deletes": 2
+  },
+  {
+   "target": "nhăm",
+   "answer": "ngham",
+   "grade": "wrong",
+   "accepted": false,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 2060,
+   "dictation": true
+  },
+  {
+   "target": "xin lỗi",
+   "answer": "sin loi",
+   "grade": "sound",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 1413
+  },
+  {
+   "target": "nghìn",
+   "answer": "nghin",
+   "grade": "tone",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 2821,
+   "dictation": true
+  },
+  {
+   "target": "chuối",
+   "answer": "chuồi",
+   "grade": "tone",
+   "tiles": true,
+   "retry": true
+  },
+  {
+   "target": "nhăm",
+   "answer": "nhăm",
+   "grade": "perfect",
+   "tiles": true,
+   "retry": true
+  },
+  {
+   "target": "ông",
+   "answer": "ong",
+   "grade": "marks",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 1638
+  },
+  {
+   "target": "canh",
+   "answer": "canh",
+   "grade": "perfect",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 1949,
+   "dictation": true
+  },
+  {
+   "target": "chợ",
+   "answer": "cho",
+   "grade": "marks",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 1510
+  },
+  {
+   "target": "hơn",
+   "answer": "hon",
+   "grade": "marks",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 1764,
+   "dictation": true
+  },
+  {
+   "target": "xe ôm",
+   "answer": "xe om",
+   "grade": "marks",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 2041,
+   "deletes": 2
+  },
+  {
+   "target": "gà",
+   "answer": "ca",
+   "grade": "wrong",
+   "accepted": false,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 1878,
+   "dictation": true
+  },
+  {
+   "target": "đũa",
+   "answer": "dua",
+   "grade": "marks",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 1289
+  },
+  {
+   "target": "hồ",
+   "answer": "ho",
+   "grade": "marks",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 2519,
+   "dictation": true
+  },
+  {
+   "target": "trứng",
+   "answer": "trung",
+   "grade": "marks",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 1482
+  },
+  {
+   "target": "gà",
+   "answer": "gá",
+   "grade": "tone",
+   "tiles": true,
+   "retry": true
+  },
+  {
+   "target": "chục",
+   "answer": "chuc",
+   "grade": "tone",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 35241,
+   "dictation": true
+  },
+  {
+   "target": "xem",
+   "answer": "xem",
+   "grade": "perfect",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 2610
+  },
+  {
+   "target": "cháu",
+   "answer": "chau",
+   "grade": "tone",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 1490,
+   "dictation": true
+  },
+  {
+   "target": "bò",
+   "answer": "bo",
+   "grade": "tone",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 3019
+  },
+  {
+   "target": "đâu",
+   "answer": "dau",
+   "grade": "marks",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 1133,
+   "dictation": true
+  },
+  {
+   "target": "cam",
+   "answer": "camh",
+   "grade": "wrong",
+   "accepted": false,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 1339
+  },
+  {
+   "target": "nấu",
+   "answer": "nau",
+   "grade": "marks",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 1310,
+   "dictation": true
+  },
+  {
+   "target": "bao nhiêu",
+   "answer": "bao nhieu",
+   "grade": "marks",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 2113,
+   "deletes": 3
+  },
+  {
+   "target": "tên",
+   "answer": "ten",
+   "grade": "marks",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 1270,
+   "dictation": true
+  },
+  {
+   "target": "cam",
+   "answer": "càm",
+   "grade": "tone",
+   "tiles": true,
+   "retry": true
+  },
+  {
+   "target": "lấy",
+   "answer": "lay",
+   "grade": "marks",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 2054
+  }
+ ],
+ "feedback": {
+  "difficulty": null,
+  "fun": null,
+  "article": null,
+  "hardest": [
+   "ông",
+   "cam",
+   "chuối",
+   "cháu",
+   "bò",
+   "gà",
+   "nhăm",
+   "xin lỗi"
+  ],
+  "wantNext": null,
+  "note": null
+ },
+ "events": [
+  {
+   "t": "listen",
+   "w": "bao nhiêu",
+   "ok": true,
+   "a": "how much, how many",
+   "ms": 2374
+  },
+  {
+   "t": "listen",
+   "w": "canh",
+   "ok": true,
+   "a": "soup (a clear broth eaten with rice)",
+   "ms": 1282
+  },
+  {
+   "t": "listen",
+   "w": "đũa",
+   "ok": true,
+   "a": "chopsticks",
+   "ms": 1595
+  },
+  {
+   "t": "listen",
+   "w": "hơn",
+   "ok": true,
+   "a": "-er; more (after the describing word: cheap + more = cheaper)",
+   "ms": 5000
+  },
+  {
+   "t": "listen",
+   "w": "lấy",
+   "ok": true,
+   "a": "to take; I'll have (at a stall or at the table)",
+   "ms": 2608
+  },
+  {
+   "t": "listen",
+   "w": "gà",
+   "ok": true,
+   "a": "chicken",
+   "ms": 1491
+  },
+  {
+   "t": "listen",
+   "w": "chục",
+   "ok": true,
+   "a": "a set of ten things, as sellers count (ten eggs)",
+   "ms": 3867
+  },
+  {
+   "t": "listen",
+   "w": "cam",
+   "ok": true,
+   "a": "orange (the fruit)",
+   "ms": 3327
+  },
+  {
+   "t": "listen",
+   "w": "nhăm",
+   "ok": true,
+   "a": "five after the tens, a casual spoken form of lăm (as in 25)",
+   "ms": 4924
+  },
+  {
+   "t": "listen",
+   "w": "xe ôm",
+   "ok": true,
+   "a": "motorbike taxi",
+   "ms": 1487
+  },
+  {
+   "t": "listen",
+   "w": "trứng",
+   "ok": true,
+   "a": "egg",
+   "ms": 2721
+  },
+  {
+   "t": "listen",
+   "w": "hồ",
+   "ok": true,
+   "a": "a lake",
+   "ms": 2721
+  },
+  {
+   "t": "listen",
+   "w": "nấu",
+   "ok": true,
+   "a": "to cook",
+   "ms": 13109
+  },
+  {
+   "t": "listen",
+   "w": "tên",
+   "ok": true,
+   "a": "name",
+   "ms": 2633
+  },
+  {
+   "t": "listen",
+   "w": "cháu",
+   "ok": false,
+   "a": "I, me (neutral; safe with strangers)",
+   "ms": 1820
+  },
+  {
+   "t": "listen",
+   "w": "xin lỗi",
+   "ok": false,
+   "a": "hello; goodbye",
+   "ms": 1978
+  },
+  {
+   "t": "listen",
+   "w": "nghìn",
+   "ok": true,
+   "a": "thousand",
+   "ms": 2577
+  },
+  {
+   "t": "listen",
+   "w": "chợ",
+   "ok": true,
+   "a": "a market",
+   "ms": 3297
+  },
+  {
+   "t": "listen",
+   "w": "cháu",
+   "ok": true,
+   "a": "grandchild, niece or nephew; I (to your parents' or grandparents' generation)",
+   "ms": 1668,
+   "retry": true
+  },
+  {
+   "t": "listen",
+   "w": "xin lỗi",
+   "ok": true,
+   "a": "sorry; excuse me",
+   "ms": 1938,
+   "retry": true
+  },
+  {
+   "t": "listen",
+   "w": "chuối",
+   "ok": true,
+   "a": "banana",
+   "ms": 1555
+  },
+  {
+   "t": "listen",
+   "w": "bò",
+   "ok": false,
+   "a": "four",
+   "ms": 3274
+  },
+  {
+   "t": "listen",
+   "w": "ông",
+   "ok": false,
+   "a": "water (also: drink, liquid, country)",
+   "ms": 3600,
+   "plays": 1
+  },
+  {
+   "t": "listen",
+   "w": "đâu",
+   "ok": true,
+   "a": "where",
+   "ms": 3657
+  },
+  {
+   "t": "listen",
+   "w": "xem",
+   "ok": true,
+   "a": "to watch; to look at",
+   "ms": 7998,
+   "plays": 1
+  },
+  {
+   "t": "listen",
+   "w": "bò",
+   "ok": true,
+   "a": "beef; cow",
+   "ms": 1801,
+   "retry": true
+  },
+  {
+   "t": "listen",
+   "w": "ông",
+   "ok": true,
+   "a": "grandfather; you (to an old man)",
+   "ms": 1854,
+   "retry": true
+  },
+  {
+   "t": "listen",
+   "w": "đẹp",
+   "ok": true,
+   "a": "beautiful, pretty; good-looking",
+   "ms": 1884,
+   "retry": true
+  },
+  {
+   "t": "listen",
+   "w": "đói",
+   "ok": true,
+   "a": "hungry",
+   "ms": 1571,
+   "retry": true
+  },
+  {
+   "t": "listen",
+   "w": "chào",
+   "ok": true,
+   "a": "hello; goodbye",
+   "ms": 2017,
+   "retry": true
+  },
+  {
+   "t": "listen",
+   "w": "biết",
+   "ok": true,
+   "a": "to know (a fact, or how to do something)",
+   "ms": 1451,
+   "retry": true
+  },
+  {
+   "t": "listen",
+   "w": "khỏe",
+   "ok": true,
+   "a": "well, healthy; strong",
+   "ms": 3804,
+   "retry": true
+  },
+  {
+   "t": "listen",
+   "w": "gặp",
+   "ok": true,
+   "a": "to meet (someone)",
+   "ms": 4362,
+   "retry": true
+  },
+  {
+   "t": "type",
+   "w": "chuối",
+   "ok": false,
+   "g": "wrong",
+   "a": "choi",
+   "ms": 4639,
+   "hints": 0,
+   "firstKeyMs": 1596,
+   "deletes": 2
+  },
+  {
+   "t": "type",
+   "w": "nhăm",
+   "ok": false,
+   "g": "wrong",
+   "a": "ngham",
+   "ms": 4408,
+   "dictation": true,
+   "hints": 0,
+   "firstKeyMs": 2060
+  },
+  {
+   "t": "type",
+   "w": "xin lỗi",
+   "ok": true,
+   "g": "sound",
+   "a": "sin loi",
+   "ms": 2740,
+   "hints": 0,
+   "firstKeyMs": 1413
+  },
+  {
+   "t": "type",
+   "w": "nghìn",
+   "ok": true,
+   "g": "tone",
+   "a": "nghin",
+   "ms": 4566,
+   "dictation": true,
+   "hints": 0,
+   "firstKeyMs": 2821
+  },
+  {
+   "t": "type",
+   "w": "chuối",
+   "g": "tone",
+   "a": "chuồi",
+   "ms": 6971,
+   "retry": true,
+   "tiles": true
+  },
+  {
+   "t": "type",
+   "w": "nhăm",
+   "g": "perfect",
+   "a": "nhăm",
+   "ms": 4136,
+   "retry": true,
+   "tiles": true
+  },
+  {
+   "t": "type",
+   "w": "ông",
+   "ok": true,
+   "g": "marks",
+   "a": "ong",
+   "ms": 2347,
+   "hints": 0,
+   "firstKeyMs": 1638
+  },
+  {
+   "t": "type",
+   "w": "canh",
+   "ok": true,
+   "g": "perfect",
+   "a": "canh",
+   "ms": 2858,
+   "dictation": true,
+   "hints": 0,
+   "firstKeyMs": 1949
+  },
+  {
+   "t": "type",
+   "w": "chợ",
+   "ok": true,
+   "g": "marks",
+   "a": "cho",
+   "ms": 2287,
+   "hints": 0,
+   "firstKeyMs": 1510
+  },
+  {
+   "t": "type",
+   "w": "hơn",
+   "ok": true,
+   "g": "marks",
+   "a": "hon",
+   "ms": 2651,
+   "dictation": true,
+   "hints": 0,
+   "firstKeyMs": 1764
+  },
+  {
+   "t": "type",
+   "w": "xe ôm",
+   "ok": true,
+   "g": "marks",
+   "a": "xe om",
+   "ms": 6909,
+   "hints": 0,
+   "firstKeyMs": 2041,
+   "deletes": 2
+  },
+  {
+   "t": "type",
+   "w": "gà",
+   "ok": false,
+   "g": "wrong",
+   "a": "ca",
+   "ms": 2304,
+   "dictation": true,
+   "hints": 0,
+   "firstKeyMs": 1878
+  },
+  {
+   "t": "type",
+   "w": "đũa",
+   "ok": true,
+   "g": "marks",
+   "a": "dua",
+   "ms": 1800,
+   "hints": 0,
+   "firstKeyMs": 1289
+  },
+  {
+   "t": "type",
+   "w": "hồ",
+   "ok": true,
+   "g": "marks",
+   "a": "ho",
+   "ms": 3179,
+   "dictation": true,
+   "hints": 0,
+   "firstKeyMs": 2519
+  },
+  {
+   "t": "type",
+   "w": "trứng",
+   "ok": true,
+   "g": "marks",
+   "a": "trung",
+   "ms": 2341,
+   "hints": 0,
+   "firstKeyMs": 1482
+  },
+  {
+   "t": "type",
+   "w": "gà",
+   "g": "tone",
+   "a": "gá",
+   "ms": 2549,
+   "retry": true,
+   "tiles": true
+  },
+  {
+   "t": "type",
+   "w": "chục",
+   "ok": true,
+   "g": "tone",
+   "a": "chuc",
+   "ms": 36251,
+   "dictation": true,
+   "plays": 1,
+   "hints": 0,
+   "firstKeyMs": 35241
+  },
+  {
+   "t": "type",
+   "w": "xem",
+   "ok": true,
+   "g": "perfect",
+   "a": "xem",
+   "ms": 3403,
+   "hints": 0,
+   "firstKeyMs": 2610
+  },
+  {
+   "t": "type",
+   "w": "cháu",
+   "ok": true,
+   "g": "tone",
+   "a": "chau",
+   "ms": 2216,
+   "dictation": true,
+   "hints": 0,
+   "firstKeyMs": 1490
+  },
+  {
+   "t": "type",
+   "w": "bò",
+   "ok": true,
+   "g": "tone",
+   "a": "bo",
+   "ms": 3979,
+   "hints": 0,
+   "firstKeyMs": 3019
+  },
+  {
+   "t": "type",
+   "w": "đâu",
+   "ok": true,
+   "g": "marks",
+   "a": "dau",
+   "ms": 2911,
+   "dictation": true,
+   "hints": 0,
+   "firstKeyMs": 1133
+  },
+  {
+   "t": "type",
+   "w": "cam",
+   "ok": false,
+   "g": "wrong",
+   "a": "camh",
+   "ms": 2333,
+   "hints": 0,
+   "firstKeyMs": 1339
+  },
+  {
+   "t": "type",
+   "w": "nấu",
+   "ok": true,
+   "g": "marks",
+   "a": "nau",
+   "ms": 1872,
+   "dictation": true,
+   "hints": 0,
+   "firstKeyMs": 1310
+  },
+  {
+   "t": "type",
+   "w": "bao nhiêu",
+   "ok": true,
+   "g": "marks",
+   "a": "bao nhieu",
+   "ms": 8844,
+   "hints": 0,
+   "firstKeyMs": 2113,
+   "deletes": 3
+  },
+  {
+   "t": "type",
+   "w": "tên",
+   "ok": true,
+   "g": "marks",
+   "a": "ten",
+   "ms": 1946,
+   "dictation": true,
+   "hints": 0,
+   "firstKeyMs": 1270
+  },
+  {
+   "t": "type",
+   "w": "cam",
+   "g": "tone",
+   "a": "càm",
+   "ms": 3196,
+   "retry": true,
+   "tiles": true
+  },
+  {
+   "t": "type",
+   "w": "lấy",
+   "ok": true,
+   "g": "marks",
+   "a": "lay",
+   "ms": 2979,
+   "hints": 0,
+   "firstKeyMs": 2054
+  },
+  {
+   "t": "situation",
+   "w": "Trà nóng bốn nghìn một cốc anh ạ.",
+   "ok": true,
+   "a": "4.000₫",
+   "ms": 13161,
+   "plays": 1
+  },
+  {
+   "t": "situation",
+   "w": "Cam bốn mươi nghìn một cân anh ạ.",
+   "ok": true,
+   "a": "40.000₫",
+   "ms": 6042,
+   "plays": 1
+  },
+  {
+   "t": "situation",
+   "w": "Cà phê trứng ba lăm anh ạ.",
+   "ok": true,
+   "a": "35.000₫",
+   "ms": 6208
+  }
+ ],
+ "issue": 55
+}
