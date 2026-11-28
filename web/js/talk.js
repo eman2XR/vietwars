@@ -20,6 +20,29 @@ const RULES = `You are one of the editors of Học tiếng Việt, a small perso
 - If they comment on the lessons or the site, thank them: the editors read every conversation.`;
 
 let contextFn = () => 'the magazine';
+
+// The microphone stream is kept for a few minutes after a conversation ends, so asking again soon does not bring up
+// the browser's permission prompt again (the learner asked, 2026-11-27).
+let micStream = null;
+let micTimer = null;
+async function getMic() {
+  clearTimeout(micTimer);
+  if (micStream && micStream.getTracks().every((t) => t.readyState === 'live')) {
+    micStream.getTracks().forEach((t) => (t.enabled = true));
+    return micStream;
+  }
+  micStream = await navigator.mediaDevices.getUserMedia({ audio: { channelCount: 1, echoCancellation: true, noiseSuppression: true } });
+  return micStream;
+}
+function releaseMic() {
+  if (!micStream) return;
+  micStream.getTracks().forEach((t) => (t.enabled = false));
+  clearTimeout(micTimer);
+  micTimer = setTimeout(() => {
+    micStream?.getTracks().forEach((t) => t.stop());
+    micStream = null;
+  }, 3 * 60000);
+}
 export function setTalkContext(fn) {
   contextFn = fn;
 }
@@ -188,7 +211,7 @@ async function connect(key, instruction, on) {
       ws.send(JSON.stringify({ clientContent: { turns: [{ role: 'user', parts: [{ text: t }] }], turnComplete: true } }));
     },
     close() {
-      mic?.getTracks().forEach((t) => t.stop());
+      if (mic) releaseMic();
       playing.forEach((s) => s.stop());
       if (ws.readyState <= 1) ws.close();
       ctx.close();
@@ -214,7 +237,7 @@ async function connect(key, instruction, on) {
   async function startMic() {
     on.status('Allow the microphone, or type');
     try {
-      mic = await navigator.mediaDevices.getUserMedia({ audio: { channelCount: 1, echoCancellation: true, noiseSuppression: true } });
+      mic = await getMic();
       await ctx.audioWorklet.addModule('js/pcm-capture.js');
       const node = new AudioWorkletNode(ctx, 'vw-capture');
       ctx.createMediaStreamSource(mic).connect(node);
@@ -254,6 +277,9 @@ async function connect(key, instruction, on) {
     if (msg.setupComplete) {
       live.ready = true;
       startMic();
+      // The editor speaks first: a short greeting, so the learner knows it is listening. This prompt is not shown
+      // in the transcript.
+      ws.send(JSON.stringify({ clientContent: { turns: [{ role: 'user', parts: [{ text: '(The learner has just opened the conversation and has not said anything yet. Greet them in one short line: say Xin chào! and then, in English, ask what they would like to know about what is on their screen.)' }] }], turnComplete: true } }));
       return;
     }
     const sc = msg.serverContent;

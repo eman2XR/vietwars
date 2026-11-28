@@ -664,7 +664,7 @@ textarea { width: 100%; padding: 12px; border-radius: var(--radius); border: 1px
 .check-q { font-family: var(--display); font-weight: 600; font-size: 1.15rem; margin: 18px 0 6px; }
 
 /* Live conversation with the editors (talk.js) */
-.talk-sheet { position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; max-height: 78vh; display: flex; flex-direction: column; gap: 10px; background: var(--card, var(--bg)); border-top: 1px solid var(--rule); box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.18); padding: 16px max(16px, env(safe-area-inset-right)) max(16px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left)); border-radius: 14px 14px 0 0; }
+.talk-sheet { position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; height: min(52vh, 460px); max-width: 680px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; background: var(--card, var(--bg)); border-top: 1px solid var(--rule); box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.18); padding: 16px max(16px, env(safe-area-inset-right)) max(16px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left)); border-radius: 14px 14px 0 0; }
 .talk-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
 .talk-status { font-family: var(--sans); font-size: 0.85rem; color: var(--accent); }
 .talk-about { margin: 0; }
@@ -724,3 +724,7 @@ textarea { width: 100%; padding: 12px; border-radius: var(--radius); border: 1px
 .mixup-word .big { font-size: 1.8rem; }
 .mixup-word .note { text-align: left; font-size: 0.9rem; }
 @media (max-width: 360px) { .mixup-pair { grid-template-columns: 1fr; } }
+
+.speed-verdict { min-height: 1.6em; margin-top: 10px; text-align: center; font-weight: 700; }
+.speed-verdict.ok { color: var(--ok); }
+.speed-verdict.no { color: var(--accent); }

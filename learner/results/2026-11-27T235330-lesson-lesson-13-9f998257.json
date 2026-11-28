@@ -1,0 +1,724 @@
+{
+ "schema": 3,
+ "resultId": "9f998257-b013-44c7-bb40-5130860f5e71",
+ "kind": "lesson",
+ "lessonId": "lesson-13",
+ "lessonTitle": "Where is the market?",
+ "appVersion": "5",
+ "style": "paper",
+ "device": "iPhone",
+ "startedAt": "2026-11-27T22:07:30.753Z",
+ "finishedAt": "2026-11-27T23:53:30.772Z",
+ "durationSec": 6360,
+ "summary": {
+  "firstTryAccuracy": 0.81,
+  "exercises": 27,
+  "bestStreak": 7,
+  "grade": "merit",
+  "speedScore": 300,
+  "speedAnswered": 11,
+  "speedCorrect": 10,
+  "bestCombo": 6
+ },
+ "article": {
+  "readSec": 315,
+  "factsShown": 0
+ },
+ "quiz": null,
+ "situations": {
+  "correct": 4,
+  "total": 8
+ },
+ "dialogues": {
+  "correct": 0,
+  "total": 1
+ },
+ "timing": {
+  "words": 22,
+  "drills": 145,
+  "conversation": 92,
+  "reallife": 159,
+  "rush": 40,
+  "article": 315,
+  "pauses": 4,
+  "longestPauseSec": 5054
+ },
+ "toneMarks": "relaxed",
+ "words": [
+  {
+   "vi": "quán",
+   "en": "a small eatery, café or bar",
+   "failures": 0,
+   "timeSec": 13,
+   "replays": 0,
+   "hints": 1,
+   "revealed": false,
+   "studySec": 15,
+   "share": 1,
+   "meaning": 1,
+   "form": 1,
+   "stars": 3,
+   "firstTry": {
+    "listen": true,
+    "spell": true,
+    "type": "tone"
+   },
+   "attempts": 4,
+   "msMedian": 2600,
+   "known": false
+  },
+  {
+   "vi": "nhà",
+   "en": "house; home",
+   "failures": 0,
+   "timeSec": 11,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 2,
+   "share": 1,
+   "meaning": 1,
+   "form": 1,
+   "stars": 3,
+   "firstTry": {
+    "listen": true,
+    "reverse": true,
+    "type": "tone"
+   },
+   "attempts": 4,
+   "msMedian": 2418,
+   "known": false
+  },
+  {
+   "vi": "chợ",
+   "en": "a market",
+   "failures": 1,
+   "timeSec": 19,
+   "replays": 1,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 2,
+   "share": 0.75,
+   "meaning": 1,
+   "form": 0.5,
+   "stars": 2,
+   "firstTry": {
+    "listen": true,
+    "spell": false,
+    "type": "marks"
+   },
+   "attempts": 5,
+   "msMedian": 2873,
+   "known": false
+  },
+  {
+   "vi": "hồ",
+   "en": "a lake",
+   "failures": 1,
+   "timeSec": 13,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 3,
+   "share": 0.75,
+   "meaning": 0.67,
+   "form": 1,
+   "stars": 2,
+   "firstTry": {
+    "listen": false,
+    "reverse": true,
+    "type": "marks"
+   },
+   "attempts": 5,
+   "msMedian": 2079,
+   "known": false
+  },
+  {
+   "vi": "muốn",
+   "en": "to want (to)",
+   "failures": 1,
+   "timeSec": 9,
+   "replays": 1,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 0,
+   "meaning": 0,
+   "form": null,
+   "stars": 0,
+   "firstTry": {
+    "listen": false
+   },
+   "attempts": 2,
+   "msMedian": 5784,
+   "known": false
+  },
+  {
+   "vi": "đói",
+   "en": "hungry",
+   "failures": 0,
+   "timeSec": 2,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 1,
+   "meaning": 1,
+   "form": null,
+   "stars": 3,
+   "firstTry": {
+    "listen": true
+   },
+   "attempts": 1,
+   "msMedian": 1967,
+   "known": false
+  },
+  {
+   "vi": "phải",
+   "en": "right (the side)",
+   "failures": 0,
+   "timeSec": 3,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 1,
+   "meaning": 1,
+   "form": null,
+   "stars": 3,
+   "firstTry": {
+    "listen": true
+   },
+   "attempts": 1,
+   "msMedian": 2900,
+   "known": false
+  },
+  {
+   "vi": "rẽ",
+   "en": "to turn (at a corner)",
+   "failures": 0,
+   "timeSec": 6,
+   "replays": 0,
+   "hints": 0,
+   "revealed": false,
+   "studySec": 0,
+   "share": 1,
+   "meaning": 1,
+   "form": null,
+   "stars": 3,
+   "firstTry": {
+    "listen": true
+   },
+   "attempts": 1,
+   "msMedian": 6439,
+   "known": false
+  }
+ ],
+ "warmup": [],
+ "toneConfusions": [
+  {
+   "target": "chợ",
+   "chose": "chờ"
+  }
+ ],
+ "meaningConfusions": [
+  {
+   "target": "muốn",
+   "chose": "a market",
+   "t": "listen"
+  },
+  {
+   "target": "hồ",
+   "chose": "right (the side)",
+   "t": "listen"
+  },
+  {
+   "target": "Chợ ở đâu?",
+   "chose": "to go home",
+   "t": "listen"
+  },
+  {
+   "target": "Ở gần đây.",
+   "chose": "Sword Lake is near here.",
+   "t": "listen"
+  },
+  {
+   "target": "Ở gần đây.",
+   "chose": "Sword Lake is near here.",
+   "t": "listen"
+  },
+  {
+   "target": "nhà",
+   "chose": "right (the side)",
+   "t": "speed"
+  }
+ ],
+ "typed": [
+  {
+   "target": "quán",
+   "answer": "quan",
+   "grade": "tone",
+   "accepted": true,
+   "hints": 1,
+   "keys": 0,
+   "firstKeyMs": 5513
+  },
+  {
+   "target": "chợ",
+   "answer": "cho",
+   "grade": "marks",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 1912
+  },
+  {
+   "target": "hồ",
+   "answer": "ho",
+   "grade": "marks",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 3495
+  },
+  {
+   "target": "nhà",
+   "answer": "nha",
+   "grade": "tone",
+   "accepted": true,
+   "hints": 0,
+   "keys": 0,
+   "firstKeyMs": 1746
+  }
+ ],
+ "feedback": {
+  "difficulty": null,
+  "fun": "OK",
+  "article": "Interesting",
+  "hardest": [
+   "quán",
+   "muốn"
+  ],
+  "wantNext": null,
+  "note": "During the timed entries, i dont see whether i am right or wrong. Also for the ask a question functionality, can you make the voice start the conversation (short hello or something in vietnamese or english). Also make that popup not grow to take up the whole screen. Also why is it always asking me for permission to use the mic? Shouldnt that permission be saved?"
+ },
+ "events": [
+  {
+   "t": "meet",
+   "w": "quán",
+   "ms": 15450,
+   "plays": 1
+  },
+  {
+   "t": "meet",
+   "w": "nhà",
+   "ms": 1633
+  },
+  {
+   "t": "listen",
+   "w": "nhà",
+   "ok": true,
+   "a": "house; home",
+   "ms": 1876
+  },
+  {
+   "t": "listen",
+   "w": "quán",
+   "ok": true,
+   "a": "a small eatery, café or bar",
+   "ms": 2600
+  },
+  {
+   "t": "meet",
+   "w": "chợ",
+   "ms": 2168
+  },
+  {
+   "t": "meet",
+   "w": "hồ",
+   "ms": 2776
+  },
+  {
+   "t": "listen",
+   "w": "chợ",
+   "ok": true,
+   "a": "a market",
+   "ms": 2217
+  },
+  {
+   "t": "listen",
+   "w": "hồ",
+   "ok": true,
+   "a": "a lake",
+   "ms": 2079
+  },
+  {
+   "t": "listen",
+   "w": "rẽ",
+   "ok": true,
+   "a": "to turn (at a corner)",
+   "ms": 6439
+  },
+  {
+   "t": "listen",
+   "w": "quán",
+   "ok": true,
+   "a": "a small eatery, café or bar",
+   "ms": 2008
+  },
+  {
+   "t": "listen",
+   "w": "đói",
+   "ok": true,
+   "a": "hungry",
+   "ms": 1967
+  },
+  {
+   "t": "listen",
+   "w": "muốn",
+   "ok": false,
+   "a": "a market",
+   "ms": 2733
+  },
+  {
+   "t": "listen",
+   "w": "hồ",
+   "ok": false,
+   "a": "right (the side)",
+   "ms": 1584
+  },
+  {
+   "t": "listen",
+   "w": "phải",
+   "ok": true,
+   "a": "right (the side)",
+   "ms": 2900
+  },
+  {
+   "t": "listen",
+   "w": "chợ",
+   "ok": true,
+   "a": "a market",
+   "ms": 8412,
+   "plays": 1
+  },
+  {
+   "t": "listen",
+   "w": "muốn",
+   "ok": true,
+   "a": "to want (to)",
+   "ms": 5784,
+   "retry": true,
+   "plays": 1
+  },
+  {
+   "t": "listen",
+   "w": "hồ",
+   "ok": true,
+   "a": "a lake",
+   "ms": 3330,
+   "retry": true
+  },
+  {
+   "t": "listen",
+   "w": "nhà",
+   "ok": true,
+   "a": "house; home",
+   "ms": 3881
+  },
+  {
+   "t": "spell",
+   "w": "quán",
+   "ok": true,
+   "a": "quán",
+   "ms": 2102
+  },
+  {
+   "t": "spell",
+   "w": "chợ",
+   "ok": false,
+   "a": "chờ",
+   "ms": 4236
+  },
+  {
+   "t": "reverse",
+   "w": "nhà",
+   "ok": true,
+   "a": "nhà",
+   "ms": 2382
+  },
+  {
+   "t": "reverse",
+   "w": "hồ",
+   "ok": true,
+   "a": "hồ",
+   "ms": 1734
+  },
+  {
+   "t": "type",
+   "w": "quán",
+   "ok": true,
+   "g": "tone",
+   "a": "quan",
+   "ms": 6572,
+   "hints": 1,
+   "firstKeyMs": 5513
+  },
+  {
+   "t": "spell",
+   "w": "chợ",
+   "ok": true,
+   "a": "chợ",
+   "ms": 1533,
+   "retry": true
+  },
+  {
+   "t": "type",
+   "w": "chợ",
+   "ok": true,
+   "g": "marks",
+   "a": "cho",
+   "ms": 2873,
+   "hints": 0,
+   "firstKeyMs": 1912
+  },
+  {
+   "t": "type",
+   "w": "hồ",
+   "ok": true,
+   "g": "marks",
+   "a": "ho",
+   "ms": 4071,
+   "hints": 0,
+   "firstKeyMs": 3495
+  },
+  {
+   "t": "type",
+   "w": "nhà",
+   "ok": true,
+   "g": "tone",
+   "a": "nha",
+   "ms": 2418,
+   "hints": 0,
+   "firstKeyMs": 1746
+  },
+  {
+   "t": "listen",
+   "w": "Chợ ở đâu?",
+   "ok": false,
+   "a": "to go home",
+   "ms": 4514
+  },
+  {
+   "t": "listen",
+   "w": "về nhà",
+   "ok": true,
+   "a": "to go home",
+   "ms": 6600,
+   "plays": 1
+  },
+  {
+   "t": "listen",
+   "w": "Mình đói quá, quán phở ở đâu?",
+   "ok": true,
+   "a": "I'm starving, where's the phở place? (to a friend)",
+   "ms": 8329,
+   "plays": 1
+  },
+  {
+   "t": "listen",
+   "w": "Rẽ phải.",
+   "ok": true,
+   "a": "Turn right.",
+   "ms": 2146
+  },
+  {
+   "t": "listen",
+   "w": "Chợ ở đâu?",
+   "ok": true,
+   "a": "Where is the market?",
+   "ms": 3867,
+   "retry": true
+  },
+  {
+   "t": "listen",
+   "w": "Hồ Gươm ở gần đây.",
+   "ok": true,
+   "a": "Sword Lake is near here.",
+   "ms": 28399,
+   "plays": 2
+  },
+  {
+   "t": "listen",
+   "w": "Ở gần đây.",
+   "ok": false,
+   "a": "Sword Lake is near here.",
+   "ms": 2903
+  },
+  {
+   "t": "listen",
+   "w": "Anh muốn đi chợ.",
+   "ok": true,
+   "a": "I want to go to the market. (to someone younger)",
+   "ms": 11012,
+   "plays": 1
+  },
+  {
+   "t": "listen",
+   "w": "Ở gần đây.",
+   "ok": false,
+   "a": "Sword Lake is near here.",
+   "ms": 1282,
+   "retry": true
+  },
+  {
+   "t": "dialogue",
+   "w": "Errands for Bà",
+   "ok": false,
+   "a": "Cháu ở quán cà phê ạ.",
+   "ms": 91710,
+   "plays": 5
+  },
+  {
+   "t": "situation",
+   "w": "Cam bốn mươi nghìn một cân anh ạ.",
+   "ok": false,
+   "a": "14.000₫",
+   "ms": 26202,
+   "plays": 4
+  },
+  {
+   "t": "say",
+   "w": "I want to go home! (to a friend)",
+   "ok": false,
+   "g": "wrong",
+   "a": "toi di nga",
+   "ms": 13484
+  },
+  {
+   "t": "situation",
+   "w": "Phở gà bốn lăm anh ạ.",
+   "ok": true,
+   "a": "45.000₫",
+   "ms": 16243,
+   "plays": 1
+  },
+  {
+   "t": "say",
+   "w": "5.000₫",
+   "ok": false,
+   "g": "wrong",
+   "a": "nam ",
+   "ms": 10291
+  },
+  {
+   "t": "situation",
+   "w": "Chợ ở gần đây, rẽ trái em ạ.",
+   "ok": true,
+   "a": "Turn left, it's near.",
+   "ms": 12053
+  },
+  {
+   "t": "situation",
+   "w": "Một cốc trà, ba nghìn ạ.",
+   "ok": true,
+   "a": "3.000₫",
+   "ms": 14609,
+   "plays": 1
+  },
+  {
+   "t": "situation",
+   "w": "Bánh mì ba mươi nghìn anh nhé.",
+   "ok": true,
+   "a": "30",
+   "ms": 45792,
+   "plays": 1
+  },
+  {
+   "t": "say",
+   "w": "Excuse me, where is the market? (to an older woman)",
+   "ok": false,
+   "g": "wrong",
+   "a": "sin loi doi cha",
+   "ms": 20486
+  },
+  {
+   "t": "speed",
+   "w": "Rẽ phải.",
+   "ok": true,
+   "a": "Turn right.",
+   "ms": 3084
+  },
+  {
+   "t": "speed",
+   "w": "quán",
+   "ok": true,
+   "a": "a small eatery, café or bar",
+   "ms": 4713
+  },
+  {
+   "t": "speed",
+   "w": "phải",
+   "ok": true,
+   "a": "right (the side)",
+   "ms": 1768
+  },
+  {
+   "t": "speed",
+   "w": "hồ",
+   "ok": true,
+   "a": "a lake",
+   "ms": 3266
+  },
+  {
+   "t": "speed",
+   "w": "Rẽ phải.",
+   "ok": true,
+   "a": "Turn right.",
+   "ms": 2199
+  },
+  {
+   "t": "speed",
+   "w": "muốn",
+   "ok": true,
+   "a": "to want (to)",
+   "ms": 7530
+  },
+  {
+   "t": "speed",
+   "w": "nhà",
+   "ok": false,
+   "a": "right (the side)",
+   "ms": 2225
+  },
+  {
+   "t": "speed",
+   "w": "Chợ ở đâu?",
+   "ok": true,
+   "a": "Where is the market?",
+   "ms": 4648
+  },
+  {
+   "t": "speed",
+   "w": "rẽ",
+   "ok": true,
+   "a": "to turn (at a corner)",
+   "ms": 3121
+  },
+  {
+   "t": "speed",
+   "w": "Mình đói quá, quán phở ở đâu?",
+   "ok": true,
+   "a": "I'm starving, where's the phở place? (to a friend)",
+   "ms": 5113
+  },
+  {
+   "t": "speed",
+   "w": "Rẽ phải.",
+   "ok": true,
+   "a": "Turn right.",
+   "ms": 2190
+  }
+ ],
+ "issue": 45
+}

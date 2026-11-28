@@ -1219,7 +1219,8 @@ export function runSession(root, session, onDone, onQuit) {
       let over = false;
       stage.innerHTML = `
         <div class="speed-head"><div class="timer"><div class="timer-fill"></div></div><div class="speed-score"><span class="score">0</span> pts <span class="combo"></span></div></div>
-        <div class="speed-q"></div>`;
+        <div class="speed-q"></div>
+        <div class="speed-verdict" aria-live="polite"></div>`;
       const timerFill = stage.querySelector('.timer-fill');
       const q = stage.querySelector('.speed-q');
       const done = () => {
@@ -1235,9 +1236,11 @@ export function runSession(root, session, onDone, onQuit) {
         const askedAt = Date.now();
         q.innerHTML = `${listenTop(target.vi)}${optionButtons(opts, (o) => esc(o.en), 'en')}`;
         play(target.vi);
+        let answered = false;
         q.querySelectorAll('.opt').forEach((b) =>
           b.addEventListener('click', () => {
-            if (over) return;
+            if (over || answered) return;
+            answered = true;
             const chosen = opts[Number(b.dataset.i)];
             const ok = chosen.en === target.en;
             S.events.push({ t: 'speed', w: target.vi, ok, a: chosen.en, ms: Date.now() - askedAt, at: Date.now() - S.started });
@@ -1252,7 +1255,22 @@ export function runSession(root, session, onDone, onQuit) {
             stage.querySelector('.score').textContent = sp.score;
             stage.querySelector('.combo').textContent = sp.combo > 1 ? `×${Math.min(sp.combo, 5)}` : '';
             flash(ok);
-            if (Date.now() < end) ask();
+            // Show the answer before the next question: briefly when right, longer when wrong (the learner asked to
+            // see whether each timed answer was right, 2026-11-27).
+            q.querySelectorAll('.opt').forEach((o) => {
+              o.disabled = true;
+              const en = opts[Number(o.dataset.i)].en;
+              if (en === target.en) o.classList.add('correct');
+              else if (o === b) o.classList.add('wrong');
+            });
+            const verdict = stage.querySelector('.speed-verdict');
+            verdict.className = `speed-verdict ${ok ? 'ok' : 'no'}`;
+            verdict.innerHTML = ok ? 'Right' : `<span class="vi">${colorize(target.vi)}</span>: ${esc(target.en)}`;
+            setTimeout(() => {
+              if (over) return;
+              verdict.textContent = '';
+              if (Date.now() < end) ask();
+            }, session.testMode ? 50 : ok ? 600 : 1300);
           }),
         );
       };
