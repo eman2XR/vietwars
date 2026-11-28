@@ -80,6 +80,11 @@ Fun was "Good" in issues 3 to 5, 9 (the haggle) and 11 (... quá! reactions), an
 - The review desk now adapts by itself: it adds **mix-ups** (pairs the learner has taken for each other, from the answers so far, shown side by side and then told apart by ear; practice, not scored) and **real life again** (up to three real-life lines from issues already played, the ones missed first, never one from the last review). Planning can rely on this for old real-life lines and leave room in new issues for new ones.
 - **Milestones** (`web/milestones.json`): every 25 to 50 words a rank from the old imperial exams, a sourced fact and a saying with the learner's known words underlined. Add milestones above 1,000 the same way when the learner gets close; each needs the Vietnamese and fact reviews.
 
+## Say questions and dialogue checks (review of 2026-11-27)
+
+- Say questions were 4 of 15 right in issues 9 to 13 while typed: the learner could not type whole sentences without a Vietnamese keyboard. They now take word tiles (the model answer's words plus two tone variants). Keep each say line short (two to seven words), and make its `accept` list cover the forms the tiles can build.
+- Dialogue checks were right only when the answer was the reply the scene itself asks for (issues 11 and 12) and wrong when it needed an inference (issue 13: still choosing oranges, so at the market). State the situation plainly in `check.ask`; make the distractors wrong in meaning, not subtly wrong.
+
 ## Using the data
 
 `learner/SUMMARY.md` has a **Where the learner struggles** table (struggle score from failed first tries, slow answers, hints, replays and revealed answers), accuracy and speed by **exercise type**, time per phase, long pauses, unfinished attempts, tone and meaning confusions, and every feedback note. Plan from it: review the highest-struggle words, give them new hooks or pictures, and lean on the exercise types that work (listening and real life) when another type is failing.

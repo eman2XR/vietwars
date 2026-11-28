@@ -105,6 +105,22 @@ function tilesFor(vi) {
   return shuffle([...syl, ...extra]);
 }
 
+// Word tiles for a say question: the words of its model answer plus two tone variants, so the learner can build the
+// line by tapping instead of typing a whole sentence (say questions were 4 of 15 right in issues 9 to 13, typed).
+export function sayTiles(vi) {
+  const words = tokens(vi);
+  const tones = ['ngang', 'huyen', 'sac', 'hoi', 'nga', 'nang'];
+  const extra = new Set();
+  for (const w of shuffle(words)) {
+    for (const t of shuffle(tones)) {
+      const v = withTone(w, t);
+      if (!words.includes(v) && extra.size < 2) extra.add(v);
+    }
+    if (extra.size >= 2) break;
+  }
+  return shuffle([...words, ...extra]);
+}
+
 export { maskWord };
 
 export function stampHTML(lesson, grade = '', date = '') {
@@ -1032,6 +1048,8 @@ export function runSession(root, session, onDone, onQuit) {
         <h2 class="quiz-q">${esc(sit.ask)}</h2>
         <form class="type-form say-form" autocomplete="off">
           <input class="type-input vi" type="text" lang="vi" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="done" aria-label="How you say it">
+          <p class="hint say-hint">Say it out loud first, then tap the words in order (or type).</p>
+          <div class="tiles say-tiles">${sayTiles(accept[0]).map((t, i) => `<button type="button" class="tile vi" data-i="${i}">${colorize(t)}</button>`).join('')}<button type="button" class="tile tile-undo" data-act="tile-undo" aria-label="Remove the last word">Undo</button></div>
           <div class="vkeys" aria-label="Tone and vowel keys">
             <div class="vkeys-row">${TONE_KEYS.map((t) => `<button type="button" class="vkey tone-key t-${t}" data-key="${t}" aria-label="${esc(TONES[t].name)} tone">${contourSVG(t, { width: 26, height: 16 })}<span>${esc(TONES[t].sample)}</span></button>`).join('')}</div>
             <div class="vkeys-row">${VOWEL_KEYS.map((k) => `<button type="button" class="vkey" data-key="${k}">${k}</button>`).join('')}</div>
@@ -1041,7 +1059,27 @@ export function runSession(root, session, onDone, onQuit) {
         </form>`;
       const form = stage.querySelector('.say-form');
       const input = form.querySelector('.type-input');
-      input.focus({ preventScroll: true });
+      const used = [];
+      let tapped = false;
+      // The tone and vowel keys appear only when the learner chooses to type; tapping tiles needs no keyboard.
+      input.addEventListener('focus', () => form.classList.add('typing'));
+      form.querySelectorAll('.say-tiles .tile[data-i]').forEach((b) =>
+        b.addEventListener('click', () => {
+          if (S.answered) return;
+          tapped = true;
+          input.value = `${input.value.trim()} ${b.textContent}`.trim();
+          b.disabled = true;
+          used.push(b);
+        }),
+      );
+      form.querySelector('[data-act=tile-undo]').addEventListener('click', () => {
+        if (S.answered) return;
+        const last = used.pop();
+        const parts = input.value.trim().split(/\s+/);
+        parts.pop();
+        input.value = parts.join(' ');
+        if (last) last.disabled = false;
+      });
       form.querySelectorAll('.vkey').forEach((k) =>
         k.addEventListener('click', () => {
           const pos = document.activeElement === input && input.selectionStart != null ? input.selectionStart : input.value.length;
@@ -1069,7 +1107,8 @@ export function runSession(root, session, onDone, onQuit) {
         const ok = best === 'perfect' || (session.relaxed && close);
         S.situations.total += 1;
         if (ok) S.situations.correct += 1;
-        record({ t: 'say', w: sit.say, g: best, ok, a: answer });
+        record({ t: 'say', w: sit.say, g: best, ok, a: answer, tiles: tapped || undefined });
+        form.querySelectorAll('.say-tiles .tile').forEach((b) => (b.disabled = true));
         if (ok && sit.saves) S.saved = (S.saved || 0) + sit.saves;
         flash(ok);
         if (ok) right();

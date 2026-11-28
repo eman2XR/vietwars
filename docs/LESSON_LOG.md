@@ -2,6 +2,10 @@
 
 Why each lesson was planned the way it was, newest first. Written by the `/next-lesson` skill.
 
+## 2026-11-27: Progress review
+
+- See `learner/REVIEW.md`: first try 61%, 73%, 81%; say questions get word tiles (4 of 15 right typed); rush hour shows each answer; Ask a question greets first and keeps the microphone; dialogue checks ask for the reply the scene states.
+
 ## 2026-11-27: Issue 13, Where is the market? ("Puppets that walk on water")
 
 - Data: issue 12, 73% first try, "Just right", fun "OK" (issue 11 "Good"), story "Interesting", 9.1 active minutes; listening 15/18 after new words began to be met two at a time (issue 11: 8/15); nấu and muốn confused with each other (and muốn typed "nau"); spelling 0/2 (nâu, muộn); bốn nghìn heard as 40.000₫ (plain nghìn misheard in issues 11 and 12); say 1/3. In Ask a question the learner asked for a better memory cue whenever they struggle (now a `remember` cue after every miss) and what ạ is for.

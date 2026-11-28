@@ -728,3 +728,10 @@ textarea { width: 100%; padding: 12px; border-radius: var(--radius); border: 1px
 .speed-verdict { min-height: 1.6em; margin-top: 10px; text-align: center; font-weight: 700; }
 .speed-verdict.ok { color: var(--ok); }
 .speed-verdict.no { color: var(--accent); }
+
+.say-form .vkeys { display: none; }
+.say-form.typing:not(.answered) .vkeys { display: grid; }
+.say-tiles { margin: 10px 0 6px; }
+.say-hint { margin: 8px 0 0; }
+
+.step-say .actions { position: static; background: none; margin-top: 12px; }

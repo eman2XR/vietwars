@@ -96,3 +96,12 @@ test('a review with mix-ups and real life: mix-up answers are practice, not firs
   );
   assert.equal(perWord.find((w) => w.vi === "nấu").share, 1);
 });
+
+test('say tiles hold the words of the model answer plus two tone variants, and a tiled answer grades as right', async () => {
+  const { sayTiles, gradeSay } = await import('../web/js/lesson.js');
+  const tiles = sayTiles('Xin lỗi chị, chợ ở đâu ạ?');
+  for (const w of ['xin', 'lỗi', 'chị', 'chợ', 'ở', 'đâu', 'ạ']) assert.ok(tiles.includes(w), w);
+  assert.equal(tiles.length, 9);
+  assert.equal(gradeSay('xin lỗi chị chợ ở đâu ạ', ['Xin lỗi chị, chợ ở đâu ạ?']).g, 'perfect');
+  assert.equal(gradeSay('năm nghìn', ['Năm nghìn.']).g, 'perfect');
+});
